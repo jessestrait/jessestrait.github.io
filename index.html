@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jesse Strait</title>
+  <style>
+    :root {
+      --bg: #080c14;
+      --surface: #0f1623;
+      --border: #1e2a3a;
+      --text: #e8eef8;
+      --muted: #7a8fa8;
+      --accent: #3a7bd5;
+      --accent-hi: #5a9bf5;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Georgia', serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      width: 100%;
+      max-width: 860px;
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: normal;
+      letter-spacing: 0.1em;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .hero .tagline {
+      font-size: 1rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2.5rem;
+    }
+
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: var(--border);
+      margin: 0 auto 2.5rem;
+    }
+
+    /* ── Cards ── */
+    .cards {
+      width: 100%;
+      max-width: 860px;
+      padding: 0 2rem 6rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      display: block;
+      text-decoration: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card .card-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .card h2 {
+      font-size: 1.3rem;
+      font-weight: normal;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.04em;
+    }
+
+    .card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .card .arrow {
+      display: inline-block;
+      margin-top: 1.25rem;
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+    }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: auto;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.78rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      width: 100%;
+    }
+
+    @media (max-width: 480px) {
+      .hero { padding: 4rem 1.5rem 3rem; }
+      .cards { padding: 0 1.5rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+  <h1>Jesse Strait</h1>
+  <p class="tagline">Store &amp; Training</p>
+  <div class="divider"></div>
+</section>
+
+<div class="cards">
+  <a class="card" href="/store">
+    <div class="card-label">Coming Soon</div>
+    <h2>Store</h2>
+    <p>Products, resources, and more — launching soon.</p>
+    <span class="arrow">Explore →</span>
+  </a>
+
+  <a class="card" href="/training">
+    <div class="card-label">Coming Soon</div>
+    <h2>Training</h2>
+    <p>Courses, guides, and hands-on training materials.</p>
+    <span class="arrow">Learn more →</span>
+  </a>
+
+  <a class="card" href="https://jessestrait.github.io/archetype-atlas/">
+    <div class="card-label">Project</div>
+    <h2>Archetype Atlas</h2>
+    <p>Your Spotify Liked Songs mapped onto the Jungian psyche.</p>
+    <span class="arrow">Open →</span>
+  </a>
+</div>
+
+<footer>
+  &copy; <span id="yr"></span> Jesse Strait
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
