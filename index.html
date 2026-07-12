@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jesse Strait</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #080c14;
@@ -20,7 +23,7 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: 'Georgia', serif;
+      font-family: 'DM Sans', sans-serif;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -36,9 +39,10 @@
     }
 
     .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
       font-size: clamp(2.4rem, 6vw, 4rem);
-      font-weight: normal;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.02em;
       color: var(--text);
       margin-bottom: 1rem;
     }
@@ -74,10 +78,24 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 2rem;
+      padding: 0;
       transition: border-color 0.2s, transform 0.2s;
       position: relative;
       overflow: hidden;
+    }
+
+    .card-thumb {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: top;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    .card-body {
+      padding: 1.5rem 2rem 2rem;
     }
 
     .card::before {
@@ -109,11 +127,12 @@
     }
 
     .card h2 {
-      font-size: 1.3rem;
-      font-weight: normal;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 800;
       color: var(--text);
       margin-bottom: 0.6rem;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.01em;
     }
 
     .card p {
@@ -151,30 +170,29 @@
 
 <section class="hero">
   <h1>Jesse Strait</h1>
-  <p class="tagline">Store &amp; Training</p>
+  <p class="tagline">Projects</p>
   <div class="divider"></div>
 </section>
 
 <div class="cards">
-  <a class="card" href="/store">
-    <div class="card-label">Coming Soon</div>
-    <h2>Store</h2>
-    <p>Products, resources, and more — launching soon.</p>
-    <span class="arrow">Explore →</span>
-  </a>
-
-  <a class="card" href="/training">
-    <div class="card-label">Coming Soon</div>
-    <h2>Training</h2>
-    <p>Courses, guides, and hands-on training materials.</p>
-    <span class="arrow">Learn more →</span>
+  <a class="card" href="https://training.jessestrait.com">
+    <img class="card-thumb" src="img/thumb-training.png" alt="Store 9337 Training site preview">
+    <div class="card-body">
+      <div class="card-label">Project</div>
+      <h2>Training</h2>
+      <p>Courses, guides, and hands-on training materials.</p>
+      <span class="arrow">Learn more →</span>
+    </div>
   </a>
 
   <a class="card" href="https://jessestrait.github.io/archetype-atlas/">
-    <div class="card-label">Project</div>
-    <h2>Archetype Atlas</h2>
-    <p>Your Spotify Liked Songs mapped onto the Jungian psyche.</p>
-    <span class="arrow">Open →</span>
+    <img class="card-thumb" src="img/thumb-archetype.png" alt="Archetype Atlas site preview">
+    <div class="card-body">
+      <div class="card-label">Project</div>
+      <h2>Archetype Atlas</h2>
+      <p>My Spotify Liked Songs mapped onto the Jungian psyche.</p>
+      <span class="arrow">Open →</span>
+    </div>
   </a>
 </div>
 
