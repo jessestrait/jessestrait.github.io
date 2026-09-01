@@ -86,6 +86,8 @@ a{color:var(--accent-hi)}
 }
 .seg button.on{background:var(--accent); color:#fff; font-weight:700}
 .seg button:hover:not(.on){color:var(--text)}
+.seg button[disabled]{opacity:.35; cursor:not-allowed}
+.seg button[disabled]:hover{color:var(--muted)}
 
 .row{display:flex; align-items:center; gap:.55rem; padding:.42rem .1rem; cursor:pointer; border-radius:7px}
 .row:hover{background:var(--surface2)}
@@ -323,6 +325,13 @@ dl.mecard a{color:var(--accent-hi)}
       <label class="mini" for="crimeyear" style="display:block;margin-top:.6rem">Year</label>
       <select id="crimeyear"></select>
       <div id="crimetrend"></div>
+      <label class="mini" style="display:block;margin-top:1rem">Top offences</label>
+      <div class="seg" id="crimescope">
+        <button data-s="city" class="on">Citywide</button>
+        <button data-s="view">In view</button>
+        <button data-s="me" disabled title="Locate yourself first">Where I am</button>
+      </div>
+      <div id="crimetop"></div>
     </div>
 
     <div class="sec">
@@ -974,6 +983,7 @@ const CRIME_FIRST_YEAR = 2003;
     + '<span class="ct" id="ct-crime">&mdash;</span>';
   row.querySelector('input').addEventListener('change', e => {
     CRIME.on = e.target.checked;
+    loadCrimeTop(false);
     if (!CRIME.on) { drawGeo(); crimeTrend(); return; }
     // Crime exists only as a choropleth, so bring a geography up with it.
     if (state.geo === 'none') setGeo('bg');
@@ -1065,10 +1075,12 @@ function crimeTrend() {
 document.getElementById('crimecat').addEventListener('change', e => {
   CRIME.cat = e.target.value;
   if (CRIME.on) loadCrime();
+  if (document.getElementById('crimetop').innerHTML) loadCrimeTop(true);
 });
 document.getElementById('crimeyear').addEventListener('change', e => {
   CRIME.year = e.target.value;
   if (CRIME.on) loadCrime();
+  if (document.getElementById('crimetop').innerHTML) loadCrimeTop(true);
 });
 
 /* ══════════════════════════════════════════════════════════════════
@@ -1604,6 +1616,7 @@ function stopLocate() {
   ME.btn.classList.remove('on', 'busy');
   ME.btn.title = 'Show where I am';
   document.getElementById('mebody').innerHTML = '';
+  enableMeScope(false);
   meHint('Tap the crosshair on the map to drop yourself on it, and see what the census block group '
        + "you're standing in actually looks like.");
 }
@@ -1684,6 +1697,8 @@ async function onFix(pos) {
 
   meHint('Read in your browser and never sent anywhere &mdash; this page has no server to send it to. '
        + 'Tap the crosshair again to stop.');
+  enableMeScope(true);
+  if (CRIME.scope === 'me') loadCrimeTop(false);
   renderMeCard();
 }
 
@@ -1767,6 +1782,155 @@ async function renderMeCard() {
     map.flyTo([ME.pos.lat, ME.pos.lng], Math.max(map.getZoom(), 15), { duration: 0.8 });
     map.once('dragstart', () => { ME.follow = false; });
   };
+}
+
+
+/* ── Top offences ──────────────────────────────────────────────────
+   crime_type is the granular offence behind the coarse category, and
+   Socrata will group 2.7m rows on it in well under a second. The
+   dataset has no coordinates, so "in view" can't be a bounding box —
+   it's the set of districts or block groups the viewport touches,
+   passed as an IN clause.                                            */
+CRIME.scope = 'city';
+CRIME.topBusy = false;
+CRIME.topSig = null;
+
+// ~13 chars per quoted block-group key; a few hundred blows past a sane URL.
+const SCOPE_KEY_CAP = 250;
+
+function unitsInView(g) {
+  const b = map.getBounds();
+  const s = b.getSouth(), n = b.getNorth(), w = b.getWest(), e = b.getEast();
+  const keys = [];
+  for (const f of g.geo.features) {
+    const bb = f._bb;                       // [minLat, maxLat, minLng, maxLng]
+    if (bb[1] < s || bb[0] > n || bb[3] < w || bb[2] > e) continue;
+    keys.push(g.key(f.properties));
+  }
+  return keys;
+}
+
+async function crimeScope() {
+  if (CRIME.scope === 'me') {
+    if (!ME.pos) return { label: 'citywide', note: 'Drop yourself on the map first.' };
+    await fetchGeo(GEOS.bg);
+    const f = featureAt(GEOS.bg, ME.pos.lat, ME.pos.lng);
+    if (!f) return { label: 'citywide', note: 'You are outside the mapped area.' };
+    return {
+      where: "census_block_group = '" + f.properties.k + "'",
+      label: 'your block group', sig: 'me:' + f.properties.k
+    };
+  }
+
+  if (CRIME.scope === 'view') {
+    // Follow whichever geography is shading the map; districts otherwise,
+    // since that file is small and always meaningful.
+    const g = activeGeo() || GEOS.district;
+    await fetchGeo(g);
+    const keys = unitsInView(g);
+    if (!keys.length) return { label: 'citywide', note: 'No ' + g.label + 's in view.' };
+    if (keys.length >= g.geo.features.length) return { label: 'citywide', sig: 'city' };
+    if (keys.length > SCOPE_KEY_CAP) {
+      return { label: 'citywide', note: 'Too much of the city in view to scope — zoom in.' };
+    }
+    const list = g === GEOS.district
+      ? keys.join(',')                                  // council_district is numeric
+      : keys.map(k => "'" + k + "'").join(',');         // census_block_group is text
+    const n = keys.length;
+    return {
+      where: g.crimeField + ' IN (' + list + ')',
+      label: n + ' ' + g.label + (n === 1 ? '' : 's') + ' in view',
+      sig: 'view:' + g.crimeField + ':' + keys.join(',')
+    };
+  }
+
+  return { label: 'citywide', sig: 'city' };
+}
+
+async function loadCrimeTop(force) {
+  const box = document.getElementById('crimetop');
+  if (CRIME.topBusy) return;
+
+  let scope;
+  try { scope = await crimeScope(); }
+  catch (e) { console.error(e); box.innerHTML = '<p class="empty">Could not work out the scope.</p>'; return; }
+
+  const sig = [scope.sig || 'city', CRIME.cat, CRIME.year].join('|');
+  if (!force && sig === CRIME.topSig) return;
+
+  CRIME.topBusy = true;
+  box.innerHTML = '<p class="hint" style="margin:.6rem 0 0">Counting…</p>';
+  try {
+    const where = [];
+    if (scope.where) where.push(scope.where);
+    if (CRIME.cat) where.push("category_description = '" + CRIME.cat + "'");
+    if (CRIME.year !== 'all') {
+      where.push("occ_date >= '" + CRIME.year + "-01-01' AND occ_date < '" + (+CRIME.year + 1) + "-01-01'");
+    }
+    const q = {
+      '$select': 'crime_type,count(*) as n', '$group': 'crime_type',
+      '$order': 'n DESC', '$limit': 10
+    };
+    if (where.length) q['$where'] = where.join(' AND ');
+    const rows = await soda(CRIME.id, q);
+
+    CRIME.topSig = sig;
+    if (!rows.length) {
+      box.innerHTML = '<p class="empty">No reports match that scope and period.</p>';
+      return;
+    }
+    const max = +rows[0].n;
+    const total = rows.reduce((a, r) => a + (+r.n), 0);
+    box.innerHTML =
+      '<p class="hint" style="margin:.55rem 0 .3rem">'
+      + esc(CRIME.cat || 'All reports') + ' &middot; '
+      + (CRIME.year === 'all' ? 'all years' : CRIME.year) + ' &middot; <b style="color:var(--text)">'
+      + esc(scope.label) + '</b></p>'
+      + (scope.note ? '<p class="hint" style="margin:0 0 .3rem;color:#ffb570">' + esc(scope.note) + '</p>' : '')
+      + rows.map(r => {
+          const n = +r.n;
+          return '<div class="bar"><div class="lbl"><span title="' + esc(r.crime_type) + '">'
+            + esc(titleCase(r.crime_type)) + '</span><b>' + n.toLocaleString() + '</b></div>'
+            + '<div class="track"><div class="fill" style="width:' + (n / max * 100).toFixed(1)
+            + '%;background:#ffd166"></div></div></div>';
+        }).join('')
+      + '<p class="hint" style="margin:.5rem 0 0">Top 10 of ' + total.toLocaleString()
+      + ' reports in the ten most common offence types.</p>';
+  } catch (e) {
+    console.error(e);
+    box.innerHTML = '<p class="empty">That query failed — the portal may be busy.</p>';
+  } finally {
+    CRIME.topBusy = false;
+  }
+}
+
+document.getElementById('crimescope').addEventListener('click', e => {
+  const b = e.target.closest('button');
+  if (!b || b.disabled) return;
+  document.querySelectorAll('#crimescope button').forEach(x => x.classList.toggle('on', x === b));
+  CRIME.scope = b.dataset.s;
+  loadCrimeTop(true);
+});
+
+// Panning changes the "in view" set, so refresh — but only when that scope is
+// active, only after the map settles, and only if the set actually changed.
+let scopeTimer = null;
+map.on('moveend zoomend', () => {
+  if (CRIME.scope !== 'view' || !document.getElementById('crimetop').innerHTML) return;
+  clearTimeout(scopeTimer);
+  scopeTimer = setTimeout(() => loadCrimeTop(false), 700);
+});
+
+function enableMeScope(on) {
+  const b = document.querySelector('#crimescope button[data-s="me"]');
+  b.disabled = !on;
+  b.title = on ? 'Scope to the block group you are standing in' : 'Locate yourself first';
+  if (!on && CRIME.scope === 'me') {
+    CRIME.scope = 'city';
+    document.querySelectorAll('#crimescope button')
+      .forEach(x => x.classList.toggle('on', x.dataset.s === 'city'));
+    if (document.getElementById('crimetop').innerHTML) loadCrimeTop(true);
+  }
 }
 
 /* ── Insights panel ────────────────────────────────────────────── */
