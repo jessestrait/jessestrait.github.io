@@ -114,6 +114,12 @@ select, input[type=text]{
 select:focus, input[type=text]:focus{outline:none; border-color:var(--accent)}
 label.mini{font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
 
+/* ── Where you are ───────────────────────────────────── */
+dl.mecard{display:grid; grid-template-columns:auto 1fr; gap:3px .7rem; margin:.2rem 0 0}
+dl.mecard dt{color:var(--muted); font-size:.72rem; white-space:nowrap}
+dl.mecard dd{font-size:.78rem; word-break:break-word}
+dl.mecard a{color:var(--accent-hi)}
+
 /* ── Insights ────────────────────────────────────────── */
 .stat{display:flex; justify-content:space-between; align-items:baseline; padding:.3rem 0}
 .stat .k{font-size:.76rem; color:var(--muted)}
@@ -172,6 +178,22 @@ label.mini{font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; col
   background:rgba(58,123,213,.85)!important; color:#fff!important;
   font:700 11px 'JetBrains Mono',monospace!important; border-radius:50%;
 }
+.mepin{
+  width:16px; height:16px; border-radius:50%; background:#4da3ff;
+  border:2.5px solid #fff; box-shadow:0 0 0 0 rgba(77,163,255,.75),0 2px 8px rgba(0,0,0,.7);
+  animation:mepulse 2.2s infinite;
+}
+@keyframes mepulse{
+  0%{box-shadow:0 0 0 0 rgba(77,163,255,.6),0 2px 8px rgba(0,0,0,.7)}
+  70%{box-shadow:0 0 0 16px rgba(77,163,255,0),0 2px 8px rgba(0,0,0,.7)}
+  100%{box-shadow:0 0 0 0 rgba(77,163,255,0),0 2px 8px rgba(0,0,0,.7)}
+}
+.leaflet-control-locate a{
+  display:flex; align-items:center; justify-content:center;
+  width:30px; height:30px; font-size:15px; line-height:1; cursor:pointer;
+}
+.leaflet-control-locate a.on{color:var(--accent-hi)!important}
+.leaflet-control-locate a.busy{opacity:.55}
 .livepin{
   width:14px; height:14px; border-radius:50%; background:#ff4d4d;
   border:2px solid #fff; box-shadow:0 0 0 0 rgba(255,77,77,.7); animation:ping2 1.8s infinite;
@@ -329,6 +351,13 @@ label.mini{font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; col
       </div>
     </div>
 
+    <div class="sec" id="mesec">
+      <h3>Where you are</h3>
+      <p class="hint" id="mehint">Tap the crosshair on the map to drop yourself on it, and see what
+        the census block group you're standing in actually looks like.</p>
+      <div id="mebody"></div>
+    </div>
+
     <div class="sec">
       <h3>What's on screen</h3>
       <div class="row" style="padding-left:0">
@@ -382,6 +411,10 @@ label.mini{font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; col
         it's what lets this map shade 644 units instead of 10.</li>
       <li><b>Parks, trails, floodplain, low-water crossings</b> — also GeoHub, server-simplified into
         static files ahead of time.</li>
+      <li><b>Your own location</b>, if you tap the crosshair — read from the browser's geolocation
+        API, used to work out which block group you're standing in, and never sent anywhere. There
+        is no server here to send it to, and nothing is written to storage; close the tab and it's
+        gone.</li>
     </ul>
     <p>
       The <b>per 10,000 residents</b> shading is the part worth playing with. Raw counts just find the
@@ -1262,14 +1295,23 @@ function fillMetricSelect() {
   }
 }
 
+async function fetchGeo(g) {
+  if (g.geo) return g.geo;
+  if (!g._loading) {
+    g._loading = fetch(g.file)
+      .then(r => r.json())
+      .then(j => { g.geo = j; indexGeo(g); return j; })
+      .catch(e => { g._loading = null; throw e; });
+  }
+  return g._loading;
+}
+
 async function loadGeo() {
   const g = activeGeo();
   if (!g || g.geo) { drawGeo(); return; }
   pulse('loading ' + g.label + 's', 'loading');
   try {
-    const res = await fetch(g.file);
-    g.geo = await res.json();
-    indexGeo(g);
+    await fetchGeo(g);
     pulse('updated ' + new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }));
   } catch (e) {
     console.error(e);
@@ -1318,7 +1360,7 @@ function pointInRing(lat, lng, ring) {
   return inside;
 }
 
-function unitAt(g, lat, lng) {
+function featureAt(g, lat, lng) {
   const cand = g.grid && g.grid.get(cellKey(lat, lng));
   if (!cand) return null;
   for (const i of cand) {
@@ -1330,11 +1372,16 @@ function unitAt(g, lat, lng) {
       if (pointInRing(lat, lng, poly[0])) {
         let hole = false;
         for (let h = 1; h < poly.length; h++) if (pointInRing(lat, lng, poly[h])) hole = true;
-        if (!hole) return g.key(f.properties);
+        if (!hole) return f;
       }
     }
   }
   return null;
+}
+
+function unitAt(g, lat, lng) {
+  const f = featureAt(g, lat, lng);
+  return f ? g.key(f.properties) : null;
 }
 
 function unitCounts(g, vis) {
@@ -1502,6 +1549,224 @@ function unitPopup(g, p, counts, crime, key) {
     + esc(state.geo === 'district' ? 'Council district' : 'Block group') + '</span>'
     + '<h4>' + esc(g.name(p)) + '</h4><dl>' + dl + '</dl>'
     + '<div style="margin-top:.6rem;font-size:.72rem">' + foot + '</div></div>';
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   Where you are — the browser's Geolocation API, which needs HTTPS
+   and an explicit tap. The coordinates never leave the tab: there is
+   no server here to send them to, and nothing is written to storage.
+
+   The point isn't the blue dot. The map already knows how to test
+   which polygon a coordinate falls in, so it can tell you which of
+   the 644 block groups you're standing in and what that unit looks
+   like — canopy, summer heat, crime rate, what's happened nearby.
+   ══════════════════════════════════════════════════════════════════ */
+const ME = { watch: null, pos: null, marker: null, halo: null, follow: false, busy: false };
+
+function metersBetween(aLat, aLng, bLat, bLng) {
+  const R = 6371000, rad = d => d * Math.PI / 180;
+  const dLat = rad(bLat - aLat), dLng = rad(bLng - aLng);
+  const h = Math.sin(dLat / 2) ** 2
+    + Math.cos(rad(aLat)) * Math.cos(rad(bLat)) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.min(1, Math.sqrt(h)));
+}
+const dist = m => m < 1000 ? Math.round(m / 10) * 10 + ' m' : (m / 1000).toFixed(1) + ' km';
+
+const LocateControl = L.Control.extend({
+  options: { position: 'bottomright' },
+  onAdd() {
+    const wrap = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-locate');
+    const a = L.DomUtil.create('a', '', wrap);
+    a.href = '#';
+    a.title = 'Show where I am';
+    a.setAttribute('role', 'button');
+    a.innerHTML = '&#9678;';
+    ME.btn = a;
+    L.DomEvent.on(a, 'click', e => { L.DomEvent.stop(e); toggleLocate(); });
+    L.DomEvent.disableClickPropagation(wrap);
+    return wrap;
+  }
+});
+map.addControl(new LocateControl());
+
+function meHint(html, tone) {
+  const el = document.getElementById('mehint');
+  el.innerHTML = html;
+  el.style.color = tone === 'err' ? '#ff8f8f' : '';
+}
+
+function stopLocate() {
+  if (ME.watch !== null) navigator.geolocation.clearWatch(ME.watch);
+  ME.watch = null; ME.follow = false; ME.busy = false;
+  if (ME.marker) { map.removeLayer(ME.marker); ME.marker = null; }
+  if (ME.halo) { map.removeLayer(ME.halo); ME.halo = null; }
+  ME.pos = null;
+  ME.btn.classList.remove('on', 'busy');
+  ME.btn.title = 'Show where I am';
+  document.getElementById('mebody').innerHTML = '';
+  meHint('Tap the crosshair on the map to drop yourself on it, and see what the census block group '
+       + "you're standing in actually looks like.");
+}
+
+function toggleLocate() {
+  if (ME.watch !== null) { stopLocate(); return; }
+
+  if (!navigator.geolocation) {
+    meHint('This browser has no geolocation support.', 'err');
+    return;
+  }
+  // Chrome and Safari both refuse the API outside a secure context.
+  if (!window.isSecureContext) {
+    meHint('Geolocation needs a secure connection. Open this page over https.', 'err');
+    return;
+  }
+
+  ME.busy = true;
+  ME.btn.classList.add('busy');
+  meHint('Waiting for your browser to hand over a fix &mdash; you may see a permission prompt.');
+
+  ME.watch = navigator.geolocation.watchPosition(onFix, onFixError, {
+    enableHighAccuracy: true, maximumAge: 10000, timeout: 20000
+  });
+}
+
+function onFixError(err) {
+  ME.busy = false;
+  ME.btn.classList.remove('busy', 'on');
+  if (ME.watch !== null) { navigator.geolocation.clearWatch(ME.watch); ME.watch = null; }
+  const msg = {
+    1: 'Location permission was declined. Your browser remembers that per site &mdash; the padlock in '
+     + 'the address bar is where you undo it.',
+    2: "Your device couldn't work out where it is right now.",
+    3: 'Timed out waiting for a fix. Indoors and on desktop this often just fails; try again outside '
+     + 'or on a phone.'
+  }[err.code] || ('Geolocation failed: ' + esc(err.message));
+  meHint(msg, 'err');
+}
+
+async function onFix(pos) {
+  const { latitude: lat, longitude: lng, accuracy } = pos.coords;
+  const first = !ME.pos;
+  ME.pos = { lat, lng, accuracy };
+  ME.busy = false;
+  ME.btn.classList.remove('busy');
+  ME.btn.classList.add('on');
+  ME.btn.title = 'Stop showing where I am';
+
+  if (!ME.marker) {
+    ME.halo = L.circle([lat, lng], {
+      pane: 'dotPane', radius: accuracy, color: '#4da3ff', weight: 1,
+      opacity: 0.5, fillColor: '#4da3ff', fillOpacity: 0.12, interactive: false
+    }).addTo(map);
+    ME.marker = L.marker([lat, lng], {
+      pane: 'livePane', zIndexOffset: 1000,
+      icon: L.divIcon({ className: '', html: '<div class="mepin"></div>',
+                        iconSize: [16, 16], iconAnchor: [8, 8] })
+    }).addTo(map);
+    ME.marker.bindPopup('<div class="pop"><span class="tag" style="background:#4da3ff22;color:#4da3ff">'
+      + 'You</span><h4>Your location</h4><div class="when">Accurate to about '
+      + dist(accuracy) + '</div></div>', { maxWidth: 260 });
+  } else {
+    ME.marker.setLatLng([lat, lng]);
+    ME.halo.setLatLng([lat, lng]).setRadius(accuracy);
+  }
+
+  if (first) {
+    ME.follow = true;
+    map.flyTo([lat, lng], Math.max(map.getZoom(), 14), { duration: 1.1 });
+    // Following the dot forever fights the user the moment they pan away.
+    map.once('dragstart', () => { ME.follow = false; });
+  } else if (ME.follow) {
+    // Animating every GPS tick while someone walks is jittery and fights the
+    // canvas redraw; the deliberate moves (first fix, recentre) still fly.
+    map.setView([lat, lng], map.getZoom(), { animate: false });
+  }
+
+  meHint('Read in your browser and never sent anywhere &mdash; this page has no server to send it to. '
+       + 'Tap the crosshair again to stop.');
+  renderMeCard();
+}
+
+async function renderMeCard() {
+  if (!ME.pos) return;
+  const { lat, lng, accuracy } = ME.pos;
+  const box = document.getElementById('mebody');
+
+  // Both geographies, regardless of which one is currently shading the map.
+  let bgF = null, dF = null;
+  try {
+    await Promise.all([fetchGeo(GEOS.bg), fetchGeo(GEOS.district)]);
+    bgF = featureAt(GEOS.bg, lat, lng);
+    dF = featureAt(GEOS.district, lat, lng);
+  } catch (e) { console.error(e); }
+  if (!ME.pos) return;
+
+  const rows = [];
+  rows.push(['Accuracy', '&plusmn;' + dist(accuracy), true]);
+
+  if (dF) {
+    const p = dF.properties;
+    rows.push(['Council district', '<a href="https://www.austintexas.gov/department/district-' + p.d
+      + '" target="_blank" rel="noopener">District ' + p.d + '</a>', true]);
+  }
+
+  if (bgF) {
+    const p = bgF.properties;
+    rows.push(['Block group', esc(p.k), true]);
+    if (p.pop) rows.push(['Neighbours here', p.pop.toLocaleString() + ' residents', true]);
+    if (p.canopy != null) rows.push(['Tree canopy', p.canopy + '%', true]);
+    if (p.temp != null) {
+      const hot = p.temp > 0;
+      rows.push(['Summer heat', '<b style="color:' + (hot ? '#ff9d6b' : '#6bd3ff') + '">'
+        + (hot ? '+' : '') + p.temp + '&deg;F</b> vs. the city average', true]);
+    }
+    if (p.pov != null) rows.push(['Below poverty', p.pov + '%', true]);
+    if (CRIME.on && CRIME.byUnit && CRIME.geo === 'bg' && p.pop) {
+      const n = CRIME.byUnit[p.k] || 0;
+      rows.push([(CRIME.cat || 'Crime reports') + ', ' + (CRIME.year === 'all' ? 'all years' : CRIME.year),
+        n.toLocaleString() + ' &nbsp;(' + (n / p.pop * 10000).toFixed(0) + ' per 10k)', true]);
+    }
+  }
+
+  // What's actually around you, from whatever layers are switched on.
+  const near = {};
+  let nearTotal = 0;
+  visibleFeatures().forEach(({ f, l }) => {
+    if (metersBetween(lat, lng, f.lat, f.lng) <= 1000) {
+      near[l.name] = (near[l.name] || 0) + 1;
+      nearTotal++;
+    }
+  });
+
+  const dl = rows.map(r => '<dt>' + esc(r[0]) + '</dt><dd>' + r[1] + '</dd>').join('');
+  let html = '<dl class="mecard">' + dl + '</dl>';
+
+  if (!bgF && !dF) {
+    html += '<p class="hint" style="margin:.6rem 0 0">You are outside the area Austin maps &mdash; '
+          + 'the block groups only cover the city and its immediate surrounds.</p>';
+  }
+
+  if (nearTotal) {
+    const top = Object.entries(near).sort((a, b) => b[1] - a[1]).slice(0, 6);
+    const max = top[0][1];
+    html += '<div style="margin-top:.9rem"><label class="mini">Within 1 km of you &mdash; '
+      + nearTotal.toLocaleString() + ' mapped</label></div>'
+      + top.map(([k, n]) => '<div class="bar"><div class="lbl"><span>' + esc(k) + '</span><b>'
+          + n.toLocaleString() + '</b></div><div class="track"><div class="fill" style="width:'
+          + (n / max * 100).toFixed(1) + '%"></div></div></div>').join('');
+  } else {
+    html += '<p class="hint" style="margin:.7rem 0 0">Nothing switched on has happened within a '
+          + 'kilometre of you.</p>';
+  }
+
+  html += '<button class="iconbtn" id="mefly" style="margin-top:.9rem">Recentre on me</button>';
+  box.innerHTML = html;
+  document.getElementById('mefly').onclick = () => {
+    if (!ME.pos) return;
+    ME.follow = true;
+    map.flyTo([ME.pos.lat, ME.pos.lng], Math.max(map.getZoom(), 15), { duration: 0.8 });
+    map.once('dragstart', () => { ME.follow = false; });
+  };
 }
 
 /* ── Insights panel ────────────────────────────────────────────── */
