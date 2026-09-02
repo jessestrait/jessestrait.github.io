@@ -18,6 +18,14 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
+html{
+  -webkit-text-size-adjust:100%;
+  /* Kills the double-tap-to-zoom delay and gesture. Leaflet sets its own
+     touch-action on .leaflet-container, so the map keeps its pinch. */
+  touch-action:manipulation;
+}
+body{overscroll-behavior:none}
+#panel{touch-action:pan-y; -webkit-overflow-scrolling:touch}
 body{
   background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif;
   overflow:hidden; -webkit-font-smoothing:antialiased;
@@ -122,6 +130,13 @@ dl.mecard dt{color:var(--muted); font-size:.72rem; white-space:nowrap}
 dl.mecard dd{font-size:.78rem; word-break:break-word}
 dl.mecard a{color:var(--accent-hi)}
 
+.sub{
+  margin:.15rem 0 .5rem 1.35rem; padding-left:.75rem;
+  border-left:1px solid var(--border);
+}
+.sub .seg{margin-top:.35rem}
+.sub .seg button{font-size:.68rem; padding:.32rem .2rem}
+
 /* ── Insights ────────────────────────────────────────── */
 .stat{display:flex; justify-content:space-between; align-items:baseline; padding:.3rem 0}
 .stat .k{font-size:.76rem; color:var(--muted)}
@@ -145,7 +160,7 @@ dl.mecard a{color:var(--accent-hi)}
 
 /* ── Map furniture ───────────────────────────────────── */
 .leaflet-container{background:#0a0e16; font-family:'DM Sans',sans-serif}
-/* Esri's canvas is a warm mid-grey; tint each tile image (not the pane — a pane
+/* Esri's canvas is a warm mid-gray; tint each tile image (not the pane — a pane
    filter breaks canvas compositing) down into the site's navy. */
 .leaflet-tile-pane .leaflet-tile{filter:brightness(.5) contrast(1.25) saturate(.9) sepia(.45) hue-rotate(172deg)}
 .leaflet-label2-pane{opacity:.55}
@@ -269,13 +284,42 @@ dl.mecard a{color:var(--accent-hi)}
       <h3>Happening lately</h3>
       <p class="hint">Pulled live from the City of Austin's open data portal each time you change the window.</p>
       <div class="seg" id="window">
-        <button data-d="1">24h</button>
+        <button data-d="1" class="on">24h</button>
         <button data-d="3">3d</button>
-        <button data-d="7" class="on">7d</button>
+        <button data-d="7">7d</button>
         <button data-d="30">30d</button>
         <button data-d="90">90d</button>
       </div>
       <div id="recent" style="margin-top:.7rem"></div>
+    </div>
+
+    <div class="sec">
+      <h3>Crime reports</h3>
+      <p class="hint">2.7 million APD reports going back to 2003 &mdash; published with no coordinates,
+        only a council district and a census block group. So this one shades the map below rather than
+        dropping pins, at whichever of those two resolutions you pick.</p>
+      <div id="crimerow"></div>
+      <label class="mini" for="crimecat">Category</label>
+      <select id="crimecat">
+        <option value="">All reports</option>
+        <option value="Theft">Theft</option>
+        <option value="Burglary">Burglary</option>
+        <option value="Auto Theft">Auto theft</option>
+        <option value="Aggravated Assault">Aggravated assault</option>
+        <option value="Robbery">Robbery</option>
+        <option value="Rape">Rape</option>
+        <option value="Murder">Murder</option>
+      </select>
+      <label class="mini" for="crimeyear" style="display:block;margin-top:.6rem">Year</label>
+      <select id="crimeyear"></select>
+      <div id="crimetrend"></div>
+      <label class="mini" style="display:block;margin-top:1rem">Top offenses</label>
+      <div class="seg" id="crimescope">
+        <button data-s="city" class="on">Citywide</button>
+        <button data-s="view">In view</button>
+        <button data-s="me" disabled title="Locate yourself first">Where I am</button>
+      </div>
+      <div id="crimetop"></div>
     </div>
 
     <div class="sec">
@@ -304,34 +348,6 @@ dl.mecard a{color:var(--accent-hi)}
         <button data-m="heat">Heatmap</button>
       </div>
       <input type="text" id="q" placeholder="Filter everything on the map…" autocomplete="off" />
-    </div>
-
-    <div class="sec">
-      <h3>Crime reports</h3>
-      <p class="hint">2.7 million APD reports going back to 2003 &mdash; published with no coordinates,
-        only a council district. So this one shades the districts below instead of dropping pins.</p>
-      <div id="crimerow"></div>
-      <label class="mini" for="crimecat">Category</label>
-      <select id="crimecat">
-        <option value="">All reports</option>
-        <option value="Theft">Theft</option>
-        <option value="Burglary">Burglary</option>
-        <option value="Auto Theft">Auto theft</option>
-        <option value="Aggravated Assault">Aggravated assault</option>
-        <option value="Robbery">Robbery</option>
-        <option value="Rape">Rape</option>
-        <option value="Murder">Murder</option>
-      </select>
-      <label class="mini" for="crimeyear" style="display:block;margin-top:.6rem">Year</label>
-      <select id="crimeyear"></select>
-      <div id="crimetrend"></div>
-      <label class="mini" style="display:block;margin-top:1rem">Top offences</label>
-      <div class="seg" id="crimescope">
-        <button data-s="city" class="on">Citywide</button>
-        <button data-s="view">In view</button>
-        <button data-s="me" disabled title="Locate yourself first">Where I am</button>
-      </div>
-      <div id="crimetop"></div>
     </div>
 
     <div class="sec">
@@ -404,13 +420,16 @@ dl.mecard a{color:var(--accent-hi)}
     </p>
     <ul>
       <li><b>Live traffic incidents</b> — <code>dx9v-zd7x</code>, refreshed by APD/ATD every few minutes. Pulsing pins are still open right now.</li>
-      <li><b>311 service requests</b> — <code>xwdj-i9he</code>. Potholes, loose dogs, dead animals, noise complaints.</li>
+      <li><b>311 service requests</b> — <code>xwdj-i9he</code>. Potholes, loose dogs, dead animals,
+        noise complaints. These do carry coordinates, so the breakdown of what people are calling
+        about can be scoped to a real bounding box or a radius around you.</li>
       <li><b>Issued construction permits</b> — <code>3syk-w9eu</code>, with job valuation and contractor.</li>
       <li><b>Crashes</b> — <code>y2wy-tgr5</code>, the Vision Zero record. Runs a couple of weeks behind.</li>
       <li><b>AFD fire incidents</b> — <code>v5hh-nyr8</code>, 2023–2025.</li>
       <li><b>APD crime reports</b> — <code>fdj4-gpfu</code>, 2.7 million of them going back to
-        2003. This one carries no coordinates at all, only a council district, which is why it
-        shades districts instead of dropping pins. The counting happens on Socrata's side.</li>
+        2003. This one carries no coordinates at all &mdash; only a council district and a census
+        block group, which is why it shades those units rather than dropping pins. All the counting
+        happens on Socrata's side.</li>
       <li><b>Fire stations, libraries, public art, traffic cameras</b> — <code>i8r8-6nhk</code>, <code>tc36-hn4j</code>, <code>uuk6-933w</code>, <code>b4k4-adkb</code>.</li>
       <li><b>Council district boundaries + demographics</b> — <code>w3v2-cj58</code> and <code>puux-7swp</code>, simplified and joined ahead of time so the shading is instant.</li>
       <li><b>Census block groups, tree canopy and urban heat</b> — the Tree Equity Score layer on
@@ -543,7 +562,7 @@ const LAYERS = [
     }
   },
   {
-    id: 'c311', group: 'recent', color: '#4dd2ff', on: true,
+    id: 'c311', group: 'recent', color: '#4dd2ff', on: false,
     name: '311 service requests', note: 'What residents are calling in',
     async load(days) {
       const since = await anchoredSince(this, 'xwdj-i9he', 'sr_created_date', days);
@@ -598,7 +617,7 @@ const LAYERS = [
     }
   },
   {
-    id: 'crashes', group: 'recent', color: '#ff5cc8', on: false,
+    id: 'crashes', group: 'recent', color: '#ff5cc8', on: true,
     name: 'Crashes', note: 'Vision Zero record — published on a lag',
     async load(days) {
       const since = await anchoredSince(this, 'y2wy-tgr5', 'crash_timestamp', days, 'is_deleted = false');
@@ -768,6 +787,10 @@ const PANES = { groundPane: 330, districtPane: 350, labelPane2: 460, dotPane: 49
 Object.entries(PANES).forEach(([p, z]) => { map.createPane(p).style.zIndex = z; });
 // Leaflet detaches a renderer when its last path is removed, so each redraw gets a fresh one.
 let dotRenderer = null;
+// A 4px dot is an impossible target with a fingertip. The canvas renderer can
+// extend its hit test well past the drawn radius, which beats drawing fat dots.
+const COARSE = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+const HIT_TOLERANCE = COARSE ? 14 : 4;
 
 // Esri's Dark Gray Canvas, knocked down in CSS to sit inside the site palette.
 // Labels ride in their own pane so the filter doesn't crush them.
@@ -782,7 +805,7 @@ L.tileLayer(ESRI + 'World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
 }).addTo(map);
 
 const state = {
-  days: 7, mode: 'points', q: '', metric: '__per10k',
+  days: 1, mode: 'points', q: '', metric: '__per10k',
   geo: 'none', viewOnly: true, data: {}, busy: {}
 };
 let dotLayer = null, liveLayer = null, heatLayer = null, clusterLayer = null;
@@ -798,6 +821,10 @@ function rowFor(l) {
     + '<span class="ct" id="ct-' + l.id + '">—</span>';
   el.querySelector('input').addEventListener('change', e => {
     l.on = e.target.checked;
+    if (l.id === 'c311') {
+      c311PanelVisible(l.on);
+      if (l.on) loadC311Top(false);
+    }
     if (l.on && !state.data[l.id]) fetchLayer(l); else render();
   });
   return el;
@@ -884,7 +911,7 @@ function clearMapLayers() {
 function markerFor(f, l) {
   const m = L.circleMarker([f.lat, f.lng], {
     pane: 'dotPane', renderer: dotRenderer,
-    radius: f.place ? 5.5 : f.big ? 6 : 3.6,
+    radius: f.place ? (COARSE ? 7 : 5.5) : f.big ? 6 : 3.6,
     color: l.color, weight: f.place || f.big ? 1.8 : 0,
     fillColor: l.color, fillOpacity: f.place ? 0.2 : 0.72, opacity: 0.95
   });
@@ -924,7 +951,7 @@ function renderNow() {
       heatLayer.setLatLngs(pts);
     }
   } else if (state.mode === 'cluster') {
-    dotRenderer = L.canvas({ pane: 'dotPane', padding: 0.35 }).addTo(map);
+    dotRenderer = L.canvas({ pane: 'dotPane', padding: 0.35, tolerance: HIT_TOLERANCE }).addTo(map);
     clusterLayer = L.markerClusterGroup({
       chunkedLoading: false, maxClusterRadius: 55,
       showCoverageOnHover: false, spiderfyOnMaxZoom: true
@@ -932,7 +959,7 @@ function renderNow() {
     clusterLayer.addLayers(vis.map(({ f, l }) => markerFor(f, l)));
     map.addLayer(clusterLayer);
   } else {
-    dotRenderer = L.canvas({ pane: 'dotPane', padding: 0.35 }).addTo(map);
+    dotRenderer = L.canvas({ pane: 'dotPane', padding: 0.35, tolerance: HIT_TOLERANCE }).addTo(map);
     dotLayer = L.layerGroup([], { pane: 'dotPane' });
     vis.forEach(({ f, l }) => { if (!f.live) markerFor(f, l).addTo(dotLayer); });
     dotLayer.addTo(map);
@@ -1089,6 +1116,8 @@ document.getElementById('crimeyear').addEventListener('change', e => {
    server-simplified, so they land as small static files. They render
    beneath the choropleth and the points.
    ══════════════════════════════════════════════════════════════════ */
+const groundRenderer = L.canvas({ pane: 'groundPane', padding: 0.35, tolerance: HIT_TOLERANCE });
+
 const GROUND = [
   {
     id: 'parks', color: '#3fbf7f', name: 'Parks', note: '371 city parks, as actual shapes',
@@ -1158,7 +1187,8 @@ async function loadGround(g) {
       pane: 'groundPane',
       style: () => g.style,
       pointToLayer: (f, ll) => L.circleMarker(ll, {
-        pane: 'groundPane', radius: 5, color: g.color, weight: 2,
+        pane: 'groundPane', renderer: groundRenderer,
+        radius: COARSE ? 7 : 5, color: g.color, weight: 2,
         fillColor: g.color, fillOpacity: 0.35
       }),
       onEachFeature: (f, lyr) => lyr.bindPopup(g.popup(f.properties || {}), { maxWidth: 300 })
@@ -1257,7 +1287,7 @@ const GEOS = {
         ['pop', 'Population'],
         ['density', 'Population per square mile'],
         ['pov', 'Percent below poverty'],
-        ['poc', 'Percent people of colour'],
+        ['poc', 'Percent people of color'],
         ['unemp', 'Unemployment rate']]]
     ]
   }
@@ -1450,7 +1480,7 @@ function drawGeo() {
   // These distributions are viciously right-skewed — downtown block groups
   // carry a workday population the census never counts, so crime per resident
   // there runs 30x the median and a linear ramp renders the whole city black.
-  // Colour by rank instead, and let the legend carry the real numbers.
+  // Color by rank instead, and let the legend carry the real numbers.
   const below = v => { let lo = 0, hi = sorted.length;
     while (lo < hi) { const m = (lo + hi) >> 1; if (sorted[m] < v) lo = m + 1; else hi = m; } return lo; };
   const atMost = v => { let lo = 0, hi = sorted.length;
@@ -1617,6 +1647,7 @@ function stopLocate() {
   ME.btn.title = 'Show where I am';
   document.getElementById('mebody').innerHTML = '';
   enableMeScope(false);
+  enableMeScope311(false);
   meHint('Tap the crosshair on the map to drop yourself on it, and see what the census block group '
        + "you're standing in actually looks like.");
 }
@@ -1691,14 +1722,16 @@ async function onFix(pos) {
     map.once('dragstart', () => { ME.follow = false; });
   } else if (ME.follow) {
     // Animating every GPS tick while someone walks is jittery and fights the
-    // canvas redraw; the deliberate moves (first fix, recentre) still fly.
+    // canvas redraw; the deliberate moves (first fix, recenter) still fly.
     map.setView([lat, lng], map.getZoom(), { animate: false });
   }
 
   meHint('Read in your browser and never sent anywhere &mdash; this page has no server to send it to. '
        + 'Tap the crosshair again to stop.');
   enableMeScope(true);
+  enableMeScope311(true);
   if (CRIME.scope === 'me') loadCrimeTop(false);
+  if (C311.scope === 'me' && byId.c311.on) loadC311Top(false);
   renderMeCard();
 }
 
@@ -1728,7 +1761,7 @@ async function renderMeCard() {
   if (bgF) {
     const p = bgF.properties;
     rows.push(['Block group', esc(p.k), true]);
-    if (p.pop) rows.push(['Neighbours here', p.pop.toLocaleString() + ' residents', true]);
+    if (p.pop) rows.push(['Neighbors here', p.pop.toLocaleString() + ' residents', true]);
     if (p.canopy != null) rows.push(['Tree canopy', p.canopy + '%', true]);
     if (p.temp != null) {
       const hot = p.temp > 0;
@@ -1771,10 +1804,10 @@ async function renderMeCard() {
           + (n / max * 100).toFixed(1) + '%"></div></div></div>').join('');
   } else {
     html += '<p class="hint" style="margin:.7rem 0 0">Nothing switched on has happened within a '
-          + 'kilometre of you.</p>';
+          + 'kilometer of you.</p>';
   }
 
-  html += '<button class="iconbtn" id="mefly" style="margin-top:.9rem">Recentre on me</button>';
+  html += '<button class="iconbtn" id="mefly" style="margin-top:.9rem">Recenter on me</button>';
   box.innerHTML = html;
   document.getElementById('mefly').onclick = () => {
     if (!ME.pos) return;
@@ -1785,8 +1818,8 @@ async function renderMeCard() {
 }
 
 
-/* ── Top offences ──────────────────────────────────────────────────
-   crime_type is the granular offence behind the coarse category, and
+/* ── Top offenses ──────────────────────────────────────────────────
+   crime_type is the granular offense behind the coarse category, and
    Socrata will group 2.7m rows on it in well under a second. The
    dataset has no coordinates, so "in view" can't be a bounding box —
    it's the set of districts or block groups the viewport touches,
@@ -1823,6 +1856,7 @@ async function crimeScope() {
   }
 
   if (CRIME.scope === 'view') {
+    if (!viewUsable()) return { label: 'citywide', note: 'The map has no size to read yet.', sig: 'city' };
     // Follow whichever geography is shading the map; districts otherwise,
     // since that file is small and always meaningful.
     const g = activeGeo() || GEOS.district;
@@ -1894,8 +1928,9 @@ async function loadCrimeTop(force) {
             + '<div class="track"><div class="fill" style="width:' + (n / max * 100).toFixed(1)
             + '%;background:#ffd166"></div></div></div>';
         }).join('')
-      + '<p class="hint" style="margin:.5rem 0 0">Top 10 of ' + total.toLocaleString()
-      + ' reports in the ten most common offence types.</p>';
+      + '<p class="hint" style="margin:.5rem 0 0">' + total.toLocaleString() + ' report'
+      + (total === 1 ? '' : 's') + ' across '
+      + (rows.length === 1 ? 'this offense type' : 'these ' + rows.length + ' offense types') + '.</p>';
   } catch (e) {
     console.error(e);
     box.innerHTML = '<p class="empty">That query failed — the portal may be busy.</p>';
@@ -1932,6 +1967,156 @@ function enableMeScope(on) {
     if (document.getElementById('crimetop').innerHTML) loadCrimeTop(true);
   }
 }
+
+
+/* ── Why people are calling 311 ────────────────────────────────────
+   Unlike the crime table, 311 records carry coordinates — so "in view"
+   is a real bounding box and "near me" a real radius, rather than the
+   IN-clause the coordinate-less crime data forces. Counts come from
+   Socrata rather than the loaded dots, so they are complete for the
+   window instead of capped at the layer's row limit.               */
+const C311 = { scope: 'city', busy: false, sig: null, radius: 1000 };
+
+function topListHTML(rows, opts) {
+  const max = +rows[0].n;
+  const total = rows.reduce((a, r) => a + (+r.n), 0);
+  return '<p class="hint" style="margin:.5rem 0 .3rem">' + opts.caption + '</p>'
+    + (opts.note ? '<p class="hint" style="margin:0 0 .3rem;color:#ffb570">' + esc(opts.note) + '</p>' : '')
+    + rows.map(r => {
+        const n = +r.n;
+        return '<div class="bar"><div class="lbl"><span title="' + esc(r.label) + '">'
+          + esc(r.label) + '</span><b>' + n.toLocaleString() + '</b></div>'
+          + '<div class="track"><div class="fill" style="width:' + (n / max * 100).toFixed(1)
+          + '%;background:' + opts.color + '"></div></div></div>';
+      }).join('')
+    + '<p class="hint" style="margin:.45rem 0 0">' + opts.foot(total, rows.length) + '</p>';
+}
+
+// getBounds() on a zero-size container returns a degenerate point, which would
+// make every "in view" query come back empty rather than obviously broken.
+function viewUsable() {
+  const sz = map.getSize();
+  if (!sz.x || !sz.y) return false;
+  const b = map.getBounds();
+  return b.getNorth() > b.getSouth() && b.getEast() > b.getWest();
+}
+
+function c311Scope() {
+  if (C311.scope === 'me') {
+    if (!ME.pos) return { label: 'all of Austin', note: 'Drop yourself on the map first.', sig: 'city' };
+    const { lat, lng } = ME.pos;
+    return {
+      where: 'within_circle(sr_location_lat_long, ' + lat + ', ' + lng + ', ' + C311.radius + ')',
+      label: 'within ' + (C311.radius / 1000) + ' km of you',
+      sig: 'me:' + lat.toFixed(4) + ',' + lng.toFixed(4)
+    };
+  }
+  if (C311.scope === 'view') {
+    if (!viewUsable()) return { label: 'all of Austin', note: 'The map has no size to read yet.', sig: 'city' };
+    const b = map.getBounds();
+    const s = b.getSouth().toFixed(5), n = b.getNorth().toFixed(5);
+    const w = b.getWest().toFixed(5), e = b.getEast().toFixed(5);
+    return {
+      where: 'sr_location_lat BETWEEN ' + s + ' AND ' + n
+           + ' AND sr_location_long BETWEEN ' + w + ' AND ' + e,
+      label: 'this view',
+      sig: 'view:' + [s, n, w, e].join(',')
+    };
+  }
+  return { label: 'all of Austin', sig: 'city' };
+}
+
+async function loadC311Top(force) {
+  const box = document.getElementById('c311list');
+  if (!box || C311.busy) return;
+
+  const scope = c311Scope();
+  const sig = [scope.sig, state.days].join('|');
+  if (!force && sig === C311.sig) return;
+
+  C311.busy = true;
+  box.innerHTML = '<p class="hint" style="margin:.5rem 0 0">Counting…</p>';
+  try {
+    const since = await anchoredSince(byId.c311, 'xwdj-i9he', 'sr_created_date', state.days);
+    const where = ["sr_created_date > '" + since + "'", 'sr_location_lat IS NOT NULL'];
+    if (scope.where) where.push(scope.where);
+    const rows = await soda('xwdj-i9he', {
+      '$select': 'sr_type_desc,count(*) as n', '$where': where.join(' AND '),
+      '$group': 'sr_type_desc', '$order': 'n DESC', '$limit': 5
+    });
+
+    C311.sig = sig;
+    if (!rows.length) {
+      box.innerHTML = '<p class="empty" style="margin-top:.5rem">No 311 calls here in this window.</p>';
+      return;
+    }
+    const days = state.days;
+    box.innerHTML = topListHTML(
+      rows.map(r => ({ n: r.n, label: String(r.sr_type_desc || 'Request').replace(/^[A-Z0-9 ]{2,9} - /, '') })),
+      {
+        color: '#4dd2ff',
+        caption: 'Last ' + days + (days === 1 ? ' day' : ' days') + ' &middot; <b style="color:var(--text)">'
+               + esc(scope.label) + '</b>',
+        note: scope.note,
+        foot: (t, k) => t.toLocaleString() + ' call' + (t === 1 ? '' : 's')
+              + ' across ' + (k === 1 ? 'this type' : 'these ' + k + ' types') + '.'
+      });
+  } catch (e) {
+    console.error(e);
+    box.innerHTML = '<p class="empty" style="margin-top:.5rem">That query failed — the portal may be busy.</p>';
+  } finally {
+    C311.busy = false;
+  }
+}
+
+function c311PanelVisible(on) {
+  const el = document.getElementById('c311sub');
+  if (el) el.hidden = !on;
+}
+
+function enableMeScope311(on) {
+  const b = document.querySelector('#c311scope button[data-s="me"]');
+  if (!b) return;
+  b.disabled = !on;
+  b.title = on ? 'Scope to a kilometer around you' : 'Locate yourself first';
+  if (!on && C311.scope === 'me') {
+    C311.scope = 'city';
+    document.querySelectorAll('#c311scope button')
+      .forEach(x => x.classList.toggle('on', x.dataset.s === 'city'));
+    if (byId.c311.on) loadC311Top(true);
+  }
+}
+
+(function build311Panel() {
+  const row = document.querySelector('#note-c311').closest('.row');
+  const sub = document.createElement('div');
+  sub.className = 'sub';
+  sub.id = 'c311sub';
+  sub.hidden = !byId.c311.on;
+  sub.innerHTML =
+    '<label class="mini">Why people are calling</label>'
+    + '<div class="seg" id="c311scope">'
+    + '<button data-s="city" class="on">Austin</button>'
+    + '<button data-s="view">In view</button>'
+    + '<button data-s="me" disabled title="Locate yourself first">Near me</button>'
+    + '</div><div id="c311list"></div>';
+  row.after(sub);
+
+  document.getElementById('c311scope').addEventListener('click', e => {
+    const b = e.target.closest('button');
+    if (!b || b.disabled) return;
+    document.querySelectorAll('#c311scope button').forEach(x => x.classList.toggle('on', x === b));
+    C311.scope = b.dataset.s;
+    loadC311Top(true);
+  });
+
+  let t = null;
+  map.on('moveend zoomend', () => {
+    if (C311.scope !== 'view' || !byId.c311.on) return;
+    clearTimeout(t);
+    t = setTimeout(() => loadC311Top(false), 700);
+  });
+})();
 
 /* ── Insights panel ────────────────────────────────────────────── */
 function insights(vis) {
@@ -2004,6 +2189,7 @@ document.getElementById('window').addEventListener('click', e => {
   document.querySelectorAll('#window button').forEach(x => x.classList.toggle('on', x === b));
   state.days = +b.dataset.d;
   refreshActive(true);
+  if (byId.c311.on) loadC311Top(true);
 });
 document.getElementById('mode').addEventListener('click', e => {
   const b = e.target.closest('button'); if (!b) return;
@@ -2072,6 +2258,15 @@ document.getElementById('about').addEventListener('click', e => {
 });
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') document.getElementById('about').classList.remove('on');
+});
+
+/* iOS ignores maximum-scale/user-scalable, so a stray two-finger touch on the
+   header or the panel pinch-zooms the whole document — which scrolls the fixed
+   header off-screen with no obvious way back, since the map's own zoom control
+   doesn't touch page zoom. Safari fires gesture* events for that; Leaflet drives
+   its own pinch from touch* events, so blocking these leaves the map alone. */
+['gesturestart', 'gesturechange', 'gestureend'].forEach(t => {
+  document.addEventListener(t, e => e.preventDefault(), { passive: false });
 });
 
 const sheet = document.getElementById('sheetbtn');
