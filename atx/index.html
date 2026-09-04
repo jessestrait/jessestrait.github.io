@@ -66,6 +66,7 @@ a{color:var(--accent-hi)}
   border-radius:8px; padding:.4rem .7rem; font:inherit; font-size:.75rem; cursor:pointer;
 }
 .iconbtn:hover{color:var(--text); border-color:var(--accent)}
+.iconbtn.on{background:var(--accent); color:#fff; border-color:var(--accent)}
 .iconbtn{white-space:nowrap}
 
 /* ── Layout ──────────────────────────────────────────── */
@@ -123,6 +124,41 @@ select, input[type=text]{
 }
 select:focus, input[type=text]:focus{outline:none; border-color:var(--accent)}
 label.mini{font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
+
+/* ── Time scrubber ───────────────────────────────────── */
+#scrub[hidden]{display:none}
+#scrub{
+  position:absolute; left:50%; transform:translateX(-50%); bottom:1.1rem; z-index:1150;
+  display:flex; align-items:center; gap:.6rem; width:min(560px, calc(100% - 2.5rem));
+  background:rgba(15,22,35,.94); border:1px solid var(--border); border-radius:11px;
+  padding:.5rem .7rem; backdrop-filter:blur(8px); box-shadow:0 8px 28px rgba(0,0,0,.55);
+}
+#scrub button{
+  background:var(--accent); color:#fff; border:0; border-radius:7px; cursor:pointer;
+  width:30px; height:28px; flex:0 0 30px; font-size:.8rem; line-height:1;
+}
+#scrub #scrubclose{background:none; color:var(--muted); font-size:1.1rem}
+#scrub #scrubclose:hover{color:var(--text)}
+#scrubrange{
+  flex:1; appearance:none; height:4px; border-radius:2px; margin:0;
+  background:var(--border); cursor:pointer; padding:0;
+}
+#scrubrange::-webkit-slider-thumb{
+  appearance:none; width:15px; height:15px; border-radius:50%;
+  background:var(--accent-hi); border:2px solid #0b1220; cursor:pointer;
+}
+#scrubrange::-moz-range-thumb{
+  width:15px; height:15px; border-radius:50%; background:var(--accent-hi);
+  border:2px solid #0b1220; cursor:pointer;
+}
+#scrublabel{
+  font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--text);
+  white-space:nowrap; flex:0 0 auto; min-width:104px; text-align:right;
+}
+@media (max-width:820px){
+  #scrub{bottom:4.6rem; width:calc(100% - 1.6rem)}
+  #scrublabel{font-size:.64rem; min-width:92px}
+}
 
 /* ── Where you are ───────────────────────────────────── */
 dl.mecard{display:grid; grid-template-columns:auto 1fr; gap:3px .7rem; margin:.2rem 0 0}
@@ -280,6 +316,18 @@ dl.mecard a{color:var(--accent-hi)}
 <div id="shell">
   <aside id="panel">
 
+    <div class="sec" id="modesec">
+      <h3>Start somewhere</h3>
+      <p class="hint">Three ready-made views. Change anything below and you're on your own from
+        there &mdash; which is the point.</p>
+      <div class="seg" id="modes">
+        <button data-m="safety">Safety</button>
+        <button data-m="housing">Housing</button>
+        <button data-m="nature">Nature</button>
+      </div>
+      <p class="hint" id="modenote" style="margin:.55rem 0 0"></p>
+    </div>
+
     <div class="sec">
       <h3>Happening lately</h3>
       <p class="hint">Pulled live from the City of Austin's open data portal each time you change the window.</p>
@@ -290,6 +338,9 @@ dl.mecard a{color:var(--accent-hi)}
         <button data-d="30">30d</button>
         <button data-d="90">90d</button>
       </div>
+      <button class="iconbtn" id="scrubtoggle" style="width:100%;margin-top:.55rem">
+        &#9654;&nbsp; Play through this window
+      </button>
       <div id="recent" style="margin-top:.7rem"></div>
     </div>
 
@@ -400,11 +451,22 @@ dl.mecard a{color:var(--accent-hi)}
         over the Socrata API — nothing is cached or stored here. Built by
         <a href="/">Jesse Strait</a>.
       </p>
+      <button class="iconbtn" id="sharebtn" style="width:100%;margin-top:.8rem">Copy link to this view</button>
+      <p class="hint" style="margin:.45rem 0 0">Whatever you have switched on lives in the address
+        bar, so a link opens exactly what you're looking at.</p>
     </div>
 
   </aside>
 
   <div id="map"></div>
+
+  <div id="scrub" hidden>
+    <button id="scrubplay" title="Play">&#9654;</button>
+    <input type="range" id="scrubrange" min="0" max="1000" value="1000" step="1" aria-label="Time" />
+    <span id="scrublabel">&mdash;</span>
+    <button id="scrubclose" title="Show the whole window again">&times;</button>
+  </div>
+
   <button id="sheetbtn">Layers &amp; stats</button>
 </div>
 
@@ -439,6 +501,16 @@ dl.mecard a{color:var(--accent-hi)}
         it's what lets this map shade 644 units instead of 10.</li>
       <li><b>Parks, trails, floodplain, low-water crossings</b> — also GeoHub, server-simplified into
         static files ahead of time.</li>
+      <li><b>Street condition</b> — 28,006 segments, each graded A&ndash;F by Public Works off a
+        measured roughness index. The drawable layer is the heavy one here, so it only loads if you
+        ask for it; the per-area averages behind the two street metrics are joined to the block
+        groups at build time and cost nothing to use.</li>
+      <li><b>Time</b> &mdash; nothing extra is fetched to play a window back. Every point already
+        carries its timestamp, so the scrubber is a filter. The layers don't share a clock, though:
+        traffic is live to the minute while crashes stop wherever Vision Zero last published, so
+        each layer sweeps the same relative position through its own range rather than pretending
+        to one timeline. Anything without a clock &mdash; stations, libraries, art, cameras, and
+        every ground shape &mdash; is standing infrastructure and stays put.</li>
       <li><b>Your own location</b>, if you tap the crosshair — read from the browser's geolocation
         API, used to work out which block group you're standing in, and never sent anywhere. There
         is no server here to send it to, and nothing is written to storage; close the tab and it's
@@ -458,6 +530,13 @@ dl.mecard a{color:var(--accent-hi)}
       workers will always look catastrophic per resident. The choropleth is shaded by rank rather
       than by raw value for exactly that reason &mdash; one runaway unit would otherwise render the
       whole city black &mdash; and the legend carries the real numbers.
+    </p>
+    <p style="margin-bottom:1.2rem">
+      One worth trying for yourself rather than taking on trust: shade the districts by
+      <b>percent of streets graded D or F</b> and then by <b>median household income</b>. The
+      pattern is messier than you would guess &mdash; downtown has the worst pavement in the city
+      despite the money, because pavement follows traffic volume as much as it follows spending.
+      Everything on this page is a link, so whatever you find you can send to someone.
     </p>
     <button class="iconbtn" id="aboutclose">Close</button>
   </div>
@@ -777,7 +856,12 @@ const map = L.map('map', { zoomControl: false, preferCanvas: true, minZoom: 9 })
 // Frame the city once the flex layout has actually given #map its size.
 map.whenReady(() => requestAnimationFrame(() => {
   map.invalidateSize();
-  map.fitBounds(AUSTIN, { padding: [12, 12] });
+  if (typeof pendingView !== 'undefined' && pendingView) {
+    map.setView(pendingView[0], pendingView[1], { animate: false });
+    pendingView = null;
+  } else {
+    map.fitBounds(AUSTIN, { padding: [12, 12] });
+  }
 }));
 L.control.zoom({ position: 'bottomright' }).addTo(map);
 
@@ -884,9 +968,15 @@ function visibleFeatures() {
   const out = [];
   LAYERS.forEach(l => {
     if (!l.on) return;
+    const win = scrubWindowFor(l.id);
     const feats = state.data[l.id] || [];
     feats.forEach(f => {
       if (q && !(f.cat + ' ' + f.html).toLowerCase().includes(q)) return;
+      // Standing infrastructure has no timestamp and shouldn't blink in and out.
+      if (win && f.t) {
+        const v = f.t.getTime();
+        if (v < win[0] || v > win[1]) return;
+      }
       out.push({ f, l });
     });
   });
@@ -980,6 +1070,8 @@ function renderNow() {
 
   drawGeo();
   insights(vis);
+  if (window.syncModes) syncModes();
+  if (window.saveUrl) saveUrl();
 }
 
 /* ══════════════════════════════════════════════════════════════════
@@ -1118,6 +1210,13 @@ document.getElementById('crimeyear').addEventListener('change', e => {
    ══════════════════════════════════════════════════════════════════ */
 const groundRenderer = L.canvas({ pane: 'groundPane', padding: 0.35, tolerance: HIT_TOLERANCE });
 
+// Public Works grades every segment A-F off a measured roughness index.
+const STREET_COLOR = { A: '#2ecc71', B: '#9ad14b', C: '#ffd166', D: '#ff9d2e', F: '#ff4d4d' };
+const STREET_WORD = {
+  A: 'new or nearly new', B: 'good', C: 'fair',
+  D: 'deteriorated', F: 'failed — rebuild territory'
+};
+
 const GROUND = [
   {
     id: 'parks', color: '#3fbf7f', name: 'Parks', note: '371 city parks, as actual shapes',
@@ -1135,6 +1234,22 @@ const GROUND = [
       [['Model', 'Fully developed conditions']],
       '<p style="margin-top:.5rem;color:var(--muted);font-size:.72rem">Austin\'s regulatory ' +
       'floodplain assumes the whole watershed is built out, so it runs wider than the FEMA map.</p>')
+  },
+  {
+    id: 'streets', color: '#ff7a45', name: 'Street condition',
+    note: '28,006 segments graded A–F · heavier layer, ~600 KB',
+    file: 'data/streets.json',
+    style: p => ({
+      color: STREET_COLOR[p.g] || '#7a8fa8',
+      weight: p.g === 'F' ? 2.4 : p.g === 'D' ? 1.9 : 1.3,
+      opacity: p.g === 'F' || p.g === 'D' ? 0.9 : 0.55
+    }),
+    popup: p => pop(STREET_COLOR[p.g] || '#7a8fa8', 'Pavement grade ' + (p.g || '?'),
+      titleCase(p.n) || 'Street segment', '', [
+        ['Grade', p.g],
+        ['Roughness', p.i == null ? null : p.i + ' in/mile (IRI)'],
+        ['Reads as', STREET_WORD[p.g]]
+      ])
   },
   {
     id: 'trails', color: '#c9a227', name: 'Trails', note: '4,096 park and urban trail segments',
@@ -1165,11 +1280,13 @@ function groundRow(g) {
   el.querySelector('input').addEventListener('change', e => {
     g.on = e.target.checked;
     if (!g.on) {
-      if (groundLayers[g.id]) { map.removeLayer(groundLayers[g.id]); }
+      if (groundLayers[g.id]) map.removeLayer(groundLayers[g.id]);
+      if (window.syncModes) syncModes();
       return;
     }
-    if (groundLayers[g.id]) { groundLayers[g.id].addTo(map); return; }
-    loadGround(g);
+    if (groundLayers[g.id]) { groundLayers[g.id].addTo(map); }
+    else loadGround(g);
+    if (window.syncModes) syncModes();
   });
   return el;
 }
@@ -1185,7 +1302,7 @@ async function loadGround(g) {
     const gj = await res.json();
     groundLayers[g.id] = L.geoJSON(gj, {
       pane: 'groundPane',
-      style: () => g.style,
+      style: f => (typeof g.style === 'function' ? g.style(f.properties || {}) : g.style),
       pointToLayer: (f, ll) => L.circleMarker(ll, {
         pane: 'groundPane', renderer: groundRenderer,
         radius: COARSE ? 7 : 5, color: g.color, weight: 2,
@@ -1244,6 +1361,9 @@ const GEOS = {
         ['immigrants', 'Percent immigrants'],
         ['veterans', 'Percent veterans'],
         ['with_a_disability', 'Percent with a disability']]],
+      ['Streets', [
+        ['street_bad', 'Percent of streets graded D or F'],
+        ['street_iri', 'Average pavement roughness']]],
       ['Money & housing', [
         ['median_hh_income', 'Median household income'],
         ['median_home_sale_price', 'Median home sale price'],
@@ -1283,6 +1403,9 @@ const GEOS = {
         ['gap', 'Tree canopy gap vs. target'],
         ['temp', 'Summer heat vs. city average (°F)'],
         ['tes', 'Tree Equity Score (0–100)']]],
+      ['Streets', [
+        ['street_bad', 'Percent of streets graded D or F'],
+        ['street_iri', 'Average pavement roughness']]],
       ['People', [
         ['pop', 'Population'],
         ['density', 'Population per square mile'],
@@ -1297,7 +1420,7 @@ const PCT_KEYS = new Set(['below_poverty', 'renter_occupied_housing_units', 'own
   'bachelors_degree_or_higher', 'high_school_graduate_or_higher', 'uninsured', 'no_vehicle',
   'no_internet', 'worked_from_home', 'public_transportation', 'immigrants', 'veterans',
   'under_18_years', '_65_years_and_over', 'cost_burdened_total', 'with_a_disability', 'receive_snap',
-  'canopy', 'gap', 'pov', 'poc', 'unemp']);
+  'canopy', 'gap', 'pov', 'poc', 'unemp', 'street_bad']);
 const MONEY_KEYS = new Set(['median_hh_income', 'median_family_income', 'median_home_sale_price', 'average_closing_rent']);
 
 let geoLayer = null, labelLayer = null;
@@ -1316,6 +1439,7 @@ function fmtMetric(k, v) {
   if (MONEY_KEYS.has(k)) return money(v);
   if (PCT_KEYS.has(k)) return v.toFixed(1) + '%';
   if (k === 'temp') return (v > 0 ? '+' : '') + v.toFixed(1) + '°F';
+  if (k === 'street_iri') return Math.round(v) + ' IRI';
   if (k === '__per10k' || k === '__crime10k') return v.toFixed(v < 100 ? 1 : 0);
   if (k === 'median_age' || k === 'avg_hh_size') return v.toFixed(1);
   return Math.round(v).toLocaleString();
@@ -1564,7 +1688,10 @@ function unitPopup(g, p, counts, crime, key) {
       ['Below poverty', p.below_poverty + '%'],
       ['Cost-burdened', p.cost_burdened_total + '%'],
       ['Median commute', p.median_travel_time_to_work + ' min'],
-      ['No vehicle', p.no_vehicle + '%']);
+      ['No vehicle', p.no_vehicle + '%'],
+      ['Streets graded D/F', p.street_bad == null ? null
+        : p.street_bad + '% of ' + p.street_n + ' segments'],
+      ['Pavement roughness', p.street_iri == null ? null : p.street_iri + ' IRI']);
   } else {
     rows.push(
       ['Population', pop ? pop.toLocaleString() : null],
@@ -1576,7 +1703,10 @@ function unitPopup(g, p, counts, crime, key) {
         : (p.temp > 0 ? '+' : '') + p.temp + '°F vs. city average'],
       ['Tree Equity Score', p.tes == null ? null : p.tes + ' / 100'],
       ['Below poverty', p.pov == null ? null : p.pov + '%'],
-      ['Unemployment', p.unemp == null ? null : p.unemp + '%']);
+      ['Unemployment', p.unemp == null ? null : p.unemp + '%'],
+      ['Streets graded D/F', p.street_bad == null ? null
+        : p.street_bad + '% of ' + p.street_n + ' segments'],
+      ['Pavement roughness', p.street_iri == null ? null : p.street_iri + ' IRI']);
   }
 
   const foot = state.geo === 'district'
@@ -2183,11 +2313,244 @@ function insights(vis) {
   box.innerHTML = html;
 }
 
+
+/* ── Time scrubber ─────────────────────────────────────────────────
+   Every timestamped point is already loaded, so playback is a filter
+   rather than a fetch. A sweeping sub-window is what makes the shape
+   of a day visible: 311 clustering in the morning, crashes after last
+   call, traffic at both peaks.
+
+   The layers do not share a timeline — traffic is live to the minute
+   while crashes stop at whatever Vision Zero last published, and the
+   fire archive is a whole calendar year. Sweeping one absolute clock
+   across all of them would show an empty map for most of the run, so
+   each layer sweeps the same relative position through its own range.
+   The readout follows whichever layer has the most points.
+
+   Layers with no clock — stations, libraries, art, cameras, and all
+   the ground shapes — are standing infrastructure and stay put.      */
+const SCRUB = { on: false, playing: false, pos: 0, timer: null, ranges: null, lead: null };
+
+// The sweep covers a twelfth of each layer's range, floored at 30 minutes so
+// a 24h view still moves in readable steps.
+const scrubSpan = ms => Math.max(30 * 60 * 1000, ms / 12);
+
+function scrubBuildRanges() {
+  const ranges = {};
+  let lead = null, leadN = 0;
+  LAYERS.forEach(l => {
+    if (!l.on) return;
+    let lo = Infinity, hi = -Infinity, n = 0;
+    (state.data[l.id] || []).forEach(f => {
+      if (!f.t) return;
+      const v = f.t.getTime();
+      if (v < lo) lo = v;
+      if (v > hi) hi = v;
+      n++;
+    });
+    if (n < 2 || lo >= hi) return;
+    ranges[l.id] = { lo, hi, span: scrubSpan(hi - lo) };
+    if (n > leadN) { leadN = n; lead = l.id; }
+  });
+  return Object.keys(ranges).length ? { ranges, lead } : null;
+}
+
+// Window for one layer at the current position, kept inside its own range.
+function scrubWindowFor(id) {
+  if (!SCRUB.on || !SCRUB.ranges) return null;
+  const r = SCRUB.ranges[id];
+  if (!r) return null;
+  const start = r.lo + Math.max(0, r.hi - r.lo - r.span) * SCRUB.pos;
+  return [start, start + r.span];
+}
+
+function fmtScrub(t, wide) {
+  const d = new Date(t);
+  return wide
+    ? d.toLocaleDateString([], { month: 'short', day: 'numeric' }) + ' '
+      + d.toLocaleTimeString([], { hour: 'numeric' })
+    : d.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+}
+
+function scrubPaint() {
+  const el = document.getElementById('scrublabel');
+  const w = SCRUB.lead && scrubWindowFor(SCRUB.lead);
+  if (!w) { el.textContent = '—'; return; }
+  const r = SCRUB.ranges[SCRUB.lead];
+  const wide = (r.hi - r.lo) > 36 * 3600 * 1000;
+  el.textContent = fmtScrub(w[0], wide) + ' → ' + fmtScrub(w[1], wide);
+  el.title = 'Following ' + (byId[SCRUB.lead] || {}).name
+    + '. Each layer sweeps the same relative point in its own range.';
+}
+
+function scrubOpen() {
+  const built = scrubBuildRanges();
+  if (!built) { pulse('nothing with a clock is switched on', 'err'); return; }
+  SCRUB.ranges = built.ranges;
+  SCRUB.lead = built.lead;
+  SCRUB.on = true;
+  SCRUB.pos = 0;
+  document.getElementById('scrub').hidden = false;
+  document.getElementById('scrubrange').value = 0;
+  scrubPaint();
+  render();
+  scrubPlay(true);
+}
+
+function scrubClose() {
+  scrubPlay(false);
+  SCRUB.on = false;
+  SCRUB.ranges = null;
+  document.getElementById('scrub').hidden = true;
+  render();
+  syncScrubButton();
+}
+
+function scrubPlay(on) {
+  SCRUB.playing = on;
+  clearInterval(SCRUB.timer);
+  SCRUB.timer = null;
+  const b = document.getElementById('scrubplay');
+  b.innerHTML = on ? '&#10074;&#10074;' : '&#9654;';
+  b.title = on ? 'Pause' : 'Play';
+  if (!on) return;
+  // 140 steps at ~8fps: about 18 seconds end to end, then it loops.
+  SCRUB.timer = setInterval(() => {
+    SCRUB.pos += 1 / 140;
+    if (SCRUB.pos > 1) SCRUB.pos = 0;
+    document.getElementById('scrubrange').value = Math.round(SCRUB.pos * 1000);
+    scrubPaint();
+    render();
+  }, 125);
+}
+
+function syncScrubButton() {
+  const b = document.getElementById('scrubtoggle');
+  if (b) b.classList.toggle('on', SCRUB.on);
+}
+
+document.getElementById('scrubplay').onclick = () => scrubPlay(!SCRUB.playing);
+document.getElementById('scrubclose').onclick = scrubClose;
+document.getElementById('scrubrange').addEventListener('input', e => {
+  scrubPlay(false);
+  SCRUB.pos = +e.target.value / 1000;
+  scrubPaint();
+  render();
+});
+
+document.getElementById('scrubtoggle').onclick = () => {
+  if (SCRUB.on) scrubClose(); else { scrubOpen(); syncScrubButton(); }
+};
+
+/* ══════════════════════════════════════════════════════════════════
+   Modes — the page has grown a lot of switches, and a wall of them has
+   no point of view. Each mode is a coherent starting position: which
+   points, which shapes, which geography, shaded by what.
+   ══════════════════════════════════════════════════════════════════ */
+const MODES = {
+  safety: {
+    blurb: 'Live wrecks and dispatches over crime per resident. The shading is what stops '
+         + 'this being a map of where the most people are.',
+    days: 1, layers: ['traffic', 'crashes', 'stations'], ground: [],
+    geo: 'bg', metric: '__crime10k', crime: true
+  },
+  housing: {
+    blurb: 'A month of issued permits against what a home costs in each district — where the '
+         + 'building is happening, and where it is not.',
+    days: 30, layers: ['permits'], ground: [],
+    geo: 'district', metric: 'median_home_sale_price', crime: false
+  },
+  nature: {
+    blurb: 'Parks, trails and the 100-year floodplain over tree canopy. Austin\'s west side is '
+         + 'green and its east side is hot, and the split is hard to unsee.',
+    days: 1, layers: [], ground: ['parks', 'trails', 'flood'],
+    geo: 'bg', metric: 'canopy', crime: false
+  }
+};
+
+function setLayerOn(l, on) {
+  l.on = on;
+  const box = document.querySelector('#note-' + l.id).closest('.row').querySelector('input');
+  box.checked = on;
+  if (l.id === 'c311') c311PanelVisible(on);
+}
+
+function setGroundOn(g, on) {
+  g.on = on;
+  const row = [...document.querySelectorAll('#ground .row')]
+    .find(r => r.textContent.includes(g.name));
+  if (row) row.querySelector('input').checked = on;
+  if (!on) { if (groundLayers[g.id]) map.removeLayer(groundLayers[g.id]); return; }
+  if (groundLayers[g.id]) groundLayers[g.id].addTo(map); else loadGround(g);
+}
+
+async function applyMode(name) {
+  const m = MODES[name];
+  if (!m) return;
+  if (SCRUB.on) scrubClose();
+
+  document.getElementById('modenote').innerHTML = m.blurb;
+
+  if (state.days !== m.days) {
+    state.days = m.days;
+    document.querySelectorAll('#window button')
+      .forEach(b => b.classList.toggle('on', +b.dataset.d === m.days));
+    LAYERS.forEach(l => { if (l.group === 'recent') delete state.data[l.id]; });
+  }
+  LAYERS.forEach(l => setLayerOn(l, m.layers.includes(l.id)));
+  GROUND.forEach(g => setGroundOn(g, m.ground.includes(g.id)));
+
+  const crimeBox = document.querySelector('#crimerow input');
+  CRIME.on = m.crime;
+  crimeBox.checked = m.crime;
+
+  state.metric = m.metric;
+  setGeo(m.geo);                       // fills the metric select for that geography
+  document.getElementById('metric').value = m.metric;
+  state.metric = m.metric;
+
+  LAYERS.forEach(l => { if (l.on && !state.data[l.id]) fetchLayer(l); });
+  render();
+  if (m.crime) { loadCrime(); loadCrimeTop(false); } else { crimeTrend(); }
+  syncModes();
+}
+
+// A mode stays lit only while the map still matches it.
+function currentMode() {
+  const on = LAYERS.filter(l => l.on).map(l => l.id).sort().join(',');
+  const gr = GROUND.filter(g => g.on).map(g => g.id).sort().join(',');
+  for (const [name, m] of Object.entries(MODES)) {
+    if (state.days === m.days
+        && on === m.layers.slice().sort().join(',')
+        && gr === m.ground.slice().sort().join(',')
+        && state.geo === m.geo && state.metric === m.metric && CRIME.on === m.crime) {
+      return name;
+    }
+  }
+  return null;
+}
+
+function syncModes() {
+  const cur = currentMode();
+  document.querySelectorAll('#modes button')
+    .forEach(b => b.classList.toggle('on', b.dataset.m === cur));
+  if (!cur) document.getElementById('modenote').textContent = '';
+}
+
+document.getElementById('sharebtn').onclick = copyLink;
+map.on('moveend zoomend', saveUrl);
+
+document.getElementById('modes').addEventListener('click', e => {
+  const b = e.target.closest('button');
+  if (b) applyMode(b.dataset.m);
+});
+
 /* ── Controls ──────────────────────────────────────────────────── */
 document.getElementById('window').addEventListener('click', e => {
   const b = e.target.closest('button'); if (!b) return;
   document.querySelectorAll('#window button').forEach(x => x.classList.toggle('on', x === b));
   state.days = +b.dataset.d;
+  if (SCRUB.on) scrubClose();
   refreshActive(true);
   if (byId.c311.on) loadC311Top(true);
 });
@@ -2203,6 +2566,7 @@ document.getElementById('fireyear').addEventListener('change', () => {
 });
 document.getElementById('metric').addEventListener('change', e => {
   state.metric = e.target.value;
+  syncModes();
   // Crime is fetched per geography; ask for it if it isn't loaded yet.
   if ((state.metric === '__crime' || state.metric === '__crime10k')
       && CRIME.on && CRIME.geo !== state.geo) loadCrime();
@@ -2211,6 +2575,7 @@ document.getElementById('metric').addEventListener('change', e => {
 
 function setGeo(g) {
   state.geo = g;
+  if (window.syncModes) setTimeout(syncModes, 0);
   document.querySelectorAll('#geo button').forEach(b => b.classList.toggle('on', b.dataset.g === g));
   fillMetricSelect();
   if (g === 'none') { drawGeo(); return; }
@@ -2276,9 +2641,175 @@ sheet.onclick = () => {
   sheet.textContent = p.classList.contains('open') ? 'Hide panel' : 'Layers & stats';
 };
 
+
+/* ── Shareable state ───────────────────────────────────────────────
+   Everything that makes a view a view goes in the hash, so a link
+   opens what the sender was looking at. replaceState rather than
+   pushState — nobody wants forty history entries from dragging a
+   slider. Written debounced; suppressed while restoring.            */
+let urlTimer = null, restoring = false, lastHash = null;
+
+function saveUrl() {
+  if (restoring) return;
+  clearTimeout(urlTimer);
+  urlTimer = setTimeout(() => {
+    const c = map.getCenter();
+    const p = new URLSearchParams();
+    p.set('d', state.days);
+    p.set('l', LAYERS.filter(l => l.on).map(l => l.id).join(','));
+    p.set('g', GROUND.filter(x => x.on).map(x => x.id).join(','));
+    p.set('geo', state.geo);
+    p.set('met', state.metric);
+    p.set('r', state.mode);
+    p.set('v', c.lat.toFixed(4) + ',' + c.lng.toFixed(4) + ',' + map.getZoom());
+    if (CRIME.on) p.set('c', [CRIME.cat, CRIME.year, CRIME.scope].join('|'));
+    if (byId.c311.on) p.set('t', C311.scope);
+    if (byId.fires.on) p.set('fy', document.getElementById('fireyear').value);
+    if (state.q.trim()) p.set('q', state.q.trim());
+    const hash = '#' + p.toString();
+    if (hash !== location.hash) {
+      lastHash = hash;
+      history.replaceState(null, '', location.pathname + hash);
+    }
+  }, 400);
+}
+
+function restoreUrl() {
+  const raw = location.hash.replace(/^#/, '');
+  if (!raw) return false;
+  const p = new URLSearchParams(raw);
+  if (![...p.keys()].length) return false;
+
+  restoring = true;
+  try {
+    const days = +p.get('d');
+    if (days) {
+      state.days = days;
+      document.querySelectorAll('#window button')
+        .forEach(b => b.classList.toggle('on', +b.dataset.d === days));
+    }
+    if (p.has('l')) {
+      const want = p.get('l').split(',').filter(Boolean);
+      LAYERS.forEach(l => setLayerOn(l, want.includes(l.id)));
+    }
+    if (p.has('fy')) {
+      const sel = document.getElementById('fireyear');
+      if ([...sel.options].some(o => o.value === p.get('fy'))) sel.value = p.get('fy');
+    }
+    if (p.has('r')) {
+      const r = p.get('r');
+      if (['points', 'cluster', 'heat'].includes(r)) {
+        state.mode = r;
+        document.querySelectorAll('#mode button').forEach(b => b.classList.toggle('on', b.dataset.m === r));
+      }
+    }
+    if (p.has('q')) {
+      state.q = p.get('q');
+      document.getElementById('q').value = state.q;
+    }
+    if (p.has('c')) {
+      const [cat, year, scope] = p.get('c').split('|');
+      CRIME.on = true;
+      document.querySelector('#crimerow input').checked = true;
+      const cs = document.getElementById('crimecat');
+      if ([...cs.options].some(o => o.value === cat)) { CRIME.cat = cat; cs.value = cat; }
+      const ys = document.getElementById('crimeyear');
+      if ([...ys.options].some(o => o.value === year)) { CRIME.year = year; ys.value = year; }
+      if (['city', 'view', 'me'].includes(scope) && scope !== 'me') {
+        CRIME.scope = scope;
+        document.querySelectorAll('#crimescope button')
+          .forEach(x => x.classList.toggle('on', x.dataset.s === scope));
+      }
+    }
+    if (p.has('t')) {
+      const t = p.get('t');
+      if (['city', 'view'].includes(t)) {
+        C311.scope = t;
+        document.querySelectorAll('#c311scope button')
+          .forEach(x => x.classList.toggle('on', x.dataset.s === t));
+      }
+    }
+    if (p.has('v')) {
+      const [lat, lng, z] = p.get('v').split(',').map(Number);
+      if (isFinite(lat) && isFinite(lng) && isFinite(z)) {
+        pendingView = [[lat, lng], Math.max(9, Math.min(18, z))];
+      }
+    }
+    // Geography last: it fills the metric select, which the metric depends on.
+    if (p.has('geo')) {
+      const g = p.get('geo');
+      if (['none', 'district', 'bg'].includes(g)) {
+        if (p.has('met')) state.metric = p.get('met');
+        setGeo(g);
+        if (p.has('met')) {
+          const sel = document.getElementById('metric');
+          if ([...sel.querySelectorAll('option')].some(o => o.value === p.get('met'))) {
+            sel.value = p.get('met');
+            state.metric = p.get('met');
+          }
+        }
+      }
+    }
+    if (p.has('g')) {
+      const want = p.get('g').split(',').filter(Boolean);
+      GROUND.forEach(x => { if (want.includes(x.id)) setGroundOn(x, true); });
+    }
+  } catch (e) {
+    console.error('could not restore that link', e);
+  } finally {
+    restoring = false;
+  }
+  return true;
+}
+
+// The map is framed after layout settles, so a restored view has to wait too.
+let pendingView = null;
+
+window.addEventListener('hashchange', () => {
+  if (location.hash === lastHash) return;      // that one was ours
+  if (SCRUB.on) scrubClose();
+  if (!restoreUrl()) return;
+  if (pendingView) {
+    map.setView(pendingView[0], pendingView[1], { animate: false });
+    pendingView = null;
+  }
+  refreshActive(true);
+  if (CRIME.on) { loadCrime(); loadCrimeTop(true); }
+  if (byId.c311.on) loadC311Top(true);
+  syncModes();
+});
+
+function copyLink() {
+  const btn = document.getElementById('sharebtn');
+  const url = location.href;
+  const done = ok => {
+    btn.textContent = ok ? 'Link copied' : 'Copy failed';
+    setTimeout(() => { btn.textContent = 'Copy link to this view'; }, 1800);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(url).then(() => done(true), () => done(false));
+  } else {
+    // Older iOS Safari and any insecure context land here.
+    const ta = document.createElement('textarea');
+    ta.value = url;
+    ta.style.cssText = 'position:fixed;top:-1000px';
+    document.body.appendChild(ta);
+    ta.select();
+    let ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) {}
+    ta.remove();
+    done(ok);
+  }
+}
+
 /* ── Go ────────────────────────────────────────────────────────── */
 fillMetricSelect();
+restoreUrl();
 refreshActive(false);
+if (CRIME.on) { loadCrime(); loadCrimeTop(false); }
+if (byId.c311.on) loadC311Top(false);
+syncModes();
+saveUrl();
 // Live traffic keeps refreshing on its own; everything else stays put.
 setInterval(() => {
   if (byId.traffic.on && !state.busy.traffic) {

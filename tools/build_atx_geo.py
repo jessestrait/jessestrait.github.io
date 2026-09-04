@@ -139,3 +139,109 @@ kept = [{"type": "Feature", "geometry": f["geometry"], "properties": {}}
 json.dump({"type": "FeatureCollection", "features": kept},
           open(f"{OUT}/floodplain.json", "w"), separators=(",", ":"))
 print("floodplain:", len(fp), "fetched,", len(kept), "kept", size(f"{OUT}/floodplain.json"))
+
+
+# ── 5. Street condition ───────────────────────────────────────────────
+# 28k graded segments. The drawable layer is heavy and loads on demand, but
+# the interesting question — are the worst streets in the poorest places? —
+# is a join, so it is computed here and baked onto the geography files.
+GRADE_PTS = {"A": 4, "B": 3, "C": 2, "D": 1, "F": 0}
+
+st, off = [], 0
+while True:
+    d = query("TRANSPORTATION_pw_street_condition_scores", where="GRADE <> ' '",
+              outFields="FULL_STREET_NAME,GRADE,INTL_ROUGHNESS_INDEX_AVG",
+              geometryPrecision="4", maxAllowableOffset="0.0002",
+              resultOffset=off, resultRecordCount=2000)
+    f = d.get("features", [])
+    st += f
+    if len(f) < 2000:
+        break
+    off += 2000
+
+streets = []
+for f in st:
+    a, g = f["properties"], f.get("geometry")
+    if not g:
+        continue
+    iri = a.get("INTL_ROUGHNESS_INDEX_AVG")
+    streets.append({"type": "Feature", "geometry": g, "properties": {
+        "n": a.get("FULL_STREET_NAME"), "g": a.get("GRADE"),
+        "i": None if iri is None else int(iri)}})
+
+json.dump({"type": "FeatureCollection", "features": streets},
+          open(f"{OUT}/streets.json", "w"), separators=(",", ":"))
+print("streets:", len(streets), size(f"{OUT}/streets.json"))
+
+# ── join segment midpoints onto each geography ────────────────────────
+def midpoint(geom):
+    c = geom["coordinates"]
+    line = c[len(c) // 2] if geom["type"] == "MultiLineString" else c
+    if not line:
+        return None
+    return line[len(line) // 2]
+
+def ring_contains(pt, ring):
+    x, y = pt
+    inside = False
+    j = len(ring) - 1
+    for i in range(len(ring)):
+        xi, yi = ring[i][0], ring[i][1]
+        xj, yj = ring[j][0], ring[j][1]
+        if (yi > y) != (yj > y) and x < (xj - xi) * (y - yi) / (yj - yi) + xi:
+            inside = not inside
+        j = i
+    return inside
+
+def feature_contains(feat, pt):
+    g = feat["geometry"]
+    polys = [g["coordinates"]] if g["type"] == "Polygon" else g["coordinates"]
+    for poly in polys:
+        if ring_contains(pt, poly[0]) and not any(ring_contains(pt, h) for h in poly[1:]):
+            return True
+    return False
+
+def bbox(feat):
+    xs, ys = [], []
+    def walk(c):
+        if isinstance(c[0], (int, float)):
+            xs.append(c[0]); ys.append(c[1])
+        else:
+            for x in c:
+                walk(x)
+    walk(feat["geometry"]["coordinates"])
+    return min(xs), max(xs), min(ys), max(ys)
+
+def join_streets(path, keyfield):
+    fc = json.load(open(path))
+    boxes = [bbox(f) for f in fc["features"]]
+    acc = {i: {"n": 0, "iri": 0, "bad": 0} for i in range(len(fc["features"]))}
+    for s in streets:
+        pt = midpoint(s["geometry"])
+        if not pt:
+            continue
+        for i, f in enumerate(fc["features"]):
+            b = boxes[i]
+            if not (b[0] <= pt[0] <= b[1] and b[2] <= pt[1] <= b[3]):
+                continue
+            if feature_contains(f, pt):
+                a = acc[i]
+                a["n"] += 1
+                if s["properties"]["i"]:
+                    a["iri"] += s["properties"]["i"]
+                if s["properties"]["g"] in ("D", "F"):
+                    a["bad"] += 1
+                break
+    hit = 0
+    for i, f in enumerate(fc["features"]):
+        a = acc[i]
+        if a["n"]:
+            hit += 1
+            f["properties"]["street_n"] = a["n"]
+            f["properties"]["street_iri"] = round(a["iri"] / a["n"])
+            f["properties"]["street_bad"] = round(a["bad"] / a["n"] * 100, 1)
+    json.dump(fc, open(path, "w"), separators=(",", ":"))
+    print(f"  joined into {os.path.basename(path)}: {hit}/{len(fc['features'])} units, {size(path)}")
+
+join_streets(f"{OUT}/blockgroups.json", "k")
+join_streets(f"{OUT}/districts.json", "d")
