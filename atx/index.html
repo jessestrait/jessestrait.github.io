@@ -24,7 +24,7 @@ html{
      touch-action on .leaflet-container, so the map keeps its pinch. */
   touch-action:manipulation;
 }
-body{overscroll-behavior:none}
+
 #panel{touch-action:pan-y; -webkit-overflow-scrolling:touch}
 body{
   background:var(--bg); color:var(--text); font-family:'DM Sans',sans-serif;
@@ -140,7 +140,7 @@ label.mini{font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; col
 #scrub #scrubclose{background:none; color:var(--muted); font-size:1.1rem}
 #scrub #scrubclose:hover{color:var(--text)}
 #scrubrange{
-  flex:1; appearance:none; height:4px; border-radius:2px; margin:0;
+  flex:1 1 40px; min-width:0; appearance:none; height:4px; border-radius:2px; margin:0;
   background:var(--border); cursor:pointer; padding:0;
 }
 #scrubrange::-webkit-slider-thumb{
@@ -153,11 +153,13 @@ label.mini{font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; col
 }
 #scrublabel{
   font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--text);
-  white-space:nowrap; flex:0 0 auto; min-width:104px; text-align:right;
+  white-space:nowrap; flex:0 1 auto; min-width:0; overflow:hidden;
+  text-overflow:ellipsis; text-align:right;
 }
 @media (max-width:820px){
-  #scrub{bottom:4.6rem; width:calc(100% - 1.6rem)}
-  #scrublabel{font-size:.64rem; min-width:92px}
+  #scrub{bottom:5.4rem; left:.7rem; right:3.6rem; width:auto; transform:none;
+         gap:.45rem; padding:.45rem .55rem}
+  #scrublabel{font-size:.62rem}
 }
 
 /* ── Where you are ───────────────────────────────────── */
@@ -2329,7 +2331,7 @@ function insights(vis) {
 
    Layers with no clock — stations, libraries, art, cameras, and all
    the ground shapes — are standing infrastructure and stay put.      */
-const SCRUB = { on: false, playing: false, pos: 0, timer: null, ranges: null, lead: null };
+const SCRUB = { on: false, playing: false, wasPlaying: false, pos: 0, timer: null, ranges: null, lead: null };
 
 // The sweep covers a twelfth of each layer's range, floored at 30 minutes so
 // a 24h view still moves in readable steps.
@@ -2393,6 +2395,9 @@ function scrubOpen() {
   document.getElementById('scrub').hidden = false;
   document.getElementById('scrubrange').value = 0;
   scrubPaint();
+  // The sheet covers three quarters of the map on a phone — playing an
+  // animation underneath it would show the viewer nothing.
+  if (isSheet()) setPanel(false);
   render();
   scrubPlay(true);
 }
@@ -2601,9 +2606,27 @@ document.getElementById('q').addEventListener('input', e => {
 map.on('resize', () => {
   if (state.mode === 'heat' && map.getSize().x > 0 && !(heatLayer && map.hasLayer(heatLayer))) render();
 });
+/* iOS parks background tabs and can restore them at a different viewport size.
+   Leaflet caches its container size, so without this the map comes back with
+   stale dimensions: gestures land in the wrong place and it reads as frozen. */
+function wakeUp() {
+  map.invalidateSize();
+  if (SCRUB.on && SCRUB.wasPlaying) { SCRUB.wasPlaying = false; scrubPlay(true); }
+  render();
+}
+
 document.addEventListener('visibilitychange', () => {
-  if (!document.hidden && state.mode === 'heat' && !(heatLayer && map.hasLayer(heatLayer))) render();
+  if (document.hidden) {
+    // Don't leave a timer redrawing 16k markers in a tab nobody is looking at.
+    if (SCRUB.playing) { SCRUB.wasPlaying = true; scrubPlay(false); }
+    return;
+  }
+  setTimeout(wakeUp, 60);
 });
+
+// Fires on a normal load and on a back/forward (bfcache) restore alike.
+window.addEventListener('pageshow', e => { if (e.persisted) setTimeout(wakeUp, 60); });
+window.addEventListener('focus', () => { if (!document.hidden) map.invalidateSize(); });
 
 map.on('moveend', () => { if (state.viewOnly) insights(visibleFeatures()); });
 map.on('zoomend', () => {
@@ -2630,16 +2653,26 @@ document.addEventListener('keydown', e => {
    header off-screen with no obvious way back, since the map's own zoom control
    doesn't touch page zoom. Safari fires gesture* events for that; Leaflet drives
    its own pinch from touch* events, so blocking these leaves the map alone. */
+// Pinching the header or the panel used to zoom the whole document and strand
+// the fixed header off-screen. Block it there — but never over the map, and
+// never document-wide: that leaves no way to pinch back out of a bad state.
 ['gesturestart', 'gesturechange', 'gestureend'].forEach(t => {
-  document.addEventListener(t, e => e.preventDefault(), { passive: false });
+  document.addEventListener(t, e => {
+    if (e.target && e.target.closest && e.target.closest('#topbar, #panel, #scrub, #sheetbtn')) {
+      e.preventDefault();
+    }
+  }, { passive: false });
 });
 
 const sheet = document.getElementById('sheetbtn');
-sheet.onclick = () => {
+const isSheet = () => getComputedStyle(sheet).display !== 'none';
+
+function setPanel(open) {
   const p = document.getElementById('panel');
-  p.classList.toggle('open');
-  sheet.textContent = p.classList.contains('open') ? 'Hide panel' : 'Layers & stats';
-};
+  p.classList.toggle('open', open);
+  sheet.textContent = open ? 'Hide panel' : 'Layers & stats';
+}
+sheet.onclick = () => setPanel(!document.getElementById('panel').classList.contains('open'));
 
 
 /* ── Shareable state ───────────────────────────────────────────────
@@ -2669,9 +2702,12 @@ function saveUrl() {
     const hash = '#' + p.toString();
     if (hash !== location.hash) {
       lastHash = hash;
-      history.replaceState(null, '', location.pathname + hash);
+      // Safari throws past ~100 replaceState calls in 30s, and an uncaught
+      // throw here would take the render pipeline with it.
+      try { history.replaceState(null, '', location.pathname + hash); }
+      catch (e) { /* the address bar just lags a moment */ }
     }
-  }, 400);
+  }, 600);
 }
 
 function restoreUrl() {
@@ -2812,6 +2848,7 @@ syncModes();
 saveUrl();
 // Live traffic keeps refreshing on its own; everything else stays put.
 setInterval(() => {
+  if (document.hidden) return;
   if (byId.traffic.on && !state.busy.traffic) {
     delete state.data.traffic;
     fetchLayer(byId.traffic);
