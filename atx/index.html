@@ -357,9 +357,10 @@ dl.mecard a{color:var(--accent-hi)}
 
     <div class="sec" id="modesec">
       <h3>Start somewhere</h3>
-      <p class="hint">Three ready-made views. Change anything below and you're on your own from
+      <p class="hint">Four ready-made views. Change anything below and you're on your own from
         there &mdash; which is the point.</p>
       <div class="seg" id="modes">
+        <button data-m="traffic">Traffic&nbsp;now</button>
         <button data-m="safety">Safety</button>
         <button data-m="housing">Housing</button>
         <button data-m="nature">Nature</button>
@@ -552,6 +553,12 @@ dl.mecard a{color:var(--accent-hi)}
         each layer sweeps the same relative position through its own range rather than pretending
         to one timeline. Anything without a clock &mdash; stations, libraries, art, cameras, and
         every ground shape &mdash; is standing infrastructure and stays put.</li>
+      <li><b>Live congestion</b> &mdash; <b>TomTom</b> raster flow tiles, optional and off unless a
+        key is set. It sits deliberately <em>under</em> the APD/ATD dispatch pins, because traffic
+        on its own is something every phone already has &mdash; the jam next to the wreck causing it
+        is not. TomTom is the one vendor whose terms allow their traffic over someone else's
+        basemap; Google's renders only on a Google map and their terms forbid it elsewhere, which
+        would have meant discarding everything this page is built on.</li>
       <li><b>Weather alerts</b> &mdash; <b>api.weather.gov</b>, the National Weather Service's own
         feed. Free, no key, and the only non-Austin source on the page. Every alert carries FIPS
         county codes whether or not it ships a polygon, which is what scopes it to Travis and its
@@ -594,8 +601,10 @@ dl.mecard a{color:var(--accent-hi)}
 <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
 <script>
 /* ══════════════════════════════════════════════════════════════════
-   ATX Layers — every layer is a live Socrata query against
-   data.austintexas.gov. No API key, no backend, no storage.
+   ATX Layers — no backend and no storage. Almost everything is a live
+   Socrata query against data.austintexas.gov, plus the city's GeoHub
+   and the National Weather Service, none of which need a key. The one
+   exception is the optional TomTom congestion layer; see TOMTOM_KEY.
    ══════════════════════════════════════════════════════════════════ */
 
 const API = 'https://data.austintexas.gov/resource/';
@@ -914,7 +923,7 @@ L.control.zoom({ position: 'bottomright' }).addTo(map);
 
 // leaflet.heat always draws into Leaflet's own overlayPane (z-index 400), so the
 // choropleth goes below that and everything else stacks above it.
-const PANES = { groundPane: 330, districtPane: 350, labelPane2: 460, alertPane: 470, dotPane: 490, livePane: 520 };
+const PANES = { trafficPane: 250, groundPane: 330, districtPane: 350, labelPane2: 460, alertPane: 470, dotPane: 490, livePane: 520 };
 Object.entries(PANES).forEach(([p, z]) => { map.createPane(p).style.zIndex = z; });
 // Leaflet detaches a renderer when its last path is removed, so each redraw gets a fresh one.
 let dotRenderer = null;
@@ -2567,6 +2576,12 @@ document.getElementById('scrubtoggle').onclick = () => {
    points, which shapes, which geography, shaded by what.
    ══════════════════════════════════════════════════════════════════ */
 const MODES = {
+  traffic: {
+    blurb: 'Congestion under the dispatch pins. The colour is where it is slow; the pins are '
+         + 'what is blocking it, which is the pairing the big map apps do not give you.',
+    days: 1, layers: ['traffic', 'cameras'], ground: [],
+    geo: 'none', metric: '__per10k', crime: false, tomtom: true
+  },
   safety: {
     blurb: 'Live wrecks and dispatches over crime per resident. The shading is what stops '
          + 'this being a map of where the most people are.',
@@ -2618,6 +2633,7 @@ async function applyMode(name) {
   }
   LAYERS.forEach(l => setLayerOn(l, m.layers.includes(l.id)));
   GROUND.forEach(g => setGroundOn(g, m.ground.includes(g.id)));
+  if (!!m.tomtom !== TRAFFIC.on) trafficOn(!!m.tomtom);
 
   const crimeBox = document.querySelector('#crimerow input');
   CRIME.on = m.crime;
@@ -2642,7 +2658,10 @@ function currentMode() {
     if (state.days === m.days
         && on === m.layers.slice().sort().join(',')
         && gr === m.ground.slice().sort().join(',')
-        && state.geo === m.geo && state.metric === m.metric && CRIME.on === m.crime) {
+        && state.geo === m.geo && state.metric === m.metric && CRIME.on === m.crime
+        // Without a key there are no tiles to match against, and holding the
+        // mode to a condition it can never meet just makes it look broken.
+        && (!TOMTOM_KEY || TRAFFIC.on === !!m.tomtom)) {
       return name;
     }
   }
@@ -2664,6 +2683,108 @@ document.getElementById('modes').addEventListener('click', e => {
   if (b) applyMode(b.dataset.m);
 });
 
+
+/* ══════════════════════════════════════════════════════════════════
+   Live traffic flow — TomTom raster flow tiles.
+
+   The point of this layer is not traffic on its own; every phone
+   already has that. It is that the congestion sits *under* the live
+   APD/ATD dispatch pins, so you get the jam and the wreck causing it
+   in one view, which the big map apps don't show you.
+
+   TomTom is the one vendor whose terms permit overlaying their traffic
+   on a third-party basemap, and the tiles are transparent PNG built
+   for exactly that. Google's traffic only renders on a Google map and
+   their terms forbid it over anyone else's, so it was never an option
+   here without throwing away everything this page is built on.
+
+   The key below is a browser key: it ships in the page, like every
+   client-side map key. Lock it to this domain in the TomTom console
+   (Referrer restrictions) and rotating it is a one-line change.
+   ══════════════════════════════════════════════════════════════════ */
+const TOMTOM_KEY = '';        // ← paste a TomTom API key here to switch this on
+
+const TRAFFIC = { on: false, layer: null, errors: 0, timer: null };
+// relative0-dark is the variant meant for dark basemaps; relative-delay
+// draws only the segments that are actually slow, if this reads too busy.
+const TRAFFIC_STYLE = 'relative0-dark';
+
+function trafficUrl() {
+  return 'https://api.tomtom.com/traffic/map/4/tile/flow/' + TRAFFIC_STYLE
+    + '/{z}/{x}/{y}.png?key=' + encodeURIComponent(TOMTOM_KEY)
+    + '&thickness=6&tileSize=256&t={t}';
+}
+
+function trafficOn(on) {
+  TRAFFIC.on = on;
+  const row = document.getElementById('row-traffictiles');
+  if (row) row.querySelector('input').checked = on;
+
+  if (!on) {
+    if (TRAFFIC.layer) { map.removeLayer(TRAFFIC.layer); TRAFFIC.layer = null; }
+    clearInterval(TRAFFIC.timer); TRAFFIC.timer = null;
+    setTrafficNote('Congestion under the incident pins &mdash; the jam and its cause together.');
+    if (window.syncModes) syncModes();
+    return;
+  }
+  if (!TOMTOM_KEY) {
+    TRAFFIC.on = false;
+    if (row) row.querySelector('input').checked = false;
+    setTrafficNote('Needs a TomTom key &mdash; free, 200k tiles a month. Drop one into '
+      + '<code>TOMTOM_KEY</code> at the top of the script.', true);
+    return;
+  }
+
+  TRAFFIC.errors = 0;
+  TRAFFIC.layer = L.tileLayer(trafficUrl(), {
+    pane: 'trafficPane', maxZoom: 22, opacity: 0.85, t: Date.now(),
+    attribution: 'Traffic &copy; <a href="https://www.tomtom.com/">TomTom</a>'
+  });
+  // Quota exhaustion or a bad key comes back as tile errors, not an exception.
+  TRAFFIC.layer.on('tileerror', () => {
+    if (++TRAFFIC.errors < 6 || !TRAFFIC.on) return;
+    trafficOn(false);
+    setTrafficNote('TomTom stopped serving tiles &mdash; usually the monthly free '
+      + 'allowance, which resets. The rest of the map is unaffected.', true);
+  });
+  TRAFFIC.layer.addTo(map);
+  setTrafficNote('Live from TomTom &middot; refreshed every 5 minutes');
+
+  // Flow changes by the minute, but every refresh re-requests tiles, so keep
+  // it slow and never do it into a tab nobody is looking at.
+  clearInterval(TRAFFIC.timer);
+  TRAFFIC.timer = setInterval(() => {
+    if (document.hidden || !TRAFFIC.layer) return;
+    TRAFFIC.layer.options.t = Date.now();
+    TRAFFIC.layer.setUrl(trafficUrl(), false);
+  }, 300000);
+  if (window.syncModes) syncModes();
+}
+
+function setTrafficNote(html, warn) {
+  const el = document.getElementById('note-traffictiles');
+  if (!el) return;
+  el.innerHTML = html;
+  el.style.color = warn ? '#ffb570' : '';
+}
+
+(function buildTrafficRow() {
+  const after = document.querySelector('#note-traffic').closest('.row');
+  const el = document.createElement('label');
+  el.className = 'row';
+  el.id = 'row-traffictiles';
+  el.style.setProperty('--k', '#ffd166');
+  el.innerHTML = '<input type="checkbox"><span class="swatch"></span>'
+    + '<span class="nm">Congestion<small id="note-traffictiles">Congestion under the incident '
+    + 'pins &mdash; the jam and its cause together.</small></span>';
+  el.querySelector('input').addEventListener('change', e => trafficOn(e.target.checked));
+  after.after(el);
+  if (!TOMTOM_KEY) {
+    el.querySelector('input').disabled = true;
+    el.style.opacity = '.55';
+    setTrafficNote('Needs a TomTom key &mdash; free, 200k tiles a month.');
+  }
+})();
 
 /* ══════════════════════════════════════════════════════════════════
    Weather alerts — api.weather.gov, no key, CORS open. Browsers are
@@ -3024,6 +3145,7 @@ function saveUrl() {
     if (CRIME.on) p.set('c', [CRIME.cat, CRIME.year, CRIME.scope].join('|'));
     if (byId.c311.on) p.set('t', C311.scope);
     if (byId.fires.on) p.set('fy', document.getElementById('fireyear').value);
+    if (TRAFFIC.on) p.set('tt', '1');
     if (state.q.trim()) p.set('q', state.q.trim());
     const hash = '#' + p.toString();
     if (hash !== location.hash) {
@@ -3116,6 +3238,7 @@ function restoreUrl() {
       const want = p.get('g').split(',').filter(Boolean);
       GROUND.forEach(x => { if (want.includes(x.id)) setGroundOn(x, true); });
     }
+    if (p.get('tt') === '1' && TOMTOM_KEY) trafficOn(true);
   } catch (e) {
     console.error('could not restore that link', e);
   } finally {
