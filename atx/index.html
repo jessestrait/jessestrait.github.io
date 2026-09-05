@@ -53,7 +53,9 @@ a{color:var(--accent-hi)}
 #pulse{
   display:flex; align-items:center; gap:.45rem; font-size:.72rem;
   color:var(--muted); letter-spacing:.08em; text-transform:uppercase; white-space:nowrap;
+  background:none; border:0; font-family:inherit; cursor:pointer; padding:.3rem .2rem;
 }
+#pulse:hover{color:var(--text)}
 #pulse .dot{
   width:7px;height:7px;border-radius:50%;background:#2ee08a;
   box-shadow:0 0 0 0 rgba(46,224,138,.6); animation:ping 2.4s infinite;
@@ -309,7 +311,7 @@ dl.mecard a{color:var(--accent-hi)}
 
 <div id="topbar">
   <div class="brand">ATX<span>·</span>Layers</div>
-  <div id="pulse" class="loading"><span class="dot"></span><span id="pulsetxt">loading</span></div>
+  <button id="pulse" class="loading" title="Reload the page"><span class="dot"></span><span id="pulsetxt">loading</span></button>
   <div class="spacer"></div>
   <button class="iconbtn" id="aboutbtn">About<span class="wide"> the data</span></button>
   <a class="home" href="/">← jessestrait.com</a>
@@ -911,6 +913,12 @@ function rowFor(l) {
       c311PanelVisible(l.on);
       if (l.on) loadC311Top(false);
     }
+    if (!l.on && COARSE) {
+      // On a phone, hand the memory back rather than hoarding every layer the
+      // viewer has ever glanced at. Costs a refetch if they switch it back on.
+      delete state.data[l.id];
+      setCount(l.id, '—');
+    }
     if (l.on && !state.data[l.id]) fetchLayer(l); else render();
   });
   return el;
@@ -1070,7 +1078,7 @@ function renderNow() {
     liveLayer.addTo(map);
   }
 
-  drawGeo();
+  drawGeo(vis);
   insights(vis);
   if (window.syncModes) syncModes();
   if (window.saveUrl) saveUrl();
@@ -1083,7 +1091,7 @@ function renderNow() {
    whichever geography is showing.
    ══════════════════════════════════════════════════════════════════ */
 const CRIME = { id: 'fdj4-gpfu', on: false, cat: '', year: String(new Date().getFullYear() - 1),
-                byUnit: null, geo: null, byYear: null, total: 0, busy: false };
+                byUnit: null, geo: null, byYear: null, total: 0, busy: false, autoGeo: false, prevMetric: null };
 const CRIME_FIRST_YEAR = 2003;
 
 (function buildCrimeControls() {
@@ -1105,9 +1113,35 @@ const CRIME_FIRST_YEAR = 2003;
   row.querySelector('input').addEventListener('change', e => {
     CRIME.on = e.target.checked;
     loadCrimeTop(false);
-    if (!CRIME.on) { drawGeo(); crimeTrend(); return; }
-    // Crime exists only as a choropleth, so bring a geography up with it.
-    if (state.geo === 'none') setGeo('bg');
+
+    if (!CRIME.on) {
+      // Switching off has to undo exactly what switching on did, or the map
+      // stays shaded by crime and the only way back is buried three sections
+      // down in the geography controls.
+      CRIME.byUnit = null;
+      CRIME.geo = null;
+      if (CRIME.autoGeo) {
+        CRIME.autoGeo = false;
+        setGeo('none');                       // we turned the geography on
+      } else {
+        if (state.metric === '__crime' || state.metric === '__crime10k') {
+          // Put back whatever they were looking at before, not a default.
+          state.metric = CRIME.prevMetric || '__per10k';
+          fillMetricSelect();
+          document.getElementById('metric').value = state.metric;
+        }
+        drawGeo();
+      }
+      crimeTrend();
+      return;
+    }
+
+    // Crime exists only as a choropleth, so bring a geography up with it —
+    // and remember that we did, so switching off can put it back.
+    CRIME.autoGeo = state.geo === 'none';
+    CRIME.prevMetric = (state.metric === '__crime' || state.metric === '__crime10k')
+      ? CRIME.prevMetric : state.metric;
+    if (CRIME.autoGeo) setGeo('bg');
     state.metric = '__crime10k';
     fillMetricSelect();
     loadCrime();
@@ -1572,7 +1606,7 @@ function shade(t) {
   return 'rgb(' + a.map((v, k) => Math.round(v + (b[k] - v) * f)).join(',') + ')';
 }
 
-function drawGeo() {
+function drawGeo(vis) {
   if (geoLayer) { map.removeLayer(geoLayer); geoLayer = null; }
   if (labelLayer) { map.removeLayer(labelLayer); labelLayer = null; }
   const legend = document.getElementById('legend');
@@ -1583,7 +1617,7 @@ function drawGeo() {
   // Asking for a crime shading with nothing loaded would blank the map.
   if ((key === '__crime' || key === '__crime10k') && !CRIME.byUnit) key = '__count';
   const dynamic = key === '__per10k' || key === '__count';
-  const counts = dynamic ? unitCounts(g, visibleFeatures()) : null;
+  const counts = dynamic ? unitCounts(g, vis || visibleFeatures()) : null;
   const crime = CRIME.byUnit && CRIME.geo === state.geo ? CRIME.byUnit : null;
 
   const valOf = p => {
@@ -2413,20 +2447,29 @@ function scrubClose() {
 
 function scrubPlay(on) {
   SCRUB.playing = on;
-  clearInterval(SCRUB.timer);
+  clearTimeout(SCRUB.timer);
   SCRUB.timer = null;
   const b = document.getElementById('scrubplay');
   b.innerHTML = on ? '&#10074;&#10074;' : '&#9654;';
   b.title = on ? 'Pause' : 'Play';
   if (!on) return;
-  // 140 steps at ~8fps: about 18 seconds end to end, then it loops.
-  SCRUB.timer = setInterval(() => {
+  // Frames are chained, not intervalled. On a phone a frame can outlast the
+  // gap between ticks, and setInterval would stack them until the main thread
+  // never came up for air — which is what made the pause button feel dead.
+  const step = () => {
+    if (!SCRUB.playing) return;
+    const started = performance.now();
     SCRUB.pos += 1 / 140;
     if (SCRUB.pos > 1) SCRUB.pos = 0;
     document.getElementById('scrubrange').value = Math.round(SCRUB.pos * 1000);
     scrubPaint();
-    render();
-  }, 125);
+    renderNow();                                  // straight through; the
+                                                  // debounce only adds lag here
+    const cost = performance.now() - started;
+    // Always leave the thread a slice to handle a tap, however slow the frame.
+    SCRUB.timer = setTimeout(step, Math.max(60, 125 - cost));
+  };
+  SCRUB.timer = setTimeout(step, 0);
 }
 
 function syncScrubButton() {
@@ -2434,8 +2477,19 @@ function syncScrubButton() {
   if (b) b.classList.toggle('on', SCRUB.on);
 }
 
-document.getElementById('scrubplay').onclick = () => scrubPlay(!SCRUB.playing);
-document.getElementById('scrubclose').onclick = scrubClose;
+// A click arrives after the frame in progress; pointerdown lands immediately.
+function onTap(el, fn) {
+  let fired = false;
+  el.addEventListener('pointerdown', e => {
+    e.preventDefault();
+    fired = true;
+    fn();
+    setTimeout(() => { fired = false; }, 400);
+  });
+  el.addEventListener('click', e => { e.preventDefault(); if (!fired) fn(); });
+}
+onTap(document.getElementById('scrubplay'), () => scrubPlay(!SCRUB.playing));
+onTap(document.getElementById('scrubclose'), scrubClose);
 document.getElementById('scrubrange').addEventListener('input', e => {
   scrubPlay(false);
   SCRUB.pos = +e.target.value / 1000;
@@ -2627,6 +2681,33 @@ document.addEventListener('visibilitychange', () => {
 // Fires on a normal load and on a back/forward (bfcache) restore alike.
 window.addEventListener('pageshow', e => { if (e.persisted) setTimeout(wakeUp, 60); });
 window.addEventListener('focus', () => { if (!document.hidden) map.invalidateSize(); });
+// Chrome on iOS does not reliably fire visibilitychange when you switch tabs,
+// but it does fire pagehide.
+window.addEventListener('pagehide', () => {
+  if (SCRUB.playing) { SCRUB.wasPlaying = true; scrubPlay(false); }
+});
+
+/* Events are the unreliable part, so don't depend on them. Leaflet works from
+   a cached container size; if the tab is restored at a different size that
+   cache goes stale and every gesture is computed against the wrong box, which
+   is why the map stops zooming without looking broken. Watch the box itself. */
+function sizeIsStale() {
+  const el = map.getContainer();
+  if (!el.offsetWidth || !el.offsetHeight) return false;   // hidden, not stale
+  const s = map.getSize();
+  return Math.abs(el.offsetWidth - s.x) > 1 || Math.abs(el.offsetHeight - s.y) > 1;
+}
+
+function healthCheck() {
+  if (sizeIsStale()) wakeUp();
+}
+
+if (window.ResizeObserver) {
+  new ResizeObserver(() => healthCheck()).observe(map.getContainer());
+}
+// Belt and braces: a ResizeObserver can be missed across a restore.
+setInterval(healthCheck, 2000);
+window.addEventListener('orientationchange', () => setTimeout(wakeUp, 250));
 
 map.on('moveend', () => { if (state.viewOnly) insights(visibleFeatures()); });
 map.on('zoomend', () => {
@@ -2663,6 +2744,8 @@ document.addEventListener('keydown', e => {
     }
   }, { passive: false });
 });
+
+document.getElementById('pulse').onclick = () => location.reload();
 
 const sheet = document.getElementById('sheetbtn');
 const isSheet = () => getComputedStyle(sheet).display !== 'none';
