@@ -127,6 +127,29 @@ select, input[type=text]{
 select:focus, input[type=text]:focus{outline:none; border-color:var(--accent)}
 label.mini{font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted)}
 
+/* ── Weather alerts ──────────────────────────────────── */
+#wxbanner{
+  position:absolute; top:.6rem; left:50%; transform:translateX(-50%); z-index:1150;
+  width:min(560px, calc(100% - 2.5rem)); text-align:left; cursor:pointer;
+  background:rgba(28,10,14,.94); border:1px solid #ff4d4d; border-left-width:4px;
+  border-radius:10px; padding:.55rem .8rem; color:var(--text); font:inherit;
+  box-shadow:0 8px 26px rgba(0,0,0,.55); backdrop-filter:blur(8px);
+}
+#wxbanner b{display:block; font-size:.82rem; margin-bottom:1px}
+#wxbanner span{font-size:.7rem; color:var(--muted)}
+.wxrow{
+  border-left:3px solid var(--k); padding:.5rem .6rem; margin-bottom:.5rem;
+  background:var(--surface2); border-radius:0 7px 7px 0;
+}
+.wxrow h4{font-family:'Poppins',sans-serif; font-size:.82rem; margin-bottom:.15rem}
+.wxrow .meta{font-size:.68rem; color:var(--muted); line-height:1.45}
+.wxrow .sev{
+  display:inline-block; font-size:.58rem; letter-spacing:.14em; text-transform:uppercase;
+  font-weight:700; padding:1px 6px; border-radius:4px; background:var(--k); color:#12060a;
+  margin-left:.35rem; vertical-align:1px;
+}
+@media (max-width:820px){ #wxbanner{width:calc(100% - 1.4rem); top:.5rem} }
+
 /* ── Time scrubber ───────────────────────────────────── */
 #scrub[hidden]{display:none}
 #scrub{
@@ -208,8 +231,8 @@ dl.mecard a{color:var(--accent-hi)}
 .leaflet-container{background:#0a0e16; font-family:'DM Sans',sans-serif}
 /* Esri's canvas is a warm mid-gray; tint each tile image (not the pane — a pane
    filter breaks canvas compositing) down into the site's navy. */
-.leaflet-tile-pane .leaflet-tile{filter:brightness(.5) contrast(1.25) saturate(.9) sepia(.45) hue-rotate(172deg)}
-.leaflet-label2-pane{opacity:.55}
+.leaflet-tile-pane .leaflet-tile{filter:brightness(.62) contrast(1.18) saturate(.9) sepia(.45) hue-rotate(172deg)}
+.leaflet-label2-pane{opacity:.68}
 .leaflet-control-attribution{
   background:rgba(8,12,20,.82)!important; color:var(--muted)!important; font-size:10px!important;
 }
@@ -325,6 +348,12 @@ dl.mecard a{color:var(--accent-hi)}
 
 <div id="shell">
   <aside id="panel">
+
+    <div class="sec" id="wxsec" hidden>
+      <h3>Weather alerts</h3>
+      <p class="hint">Live from the National Weather Service for Travis and the counties around it.</p>
+      <div id="wxlist"></div>
+    </div>
 
     <div class="sec" id="modesec">
       <h3>Start somewhere</h3>
@@ -470,6 +499,8 @@ dl.mecard a{color:var(--accent-hi)}
 
   <div id="map"></div>
 
+  <button id="wxbanner" hidden></button>
+
   <div id="scrub" hidden>
     <button id="scrubplay" title="Play">&#9654;</button>
     <input type="range" id="scrubrange" min="0" max="1000" value="1000" step="1" aria-label="Time" />
@@ -521,6 +552,12 @@ dl.mecard a{color:var(--accent-hi)}
         each layer sweeps the same relative position through its own range rather than pretending
         to one timeline. Anything without a clock &mdash; stations, libraries, art, cameras, and
         every ground shape &mdash; is standing infrastructure and stays put.</li>
+      <li><b>Weather alerts</b> &mdash; <b>api.weather.gov</b>, the National Weather Service's own
+        feed. Free, no key, and the only non-Austin source on the page. Every alert carries FIPS
+        county codes whether or not it ships a polygon, which is what scopes it to Travis and its
+        neighbours; warnings draw their real polygon, advisories that name only zones get the county
+        outline instead, drawn dashed to mark the difference. Refreshed every three minutes. Most of
+        the time there is nothing, and the section stays out of the way.</li>
       <li><b>Your own location</b>, if you tap the crosshair — read from the browser's geolocation
         API, used to work out which block group you're standing in, and never sent anywhere. There
         is no server here to send it to, and nothing is written to storage; close the tab and it's
@@ -877,7 +914,7 @@ L.control.zoom({ position: 'bottomright' }).addTo(map);
 
 // leaflet.heat always draws into Leaflet's own overlayPane (z-index 400), so the
 // choropleth goes below that and everything else stacks above it.
-const PANES = { groundPane: 330, districtPane: 350, labelPane2: 460, dotPane: 490, livePane: 520 };
+const PANES = { groundPane: 330, districtPane: 350, labelPane2: 460, alertPane: 470, dotPane: 490, livePane: 520 };
 Object.entries(PANES).forEach(([p, z]) => { map.createPane(p).style.zIndex = z; });
 // Leaflet detaches a renderer when its last path is removed, so each redraw gets a fresh one.
 let dotRenderer = null;
@@ -2627,6 +2664,188 @@ document.getElementById('modes').addEventListener('click', e => {
   if (b) applyMode(b.dataset.m);
 });
 
+
+/* ══════════════════════════════════════════════════════════════════
+   Weather alerts — api.weather.gov, no key, CORS open. Browsers are
+   not allowed to set User-Agent, which the NWS docs ask for; their
+   server accepts an ordinary browser one, verified before building.
+
+   Every alert carries geocode.SAME (FIPS county codes) whether or not
+   it has a polygon, so that is what scopes it to Austin. Warnings that
+   ship a polygon are drawn as-is; advisories that only name zones get
+   their county outline fetched once and cached.
+
+   Nothing active is the normal state, so it has to look deliberate
+   rather than broken: the section and the banner simply aren't there.
+   ══════════════════════════════════════════════════════════════════ */
+const WX = { alerts: [], layer: null, zones: {}, busy: false };
+
+// Travis and its neighbours, by FIPS.
+const WX_COUNTIES = {
+  '048453': 'Travis', '048491': 'Williamson', '048209': 'Hays',
+  '048021': 'Bastrop', '048055': 'Caldwell', '048053': 'Burnet', '048031': 'Blanco'
+};
+
+const WX_COLOR = {
+  Extreme: '#ff2d55', Severe: '#ff4d4d', Moderate: '#ff9d2e',
+  Minor: '#ffd166', Unknown: '#7a8fa8'
+};
+const WX_RANK = { Extreme: 4, Severe: 3, Moderate: 2, Minor: 1, Unknown: 0 };
+
+function wxWhen(p) {
+  const end = p.ends || p.expires;
+  if (!end) return '';
+  const d = new Date(end);
+  const hrs = (d - Date.now()) / 36e5;
+  if (hrs < 0) return 'expired';
+  const t = d.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+  return hrs < 18 ? 'until ' + t
+    : 'until ' + d.toLocaleDateString([], { weekday: 'short' }) + ' ' + t;
+}
+
+async function zoneGeometry(url) {
+  if (WX.zones[url] !== undefined) return WX.zones[url];
+  try {
+    const r = await fetch(url);
+    const j = await r.json();
+    WX.zones[url] = j.geometry || null;
+  } catch (e) {
+    WX.zones[url] = null;
+  }
+  return WX.zones[url];
+}
+
+async function loadAlerts() {
+  if (WX.busy) return;
+  WX.busy = true;
+  try {
+    const res = await fetch('https://api.weather.gov/alerts/active?area=TX');
+    if (!res.ok) throw new Error('NWS ' + res.status);
+    const gj = await res.json();
+
+    const mine = [];
+    for (const f of (gj.features || [])) {
+      const p = f.properties || {};
+      const same = ((p.geocode || {}).SAME) || [];
+      const counties = same.filter(c => WX_COUNTIES[c]).map(c => WX_COUNTIES[c]);
+      if (!counties.length) continue;
+      mine.push({ id: p.id || f.id, p, counties, geometry: f.geometry });
+    }
+    // Worst first, so the banner and the list agree on what matters.
+    mine.sort((a, b) => (WX_RANK[b.p.severity] || 0) - (WX_RANK[a.p.severity] || 0));
+
+    // An advisory with no polygon still names counties. affectedZones is not
+    // dependable here — advisories often list forecast zones (TXZ###) rather
+    // than county ones — so build the county zone straight from the FIPS code.
+    for (const a of mine) {
+      if (a.geometry) continue;
+      const same = ((a.p.geocode || {}).SAME) || [];
+      const parts = [];
+      for (const c of same.filter(x => WX_COUNTIES[x]).slice(0, 8)) {
+        const g = await zoneGeometry('https://api.weather.gov/zones/county/TXC' + c.slice(3));
+        if (g) parts.push(g);
+      }
+      if (parts.length) {
+        a.geometry = parts.length === 1 ? parts[0] : {
+          type: 'MultiPolygon',
+          coordinates: parts.flatMap(g => g.type === 'Polygon' ? [g.coordinates] : g.coordinates)
+        };
+        a.fromZone = true;
+      }
+    }
+
+    WX.alerts = mine;
+    drawAlerts();
+    paintAlertPanel();
+  } catch (e) {
+    console.error(e);
+    document.getElementById('wxlist').innerHTML =
+      '<p class="empty">Could not reach the National Weather Service.</p>';
+    document.getElementById('wxsec').hidden = false;
+  } finally {
+    WX.busy = false;
+  }
+}
+
+function drawAlerts() {
+  if (WX.layer) { map.removeLayer(WX.layer); WX.layer = null; }
+  const withGeom = WX.alerts.filter(a => a.geometry);
+  if (!withGeom.length) return;
+
+  WX.layer = L.layerGroup([], { pane: 'alertPane' });
+  withGeom.forEach(a => {
+    const c = WX_COLOR[a.p.severity] || WX_COLOR.Unknown;
+    L.geoJSON({ type: 'Feature', geometry: a.geometry, properties: {} }, {
+      pane: 'alertPane',
+      style: {
+        color: c, weight: 2, opacity: 0.95, dashArray: a.fromZone ? '5,4' : null,
+        fillColor: c, fillOpacity: a.fromZone ? 0.1 : 0.18
+      }
+    }).bindPopup(pop(c, a.p.severity + ' · ' + (a.p.event || 'Alert'),
+      a.p.event || 'Weather alert', wxWhen(a.p), [
+        ['Where', a.p.areaDesc],
+        ['Issued by', a.p.senderName],
+        ['Certainty', a.p.certainty],
+        ['Urgency', a.p.urgency]
+      ],
+      (a.p.instruction || a.p.description)
+        ? '<p style="margin-top:.55rem;font-size:.75rem;line-height:1.5">'
+          + esc((a.p.instruction || a.p.description).slice(0, 320)) + '</p>'
+        : ''
+    ), { maxWidth: 320 }).addTo(WX.layer);
+  });
+  WX.layer.addTo(map);
+}
+
+function paintAlertPanel() {
+  const sec = document.getElementById('wxsec');
+  const list = document.getElementById('wxlist');
+  const banner = document.getElementById('wxbanner');
+
+  if (!WX.alerts.length) {
+    // Calm weather is the usual answer; say nothing rather than say "none".
+    sec.hidden = true;
+    banner.hidden = true;
+    return;
+  }
+
+  sec.hidden = false;
+  list.innerHTML = WX.alerts.map((a, i) => {
+    const c = WX_COLOR[a.p.severity] || WX_COLOR.Unknown;
+    return '<div class="wxrow" style="--k:' + c + '">'
+      + '<h4>' + esc(a.p.event || 'Alert')
+      + '<span class="sev">' + esc(a.p.severity || '?') + '</span></h4>'
+      + '<div class="meta">' + esc(a.counties.join(', ')) + ' &middot; ' + esc(wxWhen(a.p))
+      + (a.geometry ? '<br><a href="#" data-wx="' + i + '">Show it on the map &rarr;</a>' : '')
+      + '</div></div>';
+  }).join('');
+
+  list.querySelectorAll('a[data-wx]').forEach(el => {
+    el.onclick = e => { e.preventDefault(); zoomToAlert(+el.dataset.wx); };
+  });
+
+  const worst = WX.alerts[0];
+  if ((WX_RANK[worst.p.severity] || 0) >= 3) {
+    banner.hidden = false;
+    banner.style.borderColor = WX_COLOR[worst.p.severity] || WX_COLOR.Severe;
+    banner.innerHTML = '<b>' + esc(worst.p.event) + '</b><span>'
+      + esc(worst.counties.join(', ')) + ' &middot; ' + esc(wxWhen(worst.p))
+      + (WX.alerts.length > 1 ? ' &middot; +' + (WX.alerts.length - 1) + ' more' : '')
+      + '</span>';
+    banner.onclick = () => zoomToAlert(0);
+  } else {
+    banner.hidden = true;
+  }
+}
+
+function zoomToAlert(i) {
+  const a = WX.alerts[i];
+  if (!a || !a.geometry) return;
+  const b = L.geoJSON(a.geometry).getBounds();
+  if (b.isValid()) map.fitBounds(b, { padding: [40, 40], maxZoom: 13 });
+  if (isSheet()) setPanel(false);
+}
+
 /* ── Controls ──────────────────────────────────────────────────── */
 document.getElementById('window').addEventListener('click', e => {
   const b = e.target.closest('button'); if (!b) return;
@@ -2688,6 +2907,7 @@ map.on('resize', () => {
    stale dimensions: gestures land in the wrong place and it reads as frozen. */
 function wakeUp() {
   map.invalidateSize();
+  loadAlerts();
   if (SCRUB.on && SCRUB.wasPlaying) { SCRUB.wasPlaying = false; scrubPlay(true); }
   render();
 }
@@ -2946,6 +3166,7 @@ function copyLink() {
 
 /* ── Go ────────────────────────────────────────────────────────── */
 fillMetricSelect();
+loadAlerts();
 restoreUrl();
 refreshActive(false);
 if (CRIME.on) { loadCrime(); loadCrimeTop(false); }
@@ -2953,6 +3174,8 @@ if (byId.c311.on) loadC311Top(false);
 syncModes();
 saveUrl();
 // Live traffic keeps refreshing on its own; everything else stays put.
+setInterval(() => { if (!document.hidden) loadAlerts(); }, 180000);
+
 setInterval(() => {
   if (document.hidden) return;
   if (byId.traffic.on && !state.busy.traffic) {
