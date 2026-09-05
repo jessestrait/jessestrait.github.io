@@ -2578,8 +2578,11 @@ document.getElementById('scrubtoggle').onclick = () => {
 const MODES = {
   traffic: {
     blurb: 'Congestion under the dispatch pins. The colour is where it is slow; the pins are '
-         + 'what is blocking it, which is the pairing the big map apps do not give you.',
-    days: 1, layers: ['traffic', 'cameras'], ground: [],
+         + 'what is blocking it, which is the pairing the big map apps do not give you. '
+         + 'Switch the traffic cameras on to look at any of it.',
+    // Cameras are useful here but there are 817 of them, and at downtown zoom
+    // they bury both the flow and the pins. Left off; one tap away.
+    days: 1, layers: ['traffic'], ground: [],
     geo: 'none', metric: '__per10k', crime: false, tomtom: true
   },
   safety: {
@@ -2702,17 +2705,19 @@ document.getElementById('modes').addEventListener('click', e => {
    client-side map key. Lock it to this domain in the TomTom console
    (Referrer restrictions) and rotating it is a one-line change.
    ══════════════════════════════════════════════════════════════════ */
-const TOMTOM_KEY = '';        // ← paste a TomTom API key here to switch this on
+const TOMTOM_KEY = 'vDrFhDUIcrFG8rG8AmYZKepJiJqVIGSR';
 
 const TRAFFIC = { on: false, layer: null, errors: 0, timer: null };
 // relative0-dark is the variant meant for dark basemaps; relative-delay
 // draws only the segments that are actually slow, if this reads too busy.
+// Note: the thickness parameter is rejected on the relative0 styles — it is
+// only accepted on absolute, relative, relative-delay and reduced-sensitivity.
 const TRAFFIC_STYLE = 'relative0-dark';
 
 function trafficUrl() {
   return 'https://api.tomtom.com/traffic/map/4/tile/flow/' + TRAFFIC_STYLE
     + '/{z}/{x}/{y}.png?key=' + encodeURIComponent(TOMTOM_KEY)
-    + '&thickness=6&tileSize=256&t={t}';
+    + '&tileSize=256&t={t}';
 }
 
 function trafficOn(on) {
