@@ -2718,6 +2718,10 @@ document.getElementById('modes').addEventListener('click', e => {
 const TOMTOM_KEY = 'vDrFhDUIcrFG8rG8AmYZKepJiJqVIGSR';
 
 const TRAFFIC = { on: false, layer: null, errors: 0, timer: null };
+// Congestion is on when the page opens: it is the one layer that is useful
+// before you have touched anything. Every load costs TomTom tiles, so this
+// is the knob to turn back off if the monthly allowance ever gets tight.
+const TRAFFIC_DEFAULT = true;
 // relative0-dark is the variant meant for dark basemaps; relative-delay
 // draws only the segments that are actually slow, if this reads too busy.
 // Note: the thickness parameter is rejected on the relative0 styles — it is
@@ -2792,7 +2796,13 @@ function setTrafficNote(html, warn) {
   el.innerHTML = '<input type="checkbox"><span class="swatch"></span>'
     + '<span class="nm">Congestion<small id="note-traffictiles">Congestion under the incident '
     + 'pins &mdash; the jam and its cause together.</small></span>';
-  el.querySelector('input').addEventListener('change', e => trafficOn(e.target.checked));
+  el.querySelector('input').addEventListener('change', e => {
+    trafficOn(e.target.checked);
+    // Without this the hash never learns congestion was switched off, and a
+    // link saved with it off reopens with it on. Deliberately only on the
+    // explicit tick: a tileerror trip should not bake itself into a link.
+    saveUrl();
+  });
   after.after(el);
   if (!TOMTOM_KEY) {
     el.querySelector('input').disabled = true;
@@ -3160,7 +3170,7 @@ function saveUrl() {
     if (CRIME.on) p.set('c', [CRIME.cat, CRIME.year, CRIME.scope].join('|'));
     if (byId.c311.on) p.set('t', C311.scope);
     if (byId.fires.on) p.set('fy', document.getElementById('fireyear').value);
-    if (TRAFFIC.on) p.set('tt', '1');
+    if (TRAFFIC.on !== TRAFFIC_DEFAULT) p.set('tt', TRAFFIC.on ? '1' : '0');
     if (state.q.trim()) p.set('q', state.q.trim());
     const hash = '#' + p.toString();
     if (hash !== location.hash) {
@@ -3253,7 +3263,9 @@ function restoreUrl() {
       const want = p.get('g').split(',').filter(Boolean);
       GROUND.forEach(x => { if (want.includes(x.id)) setGroundOn(x, true); });
     }
-    if (p.get('tt') === '1' && TOMTOM_KEY) trafficOn(true);
+    // Only an explicit tt overrides the default, so a link saved with
+    // congestion switched off comes back with it off.
+    if (p.has('tt') && TOMTOM_KEY) trafficOn(p.get('tt') === '1');
   } catch (e) {
     console.error('could not restore that link', e);
   } finally {
@@ -3305,6 +3317,7 @@ function copyLink() {
 /* ── Go ────────────────────────────────────────────────────────── */
 fillMetricSelect();
 loadAlerts();
+if (TRAFFIC_DEFAULT) trafficOn(true);
 restoreUrl();
 refreshActive(false);
 if (CRIME.on) { loadCrime(); loadCrimeTop(false); }
