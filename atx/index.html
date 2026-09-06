@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title>ATX Layers — Austin, live from the city's open data</title>
 <meta name="description" content="A multi-layer map of Austin built on the City of Austin open data portal: live traffic incidents, fire calls, crashes, 311 requests, permits, and council-district demographics." />
+<link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#080c14" />
+<!-- Installed to the home screen this runs chromeless. "black" rather than
+     "black-translucent" so the fixed top bar keeps starting below the clock. -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="apple-mobile-web-app-title" content="ATX Layers" />
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -562,7 +572,7 @@ dl.mecard a{color:var(--accent-hi)}
       <li><b>Weather alerts</b> &mdash; <b>api.weather.gov</b>, the National Weather Service's own
         feed. Free, no key, and the only non-Austin source on the page. Every alert carries FIPS
         county codes whether or not it ships a polygon, which is what scopes it to Travis and its
-        neighbours; warnings draw their real polygon, advisories that name only zones get the county
+        neighbors; warnings draw their real polygon, advisories that name only zones get the county
         outline instead, drawn dashed to mark the difference. Refreshed every three minutes. Most of
         the time there is nothing, and the section stays out of the way.</li>
       <li><b>Your own location</b>, if you tap the crosshair — read from the browser's geolocation
@@ -2577,7 +2587,7 @@ document.getElementById('scrubtoggle').onclick = () => {
    ══════════════════════════════════════════════════════════════════ */
 const MODES = {
   traffic: {
-    blurb: 'Congestion under the dispatch pins. The colour is where it is slow; the pins are '
+    blurb: 'Congestion under the dispatch pins. The color is where it is slow; the pins are '
          + 'what is blocking it, which is the pairing the big map apps do not give you. '
          + 'Switch the traffic cameras on to look at any of it.',
     // Cameras are useful here but there are 817 of them, and at downtown zoom
@@ -2806,7 +2816,7 @@ function setTrafficNote(html, warn) {
    ══════════════════════════════════════════════════════════════════ */
 const WX = { alerts: [], layer: null, zones: {}, busy: false };
 
-// Travis and its neighbours, by FIPS.
+// Travis and its neighbors, by FIPS.
 const WX_COUNTIES = {
   '048453': 'Travis', '048491': 'Williamson', '048209': 'Hays',
   '048021': 'Bastrop', '048055': 'Caldwell', '048053': 'Burnet', '048031': 'Blanco'
@@ -3311,6 +3321,12 @@ setInterval(() => {
     fetchLayer(byId.traffic);
   }
 }, 120000);
+</script>
+
+<script>
+if ('serviceWorker' in navigator) {
+  addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+}
 </script>
 
 <script data-goatcounter="https://jesserstrait.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
