@@ -73,6 +73,26 @@ a{color:var(--accent-hi)}
 #pulse.loading .dot{background:var(--accent-hi)}
 #pulse.err .dot{background:#ff4d4d;animation:none}
 @keyframes ping{0%{box-shadow:0 0 0 0 rgba(46,224,138,.5)}70%{box-shadow:0 0 0 9px rgba(46,224,138,0)}100%{box-shadow:0 0 0 0 rgba(46,224,138,0)}}
+#refresh{
+  position:relative;
+  display:flex; align-items:center; justify-content:center;
+  width:38px; height:38px; flex:0 0 38px; padding:0;
+  background:var(--surface); border:1px solid var(--border); color:var(--muted);
+  border-radius:9px; cursor:pointer; -webkit-tap-highlight-color:transparent;
+}
+/* 38px is the right visual weight in a 56px bar, but it is under the 44pt
+   Apple asks for, so the target is widened past the artwork rather than the
+   artwork being made chunky. It lands in the gap either side, touching
+   neither the wordmark nor the status readout. */
+#refresh::after{content:''; position:absolute; inset:-5px}
+/* inset resolves against the padding box, so the 1px border eats into the
+   expansion — -5px is what actually clears 44. */
+#refresh:hover{color:var(--text); border-color:var(--accent)}
+#refresh:active{transform:scale(.93)}
+#refresh:disabled{opacity:.55; cursor:default}
+#refresh svg{display:block}
+#refresh.spin svg{animation:spin .9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
 .iconbtn{
   background:var(--surface); border:1px solid var(--border); color:var(--muted);
   border-radius:8px; padding:.4rem .7rem; font:inherit; font-size:.75rem; cursor:pointer;
@@ -350,7 +370,13 @@ dl.mecard a{color:var(--accent-hi)}
 
 <div id="topbar">
   <div class="brand">ATX<span>·</span>Layers</div>
-  <button id="pulse" class="loading" title="Reload the page"><span class="dot"></span><span id="pulsetxt">loading</span></button>
+  <button id="refresh" title="Pull the live data again" aria-label="Refresh the live data">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+         stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12a9 9 0 1 1-2.64-6.36"/><polyline points="21 3 21 9 15 9"/>
+    </svg>
+  </button>
+  <button id="pulse" class="loading" title="Pull the live data again"><span class="dot"></span><span id="pulsetxt">loading</span></button>
   <div class="spacer"></div>
   <button class="iconbtn" id="aboutbtn">About<span class="wide"> the data</span></button>
   <a class="home" href="/">← jessestrait.com</a>
@@ -3134,7 +3160,53 @@ document.addEventListener('keydown', e => {
   }, { passive: false });
 });
 
-document.getElementById('pulse').onclick = () => location.reload();
+/* Refresh what is actually live, without a page reload — the view, the zoom,
+   the scrub position and every setting survive, because none of them came
+   from the network. Standing infrastructure (stations, libraries, art,
+   cameras) and the prebuilt ground shapes are not refetched: they do not
+   change between one tap and the next. */
+let refreshBusy = false;
+async function softRefresh() {
+  if (refreshBusy) return;
+  refreshBusy = true;
+  const btn = document.getElementById('refresh');
+  btn.classList.add('spin');
+  btn.disabled = true;
+  pulse('refreshing', 'loading');
+
+  const started = Date.now();
+  const jobs = [];
+  try {
+    // Drop the windowed data so it is genuinely refetched, not served back.
+    LAYERS.forEach(l => { if (l.group === 'recent') delete state.data[l.id]; });
+    LAYERS.forEach(l => { if (l.on && !state.data[l.id]) jobs.push(fetchLayer(l)); });
+    render();
+
+    jobs.push(loadAlerts());
+    if (CRIME.on) { jobs.push(loadCrime()); jobs.push(loadCrimeTop(true)); }
+    if (byId.c311.on) jobs.push(loadC311Top(true));
+    if (TRAFFIC.on && TRAFFIC.layer) {
+      TRAFFIC.layer.options.t = Date.now();
+      TRAFFIC.layer.setUrl(trafficUrl(), false);
+    }
+    await Promise.allSettled(jobs);
+  } finally {
+    // A refresh that resolves instantly reads as a broken button, so let the
+    // spinner finish a turn.
+    const left = Math.max(0, 450 - (Date.now() - started));
+    setTimeout(() => {
+      btn.classList.remove('spin');
+      btn.disabled = false;
+      refreshBusy = false;
+      // Whatever failed already said so; don't paper over it.
+      if (!document.getElementById('pulse').classList.contains('err')) {
+        pulse('updated ' + new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }));
+      }
+    }, left);
+  }
+}
+document.getElementById('refresh').onclick = softRefresh;
+document.getElementById('pulse').onclick = softRefresh;
 
 const sheet = document.getElementById('sheetbtn');
 const isSheet = () => getComputedStyle(sheet).display !== 'none';
