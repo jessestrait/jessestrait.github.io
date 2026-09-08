@@ -1145,7 +1145,13 @@ function renderNow() {
    never becomes points: Socrata does the grouping and the result shades
    whichever geography is showing.
    ══════════════════════════════════════════════════════════════════ */
-const CRIME = { id: 'fdj4-gpfu', on: false, cat: '', year: String(new Date().getFullYear()),
+// Pinned rather than derived from the clock. Deriving it means the default
+// view shades almost nothing every January, before the year in progress has
+// any reports in it — and APD publishes about nine days behind on top of
+// that. Revisit in early 2027: either bump this or teach it to fall back a
+// year when the current one comes back thin.
+const CRIME_DEFAULT_YEAR = '2026';
+const CRIME = { id: 'fdj4-gpfu', on: false, cat: '', year: CRIME_DEFAULT_YEAR,
                 byUnit: null, geo: null, byYear: null, total: 0, busy: false, autoGeo: false, prevMetric: null };
 const CRIME_FIRST_YEAR = 2003;
 
