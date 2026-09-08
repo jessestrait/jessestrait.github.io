@@ -1145,9 +1145,15 @@ function renderNow() {
    never becomes points: Socrata does the grouping and the result shades
    whichever geography is showing.
    ══════════════════════════════════════════════════════════════════ */
-const CRIME = { id: 'fdj4-gpfu', on: false, cat: '', year: String(new Date().getFullYear() - 1),
+const CRIME = { id: 'fdj4-gpfu', on: false, cat: '', year: String(new Date().getFullYear()),
                 byUnit: null, geo: null, byYear: null, total: 0, busy: false, autoGeo: false, prevMetric: null };
 const CRIME_FIRST_YEAR = 2003;
+
+// Where a locate lands. 14 is a neighborhood; the block group under your feet
+// only resolves around 17, and that is the thing this page can tell you that
+// a general map cannot. Math.max, so someone already zoomed in further is
+// never pulled back out.
+const ME_ZOOM = 17;
 
 (function buildCrimeControls() {
   const sel = document.getElementById('crimeyear');
@@ -2066,7 +2072,7 @@ async function onFix(pos) {
 
   if (first) {
     ME.follow = true;
-    map.flyTo([lat, lng], Math.max(map.getZoom(), 14), { duration: 1.1 });
+    map.flyTo([lat, lng], Math.max(map.getZoom(), ME_ZOOM), { duration: 1.1 });
     // Following the dot forever fights the user the moment they pan away.
     map.once('dragstart', () => { ME.follow = false; });
   } else if (ME.follow) {
@@ -2161,7 +2167,7 @@ async function renderMeCard() {
   document.getElementById('mefly').onclick = () => {
     if (!ME.pos) return;
     ME.follow = true;
-    map.flyTo([ME.pos.lat, ME.pos.lng], Math.max(map.getZoom(), 15), { duration: 0.8 });
+    map.flyTo([ME.pos.lat, ME.pos.lng], Math.max(map.getZoom(), ME_ZOOM), { duration: 0.8 });
     map.once('dragstart', () => { ME.follow = false; });
   };
 }
