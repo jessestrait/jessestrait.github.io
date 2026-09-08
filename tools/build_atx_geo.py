@@ -245,3 +245,29 @@ def join_streets(path, keyfield):
 
 join_streets(f"{OUT}/blockgroups.json", "k")
 join_streets(f"{OUT}/districts.json", "d")
+
+# ── 8. ZIP codes: the geography Austin Energy reports outages in ──────
+# The outage feed is per-ZIP and carries no geometry of its own beyond a
+# bounding box, so the shapes come from here and the counts are joined live
+# in the browser. Trimmed to the 51 ZIPs Austin Energy actually serves —
+# the other 15 in the layer would only ever draw empty.
+AE_ZIPS = [
+    "78617", "78641", "78652", "78653", "78660", "78701", "78702", "78703",
+    "78704", "78705", "78717", "78719", "78721", "78722", "78723", "78724",
+    "78725", "78726", "78727", "78728", "78729", "78730", "78731", "78732",
+    "78733", "78734", "78735", "78736", "78737", "78738", "78739", "78741",
+    "78742", "78744", "78745", "78746", "78747", "78748", "78749", "78750",
+    "78751", "78752", "78753", "78754", "78756", "78757", "78758", "78759",
+    "78610", "78613", "78669",
+]
+
+zips = query("Austin_Travis_County_ZIP_Codes", layer=6,
+             outFields="ZIPCODE", maxAllowableOffset=0.0002)
+keep = [f for f in zips["features"] if f["properties"].get("ZIPCODE") in set(AE_ZIPS)]
+for f in keep:
+    f["properties"] = {"zip": f["properties"]["ZIPCODE"]}
+out = {"type": "FeatureCollection", "features": keep}
+path = os.path.join(OUT, "zips.json")
+with open(path, "w") as fh:
+    json.dump(out, fh, separators=(",", ":"))
+print(f"zips.json      {len(keep)} ZIP polygons  {size(path)}")

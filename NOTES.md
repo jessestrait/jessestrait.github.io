@@ -83,3 +83,67 @@ usefully so: the code path transferred unchanged.
 - `agency` is `FIRE` on all 42,953 rows — not worth showing.
 - No medical calls at all; the city withholds them under HIPAA.
 - History back to 2025-07-18, so the 7d/30d/90d windows work.
+
+
+## Removed 2026-09-08, kept here in case they come back
+
+### The fire archive (`v5hh-nyr8`)
+
+Pulled from the UI along with the whole **Archives** section. It was the layer
+that put 6,956 points against 177 live ones — see the one-map-or-two note above.
+The live `wpu4-x69d` layer covers the same ground for anything recent.
+
+Dataset is still published and still has 2023–2025 (`calendaryear` of `2023`,
+`2024`, `2025`; ~6,400–7,100 calls each). Coordinates arrive as a `location`
+string of the form `(lat, lng)`, not as a point column, hence the regex. It was
+the only layer that set `noHour`, because a whole calendar year of calls has no
+meaningful hour-of-day reading against layers windowed to 24 hours.
+
+To restore: put this back in `LAYERS`, re-add a `<div id="archive">` for the
+group to render into, and re-add the year `<select id="fireyear">` with a change
+handler that drops `state.data.fires` and refetches.
+
+```js
+  {
+    id: 'fires', group: 'archive', color: '#ff9d2e', on: false,
+    name: 'Fire incidents', note: 'Austin Fire Department, 2023–2025',
+    async load() {
+      const year = document.getElementById('fireyear').value;
+      const rows = await soda('v5hh-nyr8', {
+        '$select': 'incident_number,incdate,problem,council_district,prioritydescription,location,responsearea',
+        '$where': "calendaryear = '" + year + "'",
+        '$order': 'incdate DESC', '$limit': 8000
+      });
+      return rows.map(r => {
+        const m = /\(\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*\)/.exec(r.location || '');
+        if (!m) return null;
+        const t = r.incdate ? new Date(r.incdate) : null;
+        const cat = titleCase(String(r.problem || '').replace(/^[A-Z]+\s*-?\s*/, '')) || 'Fire';
+        return {
+          lat: +m[2], lng: +m[1], t, cat, noHour: true,
+          html: pop('#ff9d2e', 'Fire call', cat, t ? t.toLocaleDateString() : '', [
+            ['Code', r.problem],
+            ['District', r.council_district],
+            ['Response area', r.responsearea],
+            ['Priority', r.prioritydescription],
+            ['Incident', r.incident_number]
+          ])
+        };
+      }).filter(Boolean);
+    }
+  },
+```
+
+### Draw as (clusters and heatmap)
+
+`state.mode` used to switch the point renderer between dots, `L.markerClusterGroup`
+and `L.heatLayer`, carried in the hash as `r=`. The control is gone and dots are
+the only renderer, which also let `leaflet.markercluster` and `leaflet.heat` come
+out of the page and out of the service worker's precache.
+
+Worth knowing if it ever returns: `leaflet.heat` reads back its own canvas, so it
+throws on a container with no size (background tab, pane mid-layout) — the old
+code guarded with `map.getSize().x > 0` and redrew on `resize`; and `setOptions`
+reaches through to the map, so the layer had to be attached *before* it was
+configured. Cluster mode had to use `chunkedLoading: false`, because a chunked
+load that finished after the layer was removed threw on `getMinZoom` of null.

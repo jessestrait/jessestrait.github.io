@@ -7,7 +7,7 @@
  *
  * Bump VERSION to ship a new shell; activate() drops every older cache.
  */
-const VERSION = 'atx-v1';
+const VERSION = 'atx-v2';
 const SHELL = VERSION + '-shell';
 const GEO = VERSION + '-geo';
 const FONTS = VERSION + '-fonts';
@@ -21,9 +21,6 @@ const PRECACHE = [
   'manifest.json',
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
   'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
-  'https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css',
-  'https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js',
-  'https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js',
 ];
 
 self.addEventListener('install', e => {

@@ -19,7 +19,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
 <style>
 :root{
   --bg:#080c14; --surface:#0f1623; --surface2:#131c2c; --border:#1e2a3a;
@@ -450,30 +449,13 @@ dl.mecard a{color:var(--accent-hi)}
     </div>
 
     <div class="sec">
-      <h3>Archives</h3>
-      <p class="hint">Closed datasets the city publishes after the fact.</p>
-      <div id="archive"></div>
-      <label class="mini" for="fireyear">Fire incident year</label>
-      <select id="fireyear">
-        <option value="2025" selected>2025 &middot; 6,956 calls</option>
-        <option value="2024">2024 &middot; 6,404 calls</option>
-        <option value="2023">2023 &middot; 7,142 calls</option>
-      </select>
-    </div>
-
-    <div class="sec">
       <h3>Places</h3>
       <p class="hint">Standing city infrastructure. Traffic cameras show a live still image.</p>
       <div id="places"></div>
     </div>
 
     <div class="sec">
-      <h3>Draw as</h3>
-      <div class="seg" id="mode">
-        <button data-m="points" class="on">Dots</button>
-        <button data-m="cluster">Clusters</button>
-        <button data-m="heat">Heatmap</button>
-      </div>
+      <h3>Filter</h3>
       <input type="text" id="q" placeholder="Filter everything on the map…" autocomplete="off" />
     </div>
 
@@ -568,9 +550,15 @@ dl.mecard a{color:var(--accent-hi)}
       <li><b>Live fire incidents</b> — <code>wpu4-x69d</code>, the same CTECC dispatch feed
         as the traffic layer, refreshed every five minutes. Fire, rescue and hazmat; no medical
         calls, which the city withholds under HIPAA. Pulsing pins are still open right now.</li>
-      <li><b>AFD fire incidents</b> — <code>v5hh-nyr8</code>, 2023–2025. The archive behind
-        the live layer above, and the reason both exist: one is what is happening, the other is
-        what happened.</li>
+      <li><b>Power outages</b> &mdash; Austin Energy, through the KUBRA feed behind
+        their public outage map. It reports by ZIP rather than by outage, so the shapes are the
+        51 ZIPs they serve and the counts are joined in the browser; only the ZIPs actually out
+        are drawn. Customers out, customers served and a restoration estimate where there is one.
+        Refreshed every five minutes against a source that republishes every ten. This is the
+        one feed on the page with no archive behind it &mdash; the city publishes a map of what
+        is true now and never writes it down &mdash; so a scheduled job in this repo has been
+        recording it since 8 September 2026 to build the history that otherwise would not
+        exist.</li>
       <li><b>APD crime reports</b> — <code>fdj4-gpfu</code>, 2.7 million of them going back to
         2003. This one carries no coordinates at all &mdash; only a council district and a census
         block group, which is why it shades those units rather than dropping pins. All the counting
@@ -638,8 +626,6 @@ dl.mecard a{color:var(--accent-hi)}
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-<script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
 <script>
 /* ══════════════════════════════════════════════════════════════════
    ATX Layers — no backend and no storage. Almost everything is a live
@@ -857,34 +843,6 @@ const LAYERS = [
     }
   },
   {
-    id: 'fires', group: 'archive', color: '#ff9d2e', on: false,
-    name: 'Fire incidents', note: 'Austin Fire Department, 2023–2025',
-    async load() {
-      const year = document.getElementById('fireyear').value;
-      const rows = await soda('v5hh-nyr8', {
-        '$select': 'incident_number,incdate,problem,council_district,prioritydescription,location,responsearea',
-        '$where': "calendaryear = '" + year + "'",
-        '$order': 'incdate DESC', '$limit': 8000
-      });
-      return rows.map(r => {
-        const m = /\(\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*\)/.exec(r.location || '');
-        if (!m) return null;
-        const t = r.incdate ? new Date(r.incdate) : null;
-        const cat = titleCase(String(r.problem || '').replace(/^[A-Z]+\s*-?\s*/, '')) || 'Fire';
-        return {
-          lat: +m[2], lng: +m[1], t, cat, noHour: true,
-          html: pop('#ff9d2e', 'Fire call', cat, t ? t.toLocaleDateString() : '', [
-            ['Code', r.problem],
-            ['District', r.council_district],
-            ['Response area', r.responsearea],
-            ['Priority', r.prioritydescription],
-            ['Incident', r.incident_number]
-          ])
-        };
-      }).filter(Boolean);
-    }
-  },
-  {
     id: 'stations', group: 'places', color: '#ff6b3d', on: false,
     name: 'Fire stations', note: '167 AFD and partner stations',
     async load() {
@@ -1020,10 +978,10 @@ L.tileLayer(ESRI + 'World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
 }).addTo(map);
 
 const state = {
-  days: 1, mode: 'points', q: '', metric: '__per10k',
+  days: 1, q: '', metric: '__per10k',
   geo: 'none', viewOnly: true, data: {}, busy: {}
 };
-let dotLayer = null, liveLayer = null, heatLayer = null, clusterLayer = null;
+let dotLayer = null, liveLayer = null;
 
 /* ── Panel construction ────────────────────────────────────────── */
 function rowFor(l) {
@@ -1122,16 +1080,14 @@ function visibleFeatures() {
 
 // A fixed heat radius saturates the whole city at low zoom and disappears at
 // high zoom, so it scales with the view.
-function heatRadius() { return Math.max(7, Math.min(28, (map.getZoom() - 7) * 3)); }
 
 function clearMapLayers() {
-  [dotLayer, liveLayer, clusterLayer].forEach(x => {
+  [dotLayer, liveLayer].forEach(x => {
     if (x) { try { map.removeLayer(x); } catch (e) {} }
   });
   // The heat layer is kept alive across redraws — tearing leaflet.heat down and
   // rebuilding it leaves a pending redraw reading a detached, zero-width canvas.
-  if (heatLayer && map.hasLayer(heatLayer)) map.removeLayer(heatLayer);
-  dotLayer = liveLayer = clusterLayer = null;
+  dotLayer = liveLayer = null;
   if (dotRenderer) { map.removeLayer(dotRenderer); dotRenderer = null; }
 }
 
@@ -1159,42 +1115,14 @@ function renderNow() {
   clearMapLayers();
   const vis = visibleFeatures();
 
-  if (state.mode === 'heat') {
-    const pts = vis.map(({ f }) => [f.lat, f.lng, 1]);
-    // leaflet.heat reads back its own canvas; on a container with no size yet
-    // (a background tab, a pane mid-layout) that read throws.
-    if (pts.length && map.getSize().x > 0) {
-      const r = heatRadius();
-      if (!heatLayer) {
-        heatLayer = L.heatLayer([], {
-          radius: r, blur: r * 1.35, minOpacity: 0.25, maxZoom: 16,
-          gradient: { 0.2: '#1b3a6b', 0.4: '#3a7bd5', 0.6: '#5ad1e0', 0.8: '#ffd166', 1.0: '#ff4d4d' }
-        });
-      }
-      // setOptions redraws immediately and reaches through to the map, so the
-      // layer has to be attached before it is configured.
-      if (!map.hasLayer(heatLayer)) heatLayer.addTo(map);
-      heatLayer.setOptions({ radius: r, blur: r * 1.35 });
-      heatLayer.setLatLngs(pts);
-    }
-  } else if (state.mode === 'cluster') {
-    dotRenderer = L.canvas({ pane: 'dotPane', padding: 0.35, tolerance: HIT_TOLERANCE }).addTo(map);
-    clusterLayer = L.markerClusterGroup({
-      chunkedLoading: false, maxClusterRadius: 55,
-      showCoverageOnHover: false, spiderfyOnMaxZoom: true
-    });
-    clusterLayer.addLayers(vis.map(({ f, l }) => markerFor(f, l)));
-    map.addLayer(clusterLayer);
-  } else {
-    dotRenderer = L.canvas({ pane: 'dotPane', padding: 0.35, tolerance: HIT_TOLERANCE }).addTo(map);
-    dotLayer = L.layerGroup([], { pane: 'dotPane' });
-    vis.forEach(({ f, l }) => { if (!f.live) markerFor(f, l).addTo(dotLayer); });
-    dotLayer.addTo(map);
-  }
+  dotRenderer = L.canvas({ pane: 'dotPane', padding: 0.35, tolerance: HIT_TOLERANCE }).addTo(map);
+  dotLayer = L.layerGroup([], { pane: 'dotPane' });
+  vis.forEach(({ f, l }) => { if (!f.live) markerFor(f, l).addTo(dotLayer); });
+  dotLayer.addTo(map);
 
   // Live incidents always get their own pulsing pin on top
   const live = vis.filter(({ f }) => f.live);
-  if (live.length && state.mode !== 'heat') {
+  if (live.length) {
     liveLayer = L.layerGroup([], { pane: 'livePane' });
     live.forEach(({ f }) => {
       L.marker([f.lat, f.lng], {
@@ -1422,6 +1350,13 @@ const GROUND = [
       ['Miles', p.mi], ['Surface', p.s], ['Bikes', p.bike]])
   },
   {
+    id: 'outages', color: '#a855f7', name: 'Power outages',
+    note: 'Austin Energy, live — shaded by customers out',
+    file: 'data/zips.json',
+    load: (g, badge) => loadOutages(g, badge),
+    popup: () => ''
+  },
+  {
     id: 'lwc', color: '#ff6b6b', name: 'Low-water crossings', note: 'Gauged "turn around, don\'t drown" spots',
     points: true,
     url: 'https://services.arcgis.com/0L95CJ0VTaxqcmED/arcgis/rest/services/'
@@ -1438,7 +1373,8 @@ function groundRow(g) {
   el.className = 'row';
   el.style.setProperty('--k', g.color);
   el.innerHTML = '<input type="checkbox"><span class="swatch"></span>'
-    + '<span class="nm">' + esc(g.name) + '<small>' + esc(g.note) + '</small></span>'
+    + '<span class="nm">' + esc(g.name) + '<small id="note-' + g.id + '">'
+      + esc(g.note) + '</small></span>'
     + '<span class="ct" id="ct-g-' + g.id + '">&mdash;</span>';
   el.querySelector('input').addEventListener('change', e => {
     g.on = e.target.checked;
@@ -1453,6 +1389,7 @@ function groundRow(g) {
   });
   return el;
 }
+const byGround = Object.fromEntries(GROUND.map(g => [g.id, g]));
 GROUND.forEach(g => document.getElementById('ground').appendChild(groundRow(g)));
 
 async function loadGround(g) {
@@ -1460,6 +1397,11 @@ async function loadGround(g) {
   badge.textContent = '···';
   badge.classList.add('busy');
   pulse('loading ' + g.name.toLowerCase(), 'loading');
+  // Anything whose shapes are static but whose meaning is live loads itself.
+  if (g.load) {
+    try { await g.load(g, badge); } finally { badge.classList.remove('busy'); }
+    return;
+  }
   try {
     const res = await fetch(g.file || g.url);
     const gj = await res.json();
@@ -1482,6 +1424,120 @@ async function loadGround(g) {
     pulse(g.name + ' failed to load', 'err');
   } finally {
     badge.classList.remove('busy');
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   Power outages — Austin Energy, via the KUBRA StormCenter feed behind
+   outagemap.austinenergy.com. See NOTES.md for how the endpoints were
+   found; the short version is that the deployment id rotates on every
+   publish to bust a 24h cache, so it has to be read from currentState
+   each time rather than hardcoded, and the report path comes from the
+   configuration the viewer itself loads. CORS is open on all three.
+
+   The feed is per-ZIP, not per-outage, so the shapes come from the
+   prebuilt zips.json and the counts are joined here. Only ZIPs that
+   are actually out get drawn — 51 invisible polygons would sit over
+   the whole city stealing clicks from the pins underneath.
+   ══════════════════════════════════════════════════════════════════ */
+const OUTAGE = {
+  sc: 'dd9c446f-f6b8-43f9-8f80-83f5245c60a1',
+  view: '76446308-a901-4fa3-849c-3dd569933a51',
+  geo: null, byZip: {}, total: 0, cust: 0, at: null, busy: false, timer: null
+};
+
+function outageShade(cust) {
+  // Bands rather than a ramp: the distribution is a handful of ones and twos
+  // with the occasional four-figure feeder failure, and a linear ramp would
+  // render every ordinary night as blank.
+  if (cust >= 1000) return 0.55;
+  if (cust >= 100) return 0.42;
+  if (cust >= 10) return 0.30;
+  return 0.20;
+}
+
+async function fetchOutages() {
+  const base = 'https://kubra.io';
+  const cs = await fetch(base + '/stormcenter/api/v1/stormcenters/' + OUTAGE.sc
+    + '/views/' + OUTAGE.view + '/currentState?preview=false').then(r => r.json());
+  const cfg = await fetch(base + '/stormcenter/api/v1/stormcenters/' + OUTAGE.sc
+    + '/views/' + OUTAGE.view + '/configuration/' + cs.stormcenterDeploymentId
+    + '?preview=false').then(r => r.json());
+  const m = JSON.stringify(cfg).match(/public\/reports\/[0-9a-f-]+_report\.json/);
+  if (!m) throw new Error('report path missing from configuration');
+  const rep = await fetch(base + '/' + cs.data.interval_generation_data + '/' + m[0])
+    .then(r => r.json());
+  return rep.file_data || {};
+}
+
+function drawOutages() {
+  if (groundLayers.outages) { map.removeLayer(groundLayers.outages); delete groundLayers.outages; }
+  const g = byGround.outages;
+  if (!OUTAGE.geo || !g) return;
+  const hit = OUTAGE.geo.features.filter(f => OUTAGE.byZip[(f.properties || {}).zip]);
+  if (!hit.length) return;
+  groundLayers.outages = L.geoJSON({ type: 'FeatureCollection', features: hit }, {
+    pane: 'groundPane',
+    style: f => {
+      const o = OUTAGE.byZip[f.properties.zip] || {};
+      return { color: '#c084fc', weight: 1.2, opacity: 0.8,
+               fillColor: '#a855f7', fillOpacity: outageShade(o.cust || 0) };
+    },
+    onEachFeature: (f, lyr) => {
+      const o = OUTAGE.byZip[f.properties.zip] || {};
+      const etr = o.etr && o.etr !== 'ETR-EXP' ? new Date(o.etr) : null;
+      lyr.bindPopup(pop('#a855f7', 'Power outage', 'ZIP ' + f.properties.zip,
+        OUTAGE.at ? 'as of ' + ago(OUTAGE.at) : '', [
+          ['Outages', o.n],
+          ['Customers out', (o.cust || 0).toLocaleString()],
+          ['Customers served', (o.served || 0).toLocaleString()],
+          ['Share out', o.pct != null ? o.pct + '%' : null],
+          ['Restoration estimate', etr ? etr.toLocaleString()
+            : (o.etr === 'ETR-EXP' ? 'Past its estimate' : null)]
+        ]), { maxWidth: 300 });
+    }
+  });
+  if (g.on) groundLayers.outages.addTo(map);
+}
+
+async function loadOutages(g, badge) {
+  if (OUTAGE.busy) return;
+  OUTAGE.busy = true;
+  try {
+    if (!OUTAGE.geo) OUTAGE.geo = await fetch(g.file).then(r => r.json());
+    const data = await fetchOutages();
+    OUTAGE.byZip = {};
+    (data.areas || []).forEach(a => {
+      const n = a.n_out || 0, cust = (a.cust_a || {}).val || 0;
+      if (n > 0 || cust > 0) {
+        OUTAGE.byZip[String(a.name)] = { n: n, cust: cust, served: a.cust_s,
+          pct: (a.percent_cust_a || {}).val, etr: a.etr };
+      }
+    });
+    const t = data.totals || {};
+    OUTAGE.total = t.n_out || 0;
+    OUTAGE.cust = (t.cust_a || {}).val || 0;
+    OUTAGE.at = new Date();
+    drawOutages();
+    if (badge) badge.textContent = OUTAGE.total.toLocaleString();
+    setNote(g, OUTAGE.total
+      ? OUTAGE.cust.toLocaleString() + ' customers out across '
+        + Object.keys(OUTAGE.byZip).length + ' ZIP' + (Object.keys(OUTAGE.byZip).length === 1 ? '' : 's')
+      : 'Austin Energy reports nothing out right now');
+    pulse('updated ' + new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }));
+    clearInterval(OUTAGE.timer);
+    // The source republishes every 10 minutes; asking twice as often costs
+    // three small requests and keeps the reading close to fresh.
+    OUTAGE.timer = setInterval(() => {
+      if (!document.hidden && byGround.outages.on) loadOutages(byGround.outages, badge);
+    }, 300000);
+  } catch (e) {
+    console.error(e);
+    if (badge) badge.textContent = 'err';
+    setNote(g, 'Austin Energy did not answer', true);
+    pulse('outages failed to load', 'err');
+  } finally {
+    OUTAGE.busy = false;
   }
 }
 
@@ -2429,7 +2485,7 @@ function insights(vis) {
   set.forEach(({ f, l }) => {
     byLayer[l.id] = (byLayer[l.id] || 0) + 1;
     byCat[f.cat] = (byCat[f.cat] || 0) + 1;
-    if (f.t && !f.noHour) { hours[f.t.getHours()]++; timed++; }
+    if (f.t) { hours[f.t.getHours()]++; timed++; }
     if (f.t && (!newest || f.t > newest)) newest = f.t;
   });
 
@@ -3066,16 +3122,6 @@ document.getElementById('window').addEventListener('click', e => {
   refreshActive(true);
   if (byId.c311.on) loadC311Top(true);
 });
-document.getElementById('mode').addEventListener('click', e => {
-  const b = e.target.closest('button'); if (!b) return;
-  document.querySelectorAll('#mode button').forEach(x => x.classList.toggle('on', x === b));
-  state.mode = b.dataset.m;
-  render();
-});
-document.getElementById('fireyear').addEventListener('change', () => {
-  delete state.data.fires;
-  if (byId.fires.on) fetchLayer(byId.fires); else render();
-});
 document.getElementById('metric').addEventListener('change', e => {
   state.metric = e.target.value;
   syncModes();
@@ -3107,11 +3153,6 @@ let qt;
 document.getElementById('q').addEventListener('input', e => {
   clearTimeout(qt);
   qt = setTimeout(() => { state.q = e.target.value; render(); }, 220);
-});
-// A container with no size (a background tab, a collapsed pane) can't take a
-// heatmap, so render() skips it. Draw it as soon as the map has room again.
-map.on('resize', () => {
-  if (state.mode === 'heat' && map.getSize().x > 0 && !(heatLayer && map.hasLayer(heatLayer))) render();
 });
 /* iOS parks background tabs and can restore them at a different viewport size.
    Leaflet caches its container size, so without this the map comes back with
@@ -3164,15 +3205,7 @@ setInterval(healthCheck, 2000);
 window.addEventListener('orientationchange', () => setTimeout(wakeUp, 250));
 
 map.on('moveend', () => { if (state.viewOnly) insights(visibleFeatures()); });
-map.on('zoomend', () => {
-  // Retune the heat radius in place — rebuilding the layer mid-zoom leaves
-  // leaflet.heat reading from a zero-width canvas.
-  if (state.mode === 'heat' && heatLayer && map.hasLayer(heatLayer)) {
-    const r = heatRadius();
-    heatLayer.setOptions({ radius: r, blur: r * 1.35 });
-  }
-  if (state.viewOnly) insights(visibleFeatures());
-});
+map.on('zoomend', () => { if (state.viewOnly) insights(visibleFeatures()); });
 
 document.getElementById('aboutbtn').onclick = () => document.getElementById('about').classList.add('on');
 document.getElementById('aboutclose').onclick = () => document.getElementById('about').classList.remove('on');
@@ -3276,11 +3309,9 @@ function saveUrl() {
     p.set('g', GROUND.filter(x => x.on).map(x => x.id).join(','));
     p.set('geo', state.geo);
     p.set('met', state.metric);
-    p.set('r', state.mode);
     p.set('v', c.lat.toFixed(4) + ',' + c.lng.toFixed(4) + ',' + map.getZoom());
     if (CRIME.on) p.set('c', [CRIME.cat, CRIME.year, CRIME.scope].join('|'));
     if (byId.c311.on) p.set('t', C311.scope);
-    if (byId.fires.on) p.set('fy', document.getElementById('fireyear').value);
     if (TRAFFIC.on !== TRAFFIC_DEFAULT) p.set('tt', TRAFFIC.on ? '1' : '0');
     if (state.q.trim()) p.set('q', state.q.trim());
     const hash = '#' + p.toString();
@@ -3311,17 +3342,6 @@ function restoreUrl() {
     if (p.has('l')) {
       const want = p.get('l').split(',').filter(Boolean);
       LAYERS.forEach(l => setLayerOn(l, want.includes(l.id)));
-    }
-    if (p.has('fy')) {
-      const sel = document.getElementById('fireyear');
-      if ([...sel.options].some(o => o.value === p.get('fy'))) sel.value = p.get('fy');
-    }
-    if (p.has('r')) {
-      const r = p.get('r');
-      if (['points', 'cluster', 'heat'].includes(r)) {
-        state.mode = r;
-        document.querySelectorAll('#mode button').forEach(b => b.classList.toggle('on', b.dataset.m === r));
-      }
     }
     if (p.has('q')) {
       state.q = p.get('q');
