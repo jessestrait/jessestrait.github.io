@@ -565,7 +565,12 @@ dl.mecard a{color:var(--accent-hi)}
         about can be scoped to a real bounding box or a radius around you.</li>
       <li><b>Issued construction permits</b> — <code>3syk-w9eu</code>, with job valuation and contractor.</li>
       <li><b>Crashes</b> — <code>y2wy-tgr5</code>, the Vision Zero record. Runs a couple of weeks behind.</li>
-      <li><b>AFD fire incidents</b> — <code>v5hh-nyr8</code>, 2023–2025.</li>
+      <li><b>Live fire incidents</b> — <code>wpu4-x69d</code>, the same CTECC dispatch feed
+        as the traffic layer, refreshed every five minutes. Fire, rescue and hazmat; no medical
+        calls, which the city withholds under HIPAA. Pulsing pins are still open right now.</li>
+      <li><b>AFD fire incidents</b> — <code>v5hh-nyr8</code>, 2023–2025. The archive behind
+        the live layer above, and the reason both exist: one is what is happening, the other is
+        what happened.</li>
       <li><b>APD crime reports</b> — <code>fdj4-gpfu</code>, 2.7 million of them going back to
         2003. This one carries no coordinates at all &mdash; only a council district and a census
         block group, which is why it shades those units rather than dropping pins. All the counting
@@ -660,6 +665,11 @@ const titleCase = s => String(s || '').toLowerCase()
   .replace(/\b([a-z])/g, (m, c) => c.toUpperCase()).trim();
 const money = n => n == null ? '—' : '$' + Math.round(n).toLocaleString();
 const sinceISO = days => new Date(Date.now() - days * 864e5).toISOString().slice(0, 19);
+// AFD call types arrive as "CODE - Human Label", with the spacing all over the
+// place: "ALARM - Fire Alarm", "BOX -Structure Fire", "BOXL- Structure Fire".
+// A few carry no code at all ("Traffic Injury Pri 2"), so only strip something
+// that actually looks like one. The raw value still goes in the popup.
+const fireIssue = s => String(s || '').replace(/^[A-Z0-9]{1,8}\s*-\s*/, '');
 
 // Most of these datasets publish on a lag of a day to a few weeks, so a window
 // measured from "now" quietly comes back empty. Anchor it to the newest record
@@ -726,6 +736,35 @@ const LAYERS = [
             ['Where', titleCase(r.address)],
             ['Status', titleCase(r.traffic_report_status)],
             ['Agency', titleCase(r.agency)],
+            ['Reported', t ? t.toLocaleString() : null]
+          ])
+        };
+      });
+    }
+  },
+  {
+    id: 'firelive', group: 'recent', color: '#ffe14d', on: true,
+    name: 'Fire incidents', note: 'AFD dispatch, near real time',
+    async load(days) {
+      // Same CTECC feed and the same column names as dx9v-zd7x above, so this
+      // is that code path with the dataset swapped. Agency is FIRE on every
+      // row, so it is not worth a line in the popup. Medical calls are absent
+      // from the feed by design — HIPAA — so this is fire, rescue and hazmat.
+      const rows = await soda('wpu4-x69d', {
+        '$select': 'published_date,issue_reported,latitude,longitude,address,traffic_report_status',
+        '$where': "published_date > '" + sinceISO(days) + "' AND latitude IS NOT NULL",
+        '$order': 'published_date DESC', '$limit': 5000
+      });
+      return rows.map(r => {
+        const live = r.traffic_report_status === 'ACTIVE';
+        const t = r.published_date ? new Date(r.published_date) : null;
+        const cat = titleCase(fireIssue(r.issue_reported));
+        return {
+          lat: +r.latitude, lng: +r.longitude, t, cat, live,
+          html: pop('#ffe14d', live ? 'Active now' : 'Fire incident', cat, ago(t), [
+            ['Where', titleCase(r.address)],
+            ['Call type', r.issue_reported],
+            ['Status', titleCase(r.traffic_report_status)],
             ['Reported', t ? t.toLocaleString() : null]
           ])
         };
@@ -2624,7 +2663,7 @@ const MODES = {
   safety: {
     blurb: 'Live wrecks and dispatches over crime per resident. The shading is what stops '
          + 'this being a map of where the most people are.',
-    days: 1, layers: ['traffic', 'crashes', 'stations'], ground: [],
+    days: 1, layers: ['traffic', 'firelive', 'crashes', 'stations'], ground: [],
     geo: 'bg', metric: '__crime10k', crime: true
   },
   housing: {

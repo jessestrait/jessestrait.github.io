@@ -1,0 +1,67 @@
+# Austin Energy publishes an outage map, not an outage archive. Nothing here can
+# be backfilled: a poll we miss is history that will not exist. Endpoint
+# discovery notes live in tools/capture_outages.py.
+name: Capture Austin Energy outages
+
+on:
+  schedule:
+    # Every 15 minutes. The source republishes every 10, so this samples a
+    # little coarser than it changes — deliberately. Every commit to main
+    # rebuilds the whole Pages site, and main sees ~17 real commits a month, so
+    # the archive lives on its own orphan `data` branch and the site is never
+    # rebuilt for it. Public repo, so the Actions minutes are free.
+    #
+    # GitHub cron is best-effort and drifts under load, which is exactly why the
+    # collector stamps its own fetch time instead of trusting this line.
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  # A drifted run must not overlap the next one: two jobs writing the same day
+  # file would race and one would lose its poll.
+  group: capture-outages
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Stash the collector before leaving main
+        run: cp tools/capture_outages.py "$RUNNER_TEMP/capture.py"
+
+      - name: Switch to the archive branch, creating it the first time
+        run: |
+          set -euo pipefail
+          git config user.name  "outage-archive[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin data >/dev/null 2>&1; then
+            git fetch --depth=1 origin data:refs/remotes/origin/data
+            git checkout -B data refs/remotes/origin/data
+          else
+            git checkout --orphan data
+            git rm -rfq . || true
+          fi
+
+      - name: Poll and merge
+        run: python3 "$RUNNER_TEMP/capture.py" --out outages
+
+      - name: Commit
+        run: |
+          set -euo pipefail
+          git add outages
+          if git diff --cached --quiet; then
+            echo "nothing changed"
+            exit 0
+          fi
+          # Single-quoted so the Python below needs no escaping. The reading goes
+          # in the subject, which makes `git log` on this branch a legible time
+          # series without opening a single file.
+          SUMMARY=$(python3 -c 'import json; d = json.load(open("outages/open.json")); e = d["episodes"]; print("%d ZIP(s) out, %d customers" % (len(e), sum(x.get("peak_customers_affected") or 0 for x in e)) if e else "all clear")')
+          git commit -q -m "Outages: $SUMMARY at $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push origin data
