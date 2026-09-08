@@ -393,19 +393,6 @@ dl.mecard a{color:var(--accent-hi)}
       <div id="wxlist"></div>
     </div>
 
-    <div class="sec" id="modesec">
-      <h3>Start somewhere</h3>
-      <p class="hint">Four ready-made views. Change anything below and you're on your own from
-        there &mdash; which is the point.</p>
-      <div class="seg" id="modes">
-        <button data-m="traffic">Traffic&nbsp;now</button>
-        <button data-m="safety">Safety</button>
-        <button data-m="housing">Housing</button>
-        <button data-m="nature">Nature</button>
-      </div>
-      <p class="hint" id="modenote" style="margin:.55rem 0 0"></p>
-    </div>
-
     <div class="sec">
       <h3>Happening lately</h3>
       <p class="hint">Pulled live from the City of Austin's open data portal each time you change the window.</p>
@@ -452,17 +439,6 @@ dl.mecard a{color:var(--accent-hi)}
     </div>
 
     <div class="sec">
-      <h3>Places</h3>
-      <p class="hint">Standing city infrastructure. Traffic cameras show a live still image.</p>
-      <div id="places"></div>
-    </div>
-
-    <div class="sec">
-      <h3>Filter</h3>
-      <input type="text" id="q" placeholder="Filter everything on the map…" autocomplete="off" />
-    </div>
-
-    <div class="sec">
       <h3>Ground</h3>
       <p class="hint">Shapes rather than points, from the city's GIS. These sit under everything
         else &mdash; they're what the dots are happening <em>on</em>.</p>
@@ -488,11 +464,30 @@ dl.mecard a{color:var(--accent-hi)}
       </div>
     </div>
 
+    <div class="sec">
+      <h3>Places</h3>
+      <p class="hint">Standing city infrastructure. Traffic cameras show a live still image.</p>
+      <div id="places"></div>
+    </div>
+
     <div class="sec" id="mesec">
       <h3>Where you are</h3>
       <p class="hint" id="mehint">Tap the crosshair on the map to drop yourself on it, and see what
         the census block group you're standing in actually looks like.</p>
       <div id="mebody"></div>
+    </div>
+
+    <div class="sec" id="modesec">
+      <h3>Start somewhere</h3>
+      <p class="hint">Four ready-made views. Change anything below and you're on your own from
+        there &mdash; which is the point.</p>
+      <div class="seg" id="modes">
+        <button data-m="traffic">Traffic&nbsp;now</button>
+        <button data-m="safety">Safety</button>
+        <button data-m="housing">Housing</button>
+        <button data-m="nature">Nature</button>
+      </div>
+      <p class="hint" id="modenote" style="margin:.55rem 0 0"></p>
     </div>
 
     <div class="sec">
@@ -516,7 +511,6 @@ dl.mecard a{color:var(--accent-hi)}
       <p class="hint" style="margin:.45rem 0 0">Whatever you have switched on lives in the address
         bar, so a link opens exactly what you're looking at.</p>
     </div>
-
   </aside>
 
   <div id="map"></div>
@@ -981,7 +975,7 @@ L.tileLayer(ESRI + 'World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
 }).addTo(map);
 
 const state = {
-  days: 1, q: '', metric: '__per10k',
+  days: 1, metric: '__per10k',
   geo: 'none', viewOnly: true, data: {}, busy: {}
 };
 let dotLayer = null, liveLayer = null;
@@ -997,9 +991,12 @@ function rowFor(l) {
     + '<span class="ct" id="ct-' + l.id + '">—</span>';
   el.querySelector('input').addEventListener('change', e => {
     l.on = e.target.checked;
-    if (l.id === 'c311') {
-      c311PanelVisible(l.on);
-      if (l.on) loadC311Top(false);
+    // Layers that carry a breakdown panel show and fill it with the tick.
+    // Declared on the layer rather than checked by id here, so the next one
+    // that grows a panel does not need this handler edited again.
+    if (l.sub) {
+      l.sub.visible(l.on);
+      if (l.on) l.sub.load(false);
     }
     if (!l.on && COARSE) {
       // On a phone, hand the memory back rather than hoarding every layer the
@@ -1062,14 +1059,12 @@ function refreshActive(clearAll) {
 
 /* ── Rendering ─────────────────────────────────────────────────── */
 function visibleFeatures() {
-  const q = state.q.trim().toLowerCase();
   const out = [];
   LAYERS.forEach(l => {
     if (!l.on) return;
     const win = scrubWindowFor(l.id);
     const feats = state.data[l.id] || [];
     feats.forEach(f => {
-      if (q && !(f.cat + ' ' + f.html).toLowerCase().includes(q)) return;
       // Standing infrastructure has no timestamp and shouldn't blink in and out.
       if (win && f.t) {
         const v = f.t.getTime();
@@ -1366,6 +1361,10 @@ const GROUND = [
   },
   {
     id: 'outages', color: '#a855f7', name: 'Power outages',
+    // Polygons, so it is built by the ground machinery — but it refreshes every
+    // five minutes, which puts it with the live feeds rather than with parks
+    // and the floodplain. `group` moves only the row.
+    group: 'recent',
     note: 'Austin Energy, live — shaded by customers out',
     file: 'data/zips.json',
     load: (g, badge) => loadOutages(g, badge),
@@ -1405,7 +1404,7 @@ function groundRow(g) {
   return el;
 }
 const byGround = Object.fromEntries(GROUND.map(g => [g.id, g]));
-GROUND.forEach(g => document.getElementById('ground').appendChild(groundRow(g)));
+GROUND.forEach(g => document.getElementById(g.group || 'ground').appendChild(groundRow(g)));
 
 async function loadGround(g) {
   const badge = document.getElementById('ct-g-' + g.id);
@@ -2583,6 +2582,8 @@ function enableMeScopeFire(on) {
   else demoteFromMe(FIRE, 'firescope', reload);
 }
 
+byId.c311.sub = { visible: c311PanelVisible, load: loadC311Top };
+
 (function buildFirePanel() {
   const row = document.querySelector('#note-firelive').closest('.row');
   const sub = document.createElement('div');
@@ -2597,6 +2598,8 @@ function enableMeScopeFire(on) {
     + '<button data-s="me" title="Scope to a kilometer around you">Near me</button>'
     + '</div><div id="firelist"></div>';
   row.after(sub);
+
+  byId.firelive.sub = { visible: firePanelVisible, load: loadFireTop };
 
   document.getElementById('firescope').addEventListener('click', e => {
     const b = e.target.closest('button');
@@ -2889,14 +2892,13 @@ function setLayerOn(l, on) {
   l.on = on;
   const box = document.querySelector('#note-' + l.id).closest('.row').querySelector('input');
   box.checked = on;
-  if (l.id === 'c311') c311PanelVisible(on);
-  if (l.id === 'firelive') firePanelVisible(on);
+  if (l.sub) l.sub.visible(on);
 }
 
 function setGroundOn(g, on) {
   g.on = on;
-  const row = [...document.querySelectorAll('#ground .row')]
-    .find(r => r.textContent.includes(g.name));
+  const note = document.getElementById('note-' + g.id);
+  const row = note && note.closest('.row');
   if (row) row.querySelector('input').checked = on;
   if (!on) { if (groundLayers[g.id]) map.removeLayer(groundLayers[g.id]); return; }
   if (groundLayers[g.id]) groundLayers[g.id].addTo(map); else loadGround(g);
@@ -3299,11 +3301,6 @@ document.getElementById('viewonly').addEventListener('change', e => {
   state.viewOnly = e.target.checked;
   insights(visibleFeatures());
 });
-let qt;
-document.getElementById('q').addEventListener('input', e => {
-  clearTimeout(qt);
-  qt = setTimeout(() => { state.q = e.target.value; render(); }, 220);
-});
 /* iOS parks background tabs and can restore them at a different viewport size.
    Leaflet caches its container size, so without this the map comes back with
    stale dimensions: gestures land in the wrong place and it reads as frozen. */
@@ -3465,7 +3462,6 @@ function saveUrl() {
     if (byId.c311.on) p.set('t', C311.scope);
     if (byId.firelive.on) p.set('ft', FIRE.scope);
     if (TRAFFIC.on !== TRAFFIC_DEFAULT) p.set('tt', TRAFFIC.on ? '1' : '0');
-    if (state.q.trim()) p.set('q', state.q.trim());
     const hash = '#' + p.toString();
     if (hash !== location.hash) {
       lastHash = hash;
@@ -3494,10 +3490,6 @@ function restoreUrl() {
     if (p.has('l')) {
       const want = p.get('l').split(',').filter(Boolean);
       LAYERS.forEach(l => setLayerOn(l, want.includes(l.id)));
-    }
-    if (p.has('q')) {
-      state.q = p.get('q');
-      document.getElementById('q').value = state.q;
     }
     if (p.has('c')) {
       const [cat, year, scope] = p.get('c').split('|');

@@ -147,3 +147,28 @@ code guarded with `map.getSize().x > 0` and redrew on `resize`; and `setOptions`
 reaches through to the map, so the layer had to be attached *before* it was
 configured. Cluster mode had to use `chunkedLoading: false`, because a chunked
 load that finished after the layer was removed threw on `getMinZoom` of null.
+
+
+### The text filter
+
+Removed 2026-09-08 with the panel reorder. A single input that narrowed every
+point on the map to those whose category or popup text matched, debounced 220ms,
+carried in the hash as `q=`. It had a whole `.sec` and heading to itself for one
+field, and the layer checkboxes already do the coarse version of the same job.
+
+To restore: this markup, a `q` key back on `state`, the `input` listener that
+sets `state.q` and re-renders, the `q` line in `saveUrl`/`restoreUrl`, and one
+line back in `visibleFeatures`:
+
+```js
+const q = state.q.trim().toLowerCase();
+// ...inside the per-feature loop:
+if (q && !(f.cat + ' ' + f.html).toLowerCase().includes(q)) return;
+```
+
+```html
+<div class="sec">
+      <h3>Filter</h3>
+      <input type="text" id="q" placeholder="Filter everything on the map…" autocomplete="off" />
+    </div>
+```
