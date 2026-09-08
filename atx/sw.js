@@ -61,7 +61,13 @@ self.addEventListener('fetch', e => {
   if (req.mode === 'navigate') {
     e.respondWith((async () => {
       try {
-        const res = await fetch(req);
+        // cache:'reload' rather than a plain fetch, because GitHub Pages serves
+        // the HTML with max-age=600 and the browser's own HTTP cache sits in
+        // front of this worker — without it, "network first" can still hand
+        // back a ten-minute-old document and a deploy appears not to have
+        // landed. Fetched by URL, not by passing req: a navigate-mode Request
+        // cannot be reconstructed with a different init.
+        const res = await fetch(req.url, { cache: 'reload', credentials: 'same-origin' });
         if (res && res.ok) (await caches.open(SHELL)).put('./', res.clone());
         return res;
       } catch (err) {
