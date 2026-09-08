@@ -66,7 +66,7 @@ evidence the **"Now / History" mode toggle is dead — don't build it.**
 
 **The real problem is volume, not confusion.** The 2023–2025 fire archive puts **6,956
 points** into the same 24-hour view against **177** live ones — 39:1. It does not
-compete with the live layers, it erases them; no colour scheme survives that ratio.
+compete with the live layers, it erases them; no color scheme survives that ratio.
 That is a pre-existing property of the archive layer, unrelated to live-vs-history, and
 it is the thing worth fixing if anything here gets fixed.
 

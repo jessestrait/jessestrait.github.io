@@ -353,7 +353,10 @@ dl.mecard a{color:var(--accent-hi)}
   #sheetbtn{
     display:block; position:absolute; left:50%; bottom:1rem; transform:translateX(-50%);
     z-index:1150; background:var(--accent); color:#fff; border:0; border-radius:22px;
-    padding:.65rem 1.3rem; font:700 .8rem 'DM Sans',sans-serif; letter-spacing:.05em;
+    /* .9rem, not .65 — this is the only way into the panel on a phone, and at
+       .65 it measured 37px tall against Apple's 44pt minimum (.85 still came
+       out 43.7). Measured by hit-testing, not by trusting the CSS. */
+    padding:.9rem 1.4rem; font:700 .8rem 'DM Sans',sans-serif; letter-spacing:.05em;
     box-shadow:0 6px 22px rgba(0,0,0,.5); cursor:pointer;
   }
   #topbar .home{display:none}
@@ -441,9 +444,9 @@ dl.mecard a{color:var(--accent-hi)}
       <div id="crimetrend"></div>
       <label class="mini" style="display:block;margin-top:1rem">Top offenses</label>
       <div class="seg" id="crimescope">
-        <button data-s="city" class="on">Citywide</button>
-        <button data-s="view">In view</button>
-        <button data-s="me" disabled title="Locate yourself first">Where I am</button>
+        <button data-s="city">Citywide</button>
+        <button data-s="view" class="on">In view</button>
+        <button data-s="me" title="Scope to the block group you are standing in">Where I am</button>
       </div>
       <div id="crimetop"></div>
     </div>
@@ -2009,6 +2012,7 @@ function stopLocate() {
   document.getElementById('mebody').innerHTML = '';
   enableMeScope(false);
   enableMeScope311(false);
+  enableMeScopeFire(false);
   meHint('Tap the crosshair on the map to drop yourself on it, and see what the census block group '
        + "you're standing in actually looks like.");
 }
@@ -2091,8 +2095,10 @@ async function onFix(pos) {
        + 'Tap the crosshair again to stop.');
   enableMeScope(true);
   enableMeScope311(true);
+  enableMeScopeFire(true);
   if (CRIME.scope === 'me') loadCrimeTop(false);
   if (C311.scope === 'me' && byId.c311.on) loadC311Top(false);
+  if (FIRE.scope === 'me' && byId.firelive.on) loadFireTop(false);
   renderMeCard();
 }
 
@@ -2185,7 +2191,8 @@ async function renderMeCard() {
    dataset has no coordinates, so "in view" can't be a bounding box —
    it's the set of districts or block groups the viewport touches,
    passed as an IN clause.                                            */
-CRIME.scope = 'city';
+CRIME.scope = 'view';
+CRIME.wantMe = true;
 CRIME.topBusy = false;
 CRIME.topSig = null;
 
@@ -2302,7 +2309,10 @@ async function loadCrimeTop(force) {
 
 document.getElementById('crimescope').addEventListener('click', e => {
   const b = e.target.closest('button');
-  if (!b || b.disabled) return;
+  if (!b) return;
+  CRIME.wantMe = b.dataset.s === 'me';
+  // Asking for "where I am" without a fix is a request for one, not an error.
+  if (b.dataset.s === 'me' && !ME.pos) { toggleLocate(); return; }
   document.querySelectorAll('#crimescope button').forEach(x => x.classList.toggle('on', x === b));
   CRIME.scope = b.dataset.s;
   loadCrimeTop(true);
@@ -2318,15 +2328,9 @@ map.on('moveend zoomend', () => {
 });
 
 function enableMeScope(on) {
-  const b = document.querySelector('#crimescope button[data-s="me"]');
-  b.disabled = !on;
-  b.title = on ? 'Scope to the block group you are standing in' : 'Locate yourself first';
-  if (!on && CRIME.scope === 'me') {
-    CRIME.scope = 'city';
-    document.querySelectorAll('#crimescope button')
-      .forEach(x => x.classList.toggle('on', x.dataset.s === 'city'));
-    if (document.getElementById('crimetop').innerHTML) loadCrimeTop(true);
-  }
+  const reload = () => { if (document.getElementById('crimetop').innerHTML) loadCrimeTop(true); };
+  if (on) promoteToMe(CRIME, 'crimescope', reload);
+  else demoteFromMe(CRIME, 'crimescope', reload);
 }
 
 
@@ -2336,7 +2340,28 @@ function enableMeScope(on) {
    IN-clause the coordinate-less crime data forces. Counts come from
    Socrata rather than the loaded dots, so they are complete for the
    window instead of capped at the layer's row limit.               */
-const C311 = { scope: 'city', busy: false, sig: null, radius: 1000 };
+/* Every breakdown on the page answers "what is happening around me", so
+   "Near me" is the scope people actually want. There is nothing to centre on
+   until the browser hands over a fix, though, so each one starts on "In view"
+   instead — the map view is a real spatial scope, "all of Austin" is not — and
+   promotes itself to "Near me" the moment a fix lands. Choosing a scope by hand
+   clears that intent, because from then on the choice is the user's. */
+function promoteToMe(sec, groupId, reload) {
+  if (!sec.wantMe || !ME.pos || sec.scope === 'me') return;
+  sec.scope = 'me';
+  document.querySelectorAll('#' + groupId + ' button')
+    .forEach(x => x.classList.toggle('on', x.dataset.s === 'me'));
+  reload();
+}
+function demoteFromMe(sec, groupId, reload) {
+  if (sec.scope !== 'me') return;
+  sec.scope = 'view';
+  document.querySelectorAll('#' + groupId + ' button')
+    .forEach(x => x.classList.toggle('on', x.dataset.s === 'view'));
+  reload();
+}
+
+const C311 = { scope: 'view', wantMe: true, busy: false, sig: null, radius: 1000 };
 
 function topListHTML(rows, opts) {
   const max = +rows[0].n;
@@ -2436,16 +2461,9 @@ function c311PanelVisible(on) {
 }
 
 function enableMeScope311(on) {
-  const b = document.querySelector('#c311scope button[data-s="me"]');
-  if (!b) return;
-  b.disabled = !on;
-  b.title = on ? 'Scope to a kilometer around you' : 'Locate yourself first';
-  if (!on && C311.scope === 'me') {
-    C311.scope = 'city';
-    document.querySelectorAll('#c311scope button')
-      .forEach(x => x.classList.toggle('on', x.dataset.s === 'city'));
-    if (byId.c311.on) loadC311Top(true);
-  }
+  const reload = () => { if (byId.c311.on) loadC311Top(true); };
+  if (on) promoteToMe(C311, 'c311scope', reload);
+  else demoteFromMe(C311, 'c311scope', reload);
 }
 
 (function build311Panel() {
@@ -2457,15 +2475,17 @@ function enableMeScope311(on) {
   sub.innerHTML =
     '<label class="mini">Why people are calling</label>'
     + '<div class="seg" id="c311scope">'
-    + '<button data-s="city" class="on">Austin</button>'
-    + '<button data-s="view">In view</button>'
-    + '<button data-s="me" disabled title="Locate yourself first">Near me</button>'
+    + '<button data-s="city">Austin</button>'
+    + '<button data-s="view" class="on">In view</button>'
+    + '<button data-s="me" title="Scope to a kilometer around you">Near me</button>'
     + '</div><div id="c311list"></div>';
   row.after(sub);
 
   document.getElementById('c311scope').addEventListener('click', e => {
     const b = e.target.closest('button');
-    if (!b || b.disabled) return;
+    if (!b) return;
+    C311.wantMe = b.dataset.s === 'me';
+    if (b.dataset.s === 'me' && !ME.pos) { toggleLocate(); return; }
     document.querySelectorAll('#c311scope button').forEach(x => x.classList.toggle('on', x === b));
     C311.scope = b.dataset.s;
     loadC311Top(true);
@@ -2476,6 +2496,123 @@ function enableMeScope311(on) {
     if (C311.scope !== 'view' || !byId.c311.on) return;
     clearTimeout(t);
     t = setTimeout(() => loadC311Top(false), 700);
+  });
+})();
+
+/* ══════════════════════════════════════════════════════════════════
+   What AFD is being called out for — the same shape as the 311
+   breakdown above it. wpu4-x69d stores latitude/longitude as text, so
+   the spatial filters go through the `location` point column instead:
+   within_circle for a radius, within_box for the viewport.
+   ══════════════════════════════════════════════════════════════════ */
+const FIRE = { scope: 'view', wantMe: true, busy: false, sig: null, radius: 1000 };
+
+function fireScope() {
+  if (FIRE.scope === 'me') {
+    if (!ME.pos) return { label: 'this view', note: 'Drop yourself on the map first.', sig: 'city' };
+    const { lat, lng } = ME.pos;
+    return {
+      where: 'within_circle(location, ' + lat + ', ' + lng + ', ' + FIRE.radius + ')',
+      label: 'within ' + (FIRE.radius / 1000) + ' km of you',
+      sig: 'me:' + lat.toFixed(4) + ',' + lng.toFixed(4)
+    };
+  }
+  if (FIRE.scope === 'view') {
+    if (!viewUsable()) return { label: 'all of Austin', note: 'The map has no size to read yet.', sig: 'city' };
+    const b = map.getBounds();
+    const n = b.getNorth().toFixed(5), s2 = b.getSouth().toFixed(5);
+    const w = b.getWest().toFixed(5), e = b.getEast().toFixed(5);
+    return {
+      // within_box takes the north-west corner first, then the south-east.
+      where: 'within_box(location, ' + n + ', ' + w + ', ' + s2 + ', ' + e + ')',
+      label: 'this view',
+      sig: 'view:' + [n, w, s2, e].join(',')
+    };
+  }
+  return { label: 'all of Austin', sig: 'city' };
+}
+
+async function loadFireTop(force) {
+  const box = document.getElementById('firelist');
+  if (!box || FIRE.busy) return;
+  const scope = fireScope();
+  const sig = [scope.sig, state.days].join('|');
+  if (!force && sig === FIRE.sig) return;
+
+  FIRE.busy = true;
+  box.innerHTML = '<p class="hint" style="margin:.5rem 0 0">Counting…</p>';
+  try {
+    const where = ["published_date > '" + sinceISO(state.days) + "'", 'latitude IS NOT NULL'];
+    if (scope.where) where.push(scope.where);
+    const rows = await soda('wpu4-x69d', {
+      '$select': 'issue_reported,count(*) as n', '$where': where.join(' AND '),
+      '$group': 'issue_reported', '$order': 'n DESC', '$limit': 5
+    });
+    FIRE.sig = sig;
+    if (!rows.length) {
+      box.innerHTML = '<p class="empty" style="margin-top:.5rem">No fire calls here in this window.</p>';
+      return;
+    }
+    const days = state.days;
+    box.innerHTML = topListHTML(
+      rows.map(r => ({ n: r.n, label: titleCase(fireIssue(r.issue_reported)) || 'Call' })),
+      {
+        color: '#ffe14d',
+        caption: 'Last ' + days + (days === 1 ? ' day' : ' days') + ' &middot; <b style="color:var(--text)">'
+               + esc(scope.label) + '</b>',
+        note: scope.note,
+        foot: (t, k) => t.toLocaleString() + ' call' + (t === 1 ? '' : 's')
+              + ' across ' + (k === 1 ? 'this type' : 'these ' + k + ' types') + '.'
+      });
+  } catch (e) {
+    console.error(e);
+    box.innerHTML = '<p class="empty" style="margin-top:.5rem">That query failed — the portal may be busy.</p>';
+  } finally {
+    FIRE.busy = false;
+  }
+}
+
+function firePanelVisible(on) {
+  const el = document.getElementById('firesub');
+  if (el) el.hidden = !on;
+}
+
+function enableMeScopeFire(on) {
+  const reload = () => { if (byId.firelive.on) loadFireTop(true); };
+  if (on) promoteToMe(FIRE, 'firescope', reload);
+  else demoteFromMe(FIRE, 'firescope', reload);
+}
+
+(function buildFirePanel() {
+  const row = document.querySelector('#note-firelive').closest('.row');
+  const sub = document.createElement('div');
+  sub.className = 'sub';
+  sub.id = 'firesub';
+  sub.hidden = !byId.firelive.on;
+  sub.innerHTML =
+    '<label class="mini">What they are being called out for</label>'
+    + '<div class="seg" id="firescope">'
+    + '<button data-s="city">Austin</button>'
+    + '<button data-s="view" class="on">In view</button>'
+    + '<button data-s="me" title="Scope to a kilometer around you">Near me</button>'
+    + '</div><div id="firelist"></div>';
+  row.after(sub);
+
+  document.getElementById('firescope').addEventListener('click', e => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    FIRE.wantMe = b.dataset.s === 'me';
+    if (b.dataset.s === 'me' && !ME.pos) { toggleLocate(); return; }
+    document.querySelectorAll('#firescope button').forEach(x => x.classList.toggle('on', x === b));
+    FIRE.scope = b.dataset.s;
+    loadFireTop(true);
+  });
+
+  let t = null;
+  map.on('moveend zoomend', () => {
+    if (FIRE.scope !== 'view' || !byId.firelive.on) return;
+    clearTimeout(t);
+    t = setTimeout(() => loadFireTop(false), 700);
   });
 })();
 
@@ -2753,6 +2890,7 @@ function setLayerOn(l, on) {
   const box = document.querySelector('#note-' + l.id).closest('.row').querySelector('input');
   box.checked = on;
   if (l.id === 'c311') c311PanelVisible(on);
+  if (l.id === 'firelive') firePanelVisible(on);
 }
 
 function setGroundOn(g, on) {
@@ -3269,6 +3407,7 @@ async function softRefresh() {
     jobs.push(loadAlerts());
     if (CRIME.on) { jobs.push(loadCrime()); jobs.push(loadCrimeTop(true)); }
     if (byId.c311.on) jobs.push(loadC311Top(true));
+    if (byId.firelive.on) jobs.push(loadFireTop(true));
     if (TRAFFIC.on && TRAFFIC.layer) {
       TRAFFIC.layer.options.t = Date.now();
       TRAFFIC.layer.setUrl(trafficUrl(), false);
@@ -3324,6 +3463,7 @@ function saveUrl() {
     p.set('v', c.lat.toFixed(4) + ',' + c.lng.toFixed(4) + ',' + map.getZoom());
     if (CRIME.on) p.set('c', [CRIME.cat, CRIME.year, CRIME.scope].join('|'));
     if (byId.c311.on) p.set('t', C311.scope);
+    if (byId.firelive.on) p.set('ft', FIRE.scope);
     if (TRAFFIC.on !== TRAFFIC_DEFAULT) p.set('tt', TRAFFIC.on ? '1' : '0');
     if (state.q.trim()) p.set('q', state.q.trim());
     const hash = '#' + p.toString();
@@ -3373,14 +3513,21 @@ function restoreUrl() {
           .forEach(x => x.classList.toggle('on', x.dataset.s === scope));
       }
     }
-    if (p.has('t')) {
-      const t = p.get('t');
-      if (['city', 'view'].includes(t)) {
-        C311.scope = t;
-        document.querySelectorAll('#c311scope button')
-          .forEach(x => x.classList.toggle('on', x.dataset.s === t));
-      }
-    }
+    // A link cannot carry someone else's location, so only the two shareable
+    // scopes restore. An explicit one also clears wantMe: a link that says
+    // "citywide" should not jump to "near me" the moment its reader locates
+    // themselves.
+    const restoreScope = (sec, key, groupId) => {
+      if (!p.has(key)) return;
+      const v = p.get(key);
+      if (!['city', 'view'].includes(v)) return;
+      sec.scope = v;
+      sec.wantMe = false;
+      document.querySelectorAll('#' + groupId + ' button')
+        .forEach(x => x.classList.toggle('on', x.dataset.s === v));
+    };
+    restoreScope(C311, 't', 'c311scope');
+    restoreScope(FIRE, 'ft', 'firescope');
     if (p.has('v')) {
       const [lat, lng, z] = p.get('v').split(',').map(Number);
       if (isFinite(lat) && isFinite(lng) && isFinite(z)) {
@@ -3465,6 +3612,7 @@ restoreUrl();
 refreshActive(false);
 if (CRIME.on) { loadCrime(); loadCrimeTop(false); }
 if (byId.c311.on) loadC311Top(false);
+if (byId.firelive.on) loadFireTop(false);
 syncModes();
 saveUrl();
 // Live traffic keeps refreshing on its own; everything else stays put.
