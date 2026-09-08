@@ -459,9 +459,9 @@ dl.mecard a{color:var(--accent-hi)}
       <div id="places"></div>
     </div>
 
-    <div class="sec" id="mesec">
+    <div class="sec" id="mesec" hidden>
       <h3>Where you are</h3>
-      <p class="hint" id="mehint">Tap the crosshair on the map.</p>
+      <p class="hint" id="mehint"></p>
       <div id="mebody"></div>
     </div>
 
@@ -1988,6 +1988,30 @@ function meHint(html, tone) {
   el.style.color = tone === 'err' ? '#ff8f8f' : '';
 }
 
+/* Where you are is empty until you ask for it, so it stays out of the panel
+   until the crosshair is tapped and then floats to the top — once you have
+   asked where you are, that is the thing you opened the panel to read. It goes
+   back to its own slot when you switch the crosshair off. */
+const MESEC_HOME = (() => {
+  const sec = document.getElementById('mesec');
+  return { parent: sec.parentNode, before: sec.nextElementSibling };
+})();
+
+function meSectionOnTop(on) {
+  const sec = document.getElementById('mesec');
+  const panel = document.getElementById('panel');
+  sec.hidden = !on;
+  if (on) {
+    // A live weather warning still outranks it.
+    const wx = document.getElementById('wxsec');
+    const first = (wx && !wx.hidden) ? wx.nextElementSibling : panel.firstElementChild;
+    if (sec !== first) panel.insertBefore(sec, first);
+    panel.scrollTop = 0;
+  } else if (sec.parentNode !== MESEC_HOME.parent || sec.nextElementSibling !== MESEC_HOME.before) {
+    MESEC_HOME.parent.insertBefore(sec, MESEC_HOME.before);
+  }
+}
+
 function stopLocate() {
   if (ME.watch !== null) navigator.geolocation.clearWatch(ME.watch);
   ME.watch = null; ME.follow = false; ME.busy = false;
@@ -2000,11 +2024,13 @@ function stopLocate() {
   enableMeScope(false);
   enableMeScope311(false);
   enableMeScopeFire(false);
-  meHint('Tap the crosshair on the map.');
+  meHint('');
+  meSectionOnTop(false);
 }
 
 function toggleLocate() {
   if (ME.watch !== null) { stopLocate(); return; }
+  meSectionOnTop(true);
 
   if (!navigator.geolocation) {
     meHint('This browser has no geolocation support.', 'err');
