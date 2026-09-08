@@ -1,35 +1,50 @@
 # Austin Energy publishes an outage map, not an outage archive. Nothing here can
 # be backfilled: a poll we miss is history that will not exist. Endpoint
-# discovery notes live in tools/capture_outages.py.
+# discovery notes live in tools/capture_outages.py and NOTES.md.
 name: Capture Austin Energy outages
 
 on:
   schedule:
-    # Every 15 minutes. The source republishes every 10, so this samples a
-    # little coarser than it changes — deliberately. Every commit to main
-    # rebuilds the whole Pages site, and main sees ~17 real commits a month, so
-    # the archive lives on its own orphan `data` branch and the site is never
-    # rebuilt for it. Public repo, so the Actions minutes are free.
+    # Backup only, and offset off the quarter-hour on purpose: GitHub's
+    # scheduler is congested at :00/:15/:30/:45 where everyone's crons pile up.
+    # Staggered from news-wordcloud's 7,22,37,52 so the two do not collide.
     #
-    # GitHub cron is best-effort and drifts under load, which is exactly why the
-    # collector stamps its own fetch time instead of trusting this line.
-    - cron: '*/15 * * * *'
-  workflow_dispatch:
-
-concurrency:
-  # A drifted run must not overlap the next one: two jobs writing the same day
-  # file would race and one would lose its poll.
-  group: capture-outages
-  cancel-in-progress: false
+    # This is a backup because on this account it has been measured: over the
+    # first 97 minutes of a plain */15 schedule it fired zero times, and in
+    # news-wordcloud only 2 of 12 recent runs came from schedule: at all. The
+    # self-dispatch chain below is the mechanism that actually keeps this alive.
+    - cron: "4,19,34,49 * * * *"
+  workflow_dispatch: {}
 
 permissions:
   contents: write
+  actions: write          # the self-dispatch needs this
+
+concurrency:
+  # Queue behind a running job rather than starting beside it — two jobs writing
+  # the same day file would race. This is also what de-dupes the self-dispatch
+  # against schedule:'s own firings.
+  group: capture-outages
+  cancel-in-progress: false
 
 jobs:
   capture:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # Four polls fifteen minutes apart is 45 minutes of sleep, plus overhead.
+    timeout-minutes: 65
     steps:
+      - name: Arm the next run
+        # First, so the chain survives even if everything below fails. Each run
+        # dispatches its successor, which concurrency then holds until this job
+        # ends — so the chain paces itself at roughly one job per 45 minutes and
+        # depends on no external scheduler.
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run "Capture Austin Energy outages" \
+            --repo "${{ github.repository }}" --ref main \
+            || echo "Self-dispatch failed — the cron backup will have to catch it."
+
       - uses: actions/checkout@v4
 
       - name: Stash the collector before leaving main
@@ -48,20 +63,31 @@ jobs:
             git rm -rfq . || true
           fi
 
-      - name: Poll and merge
-        run: python3 "$RUNNER_TEMP/capture.py" --out outages
-
-      - name: Commit
+      - name: Poll four times, fifteen minutes apart
         run: |
-          set -euo pipefail
-          git add outages
-          if git diff --cached --quiet; then
-            echo "nothing changed"
-            exit 0
-          fi
-          # Single-quoted so the Python below needs no escaping. The reading goes
-          # in the subject, which makes `git log` on this branch a legible time
-          # series without opening a single file.
-          SUMMARY=$(python3 -c 'import json; d = json.load(open("outages/open.json")); e = d["episodes"]; print("%d ZIP(s) out, %d customers" % (len(e), sum(x.get("peak_customers_affected") or 0 for x in e)) if e else "all clear")')
-          git commit -q -m "Outages: $SUMMARY at $(date -u +%Y-%m-%dT%H:%MZ)"
-          git push origin data
+          set -uo pipefail
+          for i in 1 2 3 4; do
+            for attempt in 1 2 3; do
+              # Reset to the remote tip first. open.json carries the state that
+              # decides whether an outage is new or continuing, so it has to be
+              # the newest one — starting from a stale copy would reopen
+              # episodes another run already closed.
+              git fetch --depth=1 --quiet origin data:refs/remotes/origin/data || true
+              git reset --hard --quiet refs/remotes/origin/data || true
+              python3 "$RUNNER_TEMP/capture.py" --out outages || break
+              git add outages
+              if git diff --cached --quiet; then
+                echo "nothing changed"
+                break
+              fi
+              SUMMARY=$(python3 -c 'import json; d = json.load(open("outages/open.json")); e = d["episodes"]; print("%d ZIP(s) out, %d customers" % (len(e), sum(x.get("peak_customers_affected") or 0 for x in e)) if e else "all clear")')
+              git commit -q -m "Outages: $SUMMARY at $(date -u +%Y-%m-%dT%H:%MZ)"
+              if git push --quiet origin data; then
+                break
+              fi
+              echo "push lost a race (attempt $attempt/3), resyncing"
+            done
+            if [ "$i" -lt 4 ]; then
+              sleep 900
+            fi
+          done
