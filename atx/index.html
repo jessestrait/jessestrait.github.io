@@ -389,13 +389,11 @@ dl.mecard a{color:var(--accent-hi)}
 
     <div class="sec" id="wxsec" hidden>
       <h3>Weather alerts</h3>
-      <p class="hint">Live from the National Weather Service for Travis and the counties around it.</p>
       <div id="wxlist"></div>
     </div>
 
     <div class="sec">
       <h3>Happening lately</h3>
-      <p class="hint">Pulled live from the City of Austin's open data portal each time you change the window.</p>
       <div class="seg" id="window">
         <button data-d="1" class="on">24h</button>
         <button data-d="3">3d</button>
@@ -411,9 +409,6 @@ dl.mecard a{color:var(--accent-hi)}
 
     <div class="sec">
       <h3>Crime reports</h3>
-      <p class="hint">2.7 million APD reports going back to 2003 &mdash; published with no coordinates,
-        only a council district and a census block group. So this one shades the map below rather than
-        dropping pins, at whichever of those two resolutions you pick.</p>
       <div id="crimerow"></div>
       <label class="mini" for="crimecat">Category</label>
       <select id="crimecat">
@@ -440,16 +435,11 @@ dl.mecard a{color:var(--accent-hi)}
 
     <div class="sec">
       <h3>Ground</h3>
-      <p class="hint">Shapes rather than points, from the city's GIS. These sit under everything
-        else &mdash; they're what the dots are happening <em>on</em>.</p>
       <div id="ground"></div>
     </div>
 
     <div class="sec">
       <h3>Shade the map</h3>
-      <p class="hint" id="geohint">Council districts are drawn to hold roughly equal population,
-        so shading them by population is deliberately flat. Block groups are 644 census units &mdash;
-        far finer, and they carry tree canopy and urban-heat readings.</p>
       <div class="seg" id="geo">
         <button data-g="none" class="on">Off</button>
         <button data-g="district">Districts</button>
@@ -466,21 +456,17 @@ dl.mecard a{color:var(--accent-hi)}
 
     <div class="sec">
       <h3>Places</h3>
-      <p class="hint">Standing city infrastructure. Traffic cameras show a live still image.</p>
       <div id="places"></div>
     </div>
 
     <div class="sec" id="mesec">
       <h3>Where you are</h3>
-      <p class="hint" id="mehint">Tap the crosshair on the map to drop yourself on it, and see what
-        the census block group you're standing in actually looks like.</p>
+      <p class="hint" id="mehint">Tap the crosshair on the map.</p>
       <div id="mebody"></div>
     </div>
 
     <div class="sec" id="modesec">
       <h3>Start somewhere</h3>
-      <p class="hint">Four ready-made views. Change anything below and you're on your own from
-        there &mdash; which is the point.</p>
       <div class="seg" id="modes">
         <button data-m="traffic">Traffic&nbsp;now</button>
         <button data-m="safety">Safety</button>
@@ -508,8 +494,6 @@ dl.mecard a{color:var(--accent-hi)}
         <a href="/">Jesse Strait</a>.
       </p>
       <button class="iconbtn" id="sharebtn" style="width:100%;margin-top:.8rem">Copy link to this view</button>
-      <p class="hint" style="margin:.45rem 0 0">Whatever you have switched on lives in the address
-        bar, so a link opens exactly what you're looking at.</p>
     </div>
   </aside>
 
@@ -968,10 +952,14 @@ const ESRI = 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/';
 L.tileLayer(ESRI + 'World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
   attribution: 'Data &copy; <a href="https://data.austintexas.gov/">City of Austin</a> &middot; '
     + 'Basemap &copy; <a href="https://www.esri.com/">Esri</a>, HERE, Garmin, &copy; OpenStreetMap contributors',
-  maxZoom: 18
+  // Esri's Dark Gray Canvas has no imagery past 16 here: 17 and 18 both return
+  // the same 2.5 KB blank placeholder, so the map went empty under the pins.
+  // maxNativeZoom keeps asking for 16 and upscaling it, which is legible;
+  // maxZoom stays 18 so the data layers can still be zoomed into.
+  maxNativeZoom: 16, maxZoom: 18
 }).addTo(map);
 L.tileLayer(ESRI + 'World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
-  maxZoom: 18, pane: 'labelPane2'
+  maxNativeZoom: 16, maxZoom: 18, pane: 'labelPane2'
 }).addTo(map);
 
 const state = {
@@ -1153,11 +1141,11 @@ const CRIME = { id: 'fdj4-gpfu', on: false, cat: '', year: CRIME_DEFAULT_YEAR,
                 byUnit: null, geo: null, byYear: null, total: 0, busy: false, autoGeo: false, prevMetric: null };
 const CRIME_FIRST_YEAR = 2003;
 
-// Where a locate lands. 14 is a neighborhood; the block group under your feet
-// only resolves around 17, and that is the thing this page can tell you that
-// a general map cannot. Math.max, so someone already zoomed in further is
-// never pulled back out.
-const ME_ZOOM = 17;
+// Where a locate lands. 14 is a neighborhood, too coarse to see which block
+// group you are in; 17 is past the last zoom the basemap has real tiles for.
+// 16 is the deepest level that still draws streets. Math.max, so someone
+// already zoomed in further is never pulled back out.
+const ME_ZOOM = 16;
 
 (function buildCrimeControls() {
   const sel = document.getElementById('crimeyear');
@@ -2012,8 +2000,7 @@ function stopLocate() {
   enableMeScope(false);
   enableMeScope311(false);
   enableMeScopeFire(false);
-  meHint('Tap the crosshair on the map to drop yourself on it, and see what the census block group '
-       + "you're standing in actually looks like.");
+  meHint('Tap the crosshair on the map.');
 }
 
 function toggleLocate() {
@@ -2909,7 +2896,9 @@ async function applyMode(name) {
   if (!m) return;
   if (SCRUB.on) scrubClose();
 
-  document.getElementById('modenote').innerHTML = m.blurb;
+  const noteEl = document.getElementById('modenote');
+  noteEl.innerHTML = m.blurb;
+  noteEl.dataset.mode = name;
 
   if (state.days !== m.days) {
     state.days = m.days;
@@ -2954,11 +2943,26 @@ function currentMode() {
   return null;
 }
 
+let modeNoteTimer = null;
 function syncModes() {
   const cur = currentMode();
   document.querySelectorAll('#modes button')
     .forEach(b => b.classList.toggle('on', b.dataset.m === cur));
-  if (!cur) document.getElementById('modenote').textContent = '';
+
+  const noteEl = document.getElementById('modenote');
+  if (cur) { clearTimeout(modeNoteTimer); modeNoteTimer = null; return; }
+  if (!noteEl.dataset.mode) return;
+  // Applying a mode passes through states that match no mode at all — layers
+  // switch on one at a time, and each fetch that lands calls render, which
+  // calls this. Clearing on the first mismatch wiped the blurb a second after
+  // it appeared. Wait for the state to stop moving instead; a real divergence
+  // still clears, a mode mid-application no longer does.
+  clearTimeout(modeNoteTimer);
+  modeNoteTimer = setTimeout(() => {
+    if (currentMode()) return;
+    noteEl.textContent = '';
+    delete noteEl.dataset.mode;
+  }, 2500);
 }
 
 document.getElementById('sharebtn').onclick = copyLink;
