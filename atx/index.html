@@ -1954,7 +1954,8 @@ function unitPopup(g, p, counts, crime, key) {
    the 644 block groups you're standing in and what that unit looks
    like — canopy, summer heat, crime rate, what's happened nearby.
    ══════════════════════════════════════════════════════════════════ */
-const ME = { watch: null, pos: null, marker: null, halo: null, follow: false, busy: false };
+const ME = { watch: null, pos: null, marker: null, halo: null, follow: false, busy: false,
+             zoom: null, settling: false };
 
 function metersBetween(aLat, aLng, bLat, bLng) {
   const R = 6371000, rad = d => d * Math.PI / 180;
@@ -1981,6 +1982,24 @@ const LocateControl = L.Control.extend({
   }
 });
 map.addControl(new LocateControl());
+
+/* watchPosition does not fire once. With enableHighAccuracy the browser hands
+   over a coarse fix and then refines it, often inside a second — which lands in
+   the middle of the 1.1s flyTo above. The recentre branch used to read
+   map.getZoom() there, but mid-flight that is the *interpolated* zoom, not the
+   target, so writing it straight back cancelled the animation and pinned the
+   map at whatever zoom it started from. Measured: flyTo asked for 16, the
+   second fix wrote back 11, and the map stayed at 11.
+
+   So: hold the intended zoom, and leave the fly alone until it lands. moveend
+   normally clears this; the timeout covers a fly that is cut short and never
+   fires one, which would otherwise strand follow mode off for good. */
+function meSettle() {
+  ME.settling = true;
+  const done = () => { ME.settling = false; };
+  map.once('moveend', done);
+  setTimeout(done, 2000);
+}
 
 function meHint(html, tone) {
   const el = document.getElementById('mehint');
@@ -2015,6 +2034,7 @@ function meSectionOnTop(on) {
 function stopLocate() {
   if (ME.watch !== null) navigator.geolocation.clearWatch(ME.watch);
   ME.watch = null; ME.follow = false; ME.busy = false;
+  ME.zoom = null; ME.settling = false;
   if (ME.marker) { map.removeLayer(ME.marker); ME.marker = null; }
   if (ME.halo) { map.removeLayer(ME.halo); ME.halo = null; }
   ME.pos = null;
@@ -2094,13 +2114,16 @@ async function onFix(pos) {
 
   if (first) {
     ME.follow = true;
-    map.flyTo([lat, lng], Math.max(map.getZoom(), ME_ZOOM), { duration: 1.1 });
+    ME.zoom = Math.max(map.getZoom(), ME_ZOOM);
+    meSettle();
+    map.flyTo([lat, lng], ME.zoom, { duration: 1.1 });
     // Following the dot forever fights the user the moment they pan away.
     map.once('dragstart', () => { ME.follow = false; });
-  } else if (ME.follow) {
+  } else if (ME.follow && !ME.settling) {
     // Animating every GPS tick while someone walks is jittery and fights the
     // canvas redraw; the deliberate moves (first fix, recenter) still fly.
-    map.setView([lat, lng], map.getZoom(), { animate: false });
+    // ME.zoom rather than map.getZoom(): see meSettle.
+    map.setView([lat, lng], ME.zoom || map.getZoom(), { animate: false });
   }
 
   // Cleared rather than dropped: this is what clears "Waiting for your browser
@@ -2193,7 +2216,9 @@ async function renderMeCard() {
   document.getElementById('mefly').onclick = () => {
     if (!ME.pos) return;
     ME.follow = true;
-    map.flyTo([ME.pos.lat, ME.pos.lng], Math.max(map.getZoom(), ME_ZOOM), { duration: 0.8 });
+    ME.zoom = Math.max(map.getZoom(), ME_ZOOM);
+    meSettle();
+    map.flyTo([ME.pos.lat, ME.pos.lng], ME.zoom, { duration: 0.8 });
     map.once('dragstart', () => { ME.follow = false; });
   };
 }
