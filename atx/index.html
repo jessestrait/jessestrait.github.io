@@ -2103,8 +2103,10 @@ async function onFix(pos) {
     map.setView([lat, lng], map.getZoom(), { animate: false });
   }
 
-  meHint('Read in your browser and never sent anywhere &mdash; this page has no server to send it to. '
-       + 'Tap the crosshair again to stop.');
+  // Cleared rather than dropped: this is what clears "Waiting for your browser
+  // to hand over a fix" once the fix lands. The readout below says everything
+  // worth saying from here.
+  meHint('');
   enableMeScope(true);
   enableMeScope311(true);
   enableMeScopeFire(true);
