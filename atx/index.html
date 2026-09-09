@@ -278,7 +278,7 @@ dl.mecard a{color:var(--accent-hi)}
 #ticker .tk-tag{
   display:flex; align-items:center; padding:0 .7rem; flex:0 0 auto;
   font-size:.6rem; font-weight:700; letter-spacing:.18em; color:#0a0f18;
-  background:linear-gradient(180deg,#7fd7ff,#3aa8e0);
+  background:linear-gradient(180deg,#ffc36b,#ff9d2e);
 }
 #ticker .tk-view{
   flex:1 1 auto; overflow:hidden; position:relative;
@@ -291,17 +291,25 @@ dl.mecard a{color:var(--accent-hi)}
 }
 @keyframes tkroll{ from{transform:translateX(0)} to{transform:translateX(-50%)} }
 #ticker:hover .tk-track, #ticker:focus-within .tk-track{ animation-play-state:paused }
-#ticker a.tk-item{
+#ticker .tk-item{
   display:inline-flex; align-items:center; gap:.45rem; white-space:nowrap;
-  padding:0 1.15rem; font-size:.68rem; color:#9fb4cd; text-decoration:none;
-  border-right:1px solid rgba(90,155,245,.14);
+  padding:0 1.15rem; font-size:.68rem; border-right:1px solid rgba(90,155,245,.14);
 }
-#ticker a.tk-item:hover{ color:#eaf3ff; background:rgba(90,155,245,.1) }
+#ticker .tk-head{ color:#9fb4cd; text-decoration:none }
+#ticker .tk-head:hover{ color:#eaf3ff; text-decoration:underline }
 #ticker .tk-src{ color:#5f7893; font-size:.58rem; letter-spacing:.1em; text-transform:uppercase }
+/* The place chip. Same orange as the Headlines pins, because it is the same
+   thing: press it and the map goes there. */
+#ticker .tk-go{
+  font:inherit; font-size:.58rem; letter-spacing:.06em; text-transform:uppercase;
+  color:#ff9d2e; background:rgba(255,157,46,.1); border:1px solid rgba(255,157,46,.35);
+  border-radius:4px; padding:.12rem .4rem; cursor:pointer; white-space:nowrap;
+}
+#ticker .tk-go:hover{ background:rgba(255,157,46,.24); color:#ffd7a8 }
 /* A headline about somewhere inside the current view. */
-#ticker a.tk-item.here{ color:#ffe14d; text-shadow:0 0 10px rgba(255,225,77,.45) }
-#ticker a.tk-item.here .tk-src{ color:#c9a227 }
-#ticker a.tk-item.here::before{ content:'\25c9'; color:#ffe14d; font-size:.6rem }
+#ticker .tk-item.here .tk-head{ color:#ffe14d; text-shadow:0 0 10px rgba(255,225,77,.4) }
+#ticker .tk-item.here .tk-src{ color:#c9a227 }
+#ticker .tk-item.here{ background:rgba(255,225,77,.07) }
 #ticker .tk-off{
   flex:0 0 auto; width:28px; background:none; border:0; border-left:1px solid #24405f;
   color:var(--muted); font-size:1rem; line-height:1; cursor:pointer;
@@ -796,6 +804,32 @@ const LAYERS = [
           ])
         };
       });
+    }
+  },
+  {
+    // The ticker's headlines, as pins. Only the ones that named a place can be
+    // drawn — the coordinates come from gazetteer.json, which is built from
+    // this map's own street, ZIP and district files. #ff9d2e was the fire
+    // archive's colour before that layer came out, so it is free and unused.
+    id: 'news', group: 'recent', color: '#ff9d2e', on: true,
+    name: 'Headlines', note: 'Local news that named a place',
+    async load() {
+      await loadNews();
+      const out = [];
+      NEWS.items.forEach(it => {
+        const t = it.published ? new Date(it.published) : null;
+        (it.places || []).forEach(p => {
+          out.push({
+            lat: p.lat, lng: p.lng, t, cat: it.source,
+            html: pop('#ff9d2e', 'Headline \u00b7 ' + it.source, it.title, t ? ago(t) : '', [
+              ['Place named', p.name],
+              ['Published', t ? t.toLocaleString() : null]
+            ], '<p style="margin-top:.6rem"><a href="' + esc(it.link) + '" target="_blank" '
+             + 'rel="noopener noreferrer">Read it at ' + esc(it.source) + ' &rarr;</a></p>')
+          });
+        });
+      });
+      return out;
     }
   },
   {
@@ -2732,14 +2766,21 @@ byId.c311.sub = { visible: c311PanelVisible, load: loadC311Top };
    as you pan. So the crawl is the city's news; the lit-up ones are the
    news about what you are looking at.
    ══════════════════════════════════════════════════════════════════ */
-const NEWS = { items: [], at: null, hidden: false };
+const NEWS = { items: [], at: null, hidden: false, fetchedMs: 0, inflight: null };
 const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 function tickerItemHTML(it) {
-  const place = it.places && it.places.length ? it.places[0].name : '';
-  return '<a class="tk-item" href="' + esc(it.link) + '" target="_blank" rel="noopener noreferrer"'
-       + (place ? ' data-place="' + esc(place) + '"' : '')
-       + '><span class="tk-src">' + esc(it.source) + '</span>' + esc(it.title) + '</a>';
+  const p = it.places && it.places.length ? it.places[0] : null;
+  // The headline opens the story; the place chip moves the map. Two actions
+  // means they cannot be one <a> — a button nested in a link is broken markup
+  // and worse behaviour.
+  return '<span class="tk-item" data-link="' + esc(it.link) + '">'
+       + '<span class="tk-src">' + esc(it.source) + '</span>'
+       + '<a class="tk-head" href="' + esc(it.link) + '" target="_blank" rel="noopener noreferrer">'
+       + esc(it.title) + '</a>'
+       + (p ? '<button class="tk-go" data-lat="' + p.lat + '" data-lng="' + p.lng + '"'
+            + ' title="Show me where">&#9678;&nbsp;' + esc(p.name) + '</button>' : '')
+       + '</span>';
 }
 
 function markHeadlinesInView() {
@@ -2749,10 +2790,32 @@ function markHeadlinesInView() {
   NEWS.items.forEach(it => {
     (it.places || []).forEach(p => { if (b.contains([p.lat, p.lng])) here.add(it.link); });
   });
-  document.querySelectorAll('#tktrack .tk-item').forEach(a => {
-    a.classList.toggle('here', here.has(a.getAttribute('href')));
+  document.querySelectorAll('#tktrack .tk-item').forEach(el => {
+    el.classList.toggle('here', here.has(el.dataset.link));
   });
 }
+
+/* Clicking the place chip takes the map there and opens that story's pin, so
+   the ticker reads both ways: the map marks the headlines about what you are
+   looking at, and a headline can move what you are looking at. */
+document.getElementById('tktrack').addEventListener('click', e => {
+  const b = e.target.closest('.tk-go');
+  if (!b) return;
+  e.preventDefault();
+  const lat = +b.dataset.lat, lng = +b.dataset.lng;
+  if (!isFinite(lat) || !isFinite(lng)) return;
+  if (!byId.news.on) { setLayerOn(byId.news, true); refreshActive(false); }
+  map.flyTo([lat, lng], Math.max(map.getZoom(), 13), { duration: 0.9 });
+  const link = b.closest('.tk-item').dataset.link;
+  // Wait for the fly to land before hunting for the marker, or it opens a popup
+  // off-screen and Leaflet pans away from where it was asked to go.
+  const open = () => {
+    const hit = (state.data.news || []).find(f => f.html.includes(link));
+    if (hit) L.popup({ maxWidth: 300 }).setLatLng([hit.lat, hit.lng]).setContent(hit.html).openOn(map);
+  };
+  map.once('moveend', open);
+  setTimeout(open, 1400);
+});
 
 function paintTicker() {
   const track = document.getElementById('tktrack');
@@ -2786,19 +2849,29 @@ function paintTicker() {
   markHeadlinesInView();
 }
 
-async function loadNews() {
+async function loadNews(force) {
+  // The ticker and the Headlines layer are two readings of one file, and both
+  // ask for it at boot. A timestamp alone does not de-dupe that: they start
+  // together, before either has landed to set one. So share the promise.
+  if (!force && NEWS.inflight) return NEWS.inflight;
+  if (!force && NEWS.fetchedMs && Date.now() - NEWS.fetchedMs < 60000) return NEWS.items;
+  NEWS.inflight = (async () => {
   try {
     const res = await fetch('data/news.json', { cache: 'no-store' });
     if (!res.ok) throw new Error('news ' + res.status);
     const j = await res.json();
     NEWS.items = (j.items || []).filter(i => i.title && i.link);
     NEWS.at = j.fetched_at || null;
+    NEWS.fetchedMs = Date.now();
     paintTicker();
   } catch (e) {
     console.error(e);
     document.getElementById('ticker').hidden = true;
     document.body.classList.remove('tk-on');
   }
+  return NEWS.items;
+  })();
+  try { return await NEWS.inflight; } finally { NEWS.inflight = null; }
 }
 
 document.getElementById('tkoff').onclick = () => {
@@ -3827,7 +3900,7 @@ saveUrl();
 setInterval(() => { if (!document.hidden) loadAlerts(); }, 180000);
 // The job behind news.json runs on a chain that lands every 15 minutes or
 // so; asking twice that often keeps the ticker close without hammering.
-setInterval(() => { if (!document.hidden) loadNews(); }, 420000);
+setInterval(() => { if (!document.hidden) loadNews(true); }, 420000);
 
 setInterval(() => {
   if (document.hidden) return;
