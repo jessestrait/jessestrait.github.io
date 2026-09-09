@@ -1,0 +1,70 @@
+# RSS endpoints almost never send Access-Control-Allow-Origin, so the page
+# cannot read them from the browser. The feeds are fetched here and the result
+# committed, and the page reads its own file same-origin with nobody else's
+# proxy in the path. tools/fetch_news.py has the feed list and the reasoning.
+name: Refresh Austin headlines
+
+on:
+  schedule:
+    # Backup only. Measured on this account: a plain */15 schedule fired zero
+    # times in 97 minutes, and in news-wordcloud only 2 of 12 recent runs came
+    # from schedule: at all. The self-dispatch chain below is what keeps this
+    # alive. Offset off the quarter-hour, and staggered from the other two
+    # chains here (outages 4,19,34,49 — news-wordcloud 7,22,37,52).
+    - cron: "11,41 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  actions: write          # the self-dispatch needs this
+
+concurrency:
+  group: refresh-news
+  cancel-in-progress: false
+
+jobs:
+  news:
+    runs-on: ubuntu-latest
+    # Three fetches twenty minutes apart, plus overhead.
+    timeout-minutes: 55
+    steps:
+      - name: Arm the next run
+        # First, so the chain survives even if everything below fails.
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run "Refresh Austin headlines" \
+            --repo "${{ github.repository }}" --ref main \
+            || echo "Self-dispatch failed — the cron backup will have to catch it."
+
+      - uses: actions/checkout@v4
+
+      - name: Fetch, three times, twenty minutes apart
+        run: |
+          set -uo pipefail
+          git config user.name  "news-ticker[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for i in 1 2 3; do
+            for attempt in 1 2 3; do
+              # news.json is regenerated whole every run, so there is nothing in
+              # it worth merging — take the remote tip and rewrite on top rather
+              # than trying to rebase two independently generated files.
+              git fetch origin main --quiet
+              git reset --hard origin/main --quiet
+              python3 tools/fetch_news.py --out atx/data/news.json || break
+              git add atx/data/news.json
+              if git diff --cached --quiet; then
+                echo "no new headlines"
+                break
+              fi
+              N=$(python3 -c 'import json; print(len(json.load(open("atx/data/news.json"))["items"]))')
+              git commit -q -m "Headlines: $N at $(date -u +%Y-%m-%dT%H:%MZ)"
+              if git push --quiet; then
+                break
+              fi
+              echo "push lost a race (attempt $attempt/3), resyncing"
+            done
+            if [ "$i" -lt 3 ]; then
+              sleep 1200
+            fi
+          done

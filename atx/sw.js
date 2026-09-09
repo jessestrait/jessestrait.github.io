@@ -7,7 +7,7 @@
  *
  * Bump VERSION to ship a new shell; activate() drops every older cache.
  */
-const VERSION = 'atx-v2';
+const VERSION = 'atx-v3';
 const SHELL = VERSION + '-shell';
 const GEO = VERSION + '-geo';
 const FONTS = VERSION + '-fonts';
@@ -80,6 +80,10 @@ self.addEventListener('fetch', e => {
 
   // Prebuilt geometry: ~6.9 MB that is identical until tools/build_atx_geo.py
   // runs again. This is the whole reason for the worker.
+  // news.json lives under data/ but is a live feed, not geometry. It gets the
+  // same treatment as Socrata: straight to the network, never cached.
+  if (sameOrigin && url.pathname === '/atx/data/news.json') return;
+
   if (sameOrigin && url.pathname.startsWith('/atx/data/')) {
     e.respondWith(fromCache(req, GEO));
     return;
