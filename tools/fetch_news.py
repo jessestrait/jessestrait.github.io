@@ -109,6 +109,39 @@ def parse(raw):
     return root.findall('.//item') or root.findall('.//' + ATOM + 'entry')
 
 
+# Austin shares its place names with the rest of the country, and local outlets
+# run national stories. Without a veto, "Walnut Creek, California approves
+# housing" pins to a creek in north Austin and "Brentwood, Tennessee names a
+# police chief" pins to a neighbourhood off Burnet. Both are worse than no pin,
+# because a pin is a claim about where something happened.
+#
+# So: if a headline names somewhere that is definitively not here, nothing in it
+# is tagged. Texas is absent on purpose — "Texas" is not a disqualifier.
+ELSEWHERE = re.compile(
+    r'\b(alabama|alaska|arizona|arkansas|california|colorado|connecticut|delaware|'
+    r'florida|georgia|hawaii|idaho|illinois|indiana|iowa|kansas|kentucky|louisiana|'
+    r'maine|maryland|massachusetts|michigan|minnesota|mississippi|missouri|montana|'
+    r'nebraska|nevada|ohio|oklahoma|oregon|pennsylvania|tennessee|utah|vermont|'
+    r'virginia|washington|wisconsin|wyoming|'
+    r'new york|new jersey|new mexico|north carolina|south carolina|north dakota|'
+    r'south dakota|west virginia|rhode island|new hampshire|'
+    r'london|paris|tokyo|beijing|moscow|toronto|mexico city|gaza|ukraine|israel|'
+    r'miami|chicago|denver|seattle|boston|atlanta|phoenix|philadelphia|detroit|'
+    r'las vegas|los angeles|san francisco|san diego|new orleans|nashville|'
+    r'grand canyon|yosemite|yellowstone|d\.c\.|washington dc)\b', re.I)
+
+# A handful of names whose famous homonym carries no place word to veto on.
+# Each is only a place here when its disqualifier is absent.
+DISQUALIFY = {
+    'Georgetown': re.compile(r'\b(university|hoyas|d\.c\.|washington)\b', re.I),
+    'Manor': re.compile(r'\bmanor\s+(house|hotel|farm|park\b)', re.I),
+    'Llano': re.compile(r'\bestacado\b', re.I),
+    'Marble Falls': re.compile(r'\b(yosemite|sequoia|national park)\b', re.I),
+    'Colorado River': re.compile(r'\b(arizona|nevada|utah|drought|grand canyon|basin)\b', re.I),
+    'Highland': re.compile(r'\b(highland park|scotland|highlands)\b', re.I),
+}
+
+
 def build_matcher(gaz):
     """One regex per place. Word-bounded, longest first, so "South Congress"
     wins over "Congress" and a bare ZIP still matches."""
@@ -119,10 +152,15 @@ def build_matcher(gaz):
 
 
 def places_in(title, pats, gaz):
+    if ELSEWHERE.search(title):
+        return []
     found, taken = [], []
     for name, rx in pats:
         m = rx.search(title)
         if not m:
+            continue
+        bad = DISQUALIFY.get(name)
+        if bad and bad.search(title):
             continue
         # A longer name already covering this span wins; "Congress" inside
         # "South Congress" should not add a second, wronger pin.

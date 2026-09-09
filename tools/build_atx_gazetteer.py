@@ -74,6 +74,68 @@ PINNED = {
 }
 
 
+# ── Curated additions, 2026-09-09 ──────────────────────────────────
+# Chosen by reading the headlines the gazetteer was missing, then checked
+# against the same corpus for false positives before being kept. The rule is
+# unchanged: a term earns its place only if a headline containing it is
+# genuinely about that spot. Ambiguous single words are deliberately absent —
+# Austin has streets called September, Trophy, Bender and Dallas, and matching
+# them would pin a Dallas convention to a residential street here.
+PINNED.update({
+    # Water and dams — a whole class the street layer cannot name.
+    'Longhorn Dam': (30.2470, -97.7130), 'Lady Bird Lake Dam': (30.2470, -97.7130),
+    'Lake Buchanan': (30.7500, -98.4200), 'Mansfield Dam': (30.3930, -97.9080),
+    'Lake Walter E. Long': (30.2830, -97.5900), 'Decker Lake': (30.2830, -97.5900),
+    'Shoal Creek': (30.2900, -97.7500), 'Waller Creek': (30.2690, -97.7350),
+    'Bull Creek': (30.3720, -97.7860), 'Walnut Creek': (30.3620, -97.6800),
+    'Boggy Creek': (30.2600, -97.6900), 'Williamson Creek': (30.2200, -97.8000),
+    'Colorado River': (30.2450, -97.6900), 'McKinney Falls': (30.1830, -97.7220),
+
+    # Downtown, named the way headlines name it.
+    'Red River Cultural District': (30.2680, -97.7360), 'Red River Street': (30.2680, -97.7360),
+    'Waterloo Greenway': (30.2720, -97.7340), 'Waterloo Park': (30.2760, -97.7330),
+    'Republic Square': (30.2680, -97.7470), 'Auditorium Shores': (30.2600, -97.7500),
+    'Palmer Events Center': (30.2570, -97.7550),
+    'Austin Convention Center': (30.2630, -97.7400),
+    'Dirty Sixth': (30.2670, -97.7400), 'West Sixth': (30.2700, -97.7500),
+
+    # Quadrants. Only ever matched with "Austin" attached, so they cannot
+    # collide with a compass direction in an unrelated headline.
+    'Northwest Austin': (30.4200, -97.7700), 'Northeast Austin': (30.3600, -97.6600),
+    'Southeast Austin': (30.2100, -97.7000), 'Southwest Austin': (30.2200, -97.8600),
+    'Central Austin': (30.2950, -97.7420), 'West Austin': (30.2900, -97.7800),
+
+    # Neighbourhoods and subdivisions that turn up by name.
+    'Presidential Meadows': (30.3320, -97.5760), 'Govalle': (30.2570, -97.6980),
+    'Holly Neighborhood': (30.2530, -97.7230), 'Cherrywood': (30.2920, -97.7150),
+    'North Loop': (30.3200, -97.7220), 'Brentwood': (30.3400, -97.7350),
+    'Rosedale': (30.3170, -97.7420), 'Barton Hills': (30.2560, -97.7830),
+    'Steiner Ranch': (30.3660, -97.9130), 'Anderson Mill': (30.4500, -97.8100),
+    'Georgian Acres': (30.3600, -97.7000), 'Highland Mall': (30.3270, -97.7080),
+    'Riverside Drive': (30.2420, -97.7200), 
+
+    # Institutions and venues.
+    'Circuit of the Americas': (30.1330, -97.6410), 'COTA': (30.1330, -97.6410),
+    'Dell Diamond': (30.5230, -97.6320), 'Austin airport': (30.1975, -97.6664),
+    'Dell Seton': (30.2760, -97.7370), 'Dell Children': (30.3010, -97.7060),
+    'Austin Community College': (30.3270, -97.7080), 'St. Edward': (30.2280, -97.7560),
+    'Huston-Tillotson': (30.2650, -97.7220), 
+
+    # Places outside the map that local outlets still cover. Pinning them is
+    # honest: the chip says San Saba, and pressing it shows you it is nowhere
+    # near Austin, which is the useful fact.
+    'Travis County': (30.3200, -97.7700), 'Williamson County': (30.6500, -97.6000),
+    'Hays County': (30.0500, -98.0300), 'Bastrop County': (30.1030, -97.3120),
+    'San Saba': (31.1930, -98.7200), 'Llano': (30.7590, -98.6750),
+    'Marble Falls': (30.5780, -98.2730), 'Dripping Springs': (30.1900, -98.0870),
+    'Wimberley': (29.9970, -98.0980), 'Liberty Hill': (30.6650, -97.9220),
+ 'Lago Vista': (30.4520, -97.9890),
+    'Jonestown': (30.4930, -97.9200), 'Webberville': (30.2820, -97.5030),
+    'Taylor, TX': (30.5710, -97.4090),
+    'Creedmoor': (30.0900, -97.7100), 'Mustang Ridge': (30.0770, -97.6540),
+})
+
+
 def centroids_from_streets():
     with open(os.path.join(DATA, 'streets.json')) as f:
         gj = json.load(f)
