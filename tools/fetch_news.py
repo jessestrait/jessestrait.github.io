@@ -22,13 +22,22 @@ UA = {'User-Agent': 'Mozilla/5.0 (compatible; jessestrait.com/atx news ticker)'}
 ATOM = '{http://www.w3.org/2005/Atom}'
 LIMIT = 60
 
-# Verified reachable and parseable 2026-09-08. The Statesman (Gannett) and the
-# Austin Chronicle both 404 or serve non-XML on every documented feed path, so
-# they are out until they publish one that works.
+# Verified reachable and parseable 2026-09-08, re-checked 2026-09-09.
+#
+# Not here, and why:
+#   Austin Monitor  — dead. Its feed still serves, but the newest item is 307
+#                     days old and titled "Our last update: Everything you need
+#                     to know". It was costing a request a run and returning a
+#                     corpse.
+#   Statesman       — Gannett, 404 on every documented feed path.
+#   Austin Chronicle— serves non-XML on every documented feed path.
+#
+# KUT publishes per-section feeds, not one wire. /news.rss looked right and is
+# actually music obituaries; /austin.rss is the local desk and runs hours fresh.
 FEEDS = [
     ('KXAN',             'https://www.kxan.com/feed/',                  True),
-    ('KUT',              'https://www.kut.org/news.rss',                True),
-    ('Austin Monitor',   'https://www.austinmonitor.com/feed/',         True),
+    ('KUT',              'https://www.kut.org/austin.rss',              True),
+    ('KUT Transport',    'https://www.kut.org/transportation.rss',      True),
     ('FOX 7',            'https://www.fox7austin.com/rss/category/local-news', True),
     ('KVUE',             'https://www.kvue.com/feeds/syndication/rss/news/local/', True),
     ('CBS Austin',       'https://cbsaustin.com/news/local.rss',        True),
