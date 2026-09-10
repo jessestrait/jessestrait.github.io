@@ -284,6 +284,21 @@ dl.mecard a{color:var(--accent-hi)}
   font-size:.64rem; font-weight:700; letter-spacing:.18em; color:#0a0f18;
   background:linear-gradient(180deg,#ffc36b,#ff9d2e);
 }
+/* Conditions, pinned. The scrolling card came round every 55 seconds, which is
+   not a weather readout — it is a weather lottery. This one never leaves. */
+#ticker .tk-now{
+  display:flex; align-items:center; gap:.4rem; flex:0 0 auto; padding:0 .7rem;
+  font-size:.7rem; color:#7fd7ff; background:rgba(127,215,255,.09);
+  border-right:1px solid rgba(127,215,255,.25); white-space:nowrap;
+}
+#ticker .tk-now b{ color:#d6f2ff; font-weight:700 }
+/* The radar play control, sitting where a row's count badge would be. */
+.rowbtn{
+  background:rgba(58,214,192,.12); border:1px solid rgba(58,214,192,.4); color:#3ad6c0;
+  border-radius:6px; min-width:30px; height:24px; font-size:.62rem; cursor:pointer;
+  padding:0 .35rem; -webkit-tap-highlight-color:transparent;
+}
+.rowbtn:hover{ background:rgba(58,214,192,.26); color:#c6fff6 }
 #ticker .tk-view{
   flex:1 1 auto; overflow:hidden; position:relative;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 26px,#000 calc(100% - 26px),transparent);
@@ -332,6 +347,10 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
   /* Taller and larger on a phone: at 30px and .68rem it was unreadable at arm's
      length, which on a phone is the only length. */
   #ticker{ left:0; height:40px }
+  /* On a narrow screen the wordmark and the temperature cannot both have the
+     rail. The temperature is information; ATX WIRE is decoration. */
+  #ticker .tk-tag{ display:none }
+  #ticker .tk-now{ font-size:.76rem; padding:0 .6rem }
   #ticker .tk-item{ font-size:.8rem; padding:0 1rem }
   #ticker .tk-src{ font-size:.66rem }
   #ticker .tk-go{ font-size:.66rem; padding:.18rem .45rem }
@@ -584,6 +603,7 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
 
   <div id="ticker" hidden aria-label="Local headlines">
     <span class="tk-tag">ATX&nbsp;WIRE</span>
+    <span class="tk-now" id="tknow" hidden></span>
     <div class="tk-view"><div class="tk-track" id="tktrack"></div></div>
     <button class="tk-off" id="tkoff" title="Hide the headline ticker" aria-label="Hide the headline ticker">&times;</button>
   </div>
@@ -2841,6 +2861,20 @@ async function loadConditions() {
   return null;
 }
 
+function paintConditions() {
+  const el = document.getElementById('tknow');
+  if (!el) return;
+  if (COND.tempF == null) { el.hidden = true; return; }
+  const short = COND.text || COND.sky || '';
+  el.innerHTML = '<b>' + COND.tempF + '\u00b0</b>' + (short ? esc(short.toLowerCase()) : '');
+  el.title = 'Austin now \u00b7 ' + [COND.tempF + '\u00b0F',
+      COND.feelsF != null ? 'feels ' + COND.feelsF + '\u00b0' : null,
+      short, COND.humidity != null ? COND.humidity + '% humidity' : null,
+      COND.windMph ? COND.windMph + ' mph wind' : null,
+      COND.station].filter(Boolean).join(' \u00b7 ');
+  el.hidden = false;
+}
+
 function conditionsHTML() {
   if (COND.tempF == null) return '';
   const bits = [COND.tempF + '\u00b0F'];
@@ -2921,6 +2955,7 @@ function paintTicker() {
     .sort((a, b) => (b.published || '').localeCompare(a.published || ''));
   // Every seventh headline, so it comes round two or three times a lap without
   // becoming the thing you are reading.
+  paintConditions();
   const wx = conditionsHTML();
   const one = shown.map((it, i) => (wx && i && i % 7 === 0 ? wx : '') + tickerItemHTML(it)).join('')
             + (wx || '');
@@ -3467,16 +3502,17 @@ function setTrafficNote(html, warn) {
 /* ══════════════════════════════════════════════════════════════════
    Weather you can see — rain and cloud as raster layers.
 
-   Both come from Iowa State's mesonet tile cache: NEXRAD composite for
-   rain, GOES East infrared for cloud. Free, keyless, five-minute cache.
+   Rain is NOAA's own base-reflectivity ImageServer: 565 m pixels,
+   rendered per request, with about two hours of scans on a time
+   dimension. Cloud is GOES East infrared from Iowa State's cache.
 
-   RainViewer was the obvious first choice for radar and is the wrong
-   one. Its free tiles stop at zoom 7 and every zoom above that returns
-   the same 1,370-byte "Zoom Level Not Supported" placard, which drops
-   grey lettering across the map at any zoom you would actually use.
-   NEXRAD here carries real returns to zoom 12 — checked against Miami,
-   Portland and Kansas City, which had rain at the time — and where
-   there is nothing it returns a transparent tile rather than a notice.
+   Two radar sources were tried and dropped before this one. RainViewer
+   stops dead at zoom 7 and returns a "Zoom Level Not Supported" placard
+   above it. Iowa State's NEXRAD composite tiles to zoom 12 but the data
+   underneath is coarse: measured on one tile over Kansas City in rain,
+   it carried 33 distinct colours where this service carries 1,931. That
+   is the difference between a staircase and a gradient, and it is what
+   "blocky" meant.
    Infrared rather than visible on purpose — visible light is reflected
    sunlight, so the visible product is simply black for half of every
    day, and cloud at 2am is exactly when you would want to look.
@@ -3484,44 +3520,125 @@ function setTrafficNote(html, warn) {
    Both sit under the congestion tiles and everything else, because they
    are backdrop: the question is what is happening *under* the weather.
    ══════════════════════════════════════════════════════════════════ */
-const NEXRAD = 'https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/{z}/{x}/{y}.png';
+const NWS_RADAR = 'https://mapservices.weather.noaa.gov/eventdriven/rest/services/radar/radar_base_reflectivity_time/ImageServer';
 const GOES = 'https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/goes-east-ir-4km-900913/{z}/{x}/{y}.png';
-const RADAR = { on: false, layer: null, timer: null };
+const RADAR = { on: false, layer: null, timer: null, loop: false };
 const CLOUD = { on: false, layer: null, timer: null };
 
-// One raster layer, two products, same rules.
-function wxTiles(state, id, url, opts, note) {
-  const row = document.getElementById('row-' + id);
-  if (row) row.querySelector('input').checked = state.on;
-  clearInterval(state.timer); state.timer = null;
-  if (state.layer) { map.removeLayer(state.layer); state.layer = null; }
-  if (state.on) {
-    state.layer = L.tileLayer(url, opts).addTo(map);
-    // The cache holds each tile for five minutes, so a plain setUrl would hand
-    // back the same picture. The cache-buster is what actually refreshes it.
-    state.timer = setInterval(() => {
-      if (document.hidden || !state.on || !state.layer) return;
-      state.layer.setUrl(url + '?t=' + Date.now(), false);
-    }, 300000);
+/* The NWS ImageServer renders any bounding box on demand rather than serving a
+   fixed tile cache, so this asks it for one tile-shaped box at a time. It is
+   worth the custom layer: measured against the same tile over Kansas City in
+   rain, the Iowa State composite returned 33 distinct colours and this returns
+   1,931. That difference is the whole complaint about blockiness — 33 colours
+   is a staircase, 1,931 is a gradient. */
+const NWSRadarLayer = L.TileLayer.extend({
+  getTileUrl(coords) {
+    const b = this._tileCoordsToBounds(coords);
+    const nw = L.CRS.EPSG3857.project(b.getNorthWest());
+    const se = L.CRS.EPSG3857.project(b.getSouthEast());
+    const px = this.getTileSize().x;
+    return NWS_RADAR + '/exportImage?bbox=' + [nw.x, se.y, se.x, nw.y].join(',')
+      + '&bboxSR=3857&imageSR=3857&size=' + px + ',' + px
+      + '&format=png32&transparent=true&f=image'
+      + (this.options.at ? '&time=' + this.options.at : '');
   }
-  setNote({ id: id }, note);
-  saveUrl();
+});
+
+function newRadarLayer(at) {
+  return new NWSRadarLayer('', {
+    pane: 'radarPane', opacity: at ? 0 : 0.72, at: at || 0,
+    // No maxNativeZoom: it renders whatever box it is given, so there is no
+    // cache to run out of and nothing to upscale.
+    maxZoom: 18, crossOrigin: true,
+    attribution: 'Radar &copy; <a href="https://www.weather.gov/">NOAA / NWS</a>'
+  });
 }
 
 function radarOn(on) {
   RADAR.on = on;
-  wxTiles(RADAR, 'radar', NEXRAD, {
-    pane: 'radarPane', opacity: 0.68, maxZoom: 18, maxNativeZoom: 12,
-    attribution: 'Radar &copy; <a href="https://mesonet.agron.iastate.edu/">Iowa State Mesonet</a> / NOAA NEXRAD'
-  }, 'NEXRAD composite, refreshed every 5 minutes');
+  if (!on && RADAR.loop) radarLoop(false);
+  const row = document.getElementById('row-radar');
+  if (row) row.querySelector('input').checked = on;
+  clearInterval(RADAR.timer); RADAR.timer = null;
+  if (RADAR.layer) { map.removeLayer(RADAR.layer); RADAR.layer = null; }
+  if (on) {
+    RADAR.layer = newRadarLayer(0).addTo(map);
+    // Rendered live, so a redraw is enough to pull the newest scan.
+    RADAR.timer = setInterval(() => {
+      if (!document.hidden && RADAR.on && !RADAR.loop && RADAR.layer) RADAR.layer.redraw();
+    }, 300000);
+  }
+  setNote({ id: 'radar' }, 'NOAA base reflectivity, 565 m, live');
+  const btn = document.getElementById('radarplay');
+  if (btn) btn.hidden = !on;
+  saveUrl();
 }
 
 function cloudOn(on) {
   CLOUD.on = on;
   wxTiles(CLOUD, 'cloud', GOES, {
-    pane: 'cloudPane', opacity: 0.42, maxZoom: 18, maxNativeZoom: 9,
+    pane: 'cloudPane', opacity: 0.42, maxZoom: 18, maxNativeZoom: 10,
     attribution: 'Satellite &copy; <a href="https://mesonet.agron.iastate.edu/">Iowa State Mesonet</a> / NOAA GOES'
-  }, 'GOES East infrared, day and night');
+  }, 'GOES infrared \u00b7 4 km, so it reads city-wide, not street-level');
+}
+
+/* ── The loop ──────────────────────────────────────────────────────
+   The same service carries about two hours of scans on a time
+   dimension, so the animation is the same imagery at the same
+   resolution — no swapping to a coarser source to get motion, which is
+   what the first attempt did. Frames are separate layers cross-faded by
+   opacity; re-pointing one layer would re-request every tile per step
+   and flicker the whole way round. */
+const LOOP = { layers: [], stamps: [], i: 0, timer: null, busy: false };
+
+function radarLoopStop() {
+  clearInterval(LOOP.timer); LOOP.timer = null;
+  LOOP.layers.forEach(l => map.removeLayer(l));
+  LOOP.layers = []; LOOP.stamps = []; LOOP.i = 0;
+  const btn = document.getElementById('radarplay');
+  if (btn) { btn.textContent = '\u25b6'; btn.title = 'Play the last two hours'; }
+}
+
+async function radarLoop(on) {
+  RADAR.loop = on;
+  if (!on) {
+    radarLoopStop();
+    if (RADAR.layer) RADAR.layer.setOpacity(0.72);
+    setNote({ id: 'radar' }, 'NOAA base reflectivity, 565 m, live');
+    return;
+  }
+  if (LOOP.busy) return;
+  LOOP.busy = true;
+  setNote({ id: 'radar' }, 'Loading the last two hours\u2026');
+  try {
+    const meta = await fetch(NWS_RADAR + '?f=json', { cache: 'no-store' }).then(r => r.json());
+    const ext = meta.timeInfo && meta.timeInfo.timeExtent;
+    if (!ext || ext.length !== 2) throw new Error('no time extent');
+    const N = 9;                                   // ~14 minutes apart over ~2 hours
+    LOOP.stamps = Array.from({ length: N }, (_, k) => Math.round(ext[0] + (ext[1] - ext[0]) * k / (N - 1)));
+    if (RADAR.layer) RADAR.layer.setOpacity(0);    // the still would show through every gap
+    LOOP.layers = LOOP.stamps.map(t => newRadarLayer(t).addTo(map));
+    LOOP.i = 0;
+    const step = () => {
+      LOOP.layers.forEach((l, n) => l.setOpacity(n === LOOP.i ? 0.72 : 0));
+      const d = new Date(LOOP.stamps[LOOP.i]);
+      setNote({ id: 'radar' }, d.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
+        + ' \u00b7 ' + (LOOP.i + 1) + ' of ' + LOOP.stamps.length);
+      LOOP.i = (LOOP.i + 1) % LOOP.layers.length;
+    };
+    step();
+    LOOP.timer = setInterval(step, 600);
+    const btn = document.getElementById('radarplay');
+    if (btn) { btn.textContent = '\u25a0'; btn.title = 'Stop the loop'; }
+  } catch (e) {
+    console.error(e);
+    RADAR.loop = false;
+    radarLoopStop();
+    if (RADAR.layer) RADAR.layer.setOpacity(0.72);
+    setNote({ id: 'radar' }, 'The radar service did not answer \u2014 live frame only', true);
+  } finally {
+    LOOP.busy = false;
+  }
 }
 
 (function buildWeatherRows() {
@@ -3536,7 +3653,16 @@ function cloudOn(on) {
     el.querySelector('input').addEventListener('change', e => fn(e.target.checked));
     return el;
   };
-  const radar = mk('radar', '#3ad6c0', 'Rain', 'Rain, as the radar last saw it', radarOn);
+  const radar = mk('radar', '#3ad6c0', 'Rain', 'NEXRAD composite, refreshed every 5 minutes', radarOn);
+  const play = document.createElement('button');
+  play.id = 'radarplay'; play.className = 'ct rowbtn'; play.hidden = true;
+  play.textContent = '\u25b6'; play.title = 'Play the last two hours';
+  play.addEventListener('click', e => {
+    // The row is a <label>, so a click inside it would toggle the checkbox too.
+    e.preventDefault(); e.stopPropagation();
+    radarLoop(!RADAR.loop);
+  });
+  radar.appendChild(play);
   const cloud = mk('cloud', '#b9c6d6', 'Cloud', 'GOES East infrared, day and night', cloudOn);
   after.after(cloud);
   after.after(radar);
