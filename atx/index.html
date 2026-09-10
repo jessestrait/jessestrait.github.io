@@ -299,6 +299,11 @@ dl.mecard a{color:var(--accent-hi)}
   padding:0 .35rem; -webkit-tap-highlight-color:transparent;
 }
 .rowbtn:hover{ background:rgba(58,214,192,.26); color:#c6fff6 }
+/* The raindrop canvas. Over the map, under every control, and never in the way
+   of a click — it is scenery, not a layer you interact with. */
+#dropcanvas{
+  position:absolute; inset:0; z-index:600; pointer-events:none;
+}
 #ticker .tk-view{
   flex:1 1 auto; overflow:hidden; position:relative;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 26px,#000 calc(100% - 26px),transparent);
@@ -3641,6 +3646,196 @@ async function radarLoop(on) {
   }
 }
 
+/* ══════════════════════════════════════════════════════════════════
+   Raindrops — the radar, as weather rather than as a picture of it.
+
+   One exportImage request sized to a 64x64 grid over the current view
+   gives an intensity field, sampled straight out of the pixels. NOAA
+   reflects the Origin header, so the image can be read into a canvas
+   rather than only looked at.
+
+   Their palette runs monotonically down the hue wheel — about 224 for
+   the lightest returns, 180 cyan, 150 green, 60 yellow, 0 red — which
+   is what makes colour usable as intensity without decoding dBZ.
+   Sampled from live imagery: 7,022 distinct colours, hues 0 to 224,
+   no wrap into magenta. Anything above 250 is treated as extreme
+   anyway, since some palettes put violet at the top end.
+
+   The canvas hangs off the map container rather than a Leaflet pane on
+   purpose. A pane translates with the map, which would drag the rain
+   sideways as you drag; rain falls down the screen no matter what the
+   map is doing underneath it.
+   ══════════════════════════════════════════════════════════════════ */
+const DROPS = {
+  on: false, canvas: null, ctx: null, drops: [], raf: null, timer: null,
+  gw: 64, gh: 64, cells: [], cdf: null, total: 0, busy: false, moveTimer: null
+};
+// Half as many on a phone: a thousand canvas strokes a frame is nothing on
+// a laptop and is a warm battery on a handset.
+const DROP_CAP = COARSE ? 600 : 1200;
+
+function dropIntensity(r, g, b, a) {
+  if (a < 24) return 0;
+  const mx = Math.max(r, g, b), mn = Math.min(r, g, b);
+  if (mx < 40) return 0;                       // near-black is not a return
+  const d = mx - mn;
+  if (d < 12) return 0;                        // grey is basemap bleed, not rain
+  let h;
+  if (mx === r) h = 60 * (((g - b) / d) % 6);
+  else if (mx === g) h = 60 * ((b - r) / d + 2);
+  else h = 60 * ((r - g) / d + 4);
+  if (h < 0) h += 360;
+  if (h > 250) return 1;                       // violet tops some palettes
+  return Math.max(0, Math.min(1, (232 - h) / 232));
+}
+
+async function sampleDrops() {
+  if (DROPS.busy || !DROPS.on) return;
+  DROPS.busy = true;
+  try {
+    const b = map.getBounds();
+    const nw = L.CRS.EPSG3857.project(b.getNorthWest());
+    const se = L.CRS.EPSG3857.project(b.getSouthEast());
+    const url = NWS_RADAR + '/exportImage?bbox=' + [nw.x, se.y, se.x, nw.y].join(',')
+      + '&bboxSR=3857&imageSR=3857&size=' + DROPS.gw + ',' + DROPS.gh
+      + '&format=png32&transparent=true&f=image';
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    await new Promise((ok, no) => { img.onload = ok; img.onerror = no; img.src = url; });
+    const c = document.createElement('canvas');
+    c.width = DROPS.gw; c.height = DROPS.gh;
+    const cx = c.getContext('2d', { willReadFrequently: true });
+    cx.drawImage(img, 0, 0, DROPS.gw, DROPS.gh);
+    const px = cx.getImageData(0, 0, DROPS.gw, DROPS.gh).data;
+
+    // Only cells with rain in them, plus a running total, so a drop can be
+    // placed by binary search instead of rejection-sampling the whole grid.
+    const cells = []; let run = 0;
+    for (let i = 0, n = DROPS.gw * DROPS.gh; i < n; i++) {
+      const v = dropIntensity(px[i*4], px[i*4+1], px[i*4+2], px[i*4+3]);
+      if (v > 0.04) { run += v; cells.push({ i: i, v: v, c: run }); }
+    }
+    DROPS.cells = cells; DROPS.total = run;
+    setNote({ id: 'drops' }, cells.length
+      ? 'Falling at the radar\u2019s own intensity'
+      : 'Nothing falling in view right now');
+    resizeDropCanvas();
+  } catch (e) {
+    console.error(e);
+    DROPS.cells = []; DROPS.total = 0;
+    setNote({ id: 'drops' }, 'Could not read the radar', true);
+  } finally {
+    DROPS.busy = false;
+  }
+}
+
+function pickCell() {
+  const cells = DROPS.cells;
+  if (!cells.length) return null;
+  const t = Math.random() * DROPS.total;
+  let lo = 0, hi = cells.length - 1;
+  while (lo < hi) { const m = (lo + hi) >> 1; if (cells[m].c < t) lo = m + 1; else hi = m; }
+  return cells[lo];
+}
+
+function spawnDrop(d, W, H) {
+  const cell = pickCell();
+  if (!cell) { d.dead = true; return d; }
+  const cw = W / DROPS.gw, ch = H / DROPS.gh;
+  const gx = cell.i % DROPS.gw, gy = (cell.i / DROPS.gw) | 0;
+  d.dead = false;
+  d.x = (gx + Math.random()) * cw;
+  d.y = (gy + Math.random()) * ch - ch;
+  // A drop lives about one and a half cells, so heavy cells stay heavy and
+  // rain never streaks down through the clear air below a shower.
+  d.life = ch * (1.2 + Math.random() * 0.8);
+  d.travelled = 0;
+  d.v = 2.2 + cell.v * 6.5 + Math.random() * 1.6;
+  d.len = 5 + cell.v * 13;
+  // Read against a near-black basemap, not against the radar wash, so they
+  // carry more of their own light than the first pass gave them.
+  d.a = 0.3 + cell.v * 0.55;
+  return d;
+}
+
+function resizeDropCanvas() {
+  const c = DROPS.canvas;
+  if (!c) return;
+  const box = map.getContainer().getBoundingClientRect();
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  c.width = Math.round(box.width * dpr);
+  c.height = Math.round(box.height * dpr);
+  c.style.width = box.width + 'px';
+  c.style.height = box.height + 'px';
+  DROPS.ctx = c.getContext('2d');
+  DROPS.ctx.scale(dpr, dpr);
+  // Density follows how much rain is actually in view, not the window size.
+  const want = Math.min(DROP_CAP, Math.round(DROPS.total * 8));
+  DROPS.drops = Array.from({ length: want }, () => spawnDrop({}, box.width, box.height));
+}
+
+function dropFrame() {
+  if (!DROPS.on) return;
+  const ctx = DROPS.ctx;
+  const W = DROPS.canvas.clientWidth, H = DROPS.canvas.clientHeight;
+  ctx.clearRect(0, 0, W, H);
+  ctx.lineCap = 'round';
+  ctx.lineWidth = 1.25;
+  for (const d of DROPS.drops) {
+    if (d.dead) continue;
+    ctx.strokeStyle = 'rgba(168,214,255,' + d.a.toFixed(3) + ')';
+    ctx.beginPath();
+    ctx.moveTo(d.x, d.y);
+    // A slight lean, so it reads as falling rather than as a barcode.
+    ctx.lineTo(d.x - d.len * 0.18, d.y - d.len);
+    ctx.stroke();
+    d.y += d.v; d.travelled += d.v;
+    if (d.travelled > d.life || d.y > H + 20) spawnDrop(d, W, H);
+  }
+  DROPS.raf = requestAnimationFrame(dropFrame);
+}
+
+function dropsOn(on) {
+  DROPS.on = on;
+  const row = document.getElementById('row-drops');
+  if (row) row.querySelector('input').checked = on;
+  cancelAnimationFrame(DROPS.raf); DROPS.raf = null;
+  clearInterval(DROPS.timer); DROPS.timer = null;
+  clearTimeout(DROPS.moveTimer);
+  if (!on) {
+    if (DROPS.canvas) { DROPS.canvas.remove(); DROPS.canvas = null; DROPS.ctx = null; }
+    DROPS.drops = []; DROPS.cells = [];
+    setNote({ id: 'drops' }, 'Animated from the radar\u2019s own intensity');
+    saveUrl();
+    return;
+  }
+  const c = document.createElement('canvas');
+  c.id = 'dropcanvas';
+  DROPS.canvas = c;
+  map.getContainer().appendChild(c);
+  sampleDrops().then(() => {
+    if (!DROPS.on) return;
+    // Scrolling rain is a real problem for some people; the field still
+    // samples and the note still reports, it simply does not move.
+    if (!REDUCED_MOTION.matches) DROPS.raf = requestAnimationFrame(dropFrame);
+  });
+  DROPS.timer = setInterval(() => { if (!document.hidden && DROPS.on) sampleDrops(); }, 300000);
+  saveUrl();
+}
+
+// Panning and zooming change what is under the view, so the field is re-read —
+// debounced, because a drag fires this constantly and each one is a request.
+map.on('moveend zoomend resize', () => {
+  if (!DROPS.on) return;
+  clearTimeout(DROPS.moveTimer);
+  DROPS.moveTimer = setTimeout(sampleDrops, 450);
+});
+document.addEventListener('visibilitychange', () => {
+  if (!DROPS.on) return;
+  cancelAnimationFrame(DROPS.raf); DROPS.raf = null;
+  if (!document.hidden && !REDUCED_MOTION.matches) DROPS.raf = requestAnimationFrame(dropFrame);
+});
+
 (function buildWeatherRows() {
   const after = document.getElementById('row-traffictiles')
              || document.querySelector('#note-traffic').closest('.row');
@@ -3664,7 +3859,10 @@ async function radarLoop(on) {
   });
   radar.appendChild(play);
   const cloud = mk('cloud', '#b9c6d6', 'Cloud', 'GOES East infrared, day and night', cloudOn);
+  const drops = mk('drops', '#a8d6ff', 'Raindrops',
+                   'Animated from the radar\u2019s own intensity', dropsOn);
   after.after(cloud);
+  after.after(drops);
   after.after(radar);
 })();
 
@@ -4047,6 +4245,7 @@ function saveUrl() {
     if (byId.firelive.on) p.set('ft', FIRE.scope);
     if (TRAFFIC.on !== TRAFFIC_DEFAULT) p.set('tt', TRAFFIC.on ? '1' : '0');
     if (RADAR.on) p.set('rd', '1');
+    if (DROPS.on) p.set('dp', '1');
     if (CLOUD.on) p.set('cl', '1');
     const hash = '#' + p.toString();
     if (hash !== location.hash) {
@@ -4135,6 +4334,7 @@ function restoreUrl() {
     // congestion switched off comes back with it off.
     if (p.has('tt') && TOMTOM_KEY) trafficOn(p.get('tt') === '1');
     if (p.get('rd') === '1') radarOn(true);
+    if (p.get('dp') === '1') dropsOn(true);
     if (p.get('cl') === '1') cloudOn(true);
   } catch (e) {
     console.error('could not restore that link', e);
