@@ -30,21 +30,42 @@ LIMIT = 60
 #                     to know". It was costing a request a run and returning a
 #                     corpse.
 #   Statesman       — Gannett, 404 on every documented feed path.
+#   NPR national    — reachable and fresh, and left out deliberately. It is a
+#                     national wire; nothing on it is about Austin, so the
+#                     Austin filter would drop all of it anyway. KUT is the NPR
+#                     station here, and that is what the floor is holding for.
 #   Austin Chronicle— serves non-XML on every documented feed path.
 #
 # KUT publishes per-section feeds, not one wire. /news.rss looked right and is
 # actually music obituaries; /austin.rss is the local desk and runs hours fresh.
+# (name, url, is_local, is_public_media)
 FEEDS = [
-    ('KXAN',             'https://www.kxan.com/feed/',                  True),
-    ('KUT',              'https://www.kut.org/austin.rss',              True),
-    ('KUT Transport',    'https://www.kut.org/transportation.rss',      True),
-    ('FOX 7',            'https://www.fox7austin.com/rss/category/local-news', True),
-    ('KVUE',             'https://www.kvue.com/feeds/syndication/rss/news/local/', True),
-    ('CBS Austin',       'https://cbsaustin.com/news/local.rss',        True),
-    # Statewide feeds: everything from these has to prove it is about Austin.
-    ('Community Impact', 'https://communityimpact.com/rss/',            False),
-    ('Google News',      'https://news.google.com/rss/search?q=Austin%20Texas&hl=en-US&gl=US&ceid=US:en', False),
+    # Public media first, and holding a share of the file below. KUT is
+    # Austin's NPR station and publishes per-section rather than one wire, so
+    # the sections carrying city news are listed individually.
+    ('KUT',              'https://www.kut.org/austin.rss',              True,  True),
+    ('KUT Politics',     'https://www.kut.org/politics.rss',            True,  True),
+    ('KUT Education',    'https://www.kut.org/education.rss',           True,  True),
+    ('KUT Transport',    'https://www.kut.org/transportation.rss',      True,  True),
+    ('KUT Environment',  'https://www.kut.org/energy-environment.rss',  True,  True),
+    ('KUT Housing',      'https://www.kut.org/housing.rss',             True,  True),
+
+    ('KXAN',             'https://www.kxan.com/feed/',                  True,  False),
+    ('FOX 7',            'https://www.fox7austin.com/rss/category/local-news', True, False),
+    ('KVUE',             'https://www.kvue.com/feeds/syndication/rss/news/local/', True, False),
+    ('CBS Austin',       'https://cbsaustin.com/news/local.rss',        True,  False),
+
+    # Statewide: everything from these has to prove it is about Austin.
+    ('Texas Standard',   'https://www.texasstandard.org/feed/',         False, True),
+    ('Texas Tribune',    'https://www.texastribune.org/feeds/main/',    False, True),
+    ('Community Impact', 'https://communityimpact.com/rss/',            False, False),
+    ('Google News',      'https://news.google.com/rss/search?q=Austin%20Texas&hl=en-US&gl=US&ceid=US:en', False, False),
 ]
+
+# Public media is quieter than a TV newsroom — KUT files a handful of pieces a
+# day against KXAN's dozens — so on recency alone it loses every slot and never
+# appears at all. This many places are held for it before recency takes the rest.
+PUBLIC_FLOOR = 18
 
 # For the two statewide feeds. A headline has to carry one of these to count.
 AUSTIN_WORDS = re.compile(
@@ -184,7 +205,7 @@ def main():
     pats = build_matcher(gaz)
 
     items, seen, sources_ok, sources_bad = [], set(), [], []
-    for source, url, is_local in FEEDS:
+    for source, url, is_local, is_public in FEEDS:
         try:
             entries = parse(get(url))
         except Exception as e:                        # noqa: BLE001
@@ -204,11 +225,19 @@ def main():
             items.append({
                 'title': title, 'link': link_of(el).strip(), 'source': source,
                 'published': when(el), 'places': places_in(title, pats, gaz),
+                'public': is_public,
             })
 
     # Newest first; anything undated sinks rather than claiming the top.
     items.sort(key=lambda x: x['published'] or '', reverse=True)
-    items = items[:LIMIT]
+
+    # Then hold the floor for public media: its newest PUBLIC_FLOOR, the rest
+    # filled by recency, and the result back in date order so the ticker still
+    # reads chronologically.
+    pub = [i for i in items if i['public']][:PUBLIC_FLOOR]
+    pub_ids = {id(i) for i in pub}
+    rest = [i for i in items if id(i) not in pub_ids][:max(0, LIMIT - len(pub))]
+    items = sorted(pub + rest, key=lambda x: x['published'] or '', reverse=True)
 
     out = {
         'fetched_at': dt.datetime.now(dt.timezone.utc).replace(microsecond=0)
@@ -223,8 +252,9 @@ def main():
     os.replace(tmp, args.out)
 
     tagged = sum(1 for i in items if i['places'])
-    print('%d headlines from %d feeds, %d place-tagged -> %s (%.0f KB)'
-          % (len(items), len(sources_ok), tagged, args.out, os.path.getsize(args.out) / 1024))
+    pubn = sum(1 for i in items if i['public'])
+    print('%d headlines from %d feeds, %d place-tagged, %d public media -> %s (%.0f KB)'
+          % (len(items), len(sources_ok), tagged, pubn, args.out, os.path.getsize(args.out) / 1024))
     if sources_bad:
         print('  did not answer:', ', '.join(sources_bad))
     return 0 if items else 1

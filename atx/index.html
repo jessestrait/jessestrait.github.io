@@ -326,6 +326,10 @@ dl.mecard a{color:var(--accent-hi)}
 #ticker .tk-head{ color:#9fb4cd; text-decoration:none }
 #ticker .tk-head:hover{ color:#eaf3ff; text-decoration:underline }
 #ticker .tk-src{ color:#5f7893; font-size:.62rem; letter-spacing:.1em; text-transform:uppercase }
+/* Public media gets its own colour on the byline. Not louder, just findable —
+   the point is being able to tell at a glance that KUT is in the mix. */
+#ticker .tk-pub .tk-src{ color:#8ad6b0 }
+#ticker .tk-pub .tk-src::before{ content:'\25c8\00a0'; font-size:.55rem }
 /* The place chip. Same orange as the Headlines pins, because it is the same
    thing: press it and the map goes there. */
 #ticker .tk-go{
@@ -2907,7 +2911,7 @@ function tickerItemHTML(it) {
   // The headline opens the story; the place chip moves the map. Two actions
   // means they cannot be one <a> — a button nested in a link is broken markup
   // and worse behaviour.
-  return '<span class="tk-item" data-link="' + esc(it.link) + '">'
+  return '<span class="tk-item' + (it.public ? ' tk-pub' : '') + '" data-link="' + esc(it.link) + '">'
        + '<span class="tk-src">' + esc(it.source) + '</span>'
        + '<a class="tk-head" href="' + esc(it.link) + '" target="_blank" rel="noopener noreferrer">'
        + esc(it.title) + '</a>'
@@ -2955,16 +2959,19 @@ function paintTicker() {
   const bar = document.getElementById('ticker');
   if (!NEWS.items.length) { bar.hidden = true; document.body.classList.remove('tk-on'); return; }
   // 60 headlines is a ten-minute lap, which is not a ticker, it is a queue — so
-  // cap it at 40. But cap on recency alone and the place-tagged ones fall off
-  // the end, which quietly guts the only thing here that is not decoration. So
-  // those are kept first, the rest fill the remaining room, and the result goes
-  // back into date order for display.
+  // cap it at 40. Which of the 60 survive matters, though: capping on recency
+  // alone dropped the place-tagged ones, and keeping tagged first then dropped
+  // public media, since most of it names no place. Two floors, then recency,
+  // then back into date order for display.
   const CAP = 40;
-  const tagged = NEWS.items.filter(i => i.places && i.places.length);
-  const rest = NEWS.items.filter(i => !(i.places && i.places.length));
-  const shown = tagged.slice(0, CAP)
-    .concat(rest.slice(0, Math.max(0, CAP - tagged.length)))
-    .sort((a, b) => (b.published || '').localeCompare(a.published || ''));
+  const pick = [];
+  const take = test => NEWS.items.forEach(i => {
+    if (pick.length < CAP && !pick.includes(i) && test(i)) pick.push(i);
+  });
+  take(i => i.places && i.places.length);   // the map connection
+  take(i => i.public);                      // KUT and the rest of public media
+  take(() => true);                         // then whatever is newest
+  const shown = pick.sort((a, b) => (b.published || '').localeCompare(a.published || ''));
   // Every seventh headline, so it comes round two or three times a lap without
   // becoming the thing you are reading.
   paintConditions();
