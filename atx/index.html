@@ -314,6 +314,12 @@ dl.mecard a{color:var(--accent-hi)}
 #ticker .tk-item.here .tk-head{ color:#ffe14d; text-shadow:0 0 10px rgba(255,225,77,.4) }
 #ticker .tk-item.here .tk-src{ color:#c9a227 }
 #ticker .tk-item.here{ background:rgba(255,225,77,.07) }
+/* The conditions card. Reads as a station ident between records rather than as
+   another headline, so it is not mistaken for news. */
+#ticker .tk-wx{ color:#7fd7ff; background:rgba(127,215,255,.07) }
+#ticker .tk-wx .tk-src{ color:#3aa8e0 }
+#ticker .tk-wx-src{ color:#4a6076; font-size:.6rem; margin-left:.5rem }
+@media (max-width:820px){ #ticker .tk-wx-src{ display:none } }
 #ticker .tk-off{
   flex:0 0 auto; width:34px; background:none; border:0; border-left:1px solid #24405f;
   color:var(--muted); font-size:1.1rem; line-height:1; cursor:pointer;
@@ -652,6 +658,16 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
         is not. TomTom is the one vendor whose terms allow their traffic over someone else's
         basemap; Google's renders only on a Google map and their terms forbid it elsewhere, which
         would have meant discarding everything this page is built on.</li>
+      <li><b>Rain and cloud</b> &mdash; raster tiles from <b>Iowa State's mesonet cache</b>:
+        the NOAA <b>NEXRAD</b> composite for rain, <b>GOES East infrared</b> for cloud. Free, no key,
+        five-minute cache, and both sit under everything else because they are backdrop &mdash; the
+        question is what is happening <em>under</em> the weather. Infrared rather than visible
+        satellite on purpose: visible light is reflected sunlight, so that product is black for half
+        of every day, and cloud at 2am is exactly when you would want to look.</li>
+      <li><b>Current conditions</b> &mdash; the <b>Camp Mabry</b> station (KATT) through
+        api.weather.gov, which is the central Austin reading the city itself quotes, falling back to
+        Austin-Bergstrom if it goes quiet. It rides in the news ticker every few headlines rather
+        than in a bar of its own.</li>
       <li><b>Weather alerts</b> &mdash; <b>api.weather.gov</b>, the National Weather Service's own
         feed. Free, no key, and the only non-Austin source on the page. Every alert carries FIPS
         county codes whether or not it ships a polygon, which is what scopes it to Travis and its
@@ -1046,7 +1062,7 @@ L.control.zoom({ position: 'bottomright' }).addTo(map);
 
 // leaflet.heat always draws into Leaflet's own overlayPane (z-index 400), so the
 // choropleth goes below that and everything else stacks above it.
-const PANES = { trafficPane: 250, groundPane: 330, districtPane: 350, labelPane2: 460, alertPane: 470, dotPane: 490, livePane: 520 };
+const PANES = { cloudPane: 232, radarPane: 240, trafficPane: 250, groundPane: 330, districtPane: 350, labelPane2: 460, alertPane: 470, dotPane: 490, livePane: 520 };
 Object.entries(PANES).forEach(([p, z]) => { map.createPane(p).style.zIndex = z; });
 // Leaflet detaches a renderer when its last path is removed, so each redraw gets a fresh one.
 let dotRenderer = null;
@@ -2782,6 +2798,62 @@ byId.c311.sub = { visible: c311PanelVisible, load: loadC311Top };
    news about what you are looking at.
    ══════════════════════════════════════════════════════════════════ */
 const NEWS = { items: [], at: null, hidden: false, fetchedMs: 0, inflight: null };
+
+/* Conditions ride in the ticker rather than in a bar of their own. A second
+   scrolling strip would cost another 40px of a phone screen to say one line,
+   and the ticker already has a mechanism for "here is a thing, at intervals" —
+   so the weather is spliced into the stream every few headlines, like a station
+   ident between records.
+
+   Camp Mabry over the airport: KATT is the central Austin station and is what
+   the city itself quotes. Same api.weather.gov the alerts already come from,
+   so it is one more call to a source the page already trusts and documents. */
+const COND = { at: null, text: '', tempF: null, feelsF: null, windMph: null,
+               humidity: null, sky: '', station: '' };
+
+const SKY = { CLR: 'clear', SKC: 'clear', FEW: 'a few clouds', SCT: 'scattered cloud',
+              BKN: 'broken cloud', OVC: 'overcast', VV: 'obscured' };
+
+async function loadConditions() {
+  for (const id of ['KATT', 'KAUS']) {
+    try {
+      const p = await fetch('https://api.weather.gov/stations/' + id + '/observations/latest',
+                            { cache: 'no-store' }).then(r => r.json()).then(j => j.properties);
+      const C = v => (v && v.value != null) ? v.value : null;
+      const c = C(p.temperature);
+      if (c == null) continue;                       // a station can report nothing
+      COND.station = id === 'KATT' ? 'Camp Mabry' : 'Austin-Bergstrom';
+      COND.at = p.timestamp ? new Date(p.timestamp) : null;
+      COND.text = p.textDescription || '';
+      COND.tempF = Math.round(c * 9 / 5 + 32);
+      const hi = C(p.heatIndex), wc = C(p.windChill);
+      COND.feelsF = hi != null ? Math.round(hi * 9 / 5 + 32)
+                  : wc != null ? Math.round(wc * 9 / 5 + 32) : null;
+      const w = C(p.windSpeed);
+      COND.windMph = w != null ? Math.round(w * 0.621371) : null;
+      const rh = C(p.relativeHumidity);
+      COND.humidity = rh != null ? Math.round(rh) : null;
+      const layers = (p.cloudLayers || []).map(l => l.amount).filter(Boolean);
+      COND.sky = layers.length ? (SKY[layers[layers.length - 1]] || '') : '';
+      return COND;
+    } catch (e) { /* try the next station */ }
+  }
+  return null;
+}
+
+function conditionsHTML() {
+  if (COND.tempF == null) return '';
+  const bits = [COND.tempF + '\u00b0F'];
+  // Only worth saying when it disagrees with the thermometer by enough to matter.
+  if (COND.feelsF != null && Math.abs(COND.feelsF - COND.tempF) >= 3) bits.push('feels ' + COND.feelsF + '\u00b0');
+  if (COND.text) bits.push(COND.text.toLowerCase());
+  else if (COND.sky) bits.push(COND.sky);
+  if (COND.humidity != null) bits.push(COND.humidity + '% humidity');
+  if (COND.windMph) bits.push(COND.windMph + ' mph wind');
+  return '<span class="tk-item tk-wx"><span class="tk-src">Austin now</span>'
+       + esc(bits.join('  \u00b7  '))
+       + '<span class="tk-wx-src">' + esc(COND.station) + '</span></span>';
+}
 const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 function tickerItemHTML(it) {
@@ -2847,7 +2919,11 @@ function paintTicker() {
   const shown = tagged.slice(0, CAP)
     .concat(rest.slice(0, Math.max(0, CAP - tagged.length)))
     .sort((a, b) => (b.published || '').localeCompare(a.published || ''));
-  const one = shown.map(tickerItemHTML).join('');
+  // Every seventh headline, so it comes round two or three times a lap without
+  // becoming the thing you are reading.
+  const wx = conditionsHTML();
+  const one = shown.map((it, i) => (wx && i && i % 7 === 0 ? wx : '') + tickerItemHTML(it)).join('')
+            + (wx || '');
   // Doubled, so translateX(-50%) lands exactly where it started and the loop
   // has no seam — except under reduced motion, where there is no loop to hide
   // and a second copy would just be the same headlines twice.
@@ -2865,6 +2941,7 @@ function paintTicker() {
 }
 
 async function loadNews(force) {
+  await loadConditions().catch(() => {});
   // The ticker and the Headlines layer are two readings of one file, and both
   // ask for it at boot. A timestamp alone does not de-dupe that: they start
   // together, before either has landed to set one. So share the promise.
@@ -3388,6 +3465,84 @@ function setTrafficNote(html, warn) {
 })();
 
 /* ══════════════════════════════════════════════════════════════════
+   Weather you can see — rain and cloud as raster layers.
+
+   Both come from Iowa State's mesonet tile cache: NEXRAD composite for
+   rain, GOES East infrared for cloud. Free, keyless, five-minute cache.
+
+   RainViewer was the obvious first choice for radar and is the wrong
+   one. Its free tiles stop at zoom 7 and every zoom above that returns
+   the same 1,370-byte "Zoom Level Not Supported" placard, which drops
+   grey lettering across the map at any zoom you would actually use.
+   NEXRAD here carries real returns to zoom 12 — checked against Miami,
+   Portland and Kansas City, which had rain at the time — and where
+   there is nothing it returns a transparent tile rather than a notice.
+   Infrared rather than visible on purpose — visible light is reflected
+   sunlight, so the visible product is simply black for half of every
+   day, and cloud at 2am is exactly when you would want to look.
+
+   Both sit under the congestion tiles and everything else, because they
+   are backdrop: the question is what is happening *under* the weather.
+   ══════════════════════════════════════════════════════════════════ */
+const NEXRAD = 'https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/{z}/{x}/{y}.png';
+const GOES = 'https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/goes-east-ir-4km-900913/{z}/{x}/{y}.png';
+const RADAR = { on: false, layer: null, timer: null };
+const CLOUD = { on: false, layer: null, timer: null };
+
+// One raster layer, two products, same rules.
+function wxTiles(state, id, url, opts, note) {
+  const row = document.getElementById('row-' + id);
+  if (row) row.querySelector('input').checked = state.on;
+  clearInterval(state.timer); state.timer = null;
+  if (state.layer) { map.removeLayer(state.layer); state.layer = null; }
+  if (state.on) {
+    state.layer = L.tileLayer(url, opts).addTo(map);
+    // The cache holds each tile for five minutes, so a plain setUrl would hand
+    // back the same picture. The cache-buster is what actually refreshes it.
+    state.timer = setInterval(() => {
+      if (document.hidden || !state.on || !state.layer) return;
+      state.layer.setUrl(url + '?t=' + Date.now(), false);
+    }, 300000);
+  }
+  setNote({ id: id }, note);
+  saveUrl();
+}
+
+function radarOn(on) {
+  RADAR.on = on;
+  wxTiles(RADAR, 'radar', NEXRAD, {
+    pane: 'radarPane', opacity: 0.68, maxZoom: 18, maxNativeZoom: 12,
+    attribution: 'Radar &copy; <a href="https://mesonet.agron.iastate.edu/">Iowa State Mesonet</a> / NOAA NEXRAD'
+  }, 'NEXRAD composite, refreshed every 5 minutes');
+}
+
+function cloudOn(on) {
+  CLOUD.on = on;
+  wxTiles(CLOUD, 'cloud', GOES, {
+    pane: 'cloudPane', opacity: 0.42, maxZoom: 18, maxNativeZoom: 9,
+    attribution: 'Satellite &copy; <a href="https://mesonet.agron.iastate.edu/">Iowa State Mesonet</a> / NOAA GOES'
+  }, 'GOES East infrared, day and night');
+}
+
+(function buildWeatherRows() {
+  const after = document.getElementById('row-traffictiles')
+             || document.querySelector('#note-traffic').closest('.row');
+  const mk = (id, colour, name, note, fn) => {
+    const el = document.createElement('label');
+    el.className = 'row'; el.id = 'row-' + id;
+    el.style.setProperty('--k', colour);
+    el.innerHTML = '<input type="checkbox"><span class="swatch"></span>'
+      + '<span class="nm">' + name + '<small id="note-' + id + '">' + note + '</small></span>';
+    el.querySelector('input').addEventListener('change', e => fn(e.target.checked));
+    return el;
+  };
+  const radar = mk('radar', '#3ad6c0', 'Rain', 'Rain, as the radar last saw it', radarOn);
+  const cloud = mk('cloud', '#b9c6d6', 'Cloud', 'GOES East infrared, day and night', cloudOn);
+  after.after(cloud);
+  after.after(radar);
+})();
+
+/* ══════════════════════════════════════════════════════════════════
    Weather alerts — api.weather.gov, no key, CORS open. Browsers are
    not allowed to set User-Agent, which the NWS docs ask for; their
    server accepts an ordinary browser one, verified before building.
@@ -3765,6 +3920,8 @@ function saveUrl() {
     if (byId.c311.on) p.set('t', C311.scope);
     if (byId.firelive.on) p.set('ft', FIRE.scope);
     if (TRAFFIC.on !== TRAFFIC_DEFAULT) p.set('tt', TRAFFIC.on ? '1' : '0');
+    if (RADAR.on) p.set('rd', '1');
+    if (CLOUD.on) p.set('cl', '1');
     const hash = '#' + p.toString();
     if (hash !== location.hash) {
       lastHash = hash;
@@ -3851,6 +4008,8 @@ function restoreUrl() {
     // Only an explicit tt overrides the default, so a link saved with
     // congestion switched off comes back with it off.
     if (p.has('tt') && TOMTOM_KEY) trafficOn(p.get('tt') === '1');
+    if (p.get('rd') === '1') radarOn(true);
+    if (p.get('cl') === '1') cloudOn(true);
   } catch (e) {
     console.error('could not restore that link', e);
   } finally {
@@ -3916,6 +4075,8 @@ setInterval(() => { if (!document.hidden) loadAlerts(); }, 180000);
 // The job behind news.json runs on a chain that lands every 15 minutes or
 // so; asking twice that often keeps the ticker close without hammering.
 setInterval(() => { if (!document.hidden) loadNews(true); }, 420000);
+// Observations land about every twenty minutes; the ticker repaints with them.
+setInterval(async () => { if (document.hidden) return; await loadConditions().catch(() => {}); paintTicker(); }, 600000);
 
 setInterval(() => {
   if (document.hidden) return;
