@@ -3679,7 +3679,11 @@ function spawnPuff(p, W, H) {
   // three fifths of the first pass, which still reads as overcast without
   // pulling the eye off what is happening on the ground.
   p.a = 0.035 + cell.v * 0.135;
-  p.life = 190 + Math.random() * 190;
+  // Long. Most of what read as "fast" was not the drift — at these wind
+  // speeds that is a few pixels a second — it was the turnover: a puff ran
+  // its whole fade in, hold, fade out inside four seconds, so the field
+  // boiled in place. Ten seconds or so lets it sit there and be cloud.
+  p.life = 420 + Math.random() * 420;
   p.age = 0;
   return p;
 }
@@ -3690,7 +3694,10 @@ function cloudDrift() {
   const deg = (COND.windDeg == null ? 160 : COND.windDeg) + 180;
   const rad = deg * Math.PI / 180;
   const mph = COND.windMph == null ? 8 : COND.windMph;
-  const speed = 0.06 + Math.min(mph, 30) / 30 * 0.22;   // px per frame, slow
+  // px per frame. Roughly half the first pass: 1.8 px/s in still air out to
+  // 8 px/s in a 30 mph wind, so a puff takes a couple of minutes to cross the
+  // map. It should read as weather moving, not as anything going anywhere.
+  const speed = 0.03 + Math.min(mph, 30) / 30 * 0.11;
   return { x: Math.sin(rad) * speed, y: -Math.cos(rad) * speed };
 }
 
