@@ -3537,9 +3537,12 @@ const CLOUD = { on: false, layer: null, timer: null };
    says the same thing without claiming an edge that is not there. */
 function radarOn(on) {
   RADAR.on = on;
+  if (!on) rainLoopStop();
   if (DROPS.on !== on) dropsOn(on);
   const row = document.getElementById('row-radar');
   if (row) row.querySelector('input').checked = on;
+  const btn = document.getElementById('rainplay');
+  if (btn) btn.hidden = !on;
   saveUrl();
 }
 
@@ -3596,42 +3599,126 @@ function dropIntensity(r, g, b, a) {
   return Math.max(0, Math.min(1, (232 - h) / 232));
 }
 
+/* Read one intensity field for the current view. `at` is an epoch-ms scan time,
+   or 0 for whatever is newest — the same call either way, which is what makes
+   the time loop cheap: nine of these is nine 2 KB images. */
+async function readField(at) {
+  const b = map.getBounds();
+  const nw = L.CRS.EPSG3857.project(b.getNorthWest());
+  const se = L.CRS.EPSG3857.project(b.getSouthEast());
+  const url = NWS_RADAR + '/exportImage?bbox=' + [nw.x, se.y, se.x, nw.y].join(',')
+    + '&bboxSR=3857&imageSR=3857&size=' + DROPS.gw + ',' + DROPS.gh
+    + '&format=png32&transparent=true&f=image' + (at ? '&time=' + at : '');
+  const img = new Image();
+  img.crossOrigin = 'anonymous';
+  await new Promise((ok, no) => { img.onload = ok; img.onerror = no; img.src = url; });
+  const c = document.createElement('canvas');
+  c.width = DROPS.gw; c.height = DROPS.gh;
+  const cx = c.getContext('2d', { willReadFrequently: true });
+  cx.drawImage(img, 0, 0, DROPS.gw, DROPS.gh);
+  const px = cx.getImageData(0, 0, DROPS.gw, DROPS.gh).data;
+  // Only cells with rain in them, plus a running total, so a drop can be placed
+  // by binary search instead of rejection-sampling the whole grid.
+  const cells = []; let run = 0;
+  for (let i = 0, n = DROPS.gw * DROPS.gh; i < n; i++) {
+    const v = dropIntensity(px[i*4], px[i*4+1], px[i*4+2], px[i*4+3]);
+    if (v > 0.04) { run += v; cells.push({ i: i, v: v, c: run }); }
+  }
+  return { cells: cells, total: run };
+}
+
+function useField(f) {
+  DROPS.cells = f.cells; DROPS.total = f.total;
+  resizeDropCanvas();
+}
+
 async function sampleDrops() {
   if (DROPS.busy || !DROPS.on) return;
   DROPS.busy = true;
   try {
-    const b = map.getBounds();
-    const nw = L.CRS.EPSG3857.project(b.getNorthWest());
-    const se = L.CRS.EPSG3857.project(b.getSouthEast());
-    const url = NWS_RADAR + '/exportImage?bbox=' + [nw.x, se.y, se.x, nw.y].join(',')
-      + '&bboxSR=3857&imageSR=3857&size=' + DROPS.gw + ',' + DROPS.gh
-      + '&format=png32&transparent=true&f=image';
-    const img = new Image();
-    img.crossOrigin = 'anonymous';
-    await new Promise((ok, no) => { img.onload = ok; img.onerror = no; img.src = url; });
-    const c = document.createElement('canvas');
-    c.width = DROPS.gw; c.height = DROPS.gh;
-    const cx = c.getContext('2d', { willReadFrequently: true });
-    cx.drawImage(img, 0, 0, DROPS.gw, DROPS.gh);
-    const px = cx.getImageData(0, 0, DROPS.gw, DROPS.gh).data;
-
-    // Only cells with rain in them, plus a running total, so a drop can be
-    // placed by binary search instead of rejection-sampling the whole grid.
-    const cells = []; let run = 0;
-    for (let i = 0, n = DROPS.gw * DROPS.gh; i < n; i++) {
-      const v = dropIntensity(px[i*4], px[i*4+1], px[i*4+2], px[i*4+3]);
-      if (v > 0.04) { run += v; cells.push({ i: i, v: v, c: run }); }
-    }
-    DROPS.cells = cells; DROPS.total = run;
-    setNote({ id: 'radar' }, cells.length
+    useField(await readField(0));
+    setNote({ id: 'radar' }, DROPS.cells.length
       ? 'NOAA radar, falling at its own intensity'
       : 'NOAA radar \u00b7 nothing falling in view');
-    resizeDropCanvas();
   } catch (e) {
     console.error(e);
     DROPS.cells = []; DROPS.total = 0;
   } finally {
     DROPS.busy = false;
+  }
+}
+
+/* ── Two hours, as rain ────────────────────────────────────────────
+   The same service carries about two hours of scans on a time
+   dimension, so the loop steps the *field* rather than any imagery:
+   nine intensity grids, played in order. Drops are not touched when
+   the field changes — each one finishes its fall and respawns into
+   whatever is true by then, which at these speeds turns the whole
+   population over inside a second. The storm slides across the city
+   and the rain slides with it, with no cut between frames. */
+const RLOOP = { on: false, frames: [], stamps: [], i: 0, timer: null, busy: false };
+
+function rainLoopStop() {
+  clearInterval(RLOOP.timer); RLOOP.timer = null;
+  RLOOP.on = false; RLOOP.frames = []; RLOOP.stamps = []; RLOOP.i = 0;
+  const btn = document.getElementById('rainplay');
+  if (btn) { btn.textContent = '\u25b6'; btn.title = 'Play the last two hours'; }
+}
+
+async function rainLoop(on) {
+  if (!on) { rainLoopStop(); sampleDrops(); return; }
+  if (RLOOP.busy || !DROPS.on) return;
+  RLOOP.busy = true;
+  RLOOP.on = true;
+  setNote({ id: 'radar' }, 'Reading the last two hours\u2026');
+  try {
+    const meta = await fetch(NWS_RADAR + '?f=json', { cache: 'no-store' }).then(r => r.json());
+    const ext = meta.timeInfo && meta.timeInfo.timeExtent;
+    if (!ext || ext.length !== 2) throw new Error('no time extent');
+    // The reported extent is wider than the scans inside it: asking for
+    // exactly ext[0] or exactly ext[1] comes back empty, which showed up as two
+    // dead seconds at the start of every loop. Inset by 4% at each end so every
+    // request lands on a scan rather than on the boundary.
+    const pad = (ext[1] - ext[0]) * 0.04;
+    const lo = ext[0] + pad, hi = ext[1] - pad;
+    const N = 9;
+    RLOOP.stamps = Array.from({ length: N }, (_, k) =>
+      Math.round(lo + (hi - lo) * k / (N - 1)));
+    // All nine up front. Fetching one per tick would stall playback on
+    // whichever request happened to be slow.
+    RLOOP.frames = await Promise.all(RLOOP.stamps.map(t => readField(t)));
+    if (!RLOOP.on) return;                       // switched off while loading
+
+    // An empty frame in the middle is real weather — the rain stopped and
+    // started. Empty frames at the ends are the service, not the sky, so trim
+    // them; otherwise the loop opens and closes on a blank screen.
+    if (RLOOP.frames.some(f => f.cells.length)) {
+      let a = 0, b2 = RLOOP.frames.length - 1;
+      while (a < b2 && !RLOOP.frames[a].cells.length) a++;
+      while (b2 > a && !RLOOP.frames[b2].cells.length) b2--;
+      RLOOP.frames = RLOOP.frames.slice(a, b2 + 1);
+      RLOOP.stamps = RLOOP.stamps.slice(a, b2 + 1);
+    }
+    RLOOP.i = 0;
+    const step = () => {
+      if (!RLOOP.on || !DROPS.on) return;
+      useField(RLOOP.frames[RLOOP.i]);
+      const d = new Date(RLOOP.stamps[RLOOP.i]);
+      setNote({ id: 'radar' }, d.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
+        + ' \u00b7 ' + (RLOOP.i + 1) + ' of ' + RLOOP.frames.length);
+      RLOOP.i = (RLOOP.i + 1) % RLOOP.frames.length;
+    };
+    step();
+    RLOOP.timer = setInterval(step, 900);
+    const btn = document.getElementById('rainplay');
+    if (btn) { btn.textContent = '\u25a0'; btn.title = 'Back to live'; }
+  } catch (e) {
+    console.error(e);
+    rainLoopStop();
+    setNote({ id: 'radar' }, 'Could not read the last two hours', true);
+    sampleDrops();
+  } finally {
+    RLOOP.busy = false;
   }
 }
 
@@ -3729,7 +3816,9 @@ function dropsOn(on) {
     // samples and the note still reports, it simply does not move.
     if (!REDUCED_MOTION.matches) DROPS.raf = requestAnimationFrame(dropFrame);
   });
-  DROPS.timer = setInterval(() => { if (!document.hidden && DROPS.on) sampleDrops(); }, 300000);
+  DROPS.timer = setInterval(() => {
+    if (!document.hidden && DROPS.on && !RLOOP.on) sampleDrops();
+  }, 300000);
 }
 
 // Panning and zooming change what is under the view, so the field is re-read —
@@ -3737,7 +3826,11 @@ function dropsOn(on) {
 map.on('moveend zoomend resize', () => {
   if (!DROPS.on) return;
   clearTimeout(DROPS.moveTimer);
-  DROPS.moveTimer = setTimeout(sampleDrops, 450);
+  // A new view needs new fields, so a loop in progress reloads rather than
+  // replaying two hours of somewhere you are no longer looking at.
+  DROPS.moveTimer = setTimeout(() => {
+    if (RLOOP.on) rainLoop(true); else sampleDrops();
+  }, 450);
 });
 document.addEventListener('visibilitychange', () => {
   if (!DROPS.on) return;
@@ -3759,6 +3852,15 @@ document.addEventListener('visibilitychange', () => {
   };
   const radar = mk('radar', '#3ad6c0', 'Rain', 'NOAA radar, falling at its own intensity', radarOn);
   const cloud = mk('cloud', '#b9c6d6', 'Cloud', 'GOES East infrared, day and night', cloudOn);
+  const play = document.createElement('button');
+  play.id = 'rainplay'; play.className = 'ct rowbtn'; play.hidden = true;
+  play.textContent = '\u25b6'; play.title = 'Play the last two hours';
+  play.addEventListener('click', e => {
+    // The row is a <label>; without this the click also toggles Rain off.
+    e.preventDefault(); e.stopPropagation();
+    rainLoop(!RLOOP.on);
+  });
+  radar.appendChild(play);
   after.after(cloud);
   after.after(radar);
 })();
