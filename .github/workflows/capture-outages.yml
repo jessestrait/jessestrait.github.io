@@ -30,7 +30,8 @@ concurrency:
 jobs:
   capture:
     runs-on: ubuntu-latest
-    # Four polls fifteen minutes apart is 45 minutes of sleep, plus overhead.
+    # Three polls fifteen minutes apart, then a fourth wait before handing off,
+    # so the whole job is 45 minutes of sleep plus overhead.
     timeout-minutes: 65
     steps:
       - name: Arm the next run
@@ -63,10 +64,10 @@ jobs:
             git rm -rfq . || true
           fi
 
-      - name: Poll four times, fifteen minutes apart
+      - name: Poll three times, fifteen minutes apart
         run: |
           set -uo pipefail
-          for i in 1 2 3 4; do
+          for i in 1 2 3; do
             for attempt in 1 2 3; do
               # Reset to the remote tip first. open.json carries the state that
               # decides whether an outage is new or continuing, so it has to be
@@ -87,7 +88,9 @@ jobs:
               fi
               echo "push lost a race (attempt $attempt/3), resyncing"
             done
-            if [ "$i" -lt 4 ]; then
-              sleep 900
-            fi
+            # Sleep after EVERY poll, the last one included — see the same
+            # note in refresh-news.yml. Without it the queued successor starts
+            # the moment this job ends and polls straight away, which is where
+            # the paired commits every 45 minutes came from.
+            sleep 900
           done

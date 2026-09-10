@@ -25,7 +25,8 @@ concurrency:
 jobs:
   news:
     runs-on: ubuntu-latest
-    # Three fetches twenty minutes apart, plus overhead.
+    # Two fetches twenty minutes apart, then a third wait before handing off,
+    # so the whole job is 40 minutes of sleep plus overhead.
     timeout-minutes: 55
     steps:
       - name: Arm the next run
@@ -39,12 +40,12 @@ jobs:
 
       - uses: actions/checkout@v4
 
-      - name: Fetch, three times, twenty minutes apart
+      - name: Fetch, twice, twenty minutes apart
         run: |
           set -uo pipefail
           git config user.name  "news-ticker[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for i in 1 2 3; do
+          for i in 1 2; do
             for attempt in 1 2 3; do
               # news.json is regenerated whole every run, so there is nothing in
               # it worth merging — take the remote tip and rewrite on top rather
@@ -64,7 +65,12 @@ jobs:
               fi
               echo "push lost a race (attempt $attempt/3), resyncing"
             done
-            if [ "$i" -lt 3 ]; then
-              sleep 1200
-            fi
+            # Sleep after EVERY fetch, the last one included. The successor is
+            # already sitting in the concurrency queue and starts the instant
+            # this job ends, so a run that finishes right after its own last
+            # fetch hands over to a run that fetches immediately — two commits
+            # fifteen seconds apart, once per handoff. This trailing sleep is
+            # what makes the gap across a handoff the same as the gap within a
+            # run. It costs an idle runner; the interval is the point.
+            sleep 1200
           done
