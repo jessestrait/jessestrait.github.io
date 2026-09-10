@@ -4161,13 +4161,54 @@ function dropIntensity(r, g, b, a) {
 /* Read one intensity field for the current view. `at` is an epoch-ms scan time,
    or 0 for whatever is newest — the same call either way, which is what makes
    the time loop cheap: nine of these is nine 2 KB images. */
+/* The scans this service holds, cached briefly so a five-minute sample is not
+   also a metadata request. Two minutes: the radar updates about that often,
+   and a stale extent only costs one slightly old frame. */
+const RADAR_EXT = { at: 0, val: null, busy: null };
+function radarExtent() {
+  if (RADAR_EXT.val && Date.now() - RADAR_EXT.at < 120000) return Promise.resolve(RADAR_EXT.val);
+  if (RADAR_EXT.busy) return RADAR_EXT.busy;
+  RADAR_EXT.busy = fetch(NWS_RADAR + '?f=json', { cache: 'no-store' })
+    .then(r => r.json())
+    .then(m => {
+      const e = m.timeInfo && m.timeInfo.timeExtent;
+      if (!e || e.length !== 2) throw new Error('no time extent');
+      RADAR_EXT.val = e; RADAR_EXT.at = Date.now();
+      return e;
+    });
+  RADAR_EXT.busy.catch(() => {}).then(() => { RADAR_EXT.busy = null; });
+  return RADAR_EXT.busy;
+}
+
+/* The newest scan, expressed as something the server will actually answer.
+
+   This service is time-enabled, and asking it for no time at all returns the
+   same bytes as asking for its entire extent — verified identical, md5 for
+   md5. That is two hours of scans composited into one image: every shower
+   that crossed the state in that window, painted at once and never clearing.
+   An exact instant is no good either; the extent's endpoints sit outside the
+   scans they bound and come back empty, which is the same trap the two-hour
+   loop already works around. So: a narrow window at the end of the extent. */
+function radarNow() {
+  return radarExtent().then(
+    e => (e[1] - 360000) + ',' + e[1],
+    // No metadata is not a reason to fall back to the two-hour smear.
+    () => (Date.now() - 900000) + ',' + Date.now()
+  );
+}
+
 async function readField(at) {
   const b = map.getBounds();
   const nw = L.CRS.EPSG3857.project(b.getNorthWest());
   const se = L.CRS.EPSG3857.project(b.getSouthEast());
   const url = NWS_RADAR + '/exportImage?bbox=' + [nw.x, se.y, se.x, nw.y].join(',')
     + '&bboxSR=3857&imageSR=3857&size=' + DROPS.gw + ',' + DROPS.gh
-    + '&format=png32&transparent=true&f=image' + (at ? '&time=' + at : '');
+    + '&format=png32&transparent=true&f=image'
+    + (at == null || at === '' ? '' : '&time=' + at)
+    // NOAA serves these with max-age=43200. Without a buster the browser
+    // reuses one radar image for twelve hours, which is precisely how a page
+    // left open overnight is still showing last night's rain in the morning.
+    + '&_=' + Date.now();
   const img = new Image();
   img.crossOrigin = 'anonymous';
   await new Promise((ok, no) => { img.onload = ok; img.onerror = no; img.src = url; });
@@ -4196,7 +4237,7 @@ async function sampleDrops() {
   if (waitForView(DROPS, sampleDrops)) return;
   DROPS.busy = true;
   try {
-    useField(await readField(0));
+    useField(await readField(await radarNow()));
     setNote({ id: 'radar' }, DROPS.cells.length
       ? 'NOAA radar, falling at its own intensity'
       : 'NOAA radar \u00b7 nothing falling in view');
