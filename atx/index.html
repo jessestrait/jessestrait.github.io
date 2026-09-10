@@ -3527,59 +3527,19 @@ function setTrafficNote(html, warn) {
    ══════════════════════════════════════════════════════════════════ */
 const NWS_RADAR = 'https://mapservices.weather.noaa.gov/eventdriven/rest/services/radar/radar_base_reflectivity_time/ImageServer';
 const GOES = 'https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/goes-east-ir-4km-900913/{z}/{x}/{y}.png';
-const RADAR = { on: false, layer: null, timer: null, loop: false };
+const RADAR = { on: false };
 const CLOUD = { on: false, layer: null, timer: null };
 
-/* The NWS ImageServer renders any bounding box on demand rather than serving a
-   fixed tile cache, so this asks it for one tile-shaped box at a time. It is
-   worth the custom layer: measured against the same tile over Kansas City in
-   rain, the Iowa State composite returned 33 distinct colours and this returns
-   1,931. That difference is the whole complaint about blockiness — 33 colours
-   is a staircase, 1,931 is a gradient. */
-const NWSRadarLayer = L.TileLayer.extend({
-  getTileUrl(coords) {
-    const b = this._tileCoordsToBounds(coords);
-    const nw = L.CRS.EPSG3857.project(b.getNorthWest());
-    const se = L.CRS.EPSG3857.project(b.getSouthEast());
-    const px = this.getTileSize().x;
-    return NWS_RADAR + '/exportImage?bbox=' + [nw.x, se.y, se.x, nw.y].join(',')
-      + '&bboxSR=3857&imageSR=3857&size=' + px + ',' + px
-      + '&format=png32&transparent=true&f=image'
-      + (this.options.at ? '&time=' + this.options.at : '');
-  }
-});
-
-function newRadarLayer(at) {
-  return new NWSRadarLayer('', {
-    pane: 'radarPane', opacity: at ? 0 : 0.72, at: at || 0,
-    // No maxNativeZoom: it renders whatever box it is given, so there is no
-    // cache to run out of and nothing to upscale.
-    maxZoom: 18, crossOrigin: true,
-    attribution: 'Radar &copy; <a href="https://www.weather.gov/">NOAA / NWS</a>'
-  });
-}
-
+/* Rain draws the drops and nothing else. The reflectivity imagery is still
+   fetched every time — it is what the drops are made of — but it never goes on
+   the map. Looking at the radar picture was the problem with the radar: 565 m
+   pixels are a fact about the instrument, not about the weather. The drop field
+   says the same thing without claiming an edge that is not there. */
 function radarOn(on) {
   RADAR.on = on;
-  if (!on && RADAR.loop) radarLoop(false);
+  if (DROPS.on !== on) dropsOn(on);
   const row = document.getElementById('row-radar');
   if (row) row.querySelector('input').checked = on;
-  // One control, two halves: reflectivity for where and how much, the drop
-  // field for the fact that it is happening now. Splitting them across two
-  // checkboxes made you switch on two things to see one thing.
-  if (DROPS.on !== on) dropsOn(on);
-  clearInterval(RADAR.timer); RADAR.timer = null;
-  if (RADAR.layer) { map.removeLayer(RADAR.layer); RADAR.layer = null; }
-  if (on) {
-    RADAR.layer = newRadarLayer(0).addTo(map);
-    // Rendered live, so a redraw is enough to pull the newest scan.
-    RADAR.timer = setInterval(() => {
-      if (!document.hidden && RADAR.on && !RADAR.loop && RADAR.layer) RADAR.layer.redraw();
-    }, 300000);
-  }
-  setNote({ id: 'radar' }, 'NOAA radar, falling at its own intensity');
-  const btn = document.getElementById('radarplay');
-  if (btn) btn.hidden = !on;
   saveUrl();
 }
 
@@ -3589,65 +3549,6 @@ function cloudOn(on) {
     pane: 'cloudPane', opacity: 0.42, maxZoom: 18, maxNativeZoom: 10,
     attribution: 'Satellite &copy; <a href="https://mesonet.agron.iastate.edu/">Iowa State Mesonet</a> / NOAA GOES'
   }, 'GOES infrared \u00b7 4 km, so it reads city-wide, not street-level');
-}
-
-/* ── The loop ──────────────────────────────────────────────────────
-   The same service carries about two hours of scans on a time
-   dimension, so the animation is the same imagery at the same
-   resolution — no swapping to a coarser source to get motion, which is
-   what the first attempt did. Frames are separate layers cross-faded by
-   opacity; re-pointing one layer would re-request every tile per step
-   and flicker the whole way round. */
-const LOOP = { layers: [], stamps: [], i: 0, timer: null, busy: false };
-
-function radarLoopStop() {
-  clearInterval(LOOP.timer); LOOP.timer = null;
-  LOOP.layers.forEach(l => map.removeLayer(l));
-  LOOP.layers = []; LOOP.stamps = []; LOOP.i = 0;
-  const btn = document.getElementById('radarplay');
-  if (btn) { btn.textContent = '\u25b6'; btn.title = 'Play the last two hours'; }
-}
-
-async function radarLoop(on) {
-  RADAR.loop = on;
-  if (!on) {
-    radarLoopStop();
-    if (RADAR.layer) RADAR.layer.setOpacity(0.72);
-    setNote({ id: 'radar' }, 'NOAA base reflectivity, 565 m, live');
-    return;
-  }
-  if (LOOP.busy) return;
-  LOOP.busy = true;
-  setNote({ id: 'radar' }, 'Loading the last two hours\u2026');
-  try {
-    const meta = await fetch(NWS_RADAR + '?f=json', { cache: 'no-store' }).then(r => r.json());
-    const ext = meta.timeInfo && meta.timeInfo.timeExtent;
-    if (!ext || ext.length !== 2) throw new Error('no time extent');
-    const N = 9;                                   // ~14 minutes apart over ~2 hours
-    LOOP.stamps = Array.from({ length: N }, (_, k) => Math.round(ext[0] + (ext[1] - ext[0]) * k / (N - 1)));
-    if (RADAR.layer) RADAR.layer.setOpacity(0);    // the still would show through every gap
-    LOOP.layers = LOOP.stamps.map(t => newRadarLayer(t).addTo(map));
-    LOOP.i = 0;
-    const step = () => {
-      LOOP.layers.forEach((l, n) => l.setOpacity(n === LOOP.i ? 0.72 : 0));
-      const d = new Date(LOOP.stamps[LOOP.i]);
-      setNote({ id: 'radar' }, d.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
-        + ' \u00b7 ' + (LOOP.i + 1) + ' of ' + LOOP.stamps.length);
-      LOOP.i = (LOOP.i + 1) % LOOP.layers.length;
-    };
-    step();
-    LOOP.timer = setInterval(step, 600);
-    const btn = document.getElementById('radarplay');
-    if (btn) { btn.textContent = '\u25a0'; btn.title = 'Stop the loop'; }
-  } catch (e) {
-    console.error(e);
-    RADAR.loop = false;
-    radarLoopStop();
-    if (RADAR.layer) RADAR.layer.setOpacity(0.72);
-    setNote({ id: 'radar' }, 'The radar service did not answer \u2014 live frame only', true);
-  } finally {
-    LOOP.busy = false;
-  }
 }
 
 /* ══════════════════════════════════════════════════════════════════
@@ -3722,11 +3623,9 @@ async function sampleDrops() {
       if (v > 0.04) { run += v; cells.push({ i: i, v: v, c: run }); }
     }
     DROPS.cells = cells; DROPS.total = run;
-    if (!RADAR.loop) {
-      setNote({ id: 'radar' }, cells.length
-        ? 'NOAA radar, falling at its own intensity'
-        : 'NOAA radar \u00b7 nothing falling in view');
-    }
+    setNote({ id: 'radar' }, cells.length
+      ? 'NOAA radar, falling at its own intensity'
+      : 'NOAA radar \u00b7 nothing falling in view');
     resizeDropCanvas();
   } catch (e) {
     console.error(e);
@@ -3859,15 +3758,6 @@ document.addEventListener('visibilitychange', () => {
     return el;
   };
   const radar = mk('radar', '#3ad6c0', 'Rain', 'NOAA radar, falling at its own intensity', radarOn);
-  const play = document.createElement('button');
-  play.id = 'radarplay'; play.className = 'ct rowbtn'; play.hidden = true;
-  play.textContent = '\u25b6'; play.title = 'Play the last two hours';
-  play.addEventListener('click', e => {
-    // The row is a <label>, so a click inside it would toggle the checkbox too.
-    e.preventDefault(); e.stopPropagation();
-    radarLoop(!RADAR.loop);
-  });
-  radar.appendChild(play);
   const cloud = mk('cloud', '#b9c6d6', 'Cloud', 'GOES East infrared, day and night', cloudOn);
   after.after(cloud);
   after.after(radar);
