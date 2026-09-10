@@ -846,7 +846,7 @@ const LAYERS = [
     }
   },
   {
-    id: 'c311', group: 'recent', color: '#4dd2ff', on: false,
+    id: 'c311', group: 'recent', color: '#4dd2ff', on: true,
     name: '311 service requests', note: 'What residents are calling in',
     async load(days) {
       const since = await anchoredSince(this, 'xwdj-i9he', 'sr_created_date', days);
@@ -2389,7 +2389,7 @@ async function renderMeCard() {
    it's the set of districts or block groups the viewport touches,
    passed as an IN clause.                                            */
 CRIME.scope = 'view';
-CRIME.wantMe = true;
+CRIME.wantMe = false;
 CRIME.topBusy = false;
 CRIME.topSig = null;
 
@@ -2537,12 +2537,13 @@ function enableMeScope(on) {
    IN-clause the coordinate-less crime data forces. Counts come from
    Socrata rather than the loaded dots, so they are complete for the
    window instead of capped at the layer's row limit.               */
-/* Every breakdown on the page answers "what is happening around me", so
-   "Near me" is the scope people actually want. There is nothing to centre on
-   until the browser hands over a fix, though, so each one starts on "In view"
-   instead — the map view is a real spatial scope, "all of Austin" is not — and
-   promotes itself to "Near me" the moment a fix lands. Choosing a scope by hand
-   clears that intent, because from then on the choice is the user's. */
+/* Every breakdown starts on "In view" and stays there. A kilometre around you
+   is a smaller question than the one the map is asking, and locating yourself
+   is not a request to shrink every table on the page — the crosshair answers
+   "where am I", not "throw away everything I was reading". So the promotion
+   only fires for someone who asked for it by hand: tapping "Near me" with no
+   fix yet sets wantMe and opens the locator, and this catches the fix when it
+   lands. Switching the locator off puts the scope back to "In view". */
 function promoteToMe(sec, groupId, reload) {
   if (!sec.wantMe || !ME.pos || sec.scope === 'me') return;
   sec.scope = 'me';
@@ -2558,7 +2559,7 @@ function demoteFromMe(sec, groupId, reload) {
   reload();
 }
 
-const C311 = { scope: 'view', wantMe: true, busy: false, sig: null, radius: 1000 };
+const C311 = { scope: 'view', wantMe: false, busy: false, sig: null, radius: 1000 };
 
 function topListHTML(rows, opts) {
   const max = +rows[0].n;
@@ -2582,6 +2583,23 @@ function viewUsable() {
   if (!sz.x || !sz.y) return false;
   const b = map.getBounds();
   return b.getNorth() > b.getSouth() && b.getEast() > b.getWest();
+}
+
+/* Everything scoped to the viewport now opens with the page — the two weather
+   samplers, the 311 table, the fire table — so the first read can land before
+   the container has been laid out and get a degenerate box: a bbox the WMS
+   rejects, or a query that quietly falls back to citywide. None of that was
+   reachable while these were switched on by hand, because by then the map had
+   long since laid out. So wait for a real view instead of reporting a failure
+   that isn't one; after ten seconds give up and leave it to the next move, so
+   a tab that never lays out is not polling forever. */
+const SIZE_TRIES = 25;
+function waitForView(state, retry) {
+  if (viewUsable()) { state.sizeTries = 0; return false; }
+  if ((state.sizeTries = (state.sizeTries || 0) + 1) > SIZE_TRIES) return true;
+  clearTimeout(state.sizeTimer);
+  state.sizeTimer = setTimeout(retry, 400);
+  return true;
 }
 
 function c311Scope() {
@@ -2612,6 +2630,7 @@ function c311Scope() {
 async function loadC311Top(force) {
   const box = document.getElementById('c311list');
   if (!box || C311.busy) return;
+  if (C311.scope === 'view' && waitForView(C311, () => loadC311Top(force))) return;
 
   const scope = c311Scope();
   const sig = [scope.sig, state.days].join('|');
@@ -2702,7 +2721,7 @@ function enableMeScope311(on) {
    the spatial filters go through the `location` point column instead:
    within_circle for a radius, within_box for the viewport.
    ══════════════════════════════════════════════════════════════════ */
-const FIRE = { scope: 'view', wantMe: true, busy: false, sig: null, radius: 1000 };
+const FIRE = { scope: 'view', wantMe: false, busy: false, sig: null, radius: 1000 };
 
 function fireScope() {
   if (FIRE.scope === 'me') {
@@ -2732,6 +2751,7 @@ function fireScope() {
 async function loadFireTop(force) {
   const box = document.getElementById('firelist');
   if (!box || FIRE.busy) return;
+  if (FIRE.scope === 'view' && waitForView(FIRE, () => loadFireTop(force))) return;
   const scope = fireScope();
   const sig = [scope.sig, state.days].join('|');
   if (!force && sig === FIRE.sig) return;
@@ -3541,6 +3561,12 @@ function setTrafficNote(html, warn) {
    ══════════════════════════════════════════════════════════════════ */
 const NWS_RADAR = 'https://mapservices.weather.noaa.gov/eventdriven/rest/services/radar/radar_base_reflectivity_time/ImageServer';
 const RADAR = { on: false };
+// Both are on when the page opens, with the rest of "Happening lately". Neither
+// draws anything on a clear day — no reflectivity is no drops — so the cost of
+// leaving them on is a fetch, not clutter. They are the two knobs to turn back
+// off if the animation ever proves too much for an old phone.
+const RADAR_DEFAULT = true;
+const CLOUD_DEFAULT = true;
 const CLOUD = { on: false, canvas: null, ctx: null, puffs: [], cells: [], total: 0,
                 raf: null, timer: null, moveTimer: null, busy: false, gw: 48, gh: 48 };
 
@@ -3649,7 +3675,10 @@ function spawnPuff(p, W, H) {
   p.y = (gy + Math.random()) * ch;
   // Big and soft. A puff spans several cells because cloud does.
   p.r = cw * (1.6 + cell.v * 2.6) * (0.7 + Math.random() * 0.6);
-  p.a = 0.05 + cell.v * 0.22;
+  // Thin: cloud is the backdrop, and the pins under it are the point. About
+  // three fifths of the first pass, which still reads as overcast without
+  // pulling the eye off what is happening on the ground.
+  p.a = 0.035 + cell.v * 0.135;
   p.life = 190 + Math.random() * 190;
   p.age = 0;
   return p;
@@ -3683,6 +3712,11 @@ function resizeCloudCanvas() {
 function cloudFrame() {
   if (!CLOUD.on) return;
   const ctx = CLOUD.ctx;
+  // Nothing to draw on yet. Reachable now that this opens with the page: the
+  // first sample can be waiting on a laid-out map, and its promise resolves
+  // — with no canvas sized — before the field is ever read. Keep the loop
+  // alive and pick it up on the frame after the canvas exists.
+  if (!ctx || !CLOUD.canvas) { CLOUD.raf = requestAnimationFrame(cloudFrame); return; }
   const W = CLOUD.canvas.clientWidth, H = CLOUD.canvas.clientHeight;
   ctx.clearRect(0, 0, W, H);
   const d = cloudDrift();
@@ -3703,6 +3737,7 @@ function cloudFrame() {
 
 async function sampleCloud() {
   if (CLOUD.busy || !CLOUD.on) return;
+  if (waitForView(CLOUD, sampleCloud)) return;
   CLOUD.busy = true;
   try {
     const f = await readCloudField();
@@ -3838,6 +3873,7 @@ function useField(f) {
 
 async function sampleDrops() {
   if (DROPS.busy || !DROPS.on) return;
+  if (waitForView(DROPS, sampleDrops)) return;
   DROPS.busy = true;
   try {
     useField(await readField(0));
@@ -3977,6 +4013,7 @@ function resizeDropCanvas() {
 function dropFrame() {
   if (!DROPS.on) return;
   const ctx = DROPS.ctx;
+  if (!ctx || !DROPS.canvas) { DROPS.raf = requestAnimationFrame(dropFrame); return; }
   const W = DROPS.canvas.clientWidth, H = DROPS.canvas.clientHeight;
   ctx.clearRect(0, 0, W, H);
   ctx.lineCap = 'round';
@@ -4448,8 +4485,10 @@ function saveUrl() {
     if (byId.c311.on) p.set('t', C311.scope);
     if (byId.firelive.on) p.set('ft', FIRE.scope);
     if (TRAFFIC.on !== TRAFFIC_DEFAULT) p.set('tt', TRAFFIC.on ? '1' : '0');
-    if (RADAR.on) p.set('rd', '1');
-    if (CLOUD.on) p.set('cl', '1');
+    // Written only when it differs from the default, so a link saved with rain
+    // switched off reopens with it off rather than back on.
+    if (RADAR.on !== RADAR_DEFAULT) p.set('rd', RADAR.on ? '1' : '0');
+    if (CLOUD.on !== CLOUD_DEFAULT) p.set('cl', CLOUD.on ? '1' : '0');
     const hash = '#' + p.toString();
     if (hash !== location.hash) {
       lastHash = hash;
@@ -4536,8 +4575,8 @@ function restoreUrl() {
     // Only an explicit tt overrides the default, so a link saved with
     // congestion switched off comes back with it off.
     if (p.has('tt') && TOMTOM_KEY) trafficOn(p.get('tt') === '1');
-    if (p.get('rd') === '1') radarOn(true);
-    if (p.get('cl') === '1') cloudOn(true);
+    if (p.has('rd')) radarOn(p.get('rd') === '1');
+    if (p.has('cl')) cloudOn(p.get('cl') === '1');
   } catch (e) {
     console.error('could not restore that link', e);
   } finally {
@@ -4591,6 +4630,8 @@ fillMetricSelect();
 loadAlerts();
 loadNews();
 if (TRAFFIC_DEFAULT) trafficOn(true);
+if (RADAR_DEFAULT) radarOn(true);
+if (CLOUD_DEFAULT) cloudOn(true);
 restoreUrl();
 refreshActive(false);
 if (CRIME.on) { loadCrime(); loadCrimeTop(false); }
