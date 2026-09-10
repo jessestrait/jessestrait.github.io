@@ -301,9 +301,13 @@ dl.mecard a{color:var(--accent-hi)}
 .rowbtn:hover{ background:rgba(58,214,192,.26); color:#c6fff6 }
 /* The raindrop canvas. Over the map, under every control, and never in the way
    of a click — it is scenery, not a layer you interact with. */
-#dropcanvas{
-  position:absolute; inset:0; z-index:600; pointer-events:none;
+#dropcanvas, #cloudcanvas{
+  position:absolute; inset:0; pointer-events:none;
 }
+/* Cloud sits below the rain: you look through cloud at rain, not the other
+   way round. Both are above the map and below every control. */
+#cloudcanvas{ z-index:590 }
+#dropcanvas{ z-index:600 }
 #ticker .tk-view{
   flex:1 1 auto; overflow:hidden; position:relative;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 26px,#000 calc(100% - 26px),transparent);
@@ -809,31 +813,6 @@ function pop(color, tag, title, when, rows, extra) {
    ══════════════════════════════════════════════════════════════════ */
 const LAYERS = [
   {
-    id: 'traffic', group: 'recent', color: '#ff4d4d', on: true,
-    name: 'Traffic incidents', note: 'APD / ATD dispatch, near real time',
-    async load(days) {
-      const rows = await soda('dx9v-zd7x', {
-        '$select': 'published_date,issue_reported,latitude,longitude,address,traffic_report_status,agency',
-        '$where': "published_date > '" + sinceISO(days) + "' AND latitude IS NOT NULL",
-        '$order': 'published_date DESC', '$limit': 5000
-      });
-      return rows.map(r => {
-        const live = r.traffic_report_status === 'ACTIVE';
-        const t = r.published_date ? new Date(r.published_date) : null;
-        const cat = titleCase(r.issue_reported);
-        return {
-          lat: +r.latitude, lng: +r.longitude, t, cat, live,
-          html: pop('#ff4d4d', live ? 'Active now' : 'Traffic incident', cat, ago(t), [
-            ['Where', titleCase(r.address)],
-            ['Status', titleCase(r.traffic_report_status)],
-            ['Agency', titleCase(r.agency)],
-            ['Reported', t ? t.toLocaleString() : null]
-          ])
-        };
-      });
-    }
-  },
-  {
     id: 'firelive', group: 'recent', color: '#ffe14d', on: true,
     name: 'Fire incidents', note: 'AFD dispatch, near real time',
     async load(days) {
@@ -856,6 +835,57 @@ const LAYERS = [
             ['Where', titleCase(r.address)],
             ['Call type', r.issue_reported],
             ['Status', titleCase(r.traffic_report_status)],
+            ['Reported', t ? t.toLocaleString() : null]
+          ])
+        };
+      });
+    }
+  },
+  {
+    id: 'c311', group: 'recent', color: '#4dd2ff', on: false,
+    name: '311 service requests', note: 'What residents are calling in',
+    async load(days) {
+      const since = await anchoredSince(this, 'xwdj-i9he', 'sr_created_date', days);
+      const rows = await soda('xwdj-i9he', {
+        '$select': 'sr_number,sr_type_desc,sr_department_desc,sr_status_desc,sr_created_date,sr_location,sr_location_lat,sr_location_long',
+        '$where': "sr_created_date > '" + since + "' AND sr_location_lat IS NOT NULL",
+        '$order': 'sr_created_date DESC', '$limit': 8000
+      });
+      return rows.map(r => {
+        const t = r.sr_created_date ? new Date(r.sr_created_date) : null;
+        const cat = String(r.sr_type_desc || 'Request').replace(/^[A-Z0-9 ]{2,9} - /, '');
+        return {
+          lat: +r.sr_location_lat, lng: +r.sr_location_long, t, cat,
+          html: pop('#4dd2ff', '311 request', cat, ago(t), [
+            ['Address', titleCase(r.sr_location)],
+            ['Department', r.sr_department_desc],
+            ['Status', r.sr_status_desc],
+            ['Case', r.sr_number],
+            ['Opened', t ? t.toLocaleDateString() : null]
+          ])
+        };
+      });
+    }
+  },
+  {
+    id: 'traffic', group: 'recent', color: '#ff4d4d', on: true,
+    name: 'Traffic incidents', note: 'APD / ATD dispatch, near real time',
+    async load(days) {
+      const rows = await soda('dx9v-zd7x', {
+        '$select': 'published_date,issue_reported,latitude,longitude,address,traffic_report_status,agency',
+        '$where': "published_date > '" + sinceISO(days) + "' AND latitude IS NOT NULL",
+        '$order': 'published_date DESC', '$limit': 5000
+      });
+      return rows.map(r => {
+        const live = r.traffic_report_status === 'ACTIVE';
+        const t = r.published_date ? new Date(r.published_date) : null;
+        const cat = titleCase(r.issue_reported);
+        return {
+          lat: +r.latitude, lng: +r.longitude, t, cat, live,
+          html: pop('#ff4d4d', live ? 'Active now' : 'Traffic incident', cat, ago(t), [
+            ['Where', titleCase(r.address)],
+            ['Status', titleCase(r.traffic_report_status)],
+            ['Agency', titleCase(r.agency)],
             ['Reported', t ? t.toLocaleString() : null]
           ])
         };
@@ -886,32 +916,6 @@ const LAYERS = [
         });
       });
       return out;
-    }
-  },
-  {
-    id: 'c311', group: 'recent', color: '#4dd2ff', on: false,
-    name: '311 service requests', note: 'What residents are calling in',
-    async load(days) {
-      const since = await anchoredSince(this, 'xwdj-i9he', 'sr_created_date', days);
-      const rows = await soda('xwdj-i9he', {
-        '$select': 'sr_number,sr_type_desc,sr_department_desc,sr_status_desc,sr_created_date,sr_location,sr_location_lat,sr_location_long',
-        '$where': "sr_created_date > '" + since + "' AND sr_location_lat IS NOT NULL",
-        '$order': 'sr_created_date DESC', '$limit': 8000
-      });
-      return rows.map(r => {
-        const t = r.sr_created_date ? new Date(r.sr_created_date) : null;
-        const cat = String(r.sr_type_desc || 'Request').replace(/^[A-Z0-9 ]{2,9} - /, '');
-        return {
-          lat: +r.sr_location_lat, lng: +r.sr_location_long, t, cat,
-          html: pop('#4dd2ff', '311 request', cat, ago(t), [
-            ['Address', titleCase(r.sr_location)],
-            ['Department', r.sr_department_desc],
-            ['Status', r.sr_status_desc],
-            ['Case', r.sr_number],
-            ['Opened', t ? t.toLocaleDateString() : null]
-          ])
-        };
-      });
     }
   },
   {
@@ -2834,7 +2838,7 @@ const NEWS = { items: [], at: null, hidden: false, fetchedMs: 0, inflight: null 
    the city itself quotes. Same api.weather.gov the alerts already come from,
    so it is one more call to a source the page already trusts and documents. */
 const COND = { at: null, text: '', tempF: null, feelsF: null, windMph: null,
-               humidity: null, sky: '', station: '' };
+               windDeg: null, humidity: null, sky: '', station: '' };
 
 const SKY = { CLR: 'clear', SKC: 'clear', FEW: 'a few clouds', SCT: 'scattered cloud',
               BKN: 'broken cloud', OVC: 'overcast', VV: 'obscured' };
@@ -2856,6 +2860,9 @@ async function loadConditions() {
                   : wc != null ? Math.round(wc * 9 / 5 + 32) : null;
       const w = C(p.windSpeed);
       COND.windMph = w != null ? Math.round(w * 0.621371) : null;
+      // Meteorological: the direction the wind comes *from*. The cloud drift
+      // has to go the other way.
+      COND.windDeg = C(p.windDirection);
       const rh = C(p.relativeHumidity);
       COND.humidity = rh != null ? Math.round(rh) : null;
       const layers = (p.cloudLayers || []).map(l => l.amount).filter(Boolean);
@@ -3526,9 +3533,9 @@ function setTrafficNote(html, warn) {
    are backdrop: the question is what is happening *under* the weather.
    ══════════════════════════════════════════════════════════════════ */
 const NWS_RADAR = 'https://mapservices.weather.noaa.gov/eventdriven/rest/services/radar/radar_base_reflectivity_time/ImageServer';
-const GOES = 'https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/goes-east-ir-4km-900913/{z}/{x}/{y}.png';
 const RADAR = { on: false };
-const CLOUD = { on: false, layer: null, timer: null };
+const CLOUD = { on: false, canvas: null, ctx: null, puffs: [], cells: [], total: 0,
+                raf: null, timer: null, moveTimer: null, busy: false, gw: 48, gh: 48 };
 
 /* Rain draws the drops and nothing else. The reflectivity imagery is still
    fetched every time — it is what the drops are made of — but it never goes on
@@ -3546,13 +3553,203 @@ function radarOn(on) {
   saveUrl();
 }
 
+/* ══════════════════════════════════════════════════════════════════
+   Cloud, the same way as rain: the data as weather rather than as a
+   picture of it. 4 km pixels are hopeless to look at — a tile at city
+   zoom carries nine distinct colours — but they make a perfectly good
+   density field, which is the whole trick.
+
+   Source is Iowa State's GOES WMS rather than their z/x/y cache,
+   because WMS takes an arbitrary bounding box and so can be asked for
+   exactly the current view at exactly grid size. CORS is open on it.
+
+   The imagery is pure greyscale and always opaque, and in the infrared
+   brighter means colder, which means higher and thicker cloud. Sampled
+   over a storm and over clear ground to find the line: 57% of the storm
+   sat above luminance 156 against 11% of the clear sky, so anything
+   under about 120 is warm ground and not cloud at all.
+
+   Puffs rather than streaks, drifting rather than falling, and drifting
+   the way the wind is actually blowing — the station reports a
+   direction, so the clouds use it.
+   ══════════════════════════════════════════════════════════════════ */
+const GOES_WMS = 'https://mesonet.agron.iastate.edu/cgi-bin/wms/goes/east_ir.cgi'
+  + '?service=WMS&version=1.1.1&request=GetMap&layers=east_ir_4km&styles='
+  + '&srs=EPSG:3857&format=image/png&transparent=true';
+const PUFF_CAP = COARSE ? 90 : 200;
+
+function cloudIntensity(r, g, b) {
+  const lum = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  return Math.max(0, Math.min(1, (lum - 120) / 130));
+}
+
+// One soft blob, drawn once and stamped repeatedly. A radial gradient built per
+// puff per frame is the difference between smooth and a slideshow.
+let puffSprite = null;
+function makePuffSprite() {
+  const S = 96;
+  const c = document.createElement('canvas');
+  c.width = c.height = S;
+  const cx = c.getContext('2d');
+  const g = cx.createRadialGradient(S/2, S/2, 0, S/2, S/2, S/2);
+  g.addColorStop(0, 'rgba(226,238,255,0.85)');
+  g.addColorStop(0.45, 'rgba(210,226,248,0.35)');
+  g.addColorStop(1, 'rgba(200,218,245,0)');
+  cx.fillStyle = g;
+  cx.fillRect(0, 0, S, S);
+  return c;
+}
+
+async function readCloudField() {
+  const b = map.getBounds();
+  const nw = L.CRS.EPSG3857.project(b.getNorthWest());
+  const se = L.CRS.EPSG3857.project(b.getSouthEast());
+  const url = GOES_WMS + '&bbox=' + [nw.x, se.y, se.x, nw.y].join(',')
+    + '&width=' + CLOUD.gw + '&height=' + CLOUD.gh + '&_=' + Date.now();
+  const img = new Image();
+  img.crossOrigin = 'anonymous';
+  await new Promise((ok, no) => { img.onload = ok; img.onerror = no; img.src = url; });
+  const c = document.createElement('canvas');
+  c.width = CLOUD.gw; c.height = CLOUD.gh;
+  const cx = c.getContext('2d', { willReadFrequently: true });
+  cx.drawImage(img, 0, 0, CLOUD.gw, CLOUD.gh);
+  const px = cx.getImageData(0, 0, CLOUD.gw, CLOUD.gh).data;
+  const cells = []; let run = 0;
+  for (let i = 0, n = CLOUD.gw * CLOUD.gh; i < n; i++) {
+    if (px[i*4+3] < 24) continue;
+    const v = cloudIntensity(px[i*4], px[i*4+1], px[i*4+2]);
+    if (v > 0.06) { run += v; cells.push({ i: i, v: v, c: run }); }
+  }
+  return { cells: cells, total: run };
+}
+
+function pickCloudCell() {
+  const cells = CLOUD.cells;
+  if (!cells.length) return null;
+  const t = Math.random() * CLOUD.total;
+  let lo = 0, hi = cells.length - 1;
+  while (lo < hi) { const m = (lo + hi) >> 1; if (cells[m].c < t) lo = m + 1; else hi = m; }
+  return cells[lo];
+}
+
+function spawnPuff(p, W, H) {
+  const cell = pickCloudCell();
+  if (!cell) { p.dead = true; return p; }
+  const cw = W / CLOUD.gw, ch = H / CLOUD.gh;
+  const gx = cell.i % CLOUD.gw, gy = (cell.i / CLOUD.gw) | 0;
+  p.dead = false;
+  p.x = (gx + Math.random()) * cw;
+  p.y = (gy + Math.random()) * ch;
+  // Big and soft. A puff spans several cells because cloud does.
+  p.r = cw * (1.6 + cell.v * 2.6) * (0.7 + Math.random() * 0.6);
+  p.a = 0.05 + cell.v * 0.22;
+  p.life = 190 + Math.random() * 190;
+  p.age = 0;
+  return p;
+}
+
+function cloudDrift() {
+  // Meteorological direction is where it comes from, so add 180 to get travel.
+  // No reading yet means a gentle southerly, which is Austin's default anyway.
+  const deg = (COND.windDeg == null ? 160 : COND.windDeg) + 180;
+  const rad = deg * Math.PI / 180;
+  const mph = COND.windMph == null ? 8 : COND.windMph;
+  const speed = 0.06 + Math.min(mph, 30) / 30 * 0.22;   // px per frame, slow
+  return { x: Math.sin(rad) * speed, y: -Math.cos(rad) * speed };
+}
+
+function resizeCloudCanvas() {
+  const c = CLOUD.canvas;
+  if (!c) return;
+  const box = map.getContainer().getBoundingClientRect();
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  c.width = Math.round(box.width * dpr);
+  c.height = Math.round(box.height * dpr);
+  c.style.width = box.width + 'px';
+  c.style.height = box.height + 'px';
+  CLOUD.ctx = c.getContext('2d');
+  CLOUD.ctx.scale(dpr, dpr);
+  const want = Math.min(PUFF_CAP, Math.round(CLOUD.total * 1.1));
+  CLOUD.puffs = Array.from({ length: want }, () => spawnPuff({}, box.width, box.height));
+}
+
+function cloudFrame() {
+  if (!CLOUD.on) return;
+  const ctx = CLOUD.ctx;
+  const W = CLOUD.canvas.clientWidth, H = CLOUD.canvas.clientHeight;
+  ctx.clearRect(0, 0, W, H);
+  const d = cloudDrift();
+  for (const p of CLOUD.puffs) {
+    if (p.dead) continue;
+    const t = p.age / p.life;
+    // Long fades at both ends: a puff appearing or vanishing sharply reads as a
+    // glitch, where a raindrop can get away with it.
+    const fade = t < 0.3 ? t / 0.3 : t > 0.6 ? (1 - t) / 0.4 : 1;
+    ctx.globalAlpha = p.a * fade;
+    ctx.drawImage(puffSprite, p.x - p.r, p.y - p.r, p.r * 2, p.r * 2);
+    p.x += d.x; p.y += d.y; p.age++;
+    if (p.age > p.life) spawnPuff(p, W, H);
+  }
+  ctx.globalAlpha = 1;
+  CLOUD.raf = requestAnimationFrame(cloudFrame);
+}
+
+async function sampleCloud() {
+  if (CLOUD.busy || !CLOUD.on) return;
+  CLOUD.busy = true;
+  try {
+    const f = await readCloudField();
+    CLOUD.cells = f.cells; CLOUD.total = f.total;
+    resizeCloudCanvas();
+    setNote({ id: 'cloud' }, f.cells.length
+      ? 'GOES infrared, drifting on the reported wind'
+      : 'GOES infrared \u00b7 clear overhead');
+  } catch (e) {
+    console.error(e);
+    CLOUD.cells = []; CLOUD.total = 0;
+    setNote({ id: 'cloud' }, 'Could not read the satellite', true);
+  } finally {
+    CLOUD.busy = false;
+  }
+}
+
 function cloudOn(on) {
   CLOUD.on = on;
-  wxTiles(CLOUD, 'cloud', GOES, {
-    pane: 'cloudPane', opacity: 0.42, maxZoom: 18, maxNativeZoom: 10,
-    attribution: 'Satellite &copy; <a href="https://mesonet.agron.iastate.edu/">Iowa State Mesonet</a> / NOAA GOES'
-  }, 'GOES infrared \u00b7 4 km, so it reads city-wide, not street-level');
+  const row = document.getElementById('row-cloud');
+  if (row) row.querySelector('input').checked = on;
+  cancelAnimationFrame(CLOUD.raf); CLOUD.raf = null;
+  clearInterval(CLOUD.timer); CLOUD.timer = null;
+  clearTimeout(CLOUD.moveTimer);
+  if (!on) {
+    if (CLOUD.canvas) { CLOUD.canvas.remove(); CLOUD.canvas = null; CLOUD.ctx = null; }
+    CLOUD.puffs = []; CLOUD.cells = [];
+    setNote({ id: 'cloud' }, 'GOES infrared, drifting on the reported wind');
+    saveUrl();
+    return;
+  }
+  if (!puffSprite) puffSprite = makePuffSprite();
+  const c = document.createElement('canvas');
+  c.id = 'cloudcanvas';
+  CLOUD.canvas = c;
+  map.getContainer().appendChild(c);
+  sampleCloud().then(() => {
+    if (CLOUD.on && !REDUCED_MOTION.matches) CLOUD.raf = requestAnimationFrame(cloudFrame);
+  });
+  // GOES scans CONUS every five minutes; ten is plenty for something this slow.
+  CLOUD.timer = setInterval(() => { if (!document.hidden && CLOUD.on) sampleCloud(); }, 600000);
+  saveUrl();
 }
+
+map.on('moveend zoomend resize', () => {
+  if (!CLOUD.on) return;
+  clearTimeout(CLOUD.moveTimer);
+  CLOUD.moveTimer = setTimeout(sampleCloud, 450);
+});
+document.addEventListener('visibilitychange', () => {
+  if (!CLOUD.on) return;
+  cancelAnimationFrame(CLOUD.raf); CLOUD.raf = null;
+  if (!document.hidden && !REDUCED_MOTION.matches) CLOUD.raf = requestAnimationFrame(cloudFrame);
+});
 
 /* ══════════════════════════════════════════════════════════════════
    Raindrops — the radar, as weather rather than as a picture of it.
@@ -3851,7 +4048,8 @@ document.addEventListener('visibilitychange', () => {
     return el;
   };
   const radar = mk('radar', '#3ad6c0', 'Rain', 'NOAA radar, falling at its own intensity', radarOn);
-  const cloud = mk('cloud', '#b9c6d6', 'Cloud', 'GOES East infrared, day and night', cloudOn);
+  const cloud = mk('cloud', '#b9c6d6', 'Cloud',
+                   'GOES infrared, drifting on the reported wind', cloudOn);
   const play = document.createElement('button');
   play.id = 'rainplay'; play.className = 'ct rowbtn'; play.hidden = true;
   play.textContent = '\u25b6'; play.title = 'Play the last two hours';
