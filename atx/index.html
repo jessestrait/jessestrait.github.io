@@ -141,6 +141,12 @@ a{color:var(--accent-hi)}
   border:solid #08111d; border-width:0 2px 2px 0; transform:rotate(43deg);
 }
 .row .swatch{width:8px;height:8px;border-radius:50%;background:var(--k);flex:0 0 8px;box-shadow:0 0 7px var(--k)}
+/* A layer that has a mark shows the mark instead of the chip. background-size
+   has to come after the background shorthand or the shorthand resets it. */
+.row .swatch.glyph{
+  width:19px;height:19px;flex:0 0 19px;border-radius:0;background:none;box-shadow:none;
+  background-size:contain;background-repeat:no-repeat;background-position:center;
+}
 .row .nm{flex:1; font-size:.82rem; line-height:1.25}
 .row .nm small{display:block; color:var(--muted); font-size:.68rem; margin-top:1px}
 .row .ct{
@@ -453,7 +459,7 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
 #about b{color:var(--text)}
 
 /* ── Mobile ──────────────────────────────────────────── */
-#sheetbtn{display:none}
+#sheetbtn,#grab{display:none}
 @media (max-width:820px){
   :root{--panel-w:100%}
   #shell{display:block; position:fixed}
@@ -465,6 +471,19 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
     transition:transform .28s ease; box-shadow:0 -14px 40px rgba(0,0,0,.6);
   }
   #panel.open{transform:translateY(0)}
+  /* Sticky, so the sheet stays draggable however far down the panel you have
+     scrolled — and touch-action:none, because the drag has to win over the
+     scroll here rather than race it. */
+  #grab{
+    display:block; position:sticky; top:0; z-index:6; touch-action:none;
+    padding:.6rem 0 .5rem; background:var(--surface); border-radius:16px 16px 0 0;
+    cursor:grab;
+  }
+  #grab::before{
+    content:''; display:block; width:40px; height:4px; margin:0 auto;
+    border-radius:2px; background:var(--border);
+  }
+  #panel.dragging{transition:none}
   #sheetbtn{
     display:block; position:absolute; left:50%; bottom:1rem; transform:translateX(-50%);
     z-index:1150; background:var(--accent); color:#fff; border:0; border-radius:22px;
@@ -501,6 +520,7 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
 
 <div id="shell">
   <aside id="panel">
+    <div id="grab" aria-hidden="true"></div>
 
     <div class="sec" id="wxsec" hidden>
       <h3>Weather alerts</h3>
@@ -1126,15 +1146,149 @@ const state = {
 };
 let dotLayer = null, liveLayer = null;
 
+/* ══════════════════════════════════════════════════════════════════
+   Glyph sprites — the marks, drawn once and stamped.
+
+   A ring and a triangle built with arc() and lineTo() per point per
+   frame is what makes a mark layer fall over on a phone. One bitmap
+   blit does not. Same trick as makePuffSprite further down, and the
+   same reason.
+
+   The art is authored on a 48-unit grid — the grid the marker set was
+   drawn on — and scaled to whatever is asked for, so a mark is defined
+   once and comes out right at map size and at legend size both. Every
+   mark is a stroke and never a fill, so it never hides the street
+   underneath it.
+   ══════════════════════════════════════════════════════════════════ */
+const GLYPH_ART = {
+  // Events are a ring: it happened, it has a time, it ages off. Places will
+  // be a square, so shape carries the class and the glyph carries the kind —
+  // which is also what stops three warm dots being the only difference
+  // between fire, traffic and crashes for a red-green colour-blind reader.
+  firelive(c) {
+    c.beginPath();
+    c.arc(24, 24, 17, 0, Math.PI * 2);
+    c.stroke();
+    // A triangle, not a flame. Hazard reads instantly, and it survives being
+    // 22 px across — a flame's curves turn to porridge at that size.
+    c.beginPath();
+    c.moveTo(24, 13); c.lineTo(33, 30); c.lineTo(15, 30);
+    c.closePath();
+    c.stroke();
+  }
+};
+
+// Drawn size on the map. A fingertip needs more room than a mouse; the hit
+// test widens it further still through HIT_TOLERANCE.
+const GLYPH_PX = COARSE ? 24 : 22;
+const GLYPH_STROKE = 1.7;          // css px, held constant across sizes
+const glyphCache = {};
+
+function glyphSprite(id, colour, px) {
+  const size = px || GLYPH_PX;
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  const key = [id, colour, size, dpr].join('|');
+  if (glyphCache[key]) return glyphCache[key];
+
+  // A stroke straddles its path, so half of it falls outside the 48 grid.
+  const pad = 2;
+  const box = size + pad * 2;
+  const cv = document.createElement('canvas');
+  cv.width = cv.height = Math.round(box * dpr);
+  const c = cv.getContext('2d');
+  c.scale(dpr, dpr);
+  c.translate(pad, pad);
+  const k = size / 48;
+  c.scale(k, k);
+  c.strokeStyle = colour;
+  c.lineWidth = GLYPH_STROKE / k;  // undo the scale, so weight is a screen fact
+  c.lineJoin = 'round';
+  c.lineCap = 'round';
+  GLYPH_ART[id](c);
+
+  glyphCache[key] = { cv: cv, size: box };
+  return glyphCache[key];
+}
+
+/* Leaflet's canvas renderer walks its layers and calls _updatePath() on each,
+   handing over its own 2d context. Overriding that one method swaps the arc
+   for a sprite blit and leaves everything else exactly as CircleMarker
+   already does it: the pane, the pixel bounds, the click tolerance, the
+   popup. That is the argument against L.divIcon — DOM markers would cost a
+   node and a layout per point, and all of this comes free. */
+const GlyphMarker = L.CircleMarker.extend({
+  // Whether this paints as a mark is a question about the current zoom, so it
+  // is asked at paint time. Leaflet already repaints the whole canvas on every
+  // zoom — it has to — so promotion rides along for free: no rebuild, no
+  // renderer torn down underneath a zoom animation, no extra event handler.
+  _glyphNow: function () {
+    return !!this.options.sprite && !!this._map && this._map.getZoom() >= GLYPH_ZOOM;
+  },
+
+  _updatePath: function () {
+    if (!this._glyphNow()) {
+      // Leaflet's own circle drawing, called verbatim. A dot cannot render
+      // differently here than it does for every other layer on the map,
+      // because it is the same function drawing it.
+      return L.CircleMarker.prototype._updatePath.call(this);
+    }
+    const ctx = this._renderer && this._renderer._ctx;
+    if (!ctx || !this._point) return;
+    // Leaflet leaves globalAlpha wherever the last layer left it — a dot drawn
+    // just before this one sets it to its fillOpacity — so a sprite that does
+    // not reset it comes out faded by whatever happened to be next to it.
+    ctx.globalAlpha = 1;
+    // The context is already scaled by devicePixelRatio, so this draws at CSS
+    // size; the sprite's extra resolution is what keeps it crisp.
+    const s = this.options.sprite, half = s.size / 2;
+    ctx.drawImage(s.cv, this._point.x - half, this._point.y - half, s.size, s.size);
+  },
+
+  // Bounds have to cover the mark whichever form is being drawn: they are
+  // computed on project, not on paint, so sizing them to the dot would let
+  // Leaflet clip a mark away at the edge of the view.
+  _updateBounds: function () {
+    const s = this.options.sprite;
+    const r = Math.max(this._radius, s ? s.size / 2 : 0) + this._clickTolerance();
+    const p = L.point(r, r);
+    this._pxBounds = new L.Bounds(this._point.subtract(p), this._point.add(p));
+  },
+
+  // A 26 px mark needs a 26 px target; a dot keeps the dot's.
+  _containsPoint: function (p) {
+    const s = this.options.sprite;
+    const r = this._glyphNow() ? s.size / 2 : this._radius;
+    return p.distanceTo(this._point) <= r + this._clickTolerance();
+  }
+});
+
+/* A mark is a promotion, not a default. At city-wide zooms the dot cloud is
+   the finding — 118 rings scattered over Austin is clutter, and the 1,014
+   service requests behind the next mark would be 70% ink and no map. So the
+   mark appears only once there is room for it, and never more than the cap.
+   The cap counts everything loaded rather than everything in view, which is
+   honest at 118 fire calls and will not be at 311's thousand; that one needs
+   a cheaper redraw than renderNow before it can be viewport-aware. */
+const GLYPH_ZOOM = 13;
+const GLYPH_CAP = 120;
+
 /* ── Panel construction ────────────────────────────────────────── */
 function rowFor(l) {
   const el = document.createElement('label');
   el.className = 'row';
   el.style.setProperty('--k', l.color);
   el.innerHTML = '<input type="checkbox" ' + (l.on ? 'checked' : '') + '>'
-    + '<span class="swatch"></span>'
+    + '<span class="swatch' + (GLYPH_ART[l.id] ? ' glyph' : '') + '"></span>'
     + '<span class="nm">' + esc(l.name) + '<small id="note-' + l.id + '">' + esc(l.note) + '</small></span>'
     + '<span class="ct" id="ct-' + l.id + '">—</span>';
+  // The legend is the row. Rather than a second key floating over the map —
+  // duplicating this and fighting the Leaflet attribution for the corner —
+  // the colour chip becomes the mark itself, which makes the panel teach it:
+  // the thing you tick shows you exactly what will appear. It is literally
+  // the same bitmap the map draws, so the two can never drift apart.
+  const sw = el.querySelector('.swatch.glyph');
+  if (sw) sw.style.backgroundImage = 'url(' + glyphSprite(l.id, l.color, 15).cv.toDataURL() + ')';
+
   el.querySelector('input').addEventListener('change', e => {
     l.on = e.target.checked;
     // Layers that carry a breakdown panel show and fill it with the tick.
@@ -1235,13 +1389,18 @@ function clearMapLayers() {
   if (dotRenderer) { map.removeLayer(dotRenderer); dotRenderer = null; }
 }
 
-function markerFor(f, l) {
-  const m = L.circleMarker([f.lat, f.lng], {
+function markerFor(f, l, mayGlyph) {
+  // One set of options either way, so the dot a GlyphMarker falls back to is
+  // the same dot every other layer draws — not a reimplementation of it.
+  const opts = {
     pane: 'dotPane', renderer: dotRenderer,
     radius: f.place ? (COARSE ? 7 : 5.5) : f.big ? 6 : 3.6,
     color: l.color, weight: f.place || f.big ? 1.8 : 0,
     fillColor: l.color, fillOpacity: f.place ? 0.2 : 0.72, opacity: 0.95
-  });
+  };
+  const m = mayGlyph
+    ? new GlyphMarker([f.lat, f.lng], L.extend({ sprite: glyphSprite(l.id, l.color) }, opts))
+    : L.circleMarker([f.lat, f.lng], opts);
   m.bindPopup(f.html, { maxWidth: 300, minWidth: 220 });
   return m;
 }
@@ -1259,9 +1418,20 @@ function renderNow() {
   clearMapLayers();
   const vis = visibleFeatures();
 
+  // How many marks are affordable is a question about how much data came back,
+  // so it is settled here. Whether they are drawn is a question about zoom,
+  // and the marker asks that itself when it paints.
+  let budget = GLYPH_CAP;
+
   dotRenderer = L.canvas({ pane: 'dotPane', padding: 0.35, tolerance: HIT_TOLERANCE }).addTo(map);
   dotLayer = L.layerGroup([], { pane: 'dotPane' });
-  vis.forEach(({ f, l }) => { if (!f.live) markerFor(f, l).addTo(dotLayer); });
+  vis.forEach(({ f, l }) => {
+    if (f.live) return;
+    // Layers with no art yet simply never promote, and never spend the budget.
+    const mayGlyph = budget > 0 && !!GLYPH_ART[l.id];
+    if (mayGlyph) budget--;
+    markerFor(f, l, mayGlyph).addTo(dotLayer);
+  });
   dotLayer.addTo(map);
 
   // Live incidents always get their own pulsing pin on top
@@ -4467,6 +4637,71 @@ function setPanel(open) {
   sheet.textContent = open ? 'Hide panel' : 'Layers & stats';
 }
 sheet.onclick = () => setPanel(!document.getElementById('panel').classList.contains('open'));
+
+/* ── Swipe the sheet down to close ─────────────────────────────────
+   The button stays: it is the only way back in, and a gesture with no
+   visible control is a gesture nobody finds. This is the second way out.
+
+   The panel is also a scroll container, so the two have to be told apart or
+   every attempt to scroll up would drag the sheet away. Same rule iOS uses:
+   the grab handle always drags, and content only drags once it is scrolled
+   to the top. Below that, the touch is a scroll and this never sees it.
+
+   Deliberately not document-wide, and preventDefault only once a drag has
+   actually been claimed — the map's own pinch and pan run on touch events
+   too, and swallowing those would be a much worse bug than no gesture. */
+(function swipeToClose() {
+  const p = document.getElementById('panel');
+  const handle = document.getElementById('grab');
+  let y0 = 0, t0 = 0, dy = 0, live = false, armed = false;
+
+  const settle = () => {
+    p.classList.remove('dragging');
+    p.style.transform = '';
+  };
+
+  p.addEventListener('touchstart', e => {
+    if (!isSheet() || !p.classList.contains('open') || e.touches.length !== 1) return;
+    armed = handle.contains(e.target) || p.scrollTop <= 0;
+    live = false;
+    dy = 0;
+    y0 = e.touches[0].clientY;
+    t0 = e.timeStamp;
+  }, { passive: true });
+
+  p.addEventListener('touchmove', e => {
+    if (!armed || e.touches.length !== 1) return;
+    const d = e.touches[0].clientY - y0;
+    // Upward is a scroll, not a dismissal — hand it back untouched. Past a few
+    // pixels downward the drag is claimed, and from then on it owns the touch.
+    if (!live) {
+      if (d < 6) { if (d < -2) armed = false; return; }
+      live = true;
+      p.classList.add('dragging');
+    }
+    dy = Math.max(0, d);
+    e.preventDefault();
+    p.style.transform = 'translateY(' + dy + 'px)';
+  }, { passive: false });
+
+  p.addEventListener('touchend', e => {
+    if (!live) { armed = false; return; }
+    live = armed = false;
+    // A short flick should close as surely as a long drag, so distance or
+    // speed will do it. 0.45 px/ms is about a deliberate flick, not a nudge.
+    const v = dy / Math.max(1, e.timeStamp - t0);
+    if (dy > p.clientHeight * 0.28 || (dy > 40 && v > 0.45)) {
+      settle();
+      setPanel(false);
+      return;
+    }
+    // Kept: let the CSS transition carry it back rather than snapping.
+    p.classList.remove('dragging');
+    p.style.transform = '';
+  });
+
+  p.addEventListener('touchcancel', () => { live = armed = false; settle(); });
+})();
 
 
 /* ── Shareable state ───────────────────────────────────────────────
