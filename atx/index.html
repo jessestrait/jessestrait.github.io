@@ -1160,21 +1160,106 @@ let dotLayer = null, liveLayer = null;
    mark is a stroke and never a fill, so it never hides the street
    underneath it.
    ══════════════════════════════════════════════════════════════════ */
+// ctx.roundRect is newer than the Safari this site still runs on.
+function rrect(c, x, y, w, h, r) {
+  c.beginPath();
+  c.moveTo(x + r, y);
+  c.lineTo(x + w - r, y); c.quadraticCurveTo(x + w, y, x + w, y + r);
+  c.lineTo(x + w, y + h - r); c.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  c.lineTo(x + r, y + h); c.quadraticCurveTo(x, y + h, x, y + h - r);
+  c.lineTo(x, y + r); c.quadraticCurveTo(x, y, x + r, y);
+  c.closePath(); c.stroke();
+}
+// Two containers, and the difference is the whole system. A ring is an event:
+// it happened, it has a time, it ages off. A square is a place: it is simply
+// there. Shape carries the class, the glyph inside carries the kind, and
+// colour stays the layer's — three channels instead of hue doing all the work,
+// which is also what stops fire, traffic and crashes being three warm dots to
+// a red-green colour-blind reader.
+const ring = c => { c.beginPath(); c.arc(24, 24, 17, 0, Math.PI * 2); c.stroke(); };
+const frame = c => rrect(c, 8, 8, 32, 32, 3);
+const poly = (c, pts, close) => {
+  c.beginPath();
+  pts.forEach((p, i) => i ? c.lineTo(p[0], p[1]) : c.moveTo(p[0], p[1]));
+  if (close) c.closePath();
+  c.stroke();
+};
+
 const GLYPH_ART = {
-  // Events are a ring: it happened, it has a time, it ages off. Places will
-  // be a square, so shape carries the class and the glyph carries the kind —
-  // which is also what stops three warm dots being the only difference
-  // between fire, traffic and crashes for a red-green colour-blind reader.
+  /* ── Events ── */
   firelive(c) {
-    c.beginPath();
-    c.arc(24, 24, 17, 0, Math.PI * 2);
-    c.stroke();
+    ring(c);
     // A triangle, not a flame. Hazard reads instantly, and it survives being
     // 22 px across — a flame's curves turn to porridge at that size.
-    c.beginPath();
-    c.moveTo(24, 13); c.lineTo(33, 30); c.lineTo(15, 30);
-    c.closePath();
-    c.stroke();
+    poly(c, [[24, 13], [33, 30], [15, 30]], true);
+  },
+  c311(c) {
+    ring(c);
+    // The numerals themselves: there is no 311 symbol to learn, and there is
+    // no point inventing one when the name is three characters wide.
+    c.fillStyle = c.strokeStyle;
+    c.font = '700 15px "JetBrains Mono", ui-monospace, monospace';
+    c.textAlign = 'center';
+    c.textBaseline = 'middle';
+    c.fillText('311', 24, 24.5);
+  },
+  news(c) {
+    ring(c);
+    // Broadcast arcs, not a newspaper. A headline is a transmission, and arcs
+    // stay legible at sizes where a folded page is a smudge.
+    c.fillStyle = c.strokeStyle;
+    c.beginPath(); c.arc(17, 31, 2.6, 0, Math.PI * 2); c.fill();
+    c.beginPath(); c.arc(17, 31, 6.5, -Math.PI / 2, 0); c.stroke();
+    c.beginPath(); c.arc(17, 31, 13, -Math.PI / 2, 0); c.stroke();
+  },
+  traffic(c) {
+    ring(c);
+    // Stacked chevrons — the lane-closure arrow every driver already reads.
+    poly(c, [[14, 30], [24, 20], [34, 30]]);
+    const a = c.globalAlpha;
+    c.globalAlpha = a * 0.45;
+    poly(c, [[14, 22], [24, 12], [34, 22]]);
+    c.globalAlpha = a;
+  },
+  crashes(c) {
+    ring(c);
+    // Impact. The one mark that must never be mistaken for anything else.
+    poly(c, [[17, 17], [31, 31]]);
+    poly(c, [[31, 17], [17, 31]]);
+  },
+  permits(c) {
+    ring(c);
+    // A plan elevation — the drawing the permit is attached to.
+    c.strokeRect(16, 16, 16, 16);
+    poly(c, [[16, 22], [32, 22]]);
+  },
+
+  /* ── Places ── */
+  stations(c) {
+    frame(c);
+    // The same triangle as a fire call; the square says building, not call.
+    poly(c, [[24, 15], [31, 28], [17, 28]], true);
+  },
+  libraries(c) {
+    frame(c);
+    // Shelved spines. A book at this size is a grey smudge; three rules are not.
+    poly(c, [[16, 17], [32, 17]]);
+    poly(c, [[16, 24], [32, 24]]);
+    poly(c, [[16, 31], [26, 31]]);
+  },
+  art(c) {
+    frame(c);
+    // A plinth from above — the only round-in-square mark, so it reads as the
+    // odd one out, which is what public art is among city infrastructure.
+    c.beginPath(); c.arc(24, 24, 7, 0, Math.PI * 2); c.stroke();
+    c.fillStyle = c.strokeStyle;
+    c.beginPath(); c.arc(24, 24, 1.8, 0, Math.PI * 2); c.fill();
+  },
+  cameras(c) {
+    frame(c);
+    // The only mark with a direction in it: the lens points somewhere.
+    c.strokeRect(15, 19, 12, 10);
+    poly(c, [[27, 22], [33, 19], [33, 29], [27, 26]]);
   }
 };
 
@@ -1222,7 +1307,8 @@ const GlyphMarker = L.CircleMarker.extend({
   // zoom — it has to — so promotion rides along for free: no rebuild, no
   // renderer torn down underneath a zoom animation, no extra event handler.
   _glyphNow: function () {
-    return !!this.options.sprite && !!this._map && this._map.getZoom() >= GLYPH_ZOOM;
+    const l = this.options.layerRef;
+    return !!this.options.sprite && !!l && l.promote === true;
   },
 
   _updatePath: function () {
@@ -1269,8 +1355,58 @@ const GlyphMarker = L.CircleMarker.extend({
    The cap counts everything loaded rather than everything in view, which is
    honest at 118 fire calls and will not be at 311's thousand; that one needs
    a cheaper redraw than renderNow before it can be viewport-aware. */
+/* Which layers get marks is decided from what is on screen, not from what is
+   loaded. At zoom 17 there may be four service requests in view out of a
+   thousand, and four marks is exactly what you want there.
+
+   All-or-nothing per layer, deliberately: promoting 140 of 1,014 requests
+   would mark an arbitrary subset and imply something false about the ones it
+   picked. A layer either reads as marks or it reads as a cloud. Smallest
+   first, so a crowded layer cannot starve the ones where marks are most
+   legible — twenty-two headlines are worth marking even when nine hundred
+   service requests are not.
+
+   Counting is a bounds comparison per loaded point, which is the pass
+   insights() already makes on every move, so it is affordable at that rate. */
 const GLYPH_ZOOM = 13;
-const GLYPH_CAP = 120;
+const GLYPH_CAP = 140;
+
+function updatePromotions(vis) {
+  const b = map.getBounds();
+  const s = b.getSouth(), n = b.getNorth(), w = b.getWest(), e = b.getEast();
+  const seen = {};
+  vis.forEach(({ f, l }) => {
+    if (!GLYPH_ART[l.id]) return;
+    if (f.lat < s || f.lat > n || f.lng < w || f.lng > e) return;
+    seen[l.id] = (seen[l.id] || 0) + 1;
+  });
+
+  let changed = false;
+  const grant = {};
+  if (map.getZoom() >= GLYPH_ZOOM) {
+    let budget = GLYPH_CAP;
+    Object.keys(seen).sort((a, c) => seen[a] - seen[c]).forEach(id => {
+      if (seen[id] <= budget) { grant[id] = true; budget -= seen[id]; }
+    });
+  }
+  LAYERS.forEach(l => {
+    const want = grant[l.id] === true;
+    if (l.promote !== want) { l.promote = want; changed = true; }
+  });
+  return changed;
+}
+
+// A promotion changes what is painted, not what exists — so this is a canvas
+// repaint and nothing else. No markers rebuilt, no renderer torn down, which
+// is the whole reason the zoom handler is safe to have at all.
+function repaintMarks() {
+  if (dotRenderer && dotRenderer._ctx) dotRenderer._redraw();
+}
+
+const glyphSwatches = [];
+const paintSwatch = (el, l) => {
+  el.style.backgroundImage = 'url(' + glyphSprite(l.id, l.color, 15).cv.toDataURL() + ')';
+};
 
 /* ── Panel construction ────────────────────────────────────────── */
 function rowFor(l) {
@@ -1287,7 +1423,7 @@ function rowFor(l) {
   // the thing you tick shows you exactly what will appear. It is literally
   // the same bitmap the map draws, so the two can never drift apart.
   const sw = el.querySelector('.swatch.glyph');
-  if (sw) sw.style.backgroundImage = 'url(' + glyphSprite(l.id, l.color, 15).cv.toDataURL() + ')';
+  if (sw) { glyphSwatches.push({ el: sw, l: l }); paintSwatch(sw, l); }
 
   el.querySelector('input').addEventListener('change', e => {
     l.on = e.target.checked;
@@ -1309,6 +1445,18 @@ function rowFor(l) {
   return el;
 }
 LAYERS.forEach(l => document.getElementById(l.group).appendChild(rowFor(l)));
+
+/* The 311 mark is set in JetBrains Mono, and these rows are built before the
+   webfont has arrived — so the first sprites bake in the fallback face. Throw
+   the cache away once the fonts are really there and draw them again. Cheap:
+   there are a dozen sprites and they are rebuilt lazily. */
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(() => {
+    Object.keys(glyphCache).forEach(k => { delete glyphCache[k]; });
+    glyphSwatches.forEach(g => paintSwatch(g.el, g.l));
+    if (window.repaintMarks) repaintMarks();
+  }).catch(() => {});
+}
 
 
 /* ── Fetching ──────────────────────────────────────────────────── */
@@ -1389,7 +1537,7 @@ function clearMapLayers() {
   if (dotRenderer) { map.removeLayer(dotRenderer); dotRenderer = null; }
 }
 
-function markerFor(f, l, mayGlyph) {
+function markerFor(f, l) {
   // One set of options either way, so the dot a GlyphMarker falls back to is
   // the same dot every other layer draws — not a reimplementation of it.
   const opts = {
@@ -1398,8 +1546,9 @@ function markerFor(f, l, mayGlyph) {
     color: l.color, weight: f.place || f.big ? 1.8 : 0,
     fillColor: l.color, fillOpacity: f.place ? 0.2 : 0.72, opacity: 0.95
   };
-  const m = mayGlyph
-    ? new GlyphMarker([f.lat, f.lng], L.extend({ sprite: glyphSprite(l.id, l.color) }, opts))
+  const m = GLYPH_ART[l.id]
+    ? new GlyphMarker([f.lat, f.lng],
+        L.extend({ sprite: glyphSprite(l.id, l.color), layerRef: l }, opts))
     : L.circleMarker([f.lat, f.lng], opts);
   m.bindPopup(f.html, { maxWidth: 300, minWidth: 220 });
   return m;
@@ -1418,19 +1567,13 @@ function renderNow() {
   clearMapLayers();
   const vis = visibleFeatures();
 
-  // How many marks are affordable is a question about how much data came back,
-  // so it is settled here. Whether they are drawn is a question about zoom,
-  // and the marker asks that itself when it paints.
-  let budget = GLYPH_CAP;
+  updatePromotions(vis);
 
   dotRenderer = L.canvas({ pane: 'dotPane', padding: 0.35, tolerance: HIT_TOLERANCE }).addTo(map);
   dotLayer = L.layerGroup([], { pane: 'dotPane' });
   vis.forEach(({ f, l }) => {
     if (f.live) return;
-    // Layers with no art yet simply never promote, and never spend the budget.
-    const mayGlyph = budget > 0 && !!GLYPH_ART[l.id];
-    if (mayGlyph) budget--;
-    markerFor(f, l, mayGlyph).addTo(dotLayer);
+    markerFor(f, l).addTo(dotLayer);
   });
   dotLayer.addTo(map);
 
@@ -4551,8 +4694,15 @@ if (window.ResizeObserver) {
 setInterval(healthCheck, 2000);
 window.addEventListener('orientationchange', () => setTimeout(wakeUp, 250));
 
-map.on('moveend', () => { if (state.viewOnly) insights(visibleFeatures()); });
-map.on('zoomend', () => { if (state.viewOnly) insights(visibleFeatures()); });
+// Both were already walking every loaded feature on every move; now they share
+// the one walk, and promotion rides along on it.
+function onViewChanged() {
+  const vis = visibleFeatures();
+  if (updatePromotions(vis)) repaintMarks();
+  if (state.viewOnly) insights(vis);
+}
+map.on('moveend', onViewChanged);
+map.on('zoomend', onViewChanged);
 
 document.getElementById('aboutbtn').onclick = () => document.getElementById('about').classList.add('on');
 document.getElementById('aboutclose').onclick = () => document.getElementById('about').classList.remove('on');
