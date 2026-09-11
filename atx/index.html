@@ -568,6 +568,15 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
       <div id="crimetop"></div>
     </div>
 
+    <div class="sec" id="pwrsec">
+      <h3>Power history</h3>
+      <div class="seg" id="pwrmode">
+        <button data-m="now" class="on">Out now</button>
+        <button data-m="week">Last 7 days</button>
+      </div>
+      <div id="pwrbody"></div>
+    </div>
+
     <div class="sec">
       <h3>Ground</h3>
       <div id="ground"></div>
@@ -1916,7 +1925,10 @@ async function loadGround(g) {
 const OUTAGE = {
   sc: 'dd9c446f-f6b8-43f9-8f80-83f5245c60a1',
   view: '76446308-a901-4fa3-849c-3dd569933a51',
-  geo: null, byZip: {}, total: 0, cust: 0, at: null, busy: false, timer: null
+  geo: null, byZip: {}, total: 0, cust: 0, at: null, busy: false, timer: null,
+  // 'now' shades by customers currently out; 'week' by how long the average
+  // customer in that ZIP has spent without power over the archive window.
+  mode: 'now'
 };
 
 function outageShade(cust) {
@@ -1926,6 +1938,16 @@ function outageShade(cust) {
   if (cust >= 1000) return 0.55;
   if (cust >= 100) return 0.42;
   if (cust >= 10) return 0.30;
+  return 0.20;
+}
+
+// Minutes the average customer in a ZIP spent without power across the window.
+// Its own bands, because it is a different quantity on a different scale —
+// reusing the live one would paint a quiet week as an emergency.
+function outageShadeWeek(min) {
+  if (min >= 60) return 0.60;
+  if (min >= 15) return 0.46;
+  if (min >= 3) return 0.33;
   return 0.20;
 }
 
@@ -1947,17 +1969,34 @@ function drawOutages() {
   if (groundLayers.outages) { map.removeLayer(groundLayers.outages); delete groundLayers.outages; }
   const g = byGround.outages;
   if (!OUTAGE.geo || !g) return;
-  const hit = OUTAGE.geo.features.filter(f => OUTAGE.byZip[(f.properties || {}).zip]);
+  const week = OUTAGE.mode === 'week';
+  const src = week ? PWR.byZip : OUTAGE.byZip;
+  const hit = OUTAGE.geo.features.filter(f => src[(f.properties || {}).zip]);
   if (!hit.length) return;
   groundLayers.outages = L.geoJSON({ type: 'FeatureCollection', features: hit }, {
     pane: 'groundPane',
     style: f => {
-      const o = OUTAGE.byZip[f.properties.zip] || {};
+      const o = src[f.properties.zip] || {};
       return { color: '#c084fc', weight: 1.2, opacity: 0.8,
-               fillColor: '#a855f7', fillOpacity: outageShade(o.cust || 0) };
+               fillColor: '#a855f7',
+               fillOpacity: week ? outageShadeWeek(o.perCust || 0) : outageShade(o.cust || 0) };
     },
     onEachFeature: (f, lyr) => {
-      const o = OUTAGE.byZip[f.properties.zip] || {};
+      if (week) {
+        const o = src[f.properties.zip] || {};
+        const d = PWR.demo && PWR.demo[f.properties.zip];
+        lyr.bindPopup(pop('#a855f7', 'Power \u00b7 last ' + PWR.days + ' days',
+          'ZIP ' + f.properties.zip, PWR.label || '', [
+            ['Outages recorded', o.n],
+            ['Longest', o.longest ? mins(o.longest) : null],
+            ['Customer-minutes out', Math.round(o.custMin).toLocaleString()],
+            ['Per customer served', o.perCust >= 0.1 ? mins(o.perCust) : 'under a minute'],
+            ['Poverty rate', d ? d.pov + '%' : null],
+            ['People', d ? d.pop.toLocaleString() : null]
+          ]), { maxWidth: 300 });
+        return;
+      }
+      const o = src[f.properties.zip] || {};
       const etr = o.etr && o.etr !== 'ETR-EXP' ? new Date(o.etr) : null;
       lyr.bindPopup(pop('#a855f7', 'Power outage', 'ZIP ' + f.properties.zip,
         OUTAGE.at ? 'as of ' + ago(OUTAGE.at) : '', [
@@ -2013,6 +2052,264 @@ async function loadOutages(g, badge) {
     OUTAGE.busy = false;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   Power history — the archive, read back.
+
+   Austin Energy publishes a map, not an archive: what is out right now,
+   and nothing about what was out yesterday. So a scheduled job writes it
+   down as it happens (tools/capture_outages.py), one file per day on the
+   orphan `data` branch. That branch is not what Pages serves, so the page
+   reads it from raw.githubusercontent, which sends
+   access-control-allow-origin:* — verified, no proxy, no server, same
+   arrangement as every other feed here.
+
+   Fetched lazily. Seven days is seven requests, and most visitors never
+   open this section.
+   ══════════════════════════════════════════════════════════════════ */
+const PWR_BASE = 'https://raw.githubusercontent.com/jessestrait/'
+               + 'jessestrait.github.io/data/outages/';
+const PWR = { days: 7, busy: false, loaded: false, eps: [], byZip: {},
+              demo: null, etr: null, label: '', gotDays: 0, err: null };
+
+function mins(m) {
+  m = Math.round(m);
+  if (m < 60) return m + ' min';
+  const h = Math.floor(m / 60), r = m % 60;
+  return h + ' hr' + (h === 1 ? '' : 's') + (r ? ' ' + r + ' min' : '');
+}
+
+function pwrDayKeys(n) {
+  const out = [];
+  for (let i = 0; i < n; i++) {
+    const d = new Date(Date.now() - i * 86400000);
+    out.push(d.toISOString().slice(0, 10));
+  }
+  return out;
+}
+
+async function loadPowerHistory() {
+  if (PWR.busy || PWR.loaded) return;
+  PWR.busy = true;
+  renderPowerHistory();
+  try {
+    const days = pwrDayKeys(PWR.days);
+    // A missing day is normal, not an error: the archive only starts when
+    // capture started, and a day with nothing out writes no file.
+    const files = await Promise.all(days.map(d =>
+      fetch(PWR_BASE + d + '.json')
+        .then(r => r.ok ? r.json() : null)
+        .catch(() => null)));
+    if (!PWR.demo) {
+      PWR.demo = await fetch('data/zipdemo.json')
+        .then(r => r.json()).then(j => j.zips).catch(() => null);
+    }
+
+    const eps = [];
+    files.forEach(f => {
+      if (!f) return;
+      PWR.gotDays++;
+      const e = f.episodes || f;
+      (Array.isArray(e) ? e : Object.values(e || {})).forEach(x => eps.push(x));
+    });
+    PWR.eps = eps;
+
+    // Per ZIP: customer-minutes out, and the same divided by the customers
+    // the ZIP serves — which is the only way to compare a dense ZIP with a
+    // thin one without simply rediscovering where the people are.
+    const by = {};
+    eps.forEach(x => {
+      const zip = String(x.id || '').split('-')[1];
+      if (!zip) return;
+      const dur = +x.duration_min || 0;
+      const peak = +x.peak_customers_affected || 0;
+      const b = by[zip] || (by[zip] = { n: 0, custMin: 0, longest: 0, served: 0 });
+      b.n++;
+      b.custMin += dur * peak;
+      b.longest = Math.max(b.longest, dur);
+      b.served = Math.max(b.served, +x.customers_served || 0);
+    });
+    Object.values(by).forEach(b => { b.perCust = b.served ? b.custMin / b.served : 0; });
+    PWR.byZip = by;
+
+    // Did Austin Energy hit the restoration time it published? ETR-EXP is the
+    // feed's own word for an estimate that ran out before the lights came on,
+    // so it counts as a miss without needing a clock comparison.
+    let onTime = 0, late = 0, expired = 0;
+    const over = [];
+    eps.forEach(x => {
+      const raw = x.etr_last, end = x.ended_at ? Date.parse(x.ended_at) : null;
+      if (raw === 'ETR-EXP') { expired++; return; }
+      const etr = raw ? Date.parse(raw) : NaN;
+      if (!isFinite(etr) || !end) return;
+      if (end <= etr) onTime++;
+      else { late++; over.push((end - etr) / 60000); }
+    });
+    over.sort((a, b2) => a - b2);
+    PWR.etr = { onTime: onTime, late: late, expired: expired,
+                median: over.length ? over[over.length >> 1] : null };
+
+    PWR.label = PWR.gotDays + (PWR.gotDays === 1 ? ' day' : ' days') + ' recorded';
+    PWR.loaded = true;
+  } catch (e) {
+    console.error(e);
+    PWR.err = 'Could not read the outage archive.';
+  } finally {
+    PWR.busy = false;
+    renderPowerHistory();
+    if (OUTAGE.mode === 'week') drawOutages();
+  }
+}
+
+/* Does the part of Austin that loses power longest also have the least money?
+   Split the ZIPs by poverty rate and compare minutes-per-customer across the
+   halves. Deliberately halves and not terciles: with a few days of archive
+   there are not enough ZIPs with any outage at all to cut three ways without
+   the thirds being noise.
+
+   78705 is dropped. It is the UT campus, where the census counts students as
+   living in poverty, and at a 77% rate it would swamp the comparison with an
+   artefact of how student income is recorded. */
+function pwrEquity() {
+  if (!PWR.demo) return null;
+  const rows = Object.keys(PWR.demo)
+    .filter(z => z !== '78705')
+    .map(z => ({ zip: z, pov: PWR.demo[z].pov, pop: PWR.demo[z].pop,
+                 per: (PWR.byZip[z] || {}).perCust || 0 }))
+    .filter(r => r.pop > 500);
+  if (rows.length < 8) return null;
+  rows.sort((a, b) => a.pov - b.pov);
+  const half = Math.floor(rows.length / 2);
+  const lo = rows.slice(0, half), hi = rows.slice(rows.length - half);
+  const mean = a => a.reduce((s, r) => s + r.per, 0) / a.length;
+  const hit = a => a.filter(r => r.per > 0).length;
+  return {
+    n: rows.length,
+    richer: { pov: mean2(lo, 'pov'), per: mean(lo), hit: hit(lo), of: lo.length },
+    poorer: { pov: mean2(hi, 'pov'), per: mean(hi), hit: hit(hi), of: hi.length }
+  };
+}
+function mean2(a, k) { return a.reduce((s, r) => s + r[k], 0) / a.length; }
+
+function renderPowerHistory() {
+  const box = document.getElementById('pwrbody');
+  if (!box) return;
+  if (PWR.busy && !PWR.loaded) {
+    box.innerHTML = '<p class="hint" style="margin:.6rem 0 0">Reading the archive…</p>';
+    return;
+  }
+  if (OUTAGE.mode === 'now') {
+    box.innerHTML = '<p class="hint" style="margin:.6rem 0 0">'
+      + (OUTAGE.at
+          ? (OUTAGE.total
+              ? OUTAGE.cust.toLocaleString() + ' customers out right now.'
+              : 'Austin Energy reports nothing out right now.')
+            + ' Switch to <b>Last 7 days</b> for what has been out since capture began.'
+          : 'Switch on <b>Power outages</b> under Happening lately, or pick '
+            + '<b>Last 7 days</b> to read the archive.')
+      + '</p>';
+    return;
+  }
+  if (PWR.err) { box.innerHTML = '<p class="empty">' + esc(PWR.err) + '</p>'; return; }
+  if (!PWR.eps.length) {
+    box.innerHTML = '<p class="empty">Nothing recorded yet. Capture began on '
+      + '8 September 2026 and writes a file only on days something went out.</p>';
+    return;
+  }
+
+  const e = PWR.etr, judged = e.onTime + e.late + e.expired;
+  const missed = e.late + e.expired;
+  const longest = PWR.eps.reduce((a, x) =>
+    (+x.duration_min || 0) > (+a.duration_min || 0) ? x : a, PWR.eps[0]);
+  const lzip = String(longest.id || '').split('-')[1];
+  const totalCustMin = Object.values(PWR.byZip).reduce((s, b) => s + b.custMin, 0);
+
+  let html = '<p class="hint" style="margin:.55rem 0 .5rem">'
+    + '<b style="color:var(--text)">' + PWR.eps.length + '</b> outage'
+    + (PWR.eps.length === 1 ? '' : 's') + ' across ' + esc(PWR.label)
+    + ' · ' + Math.round(totalCustMin).toLocaleString() + ' customer-minutes in the dark.</p>';
+
+  html += '<div class="stat"><span class="k">Longest</span><span class="v">'
+    + mins(+longest.duration_min || 0) + '</span></div>'
+    + '<p class="hint" style="margin:0 0 .5rem">ZIP ' + esc(lzip || '?') + ', peak '
+    + (+longest.peak_customers_affected || 0).toLocaleString() + ' customers.</p>';
+
+  if (judged) {
+    html += '<label class="mini" style="display:block;margin-top:.7rem">'
+      + 'Did they restore by the time they promised?</label>'
+      + topListHTML([
+          { n: e.onTime, label: 'On time' },
+          { n: e.late, label: 'Late' + (e.median ? ' (median ' + Math.round(e.median) + ' min)' : '') },
+          { n: e.expired, label: 'Estimate expired' }
+        ].filter(r => r.n > 0), {
+          color: '#a855f7',
+          caption: 'Against Austin Energy’s own published estimate',
+          foot: () => '<b style="color:var(--text)">' + missed + ' of ' + judged + '</b> ('
+            + Math.round(100 * missed / judged) + '%) missed or outran it.'
+        });
+  }
+
+  const top = Object.entries(PWR.byZip)
+    .filter(([, b]) => b.perCust > 0)
+    .sort((a, b) => b[1].perCust - a[1].perCust).slice(0, 5);
+  if (top.length) {
+    html += '<label class="mini" style="display:block;margin-top:1rem">'
+      + 'Longest in the dark, per customer</label>'
+      + topListHTML(top.map(([z, b]) => ({ n: Math.max(1, Math.round(b.perCust)), label: 'ZIP ' + z })), {
+          color: '#c084fc',
+          caption: 'Minutes the average customer there went without power',
+          foot: () => 'Divided by customers served, so a big ZIP does not win by being big.'
+        });
+  }
+
+  const eq = pwrEquity();
+  if (eq) {
+    const p = eq.poorer, r = eq.richer;
+    const ratio = r.per > 0.01 ? (p.per / r.per) : null;
+    html += '<label class="mini" style="display:block;margin-top:1rem">'
+      + 'And who lives there</label>'
+      + '<div class="stat"><span class="k">Poorer half · '
+      + p.pov.toFixed(0) + '% poverty</span><span class="v">'
+      + (p.per >= 0.1 ? mins(p.per) : '<1 min') + '</span></div>'
+      + '<div class="stat"><span class="k">Better-off half · '
+      + r.pov.toFixed(0) + '% poverty</span><span class="v">'
+      + (r.per >= 0.1 ? mins(r.per) : '<1 min') + '</span></div>'
+      + '<p class="hint" style="margin:.4rem 0 0">Average minutes without power per '
+      + 'customer, over ' + eq.n + ' ZIPs. '
+      + (ratio && ratio >= 1.2
+          ? '<b style="color:#ffb570">' + ratio.toFixed(1) + '× worse in the poorer half.</b>'
+          : ratio && ratio <= 0.83
+            ? 'Worse in the better-off half, on this window.'
+            : 'No clear gap yet.')
+      + '</p>'
+      + '<p class="hint" style="margin:.4rem 0 0;color:var(--muted)">'
+      + PWR.gotDays + (PWR.gotDays === 1 ? ' day' : ' days') + ' is far too little to '
+      + 'conclude anything — it is here because the archive has to start somewhere, '
+      + 'and it grows every quarter hour. 78705 is excluded: the census counts UT '
+      + 'students as impoverished, which would swamp the comparison.</p>';
+  }
+
+  box.innerHTML = html;
+}
+
+(function buildPowerControls() {
+  const seg = document.getElementById('pwrmode');
+  if (!seg) return;
+  seg.addEventListener('click', e => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    seg.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
+    OUTAGE.mode = b.dataset.m;
+    if (OUTAGE.mode === 'week') loadPowerHistory();
+    renderPowerHistory();
+    // The archive drives the shading too, so the map follows the switch.
+    if (OUTAGE.geo) drawOutages();
+    setNote(byGround.outages, OUTAGE.mode === 'week'
+      ? 'Austin Energy · shaded by time in the dark, last 7 days'
+      : 'Austin Energy, live — shaded by customers out');
+  });
+  renderPowerHistory();
+})();
 
 /* ══════════════════════════════════════════════════════════════════
    Shaded geography — the same choropleth machinery over two very
