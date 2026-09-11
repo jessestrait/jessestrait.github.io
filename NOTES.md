@@ -47,8 +47,15 @@ this endpoint. Individual outages exist only as quadkey-addressed cluster tiles
 
 `access-control-allow-origin: *` on all three endpoints — verified by response header
 with an explicit `Origin: https://jessestrait.com`, and by a real cross-origin `fetch`
-from the ATX page itself. **A live outage layer needs no proxy and no server.** Not
-built yet; nothing blocks it.
+from the ATX page itself. **A live outage layer needs no proxy and no server.** Built — the `outages`
+ground layer, shading ZIP polygons by customers out.
+
+The archive is read back the same way. The `data` branch is not what Pages serves, so
+the page fetches `raw.githubusercontent.com/.../data/outages/<date>.json`, which sends
+`access-control-allow-origin: *` — verified against an explicit Origin. That is the
+Power history panel: episode counts, the longest outage, whether AE beat its own
+published ETR, and minutes in the dark per customer served — joined to ZIP
+demographics built by `tools/build_zip_demographics.py`.
 
 Capture still runs server-side, because CORS was never the reason for capturing:
 outage state is not published as history, so it has to be written down as it happens.
