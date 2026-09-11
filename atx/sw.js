@@ -80,9 +80,10 @@ self.addEventListener('fetch', e => {
 
   // Prebuilt geometry: ~6.9 MB that is identical until tools/build_atx_geo.py
   // runs again. This is the whole reason for the worker.
-  // news.json lives under data/ but is a live feed, not geometry. It gets the
-  // same treatment as Socrata: straight to the network, never cached.
-  if (sameOrigin && url.pathname === '/atx/data/news.json') return;
+  // news.json used to live here and needed an exemption, being a live feed
+  // rather than geometry. It is on the `data` branch now and arrives
+  // cross-origin from raw.githubusercontent, so it never reaches any of the
+  // same-origin rules below and needs no rule of its own.
 
   if (sameOrigin && url.pathname.startsWith('/atx/data/')) {
     e.respondWith(fromCache(req, GEO));

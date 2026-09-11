@@ -3454,10 +3454,16 @@ byId.c311.sub = { visible: c311PanelVisible, load: loadC311Top };
 })();
 
 /* ══════════════════════════════════════════════════════════════════
-   Headline ticker — atx/data/news.json, written by a scheduled job in
-   this repo. RSS almost never sends Access-Control-Allow-Origin, so the
-   feeds are fetched server-side and committed; the page reads its own
-   file, same origin, with nobody else's proxy in the path.
+   Headline ticker — news.json, written by a scheduled job in this repo.
+   RSS almost never sends Access-Control-Allow-Origin, so the feeds are
+   fetched server-side and committed.
+
+   It lands on the orphan `data` branch, beside the outage archive, and is
+   read from raw.githubusercontent — which sends
+   access-control-allow-origin:*. It used to sit on main and be read same
+   origin, which was tidier to describe and cost 72 bot commits a day: in
+   one day this job was two thirds of the repository's history. Still
+   nobody else's proxy in the path — GitHub is already the host.
 
    The part that makes this a layer rather than decoration: every
    headline carries any Austin place it named, with coordinates taken
@@ -3630,6 +3636,11 @@ function paintTicker() {
   markHeadlinesInView();
 }
 
+// raw.githubusercontent caches for five minutes, which is well inside the
+// fifteen-to-twenty the job actually lands on, so no buster is wanted here.
+const NEWS_URL = 'https://raw.githubusercontent.com/jessestrait/'
+               + 'jessestrait.github.io/data/news/news.json';
+
 async function loadNews(force) {
   await loadConditions().catch(() => {});
   // The ticker and the Headlines layer are two readings of one file, and both
@@ -3639,7 +3650,7 @@ async function loadNews(force) {
   if (!force && NEWS.fetchedMs && Date.now() - NEWS.fetchedMs < 60000) return NEWS.items;
   NEWS.inflight = (async () => {
   try {
-    const res = await fetch('data/news.json', { cache: 'no-store' });
+    const res = await fetch(NEWS_URL, { cache: 'no-store' });
     if (!res.ok) throw new Error('news ' + res.status);
     const j = await res.json();
     NEWS.items = (j.items || []).filter(i => i.title && i.link);
