@@ -2079,11 +2079,17 @@ function mins(m) {
   return h + ' hr' + (h === 1 ? '' : 's') + (r ? ' ' + r + ' min' : '');
 }
 
+// Nothing exists before capture began, so asking for it is four wasted
+// requests and four 404s in the console. Days inside the window can still be
+// missing — a day with nothing out writes no file — and those are handled
+// where the fetch lands.
+const PWR_FIRST_DAY = '2026-09-08';
 function pwrDayKeys(n) {
   const out = [];
   for (let i = 0; i < n; i++) {
-    const d = new Date(Date.now() - i * 86400000);
-    out.push(d.toISOString().slice(0, 10));
+    const d = new Date(Date.now() - i * 86400000).toISOString().slice(0, 10);
+    if (d < PWR_FIRST_DAY) break;
+    out.push(d);
   }
   return out;
 }
