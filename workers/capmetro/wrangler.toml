@@ -1,0 +1,11 @@
+# npx wrangler deploy
+#
+# Free plan is 100,000 requests a day. A single reader polling every 30
+# seconds costs about 2,900, and the 15s edge cache means extra readers in the
+# same moment are nearly free — so this has room for a lot more traffic than
+# the map is ever likely to see.
+name = "capmetro"
+main = "worker.js"
+compatibility_date = "2026-09-10"
+
+# No KV, no secrets, no bindings. It reads one public URL and adds a header.
