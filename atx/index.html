@@ -844,6 +844,10 @@ function pop(color, tag, title, when, rows, extra) {
    Layer definitions
    Each load() resolves to: {lat,lng,t,cat,live,html}
    ══════════════════════════════════════════════════════════════════ */
+// workers/capmetro, deployed. See that directory for why a relay is needed
+// for this one feed and nothing else on the map.
+const CAPMETRO = 'https://capmetro.jessestrait.workers.dev';
+
 const LAYERS = [
   {
     id: 'firelive', group: 'recent', color: '#ffe14d', on: true,
@@ -898,6 +902,57 @@ const LAYERS = [
           ])
         };
       });
+    }
+  },
+  {
+    /* CapMetro, through the relay in workers/capmetro. It is the one feed
+       here that cannot be read straight from the page: data.texas.gov answers
+       /download with a 302 that carries no CORS header, and a redirect is
+       checked like every other hop, so the browser kills the chain before the
+       file. The blob uuid rotates on every publish, so pinning it is no
+       escape either. The relay adds the missing header and nothing else. */
+    id: 'transit', group: 'recent', color: '#a3e635', on: false,
+    name: 'Buses and trains', note: 'CapMetro, live',
+    // Wider than the rest: a lozenge with a route number in it needs the room,
+    // and the number is the whole point of the mark. A plain number, not a
+    // COARSE ternary — LAYERS is built before COARSE exists, and reading it
+    // here is a temporal-dead-zone error that takes the whole script with it.
+    // The touch bump is applied where the sprite is asked for.
+    glyphPx: 28,
+    glyphLabel: f => f.route || '',
+    async load() {
+      const j = await fetch(CAPMETRO + '/vehicles', { cache: 'no-store' })
+        .then(r => { if (!r.ok) throw new Error('relay ' + r.status); return r.json(); });
+      const at = +((j.header || {}).timestamp) || 0;
+      const out = [];
+      (j.entity || []).forEach(e => {
+        const v = e.vehicle || {}, p = v.position, trip = v.trip || {};
+        if (!p || p.latitude == null) return;
+        // In service only. Of 313 vehicles reporting, about a third are on a
+        // route and the rest are parked or deadheading; drawing the yard tells
+        // you where CapMetro keeps its buses, which is not the question.
+        const route = trip.routeId;
+        if (!route) return;
+        const t = +(v.timestamp) ? new Date(+v.timestamp * 1000) : null;
+        const mph = p.speed != null ? p.speed * 2.23694 : null;
+        out.push({
+          lat: +p.latitude, lng: +p.longitude, t, cat: 'Route ' + route, route: route,
+          html: pop('#a3e635', 'Route ' + route,
+            'Vehicle ' + ((v.vehicle || {}).label || (v.vehicle || {}).id || '?'),
+            t ? ago(t) : '', [
+              ['Route', route],
+              ['Heading', p.bearing != null ? Math.round(p.bearing) + '\u00b0' : null],
+              ['Speed', mph != null ? mph.toFixed(0) + ' mph' : null],
+              ['Trip', trip.tripId],
+              ['Reported', t ? t.toLocaleTimeString() : null]
+            ])
+        });
+      });
+      setNote(byId.transit, out.length
+        ? out.length + ' in service \u00b7 reported '
+          + (at ? Math.max(0, Math.round(Date.now() / 1000 - at)) + 's ago' : 'just now')
+        : 'CapMetro reports nothing in service');
+      return out;
     }
   },
   {
@@ -1269,6 +1324,26 @@ const GLYPH_ART = {
     // The only mark with a direction in it: the lens points somewhere.
     c.strokeRect(15, 19, 12, 10);
     poly(c, [[27, 22], [33, 19], [33, 29], [27, 26]]);
+  },
+
+  /* ── Vehicles ── */
+  // A third shape, because a bus is a third kind of thing. A ring is an event
+  // and a square is a place; this one is neither, and drawing it as either
+  // would say something untrue about it. A lozenge is also the shape a route
+  // number is printed in on the side of the bus and on every stop flag, so it
+  // arrives already meaning "route".
+  transit(c, label) {
+    rrect(c, 3, 14, 42, 20, 10);
+    if (!label) return;                 // in the yard, no route assigned
+    c.fillStyle = c.strokeStyle;
+    // Route numbers run one to four characters — 2, 20, 300, 803 — so the
+    // type shrinks rather than letting a long one push past the lozenge.
+    const n = String(label).length;
+    c.font = '700 ' + (n <= 2 ? 18 : n === 3 ? 15 : 12)
+           + 'px "JetBrains Mono", ui-monospace, monospace';
+    c.textAlign = 'center';
+    c.textBaseline = 'middle';
+    c.fillText(String(label), 24, 24.5);
   }
 };
 
@@ -1278,10 +1353,12 @@ const GLYPH_PX = COARSE ? 24 : 22;
 const GLYPH_STROKE = 1.7;          // css px, held constant across sizes
 const glyphCache = {};
 
-function glyphSprite(id, colour, px) {
+function glyphSprite(id, colour, px, label) {
   const size = px || GLYPH_PX;
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
-  const key = [id, colour, size, dpr].join('|');
+  // The label is part of the key: a route-numbered mark is a different
+  // bitmap per route, and there are about thirty of them running at once.
+  const key = [id, colour, size, dpr, label || ''].join('|');
   if (glyphCache[key]) return glyphCache[key];
 
   // A stroke straddles its path, so half of it falls outside the 48 grid.
@@ -1298,7 +1375,7 @@ function glyphSprite(id, colour, px) {
   c.lineWidth = GLYPH_STROKE / k;  // undo the scale, so weight is a screen fact
   c.lineJoin = 'round';
   c.lineCap = 'round';
-  GLYPH_ART[id](c);
+  GLYPH_ART[id](c, label);
 
   glyphCache[key] = { cv: cv, size: box };
   return glyphCache[key];
@@ -1556,8 +1633,12 @@ function markerFor(f, l) {
     fillColor: l.color, fillOpacity: f.place ? 0.2 : 0.72, opacity: 0.95
   };
   const m = GLYPH_ART[l.id]
-    ? new GlyphMarker([f.lat, f.lng],
-        L.extend({ sprite: glyphSprite(l.id, l.color), layerRef: l }, opts))
+    ? new GlyphMarker([f.lat, f.lng], L.extend({
+        sprite: glyphSprite(l.id, l.color,
+                            l.glyphPx && (COARSE ? l.glyphPx + 2 : l.glyphPx),
+                            l.glyphLabel ? l.glyphLabel(f) : null),
+        layerRef: l
+      }, opts))
     : L.circleMarker([f.lat, f.lng], opts);
   m.bindPopup(f.html, { maxWidth: 300, minWidth: 220 });
   return m;
@@ -5401,6 +5482,20 @@ setInterval(() => {
     fetchLayer(byId.traffic);
   }
 }, 120000);
+
+// The feed republishes about every 30 seconds and a bus covers half a mile in
+// a minute, so this is the one layer where a stale position is a wrong
+// position. Sixty seconds is the compromise: a refetch runs the whole marker
+// rebuild, which is affordable at a minute and would not be at thirty
+// seconds. Moving the markers in place instead of rebuilding them is the
+// proper fix and a bigger change than this one.
+setInterval(() => {
+  if (document.hidden) return;
+  if (byId.transit.on && !state.busy.transit) {
+    delete state.data.transit;
+    fetchLayer(byId.transit);
+  }
+}, 60000);
 </script>
 
 <script>
