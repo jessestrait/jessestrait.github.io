@@ -1,5 +1,5 @@
 {
- "captured_at": "2026-09-11T05:03:14Z",
+ "captured_at": "2026-09-11T05:33:30Z",
  "episodes": [
   {
    "customers_served": 10695,
@@ -8,10 +8,10 @@
    "first_seen": "2026-09-10T20:29:28Z",
    "id": "zip-78751-20260910T202928Z",
    "kind": "power_outage",
-   "last_seen": "2026-09-11T05:03:14Z",
+   "last_seen": "2026-09-11T05:33:30Z",
    "peak_customers_affected": 9,
    "peak_outages": 1,
-   "polls": 34,
+   "polls": 35,
    "scope": {
     "bbox": [
      -97.74306900068774,
@@ -25,51 +25,28 @@
    "source": "austin-energy/kubra"
   },
   {
-   "customers_served": 15246,
+   "customers_served": 20312,
    "ended": false,
-   "etr_last": "ETR-EXP",
-   "first_seen": "2026-09-10T20:59:34Z",
-   "id": "zip-78754-20260910T205934Z",
+   "etr_last": "2026-09-11T08:21:50Z",
+   "first_seen": "2026-09-11T05:33:30Z",
+   "id": "zip-78723-20260911T053330Z",
    "kind": "power_outage",
-   "last_seen": "2026-09-11T05:03:14Z",
+   "last_seen": "2026-09-11T05:33:30Z",
    "peak_customers_affected": 1,
    "peak_outages": 1,
-   "polls": 32,
+   "polls": 1,
    "scope": {
     "bbox": [
-     -97.68624920044316,
-     30.326059399623272,
-     -97.60251750023369,
-     30.406215999145722
+     -97.71419300010275,
+     30.282570399513812,
+     -97.66067200047847,
+     30.325621998609936
     ],
-    "id": "78754",
-    "type": "zip"
-   },
-   "source": "austin-energy/kubra"
-  },
-  {
-   "customers_served": 289,
-   "ended": false,
-   "etr_last": "2026-09-11T07:01:00Z",
-   "first_seen": "2026-09-11T01:16:40Z",
-   "id": "zip-78719-20260911T011640Z",
-   "kind": "power_outage",
-   "last_seen": "2026-09-11T05:03:14Z",
-   "peak_customers_affected": 4,
-   "peak_outages": 1,
-   "polls": 15,
-   "scope": {
-    "bbox": [
-     -97.69695499949906,
-     30.067870299174345,
-     -97.63871529934852,
-     30.220306999599796
-    ],
-    "id": "78719",
+    "id": "78723",
     "type": "zip"
    },
    "source": "austin-energy/kubra"
   }
  ],
- "source_published": "2026-09-11T04:56:57Z"
+ "source_published": "2026-09-11T05:32:24Z"
 }
