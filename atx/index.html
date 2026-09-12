@@ -1402,22 +1402,34 @@ const GLYPH_ART = {
 
   /* ── Vehicles ── */
   // A third shape, because a bus is a third kind of thing. A ring is an event
-  // and a square is a place; this one is neither, and drawing it as either
-  // would say something untrue about it. A lozenge is also the shape a route
-  // number is printed in on the side of the bus and on every stop flag, so it
-  // arrives already meaning "route".
+  // and a square is a place; a vehicle is neither, and drawing it as either
+  // would say something untrue.
+  //
+  // The mark is the front of the bus, seen head-on: domed roof, the route in
+  // the destination blind where a real one carries it, grill and headlights
+  // below. It was chosen over a grill alone — which is the better-looking
+  // mark — because a transit layer without the route number answers the
+  // wrong question. "Which bus is that" is the whole reason to look.
   transit(c, label) {
-    rrect(c, 3, 14, 42, 20, 10);
-    if (!label) return;                 // in the yard, no route assigned
+    rrect(c, 10, 7, 28, 34, 7);
+    // Grill and headlights carry "vehicle" on their own, so they are drawn
+    // whether or not a route came through.
+    poly(c, [[15, 26], [33, 26]]);
+    poly(c, [[15, 31], [33, 31]]);
     c.fillStyle = c.strokeStyle;
-    // Route numbers run one to four characters — 2, 20, 300, 803 — so the
-    // type shrinks rather than letting a long one push past the lozenge.
+    c.beginPath(); c.arc(16, 37, 2, 0, Math.PI * 2); c.fill();
+    c.beginPath(); c.arc(32, 37, 2, 0, Math.PI * 2); c.fill();
+    if (!label) return;                 // in the yard, no route assigned
+    // The blind is 28 units wide with the stroke taken off, so type is sized
+    // to the longest route that has to fit rather than to a fixed guess:
+    // 2 and 20 get the full size, 803 and 985 step down, a four-character
+    // route steps down again rather than pushing out past the body.
     const n = String(label).length;
-    c.font = '700 ' + (n <= 2 ? 18 : n === 3 ? 15 : 12)
+    c.font = '700 ' + (n <= 2 ? 16 : n === 3 ? 13 : 10)
            + 'px "JetBrains Mono", ui-monospace, monospace';
     c.textAlign = 'center';
     c.textBaseline = 'middle';
-    c.fillText(String(label), 24, 24.5);
+    c.fillText(String(label), 24, 17);
   }
 };
 
