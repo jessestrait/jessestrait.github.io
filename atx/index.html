@@ -140,6 +140,14 @@ a{color:var(--accent-hi)}
   content:''; position:absolute; left:4px; top:1px; width:4px; height:8px;
   border:solid #08111d; border-width:0 2px 2px 0; transform:rotate(43deg);
 }
+/* A button, so it is reachable by keyboard and announced as an action, but
+   set as a link because it sits mid-sentence. */
+.linkish{
+  background:none; border:0; padding:0; font:inherit; color:var(--accent-hi);
+  text-decoration:underline; text-underline-offset:2px; cursor:pointer;
+}
+.linkish:hover{color:var(--text)}
+
 .row .swatch{width:8px;height:8px;border-radius:50%;background:var(--k);flex:0 0 8px;box-shadow:0 0 7px var(--k)}
 /* A layer that has a mark shows the mark instead of the chip. background-size
    has to come after the background shorthand or the shorthand resets it. */
@@ -266,7 +274,14 @@ dl.mecard a{color:var(--accent-hi)}
 .leaflet-container{background:#0a0e16; font-family:'DM Sans',sans-serif}
 /* Esri's canvas is a warm mid-gray; tint each tile image (not the pane — a pane
    filter breaks canvas compositing) down into the site's navy. */
-.leaflet-tile-pane .leaflet-tile{filter:brightness(.62) contrast(1.18) saturate(.9) sepia(.45) hue-rotate(172deg)}
+/* Esri's Dark Gray Canvas is a mid-grey map, not a dark one, and the first
+   pass at this lifted its darkest tone to about #14181d — a washed charcoal
+   that the cloud layer then lifted further. More contrast and less brightness
+   crushes the base tones to true black while leaving roads and water legible;
+   less sepia because that was adding a warm haze the hue-rotate never fully
+   removed. The reference tiles carrying place names ride in their own pane
+   and are not filtered, so none of this costs label legibility. */
+.leaflet-tile-pane .leaflet-tile{filter:brightness(.55) contrast(1.4) saturate(.85) sepia(.3) hue-rotate(175deg)}
 .leaflet-label2-pane{opacity:.68}
 
 /* ── Headline ticker ─────────────────────────────────────────
@@ -632,9 +647,15 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
     <div class="sec" style="border-bottom:0">
       <h3>Source</h3>
       <p class="hint" style="margin-bottom:0">
-        Every point comes straight from
+        Most points come from
         <a href="https://data.austintexas.gov/" target="_blank" rel="noopener">data.austintexas.gov</a>
-        over the Socrata API — nothing is cached or stored here. Built by
+        over the Socrata API, fetched by your browser as you look at them. The rest
+        come from the city's GeoHub, NOAA, Austin Energy, CapMetro and TomTom &mdash;
+        <button class="linkish" id="aboutsrc">the full list is in About the data</button>.
+        <br><br>
+        Nothing about you is recorded, and no live feed is cached. Two things
+        <em>are</em> written down, deliberately: power outages and headlines, because
+        neither is published as history and it would otherwise not exist. Built by
         <a href="/">Jesse Strait</a>.
       </p>
       <button class="iconbtn" id="sharebtn" style="width:100%;margin-top:.8rem">Copy link to this view</button>
@@ -720,12 +741,30 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
         is not. TomTom is the one vendor whose terms allow their traffic over someone else's
         basemap; Google's renders only on a Google map and their terms forbid it elsewhere, which
         would have meant discarding everything this page is built on.</li>
-      <li><b>Rain and cloud</b> &mdash; raster tiles from <b>Iowa State's mesonet cache</b>:
-        the NOAA <b>NEXRAD</b> composite for rain, <b>GOES East infrared</b> for cloud. Free, no key,
-        five-minute cache, and both sit under everything else because they are backdrop &mdash; the
-        question is what is happening <em>under</em> the weather. Infrared rather than visible
-        satellite on purpose: visible light is reflected sunlight, so that product is black for half
-        of every day, and cloud at 2am is exactly when you would want to look.</li>
+      <li><b>Rain</b> &mdash; NOAA's <b>base reflectivity</b> ImageServer, which is time-enabled:
+        each read asks for a narrow window at the end of its extent, because a request with no time
+        on it returns the whole two-hour archive composited into one image, and three quarters of
+        that rain has already fallen. None of the imagery is ever drawn. 565&nbsp;m pixels are a
+        fact about the instrument rather than about the weather, so the reflectivity is read as a
+        density field and the map draws falling drops through it instead.</li>
+      <li><b>Cloud</b> &mdash; <b>GOES East infrared</b> through Iowa State's mesonet WMS. Same
+        treatment for a stronger reason: at 4&nbsp;km a pixel is half of downtown, so it is drifting
+        puffs sampled from the field, moving on the wind the Camp Mabry station actually reports.
+        Infrared rather than visible on purpose &mdash; visible light is reflected sunlight, so that
+        product is black for half of every day, and cloud at 2am is exactly when you would look.
+        In infrared, brighter means colder means higher cloud top.</li>
+      <li><b>Buses and trains</b> &mdash; <b>CapMetro</b> GTFS-realtime, about a hundred vehicles in
+        service across thirty routes, reported within thirty seconds. This is the one feed the page
+        cannot read directly: data.texas.gov answers with a redirect that carries no CORS header,
+        and the file it points at rotates its name on every publish, so a small relay adds the
+        missing header and changes nothing else. Vehicles in the yard are left off &mdash; where
+        CapMetro parks is not the question.</li>
+      <li><b>Power history</b> &mdash; outage state is not published as history anywhere, so a
+        scheduled job here writes it down every quarter hour and the page reads that archive back:
+        how long each ZIP was dark, and whether Austin Energy restored by the time it had published.
+        Joined to census demographics by ZIP to ask whether the parts of town that stay dark longest
+        are also the poorest &mdash; with the caveat, stated on the panel, that a few days of
+        archive cannot answer that yet.</li>
       <li><b>Current conditions</b> &mdash; the <b>Camp Mabry</b> station (KATT) through
         api.weather.gov, which is the central Austin reading the city itself quotes, falling back to
         Austin-Bergstrom if it goes quiet. It rides in the news ticker every few headlines rather
@@ -911,7 +950,7 @@ const LAYERS = [
        checked like every other hop, so the browser kills the chain before the
        file. The blob uuid rotates on every publish, so pinning it is no
        escape either. The relay adds the missing header and nothing else. */
-    id: 'transit', group: 'recent', color: '#a3e635', on: false,
+    id: 'transit', group: 'recent', color: '#a3e635', on: true,
     name: 'Buses and trains', note: 'CapMetro, live',
     // Wider than the rest: a lozenge with a route number in it needs the room,
     // and the number is the whole point of the mark. A plain number, not a
@@ -1181,6 +1220,41 @@ L.control.zoom({ position: 'bottomright' }).addTo(map);
 // choropleth goes below that and everything else stacks above it.
 const PANES = { cloudPane: 232, radarPane: 240, trafficPane: 250, groundPane: 330, districtPane: 350, labelPane2: 460, alertPane: 470, dotPane: 490, livePane: 520 };
 Object.entries(PANES).forEach(([p, z]) => { map.createPane(p).style.zIndex = z; });
+/* Leaflet's canvas renderer resolves a click by walking its layers in draw
+   order and keeping the LAST one whose hit area contains the point. With
+   plain dots that was nearly always the right answer, because a 3.6px dot
+   plus the touch tolerance is a small target and overlaps were rare.
+
+   Marks made it wrong. A promoted mark is a 26px box, so its hit area is 13px
+   plus 14px of touch tolerance — a 54px-wide target — and those overlap
+   constantly in a dense view. "Last in draw order" then means the layer
+   latest in LAYERS wins every contested tap, so a traffic camera two
+   centimetres away silently swallows the fire incident you aimed at. It
+   presents as taps that do nothing or open the wrong thing, sporadically,
+   which is exactly the sort of bug that is impossible to pin down by feel.
+
+   Nearest wins instead. The target stays big — shrinking it would trade one
+   problem for a worse one on a phone — but ties go to whatever is genuinely
+   closest to the finger. */
+const NearestCanvas = L.Canvas.extend({
+  _onClick: function (e) {
+    const point = this._map.mouseEventToLayerPoint(e);
+    let best = null, bestD = Infinity;
+    for (let order = this._drawFirst; order; order = order.next) {
+      const layer = order.layer;
+      if (!layer.options.interactive || !layer._containsPoint(point)) continue;
+      // Leaflet's own guard: a click that was really the end of a drag should
+      // not select anything.
+      if ((e.type === 'click' || e.type === 'preclick')
+          && this._map._draggableMoved(layer)) continue;
+      const d = layer._point ? point.distanceTo(layer._point) : 0;
+      if (d < bestD) { bestD = d; best = layer; }
+    }
+    this._fireEvent(best ? [best] : false, e);
+  }
+});
+const nearestCanvas = opts => new NearestCanvas(opts);
+
 // Leaflet detaches a renderer when its last path is removed, so each redraw gets a fresh one.
 let dotRenderer = null;
 // A 4px dot is an impossible target with a fingertip. The canvas renderer can
@@ -1659,7 +1733,7 @@ function renderNow() {
 
   updatePromotions(vis);
 
-  dotRenderer = L.canvas({ pane: 'dotPane', padding: 0.35, tolerance: HIT_TOLERANCE }).addTo(map);
+  dotRenderer = nearestCanvas({ pane: 'dotPane', padding: 0.35, tolerance: HIT_TOLERANCE }).addTo(map);
   dotLayer = L.layerGroup([], { pane: 'dotPane' });
   vis.forEach(({ f, l }) => {
     if (f.live) return;
@@ -1858,7 +1932,7 @@ document.getElementById('crimeyear').addEventListener('change', e => {
    server-simplified, so they land as small static files. They render
    beneath the choropleth and the points.
    ══════════════════════════════════════════════════════════════════ */
-const groundRenderer = L.canvas({ pane: 'groundPane', padding: 0.35, tolerance: HIT_TOLERANCE });
+const groundRenderer = nearestCanvas({ pane: 'groundPane', padding: 0.35, tolerance: HIT_TOLERANCE });
 
 // Public Works grades every segment A-F off a measured roughness index.
 const STREET_COLOR = { A: '#2ecc71', B: '#9ad14b', C: '#ffd166', D: '#ff9d2e', F: '#ff4d4d' };
@@ -4965,6 +5039,41 @@ async function loadAlerts() {
   }
 }
 
+/* A heat advisory is issued for the whole county, so its polygon is the
+   whole map — and a gold wash over everything, all night, tells you nothing
+   you did not already know from the banner. The fill is only informative
+   while you can see the edge of it; once you are zoomed inside the shape it
+   is just a tint on the data.
+
+   So the fill fades out as you go in and is gone by the time the shape is
+   bigger than the view. The outline stays, because when it is on screen it
+   is the actual information: where the warning stops. */
+const WX_FILL_ZOOM = 12;
+function wxStyle(c, fromZone) {
+  const on = map.getZoom() < WX_FILL_ZOOM;
+  return {
+    color: c, weight: on ? 2 : 1.6, opacity: 0.95,
+    dashArray: fromZone ? '5,4' : null,
+    fillColor: c,
+    fillOpacity: on ? (fromZone ? 0.1 : 0.18) : 0
+  };
+}
+
+// Restyle rather than redraw: the geometry has not changed, only how much of
+// it should be painted.
+function restyleAlerts() {
+  if (!WX.layer) return;
+  WX.layer.eachLayer(g => {
+    if (!g.eachLayer) return;
+    g.eachLayer(p => {
+      const c = (p.options && p.options.fillColor) || WX_COLOR.Unknown;
+      const dashed = !!(p.options && p.options.dashArray);
+      if (p.setStyle) p.setStyle(wxStyle(c, dashed));
+    });
+  });
+}
+map.on('zoomend', restyleAlerts);
+
 function drawAlerts() {
   if (WX.layer) { map.removeLayer(WX.layer); WX.layer = null; }
   const withGeom = WX.alerts.filter(a => a.geometry);
@@ -4975,10 +5084,7 @@ function drawAlerts() {
     const c = WX_COLOR[a.p.severity] || WX_COLOR.Unknown;
     L.geoJSON({ type: 'Feature', geometry: a.geometry, properties: {} }, {
       pane: 'alertPane',
-      style: {
-        color: c, weight: 2, opacity: 0.95, dashArray: a.fromZone ? '5,4' : null,
-        fillColor: c, fillOpacity: a.fromZone ? 0.1 : 0.18
-      }
+      style: wxStyle(c, a.fromZone)
     }).bindPopup(pop(c, a.p.severity + ' · ' + (a.p.event || 'Alert'),
       a.p.event || 'Weather alert', wxWhen(a.p), [
         ['Where', a.p.areaDesc],
@@ -5140,7 +5246,10 @@ function onViewChanged() {
 map.on('moveend', onViewChanged);
 map.on('zoomend', onViewChanged);
 
-document.getElementById('aboutbtn').onclick = () => document.getElementById('about').classList.add('on');
+const openAbout = () => document.getElementById('about').classList.add('on');
+document.getElementById('aboutbtn').onclick = openAbout;
+// The Source paragraph points at the full list rather than repeating it.
+document.getElementById('aboutsrc').onclick = openAbout;
 document.getElementById('aboutclose').onclick = () => document.getElementById('about').classList.remove('on');
 document.getElementById('about').addEventListener('click', e => {
   if (e.target.id === 'about') e.currentTarget.classList.remove('on');
