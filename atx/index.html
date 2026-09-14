@@ -706,7 +706,7 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
       <li><b>Issued construction permits</b> — <code>3syk-w9eu</code>, with job valuation and contractor.</li>
       <li><b>Crashes</b> — <code>y2wy-tgr5</code>, the Vision Zero record. Runs a couple of weeks behind.</li>
       <li><b>Live fire incidents</b> — <code>wpu4-x69d</code>, the same CTECC dispatch feed
-        as the traffic layer, refreshed every five minutes. Fire, rescue and hazmat; no medical
+        as the traffic layer, both re-read every two minutes. Fire, rescue and hazmat; no medical
         calls, which the city withholds under HIPAA. Pulsing pins are still open right now.</li>
       <li><b>Power outages</b> &mdash; Austin Energy, through the KUBRA feed behind
         their public outage map. It reports by ZIP rather than by outage, so the shapes are the
@@ -4716,7 +4716,24 @@ document.getElementById('modes').addEventListener('click', e => {
    ══════════════════════════════════════════════════════════════════ */
 const TOMTOM_KEY = 'vDrFhDUIcrFG8rG8AmYZKepJiJqVIGSR';
 
-const TRAFFIC = { on: false, layer: null, errors: 0, timer: null };
+/* Flow tiles are the one metered thing on this map, and the meter is per
+   tile rather than per view. TomTom also sends
+   `cache-control: no-store`, so nothing is ever reused — pan away and back
+   and every tile is bought again.
+
+   At the old five-minute refresh a single open tab spent about 300 tiles an
+   hour, 3,600 over a working day, before any panning. A laptop left open
+   overnight went through the daily allowance on its own, which is what
+   "the layer just dropped" was. Twelve minutes, and no refresh at all once
+   nobody has touched the map for twenty, brings that to something a free
+   key survives. Flow data is not granular enough for five minutes to have
+   been buying anything. */
+const TRAFFIC = { on: false, layer: null, errors: 0, timer: null, tiles: 0 };
+const TRAFFIC_REFRESH = 720000;   // 12 minutes
+const TRAFFIC_IDLE = 1200000;     // stop refreshing after 20 minutes untouched
+let lastTouch = Date.now();
+['mousedown', 'touchstart', 'keydown', 'wheel'].forEach(ev =>
+  addEventListener(ev, () => { lastTouch = Date.now(); }, { passive: true }));
 // Congestion is on when the page opens: it is the one layer that is useful
 // before you have touched anything. Every load costs TomTom tiles, so this
 // is the knob to turn back off if the monthly allowance ever gets tight.
@@ -4748,8 +4765,8 @@ function trafficOn(on) {
   if (!TOMTOM_KEY) {
     TRAFFIC.on = false;
     if (row) row.querySelector('input').checked = false;
-    setTrafficNote('Needs a TomTom key &mdash; free, 200k tiles a month. Drop one into '
-      + '<code>TOMTOM_KEY</code> at the top of the script.', true);
+    setTrafficNote('Needs a TomTom key &mdash; free, and counted per tile. Drop one '
+      + 'into <code>TOMTOM_KEY</code> at the top of the script.', true);
     return;
   }
 
@@ -4758,24 +4775,39 @@ function trafficOn(on) {
     pane: 'trafficPane', maxZoom: 22, opacity: 0.85, t: Date.now(),
     attribution: 'Traffic &copy; <a href="https://www.tomtom.com/">TomTom</a>'
   });
+  // Counted, because the allowance is counted in tiles and there is otherwise
+  // no way to see what a session costs until it stops working.
+  TRAFFIC.layer.on('tileload', () => {
+    TRAFFIC.tiles++;
+    if (TRAFFIC.tiles % 250 === 0) {
+      setTrafficNote('Congestion under the incident pins. '
+        + TRAFFIC.tiles.toLocaleString() + ' TomTom tiles this session.');
+    }
+  });
   // Quota exhaustion or a bad key comes back as tile errors, not an exception.
   TRAFFIC.layer.on('tileerror', () => {
     if (++TRAFFIC.errors < 6 || !TRAFFIC.on) return;
     trafficOn(false);
-    setTrafficNote('TomTom stopped serving tiles &mdash; usually the monthly free '
-      + 'allowance, which resets. The rest of the map is unaffected.', true);
+    setTrafficNote('TomTom stopped serving tiles after ' + TRAFFIC.tiles.toLocaleString()
+      + ' this session &mdash; almost always the free allowance, which is counted '
+      + 'per tile and resets daily. Tick it back on tomorrow. The rest of the map '
+      + 'is unaffected.', true);
   });
   TRAFFIC.layer.addTo(map);
-  setTrafficNote('Live from TomTom &middot; refreshed every 5 minutes');
+  setTrafficNote('Live from TomTom &middot; refreshed every '
+    + (TRAFFIC_REFRESH / 60000) + ' minutes while you are here');
 
   // Flow changes by the minute, but every refresh re-requests tiles, so keep
   // it slow and never do it into a tab nobody is looking at.
   clearInterval(TRAFFIC.timer);
   TRAFFIC.timer = setInterval(() => {
     if (document.hidden || !TRAFFIC.layer) return;
+    // Nobody is looking. The tiles on screen are still there and still
+    // readable; they simply stop being repurchased until someone comes back.
+    if (Date.now() - lastTouch > TRAFFIC_IDLE) return;
     TRAFFIC.layer.options.t = Date.now();
     TRAFFIC.layer.setUrl(trafficUrl(), false);
-  }, 300000);
+  }, TRAFFIC_REFRESH);
   if (window.syncModes) syncModes();
 }
 
@@ -6078,12 +6110,14 @@ setInterval(() => { if (!document.hidden) loadNews(true); }, 420000);
 // Observations land about every twenty minutes; the ticker repaints with them.
 setInterval(async () => { if (document.hidden) return; await loadConditions().catch(() => {}); paintTicker(); }, 600000);
 
+// Both halves of the CTECC dispatch feed, not just the one. Fire was never
+// in here, so live fire incidents sat frozen from page load until something
+// else forced a redraw — while the About text claimed they refreshed.
 setInterval(() => {
   if (document.hidden) return;
-  if (byId.traffic.on && !state.busy.traffic) {
-    delete state.data.traffic;
-    fetchLayer(byId.traffic);
-  }
+  ['traffic', 'firelive'].forEach(id => {
+    if (byId[id].on && !state.busy[id]) { delete state.data[id]; fetchLayer(byId[id]); }
+  });
 }, 120000);
 
 // The feed republishes about every 30 seconds and a bus covers half a mile in
