@@ -1,8 +1,11 @@
 /**
- * CapMetro GTFS-realtime, made readable from a browser.
+ * A relay for the handful of Austin feeds a browser cannot read itself.
  *
- * Why this exists at all, since every other feed on the map is fetched
- * straight from the page:
+ * Named capmetro because that was the first one. Everything here has the
+ * same shape of problem: the data is public, free, and one header away from
+ * being usable from a static page.
+ *
+ * The CapMetro case, which set the pattern:
  *
  * data.texas.gov serves these files from `/download/<id>/...`, which answers
  * 302 and points at a blob under `/api/views/<id>/files/<uuid>`. The blob has
@@ -33,20 +36,55 @@ const FEEDS = {
   vehicles: {
     url: 'https://data.texas.gov/download/cuc7-ywmd/text%2Fplain',
     type: 'application/json; charset=utf-8',
+    // Republishes about every 30 seconds, measured at 28 seconds old on a
+    // live fetch, so half a cycle is the most anyone sees.
+    ttl: 15,
   },
   // Trip updates are published only as protobuf, so this one is bytes and the
   // caller needs a decoder. Here because it costs nothing to route.
   trips: {
     url: 'https://data.texas.gov/download/rmk2-acnw/application%2Foctet-stream',
     type: 'application/octet-stream',
+    ttl: 20,
+  },
+  /* ADS-B positions. No CORS header at all, rather than a redirect that
+     drops it. 40 nautical miles covers the approach and departure corridors
+     either side of AUS as well as the county.
+
+     Two upstreams, tried in order, because the obvious one does not want
+     this traffic: adsb.fi answers a laptop happily and returns 403 to
+     Cloudflare, which is a deliberate block on datacenter addresses rather
+     than a fault, and rate-limits hard besides (429 on a second call seconds
+     later). adsb.lol serves the same readsb payload and does not object. The
+     fallback is kept so a bad day at one does not take the layer down —
+     note the response shapes differ, `ac` here against `aircraft` there. */
+  aircraft: {
+    urls: [
+      'https://api.adsb.lol/v2/lat/30.27/lon/-97.74/dist/40',
+      'https://opendata.adsb.fi/api/v2/lat/30.27/lon/-97.74/dist/40',
+    ],
+    type: 'application/json; charset=utf-8',
+    ttl: 10,
+  },
+  // FAA national airspace status. XML, no CORS. Almost always says nothing
+  // about Austin, which is the point — it is an exception feed.
+  faa: {
+    url: 'https://nasstatus.faa.gov/api/airport-status-information',
+    type: 'application/xml; charset=utf-8',
+    ttl: 120,
+  },
+  // LCRA hydromet. This one does send a CORS header and it is
+  // access-control-allow-origin: https://www.lcra.org, which is worse than
+  // sending none: a browser reads it, sees someone else's origin, and
+  // refuses. A Worker is not a browser and the rule does not apply.
+  lcra: {
+    url: 'https://hydromet.lcra.org/api/GetDataForAllSites',
+    type: 'application/json; charset=utf-8',
+    ttl: 300,
   },
 };
 
-// The feed republishes about every 30 seconds — measured at 28 seconds old on
-// a live fetch. Fifteen seconds at the edge means a busy moment costs the
-// upstream one request rather than one per viewer, and no reader ever sees
-// anything more than half a cycle stale.
-const EDGE_TTL = 15;
+const DEFAULT_TTL = 30;
 
 const CORS = {
   'access-control-allow-origin': '*',
@@ -54,13 +92,17 @@ const CORS = {
   'access-control-max-age': '86400',
 };
 
-const INDEX = `CapMetro GTFS-realtime relay
+const INDEX = `Austin feed relay
 
-  /vehicles   live vehicle positions, GTFS-realtime JSON
-  /trips      trip updates, GTFS-realtime protobuf
+  /vehicles   CapMetro vehicle positions, GTFS-realtime JSON
+  /trips      CapMetro trip updates, GTFS-realtime protobuf
+  /aircraft   ADS-B traffic within 40 nm of downtown
+  /faa        FAA national airspace status, XML
+  /lcra       LCRA hydromet, every gauge in the basin
 
-Upstream is data.texas.gov. This adds the CORS header its redirect omits and
-caches ${EDGE_TTL}s at the edge. It changes nothing else about the payload.
+Each of these is public and free and unreadable from a browser, for a
+different reason. This adds the missing header and changes nothing else
+about the payload.
 `;
 
 export default {
@@ -81,7 +123,7 @@ export default {
 
     const feed = FEEDS[path];
     if (!feed) {
-      return new Response(`No feed called "${path}". Try /vehicles or /trips.`,
+      return new Response(`No feed called "${path}". Try one of: ${Object.keys(FEEDS).join(', ')}.`,
         { status: 404, headers: { ...CORS, 'content-type': 'text/plain; charset=utf-8' } });
     }
 
@@ -109,17 +151,30 @@ export default {
       // Cache unavailable is not a reason to fail the request.
     }
 
-    let upstream;
-    try {
-      // redirect:'follow' is the default and is the entire point: the Worker
-      // follows the 302 the browser refuses to, because CORS is a browser
-      // rule and does not apply here.
-      upstream = await fetch(feed.url, {
-        redirect: 'follow',
-        headers: { 'user-agent': 'jessestrait.com/atx map relay' },
-      });
-    } catch (e) {
-      return new Response(`Upstream unreachable: ${e}`, {
+    // redirect:'follow' is the default and is the entire point: the Worker
+    // follows the 302 the browser refuses to, because CORS is a browser rule
+    // and does not apply here.
+    const tries = feed.urls || [feed.url];
+    let upstream = null;
+    // Every attempt, not just the last: with a fallback chain, "the last one
+    // failed" tells you almost nothing about why the route is down.
+    const errs = [];
+    for (const u of tries) {
+      try {
+        const r = await fetch(u, {
+          redirect: 'follow',
+          // Identifying, because some of these ask politely for it and one of
+          // them (airplanes.live) refuses outright without it.
+          headers: { 'user-agent': 'jessestrait.com/atx map relay (contact via jessestrait.com)' },
+        });
+        if (r.ok) { upstream = r; break; }
+        errs.push(`${u.split('/')[2]} -> ${r.status}`);
+      } catch (e) {
+        errs.push(`${u.split('/')[2]} -> ${e}`);
+      }
+    }
+    if (!upstream) {
+      return new Response(`No upstream answered. ${errs.join(' | ')}`, {
         status: 502,
         headers: { ...CORS, 'content-type': 'text/plain; charset=utf-8' },
       });
@@ -139,7 +194,7 @@ export default {
       headers: {
         ...CORS,
         'content-type': feed.type,
-        'cache-control': `public, max-age=${EDGE_TTL}`,
+        'cache-control': `public, max-age=${feed.ttl || DEFAULT_TTL}`,
         'x-relay-cache': 'miss',
       },
     });

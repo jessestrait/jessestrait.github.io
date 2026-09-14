@@ -583,6 +583,11 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
       <div id="crimetop"></div>
     </div>
 
+    <div class="sec" id="regionsec">
+      <h3>Around the region</h3>
+      <div id="regionbody"></div>
+    </div>
+
     <div class="sec" id="pwrsec">
       <h3>Power history</h3>
       <div class="seg" id="pwrmode">
@@ -885,7 +890,10 @@ function pop(color, tag, title, when, rows, extra) {
    ══════════════════════════════════════════════════════════════════ */
 // workers/capmetro, deployed. See that directory for why a relay is needed
 // for this one feed and nothing else on the map.
-const CAPMETRO = 'https://capmetro.jessestrait.workers.dev';
+const RELAY = 'https://capmetro.jessestrait.workers.dev';
+// Kept as an alias: the relay is named for the first feed it carried, and
+// the transit layer still reads best saying CAPMETRO.
+const CAPMETRO = RELAY;
 
 /* USGS instantaneous values. Stage (00065) and discharge (00060) for every
    active gauge in the metro box, refreshed by them every fifteen minutes.
@@ -2553,6 +2561,141 @@ async function loadOutages(g, badge) {
   } finally {
     OUTAGE.busy = false;
   }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   Around the region — two readings that are not map layers.
+
+   Neither of these belongs on the map. An airport delay has no location
+   worth drawing, and the Highland Lakes are a hundred kilometres
+   upstream and off the edge of every view this page ever shows. They
+   are here because they are the two things about the wider region an
+   Austinite actually checks.
+
+   Both come through the relay: the FAA sends no CORS header, and LCRA
+   sends one naming www.lcra.org, which is worse than none — the
+   browser reads it, sees an origin that is not yours, and refuses.
+   ══════════════════════════════════════════════════════════════════ */
+const REGION = { busy: false, faa: null, lakes: null, at: null };
+
+/* The FAA feed is a flat list of delay programmes, each holding airports.
+   Rather than model every programme type, this walks whatever came back and
+   keeps any entry naming AUS, with the programme's own name as the heading.
+   Almost always finds nothing, which is the healthy state. */
+function faaForAustin(xmlText) {
+  let doc;
+  try { doc = new DOMParser().parseFromString(xmlText, 'application/xml'); }
+  catch (e) { return null; }
+  if (!doc || doc.querySelector('parsererror')) return null;
+  const out = [];
+  doc.querySelectorAll('Delay_type').forEach(dt => {
+    const kind = (dt.querySelector('Name') || {}).textContent || 'Delay';
+    dt.querySelectorAll('*').forEach(node => {
+      const arpt = node.querySelector && node.querySelector(':scope > ARPT');
+      if (!arpt || arpt.textContent.trim() !== 'AUS') return;
+      const rows = [];
+      Array.from(node.children).forEach(ch => {
+        if (ch.tagName === 'ARPT') return;
+        const v = (ch.textContent || '').trim();
+        if (v) rows.push([ch.tagName.replace(/_/g, ' '), v]);
+      });
+      out.push({ kind: kind.trim(), rows: rows });
+    });
+  });
+  return out;
+}
+
+async function loadRegion() {
+  if (REGION.busy) return;
+  REGION.busy = true;
+  try {
+    const [faaTxt, lcra] = await Promise.all([
+      fetch(RELAY + '/faa').then(r => r.ok ? r.text() : null).catch(() => null),
+      fetch(RELAY + '/lcra').then(r => r.ok ? r.json() : null).catch(() => null)
+    ]);
+    REGION.faa = faaTxt ? faaForAustin(faaTxt) : null;
+    if (Array.isArray(lcra)) {
+      /* Only the lakes, only the ones reporting an elevation — and then two
+         corrections the raw feed needs.
+
+         First, siteType is not reliable: "Lometa 2 WNW" is typed as a lake
+         and reads 1390 ft, which is a hill in Lampasas County rather than a
+         body of water. Requiring the word Lake in the name drops it.
+
+         Second, a lake is measured at several bridges — LBJ appears three
+         times, Austin twice — and listing each gauge separately reads as
+         several lakes rather than one. They are collapsed to the lake, with
+         the readings averaged; across LBJ's three the spread is 0.06 ft, so
+         nothing is lost by it. */
+      const by = {};
+      lcra.forEach(r => {
+        if (r.siteType !== 'lake' || !r.stage || !isFinite(+r.stage)) return;
+        // LCRA puts a line break in some names to stack them on their own map.
+        const full = String(r.siteName).replace(/<br\s*\/?>/gi, ' ').replace(/\s+/g, ' ').trim();
+        const lake = full.split(/\s+(?:at|near|below|above)\s+/i)[0].trim();
+        if (!/lake/i.test(lake)) return;
+        const b = by[lake] || (by[lake] = { name: lake, sum: 0, n: 0, t: null });
+        b.sum += +r.stage;
+        b.n++;
+        const t = r.dateTime ? new Date(r.dateTime) : null;
+        if (t && (!b.t || t > b.t)) b.t = t;
+      });
+      REGION.lakes = Object.values(by)
+        .map(b => ({ name: b.name, ft: b.sum / b.n, gauges: b.n, t: b.t }))
+        // Highest first, which for the Highland Lakes is also upstream first.
+        .sort((a, b) => b.ft - a.ft);
+    }
+    REGION.at = new Date();
+  } catch (e) {
+    console.error(e);
+  } finally {
+    REGION.busy = false;
+    renderRegion();
+  }
+}
+
+function renderRegion() {
+  const box = document.getElementById('regionbody');
+  if (!box) return;
+  if (!REGION.at && REGION.busy) {
+    box.innerHTML = '<p class="hint" style="margin:.5rem 0 0">Checking…</p>';
+    return;
+  }
+  let html = '';
+
+  const f = REGION.faa;
+  if (f === null) {
+    html += '<p class="hint" style="margin:.5rem 0 .2rem">Could not reach the FAA.</p>';
+  } else if (!f.length) {
+    html += '<div class="stat"><span class="k">Austin-Bergstrom</span>'
+          + '<span class="v" style="color:#4de3a0;font-size:.8rem">No delays</span></div>';
+  } else {
+    f.forEach(x => {
+      html += '<div class="stat"><span class="k">AUS \u00b7 ' + esc(x.kind)
+            + '</span><span class="v" style="color:#ffb570;font-size:.8rem">Active</span></div>'
+            + x.rows.map(r => '<p class="hint" style="margin:0 0 .2rem">'
+                + esc(r[0]) + ': ' + esc(r[1]) + '</p>').join('');
+    });
+  }
+
+  const lk = REGION.lakes;
+  if (lk && lk.length) {
+    html += '<label class="mini" style="display:block;margin-top:.9rem">'
+          + 'Highland Lakes, feet above sea level</label>';
+    // Highest first, which is also upstream first: Buchanan at the top of the
+    // chain down to Lady Bird in the middle of town.
+    lk.forEach(x => {
+      html += '<div class="stat"><span class="k">' + esc(x.name)
+            + (x.gauges > 1 ? ' <span style="color:var(--muted)">\u00b7 ' + x.gauges
+               + ' gauges</span>' : '')
+            + '</span><span class="v">' + x.ft.toFixed(2) + '</span></div>';
+    });
+    html += '<p class="hint" style="margin:.4rem 0 0">Lake Travis reports through '
+          + 'Mansfield Dam, which publishes no elevation on this feed. '
+          + (REGION.at ? 'Read ' + ago(REGION.at) + '.' : '') + '</p>';
+  }
+
+  box.innerHTML = html || '<p class="empty">Nothing to report.</p>';
 }
 
 /* ══════════════════════════════════════════════════════════════════
@@ -5912,6 +6055,10 @@ function copyLink() {
 /* ── Go ────────────────────────────────────────────────────────── */
 fillMetricSelect();
 loadAlerts();
+// Deferred: neither reading is urgent and the LCRA payload is the largest
+// single fetch on the page, so it waits until the map has drawn.
+setTimeout(loadRegion, 3000);
+setInterval(() => { if (!document.hidden) loadRegion(); }, 900000);
 loadNews();
 if (TRAFFIC_DEFAULT) trafficOn(true);
 if (RADAR_DEFAULT) radarOn(true);
