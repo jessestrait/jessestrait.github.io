@@ -7,7 +7,7 @@
  *
  * Bump VERSION to ship a new shell; activate() drops every older cache.
  */
-const VERSION = 'atx-v3';
+const VERSION = 'atx-v4';
 const SHELL = VERSION + '-shell';
 const GEO = VERSION + '-geo';
 const FONTS = VERSION + '-fonts';
