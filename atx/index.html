@@ -1495,22 +1495,110 @@ Object.entries(PANES).forEach(([p, z]) => { map.createPane(p).style.zIndex = z; 
 
    Nearest wins instead. The target stays big — shrinking it would trade one
    problem for a worse one on a phone — but ties go to whatever is genuinely
-   closest to the finger. */
+   closest to the finger.
+
+   ── The rest of this is about a second, larger bug ──────────────────────
+   Every renderer here is a full-map-size canvas, one per pane, and they are
+   stacked: ground 330, districts 350, alerts 470, dots 490. Only the topmost
+   canvas under the finger hears the DOM event — Leaflet flags a renderer
+   canvas `_leaflet_disable_events`, so the map's own handler stands down and
+   the lower canvases are never given a look. The dot canvas therefore ate
+   every tap aimed at anything below it. Bus stops and bus routes were drawn,
+   visible, labelled "tap one to light its routes", and unreachable on every
+   device — measured on production: at all 36 sample points across the map,
+   `elementFromPoint` returned the dot canvas.
+
+   So whichever canvas receives the tap hit-tests the whole stack, in two
+   passes:
+
+   1. Things with a centre — circles, dots, marks, stops. Nearest wins
+      outright, in any pane. A stop sitting under an empty patch of the dot
+      canvas is reachable again, and a mark cannot steal a tap aimed past it.
+   2. Only if nothing aimable was hit: lines and areas — a route, a weather
+      polygon, a block group. These have no centre worth measuring, so they
+      fall back to what the drawing already says — highest pane, and within
+      it the last one drawn. Without the split they would win everything,
+      since a polygon you are standing inside is at distance zero: the
+      choropleth alone would have swallowed the whole map. */
+function paneZ(r) {
+  const el = r._map && r._map.getPane(r.options.pane || 'overlayPane');
+  const z = el && parseInt(getComputedStyle(el).zIndex, 10);
+  return z || PANES[r.options.pane] || 0;
+}
+
+/* A polygon with nothing painted inside it should take a tap on its edge and
+   let the middle through. Leaflet's Polygon._containsPoint answers "inside OR
+   on the stroke", which is right for a filled shape and wrong for a hollow
+   one: past zoom 12 a weather alert is drawn as an outline only, and a Heat
+   Advisory spanning three counties would otherwise swallow every tap on open
+   ground — including the tap on nothing that is how you clear a selection.
+   Restricted to Polygon, because an open Polyline has no interior and asking
+   Polyline for a closed hit test would invent a segment it does not have. */
+function areaHit(l, point) {
+  if (!l._containsPoint(point)) return false;
+  if (!(l instanceof L.Polygon)) return true;
+  if (l.options.fill !== false && l.options.fillOpacity > 0) return true;
+  return L.Polyline.prototype._containsPoint.call(l, point, true);
+}
+
+const CANVAS_STACK = [];          // live renderers, highest pane first
+
 const NearestCanvas = L.Canvas.extend({
+  onAdd: function () {
+    L.Canvas.prototype.onAdd.call(this);
+    if (CANVAS_STACK.indexOf(this) < 0) CANVAS_STACK.push(this);
+    CANVAS_STACK.sort((a, b) => paneZ(b) - paneZ(a));
+  },
+  onRemove: function () {
+    const i = CANVAS_STACK.indexOf(this);
+    if (i > -1) CANVAS_STACK.splice(i, 1);
+    L.Canvas.prototype.onRemove.call(this);
+  },
+  /* A queued redraw can land after the renderer has been torn down — the dot
+     renderer is replaced on every render, and Leaflet cancels its own pending
+     frame on destroy but not one already running. What comes out is an
+     uncaught clearRect on a context that no longer exists. Seen once, on a
+     cold uncached load, and not reproducible after — which is the worst kind
+     to leave in, since the next person to see it in the console has no way
+     to tell it apart from a real fault. Two lines make it impossible. */
+  _redraw: function () {
+    if (!this._ctx) return;
+    L.Canvas.prototype._redraw.call(this);
+  },
+  // Leaflet's own guard: a click that was really the end of a drag should
+  // not select anything.
+  _hittable: function (layer, e) {
+    return layer.options.interactive
+      && !((e.type === 'click' || e.type === 'preclick')
+           && this._map._draggableMoved(layer));
+  },
   _onClick: function (e) {
     const point = this._map.mouseEventToLayerPoint(e);
-    let best = null, bestD = Infinity;
-    for (let order = this._drawFirst; order; order = order.next) {
-      const layer = order.layer;
-      if (!layer.options.interactive || !layer._containsPoint(point)) continue;
-      // Leaflet's own guard: a click that was really the end of a drag should
-      // not select anything.
-      if ((e.type === 'click' || e.type === 'preclick')
-          && this._map._draggableMoved(layer)) continue;
-      const d = layer._point ? point.distanceTo(layer._point) : 0;
-      if (d < bestD) { bestD = d; best = layer; }
+    let best = null, owner = null, bestD = Infinity;
+
+    for (const r of CANVAS_STACK) {
+      if (!r._map) continue;
+      for (let o = r._drawFirst; o; o = o.next) {
+        const l = o.layer;
+        if (!l._point || !r._hittable(l, e) || !l._containsPoint(point)) continue;
+        const d = point.distanceTo(l._point);
+        if (d < bestD) { bestD = d; best = l; owner = r; }
+      }
     }
-    this._fireEvent(best ? [best] : false, e);
+
+    if (!best) {
+      for (const r of CANVAS_STACK) {
+        if (!r._map) continue;
+        for (let o = r._drawFirst; o; o = o.next) {
+          const l = o.layer;
+          if (l._point || !r._hittable(l, e) || !areaHit(l, point)) continue;
+          best = l; owner = r;
+        }
+        if (best) break;
+      }
+    }
+
+    (owner || this)._fireEvent(best ? [best] : false, e);
   }
 });
 const nearestCanvas = opts => new NearestCanvas(opts);
@@ -1521,6 +1609,13 @@ let dotRenderer = null;
 // extend its hit test well past the drawn radius, which beats drawing fat dots.
 const COARSE = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
 const HIT_TOLERANCE = COARSE ? 14 : 4;
+
+/* Two renderers are created by hand below; the rest Leaflet makes for itself,
+   one per pane, the first time a layer asks for one — the weather alerts and
+   the choropleth arrive that way. Those have to join the stack too, or they
+   go on being opaque to taps. */
+map._createRenderer = opts =>
+  nearestCanvas(L.extend({ padding: 0.35, tolerance: HIT_TOLERANCE }, opts));
 
 // Esri's Dark Gray Canvas, knocked down in CSS to sit inside the site palette.
 // Labels ride in their own pane so the filter doesn't crush them.
