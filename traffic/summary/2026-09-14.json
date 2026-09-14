@@ -7,10 +7,10 @@
  ],
  "counts": {
   "dispatch": 52,
-  "dispatch_only": 49,
-  "matched": 3,
-  "tomtom": 510,
-  "tomtom_only": 506
+  "dispatch_only": 50,
+  "matched": 2,
+  "tomtom": 519,
+  "tomtom_only": 516
  },
  "date": "2026-09-14",
  "match_rate": {
@@ -20,19 +20,19 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 3,
+   "matched": 2,
    "n": 41,
-   "pct": 7.3
+   "pct": 4.9
   },
   "tomtom_highway": {
    "matched": 3,
-   "n": 252,
+   "n": 256,
    "pct": 1.2
   },
   "tomtom_surface": {
-   "matched": 1,
-   "n": 258,
-   "pct": 0.4
+   "matched": 0,
+   "n": 263,
+   "pct": 0.0
   }
  },
  "matcher": {
@@ -42,12 +42,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 84.6,
-  "median": 68.3,
+  "max": 68.3,
+  "median": 44.3,
   "min": 20.4,
-  "n": 3,
+  "n": 2,
   "q1": 20.4,
-  "q3": 84.6
+  "q3": 68.3
  },
  "persistence_min": {
   "n": 0
@@ -65,6 +65,12 @@
    "hour_of_week": 20,
    "n": 3,
    "seg": "30.504,-97.850"
+  },
+  {
+   "from": "County Road 137",
+   "hour_of_week": 23,
+   "n": 3,
+   "seg": "30.500,-97.572"
   },
   {
    "from": "Congress Ave/Speedway (Martin Luther King Jr Blvd)",
@@ -137,16 +143,10 @@
    "hour_of_week": 20,
    "n": 2,
    "seg": "30.353,-97.758"
-  },
-  {
-   "from": "E Braker Ln (I-35)",
-   "hour_of_week": 19,
-   "n": 2,
-   "seg": "30.423,-97.671"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 94.2,
-  "tomtom": 99.2
+  "dispatch": 96.2,
+  "tomtom": 99.4
  }
 }
