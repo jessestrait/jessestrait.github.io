@@ -322,6 +322,16 @@ dl.mecard a{color:var(--accent-hi)}
 .rowbtn:hover{ background:rgba(58,214,192,.26); color:#c6fff6 }
 /* The raindrop canvas. Over the map, under every control, and never in the way
    of a click — it is scenery, not a layer you interact with. */
+/* Sits over the map, clear of the zoom control and the attribution. */
+#transitclear{
+  position:absolute; left:50%; transform:translateX(-50%); bottom:2.2rem; z-index:1160;
+  max-width:70%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  background:var(--surface); color:var(--text); border:1px solid var(--accent);
+  border-radius:20px; padding:.5rem 1rem; cursor:pointer;
+  font:600 .76rem 'DM Sans',sans-serif; box-shadow:0 6px 20px rgba(0,0,0,.55);
+}
+#transitclear:hover{border-color:var(--accent-hi)}
+
 #dropcanvas, #cloudcanvas{
   position:absolute; inset:0; pointer-events:none;
 }
@@ -2009,6 +2019,10 @@ function visibleFeatures() {
     const win = scrubWindowFor(l.id);
     const feats = state.data[l.id] || [];
     feats.forEach(f => {
+      // Picking a stop or a route filters the live vehicles to it, so the
+      // one tap answers "where are the buses that serve this stop" rather
+      // than leaving you to find them among a hundred others.
+      if (l.id === 'transit' && TRANSIT.sel && !TRANSIT.sel.has(f.route)) return;
       // Standing infrastructure has no timestamp and shouldn't blink in and out.
       if (win && f.t) {
         const v = f.t.getTime();
@@ -2325,9 +2339,23 @@ const GROUND = [
     // and the floodplain. `group` moves only the row.
     group: 'recent',
     note: 'Austin Energy, live — shaded by customers out',
+    // Reads as a finding zoomed out and as a tint zoomed in, so it hides
+    // past OUTAGE_MAX_ZOOM. See syncOutageVisibility.
     file: 'data/zips.json',
     load: (g, badge) => loadOutages(g, badge),
     popup: () => ''
+  },
+  {
+    id: 'busroutes', color: '#94a3b8', name: 'Bus and rail routes',
+    note: '71 routes, drawn in CapMetro\u2019s own colours',
+    group: 'recent',
+    load: g => loadTransitRoutes(g)
+  },
+  {
+    id: 'busstops', color: '#cbd5e1', name: 'Transit stops',
+    note: '2,336 stops \u00b7 appear when you zoom in',
+    group: 'recent',
+    load: g => loadTransitStops(g)
   },
   {
     id: 'workzones', color: '#fb923c', name: 'Roadway work zones',
@@ -2377,6 +2405,8 @@ function groundRow(g) {
     }
     if (groundLayers[g.id]) { groundLayers[g.id].addTo(map); }
     else loadGround(g);
+    if (g.id === 'outages' && window.syncOutageVisibility) syncOutageVisibility();
+    if (g.id === 'busstops' && window.syncStopVisibility) syncStopVisibility();
     if (window.syncModes) syncModes();
   });
   return el;
@@ -2519,8 +2549,25 @@ function drawOutages() {
         ]), { maxWidth: 300 });
     }
   });
-  if (g.on) groundLayers.outages.addTo(map);
+  syncOutageVisibility();
 }
+
+/* The mirror image of the stop gate. A ZIP-shaped wash is the whole finding
+   at city scale — that side of town is dark — and at street level it is a
+   purple tint over everything you were actually looking at, because by then
+   the view is inside one polygon and the edge that carried the meaning is
+   off screen. Same reasoning as the heat advisory fill, one zoom later
+   because a ZIP is smaller than a county. */
+const OUTAGE_MAX_ZOOM = 13;
+function syncOutageVisibility() {
+  const lyr = groundLayers.outages;
+  if (!lyr) return;
+  const want = byGround.outages.on && map.getZoom() <= OUTAGE_MAX_ZOOM;
+  const has = map.hasLayer(lyr);
+  if (want && !has) lyr.addTo(map);
+  if (!want && has) map.removeLayer(lyr);
+}
+map.on('zoomend', syncOutageVisibility);
 
 async function loadOutages(g, badge) {
   if (OUTAGE.busy) return;
@@ -2562,6 +2609,183 @@ async function loadOutages(g, badge) {
     OUTAGE.busy = false;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   The transit map — routes, stops, and one gesture that ties them to
+   the buses already moving.
+
+   Built from atx/data/routes.geojson and stops.geojson, which
+   tools/build_capmetro.py renders out of the static GTFS feed weekly.
+   Routes draw at every zoom because a route shape is the readable
+   object from far away; stops wait for zoom 14, because two thousand
+   of them at city zoom is a smear rather than a layer.
+
+   The point of the whole thing is the tap. Most stops serve several
+   routes — Lavaca at 6th serves fifteen — so "the colour of a stop" is
+   not a thing that exists. Tapping one lights every route through it in
+   that route's own published colour, and at the same moment filters the
+   live vehicle layer down to those routes. One gesture answers where
+   this stop goes and where its buses are right now.
+   ══════════════════════════════════════════════════════════════════ */
+const TRANSIT = {
+  routes: null, stops: null, byRoute: {}, routeMeta: {},
+  sel: null,          // Set of route ids, or null for "show everything"
+  selLabel: '',
+  STOP_ZOOM: 14
+};
+
+// Dim by default. These are context for everything else on the map, not
+// the subject, and 71 routes at full strength is a plate of spaghetti.
+const routeStyle = f => {
+  const on = TRANSIT.sel && TRANSIT.sel.has(f.properties.id);
+  const rail = f.properties.type !== 3;
+  return {
+    color: f.properties.color || '#94a3b8',
+    weight: on ? (rail ? 5 : 3.5) : (rail ? 2 : 1.2),
+    opacity: on ? 0.95 : (TRANSIT.sel ? 0.12 : 0.34),
+    lineCap: 'round', lineJoin: 'round'
+  };
+};
+
+const stopStyle = f => {
+  const on = !TRANSIT.sel || f.properties.route_ids.some(r => TRANSIT.sel.has(r));
+  return {
+    radius: on ? (COARSE ? 5.5 : 4) : 2.5,
+    color: '#e2e8f0', weight: on ? 1.4 : 0.8,
+    opacity: on ? 0.95 : 0.25,
+    fillColor: '#0f1623', fillOpacity: on ? 0.9 : 0.3
+  };
+};
+
+function routeChips(ids) {
+  return ids.map(r => {
+    const m = TRANSIT.routeMeta[r] || {};
+    const c = m.color || '#94a3b8';
+    return '<span style="display:inline-block;margin:2px 3px 0 0;padding:1px 6px;'
+      + 'border-radius:9px;font-family:\'JetBrains Mono\',monospace;font-size:.68rem;'
+      + 'background:' + c + '22;color:' + c + ';border:1px solid ' + c + '66">'
+      + esc(m.short || r) + '</span>';
+  }).join('');
+}
+
+/* Selecting is a restyle plus one re-render, not a reload. The restyle is
+   instant; the re-render is only needed because the live buses are markers
+   in the shared dot layer rather than something this module owns. */
+function selectRoutes(ids, label) {
+  TRANSIT.sel = ids && ids.length ? new Set(ids) : null;
+  TRANSIT.selLabel = label || '';
+  if (TRANSIT.routes) TRANSIT.routes.setStyle(routeStyle);
+  if (TRANSIT.stops) TRANSIT.stops.setStyle(stopStyle);
+  syncStopVisibility();
+  const btn = document.getElementById('transitclear');
+  if (btn) {
+    btn.hidden = !TRANSIT.sel;
+    btn.textContent = TRANSIT.sel ? ('✕  ' + TRANSIT.selLabel) : '';
+  }
+  // Re-render, do NOT drop the cache. The filter is applied in
+  // visibleFeatures(), so the rows are still wanted; deleting them leaves
+  // the layer empty with nothing queued to refetch it, which read as
+  // "selecting a stop hides every bus" and stayed that way after clearing.
+  if (byId.transit.on) render();
+}
+
+function clearTransitSelection() {
+  if (!TRANSIT.sel) return;
+  selectRoutes(null);
+}
+
+/* Stops hide below zoom 14 — except the selected ones, which appear at any
+   zoom, because having just asked "where does this route go" you should be
+   able to see the answer without also having to zoom. */
+function syncStopVisibility() {
+  if (!TRANSIT.stops || !byGround.busstops.on) return;
+  const want = map.getZoom() >= TRANSIT.STOP_ZOOM || !!TRANSIT.sel;
+  const has = map.hasLayer(TRANSIT.stops);
+  if (want && !has) TRANSIT.stops.addTo(map);
+  if (!want && has) map.removeLayer(TRANSIT.stops);
+  setNote(byGround.busstops, want
+    ? '2,336 stops · tap one to light its routes'
+    : 'Zoom past ' + TRANSIT.STOP_ZOOM + ' to see stops');
+}
+
+async function loadTransitRoutes(g) {
+  const badge = document.getElementById('ct-g-' + g.id);
+  try {
+    const gj = await fetch('data/routes.geojson').then(r => r.json());
+    gj.features.forEach(f => { TRANSIT.routeMeta[f.properties.id] = f.properties; });
+    TRANSIT.routes = L.geoJSON(gj, {
+      pane: 'groundPane', renderer: groundRenderer, style: routeStyle,
+      onEachFeature: (f, lyr) => {
+        const p = f.properties;
+        lyr.on('click', e => {
+          L.DomEvent.stop(e);
+          selectRoutes([p.id], (p.short || p.id) + ' selected');
+        });
+        lyr.bindPopup(() => pop(p.color || '#94a3b8',
+          p.type === 3 ? 'Bus route' : 'Rail', p.short + ' · ' + (p.name || ''), '', [
+            ['Route', p.short],
+            ['Colour', p.color],
+            ['Stops shown', 'every stop on this route, at any zoom']
+          ]), { maxWidth: 300 });
+      }
+    });
+    groundLayers[g.id] = TRANSIT.routes;
+    if (g.on) TRANSIT.routes.addTo(map);
+    if (badge) badge.textContent = gj.features.length;
+    setNote(g, (gj.meta && gj.meta.version)
+      ? 'CapMetro GTFS ' + String(gj.meta.version).split(' ')[0]
+      : '71 routes, in CapMetro’s own colours');
+  } catch (e) {
+    console.error(e);
+    if (badge) badge.textContent = 'err';
+    setNote(g, 'Could not load the route shapes', true);
+  }
+}
+
+async function loadTransitStops(g) {
+  const badge = document.getElementById('ct-g-' + g.id);
+  try {
+    const gj = await fetch('data/stops.geojson').then(r => r.json());
+    TRANSIT.stops = L.geoJSON(gj, {
+      pane: 'groundPane', renderer: groundRenderer,
+      pointToLayer: (f, ll) => L.circleMarker(ll, stopStyle(f)),
+      onEachFeature: (f, lyr) => {
+        const p = f.properties;
+        lyr.on('click', e => {
+          L.DomEvent.stop(e);
+          selectRoutes(p.route_ids, p.name);
+        });
+        lyr.bindPopup(() => pop('#e2e8f0', 'Stop', p.name || 'Transit stop', '', [
+          ['Routes', routeChips(p.route_ids), true],
+          ['Stop', p.id]
+        ], '<p style="margin-top:.5rem;color:var(--muted);font-size:.72rem">'
+         + 'Its routes are lit on the map and the live vehicles are filtered '
+         + 'to them.</p>'), { maxWidth: 320 });
+      }
+    });
+    // Not added here: syncStopVisibility decides, since below zoom 14 the
+    // right answer is to have loaded them and be showing none.
+    groundLayers[g.id] = TRANSIT.stops;
+    if (badge) badge.textContent = gj.features.length.toLocaleString();
+    syncStopVisibility();
+  } catch (e) {
+    console.error(e);
+    if (badge) badge.textContent = 'err';
+    setNote(g, 'Could not load the stops', true);
+  }
+}
+
+map.on('zoomend', syncStopVisibility);
+// A tap on the map itself, hitting nothing, is how you get back out.
+map.on('click', clearTransitSelection);
+
+(function buildTransitClear() {
+  const b = document.createElement('button');
+  b.id = 'transitclear';
+  b.hidden = true;
+  b.addEventListener('click', e => { e.preventDefault(); clearTransitSelection(); });
+  document.getElementById('map').appendChild(b);
+})();
 
 /* ══════════════════════════════════════════════════════════════════
    Around the region — two readings that are not map layers.
@@ -4611,6 +4835,10 @@ function setGroundOn(g, on) {
   if (row) row.querySelector('input').checked = on;
   if (!on) { if (groundLayers[g.id]) map.removeLayer(groundLayers[g.id]); return; }
   if (groundLayers[g.id]) groundLayers[g.id].addTo(map); else loadGround(g);
+  // Two layers decide their own visibility from the zoom, so ticking them on
+  // is a request to be shown when appropriate rather than right now.
+  if (g.id === 'outages') syncOutageVisibility();
+  if (g.id === 'busstops') syncStopVisibility();
 }
 
 async function applyMode(name) {
