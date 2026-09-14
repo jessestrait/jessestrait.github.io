@@ -7,17 +7,17 @@
  ],
  "counts": {
   "dispatch": 17,
-  "dispatch_only": 14,
-  "matched": 3,
-  "tomtom": 246,
-  "tomtom_only": 243
+  "dispatch_only": 15,
+  "matched": 2,
+  "tomtom": 285,
+  "tomtom_only": 283
  },
  "date": "2026-09-14",
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
+   "matched": 0,
    "n": 2,
-   "pct": 50.0
+   "pct": 0.0
   },
   "dispatch_surface": {
    "matched": 2,
@@ -25,13 +25,13 @@
    "pct": 13.3
   },
   "tomtom_highway": {
-   "matched": 3,
-   "n": 106,
-   "pct": 2.8
+   "matched": 2,
+   "n": 123,
+   "pct": 1.6
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 140,
+   "n": 162,
    "pct": 0.0
   }
  },
@@ -43,9 +43,9 @@
  },
  "onset_offset_min": {
   "max": 7.3,
-  "median": -15.7,
+  "median": -6.6,
   "min": -20.5,
-  "n": 3,
+  "n": 2,
   "q1": -20.5,
   "q3": 7.3
  },
@@ -79,6 +79,18 @@
    "seg": "30.164,-97.744"
   },
   {
+   "from": "Sharpstone Trl",
+   "hour_of_week": 20,
+   "n": 2,
+   "seg": "30.495,-97.750"
+  },
+  {
+   "from": "FM-2222 (TX-360 Loop/N Capital of Texas Hwy)",
+   "hour_of_week": 20,
+   "n": 2,
+   "seg": "30.381,-97.775"
+  },
+  {
    "from": "Korman Dr",
    "hour_of_week": 20,
    "n": 2,
@@ -97,10 +109,10 @@
    "seg": "30.292,-97.873"
   },
   {
-   "from": "Manor Rd/Exit 235 (I-35)",
+   "from": "Cesar Chavez St exit [234A]",
    "hour_of_week": 20,
    "n": 2,
-   "seg": "30.296,-97.719"
+   "seg": "30.262,-97.736"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -131,22 +143,10 @@
    "hour_of_week": 20,
    "n": 1,
    "seg": "30.498,-97.673"
-  },
-  {
-   "from": "Bee Cave Rd (Westbank Dr)",
-   "hour_of_week": 20,
-   "n": 1,
-   "seg": "30.277,-97.819"
-  },
-  {
-   "from": "Grand Avenue Pkwy (I-35)",
-   "hour_of_week": 20,
-   "n": 1,
-   "seg": "30.443,-97.668"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.4,
-  "tomtom": 98.8
+  "dispatch": 88.2,
+  "tomtom": 99.3
  }
 }
