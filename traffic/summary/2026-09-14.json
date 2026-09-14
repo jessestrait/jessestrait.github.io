@@ -9,8 +9,8 @@
   "dispatch": 54,
   "dispatch_only": 53,
   "matched": 1,
-  "tomtom": 527,
-  "tomtom_only": 526
+  "tomtom": 534,
+  "tomtom_only": 533
  },
  "date": "2026-09-14",
  "match_rate": {
@@ -26,12 +26,12 @@
   },
   "tomtom_highway": {
    "matched": 1,
-   "n": 262,
+   "n": 265,
    "pct": 0.4
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 265,
+   "n": 269,
    "pct": 0.0
   }
  },
@@ -55,6 +55,12 @@
  "poll_interval_min": 5.0,
  "structural_hotspots": [
   {
+   "from": "Congress Ave/Speedway (Martin Luther King Jr Blvd)",
+   "hour_of_week": 23,
+   "n": 4,
+   "seg": "30.279,-97.733"
+  },
+  {
    "from": "Highway 45",
    "hour_of_week": 20,
    "n": 3,
@@ -71,12 +77,6 @@
    "hour_of_week": 23,
    "n": 3,
    "seg": "30.500,-97.572"
-  },
-  {
-   "from": "Congress Ave/Speedway (Martin Luther King Jr Blvd)",
-   "hour_of_week": 23,
-   "n": 3,
-   "seg": "30.279,-97.733"
   },
   {
    "from": "W Ben White Blvd",
