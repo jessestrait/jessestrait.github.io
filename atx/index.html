@@ -887,6 +887,17 @@ function pop(color, tag, title, when, rows, extra) {
 // for this one feed and nothing else on the map.
 const CAPMETRO = 'https://capmetro.jessestrait.workers.dev';
 
+/* USGS instantaneous values. Stage (00065) and discharge (00060) for every
+   active gauge in the metro box, refreshed by them every fifteen minutes.
+   CORS open, no key, and the endpoint has outlived most of the web. */
+const USGS = 'https://waterservices.usgs.gov/nwis/iv/?format=json'
+           + '&bBox=-98.15,30.05,-97.35,30.62&parameterCd=00065,00060&siteStatus=active';
+
+/* ATXfloods is the regional low-water-crossing status board, run by the
+   jurisdictions themselves. Its own site never advertises an API; this URL
+   came out of reading the page's JS bundle. CORS open. */
+const ATXFLOODS = 'https://api.atxfloods.com/api/crossings';
+
 const LAYERS = [
   {
     id: 'firelive', group: 'recent', color: '#ffe14d', on: true,
@@ -941,6 +952,99 @@ const LAYERS = [
           ])
         };
       });
+    }
+  },
+  {
+    /* Austin floods faster than it does almost anything else, and the two
+       feeds that say so are separate: USGS measures the creek, ATXfloods
+       says whether the road over it is shut. This is the first half. */
+    id: 'gauges', group: 'recent', color: '#2dd4bf', on: false,
+    name: 'Creek gauges', note: 'USGS stage, every 15 minutes',
+    glyphPx: 26,
+    glyphLabel: f => f.lbl,
+    async load() {
+      const j = await fetch(USGS, { cache: 'no-store' }).then(r => r.json());
+      const sites = {};
+      ((j.value || {}).timeSeries || []).forEach(ts => {
+        const si = ts.sourceInfo || {}, gl = (si.geoLocation || {}).geogLocation;
+        if (!gl) return;
+        const code = si.siteCode[0].value;
+        const param = ts.variable.variableCode[0].value;
+        const vals = ((ts.values || [])[0] || {}).value || [];
+        const last = vals[vals.length - 1];
+        if (!last) return;
+        const v = parseFloat(last.value);
+        // USGS writes -999999 when the sensor has nothing to say.
+        if (!isFinite(v) || v <= -999) return;
+        const st = sites[code] || (sites[code] = {
+          name: si.siteName, lat: +gl.latitude, lng: +gl.longitude, code: code
+        });
+        if (param === '00065') { st.stage = v; st.t = new Date(last.dateTime); }
+        if (param === '00060') { st.flow = v; }
+      });
+      const out = Object.values(sites).filter(x => x.stage != null).map(x => {
+        // Above a hundred feet this is a reservoir elevation rather than a
+        // creek stage, and the decimal is noise at that scale.
+        const lbl = x.stage >= 100 ? x.stage.toFixed(0) : x.stage.toFixed(1);
+        // USGS names read "Barton Ck at Loop 360, Austin, TX" — the trailing
+        // city and state are the same for all of them and only cost width.
+        const nm = x.name.replace(/,?\s*(nr|at|near)?\s*Austin,\s*TX$/i, '')
+                         .replace(/,\s*TX$/i, '');
+        return {
+          lat: x.lat, lng: x.lng, t: x.t || null, cat: 'Creek gauge', place: true, lbl: lbl,
+          html: pop('#2dd4bf', 'Creek gauge', nm, x.t ? ago(x.t) : '', [
+            ['Stage', x.stage.toFixed(2) + ' ft'],
+            ['Discharge', x.flow != null ? x.flow.toLocaleString() + ' cfs' : null],
+            ['Read at', x.t ? x.t.toLocaleTimeString() : null],
+            ['USGS site', '<a href="https://waterdata.usgs.gov/monitoring-location/'
+              + esc(x.code) + '/" target="_blank" rel="noopener">' + esc(x.code) + '</a>', true]
+          ])
+        };
+      });
+      setNote(byId.gauges, out.length + ' gauges reporting');
+      return out;
+    }
+  },
+  {
+    /* The other half: whether the road over the creek is open. Every
+       jurisdiction in the region posts into this one board, which is why it
+       carries 2,468 crossings — most of them nowhere near Austin. */
+    id: 'lwc', group: 'recent', color: '#ff6b6b', on: false,
+    name: 'Low-water crossings', note: 'Open or closed, live from ATXfloods',
+    glyphLabel: f => f.closed ? 'x' : '',
+    async load() {
+      const j = await fetch(ATXFLOODS, { cache: 'no-store' }).then(r => r.json());
+      const rows = j.attributes || [];
+      const out = [];
+      rows.forEach(r => {
+        const lat = parseFloat(r.lat), lng = parseFloat(r.lon);
+        if (!isFinite(lat) || !isFinite(lng)) return;
+        // Scoped to the map's own reach. The board covers eleven counties and
+        // the rest is a different city's problem.
+        if (lat < 30.05 || lat > 30.62 || lng < -98.15 || lng > -97.35) return;
+        const closed = String(r.status).toLowerCase() === 'closed';
+        const t = r.updated_at ? new Date(r.updated_at) : null;
+        out.push({
+          lat: lat, lng: lng, t: null, closed: closed, big: closed,
+          cat: closed ? 'Closed' : 'Open',
+          html: pop('#ff6b6b', closed ? 'Crossing CLOSED' : 'Crossing open',
+            titleCase(r.name) || 'Low-water crossing', t ? 'updated ' + ago(t) : '', [
+              ['Status', closed ? 'Closed' : 'Open'],
+              ['Where', r.address],
+              ['Reported by', r.jurisdiction],
+              ['Note', r.comment || null],
+              ['Updated', t ? t.toLocaleString() : null]
+            ], closed
+              ? '<p style="margin-top:.5rem;color:#ffb570;font-size:.74rem">'
+                + 'Turn around, don\u2019t drown. Six inches of moving water takes a car.</p>'
+              : '')
+        });
+      });
+      const shut = out.filter(x => x.closed).length;
+      setNote(byId.lwc, shut
+        ? shut + ' closed right now, of ' + out.length + ' crossings'
+        : 'All ' + out.length + ' crossings open');
+      return out;
     }
   },
   {
@@ -1316,6 +1420,15 @@ function rrect(c, x, y, w, h, r) {
 // a red-green colour-blind reader.
 const ring = c => { c.beginPath(); c.arc(24, 24, 17, 0, Math.PI * 2); c.stroke(); };
 const frame = c => rrect(c, 8, 8, 32, 32, 3);
+// Water. Two of these stacked read as a creek at any size a single one does not.
+const wave = (c, y) => {
+  c.beginPath();
+  c.moveTo(13, y);
+  c.quadraticCurveTo(17, y - 3.2, 21, y);
+  c.quadraticCurveTo(25, y + 3.2, 29, y);
+  c.quadraticCurveTo(32, y - 2.4, 35, y);
+  c.stroke();
+};
 const poly = (c, pts, close) => {
   c.beginPath();
   pts.forEach((p, i) => i ? c.lineTo(p[0], p[1]) : c.moveTo(p[0], p[1]));
@@ -1400,6 +1513,32 @@ const GLYPH_ART = {
     poly(c, [[27, 22], [33, 19], [33, 29], [27, 26]]);
   },
 
+  gauges(c, label) {
+    // A place: the gauge is bolted to a bridge and stays there. What changes
+    // is the number, so the number is what the mark carries — the same reason
+    // a bus carries its route.
+    frame(c);
+    wave(c, 29);
+    wave(c, 35);
+    if (!label) return;
+    c.fillStyle = c.strokeStyle;
+    const n = String(label).length;
+    c.font = '700 ' + (n <= 3 ? 15 : n === 4 ? 12 : 10)
+           + 'px "JetBrains Mono", ui-monospace, monospace';
+    c.textAlign = 'center';
+    c.textBaseline = 'middle';
+    c.fillText(String(label), 24, 19);
+  },
+  lwc(c, label) {
+    // An event: a crossing being under water is something that is happening.
+    ring(c);
+    wave(c, 22);
+    poly(c, [[12, 31], [36, 31]]);       // the road beneath it
+    // Closed gets a slash. Nothing else on the map is barred, so it reads as
+    // "not this one" before you have worked out what the mark is.
+    if (label === 'x') poly(c, [[13, 13], [35, 35]]);
+  },
+
   /* ── Vehicles ── */
   // A third shape, because a bus is a third kind of thing. A ring is an event
   // and a square is a place; a vehicle is neither, and drawing it as either
@@ -1437,6 +1576,10 @@ const GLYPH_ART = {
 // test widens it further still through HIT_TOLERANCE.
 const GLYPH_PX = COARSE ? 24 : 22;
 const GLYPH_STROKE = 1.7;          // css px, held constant across sizes
+// Comfortably above one full screen's worth of distinct marks, so a normal
+// view never evicts; low enough that a night of gauge readings cannot grow
+// without limit. At ~3.6 KB a sprite this is a few megabytes at worst.
+const GLYPH_CACHE_MAX = 400;
 const glyphCache = {};
 
 function glyphSprite(id, colour, px, label) {
@@ -1463,6 +1606,16 @@ function glyphSprite(id, colour, px, label) {
   c.lineCap = 'round';
   GLYPH_ART[id](c, label);
 
+  /* Bounded, because one of these labels is not like the others. Route
+     numbers are a closed set — thirty of them, cached once and reused all
+     day. A gauge reading is open-ended: forty-two gauges reporting a new
+     stage every fifteen minutes mints forty-two bitmaps a cycle and never
+     reuses one, which is a slow leak rather than a cache. Past the cap the
+     whole thing is dropped instead of evicted one at a time: rebuilding a
+     sprite is a few hundred microseconds, and tracking recency to save that
+     would cost more than it saves. */
+  const keys = Object.keys(glyphCache);
+  if (keys.length >= GLYPH_CACHE_MAX) keys.forEach(k => { delete glyphCache[k]; });
   glyphCache[key] = { cv: cv, size: box };
   return glyphCache[key];
 }
@@ -2004,15 +2157,6 @@ const GROUND = [
     file: 'data/zips.json',
     load: (g, badge) => loadOutages(g, badge),
     popup: () => ''
-  },
-  {
-    id: 'lwc', color: '#ff6b6b', name: 'Low-water crossings', note: 'Gauged "turn around, don\'t drown" spots',
-    points: true,
-    url: 'https://services.arcgis.com/0L95CJ0VTaxqcmED/arcgis/rest/services/'
-       + 'INLANDWATERS_flood_low_water_crossings/FeatureServer/0/query'
-       + '?where=1%3D1&outFields=CROSSING_DESCRIPTION,CROSSING_TYPE,GAGE_NUMBER&outSR=4326&f=geojson',
-    popup: p => pop('#ff6b6b', 'Low-water crossing', titleCase(p.CROSSING_DESCRIPTION) || 'Crossing', '', [
-      ['Type', titleCase(p.CROSSING_TYPE)], ['Gauge', p.GAGE_NUMBER]])
   }
 ];
 const groundLayers = {};
@@ -5610,6 +5754,15 @@ setInterval(() => {
 // rebuild, which is affordable at a minute and would not be at thirty
 // seconds. Moving the markers in place instead of rebuilding them is the
 // proper fix and a bigger change than this one.
+// A closure is the one reading on this map that can change between glances
+// and matter immediately. Gauges move on the USGS fifteen-minute cycle.
+setInterval(() => {
+  if (document.hidden) return;
+  ['lwc', 'gauges'].forEach(id => {
+    if (byId[id].on && !state.busy[id]) { delete state.data[id]; fetchLayer(byId[id]); }
+  });
+}, 300000);
+
 setInterval(() => {
   if (document.hidden) return;
   if (byId.transit.on && !state.busy.transit) {
