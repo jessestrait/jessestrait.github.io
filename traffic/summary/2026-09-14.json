@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 14,
-  "dispatch_only": 12,
-  "matched": 2,
-  "tomtom": 202,
-  "tomtom_only": 200
+  "dispatch": 17,
+  "dispatch_only": 14,
+  "matched": 3,
+  "tomtom": 246,
+  "tomtom_only": 243
  },
  "date": "2026-09-14",
  "match_rate": {
@@ -20,18 +20,18 @@
    "pct": 50.0
   },
   "dispatch_surface": {
-   "matched": 1,
-   "n": 12,
-   "pct": 8.3
+   "matched": 2,
+   "n": 15,
+   "pct": 13.3
   },
   "tomtom_highway": {
-   "matched": 2,
-   "n": 85,
-   "pct": 2.4
+   "matched": 3,
+   "n": 106,
+   "pct": 2.8
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 117,
+   "n": 140,
    "pct": 0.0
   }
  },
@@ -43,9 +43,9 @@
  },
  "onset_offset_min": {
   "max": 7.3,
-  "median": -6.6,
+  "median": -15.7,
   "min": -20.5,
-  "n": 2,
+  "n": 3,
   "q1": -20.5,
   "q3": 7.3
  },
@@ -55,10 +55,34 @@
  "poll_interval_min": 5.0,
  "structural_hotspots": [
   {
+   "from": "Highway 45",
+   "hour_of_week": 20,
+   "n": 2,
+   "seg": "30.488,-97.676"
+  },
+  {
+   "from": "W Ben White Blvd",
+   "hour_of_week": 20,
+   "n": 2,
+   "seg": "30.225,-97.767"
+  },
+  {
+   "from": "Chicon St (Holly St)",
+   "hour_of_week": 20,
+   "n": 2,
+   "seg": "30.257,-97.736"
+  },
+  {
    "from": "Dixie Dr",
    "hour_of_week": 20,
    "n": 2,
    "seg": "30.164,-97.744"
+  },
+  {
+   "from": "Korman Dr",
+   "hour_of_week": 20,
+   "n": 2,
+   "seg": "30.431,-97.673"
   },
   {
    "from": "N Lakeline Blvd / S Lakeline Blvd",
@@ -67,16 +91,16 @@
    "seg": "30.504,-97.850"
   },
   {
-   "from": "N Interstate 35",
+   "from": "Barton Creek Blvd",
    "hour_of_week": 20,
    "n": 2,
-   "seg": "30.431,-97.673"
+   "seg": "30.292,-97.873"
   },
   {
-   "from": "Cameron Rd (E Anderson Ln/US-183)",
+   "from": "Manor Rd/Exit 235 (I-35)",
    "hour_of_week": 20,
    "n": 2,
-   "seg": "30.339,-97.700"
+   "seg": "30.296,-97.719"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -97,22 +121,10 @@
    "seg": "30.244,-97.669"
   },
   {
-   "from": "Hergotz Ln",
-   "hour_of_week": 112,
-   "n": 2,
-   "seg": "30.244,-97.663"
-  },
-  {
    "from": "Ellas Inlet Dr / Felix Sparke Dr",
    "hour_of_week": 68,
    "n": 2,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Highway 45",
-   "hour_of_week": 20,
-   "n": 1,
-   "seg": "30.488,-97.676"
   },
   {
    "from": "Hyridge Cir / Hyridge St",
@@ -131,22 +143,10 @@
    "hour_of_week": 20,
    "n": 1,
    "seg": "30.443,-97.668"
-  },
-  {
-   "from": "S Heatherwilde Blvd (Wells Branch Pkwy)",
-   "hour_of_week": 20,
-   "n": 1,
-   "seg": "30.441,-97.666"
-  },
-  {
-   "from": "Justin Ln",
-   "hour_of_week": 20,
-   "n": 1,
-   "seg": "30.340,-97.731"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.7,
-  "tomtom": 99.0
+  "dispatch": 82.4,
+  "tomtom": 98.8
  }
 }
