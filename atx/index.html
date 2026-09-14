@@ -898,6 +898,15 @@ const USGS = 'https://waterservices.usgs.gov/nwis/iv/?format=json'
    came out of reading the page's JS bundle. CORS open. */
 const ATXFLOODS = 'https://api.atxfloods.com/api/crossings';
 
+// MetroBike, CapMetro's bikeshare, over the GBFS standard. Two files: one
+// for where the docks are, one for what is in them. Four-second ttl.
+const GBFS = 'https://austin.publicbikesystem.net/customer/gbfs/v3.0/';
+
+// The national wildfire incident layer, filtered to Texas and then to what is
+// near enough to matter here. Esri hosts it with CORS open.
+const WILDFIRE = 'https://services9.arcgis.com/RHVPKKiFTONKtxq3/arcgis/rest/services/'
+               + 'USA_Wildfires_v1/FeatureServer/0/query';
+
 const LAYERS = [
   {
     id: 'firelive', group: 'recent', color: '#ffe14d', on: true,
@@ -952,6 +961,126 @@ const LAYERS = [
           ])
         };
       });
+    }
+  },
+  {
+    /* An exception feed, like the weather alerts: this dataset only ever
+       lists signals that are not behaving, so an empty layer is the healthy
+       state rather than a broken one. It pairs with the outage layer — a
+       signal that has gone dark is usually a feeder that has. */
+    id: 'signals', group: 'recent', color: '#818cf8', on: false,
+    name: 'Signals in fault', note: 'Signals the city cannot talk to, or on flash',
+    async load() {
+      const rows = await soda('5zpr-dehc', { '$limit': 2000 });
+      const out = [];
+      rows.forEach(r => {
+        const c = (r.location || {}).coordinates;
+        if (!c) return;
+        const t = r.operation_state_datetime ? new Date(r.operation_state_datetime) : null;
+        const txt = r.operation_text || 'Unknown state';
+        out.push({
+          lat: c[1], lng: c[0], t: t, cat: txt,
+          // A signal on flash is a four-way stop nobody told you about; a
+          // comms fault mostly means the city is blind to it, not that the
+          // lights are out. Only the first deserves the bigger mark.
+          big: /flash/i.test(txt),
+          html: pop('#818cf8', 'Signal \u00b7 ' + txt,
+            titleCase(r.location_name) || 'Signal ' + r.signal_id, t ? ago(t) : '', [
+              ['State', txt],
+              ['Signal', r.signal_id],
+              ['Cross street', titleCase(r.cross_st)],
+              ['Since', t ? t.toLocaleString() : null]
+            ])
+        });
+      });
+      setNote(byId.signals, out.length
+        ? out.length + ' not reporting normally'
+        : 'Every signal reporting normally');
+      return out;
+    }
+  },
+  {
+    /* MetroBike over GBFS, the standard bikeshare feed. Two files have to be
+       joined: station_information never changes and station_status is the
+       live half. Both CORS open, four-second ttl. */
+    id: 'bikes', group: 'recent', color: '#fb7185', on: false,
+    name: 'MetroBike docks', note: 'Bikes available right now',
+    glyphPx: 26,
+    glyphLabel: f => f.lbl,
+    async load() {
+      const [info, stat] = await Promise.all([
+        fetch(GBFS + 'station_information.json').then(r => r.json()),
+        fetch(GBFS + 'station_status.json', { cache: 'no-store' }).then(r => r.json())
+      ]);
+      const by = {};
+      (stat.data.stations || []).forEach(x => { by[x.station_id] = x; });
+      let bikes = 0;
+      const out = [];
+      (info.data.stations || []).forEach(x => {
+        const st = by[x.station_id];
+        if (!st || !st.is_installed) return;
+        // GBFS v3 localises names into an array of {text, language}.
+        const nm = Array.isArray(x.name) ? (x.name[0] || {}).text : x.name;
+        const n = st.num_vehicles_available || 0;
+        bikes += n;
+        out.push({
+          lat: +x.lat, lng: +x.lon, t: null, place: true, cat: 'MetroBike dock', lbl: String(n),
+          html: pop('#fb7185', 'MetroBike', nm || 'Dock', '', [
+            ['Bikes available', n],
+            ['Docks free', st.num_docks_available],
+            ['Capacity', x.capacity],
+            ['Renting', st.is_renting ? 'Yes' : 'No'],
+            ['Address', x.address]
+          ])
+        });
+      });
+      setNote(byId.bikes, bikes + ' bikes across ' + out.length + ' docks');
+      return out;
+    }
+  },
+  {
+    /* The national incident layer, cut to Texas by the server and then to
+       what is close enough to be this map's business. Nearest at the time of
+       writing was eight acres in Travis County, twenty-one kilometres out. */
+    id: 'wildfire', group: 'recent', color: '#fca5a5', on: false,
+    name: 'Wildfires', note: 'Active incidents within 200 km',
+    async load() {
+      const url = WILDFIRE + '?where=' + encodeURIComponent("POOState='US-TX'")
+        + '&outFields=IncidentName,POOCounty,DailyAcres,PercentContained,'
+        + 'FireDiscoveryDateTime,IncidentTypeCategory,FireCause&f=geojson&resultRecordCount=400';
+      const j = await fetch(url, { cache: 'no-store' }).then(r => r.json());
+      const R = 6371, rad = d => d * Math.PI / 180;
+      const out = [];
+      (j.features || []).forEach(f => {
+        const g = f.geometry;
+        if (!g || !g.coordinates) return;
+        const lng = g.coordinates[0], lat = g.coordinates[1];
+        const dk = 2 * R * Math.asin(Math.sqrt(
+          Math.pow(Math.sin(rad(lat - 30.2711) / 2), 2)
+          + Math.cos(rad(30.2711)) * Math.cos(rad(lat))
+          * Math.pow(Math.sin(rad(lng + 97.7437) / 2), 2)));
+        if (dk > 200) return;
+        const p = f.properties || {};
+        const t = p.FireDiscoveryDateTime ? new Date(p.FireDiscoveryDateTime) : null;
+        const pct = p.PercentContained;
+        out.push({
+          lat: lat, lng: lng, t: t, cat: p.POOCounty ? p.POOCounty + ' County' : 'Wildfire',
+          big: (p.DailyAcres || 0) > 100 && pct != null && pct < 90,
+          html: pop('#fca5a5', 'Wildfire', p.IncidentName || 'Incident', t ? ago(t) : '', [
+            ['County', p.POOCounty],
+            ['Size', p.DailyAcres != null ? (+p.DailyAcres).toLocaleString() + ' acres' : null],
+            ['Contained', pct != null ? pct + '%' : null],
+            ['Cause', p.FireCause],
+            ['Distance', Math.round(dk) + ' km from downtown'],
+            ['Discovered', t ? t.toLocaleDateString() : null]
+          ])
+        });
+      });
+      const going = out.filter(x => (x.html.match(/Contained<\/dt><dd>(\d+)/) || [0, 100])[1] < 100).length;
+      setNote(byId.wildfire, out.length
+        ? out.length + ' within 200 km, ' + going + ' not yet contained'
+        : 'Nothing burning within 200 km');
+      return out;
     }
   },
   {
@@ -1537,6 +1666,40 @@ const GLYPH_ART = {
     // Closed gets a slash. Nothing else on the map is barred, so it reads as
     // "not this one" before you have worked out what the mark is.
     if (label === 'x') poly(c, [[13, 13], [35, 35]]);
+  },
+
+  signals(c) {
+    // A signal head, which is the one object every driver already reads.
+    ring(c);
+    c.fillStyle = c.strokeStyle;
+    [16, 24, 32].forEach(y => { c.beginPath(); c.arc(24, y, 3.1, 0, Math.PI * 2); c.fill(); });
+  },
+  bikes(c, label) {
+    // A place, and the number is how many are actually there to take.
+    frame(c);
+    c.fillStyle = c.strokeStyle;
+    // Two wheels under the count, small enough to read as a bike and not
+    // compete with it.
+    c.beginPath(); c.arc(17, 33, 4.2, 0, Math.PI * 2); c.stroke();
+    c.beginPath(); c.arc(31, 33, 4.2, 0, Math.PI * 2); c.stroke();
+    poly(c, [[17, 33], [23, 26], [31, 33]]);
+    if (!label) return;
+    c.font = '700 14px "JetBrains Mono", ui-monospace, monospace';
+    c.textAlign = 'center'; c.textBaseline = 'middle';
+    c.fillText(String(label), 24, 17);
+  },
+  wildfire(c) {
+    // Dashed, because a wildfire's extent is an estimate and a solid ring
+    // would claim an edge the data does not have. Filled triangle against
+    // the fire layer's hollow one: same hazard, different certainty.
+    c.save();
+    c.setLineDash([5, 4]);
+    ring(c);
+    c.restore();
+    c.fillStyle = c.strokeStyle;
+    c.beginPath();
+    c.moveTo(24, 14); c.lineTo(33, 31); c.lineTo(15, 31);
+    c.closePath(); c.fill();
   },
 
   /* ── Vehicles ── */
@@ -2157,6 +2320,34 @@ const GROUND = [
     file: 'data/zips.json',
     load: (g, badge) => loadOutages(g, badge),
     popup: () => ''
+  },
+  {
+    id: 'workzones', color: '#fb923c', name: 'Roadway work zones',
+    // Permits rather than cones: most of these are long-running right-of-way
+    // grants, which is why the count runs to thousands and the end dates run
+    // years out. Filtered to the ones that have not expired. Polylines, so
+    // this belongs with the ground shapes rather than the marks.
+    note: 'Open right-of-way permits \u00b7 heavier layer, ~300 KB',
+    group: 'recent',
+    url: 'https://data.austintexas.gov/resource/qyfh-gwei.geojson'
+       + '?$select=geometry,road_names,event_type,end_date,direction,'
+       + 'are_workers_present,critical_corridor'
+       + '&$where=end_date>%27' + new Date().toISOString().slice(0, 19) + '%27'
+       + '&$limit=5000',
+    style: p => ({
+      // Critical corridors are the ones the city itself flags as traffic-
+      // sensitive, and they are the only ones worth drawing loudly.
+      color: p.critical_corridor ? '#fb923c' : '#a16207',
+      weight: p.critical_corridor ? 3 : 2,
+      opacity: p.critical_corridor ? 0.9 : 0.55
+    }),
+    popup: p => pop('#fb923c', 'Work zone', titleCase(p.road_names) || 'Roadway work', '', [
+      ['Type', p.event_type],
+      ['Direction', p.direction],
+      ['Critical corridor', p.critical_corridor ? 'Yes' : null],
+      ['Workers on site', p.are_workers_present ? 'Yes' : 'Not reported'],
+      ['Permit ends', p.end_date ? new Date(p.end_date).toLocaleDateString() : null]
+    ])
   }
 ];
 const groundLayers = {};
