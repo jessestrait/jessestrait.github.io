@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 17,
-  "dispatch_only": 15,
+  "dispatch": 19,
+  "dispatch_only": 17,
   "matched": 2,
-  "tomtom": 315,
-  "tomtom_only": 313
+  "tomtom": 390,
+  "tomtom_only": 388
  },
  "date": "2026-09-14",
  "match_rate": {
@@ -21,17 +21,17 @@
   },
   "dispatch_surface": {
    "matched": 2,
-   "n": 15,
-   "pct": 13.3
+   "n": 17,
+   "pct": 11.8
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 132,
-   "pct": 1.5
+   "n": 186,
+   "pct": 1.1
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 183,
+   "n": 204,
    "pct": 0.0
   }
  },
@@ -127,10 +127,10 @@
    "seg": "30.345,-97.573"
   },
   {
-   "from": "E 6th St (I-35)",
+   "from": "Far West Blvd",
    "hour_of_week": 20,
    "n": 2,
-   "seg": "30.262,-97.736"
+   "seg": "30.353,-97.758"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -146,7 +146,7 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.2,
-  "tomtom": 99.4
+  "dispatch": 89.5,
+  "tomtom": 99.5
  }
 }
