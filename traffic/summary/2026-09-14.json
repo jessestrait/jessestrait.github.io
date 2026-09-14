@@ -9,8 +9,8 @@
   "dispatch": 17,
   "dispatch_only": 15,
   "matched": 2,
-  "tomtom": 285,
-  "tomtom_only": 283
+  "tomtom": 315,
+  "tomtom_only": 313
  },
  "date": "2026-09-14",
  "match_rate": {
@@ -26,12 +26,12 @@
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 123,
-   "pct": 1.6
+   "n": 132,
+   "pct": 1.5
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 162,
+   "n": 183,
    "pct": 0.0
   }
  },
@@ -57,8 +57,14 @@
   {
    "from": "Highway 45",
    "hour_of_week": 20,
-   "n": 2,
+   "n": 3,
    "seg": "30.488,-97.676"
+  },
+  {
+   "from": "N Lakeline Blvd / S Lakeline Blvd",
+   "hour_of_week": 20,
+   "n": 3,
+   "seg": "30.504,-97.850"
   },
   {
    "from": "W Ben White Blvd",
@@ -73,6 +79,12 @@
    "seg": "30.257,-97.736"
   },
   {
+   "from": "E Martin Luther King Junior Blvd / FM 969 Rd",
+   "hour_of_week": 20,
+   "n": 2,
+   "seg": "30.302,-97.660"
+  },
+  {
    "from": "Dixie Dr",
    "hour_of_week": 20,
    "n": 2,
@@ -85,22 +97,16 @@
    "seg": "30.495,-97.750"
   },
   {
-   "from": "FM-2222 (TX-360 Loop/N Capital of Texas Hwy)",
-   "hour_of_week": 20,
-   "n": 2,
-   "seg": "30.381,-97.775"
-  },
-  {
    "from": "Korman Dr",
    "hour_of_week": 20,
    "n": 2,
    "seg": "30.431,-97.673"
   },
   {
-   "from": "N Lakeline Blvd / S Lakeline Blvd",
+   "from": "E Ben White Blvd",
    "hour_of_week": 20,
    "n": 2,
-   "seg": "30.504,-97.850"
+   "seg": "30.217,-97.751"
   },
   {
    "from": "Barton Creek Blvd",
@@ -109,7 +115,19 @@
    "seg": "30.292,-97.873"
   },
   {
-   "from": "Cesar Chavez St exit [234A]",
+   "from": "TX-1 Loop/Mo Pac Expy (William Cannon Dr)",
+   "hour_of_week": 20,
+   "n": 2,
+   "seg": "30.214,-97.832"
+  },
+  {
+   "from": "Old Highway 20",
+   "hour_of_week": 20,
+   "n": 2,
+   "seg": "30.345,-97.573"
+  },
+  {
+   "from": "E 6th St (I-35)",
    "hour_of_week": 20,
    "n": 2,
    "seg": "30.262,-97.736"
@@ -125,28 +143,10 @@
    "hour_of_week": 68,
    "n": 2,
    "seg": "30.234,-97.736"
-  },
-  {
-   "from": "Thompson Ln",
-   "hour_of_week": 94,
-   "n": 2,
-   "seg": "30.244,-97.669"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Hyridge Cir / Hyridge St",
-   "hour_of_week": 20,
-   "n": 1,
-   "seg": "30.498,-97.673"
   }
  ],
  "unmatched_pct": {
   "dispatch": 88.2,
-  "tomtom": 99.3
+  "tomtom": 99.4
  }
 }
