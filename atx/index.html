@@ -4728,7 +4728,18 @@ const TOMTOM_KEY = 'vDrFhDUIcrFG8rG8AmYZKepJiJqVIGSR';
    nobody has touched the map for twenty, brings that to something a free
    key survives. Flow data is not granular enough for five minutes to have
    been buying anything. */
-const TRAFFIC = { on: false, layer: null, errors: 0, timer: null, tiles: 0 };
+const TRAFFIC = { on: false, layer: null, errs: [], timer: null, retry: null, tiles: 0 };
+/* Errors only count while they happen together.
+   The counter used to be cumulative for the life of the layer and never
+   reset, so six tile failures spread across an afternoon — a sleep and wake,
+   a lift, one flaky minute of wifi — switched the layer off for the rest of
+   the session and told you it was the quota.
+   It was not the quota. Nine days of TomTom's own usage export: 68,665
+   requests, mean 7,629 a day, peak 16,624, and zero 403s. The account was
+   never throttled once. */
+const TRAFFIC_ERR_WINDOW = 120000;   // errors must cluster to mean anything
+const TRAFFIC_ERR_LIMIT = 8;
+const TRAFFIC_RETRY = 300000;        // and then try again, rather than sulk
 const TRAFFIC_REFRESH = 720000;   // 12 minutes
 const TRAFFIC_IDLE = 1200000;     // stop refreshing after 20 minutes untouched
 let lastTouch = Date.now();
@@ -4758,6 +4769,8 @@ function trafficOn(on) {
   if (!on) {
     if (TRAFFIC.layer) { map.removeLayer(TRAFFIC.layer); TRAFFIC.layer = null; }
     clearInterval(TRAFFIC.timer); TRAFFIC.timer = null;
+    // Clears the automatic retry too, so switching it off by hand means off.
+    clearTimeout(TRAFFIC.retry); TRAFFIC.retry = null;
     setTrafficNote('Congestion under the incident pins &mdash; the jam and its cause together.');
     if (window.syncModes) syncModes();
     return;
@@ -4770,7 +4783,8 @@ function trafficOn(on) {
     return;
   }
 
-  TRAFFIC.errors = 0;
+  TRAFFIC.errs.length = 0;
+  clearTimeout(TRAFFIC.retry); TRAFFIC.retry = null;
   TRAFFIC.layer = L.tileLayer(trafficUrl(), {
     pane: 'trafficPane', maxZoom: 22, opacity: 0.85, t: Date.now(),
     attribution: 'Traffic &copy; <a href="https://www.tomtom.com/">TomTom</a>'
@@ -4778,6 +4792,8 @@ function trafficOn(on) {
   // Counted, because the allowance is counted in tiles and there is otherwise
   // no way to see what a session costs until it stops working.
   TRAFFIC.layer.on('tileload', () => {
+    // A tile came back, so whatever went wrong before has stopped.
+    TRAFFIC.errs.length = 0;
     TRAFFIC.tiles++;
     if (TRAFFIC.tiles % 250 === 0) {
       setTrafficNote('Congestion under the incident pins. '
@@ -4786,12 +4802,19 @@ function trafficOn(on) {
   });
   // Quota exhaustion or a bad key comes back as tile errors, not an exception.
   TRAFFIC.layer.on('tileerror', () => {
-    if (++TRAFFIC.errors < 6 || !TRAFFIC.on) return;
+    const t = Date.now();
+    TRAFFIC.errs.push(t);
+    TRAFFIC.errs = TRAFFIC.errs.filter(x => t - x < TRAFFIC_ERR_WINDOW);
+    if (TRAFFIC.errs.length < TRAFFIC_ERR_LIMIT || !TRAFFIC.on) return;
     trafficOn(false);
-    setTrafficNote('TomTom stopped serving tiles after ' + TRAFFIC.tiles.toLocaleString()
-      + ' this session &mdash; almost always the free allowance, which is counted '
-      + 'per tile and resets daily. Tick it back on tomorrow. The rest of the map '
-      + 'is unaffected.', true);
+    // Say what was observed, not what caused it. Tiles can stop for a dozen
+    // reasons and this end cannot tell them apart.
+    setTrafficNote('Tiles stopped loading after ' + TRAFFIC.tiles.toLocaleString()
+      + ' this session. Trying again in five minutes; tick it if you want it '
+      + 'sooner. The rest of the map is unaffected.', true);
+    TRAFFIC.retry = setTimeout(() => {
+      if (!TRAFFIC.on) trafficOn(true);
+    }, TRAFFIC_RETRY);
   });
   TRAFFIC.layer.addTo(map);
   setTrafficNote('Live from TomTom &middot; refreshed every '

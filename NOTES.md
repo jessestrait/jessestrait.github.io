@@ -180,6 +180,32 @@ if (q && !(f.cat + ' ' + f.html).toLowerCase().includes(q)) return;
     </div>
 ```
 
+## TomTom — the layer "dropping" was not the quota, 2026-09-14
+
+I diagnosed it as the daily allowance. The usage export says otherwise:
+**zero 403s across nine days and a peak of 16,624 requests.** The account
+was never throttled. That diagnosis was wrong and the evidence had not been
+looked at when it was made.
+
+The real fault was in this page. `tileerror` incremented a counter that was
+cumulative for the life of the layer and never reset:
+
+```js
+if (++TRAFFIC.errors < 6 || !TRAFFIC.on) return;   // then disable
+```
+
+Six tile failures from *any* cause, spread across *any* span of time — a
+sleep and wake, a lift, one flaky minute of wifi — switched the layer off
+for the rest of the session and displayed a message blaming the quota.
+
+Now: errors must cluster (8 within 2 minutes), a successful tile clears the
+count, the message says what was observed rather than guessing a cause, and
+it retries itself after five minutes instead of staying off.
+
+The tile-spend reduction shipped alongside it (12-minute refresh, nothing
+while idle) is still worth having at 16,624 requests in a day — but it was
+not the fix, and should not have been presented as one.
+
 ## TomTom — Phase 0 findings, 2026-09-14
 
 Verified by calling the API, not inferred from docs.
@@ -212,12 +238,35 @@ not pruned.
 
 If the clause is ever read and turns out permissive, loosening is one flag.
 
-### 0.3 Allowances — still blocked, needs the dashboard
+### 0.3 Allowances — answered from the usage export, 2026-09-14
 
-Cannot be read without the account. The archiver therefore defaults to the
-**15-minute** cadence, not 5: 96 calls a day, about 2,900 a month, which is
-under any plausible allowance. `--interval` and the workflow cron are the
-only things to change if 0.3 says 5 is affordable.
+Nine days of TomTom's own analytics for the page key:
+
+| | requests | 400 | 403 |
+|---|---|---|---|
+| 2026-09-05 | 3,678 | 4 | 0 |
+| 2026-09-06 | 3,434 | 0 | 0 |
+| 2026-09-07 | 4,542 | 0 | 0 |
+| 2026-09-08 | 10,725 | 0 | 0 |
+| 2026-09-09 | 11,122 | 12 | 0 |
+| 2026-09-10 | **16,624** | 0 | 0 |
+| 2026-09-11 | 4,718 | 0 | 0 |
+| 2026-09-12 | 9,829 | 0 | 0 |
+| 2026-09-13 | 3,993 | 0 | 0 |
+
+68,665 requests, mean 7,629/day, **peak 16,624 with zero 403s and zero 5xx.**
+The 16 errors in the window are all 400s. The account has never once been
+throttled.
+
+So the archiver moved to a **5-minute** cadence: 288 calls a day, which is
+under 4% of a day the account already absorbed without complaint. Clearance
+resolution equals the poll interval, so this is the single change that most
+improves the persistence statistic.
+
+Caveat: the export is aggregated as "Traffic API" and does not break out
+tiles from Incident Details, and the free allowance is still not stated
+anywhere I can read. This is an argument from observed tolerance, not from a
+published number.
 
 ### Endpoint facts
 

@@ -470,7 +470,7 @@ def main():
     ap.add_argument("--onset-window", type=float, default=90.0,
                     help="minutes; how far apart the two start times may be and "
                          "still be believed to describe one event")
-    ap.add_argument("--interval", type=float, default=15.0,
+    ap.add_argument("--interval", type=float, default=5.0,
                     help="poll cadence, recorded so clearance resolution is known")
     ap.add_argument("--retain-days", type=int, default=2,
                     help="days of TomTom-bearing daily files to keep; aggregates are forever")

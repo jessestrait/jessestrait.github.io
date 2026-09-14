@@ -34,9 +34,9 @@ concurrency:
 jobs:
   capture:
     runs-on: ubuntu-latest
-    # Three polls fifteen minutes apart, then a fourth wait before handing
-    # off, so the whole job is 60 minutes of sleep plus overhead.
-    timeout-minutes: 80
+    # Eight polls five minutes apart, plus a trailing wait before handing
+    # off, so the whole job is 45 minutes of sleep plus overhead.
+    timeout-minutes: 70
     steps:
       - name: Arm the next run
         # First, so the chain survives even if everything below fails.
@@ -65,7 +65,7 @@ jobs:
             git rm -rfq . || true
           fi
 
-      - name: Poll three times, fifteen minutes apart
+      - name: Poll eight times, five minutes apart
         env:
           TOMTOM_ARCHIVE_KEY: ${{ secrets.TOMTOM_ARCHIVE_KEY }}
         run: |
@@ -75,7 +75,7 @@ jobs:
             echo "::error::with no domain restriction and add it as a repository secret."
             exit 1
           fi
-          for i in 1 2 3; do
+          for i in 1 2 3 4 5 6 7 8; do
             for attempt in 1 2 3; do
               # open.json carries the state that decides whether an incident is
               # new or continuing, so it has to be the newest one — starting
@@ -83,7 +83,7 @@ jobs:
               git fetch --depth=1 --quiet origin data:refs/remotes/origin/data || true
               git reset --hard --quiet refs/remotes/origin/data || true
               mkdir -p traffic
-              python3 "$RUNNER_TEMP/capture_traffic.py" --out traffic --interval 15 || break
+              python3 "$RUNNER_TEMP/capture_traffic.py" --out traffic --interval 5 || break
               git add traffic
               if git diff --cached --quiet; then
                 echo "nothing changed"
@@ -100,5 +100,5 @@ jobs:
             # in refresh-news.yml. The successor is already queued behind this
             # job and starts the moment it ends, so without a trailing sleep
             # the handoff polls twice within seconds.
-            sleep 900
+            sleep 300
           done
