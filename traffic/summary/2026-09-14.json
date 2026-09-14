@@ -1,0 +1,152 @@
+{
+ "caveats": [
+  "Dispatch published_date is when APD published, not when it happened.",
+  "Clearance resolution equals the poll interval; shorter incidents are invisible.",
+  "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
+  "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
+ ],
+ "counts": {
+  "dispatch": 14,
+  "dispatch_only": 13,
+  "matched": 1,
+  "tomtom": 177,
+  "tomtom_only": 176
+ },
+ "date": "2026-09-14",
+ "match_rate": {
+  "dispatch_highway": {
+   "matched": 0,
+   "n": 2,
+   "pct": 0.0
+  },
+  "dispatch_surface": {
+   "matched": 1,
+   "n": 12,
+   "pct": 8.3
+  },
+  "tomtom_highway": {
+   "matched": 1,
+   "n": 73,
+   "pct": 1.4
+  },
+  "tomtom_surface": {
+   "matched": 0,
+   "n": 104,
+   "pct": 0.0
+  }
+ },
+ "matcher": {
+  "buffer_m": 200.0,
+  "highway_buffer_m": 130.0,
+  "onset_window_min": 90.0,
+  "tolerance_min": 20.0
+ },
+ "onset_offset_min": {
+  "max": -20.5,
+  "median": -20.5,
+  "min": -20.5,
+  "n": 1,
+  "q1": -20.5,
+  "q3": -20.5
+ },
+ "persistence_min": {
+  "n": 0
+ },
+ "poll_interval_min": 5.0,
+ "structural_hotspots": [
+  {
+   "from": "N Lakeline Blvd",
+   "hour_of_week": 20,
+   "n": 2,
+   "seg": "30.504,-97.850"
+  },
+  {
+   "from": "Salt Springs Dr",
+   "hour_of_week": 20,
+   "n": 2,
+   "seg": "30.164,-97.744"
+  },
+  {
+   "from": "I-35 (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 2,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 2,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 2,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Korman Dr",
+   "hour_of_week": 20,
+   "n": 2,
+   "seg": "30.431,-97.673"
+  },
+  {
+   "from": "Thompson Ln",
+   "hour_of_week": 94,
+   "n": 2,
+   "seg": "30.244,-97.669"
+  },
+  {
+   "from": "Hergotz Ln",
+   "hour_of_week": 112,
+   "n": 2,
+   "seg": "30.244,-97.663"
+  },
+  {
+   "from": "Cavalier Canyon Dr",
+   "hour_of_week": 20,
+   "n": 1,
+   "seg": "30.370,-97.946"
+  },
+  {
+   "from": "Austin",
+   "hour_of_week": 20,
+   "n": 1,
+   "seg": "30.177,-97.889"
+  },
+  {
+   "from": "La Carman Ln",
+   "hour_of_week": 20,
+   "n": 1,
+   "seg": "30.211,-97.879"
+  },
+  {
+   "from": "Battle Bridge Dr",
+   "hour_of_week": 20,
+   "n": 1,
+   "seg": "30.152,-97.852"
+  },
+  {
+   "from": "FM-2222/Bullick Hollow Rd (FM-620)",
+   "hour_of_week": 20,
+   "n": 1,
+   "seg": "30.452,-97.829"
+  },
+  {
+   "from": "Bee Cave Rd (Westbank Dr)",
+   "hour_of_week": 20,
+   "n": 1,
+   "seg": "30.277,-97.819"
+  },
+  {
+   "from": "Twin Creek Rd",
+   "hour_of_week": 19,
+   "n": 1,
+   "seg": "30.121,-97.812"
+  }
+ ],
+ "unmatched_pct": {
+  "dispatch": 92.9,
+  "tomtom": 99.4
+ }
+}
