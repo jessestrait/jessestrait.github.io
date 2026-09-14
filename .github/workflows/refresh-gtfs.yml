@@ -1,0 +1,49 @@
+# CapMetro's static GTFS, trimmed to two files the browser can load.
+#
+# The published feed is 34 MB zipped and 168 MB open; shapes.txt alone is
+# 121 MB and stop_times.txt is 44 MB. Neither is ever shipped. The job
+# streams them to answer two questions — what each route looks like, and
+# which routes serve each stop — and throws them away. Output is about
+# 270 KB over the wire. tools/build_capmetro.py has the detail.
+#
+# CapMetro republishes a few times a year with service changes, so weekly is
+# generous and catches one without anybody remembering to look. This commits
+# to main, unlike the archive jobs, because the page loads these files
+# same-origin and they change too rarely to be worth the history.
+name: Refresh CapMetro GTFS
+
+on:
+  schedule:
+    - cron: "37 9 * * 1"          # Mondays, off the hour
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-gtfs
+  cancel-in-progress: false
+
+jobs:
+  gtfs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rebuild the two GeoJSON files
+        run: python3 tools/build_capmetro.py
+
+      - name: Commit only if the service actually changed
+        run: |
+          set -euo pipefail
+          git config user.name  "gtfs-build[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add atx/data/routes.geojson atx/data/stops.geojson
+          if git diff --cached --quiet; then
+            echo "same feed version, nothing to commit"
+            exit 0
+          fi
+          V=$(python3 -c 'import json;print(json.load(open("atx/data/routes.geojson"))["meta"]["version"])')
+          git commit -q -m "CapMetro GTFS: $V"
+          git push --quiet
