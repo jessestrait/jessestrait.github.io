@@ -179,3 +179,89 @@ if (q && !(f.cat + ' ' + f.html).toLowerCase().includes(q)) return;
       <input type="text" id="q" placeholder="Filter everything on the map…" autocomplete="off" />
     </div>
 ```
+
+## TomTom — Phase 0 findings, 2026-09-14
+
+Verified by calling the API, not inferred from docs.
+
+### 0.1 Two keys — done, and confirmed
+
+The page key is now domain-restricted to `jessestrait.com`. Confirmed by
+watching it change: the same request returned **200 with no referrer at
+20:05Z and 403 `InvalidReferer` at 20:24Z**. The page itself is unaffected —
+13 tiles, 0 errors, single-tile probe OK from the live origin.
+
+That also means **the archiver must have its own key.** Actions sends no
+referrer, so the page key cannot work there by construction. It goes in the
+`TOMTOM_ARCHIVE_KEY` repository secret and must have no domain restriction.
+
+### 0.2 Retention — NOT answered; designed around instead
+
+`developer.tomtom.com/terms-and-conditions` 301s to `docs.tomtom.com`, and
+both render client-side: 287 characters of extractable text, no clause. A
+search summary mentioned 90 days for downloadable map data and 60 for
+Traffic Analytics, but that is a summary of a different product and was not
+verified against the document.
+
+So the archiver assumes the **restrictive** reading, which the handoff notes
+costs nothing: derived minimal fields only, never raw responses, TomTom-
+bearing daily files pruned after `--retain-days` (default 2), and aggregates
+— which are analysis output rather than Content — kept indefinitely. The
+statistics survive either reading. Dispatch rows are Austin open data and are
+not pruned.
+
+If the clause is ever read and turns out permissive, loosening is one flag.
+
+### 0.3 Allowances — still blocked, needs the dashboard
+
+Cannot be read without the account. The archiver therefore defaults to the
+**15-minute** cadence, not 5: 96 calls a day, about 2,900 a month, which is
+under any plausible allowance. `--interval` and the workflow cron are the
+only things to change if 0.3 says 5 is affordable.
+
+### Endpoint facts
+
+- **Max bbox is 10,000 km².** Confirmed by a 400: *"Area of 'bbox' parameter
+  is larger than 10,000km2."* The Austin box is ~1,750 km², well inside.
+- **Every field in the handoff exists** on Incident Details v5 and the
+  `fields` selector syntax in `tools/capture_traffic.py` works verbatim.
+- **`numberOfReports` and `lastReportTime` are almost always null** — present
+  on 4 of 169. Do not build a popup around them.
+- **Ids are stable.** 169/169 identical across polls, `startTime` unchanged
+  on all of them. But the UUID portion repeats — 74 distinct uuids across 169
+  ids — so the **full id string is the key**, not the uuid.
+
+### The one that matters: this feed may not be able to answer the question
+
+Sampled 20:20Z on a Monday:
+
+- The **youngest incident in the whole Austin bbox started 394 minutes ago.**
+  Median age 4 days; oldest 1.6 years.
+- **Zero churn over 20 minutes** — 169 in, 169 out, nothing appeared or
+  disappeared.
+- By category: 76 road-closed, 73 jam, 12 roadworks, 8 lane-closed. **No
+  accidents at all**, while dispatch published 15 records in the same 2 hours.
+
+So the Austin response is dominated by long-lived planned and structural
+records. If nothing short-lived ever enters it, the onset-offset statistic
+— the headline of Phase 1 — has nothing to measure, and no matcher tuning
+fixes that.
+
+This is one afternoon sample and should not be treated as settled; the
+archiver exists precisely to find out over days. But it is the risk to watch,
+and the summary reports `n` beside every figure so `n=0` stays visible rather
+than being averaged into something that looks like an answer.
+
+### A bug this nearly shipped
+
+The first matcher used only interval overlap, as the handoff specifies. That
+is necessary and nowhere near sufficient. An all-afternoon corridor jam
+overlaps every dispatch record for the rest of the day, so a hazard reported
+at 18:51 matched a jam that began at 11:37 — at one metre, scoring well.
+Four such pairs gave a median onset offset of **−336 minutes**, which reads
+as "probe data sees jams five and a half hours before APD" and is simply
+false. They were never the same event.
+
+Fixed with `--onset-window` (default 90 min): the two *start* times must be
+close, not merely the intervals. Wide and symmetric, because a genuine
+negative is the finding the archive exists to measure.
