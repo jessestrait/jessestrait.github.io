@@ -314,3 +314,35 @@ false. They were never the same event.
 Fixed with `--onset-window` (default 90 min): the two *start* times must be
 close, not merely the intervals. Wide and symmetric, because a genuine
 negative is the finding the archive exists to measure.
+
+## A real Lakeway outage that this map could not see, 2026-09-14
+
+Reported from the ground: an outage near Lakeway, ~299 customers, traffic
+signals dark across the area. Neither feed showed it.
+
+- **Austin Energy** reported `n_out: 0, cust_a: 0` across all 51 ZIPs, from
+  a report published 3.8 minutes before it was read. Not staleness.
+- **COA traffic signals** had 115 signals in fault citywide and **zero within
+  12 km of Lakeway.**
+
+Both blanks have the same cause and it is not a bug. These are
+City-of-Austin feeds and Lakeway is at the edge of, or outside, what they
+cover:
+
+- ZIP 78734 *is* in AE's list with 9,060 customers served, but a ZIP that
+  size is split between utilities. Lakeway proper is largely **Pedernales
+  Electric Cooperative**, and PEC outages will never appear in AE's feed no
+  matter how many of its customers are dark.
+- The signals dataset covers signals **the City operates**. Lakeway's are
+  TxDOT's or the city of Lakeway's, so a dark signal there is invisible here
+  by construction.
+
+Worth stating in the copy: the outage layer is Austin Energy's customers,
+not Austin's lights. The western suburbs — Lakeway, Bee Cave, Spicewood,
+Dripping Springs — are a genuine hole.
+
+PEC was probed briefly and its outage map did not resolve to anything
+fetchable (`outagemap.pec.coop` and `www.pec.coop/outages/` both failed to
+connect; `outages.pec.coop` returns a JS shell). If that is ever worth
+filling, start by watching the network tab on their public map the way the
+KUBRA chain was found.

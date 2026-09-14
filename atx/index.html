@@ -774,6 +774,15 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
         and the file it points at rotates its name on every publish, so a small relay adds the
         missing header and changes nothing else. Vehicles in the yard are left off &mdash; where
         CapMetro parks is not the question.</li>
+      <li><b>Routes and stops</b> &mdash; CapMetro's <b>static GTFS</b>, which is a different feed
+        from the live one: 34&nbsp;MB zipped and 168&nbsp;MB open, almost all of it in two files no
+        browser should ever download. A weekly job streams them once &mdash; 3.3&nbsp;million shape
+        rows and 843,000 stop-time rows &mdash; and keeps only what is drawable. CapMetro publishes
+        7,323 shape variants for 71 routes, one for every detour and short-turn, so the most-used
+        shape per route per direction is kept; that is what anyone means by &ldquo;the 20&rdquo;.
+        Tapping a stop lights its routes and filters the live vehicles to them, because most stops
+        serve several routes &mdash; Lavaca at 6th serves fifteen &mdash; and a stop therefore has
+        colours rather than a colour.</li>
       <li><b>Power history</b> &mdash; outage state is not published as history anywhere, so a
         scheduled job here writes it down every quarter hour and the page reads that archive back:
         how long each ZIP was dark, and whether Austin Energy restored by the time it had published.
@@ -2348,13 +2357,13 @@ const GROUND = [
   {
     id: 'busroutes', color: '#94a3b8', name: 'Bus and rail routes',
     note: '71 routes, drawn in CapMetro\u2019s own colours',
-    group: 'recent',
+    group: 'recent', on: true,
     load: g => loadTransitRoutes(g)
   },
   {
     id: 'busstops', color: '#cbd5e1', name: 'Transit stops',
     note: '2,336 stops \u00b7 appear when you zoom in',
-    group: 'recent',
+    group: 'recent', on: true,
     load: g => loadTransitStops(g)
   },
   {
