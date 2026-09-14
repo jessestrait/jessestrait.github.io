@@ -2401,7 +2401,8 @@ function groundRow(g) {
   const el = document.createElement('label');
   el.className = 'row';
   el.style.setProperty('--k', g.color);
-  el.innerHTML = '<input type="checkbox"><span class="swatch"></span>'
+  el.innerHTML = '<input type="checkbox" ' + (g.on ? 'checked' : '') + '>'
+    + '<span class="swatch"></span>'
     + '<span class="nm">' + esc(g.name) + '<small id="note-' + g.id + '">'
       + esc(g.note) + '</small></span>'
     + '<span class="ct" id="ct-g-' + g.id + '">&mdash;</span>';
@@ -2422,6 +2423,10 @@ function groundRow(g) {
 }
 const byGround = Object.fromEntries(GROUND.map(g => [g.id, g]));
 GROUND.forEach(g => document.getElementById(g.group || 'ground').appendChild(groundRow(g)));
+/* Ground layers used to load only when ticked, because none of them started
+   on. The transit routes and stops do, so they need a boot path — the flag
+   alone drew nothing and left two ticked boxes over an empty map. */
+GROUND.filter(g => g.on).forEach(g => loadGround(g));
 
 async function loadGround(g) {
   const badge = document.getElementById('ct-g-' + g.id);
