@@ -1,0 +1,152 @@
+{
+ "caveats": [
+  "Dispatch published_date is when APD published, not when it happened.",
+  "Clearance resolution equals the poll interval; shorter incidents are invisible.",
+  "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
+  "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
+ ],
+ "counts": {
+  "dispatch": 24,
+  "dispatch_only": 23,
+  "matched": 1,
+  "tomtom": 119,
+  "tomtom_only": 118
+ },
+ "date": "2026-09-15",
+ "match_rate": {
+  "dispatch_highway": {
+   "matched": 1,
+   "n": 6,
+   "pct": 16.7
+  },
+  "dispatch_surface": {
+   "matched": 0,
+   "n": 18,
+   "pct": 0.0
+  },
+  "tomtom_highway": {
+   "matched": 1,
+   "n": 46,
+   "pct": 2.2
+  },
+  "tomtom_surface": {
+   "matched": 0,
+   "n": 73,
+   "pct": 0.0
+  }
+ },
+ "matcher": {
+  "buffer_m": 200.0,
+  "highway_buffer_m": 130.0,
+  "onset_window_min": 90.0,
+  "tolerance_min": 20.0
+ },
+ "onset_offset_min": {
+  "max": 57.5,
+  "median": 57.5,
+  "min": 57.5,
+  "n": 1,
+  "q1": 57.5,
+  "q3": 57.5
+ },
+ "persistence_min": {
+  "n": 0
+ },
+ "poll_interval_min": 5.0,
+ "structural_hotspots": [
+  {
+   "from": "Chestnut Ave (E Martin Luther King Jr Blvd)",
+   "hour_of_week": 23,
+   "n": 2,
+   "seg": "30.279,-97.733"
+  },
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 2,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 2,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Hergotz Ln",
+   "hour_of_week": 112,
+   "n": 2,
+   "seg": "30.244,-97.663"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 2,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Lakeline Mall Dr",
+   "hour_of_week": 23,
+   "n": 1,
+   "seg": "30.475,-97.795"
+  },
+  {
+   "from": "E Braker Ln (I-35)",
+   "hour_of_week": 23,
+   "n": 1,
+   "seg": "30.423,-97.671"
+  },
+  {
+   "from": "FM-1325/Burnet Rd (US-183)",
+   "hour_of_week": 23,
+   "n": 1,
+   "seg": "30.347,-97.711"
+  },
+  {
+   "from": "US-183/E Anderson Ln (I-35)",
+   "hour_of_week": 23,
+   "n": 1,
+   "seg": "30.355,-97.690"
+  },
+  {
+   "from": "Immanuel Rd",
+   "hour_of_week": 23,
+   "n": 1,
+   "seg": "30.402,-97.636"
+  },
+  {
+   "from": "S 1st St/Conroy Ln (FM-1626)",
+   "hour_of_week": 23,
+   "n": 1,
+   "seg": "30.141,-97.797"
+  },
+  {
+   "from": "Oasis Bluff Dr",
+   "hour_of_week": 23,
+   "n": 1,
+   "seg": "30.406,-97.857"
+  },
+  {
+   "from": "Thermal Dr/Metric Blvd (E Howard Ln)",
+   "hour_of_week": 21,
+   "n": 1,
+   "seg": "30.425,-97.673"
+  },
+  {
+   "from": "US-290/Exit 238 (I-35)",
+   "hour_of_week": 23,
+   "n": 1,
+   "seg": "30.354,-97.690"
+  },
+  {
+   "from": "E 18th St",
+   "hour_of_week": 24,
+   "n": 1,
+   "seg": "30.279,-97.733"
+  }
+ ],
+ "unmatched_pct": {
+  "dispatch": 95.8,
+  "tomtom": 99.2
+ }
+}
