@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 37,
-  "dispatch_only": 37,
+  "dispatch": 38,
+  "dispatch_only": 38,
   "matched": 0,
-  "tomtom": 427,
-  "tomtom_only": 427
+  "tomtom": 436,
+  "tomtom_only": 436
  },
  "date": "2026-09-15",
  "match_rate": {
@@ -21,17 +21,17 @@
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 29,
+   "n": 30,
    "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 242,
+   "n": 249,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 185,
+   "n": 187,
    "pct": 0.0
   }
  },
@@ -50,16 +50,16 @@
  "poll_interval_min": 5.0,
  "structural_hotspots": [
   {
+   "from": "Edwin Ln",
+   "hour_of_week": 3,
+   "n": 4,
+   "seg": "30.238,-97.663"
+  },
+  {
    "from": "E 15th St (Trinity St)",
    "hour_of_week": 24,
    "n": 3,
    "seg": "30.279,-97.735"
-  },
-  {
-   "from": "Edwin Ln",
-   "hour_of_week": 3,
-   "n": 3,
-   "seg": "30.238,-97.663"
   },
   {
    "from": "Northwest Travis",
