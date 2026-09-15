@@ -7,10 +7,10 @@
  ],
  "counts": {
   "dispatch": 140,
-  "dispatch_only": 130,
-  "matched": 10,
-  "tomtom": 2228,
-  "tomtom_only": 2216
+  "dispatch_only": 129,
+  "matched": 11,
+  "tomtom": 2282,
+  "tomtom_only": 2266
  },
  "date": "2026-09-15",
  "match_rate": {
@@ -20,19 +20,19 @@
    "pct": 3.4
   },
   "dispatch_surface": {
-   "matched": 9,
+   "matched": 10,
    "n": 111,
-   "pct": 8.1
+   "pct": 9.0
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 1180,
+   "n": 1197,
    "pct": 0.4
   },
   "tomtom_surface": {
-   "matched": 7,
-   "n": 1048,
-   "pct": 0.7
+   "matched": 11,
+   "n": 1085,
+   "pct": 1.0
   }
  },
  "matcher": {
@@ -42,12 +42,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 65.7,
-  "median": 33.0,
+  "max": 82.8,
+  "median": 38.0,
   "min": -16.8,
-  "n": 10,
-  "q1": 3.2,
-  "q3": 60.3
+  "n": 11,
+  "q1": 5.9,
+  "q3": 59.1
  },
  "persistence_min": {
   "n": 0
@@ -146,7 +146,7 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 92.9,
-  "tomtom": 99.5
+  "dispatch": 92.1,
+  "tomtom": 99.3
  }
 }
