@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 32,
-  "dispatch_only": 32,
+  "dispatch": 34,
+  "dispatch_only": 34,
   "matched": 0,
-  "tomtom": 325,
-  "tomtom_only": 325
+  "tomtom": 340,
+  "tomtom_only": 340
  },
  "date": "2026-09-15",
  "match_rate": {
@@ -21,17 +21,17 @@
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 25,
+   "n": 27,
    "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 167,
+   "n": 179,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 158,
+   "n": 161,
    "pct": 0.0
   }
  },
@@ -56,6 +56,12 @@
    "seg": "30.279,-97.735"
   },
   {
+   "from": "Edwin Ln",
+   "hour_of_week": 3,
+   "n": 3,
+   "seg": "30.238,-97.663"
+  },
+  {
    "from": "Chestnut Ave (E Martin Luther King Jr Blvd)",
    "hour_of_week": 23,
    "n": 2,
@@ -78,12 +84,6 @@
    "hour_of_week": 24,
    "n": 2,
    "seg": "30.282,-97.731"
-  },
-  {
-   "from": "Edwin Ln",
-   "hour_of_week": 3,
-   "n": 2,
-   "seg": "30.238,-97.663"
   },
   {
    "from": "Northwest Travis",
