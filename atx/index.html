@@ -109,7 +109,16 @@ a{color:var(--accent-hi)}
 }
 #panel::-webkit-scrollbar{width:8px}
 #panel::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
-#map{flex:1; height:100%; background:#0a0e16}
+/* position:relative is load-bearing, not tidiness. Leaflet's panes are
+   absolutely positioned, so without it they resolve against #shell — which
+   starts where the panel does, 340px to the left — and every pane is drawn
+   that far off, clipped by the overflow:hidden here. The dark canvas hid it
+   for months by accident: it has no tiles past zoom 16, and the upscaled
+   512px ones overshoot far enough to cover the gap. Native-resolution
+   imagery does not, and the right edge of the map went black. The phone
+   layout below has always set position on #map, which is why this was only
+   ever a desktop bug. */
+#map{position:relative; flex:1; height:100%; background:#0a0e16}
 
 /* ── Panel bits ──────────────────────────────────────── */
 .sec{border-bottom:1px solid var(--border); padding:1rem 1.1rem 1.15rem}
@@ -285,6 +294,21 @@ dl.mecard a{color:var(--accent-hi)}
    fixed look this had before — so if the solar maths never runs, or runs and
    throws, the map is exactly the map it was. */
 .leaflet-tile-pane .leaflet-tile{filter:brightness(var(--sky-b,.55)) contrast(1.4) saturate(.85) sepia(var(--sky-s,.3)) hue-rotate(var(--sky-h,175deg))}
+/* Imagery, kept inside the same palette. Raw aerial is the most extreme
+   version of the light busy basemap this map deliberately does not use —
+   every neon on the page was chosen against near-black, and Nearmap at 7.5cm
+   is high-variance colour in every hue. So it is crushed: most of the
+   saturation gone, contrast up to hold the blacks, and the same sepia and
+   hue-rotate that put Esri's grey canvas into the site navy. What survives
+   is the information — canopy, rooftops, parking, the lake, construction
+   scars — without the colour fight.
+
+   It rides the sun variables too, dimmer than the canvas does because
+   imagery starts far brighter. One colour system, not two. */
+.leaflet-tile-pane .sat .leaflet-tile{
+  filter:brightness(calc(var(--sky-b,.55) * .40 + .34)) contrast(1.18) saturate(.20)
+         sepia(.38) hue-rotate(var(--sky-h,175deg));
+}
 .leaflet-label2-pane{opacity:.68}
 
 /* ── Headline ticker ─────────────────────────────────────────
@@ -627,6 +651,15 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
     </div>
 
     <div class="sec">
+      <h3>Basemap</h3>
+      <div class="seg" id="basemap">
+        <button data-b="dark" class="on">Dark</button>
+        <button data-b="sat">Satellite</button>
+      </div>
+      <p class="hint note" id="satnote" hidden style="margin:.45rem 0 0;font-size:.66rem"></p>
+    </div>
+
+    <div class="sec">
       <h3>Shade the map</h3>
       <div class="seg" id="geo">
         <button data-g="none" class="on">Off</button>
@@ -782,6 +815,15 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
         Infrared rather than visible on purpose &mdash; visible light is reflected sunlight, so that
         product is black for half of every day, and cloud at 2am is exactly when you would look.
         In infrared, brighter means colder means higher cloud top.</li>
+      <li><b>Satellite</b> &mdash; <b>Esri World Imagery</b>, which over Austin is Nearmap
+        orthophotography at about 8&nbsp;cm. The panel reads the acquisition date out of Esri's own
+        footprint layer for whatever you are looking at, so it says whose picture it is and when it
+        was flown rather than just "satellite". It earns its place on detail rather than looks: the
+        dark canvas has no tiles past zoom 16 and upscales a blurred one from there, so past 16 the
+        imagery is the sharper map. It is filtered hard on the way in &mdash; most of the saturation
+        removed, contrast up, and the same hue rotation that puts Esri's grey canvas into this
+        page's navy &mdash; because raw aerial is the one basemap guaranteed to fight every colour
+        on top of it. It rides the same day/night variables as everything else.</li>
       <li><b>The light</b> &mdash; <b>computed, not fetched</b>, and the only thing on this page
         that is not a feed. The sun's altitude and bearing come from the standard low-precision
         solar series for the map's own centre and the hour on display &mdash; no request, no
@@ -1659,6 +1701,84 @@ L.tileLayer(ESRI + 'World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
 L.tileLayer(ESRI + 'World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
   maxNativeZoom: 16, maxZoom: 18, pane: 'labelPane2'
 }).addTo(map);
+
+/* ══════════════════════════════════════════════════════════════════
+   Satellite, as an alternative ground rather than a replacement look.
+
+   The reason it earns its place is not that aerial is prettier. It is
+   that the dark canvas above has no imagery past zoom 16 — 17 and 18
+   are the same blank placeholder upscaled — so the closer you look at
+   this city the less basemap there is under the marks. Over Austin the
+   World Imagery cache is Nearmap at 7.5 cm, which is native all the way
+   in. Past 16 it is the sharper map, not just the other one.
+
+   The label layer stays exactly as it is. Reference labels matter more
+   over imagery than over a street canvas, not less, and they ride in
+   their own unfiltered pane so nothing here touches them.
+   ══════════════════════════════════════════════════════════════════ */
+const satLayer = L.tileLayer(
+  'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Imagery &copy; <a href="https://www.esri.com/">Esri</a>, Nearmap, Maxar, Earthstar Geographics',
+    className: 'sat', maxNativeZoom: 19, maxZoom: 18, opacity: 1
+  });
+
+const BASE = { sat: false, noteAt: null, noteTimer: null };
+
+/* Esri publishes the footprints its imagery is stitched from, so the map can
+   say whose picture this is and when it was taken rather than leaving it as
+   "satellite" — the same courtesy every other layer here gets. Queried for
+   the centre of the view, because the answer genuinely changes as you pan
+   away from the city. */
+async function satVintage() {
+  const c = map.getCenter();
+  const key = c.lat.toFixed(2) + ',' + c.lng.toFixed(2);
+  if (key === BASE.noteAt) return;
+  BASE.noteAt = key;
+  const el = document.getElementById('satnote');
+  if (!el) return;
+  try {
+    const u = 'https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/4/query'
+      + '?f=json&returnGeometry=false&geometryType=esriGeometryPoint&inSR=4326'
+      + '&outFields=SRC_DATE2,SRC_RES,NICE_NAME&geometry='
+      + c.lng.toFixed(5) + ',' + c.lat.toFixed(5);
+    const j = await fetch(u).then(r => r.json());
+    const rows = (j.features || []).map(f => f.attributes)
+      .filter(a => a.SRC_RES != null)
+      .sort((a, b) => a.SRC_RES - b.SRC_RES);
+    if (!rows.length) { el.textContent = 'Esri World Imagery'; return; }
+    const a = rows[0];
+    // Sub-metre reads better in centimetres, and that is the whole point here.
+    const res = a.SRC_RES < 1 ? Math.round(a.SRC_RES * 100) + ' cm' : a.SRC_RES + ' m';
+    const when = a.SRC_DATE2
+      ? new Date(a.SRC_DATE2).toLocaleDateString([], { year: 'numeric', month: 'short', day: 'numeric' })
+      : null;
+    el.textContent = (a.NICE_NAME || 'Esri') + ' \u00b7 ' + res
+      + (when ? ' \u00b7 flown ' + when : '');
+  } catch (e) {
+    el.textContent = 'Esri World Imagery';
+  }
+}
+
+function setBasemap(sat) {
+  BASE.sat = sat;
+  if (sat) satLayer.addTo(map); else map.removeLayer(satLayer);
+  document.querySelectorAll('#basemap button').forEach(b =>
+    b.classList.toggle('on', (b.dataset.b === 'sat') === sat));
+  const note = document.getElementById('satnote');
+  if (note) {
+    note.hidden = !sat;
+    if (sat) { note.textContent = 'reading the footprint\u2026'; BASE.noteAt = null; satVintage(); }
+  }
+  saveUrl();
+}
+
+document.querySelectorAll('#basemap button').forEach(b =>
+  b.onclick = () => setBasemap(b.dataset.b === 'sat'));
+map.on('moveend', () => {
+  if (!BASE.sat) return;
+  clearTimeout(BASE.noteTimer);
+  BASE.noteTimer = setTimeout(satVintage, 600);
+});
 
 const state = {
   days: 1, metric: '__per10k',
@@ -6587,6 +6707,7 @@ function saveUrl() {
     // switched off reopens with it off rather than back on.
     if (RADAR.on !== RADAR_DEFAULT) p.set('rd', RADAR.on ? '1' : '0');
     if (CLOUD.on !== CLOUD_DEFAULT) p.set('cl', CLOUD.on ? '1' : '0');
+    if (BASE.sat) p.set('bm', 'sat');
     const hash = '#' + p.toString();
     if (hash !== location.hash) {
       lastHash = hash;
@@ -6675,6 +6796,7 @@ function restoreUrl() {
     if (p.has('tt') && TOMTOM_KEY) trafficOn(p.get('tt') === '1');
     if (p.has('rd')) radarOn(p.get('rd') === '1');
     if (p.has('cl')) cloudOn(p.get('cl') === '1');
+    if (p.get('bm') === 'sat') setBasemap(true);
   } catch (e) {
     console.error('could not restore that link', e);
   } finally {
