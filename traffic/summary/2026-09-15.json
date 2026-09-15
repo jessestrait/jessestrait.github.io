@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 26,
+  "dispatch": 27,
   "dispatch_only": 26,
-  "matched": 0,
-  "tomtom": 143,
-  "tomtom_only": 143
+  "matched": 1,
+  "tomtom": 151,
+  "tomtom_only": 150
  },
  "date": "2026-09-15",
  "match_rate": {
@@ -20,18 +20,18 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 0,
-   "n": 20,
-   "pct": 0.0
+   "matched": 1,
+   "n": 21,
+   "pct": 4.8
   },
   "tomtom_highway": {
-   "matched": 0,
-   "n": 52,
-   "pct": 0.0
+   "matched": 1,
+   "n": 55,
+   "pct": 1.8
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 91,
+   "n": 96,
    "pct": 0.0
   }
  },
@@ -42,7 +42,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "n": 0
+  "max": 2.3,
+  "median": 2.3,
+  "min": 2.3,
+  "n": 1,
+  "q1": 2.3,
+  "q3": 2.3
  },
  "persistence_min": {
   "n": 0
@@ -54,6 +59,12 @@
    "hour_of_week": 23,
    "n": 2,
    "seg": "30.279,-97.733"
+  },
+  {
+   "from": "E 15th St (Trinity St)",
+   "hour_of_week": 24,
+   "n": 2,
+   "seg": "30.279,-97.735"
   },
   {
    "from": "Cameron Rd",
@@ -132,16 +143,10 @@
    "hour_of_week": 23,
    "n": 1,
    "seg": "30.422,-97.620"
-  },
-  {
-   "from": "E Martin Luther King Jr Blvd",
-   "hour_of_week": 23,
-   "n": 1,
-   "seg": "30.279,-97.731"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 100.0,
-  "tomtom": 100.0
+  "dispatch": 96.3,
+  "tomtom": 99.3
  }
 }
