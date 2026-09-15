@@ -2639,6 +2639,18 @@ const GROUND = [
 ];
 const groundLayers = {};
 
+/* Every ground layer object goes on the map through here. The rule it
+   enforces: one object per id, and the old one comes off before the new one
+   goes on. Assigning groundLayers[id] directly is what caused the bug this
+   exists to prevent — a second copy on the map that nothing held a reference
+   to, so no tick could ever take it off again. */
+function adoptGround(g, layer) {
+  const prev = groundLayers[g.id];
+  if (prev && prev !== layer) map.removeLayer(prev);
+  groundLayers[g.id] = layer;
+  return layer;
+}
+
 function groundRow(g) {
   const el = document.createElement('label');
   el.className = 'row';
@@ -2670,20 +2682,215 @@ GROUND.forEach(g => document.getElementById(g.group || 'ground').appendChild(gro
    alone drew nothing and left two ticked boxes over an empty map. */
 GROUND.filter(g => g.on).forEach(g => loadGround(g));
 
+/* ══════════════════════════════════════════════════════════════════
+   Layer audit — the debugger.
+
+   A layer being "off" is three separate facts that have to agree: the
+   checkbox says off, the layer's own `on` flag says off, and the thing
+   is actually detached from the map. Nothing in the page checks that
+   they still match, and when they drift the symptom is silent — a box
+   you unticked over shapes that are still drawn, with no error.
+
+   atxAudit()  prints the three facts per layer and flags every
+               disagreement.
+   atxSweep()  the active version: unticks each layer through the real
+               DOM event, checks whether it actually left the map, then
+               puts it back the way it was. This is what finds a broken
+               toggle, because a toggle can only be tested by using it.
+
+   Both are plain globals with no UI and no cost until called. Open the
+   console and type atxSweep().
+   ══════════════════════════════════════════════════════════════════ */
+
+// The checkbox belonging to a layer row, mark or ground.
+function auditBox(id, ground) {
+  const note = document.getElementById((ground ? 'note-' : 'note-') + id);
+  const badge = document.getElementById('ct-' + (ground ? 'g-' : '') + id);
+  const row = badge && badge.closest('.row');
+  return row ? row.querySelector('input[type=checkbox]') : null;
+}
+
+/* Is this ground layer actually drawn right now? map.hasLayer is the
+   truth for a normal layer, but the transit pair is wrapped: stops are
+   added and removed by zoom independently of the tick, so "off" for
+   them means the object is gone from the map AND nothing is queued to
+   put it back. */
+function auditOnMap(g) {
+  const o = groundLayers[g.id];
+  if (!o) return false;
+  return map.hasLayer(o);
+}
+
+/* The check that would have caught the orphan, and the reason this file has
+   a debugger in it at all.
+
+   The invariant: everything being painted should be reachable from a layer
+   the UI can switch off. Walk each canvas renderer's draw list, ask who owns
+   each path, and anything nobody claims is drawn on a map with no control
+   attached to it — which is exactly what a layer that will not switch off
+   looks like from the user's side. hasLayer() cannot see this, because the
+   object it is asked about is the wrong one. */
+function atxOrphans() {
+  const owned = new Set();
+  // Recursive, because some of these are groups of groups — the weather
+  // alerts are a layerGroup of geoJSON layers, and claiming only the first
+  // level reported every alert polygon as an orphan.
+  const claim = o => {
+    if (!o) return;
+    owned.add(L.Util.stamp(o));
+    if (o.eachLayer) o.eachLayer(claim);
+  };
+  Object.values(groundLayers).forEach(claim);
+  claim(dotLayer); claim(liveLayer); claim(WX.layer);
+  if (typeof TRANSIT === 'object') { claim(TRANSIT.routes); claim(TRANSIT.stops); }
+
+  const found = [];
+  for (const r of CANVAS_STACK) {
+    if (!r._map) continue;
+    for (let o = r._drawFirst; o; o = o.next) {
+      const l = o.layer;
+      if (owned.has(L.Util.stamp(l))) continue;
+      const pr = (l.feature && l.feature.properties) || {};
+      found.push({ pane: r.options.pane,
+                   kind: l instanceof L.CircleMarker ? 'point'
+                       : l instanceof L.Polygon ? 'area' : 'line',
+                   label: pr.short || pr.name || pr.road_names || pr.id || '(none)' });
+    }
+  }
+  const byPane = {};
+  found.forEach(f => { const k = f.pane + ' / ' + f.kind;
+    byPane[k] = (byPane[k] || 0) + 1; });
+  return { count: found.length, byPane, sample: found.slice(0, 5) };
+}
+
+function atxAudit(quiet) {
+  const rows = [];
+
+  GROUND.forEach(g => {
+    const box = auditBox(g.id, true);
+    const onMap = auditOnMap(g);
+    const built = !!groundLayers[g.id];
+    // Most entries have no `on` at all, so compare booleans rather than
+    // `undefined` against `false` — the first version of this reported five
+    // healthy layers as broken, which is the wrong kind of debugger.
+    const flag = !!g.on;
+    // The stops are allowed to be off the map while ticked: they hide below
+    // their zoom unless a route is selected. Anything else that is ticked,
+    // built and absent is a real fault.
+    const mayHide = g.id === 'busstops'
+      && map.getZoom() < TRANSIT.STOP_ZOOM && !TRANSIT.sel;
+    const bad = (box && box.checked !== flag)
+             || (built && flag !== onMap && !mayHide);
+    rows.push({ kind: 'ground', id: g.id, checked: box ? box.checked : null,
+                flag, built, onMap, hiddenByZoom: mayHide || undefined, ok: !bad });
+  });
+
+  LAYERS.forEach(l => {
+    const box = auditBox(l.id, false);
+    const cached = (state.data[l.id] || []).length;
+    // Marks share one canvas layer, so "on the map" is whether render()
+    // is still being handed its rows.
+    const drawn = l.on ? cached : 0;
+    const bad = box && box.checked !== !!l.on;
+    rows.push({ kind: 'mark', id: l.id, checked: box ? box.checked : null,
+                flag: !!l.on, built: cached > 0, onMap: drawn > 0, ok: !bad });
+  });
+
+  const broken = rows.filter(r => !r.ok);
+  const orphans = atxOrphans();
+  if (!quiet) {
+    console.table(rows);
+    console.log(broken.length
+      ? '%c' + broken.length + ' layer(s) disagree with their own checkbox'
+      : '%call ' + rows.length + ' layers agree',
+      'color:' + (broken.length ? '#ff6b6b' : '#4de3a0'));
+    console.log(orphans.count
+      ? '%c' + orphans.count + ' painted shape(s) belong to no layer — nothing can switch these off'
+      : '%cnothing is painted that a layer does not own',
+      'color:' + (orphans.count ? '#ff6b6b' : '#4de3a0'));
+    if (orphans.count) console.table(orphans.byPane);
+  }
+  return { rows, broken, orphans };
+}
+
+/* The active test. A toggle is a behaviour, so the only honest way to
+   check one is to work it and watch. Each layer is unticked the way a
+   finger would untick it — a real change event on the real input — then
+   read back, then restored. Anything that stays on the map after its
+   own checkbox went off is reported with the object that would not
+   leave. */
+async function atxSweep(only) {
+  const out = [];
+  const wanted = GROUND.filter(g => (!only || g.id === only));
+  for (const g of wanted) {
+    const box = auditBox(g.id, true);
+    if (!box) { out.push({ id: g.id, verdict: 'no row found' }); continue; }
+    const was = box.checked;
+    if (!was) { out.push({ id: g.id, verdict: 'was already off — not tested' }); continue; }
+
+    box.checked = false;
+    box.dispatchEvent(new Event('change', { bubbles: true }));
+    await new Promise(r => setTimeout(r, 60));
+
+    const stuck = auditOnMap(g);
+    // Count what is still painted, so a half-detached layer is visible
+    // as a number rather than a boolean.
+    let leftBehind = 0;
+    const o = groundLayers[g.id];
+    if (o && o.eachLayer) o.eachLayer(() => leftBehind++);
+
+    /* The first version of this asked map.hasLayer() and stopped there, and
+       it cheerfully passed a layer that was still painted — because the
+       object it asked about was the new copy and the drawn one was the old.
+       So the verdict is the orphan count, which is what the eye sees. */
+    const orphaned = atxOrphans().count;
+    out.push({ id: g.id, name: g.name,
+               verdict: stuck ? 'STILL ON THE MAP'
+                      : orphaned ? 'detached, but ' + orphaned + ' shapes left painted'
+                      : 'detached',
+               flagAfter: g.on, objectExists: !!o,
+               childrenStillHeld: stuck ? leftBehind : 0, orphaned });
+
+    box.checked = was;
+    box.dispatchEvent(new Event('change', { bubbles: true }));
+    await new Promise(r => setTimeout(r, 60));
+  }
+  console.table(out);
+  const bad = out.filter(r => r.verdict !== 'detached'
+                          && r.verdict !== 'was already off — not tested');
+  console.log(bad.length ? '%c' + bad.map(b => b.id).join(', ') + ' would not switch off'
+                         : '%cevery tested layer switched off cleanly',
+              'color:' + (bad.length ? '#ff6b6b' : '#4de3a0'));
+  return out;
+}
+
+/* Two callers can ask for the same ground layer within a tick of each other:
+   the boot pass, for anything that starts ticked, and the URL restore right
+   behind it. Neither finds groundLayers[g.id] yet — the fetch has not landed —
+   so both build one, and both add it to the map. groundLayers only remembers
+   the second. Unticking then removes the second and the first stays drawn,
+   with nothing holding a reference to it and no way to reach it from the UI.
+
+   That was the layer that would not switch off. It only ever hit the layers
+   that start ticked AND appear in the saved link, which is exactly the three
+   that were reported: bus routes, transit stops, work zones. */
 async function loadGround(g) {
+  if (g.loading) return;
+  g.loading = true;
   const badge = document.getElementById('ct-g-' + g.id);
   badge.textContent = '···';
   badge.classList.add('busy');
   pulse('loading ' + g.name.toLowerCase(), 'loading');
   // Anything whose shapes are static but whose meaning is live loads itself.
   if (g.load) {
-    try { await g.load(g, badge); } finally { badge.classList.remove('busy'); }
+    try { await g.load(g, badge); }
+    finally { badge.classList.remove('busy'); g.loading = false; }
     return;
   }
   try {
     const res = await fetch(g.file || g.url);
     const gj = await res.json();
-    groundLayers[g.id] = L.geoJSON(gj, {
+    adoptGround(g, L.geoJSON(gj, {
       pane: 'groundPane',
       style: f => (typeof g.style === 'function' ? g.style(f.properties || {}) : g.style),
       pointToLayer: (f, ll) => L.circleMarker(ll, {
@@ -2692,7 +2899,7 @@ async function loadGround(g) {
         fillColor: g.color, fillOpacity: 0.35
       }),
       onEachFeature: (f, lyr) => lyr.bindPopup(g.popup(f.properties || {}), { maxWidth: 300 })
-    });
+    }));
     if (g.on) groundLayers[g.id].addTo(map);
     badge.textContent = (gj.features || []).length.toLocaleString();
     pulse('updated ' + new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }));
@@ -2702,6 +2909,7 @@ async function loadGround(g) {
     pulse(g.name + ' failed to load', 'err');
   } finally {
     badge.classList.remove('busy');
+    g.loading = false;
   }
 }
 
@@ -2985,7 +3193,7 @@ async function loadTransitRoutes(g) {
           ]), { maxWidth: 300 });
       }
     });
-    groundLayers[g.id] = TRANSIT.routes;
+    adoptGround(g, TRANSIT.routes);
     if (g.on) TRANSIT.routes.addTo(map);
     if (badge) badge.textContent = gj.features.length;
     setNote(g, (gj.meta && gj.meta.version)
@@ -3021,7 +3229,7 @@ async function loadTransitStops(g) {
     });
     // Not added here: syncStopVisibility decides, since below zoom 14 the
     // right answer is to have loaded them and be showing none.
-    groundLayers[g.id] = TRANSIT.stops;
+    adoptGround(g, TRANSIT.stops);
     if (badge) badge.textContent = gj.features.length.toLocaleString();
     syncStopVisibility();
   } catch (e) {
