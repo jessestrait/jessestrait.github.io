@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 28,
-  "dispatch_only": 27,
+  "dispatch": 30,
+  "dispatch_only": 29,
   "matched": 1,
-  "tomtom": 231,
-  "tomtom_only": 230
+  "tomtom": 247,
+  "tomtom_only": 246
  },
  "date": "2026-09-15",
  "match_rate": {
@@ -21,18 +21,18 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 22,
-   "pct": 4.5
+   "n": 24,
+   "pct": 4.2
   },
   "tomtom_highway": {
-   "matched": 1,
-   "n": 109,
-   "pct": 0.9
+   "matched": 0,
+   "n": 113,
+   "pct": 0.0
   },
   "tomtom_surface": {
-   "matched": 0,
-   "n": 122,
-   "pct": 0.0
+   "matched": 1,
+   "n": 134,
+   "pct": 0.7
   }
  },
  "matcher": {
@@ -42,12 +42,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 7.3,
-  "median": 7.3,
-  "min": 7.3,
+  "max": 42.8,
+  "median": 42.8,
+  "min": 42.8,
   "n": 1,
-  "q1": 7.3,
-  "q3": 7.3
+  "q1": 42.8,
+  "q3": 42.8
  },
  "persistence_min": {
   "n": 0
@@ -79,6 +79,18 @@
    "seg": "30.475,-97.794"
   },
   {
+   "from": "Deloss Dodds Way",
+   "hour_of_week": 24,
+   "n": 2,
+   "seg": "30.282,-97.731"
+  },
+  {
+   "from": "Edwin Ln",
+   "hour_of_week": 3,
+   "n": 2,
+   "seg": "30.238,-97.663"
+  },
+  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
@@ -91,12 +103,6 @@
    "seg": "30.234,-97.736"
   },
   {
-   "from": "Thompson Ln",
-   "hour_of_week": 94,
-   "n": 2,
-   "seg": "30.244,-97.669"
-  },
-  {
    "from": "Hergotz Ln",
    "hour_of_week": 112,
    "n": 2,
@@ -107,6 +113,12 @@
    "hour_of_week": 68,
    "n": 2,
    "seg": "30.148,-97.704"
+  },
+  {
+   "from": "E 18th St",
+   "hour_of_week": 25,
+   "n": 2,
+   "seg": "30.279,-97.733"
   },
   {
    "from": "Lakeline Mall Dr",
@@ -131,22 +143,10 @@
    "hour_of_week": 23,
    "n": 1,
    "seg": "30.355,-97.690"
-  },
-  {
-   "from": "Immanuel Rd",
-   "hour_of_week": 23,
-   "n": 1,
-   "seg": "30.402,-97.636"
-  },
-  {
-   "from": "S 1st St/Conroy Ln (FM-1626)",
-   "hour_of_week": 23,
-   "n": 1,
-   "seg": "30.141,-97.797"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 96.4,
+  "dispatch": 96.7,
   "tomtom": 99.6
  }
 }
