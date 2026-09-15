@@ -359,6 +359,26 @@ dl.mecard a{color:var(--accent-hi)}
 }
 #transitclear:hover{border-color:var(--accent-hi)}
 
+/* The debug readout. Deliberately plain — it is a diagnostic, not a feature,
+   and it should look like something that got left switched on. */
+#dbgbox{
+  margin:.6rem 0; padding:.6rem .7rem; border:1px solid var(--border);
+  border-radius:8px; background:var(--surface2);
+  font:.66rem/1.5 'JetBrains Mono',monospace; color:var(--muted);
+  max-height:16rem; overflow:auto;
+}
+#dbgbox b{color:var(--text); font-weight:600}
+#dbgbox .bad{color:#ff6b6b}
+#dbgbox .good{color:#4de3a0}
+#dbgbox table{border-collapse:collapse; width:100%; margin-top:.4rem}
+#dbgbox td{padding:.1rem .35rem .1rem 0; white-space:nowrap}
+#dbgbox button{
+  margin-top:.5rem; font:inherit; cursor:pointer; color:var(--text);
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:6px; padding:.25rem .6rem;
+}
+#buildstamp{cursor:pointer; text-decoration:underline; text-decoration-style:dotted}
+
 #dropcanvas, #cloudcanvas, #skyglow{
   position:absolute; inset:0; pointer-events:none;
 }
@@ -721,6 +741,9 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
         <a href="/">Jesse Strait</a>.
         <br><br>
         <span id="buildstamp" style="opacity:.7"></span>
+      </p>
+      <div id="dbgbox" hidden></div>
+      <p class="hint" style="margin:0">
       </p>
       <button class="iconbtn" id="sharebtn" style="width:100%;margin-top:.8rem">Copy link to this view</button>
     </div>
@@ -5409,6 +5432,69 @@ const BUILD = (() => {
 (() => {
   const el = document.getElementById('buildstamp');
   if (el) el.textContent = 'This page was built ' + BUILD + '.';
+})();
+
+/* The audit, on screen.
+
+   atxAudit() in a console is the wrong shape for where this actually gets
+   hit: the map is used on a phone, and a console there means tethering to a
+   Mac. So tapping the build stamp prints the same report into the panel, and
+   ?dbg=1 opens it on load. Same functions underneath — this only renders
+   them. */
+function dbgRender() {
+  const box = document.getElementById('dbgbox');
+  if (!box) return;
+  const a = atxAudit(true);
+  const bad = a.broken, orph = a.orphans;
+  const line = (ok, text) =>
+    '<div class="' + (ok ? 'good' : 'bad') + '">' + (ok ? '\u2713 ' : '\u2717 ') + text + '</div>';
+
+  let html = '<b>build</b> ' + BUILD + '<br>';
+  html += line(!bad.length, bad.length
+    ? bad.length + ' layer(s) disagree with their own tick: '
+      + bad.map(b => b.id).join(', ')
+    : 'every tick matches its layer');
+  html += line(!orph.count, orph.count
+    ? orph.count + ' shape(s) painted that no layer owns \u2014 nothing can switch these off'
+    : 'nothing painted that a layer does not own');
+  if (orph.count) {
+    html += '<table>' + Object.entries(orph.byPane)
+      .map(([k, n]) => '<tr><td>' + esc(k) + '</td><td>' + n + '</td></tr>').join('')
+      + '</table>';
+  }
+
+  // Only the layers actually carrying something, so the box stays readable.
+  const live = a.rows.filter(r => r.flag || r.built);
+  html += '<table>' + live.map(r =>
+      '<tr><td>' + esc(r.id) + '</td><td>' + (r.checked ? 'ticked' : 'off')
+      + '</td><td>' + (r.onMap ? 'drawn' : (r.hiddenByZoom ? 'zoom-hidden' : '\u2014'))
+      + '</td><td class="' + (r.ok ? 'good' : 'bad') + '">' + (r.ok ? 'ok' : 'MISMATCH')
+      + '</td></tr>').join('') + '</table>';
+
+  html += '<button id="dbgsweep">Test every toggle</button>';
+  box.innerHTML = html;
+  box.hidden = false;
+  document.getElementById('dbgsweep').onclick = async e => {
+    e.target.disabled = true;
+    e.target.textContent = 'working the toggles\u2026';
+    const out = await atxSweep();
+    const rows = out.filter(r => !/already off/.test(r.verdict));
+    box.insertAdjacentHTML('beforeend', '<table>' + rows.map(r =>
+      '<tr><td>' + esc(r.id) + '</td><td class="'
+      + (r.verdict === 'detached' ? 'good' : 'bad') + '">'
+      + esc(r.verdict) + '</td></tr>').join('') + '</table>');
+    e.target.textContent = 'Test every toggle';
+    e.target.disabled = false;
+  };
+}
+(() => {
+  const el = document.getElementById('buildstamp');
+  if (el) el.addEventListener('click', () => {
+    const box = document.getElementById('dbgbox');
+    if (box && !box.hidden) { box.hidden = true; return; }
+    dbgRender();
+  });
+  if (/[?&#]dbg=1/.test(location.href)) setTimeout(dbgRender, 1500);
 })();
 
 document.getElementById('sharebtn').onclick = copyLink;
