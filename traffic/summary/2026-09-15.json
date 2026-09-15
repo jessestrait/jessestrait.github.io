@@ -7,17 +7,17 @@
  ],
  "counts": {
   "dispatch": 26,
-  "dispatch_only": 25,
-  "matched": 1,
-  "tomtom": 127,
-  "tomtom_only": 126
+  "dispatch_only": 26,
+  "matched": 0,
+  "tomtom": 136,
+  "tomtom_only": 136
  },
  "date": "2026-09-15",
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
+   "matched": 0,
    "n": 6,
-   "pct": 16.7
+   "pct": 0.0
   },
   "dispatch_surface": {
    "matched": 0,
@@ -25,13 +25,13 @@
    "pct": 0.0
   },
   "tomtom_highway": {
-   "matched": 1,
-   "n": 48,
-   "pct": 2.1
+   "matched": 0,
+   "n": 50,
+   "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 79,
+   "n": 86,
    "pct": 0.0
   }
  },
@@ -42,12 +42,7 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 57.5,
-  "median": 57.5,
-  "min": 57.5,
-  "n": 1,
-  "q1": 57.5,
-  "q3": 57.5
+  "n": 0
  },
  "persistence_min": {
   "n": 0
@@ -146,7 +141,7 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 96.2,
-  "tomtom": 99.2
+  "dispatch": 100.0,
+  "tomtom": 100.0
  }
 }
