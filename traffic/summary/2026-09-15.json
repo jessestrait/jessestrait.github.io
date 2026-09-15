@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 27,
-  "dispatch_only": 26,
+  "dispatch": 28,
+  "dispatch_only": 27,
   "matched": 1,
-  "tomtom": 156,
-  "tomtom_only": 155
+  "tomtom": 231,
+  "tomtom_only": 230
  },
  "date": "2026-09-15",
  "match_rate": {
@@ -21,17 +21,17 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 21,
-   "pct": 4.8
+   "n": 22,
+   "pct": 4.5
   },
   "tomtom_highway": {
    "matched": 1,
-   "n": 56,
-   "pct": 1.8
+   "n": 109,
+   "pct": 0.9
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 100,
+   "n": 122,
    "pct": 0.0
   }
  },
@@ -91,6 +91,12 @@
    "seg": "30.234,-97.736"
   },
   {
+   "from": "Thompson Ln",
+   "hour_of_week": 94,
+   "n": 2,
+   "seg": "30.244,-97.669"
+  },
+  {
    "from": "Hergotz Ln",
    "hour_of_week": 112,
    "n": 2,
@@ -137,16 +143,10 @@
    "hour_of_week": 23,
    "n": 1,
    "seg": "30.141,-97.797"
-  },
-  {
-   "from": "US-290/Exit 238 (I-35)",
-   "hour_of_week": 23,
-   "n": 1,
-   "seg": "30.354,-97.690"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 96.3,
-  "tomtom": 99.4
+  "dispatch": 96.4,
+  "tomtom": 99.6
  }
 }
