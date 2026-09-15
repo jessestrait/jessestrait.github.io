@@ -719,6 +719,8 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
         <em>are</em> written down, deliberately: power outages and headlines, because
         neither is published as history and it would otherwise not exist. Built by
         <a href="/">Jesse Strait</a>.
+        <br><br>
+        <span id="buildstamp" style="opacity:.7"></span>
       </p>
       <button class="iconbtn" id="sharebtn" style="width:100%;margin-top:.8rem">Copy link to this view</button>
     </div>
@@ -2799,6 +2801,9 @@ function atxAudit(quiet) {
   const broken = rows.filter(r => !r.ok);
   const orphans = atxOrphans();
   if (!quiet) {
+    console.log('%cbuild: ' + (typeof BUILD === 'string' ? BUILD : '?')
+      + '  — if that is older than the deploy, stop reading and hard-reload',
+      'color:#7a8fa8');
     console.table(rows);
     console.log(broken.length
       ? '%c' + broken.length + ' layer(s) disagree with their own checkbox'
@@ -2810,7 +2815,7 @@ function atxAudit(quiet) {
       'color:' + (orphans.count ? '#ff6b6b' : '#4de3a0'));
     if (orphans.count) console.table(orphans.byPane);
   }
-  return { rows, broken, orphans };
+  return { build: typeof BUILD === 'string' ? BUILD : null, rows, broken, orphans };
 }
 
 /* The active test. A toggle is a behaviour, so the only honest way to
@@ -5381,6 +5386,30 @@ function syncModes() {
     delete noteEl.dataset.mode;
   }, 2500);
 }
+
+/* Which copy of this page is the browser actually running?
+
+   Three separate times this week a fix looked broken when it had in fact
+   landed — once behind a stale service worker shell, twice behind the Pages
+   edge cache, which holds the document for ten minutes and is keyed on the
+   URL, so a cache-busting query gets the new file while a plain reload does
+   not. There was no way to tell from the page itself, which turned "is it
+   fixed" into guesswork for both of us.
+
+   document.lastModified is the Last-Modified header of the document the
+   browser is running, so it names that copy exactly. No build step, nothing
+   to remember to bump. If this timestamp is older than the deploy, the
+   answer is the cache and not the code. */
+const BUILD = (() => {
+  const d = new Date(document.lastModified);
+  return isNaN(d) ? document.lastModified
+    : d.toLocaleString([], { month: 'short', day: 'numeric',
+                             hour: 'numeric', minute: '2-digit' });
+})();
+(() => {
+  const el = document.getElementById('buildstamp');
+  if (el) el.textContent = 'This page was built ' + BUILD + '.';
+})();
 
 document.getElementById('sharebtn').onclick = copyLink;
 map.on('moveend zoomend', saveUrl);
