@@ -9,8 +9,8 @@
   "dispatch": 27,
   "dispatch_only": 26,
   "matched": 1,
-  "tomtom": 151,
-  "tomtom_only": 150
+  "tomtom": 156,
+  "tomtom_only": 155
  },
  "date": "2026-09-15",
  "match_rate": {
@@ -26,12 +26,12 @@
   },
   "tomtom_highway": {
    "matched": 1,
-   "n": 55,
+   "n": 56,
    "pct": 1.8
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 96,
+   "n": 100,
    "pct": 0.0
   }
  },
@@ -42,12 +42,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 2.3,
-  "median": 2.3,
-  "min": 2.3,
+  "max": 7.3,
+  "median": 7.3,
+  "min": 7.3,
   "n": 1,
-  "q1": 2.3,
-  "q3": 2.3
+  "q1": 7.3,
+  "q3": 7.3
  },
  "persistence_min": {
   "n": 0
@@ -55,22 +55,28 @@
  "poll_interval_min": 5.0,
  "structural_hotspots": [
   {
+   "from": "E 15th St (Trinity St)",
+   "hour_of_week": 24,
+   "n": 3,
+   "seg": "30.279,-97.735"
+  },
+  {
    "from": "Chestnut Ave (E Martin Luther King Jr Blvd)",
    "hour_of_week": 23,
    "n": 2,
    "seg": "30.279,-97.733"
   },
   {
-   "from": "E 15th St (Trinity St)",
-   "hour_of_week": 24,
-   "n": 2,
-   "seg": "30.279,-97.735"
-  },
-  {
    "from": "Cameron Rd",
    "hour_of_week": 24,
    "n": 2,
    "seg": "30.418,-97.576"
+  },
+  {
+   "from": "N Lake Creek Pkwy",
+   "hour_of_week": 24,
+   "n": 2,
+   "seg": "30.475,-97.794"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -137,16 +143,10 @@
    "hour_of_week": 23,
    "n": 1,
    "seg": "30.354,-97.690"
-  },
-  {
-   "from": "Dessau Rd",
-   "hour_of_week": 23,
-   "n": 1,
-   "seg": "30.422,-97.620"
   }
  ],
  "unmatched_pct": {
   "dispatch": 96.3,
-  "tomtom": 99.3
+  "tomtom": 99.4
  }
 }
