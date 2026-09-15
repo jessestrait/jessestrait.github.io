@@ -6,33 +6,33 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 30,
-  "dispatch_only": 29,
+  "dispatch": 32,
+  "dispatch_only": 31,
   "matched": 1,
-  "tomtom": 249,
-  "tomtom_only": 248
+  "tomtom": 325,
+  "tomtom_only": 324
  },
  "date": "2026-09-15",
  "match_rate": {
   "dispatch_highway": {
    "matched": 0,
-   "n": 6,
+   "n": 7,
    "pct": 0.0
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 24,
-   "pct": 4.2
+   "n": 25,
+   "pct": 4.0
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 113,
+   "n": 167,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 136,
-   "pct": 0.7
+   "n": 158,
+   "pct": 0.6
   }
  },
  "matcher": {
@@ -91,62 +91,62 @@
    "seg": "30.238,-97.663"
   },
   {
-   "from": "E 18th St",
-   "hour_of_week": 25,
+   "from": "Northwest Travis",
+   "hour_of_week": 13,
    "n": 2,
-   "seg": "30.279,-97.733"
+   "seg": "30.383,-97.884"
   },
   {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
+   "from": "US-183/Research Blvd (FM-620)",
+   "hour_of_week": 13,
    "n": 2,
-   "seg": "30.245,-97.744"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "seg": "30.234,-97.736"
-  },
-  {
-   "from": "Hergotz Ln",
-   "hour_of_week": 112,
-   "n": 2,
-   "seg": "30.244,-97.663"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "seg": "30.148,-97.704"
+   "seg": "30.461,-97.819"
   },
   {
    "from": "Lakeline Mall Dr",
-   "hour_of_week": 23,
-   "n": 1,
-   "seg": "30.475,-97.795"
+   "hour_of_week": 13,
+   "n": 2,
+   "seg": "30.476,-97.793"
   },
   {
-   "from": "E Braker Ln (I-35)",
-   "hour_of_week": 23,
-   "n": 1,
-   "seg": "30.423,-97.671"
+   "from": "Research Blvd (McNeil Dr)",
+   "hour_of_week": 13,
+   "n": 2,
+   "seg": "30.443,-97.744"
   },
   {
-   "from": "FM-1325/Burnet Rd (US-183)",
-   "hour_of_week": 23,
-   "n": 1,
-   "seg": "30.347,-97.711"
+   "from": "Anderson Mill Rd (W Parmer Ln/FM-734)",
+   "hour_of_week": 13,
+   "n": 2,
+   "seg": "30.449,-97.746"
   },
   {
-   "from": "US-183/E Anderson Ln (I-35)",
-   "hour_of_week": 23,
-   "n": 1,
-   "seg": "30.355,-97.690"
+   "from": "Riata Vista Cir (W Parmer Ln/FM-734)",
+   "hour_of_week": 13,
+   "n": 2,
+   "seg": "30.443,-97.742"
+  },
+  {
+   "from": "FM-1431/Chandler St/Exit 256 (I-35)",
+   "hour_of_week": 11,
+   "n": 2,
+   "seg": "30.535,-97.692"
+  },
+  {
+   "from": "Howard Ln (McNeil Dr)",
+   "hour_of_week": 13,
+   "n": 2,
+   "seg": "30.444,-97.741"
+  },
+  {
+   "from": "Bridge Point Pkwy",
+   "hour_of_week": 13,
+   "n": 2,
+   "seg": "30.353,-97.796"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 96.7,
-  "tomtom": 99.6
+  "dispatch": 96.9,
+  "tomtom": 99.7
  }
 }
