@@ -281,7 +281,10 @@ dl.mecard a{color:var(--accent-hi)}
    less sepia because that was adding a warm haze the hue-rotate never fully
    removed. The reference tiles carrying place names ride in their own pane
    and are not filtered, so none of this costs label legibility. */
-.leaflet-tile-pane .leaflet-tile{filter:brightness(.55) contrast(1.4) saturate(.85) sepia(.3) hue-rotate(175deg)}
+/* The three values the sky moves are variables, and their defaults are the
+   fixed look this had before — so if the solar maths never runs, or runs and
+   throws, the map is exactly the map it was. */
+.leaflet-tile-pane .leaflet-tile{filter:brightness(var(--sky-b,.55)) contrast(1.4) saturate(.85) sepia(var(--sky-s,.3)) hue-rotate(var(--sky-h,175deg))}
 .leaflet-label2-pane{opacity:.68}
 
 /* ── Headline ticker ─────────────────────────────────────────
@@ -332,9 +335,20 @@ dl.mecard a{color:var(--accent-hi)}
 }
 #transitclear:hover{border-color:var(--accent-hi)}
 
-#dropcanvas, #cloudcanvas{
+#dropcanvas, #cloudcanvas, #skyglow{
   position:absolute; inset:0; pointer-events:none;
 }
+/* Twilight, leaning in from wherever the sun actually is. Screen rather than
+   a plain overlay: screen can only add light, so it lifts the near-black
+   basemap — which is the point — while a mark already near full brightness
+   barely moves. A normal-blend wash at this opacity would flatten every
+   neon colour on the map at once, which is the thing worth not doing.
+   Below the cloud and the rain, because they are lit by it. */
+/* Short enough that a scrubbed day does not drag the band a second behind
+   the hour it is meant to be showing, long enough to smooth the once-a-
+   minute steps it takes when the clock is real. */
+#skyglow{ z-index:585; mix-blend-mode:screen; opacity:0;
+          transition:opacity .45s linear }
 /* Cloud sits below the rain: you look through cloud at rain, not the other
    way round. Both are above the map and below every control. */
 #cloudcanvas{ z-index:590 }
@@ -768,6 +782,19 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
         Infrared rather than visible on purpose &mdash; visible light is reflected sunlight, so that
         product is black for half of every day, and cloud at 2am is exactly when you would look.
         In infrared, brighter means colder means higher cloud top.</li>
+      <li><b>The light</b> &mdash; <b>computed, not fetched</b>, and the only thing on this page
+        that is not a feed. The sun's altitude and bearing come from the standard low-precision
+        solar series for the map's own centre and the hour on display &mdash; no request, no
+        library, nothing to be offline for. Checked against an independent almanac at both
+        solstices and the equinox: within two and a half minutes on the sunrise instant, which for
+        a colour ramp is nothing. It moves three things and deliberately not a fourth. The basemap
+        stays dark always and only shifts along a warm/cool axis, deepest around 3am and warmest at
+        noon &mdash; a light daytime map would break the contrast on every layer at once. The rain
+        and the cloud take the sun's actual colour, gold when it is low and city-lit grey when it
+        is down, dimmer at night but never invisible, because rain at 2am is still rain you came
+        here to see. And a warm band leans in from the sun's own bearing while it is near the
+        horizon &mdash; west at dusk, east at dawn. The hour it uses is the scrubbed hour, not the
+        wall clock, so playing a window through walks the map across a day.</li>
       <li><b>Buses and trains</b> &mdash; <b>CapMetro</b> GTFS-realtime, about a hundred vehicles in
         service across thirty routes, reported within thirty seconds. This is the one feed the page
         cannot read directly: data.texas.gov answers with a redirect that carries no CORS header,
@@ -995,7 +1022,7 @@ const LAYERS = [
        lists signals that are not behaving, so an empty layer is the healthy
        state rather than a broken one. It pairs with the outage layer — a
        signal that has gone dark is usually a feeder that has. */
-    id: 'signals', group: 'recent', color: '#818cf8', on: false,
+    id: 'signals', group: 'recent', color: '#818cf8', on: true,
     name: 'Signals in fault', note: 'Signals the city cannot talk to, or on flash',
     async load() {
       const rows = await soda('5zpr-dehc', { '$limit': 2000 });
@@ -1030,7 +1057,7 @@ const LAYERS = [
     /* MetroBike over GBFS, the standard bikeshare feed. Two files have to be
        joined: station_information never changes and station_status is the
        live half. Both CORS open, four-second ttl. */
-    id: 'bikes', group: 'recent', color: '#fb7185', on: false,
+    id: 'bikes', group: 'recent', color: '#fb7185', on: true,
     name: 'MetroBike docks', note: 'Bikes available right now',
     glyphPx: 26,
     glyphLabel: f => f.lbl,
@@ -1069,7 +1096,7 @@ const LAYERS = [
     /* The national incident layer, cut to Texas by the server and then to
        what is close enough to be this map's business. Nearest at the time of
        writing was eight acres in Travis County, twenty-one kilometres out. */
-    id: 'wildfire', group: 'recent', color: '#fca5a5', on: false,
+    id: 'wildfire', group: 'recent', color: '#fca5a5', on: true,
     name: 'Wildfires', note: 'Active incidents within 200 km',
     async load() {
       const url = WILDFIRE + '?where=' + encodeURIComponent("POOState='US-TX'")
@@ -1114,7 +1141,7 @@ const LAYERS = [
     /* Austin floods faster than it does almost anything else, and the two
        feeds that say so are separate: USGS measures the creek, ATXfloods
        says whether the road over it is shut. This is the first half. */
-    id: 'gauges', group: 'recent', color: '#2dd4bf', on: false,
+    id: 'gauges', group: 'recent', color: '#2dd4bf', on: true,
     name: 'Creek gauges', note: 'USGS stage, every 15 minutes',
     glyphPx: 26,
     glyphLabel: f => f.lbl,
@@ -1165,7 +1192,7 @@ const LAYERS = [
     /* The other half: whether the road over the creek is open. Every
        jurisdiction in the region posts into this one board, which is why it
        carries 2,468 crossings — most of them nowhere near Austin. */
-    id: 'lwc', group: 'recent', color: '#ff6b6b', on: false,
+    id: 'lwc', group: 'recent', color: '#ff6b6b', on: true,
     name: 'Low-water crossings', note: 'Open or closed, live from ATXfloods',
     glyphLabel: f => f.closed ? 'x' : '',
     async load() {
@@ -2468,7 +2495,7 @@ const GROUND = [
     // years out. Filtered to the ones that have not expired. Polylines, so
     // this belongs with the ground shapes rather than the marks.
     note: 'Open right-of-way permits \u00b7 heavier layer, ~300 KB',
-    group: 'recent',
+    group: 'recent', on: true,
     url: 'https://data.austintexas.gov/resource/qyfh-gwei.geojson'
        + '?$select=geometry,road_names,event_type,end_date,direction,'
        + 'are_workers_present,critical_corridor'
@@ -4803,6 +4830,8 @@ function fmtScrub(t, wide) {
 }
 
 function scrubPaint() {
+  // The sky follows the scrub, which is the point of the scrub.
+  if (typeof skyUpdate === 'function') skyUpdate();
   const el = document.getElementById('scrublabel');
   const w = SCRUB.lead && scrubWindowFor(SCRUB.lead);
   if (!w) { el.textContent = '—'; return; }
@@ -4835,6 +4864,7 @@ function scrubClose() {
   SCRUB.on = false;
   SCRUB.ranges = null;
   document.getElementById('scrub').hidden = true;
+  if (typeof skyUpdate === 'function') skyUpdate();   // back to the wall clock
   render();
   syncScrubButton();
 }
@@ -5230,6 +5260,236 @@ const RADAR = { on: false };
 // leaving them on is a fetch, not clutter. They are the two knobs to turn back
 // off if the animation ever proves too much for an old phone.
 const RADAR_DEFAULT = true;
+/* ══════════════════════════════════════════════════════════════════
+   Sky — the only thing on this page that is computed rather than
+   fetched, and the only thing that is about the hour rather than the
+   city.
+
+   The rule it obeys: shift the sky, never the ground. Every colour
+   here — the route neons, the mark glyphs, the ticker — was chosen
+   against a dark map, and swapping to a light basemap at dawn would
+   break the contrast on all of them at once and leave two palettes to
+   maintain forever. So the basemap stays dark always and only moves
+   along a warm/cool axis, by about as much as you would notice if you
+   were told to look for it and not otherwise.
+
+   Three things move, all of them functions of one number — the sun's
+   altitude above the horizon:
+
+     the basemap   deep blue-black at 3am, a slightly warmer navy at
+                   noon. Three CSS variables inside the filter that was
+                   already tinting Esri's grey into the site palette.
+     the particles rain and cloud take the sun's actual colour. Gold
+                   when the sun is low, cool at noon, city-lit at
+                   night. This is the layer where a colour change reads
+                   as weather rather than as a theme, which is why it
+                   is the one that carries most of the effect.
+     the twilight  a warm band leaning in from the sun's own azimuth,
+                   up only while the sun is near the horizon.
+
+   No library and no request. SunCalc would do it in a few KB, but this
+   page is an offline shell, so a CDN script is one more thing to
+   precache and one more thing to fail — and what is wanted here is not
+   a list of named instants but altitude as a continuous number, since
+   every colour below is a ramp rather than a switch. The named phases
+   fall out of it anyway: golden hour is the sun under 6°, civil
+   twilight 0 to −6, nautical to −12, astronomical to −18.
+   ══════════════════════════════════════════════════════════════════ */
+const RAD = Math.PI / 180;
+
+/* The standard low-precision solar series — the same one SunCalc uses.
+   Checked against an independent almanac for Austin on both solstices,
+   the equinox and the day this was written: worst disagreement 2.5
+   minutes on the sunrise instant, and systematically in one direction,
+   which is the refraction constant rather than an error in the series.
+   The sun moves a quarter of a degree a minute, so for a colour ramp
+   that is nothing. */
+function solarPosition(t, lat, lon) {
+  const d = t / 86400000 - 10957.5;                     // days since J2000.0
+  const M = RAD * (357.5291 + 0.98560028 * d);          // mean anomaly
+  const C = RAD * (1.9148 * Math.sin(M) + 0.02 * Math.sin(2 * M)
+                 + 0.0003 * Math.sin(3 * M));           // equation of centre
+  const L = M + C + RAD * 102.9372 + Math.PI;           // ecliptic longitude
+  const e = RAD * 23.4397;                              // obliquity
+  const dec = Math.asin(Math.sin(e) * Math.sin(L));
+  const ra = Math.atan2(Math.sin(L) * Math.cos(e), Math.cos(L));
+  const H = RAD * (280.16 + 360.9856235 * d) + RAD * lon - ra;   // hour angle
+  const phi = RAD * lat;
+  const alt = Math.asin(Math.sin(phi) * Math.sin(dec)
+            + Math.cos(phi) * Math.cos(dec) * Math.cos(H));
+  const az = Math.atan2(Math.sin(H),
+             Math.cos(H) * Math.sin(phi) - Math.tan(dec) * Math.cos(phi));
+  // Azimuth measured from north, clockwise — which is also how CSS measures
+  // a gradient angle, so it can be handed straight to one.
+  return { alt: alt / RAD, az: (az / RAD + 180 + 360) % 360 };
+}
+
+/* Sun colour against altitude. The last stop is not the sun at all: once it
+   is 14° down it has stopped contributing and what is left is the city
+   lighting its own underside of cloud, which in Austin is a dull grey with
+   sodium still in it. */
+const SUN_STOPS = [
+  [ 25, [222, 232, 246]],   // high, and faintly cool
+  [ 10, [238, 236, 228]],   // plain daylight
+  [  4, [255, 198, 132]],   // golden hour
+  [  0, [255, 158,  94]],   // on the horizon
+  [ -4, [232, 124,  92]],   // civil twilight
+  [ -9, [140,  98, 126]],   // nautical, the violet end
+  [-14, [ 96, 106, 128]]    // city skyglow, and no further down
+];
+
+const clamp01 = v => v < 0 ? 0 : v > 1 ? 1 : v;
+const mixRGB = (a, b, k) => [0, 1, 2].map(i => Math.round(a[i] + (b[i] - a[i]) * k));
+
+function sunColour(alt) {
+  if (alt >= SUN_STOPS[0][0]) return SUN_STOPS[0][1];
+  for (let i = 1; i < SUN_STOPS.length; i++) {
+    const hi = SUN_STOPS[i - 1], lo = SUN_STOPS[i];
+    if (alt >= lo[0]) return mixRGB(lo[1], hi[1], (alt - lo[0]) / (hi[0] - lo[0]));
+  }
+  return SUN_STOPS[SUN_STOPS.length - 1][1];
+}
+
+// What the particles are made of when the sun is not colouring them.
+const WATER = [168, 214, 255];      // the drop colour this has always used
+const VAPOUR = [226, 238, 255];     // and the puff colour
+
+/* SKY is already taken, by the METAR cloud-cover vocabulary further up. */
+const SUN = {
+  alt: 40, az: 180, day: 1, warm: 1, lit: 1,
+  sun: [222, 232, 246], rain: WATER, cloud: VAPOUR,
+  glow: 0, tileKey: '', puffKey: ''
+};
+
+/* The clock the sky runs on, and the detail the whole thing turns on: while
+   the scrubber is open it is the scrubbed instant, not the wall clock. Play
+   a window through and the map goes through a day.
+
+   Which scrubbed instant, though — the layers deliberately do not share a
+   timeline, each sweeping its own range at the same relative position. The
+   sky follows the lead layer, meaning the one the readout is already naming
+   on screen. Any other choice would put the light at an hour the label
+   disagrees with, and a clock you can catch lying is worse than no clock. */
+function skyTime() {
+  if (SCRUB.on && SCRUB.lead) {
+    const w = scrubWindowFor(SCRUB.lead);
+    if (w) return (w[0] + w[1]) / 2;
+  }
+  return Date.now();
+}
+
+function skyUpdate() {
+  const c = map.getCenter();
+  const p = solarPosition(skyTime(), c.lat, c.lng);
+  SUN.alt = p.alt;
+  SUN.az = p.az;
+
+  // 0 once civil twilight is over, 1 once the sun is properly up.
+  SUN.day = clamp01((p.alt + 6) / 18);
+
+  /* The basemap gets its own curve rather than sharing that one, because
+     day saturates at 10° and the sun is above 10° for nine hours — which
+     would leave the ground pinned at one colour for most of daylight and
+     throw away the thing this is for. Spread over the whole altitude range
+     instead — 70° because Austin's sun reaches 83° at the solstice — and it
+     keeps moving right through the middle of the day. It also never reaches
+     the top in winter, when noon peaks near 36°, which is correct: a
+     January noon really is a colder-looking noon than a July one. */
+  SUN.warm = clamp01((p.alt + 6) / 70);
+  SUN.sun = sunColour(p.alt);
+
+  /* Particles dim at night but are never allowed to go out. Physically they
+     would be all but invisible, and that is the wrong answer for a map:
+     rain at 2am is still rain that somebody opened this page to look at. So
+     at night they are lit by the city rather than by the sun — which is both
+     what is actually happening and still legible.
+
+     The floor is set by the faintest thing on the layer, not by taste: a
+     drizzle drop is drawn at alpha 0.30, so anything under about two thirds
+     takes the lightest rain below the point where you can see it is raining
+     at all. A third off is plenty to feel. */
+  SUN.lit = 0.68 + 0.32 * SUN.day;
+
+  /* How far the sun's colour is allowed to pull the particles off their own.
+     Strongest with the sun near the horizon, which is when real cloud and
+     rain genuinely do go gold; weakest at noon, where white light leaves
+     water looking like water. Never zero, so the night keeps its cast. */
+  const tint = 0.25 + 0.6 * clamp01(1 - Math.abs(p.alt) / 10);
+  SUN.rain = mixRGB(WATER, SUN.sun, tint);
+  SUN.cloud = mixRGB(VAPOUR, SUN.sun, tint);
+
+  // Up only around the horizon crossing: gone by the time the sun is 8° up
+  // or 12° down, peaking a little below the horizon, where the sky is at
+  // its most coloured and the city looks most like itself.
+  SUN.glow = clamp01(1 - Math.abs(p.alt + 2) / 10);
+
+  skyPaint();
+}
+
+/* Driven from four places, all of them cheap:
+     the minute timer   the sun moves a quarter degree a minute, so once a
+                        minute is already finer than anyone can see
+     the scrubber       every position change, which is what makes playback
+                        read as time passing rather than as a filter moving
+     a finished pan     the observer moved; across Austin this is worth
+                        hundredths of a degree, but it is free
+     boot               so the first frame is already at the right hour   */
+function skyBoot() {
+  const el = document.createElement('div');
+  el.id = 'skyglow';
+  map.getContainer().appendChild(el);
+  map.on('moveend', skyUpdate);
+  setInterval(() => { if (!document.hidden) skyUpdate(); }, 60000);
+  skyUpdate();
+}
+
+function skyPaint() {
+  /* Sepia holds still at the value this always used. It is what gives the
+     hue-rotate something to rotate — Esri's grey has almost no hue of its
+     own — so dropping it at noon just desaturated the map instead of warming
+     it. Brightness and the rotation do the work: sepia lands the tiles
+     around hue 40°, so 182° of rotation puts them at a cold 222° and 160°
+     puts them at a warmer 200°. Both ends are still navy. */
+  /* The range is hung from the top, not the middle. 0.55 and 175° are the
+     values this map was tuned to when the brief was "make sure the blacks
+     are blacks", and a swing centred on them would have spent half of every
+     day lighter than that — undoing the contrast fix in order to get an
+     effect. So the approved look sits near the ceiling and the movement
+     goes downward into the night: days look the way they already did, and
+     3am is genuinely deeper than it used to be. */
+  const b = (0.48 + 0.09 * SUN.warm).toFixed(3);
+  const s = '0.3';
+  const h = (182 - 16 * SUN.warm).toFixed(1);
+
+  /* Quantised, and separately from the band. Changing a filter value
+     repaints every tile in the view, and during playback this runs eight
+     times a second — rounded to three places a whole day costs a few dozen
+     tile repaints instead of a thousand, while the band, which is one div,
+     can move continuously. */
+  const key = b + '/' + s + '/' + h;
+  if (key !== SUN.tileKey) {
+    SUN.tileKey = key;
+    const r = document.documentElement.style;
+    r.setProperty('--sky-b', b);
+    r.setProperty('--sky-s', s);
+    r.setProperty('--sky-h', h + 'deg');
+  }
+
+  const el = document.getElementById('skyglow');
+  if (!el) return;
+  /* Peak works out around 0.4 of the sun's colour at the very edge. Half
+     that was invisible against the basemap and full strength washed the
+     western third of the map; this is the value that reads as light in the
+     sky without becoming a layer of its own. Starting the ramp at 58%
+     rather than the middle keeps it a band on the edge rather than a
+     gradient across everything. */
+  el.style.opacity = (SUN.glow * 0.5).toFixed(3);
+  if (SUN.glow > 0) {
+    el.style.background = 'linear-gradient(' + SUN.az.toFixed(0) + 'deg,'
+      + 'rgba(0,0,0,0) 58%, rgba(' + SUN.sun.join(',') + ',0.8) 100%)';
+  }
+}
+
 const CLOUD_DEFAULT = true;
 const CLOUD = { on: false, canvas: null, ctx: null, puffs: [], cells: [], total: 0,
                 raf: null, timer: null, moveTimer: null, busy: false, gw: 48, gh: 48 };
@@ -5280,21 +5540,39 @@ function cloudIntensity(r, g, b) {
   return Math.max(0, Math.min(1, (lum - 120) / 130));
 }
 
-// One soft blob, drawn once and stamped repeatedly. A radial gradient built per
-// puff per frame is the difference between smooth and a slideshow.
+/* One soft blob, drawn once and stamped repeatedly. A radial gradient built
+   per puff per frame is the difference between smooth and a slideshow.
+
+   Now built in whatever colour the sun is, which means re-baking it when
+   that moves. Quantised to steps of six so a full scrubbed day costs a
+   couple of dozen bakes of a 96px canvas rather than one per frame — and
+   the sprite is only ever swapped between frames, never during one. */
 let puffSprite = null;
-function makePuffSprite() {
+function makePuffSprite(rgb) {
   const S = 96;
   const c = document.createElement('canvas');
   c.width = c.height = S;
   const cx = c.getContext('2d');
   const g = cx.createRadialGradient(S/2, S/2, 0, S/2, S/2, S/2);
-  g.addColorStop(0, 'rgba(226,238,255,0.85)');
-  g.addColorStop(0.45, 'rgba(210,226,248,0.35)');
-  g.addColorStop(1, 'rgba(200,218,245,0)');
+  // The outer stops sat slightly darker than the core before and still do:
+  // a puff with a flat colour across it reads as a decal rather than vapour.
+  const at = (k, a) => 'rgba(' + rgb.map(v => Math.round(v * k)).join(',') + ',' + a + ')';
+  g.addColorStop(0, at(1, 0.85));
+  g.addColorStop(0.45, at(0.93, 0.35));
+  g.addColorStop(1, at(0.88, 0));
   cx.fillStyle = g;
   cx.fillRect(0, 0, S, S);
   return c;
+}
+
+function puffCurrent() {
+  const q = SUN.cloud.map(v => Math.round(v / 6) * 6);
+  const key = q.join(',');
+  if (key !== SUN.puffKey || !puffSprite) {
+    SUN.puffKey = key;
+    puffSprite = makePuffSprite(q);
+  }
+  return puffSprite;
 }
 
 async function readCloudField() {
@@ -5391,14 +5669,15 @@ function cloudFrame() {
   const W = CLOUD.canvas.clientWidth, H = CLOUD.canvas.clientHeight;
   ctx.clearRect(0, 0, W, H);
   const d = cloudDrift();
+  const sprite = puffCurrent();          // once a frame, not once a puff
   for (const p of CLOUD.puffs) {
     if (p.dead) continue;
     const t = p.age / p.life;
     // Long fades at both ends: a puff appearing or vanishing sharply reads as a
     // glitch, where a raindrop can get away with it.
     const fade = t < 0.3 ? t / 0.3 : t > 0.6 ? (1 - t) / 0.4 : 1;
-    ctx.globalAlpha = p.a * fade;
-    ctx.drawImage(puffSprite, p.x - p.r, p.y - p.r, p.r * 2, p.r * 2);
+    ctx.globalAlpha = p.a * fade * SUN.lit;
+    ctx.drawImage(sprite, p.x - p.r, p.y - p.r, p.r * 2, p.r * 2);
     p.x += d.x; p.y += d.y; p.age++;
     if (p.age > p.life) spawnPuff(p, W, H);
   }
@@ -5440,7 +5719,7 @@ function cloudOn(on) {
     saveUrl();
     return;
   }
-  if (!puffSprite) puffSprite = makePuffSprite();
+  puffCurrent();
   const c = document.createElement('canvas');
   c.id = 'cloudcanvas';
   CLOUD.canvas = c;
@@ -5737,7 +6016,7 @@ function dropFrame() {
     // This is most of what makes it read as weather rather than as static.
     const p = d.travelled / d.life;
     const fade = p < 0.2 ? p / 0.2 : p > 0.67 ? (1 - p) / 0.33 : 1;
-    ctx.strokeStyle = 'rgba(168,214,255,' + (d.a * fade).toFixed(3) + ')';
+    ctx.strokeStyle = 'rgba(' + SUN.rain + ',' + (d.a * fade * SUN.lit).toFixed(3) + ')';
     ctx.beginPath();
     ctx.moveTo(d.x, d.y);
     // A slight lean, so it reads as falling rather than as a barcode.
@@ -6453,6 +6732,7 @@ setTimeout(loadRegion, 3000);
 setInterval(() => { if (!document.hidden) loadRegion(); }, 900000);
 loadNews();
 if (TRAFFIC_DEFAULT) trafficOn(true);
+skyBoot();
 if (RADAR_DEFAULT) radarOn(true);
 if (CLOUD_DEFAULT) cloudOn(true);
 restoreUrl();
