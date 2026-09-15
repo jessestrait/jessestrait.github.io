@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 24,
-  "dispatch_only": 23,
+  "dispatch": 26,
+  "dispatch_only": 25,
   "matched": 1,
-  "tomtom": 119,
-  "tomtom_only": 118
+  "tomtom": 123,
+  "tomtom_only": 122
  },
  "date": "2026-09-15",
  "match_rate": {
@@ -21,17 +21,17 @@
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 18,
+   "n": 20,
    "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 1,
-   "n": 46,
-   "pct": 2.2
+   "n": 47,
+   "pct": 2.1
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 73,
+   "n": 76,
    "pct": 0.0
   }
  },
@@ -121,32 +121,32 @@
    "seg": "30.141,-97.797"
   },
   {
-   "from": "Oasis Bluff Dr",
-   "hour_of_week": 23,
-   "n": 1,
-   "seg": "30.406,-97.857"
-  },
-  {
-   "from": "Thermal Dr/Metric Blvd (E Howard Ln)",
-   "hour_of_week": 21,
-   "n": 1,
-   "seg": "30.425,-97.673"
-  },
-  {
    "from": "US-290/Exit 238 (I-35)",
    "hour_of_week": 23,
    "n": 1,
    "seg": "30.354,-97.690"
   },
   {
-   "from": "E 18th St",
-   "hour_of_week": 24,
+   "from": "Dessau Rd",
+   "hour_of_week": 23,
    "n": 1,
-   "seg": "30.279,-97.733"
+   "seg": "30.422,-97.620"
+  },
+  {
+   "from": "E Martin Luther King Jr Blvd",
+   "hour_of_week": 23,
+   "n": 1,
+   "seg": "30.279,-97.731"
+  },
+  {
+   "from": "S 1st St (W Oltorf St)",
+   "hour_of_week": 23,
+   "n": 1,
+   "seg": "30.240,-97.755"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 95.8,
+  "dispatch": 96.2,
   "tomtom": 99.2
  }
 }
