@@ -6,32 +6,32 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 63,
+  "dispatch": 64,
   "dispatch_only": 60,
-  "matched": 3,
-  "tomtom": 674,
-  "tomtom_only": 671
+  "matched": 4,
+  "tomtom": 722,
+  "tomtom_only": 718
  },
  "date": "2026-09-16",
  "match_rate": {
   "dispatch_highway": {
-   "matched": 0,
+   "matched": 1,
    "n": 14,
-   "pct": 0.0
+   "pct": 7.1
   },
   "dispatch_surface": {
    "matched": 3,
-   "n": 49,
-   "pct": 6.1
+   "n": 50,
+   "pct": 6.0
   },
   "tomtom_highway": {
-   "matched": 3,
-   "n": 340,
-   "pct": 0.9
+   "matched": 4,
+   "n": 364,
+   "pct": 1.1
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 334,
+   "n": 358,
    "pct": 0.0
   }
  },
@@ -43,17 +43,23 @@
  },
  "onset_offset_min": {
   "max": 80.6,
-  "median": -20.5,
+  "median": -13.5,
   "min": -28.5,
-  "n": 3,
-  "q1": -28.5,
-  "q3": 80.6
+  "n": 4,
+  "q1": -26.5,
+  "q3": 58.8
  },
  "persistence_min": {
   "n": 0
  },
  "poll_interval_min": 5.0,
  "structural_hotspots": [
+  {
+   "from": "Creston St",
+   "hour_of_week": 60,
+   "n": 3,
+   "seg": "30.520,-97.559"
+  },
   {
    "from": "Airport Blvd",
    "hour_of_week": 48,
@@ -103,22 +109,22 @@
    "seg": "30.200,-97.633"
   },
   {
-   "from": "Colinton Ave",
+   "from": "W Slaughter Ln (I-35)",
    "hour_of_week": 60,
    "n": 2,
-   "seg": "30.371,-97.613"
+   "seg": "30.189,-97.771"
+  },
+  {
+   "from": "Pearce Ln (FM-973)",
+   "hour_of_week": 60,
+   "n": 2,
+   "seg": "30.200,-97.640"
   },
   {
    "from": "FM-1431/Whitestone Blvd (N Bell Blvd/US-183)",
    "hour_of_week": 60,
    "n": 2,
    "seg": "30.512,-97.824"
-  },
-  {
-   "from": "Creston St",
-   "hour_of_week": 60,
-   "n": 2,
-   "seg": "30.520,-97.559"
   },
   {
    "from": "E Wells Branch Pkwy",
@@ -137,16 +143,10 @@
    "hour_of_week": 60,
    "n": 2,
    "seg": "30.378,-97.885"
-  },
-  {
-   "from": "Silent Brook Trl",
-   "hour_of_week": 60,
-   "n": 2,
-   "seg": "30.500,-97.622"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 95.2,
-  "tomtom": 99.6
+  "dispatch": 93.8,
+  "tomtom": 99.4
  }
 }
