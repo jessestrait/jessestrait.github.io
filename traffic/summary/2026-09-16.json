@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 131,
-  "dispatch_only": 126,
-  "matched": 5,
-  "tomtom": 1907,
-  "tomtom_only": 1902
+  "dispatch": 133,
+  "dispatch_only": 127,
+  "matched": 6,
+  "tomtom": 1946,
+  "tomtom_only": 1941
  },
  "date": "2026-09-16",
  "match_rate": {
@@ -20,18 +20,18 @@
    "pct": 3.3
   },
   "dispatch_surface": {
-   "matched": 4,
-   "n": 101,
-   "pct": 4.0
+   "matched": 5,
+   "n": 103,
+   "pct": 4.9
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 959,
+   "n": 980,
    "pct": 0.4
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 948,
+   "n": 966,
    "pct": 0.1
   }
  },
@@ -43,11 +43,11 @@
  },
  "onset_offset_min": {
   "max": 27.9,
-  "median": 4.8,
-  "min": -27.7,
-  "n": 5,
-  "q1": -13.7,
-  "q3": 21.9
+  "median": 2.6,
+  "min": -36.1,
+  "n": 6,
+  "q1": -29.8,
+  "q3": 19.0
  },
  "persistence_min": {
   "n": 0
@@ -115,6 +115,12 @@
    "seg": "30.371,-97.742"
   },
   {
+   "from": "FM-2304/Manchaca Rd (W Ben White Blvd)",
+   "hour_of_week": 68,
+   "n": 3,
+   "seg": "30.227,-97.772"
+  },
+  {
    "from": "Airport Blvd",
    "hour_of_week": 48,
    "n": 2,
@@ -137,16 +143,10 @@
    "hour_of_week": 48,
    "n": 2,
    "seg": "30.257,-97.703"
-  },
-  {
-   "from": "Wells Branch Pkwy (I-35)",
-   "hour_of_week": 48,
-   "n": 2,
-   "seg": "30.427,-97.671"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 96.2,
+  "dispatch": 95.5,
   "tomtom": 99.7
  }
 }
