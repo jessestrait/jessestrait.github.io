@@ -7,10 +7,10 @@
  ],
  "counts": {
   "dispatch": 159,
-  "dispatch_only": 145,
-  "matched": 14,
-  "tomtom": 2587,
-  "tomtom_only": 2568
+  "dispatch_only": 148,
+  "matched": 11,
+  "tomtom": 2638,
+  "tomtom_only": 2626
  },
  "date": "2026-09-16",
  "match_rate": {
@@ -20,19 +20,19 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 14,
+   "matched": 11,
    "n": 128,
-   "pct": 10.9
+   "pct": 8.6
   },
   "tomtom_highway": {
-   "matched": 13,
-   "n": 1299,
-   "pct": 1.0
+   "matched": 8,
+   "n": 1324,
+   "pct": 0.6
   },
   "tomtom_surface": {
-   "matched": 6,
-   "n": 1288,
-   "pct": 0.5
+   "matched": 4,
+   "n": 1314,
+   "pct": 0.3
   }
  },
  "matcher": {
@@ -42,20 +42,20 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 82.0,
-  "median": 37.2,
-  "min": -57.4,
-  "n": 14,
-  "q1": -31.6,
-  "q3": 64.1
+  "max": 87.0,
+  "median": 37.9,
+  "min": -23.6,
+  "n": 11,
+  "q1": -0.6,
+  "q3": 73.2
  },
  "persistence_min": {
-  "max": -510.0,
-  "median": -510.0,
-  "min": -510.0,
+  "max": -148.9,
+  "median": -148.9,
+  "min": -148.9,
   "n": 1,
-  "q1": -510.0,
-  "q3": -510.0
+  "q1": -148.9,
+  "q3": -148.9
  },
  "poll_interval_min": 5.0,
  "structural_hotspots": [
@@ -144,14 +144,14 @@
    "seg": "30.227,-97.772"
   },
   {
-   "from": "Whitis Ave",
+   "from": "E 6th St (I-35)",
    "hour_of_week": 68,
    "n": 3,
-   "seg": "30.284,-97.742"
+   "seg": "30.262,-97.736"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 91.2,
-  "tomtom": 99.3
+  "dispatch": 93.1,
+  "tomtom": 99.5
  }
 }
