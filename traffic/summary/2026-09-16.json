@@ -6,28 +6,28 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 42,
-  "dispatch_only": 41,
-  "matched": 1,
-  "tomtom": 255,
-  "tomtom_only": 254
+  "dispatch": 44,
+  "dispatch_only": 44,
+  "matched": 0,
+  "tomtom": 256,
+  "tomtom_only": 256
  },
  "date": "2026-09-16",
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
+   "matched": 0,
    "n": 11,
-   "pct": 9.1
+   "pct": 0.0
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 31,
+   "n": 33,
    "pct": 0.0
   },
   "tomtom_highway": {
-   "matched": 1,
-   "n": 123,
-   "pct": 0.8
+   "matched": 0,
+   "n": 124,
+   "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
@@ -42,12 +42,7 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 9.7,
-  "median": 9.7,
-  "min": 9.7,
-  "n": 1,
-  "q1": 9.7,
-  "q3": 9.7
+  "n": 0
  },
  "persistence_min": {
   "n": 0
@@ -146,7 +141,7 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 97.6,
-  "tomtom": 99.6
+  "dispatch": 100.0,
+  "tomtom": 100.0
  }
 }
