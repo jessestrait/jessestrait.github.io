@@ -6,33 +6,33 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 23,
-  "dispatch_only": 22,
-  "matched": 1,
-  "tomtom": 155,
-  "tomtom_only": 154
+  "dispatch": 25,
+  "dispatch_only": 23,
+  "matched": 2,
+  "tomtom": 169,
+  "tomtom_only": 167
  },
  "date": "2026-09-16",
  "match_rate": {
   "dispatch_highway": {
-   "matched": 0,
-   "n": 5,
-   "pct": 0.0
+   "matched": 1,
+   "n": 6,
+   "pct": 16.7
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 18,
-   "pct": 5.6
+   "n": 19,
+   "pct": 5.3
   },
   "tomtom_highway": {
-   "matched": 0,
-   "n": 67,
-   "pct": 0.0
+   "matched": 2,
+   "n": 72,
+   "pct": 2.8
   },
   "tomtom_surface": {
-   "matched": 1,
-   "n": 88,
-   "pct": 1.1
+   "matched": 0,
+   "n": 97,
+   "pct": 0.0
   }
  },
  "matcher": {
@@ -42,12 +42,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 28.9,
-  "median": 28.9,
-  "min": 28.9,
-  "n": 1,
-  "q1": 28.9,
-  "q3": 28.9
+  "max": 13.7,
+  "median": 1.1,
+  "min": -11.5,
+  "n": 2,
+  "q1": -11.5,
+  "q3": 13.7
  },
  "persistence_min": {
   "n": 0
@@ -55,10 +55,16 @@
  "poll_interval_min": 5.0,
  "structural_hotspots": [
   {
-   "from": "TX-130 Toll (TX-290 Toll)",
-   "hour_of_week": 44,
+   "from": "E Martin Luther King Junior Blvd / FM 969 Rd",
+   "hour_of_week": 48,
    "n": 2,
-   "seg": "30.345,-97.578"
+   "seg": "30.302,-97.660"
+  },
+  {
+   "from": "Airport Blvd",
+   "hour_of_week": 48,
+   "n": 2,
+   "seg": "30.301,-97.714"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -137,16 +143,10 @@
    "hour_of_week": 47,
    "n": 1,
    "seg": "30.279,-97.731"
-  },
-  {
-   "from": "E 38th 1 (I-35)",
-   "hour_of_week": 47,
-   "n": 1,
-   "seg": "30.303,-97.714"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 95.7,
-  "tomtom": 99.4
+  "dispatch": 92.0,
+  "tomtom": 98.8
  }
 }
