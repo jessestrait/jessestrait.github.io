@@ -7,31 +7,31 @@
  ],
  "counts": {
   "dispatch": 67,
-  "dispatch_only": 62,
-  "matched": 5,
-  "tomtom": 828,
-  "tomtom_only": 823
+  "dispatch_only": 64,
+  "matched": 3,
+  "tomtom": 860,
+  "tomtom_only": 857
  },
  "date": "2026-09-16",
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
+   "matched": 0,
    "n": 14,
-   "pct": 7.1
+   "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 4,
+   "matched": 3,
    "n": 53,
-   "pct": 7.5
+   "pct": 5.7
   },
   "tomtom_highway": {
-   "matched": 5,
-   "n": 428,
-   "pct": 1.2
+   "matched": 3,
+   "n": 443,
+   "pct": 0.7
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 400,
+   "n": 417,
    "pct": 0.0
   }
  },
@@ -43,11 +43,11 @@
  },
  "onset_offset_min": {
   "max": 80.6,
-  "median": -9.9,
+  "median": -20.5,
   "min": -28.5,
-  "n": 5,
-  "q1": -24.5,
-  "q3": 73.0
+  "n": 3,
+  "q1": -28.5,
+  "q3": 80.6
  },
  "persistence_min": {
   "n": 0
@@ -115,6 +115,18 @@
    "seg": "30.186,-97.773"
   },
   {
+   "from": "FM-1431/Chandler St/Exit 256 (I-35)",
+   "hour_of_week": 59,
+   "n": 2,
+   "seg": "30.535,-97.692"
+  },
+  {
+   "from": "Highway 71 E",
+   "hour_of_week": 59,
+   "n": 2,
+   "seg": "30.200,-97.633"
+  },
+  {
    "from": "Highway 71 E",
    "hour_of_week": 60,
    "n": 2,
@@ -127,26 +139,14 @@
    "seg": "30.506,-97.821"
   },
   {
-   "from": "FM-1431/Whitestone Blvd (N Bell Blvd/US-183)",
+   "from": "Pearce Ln (FM-973)",
    "hour_of_week": 60,
    "n": 2,
-   "seg": "30.512,-97.824"
-  },
-  {
-   "from": "Coulver Rd",
-   "hour_of_week": 60,
-   "n": 2,
-   "seg": "30.142,-97.730"
-  },
-  {
-   "from": "Portobella Dr",
-   "hour_of_week": 60,
-   "n": 2,
-   "seg": "30.378,-97.885"
+   "seg": "30.200,-97.640"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 92.5,
-  "tomtom": 99.4
+  "dispatch": 95.5,
+  "tomtom": 99.7
  }
 }
