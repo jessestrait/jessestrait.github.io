@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 136,
-  "dispatch_only": 127,
-  "matched": 9,
-  "tomtom": 2203,
-  "tomtom_only": 2193
+  "dispatch": 144,
+  "dispatch_only": 132,
+  "matched": 12,
+  "tomtom": 2382,
+  "tomtom_only": 2366
  },
  "date": "2026-09-16",
  "match_rate": {
@@ -20,19 +20,19 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 9,
-   "n": 106,
-   "pct": 8.5
+   "matched": 12,
+   "n": 114,
+   "pct": 10.5
   },
   "tomtom_highway": {
-   "matched": 7,
-   "n": 1102,
-   "pct": 0.6
+   "matched": 9,
+   "n": 1187,
+   "pct": 0.8
   },
   "tomtom_surface": {
-   "matched": 3,
-   "n": 1101,
-   "pct": 0.3
+   "matched": 7,
+   "n": 1195,
+   "pct": 0.6
   }
  },
  "matcher": {
@@ -42,12 +42,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 88.4,
-  "median": 0.4,
+  "max": 67.8,
+  "median": 15.7,
   "min": -57.4,
-  "n": 9,
-  "q1": -46.6,
-  "q3": 26.4
+  "n": 12,
+  "q1": -20.7,
+  "q3": 41.0
  },
  "persistence_min": {
   "n": 0
@@ -139,14 +139,14 @@
    "seg": "30.227,-97.772"
   },
   {
-   "from": "E 6th St (I-35)",
+   "from": "Whitis Ave",
    "hour_of_week": 68,
    "n": 3,
-   "seg": "30.262,-97.736"
+   "seg": "30.284,-97.742"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 93.4,
-  "tomtom": 99.5
+  "dispatch": 91.7,
+  "tomtom": 99.3
  }
 }
