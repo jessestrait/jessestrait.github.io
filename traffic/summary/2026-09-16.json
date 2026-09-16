@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 76,
-  "dispatch_only": 76,
+  "dispatch": 77,
+  "dispatch_only": 77,
   "matched": 0,
-  "tomtom": 1201,
-  "tomtom_only": 1201
+  "tomtom": 1222,
+  "tomtom_only": 1222
  },
  "date": "2026-09-16",
  "match_rate": {
@@ -21,17 +21,17 @@
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 59,
+   "n": 60,
    "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 628,
+   "n": 634,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 573,
+   "n": 588,
    "pct": 0.0
   }
  },
@@ -86,12 +86,6 @@
    "seg": "30.410,-97.714"
   },
   {
-   "from": "Northland Dr",
-   "hour_of_week": 61,
-   "n": 3,
-   "seg": "30.335,-97.756"
-  },
-  {
    "from": "W Anderson Ln",
    "hour_of_week": 61,
    "n": 3,
@@ -138,6 +132,12 @@
    "hour_of_week": 48,
    "n": 2,
    "seg": "30.257,-97.703"
+  },
+  {
+   "from": "Wells Branch Pkwy (I-35)",
+   "hour_of_week": 48,
+   "n": 2,
+   "seg": "30.427,-97.671"
   }
  ],
  "unmatched_pct": {
