@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 22,
-  "dispatch_only": 21,
+  "dispatch": 23,
+  "dispatch_only": 22,
   "matched": 1,
-  "tomtom": 146,
-  "tomtom_only": 145
+  "tomtom": 155,
+  "tomtom_only": 154
  },
  "date": "2026-09-16",
  "match_rate": {
@@ -21,18 +21,18 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 17,
-   "pct": 5.9
+   "n": 18,
+   "pct": 5.6
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 61,
+   "n": 67,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 85,
-   "pct": 1.2
+   "n": 88,
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -54,6 +54,12 @@
  },
  "poll_interval_min": 5.0,
  "structural_hotspots": [
+  {
+   "from": "TX-130 Toll (TX-290 Toll)",
+   "hour_of_week": 44,
+   "n": 2,
+   "seg": "30.345,-97.578"
+  },
   {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
@@ -137,16 +143,10 @@
    "hour_of_week": 47,
    "n": 1,
    "seg": "30.303,-97.714"
-  },
-  {
-   "from": "S Congress Ave (W Oltorf St)",
-   "hour_of_week": 47,
-   "n": 1,
-   "seg": "30.233,-97.739"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 95.5,
-  "tomtom": 99.3
+  "dispatch": 95.7,
+  "tomtom": 99.4
  }
 }
