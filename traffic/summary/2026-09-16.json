@@ -6,32 +6,32 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 74,
-  "dispatch_only": 73,
-  "matched": 1,
-  "tomtom": 1161,
-  "tomtom_only": 1160
+  "dispatch": 76,
+  "dispatch_only": 76,
+  "matched": 0,
+  "tomtom": 1201,
+  "tomtom_only": 1201
  },
  "date": "2026-09-16",
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
-   "n": 16,
-   "pct": 6.2
+   "matched": 0,
+   "n": 17,
+   "pct": 0.0
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 58,
+   "n": 59,
    "pct": 0.0
   },
   "tomtom_highway": {
-   "matched": 1,
-   "n": 609,
-   "pct": 0.2
+   "matched": 0,
+   "n": 628,
+   "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 552,
+   "n": 573,
    "pct": 0.0
   }
  },
@@ -42,12 +42,7 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 6.4,
-  "median": 6.4,
-  "min": 6.4,
-  "n": 1,
-  "q1": 6.4,
-  "q3": 6.4
+  "n": 0
  },
  "persistence_min": {
   "n": 0
@@ -79,10 +74,34 @@
    "seg": "30.380,-97.738"
   },
   {
+   "from": "Barton Springs Rd (S Congress Ave)",
+   "hour_of_week": 61,
+   "n": 3,
+   "seg": "30.262,-97.745"
+  },
+  {
+   "from": "Austin",
+   "hour_of_week": 61,
+   "n": 3,
+   "seg": "30.410,-97.714"
+  },
+  {
    "from": "Northland Dr",
    "hour_of_week": 61,
    "n": 3,
    "seg": "30.335,-97.756"
+  },
+  {
+   "from": "W Anderson Ln",
+   "hour_of_week": 61,
+   "n": 3,
+   "seg": "30.348,-97.714"
+  },
+  {
+   "from": "TX-1 (W Cesar Chavez St/W 1st St)",
+   "hour_of_week": 61,
+   "n": 3,
+   "seg": "30.268,-97.758"
   },
   {
    "from": "S Interstate 35",
@@ -119,34 +138,10 @@
    "hour_of_week": 48,
    "n": 2,
    "seg": "30.257,-97.703"
-  },
-  {
-   "from": "Wells Branch Pkwy (I-35)",
-   "hour_of_week": 48,
-   "n": 2,
-   "seg": "30.427,-97.671"
-  },
-  {
-   "from": "FM-1325/Exit 250 (I-35)",
-   "hour_of_week": 9,
-   "n": 2,
-   "seg": "30.478,-97.673"
-  },
-  {
-   "from": "S Interstate 35",
-   "hour_of_week": 58,
-   "n": 2,
-   "seg": "30.186,-97.773"
-  },
-  {
-   "from": "FM-1100 (US-290)",
-   "hour_of_week": 59,
-   "n": 2,
-   "seg": "30.349,-97.555"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 98.6,
-  "tomtom": 99.9
+  "dispatch": 100.0,
+  "tomtom": 100.0
  }
 }
