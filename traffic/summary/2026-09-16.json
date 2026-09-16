@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 31,
-  "dispatch_only": 31,
+  "dispatch": 32,
+  "dispatch_only": 32,
   "matched": 0,
-  "tomtom": 199,
-  "tomtom_only": 199
+  "tomtom": 200,
+  "tomtom_only": 200
  },
  "date": "2026-09-16",
  "match_rate": {
@@ -21,12 +21,12 @@
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 25,
+   "n": 26,
    "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 92,
+   "n": 93,
    "pct": 0.0
   },
   "tomtom_surface": {
@@ -62,16 +62,16 @@
    "seg": "30.418,-97.576"
   },
   {
+   "from": "W Ben White Blvd",
+   "hour_of_week": 48,
+   "n": 2,
+   "seg": "30.215,-97.753"
+  },
+  {
    "from": "Chicon St (E 7th St)",
    "hour_of_week": 48,
    "n": 2,
    "seg": "30.257,-97.703"
-  },
-  {
-   "from": "W Ben White Blvd",
-   "hour_of_week": 48,
-   "n": 2,
-   "seg": "30.214,-97.753"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
