@@ -6,33 +6,33 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 159,
-  "dispatch_only": 148,
-  "matched": 11,
-  "tomtom": 2638,
-  "tomtom_only": 2626
+  "dispatch": 167,
+  "dispatch_only": 155,
+  "matched": 12,
+  "tomtom": 2697,
+  "tomtom_only": 2678
  },
  "date": "2026-09-16",
  "match_rate": {
   "dispatch_highway": {
-   "matched": 0,
-   "n": 31,
-   "pct": 0.0
+   "matched": 1,
+   "n": 33,
+   "pct": 3.0
   },
   "dispatch_surface": {
    "matched": 11,
-   "n": 128,
-   "pct": 8.6
+   "n": 134,
+   "pct": 8.2
   },
   "tomtom_highway": {
-   "matched": 8,
-   "n": 1324,
-   "pct": 0.6
+   "matched": 16,
+   "n": 1352,
+   "pct": 1.2
   },
   "tomtom_surface": {
-   "matched": 4,
-   "n": 1314,
-   "pct": 0.3
+   "matched": 3,
+   "n": 1345,
+   "pct": 0.2
   }
  },
  "matcher": {
@@ -43,22 +43,28 @@
  },
  "onset_offset_min": {
   "max": 87.0,
-  "median": 37.9,
-  "min": -23.6,
-  "n": 11,
-  "q1": -0.6,
-  "q3": 73.2
+  "median": 37.0,
+  "min": -24.6,
+  "n": 12,
+  "q1": -9.2,
+  "q3": 78.1
  },
  "persistence_min": {
-  "max": -148.9,
-  "median": -148.9,
-  "min": -148.9,
-  "n": 1,
-  "q1": -148.9,
-  "q3": -148.9
+  "max": 0.0,
+  "median": -51.6,
+  "min": -154.0,
+  "n": 4,
+  "q1": -141.3,
+  "q3": 0.0
  },
  "poll_interval_min": 5.0,
  "structural_hotspots": [
+  {
+   "from": "FM-620 (W Parmer Ln/FM-734)",
+   "hour_of_week": 69,
+   "n": 4,
+   "seg": "30.495,-97.774"
+  },
   {
    "from": "Creston St",
    "hour_of_week": 60,
@@ -142,16 +148,10 @@
    "hour_of_week": 68,
    "n": 3,
    "seg": "30.227,-97.772"
-  },
-  {
-   "from": "E 6th St (I-35)",
-   "hour_of_week": 68,
-   "n": 3,
-   "seg": "30.262,-97.736"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 93.1,
-  "tomtom": 99.5
+  "dispatch": 92.8,
+  "tomtom": 99.3
  }
 }
