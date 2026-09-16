@@ -6,32 +6,32 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 59,
-  "dispatch_only": 58,
-  "matched": 1,
-  "tomtom": 459,
-  "tomtom_only": 458
+  "dispatch": 61,
+  "dispatch_only": 59,
+  "matched": 2,
+  "tomtom": 563,
+  "tomtom_only": 560
  },
  "date": "2026-09-16",
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
-   "n": 13,
-   "pct": 7.7
-  },
-  "dispatch_surface": {
    "matched": 0,
-   "n": 46,
+   "n": 14,
    "pct": 0.0
   },
+  "dispatch_surface": {
+   "matched": 2,
+   "n": 47,
+   "pct": 4.3
+  },
   "tomtom_highway": {
-   "matched": 1,
-   "n": 246,
-   "pct": 0.4
+   "matched": 3,
+   "n": 298,
+   "pct": 1.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 213,
+   "n": 265,
    "pct": 0.0
   }
  },
@@ -42,12 +42,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": -4.0,
-  "median": -4.0,
-  "min": -4.0,
-  "n": 1,
-  "q1": -4.0,
-  "q3": -4.0
+  "max": 80.6,
+  "median": 30.0,
+  "min": -20.5,
+  "n": 2,
+  "q1": -20.5,
+  "q3": 80.6
  },
  "persistence_min": {
   "n": 0
@@ -103,10 +103,28 @@
    "seg": "30.535,-97.692"
   },
   {
-   "from": "Baldwin St",
+   "from": "Highway 71 E",
+   "hour_of_week": 60,
+   "n": 2,
+   "seg": "30.200,-97.633"
+  },
+  {
+   "from": "FM-1431/Whitestone Blvd (N Bell Blvd/US-183)",
+   "hour_of_week": 60,
+   "n": 2,
+   "seg": "30.506,-97.821"
+  },
+  {
+   "from": "Creston St",
    "hour_of_week": 60,
    "n": 2,
    "seg": "30.520,-97.559"
+  },
+  {
+   "from": "Old Gregg Ln",
+   "hour_of_week": 60,
+   "n": 2,
+   "seg": "30.402,-97.635"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -125,28 +143,10 @@
    "hour_of_week": 68,
    "n": 2,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 47,
-   "n": 1,
-   "seg": "30.476,-97.794"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 47,
-   "n": 1,
-   "seg": "30.475,-97.794"
-  },
-  {
-   "from": "Enfield Rd (TX-1)",
-   "hour_of_week": 47,
-   "n": 1,
-   "seg": "30.300,-97.758"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 98.3,
-  "tomtom": 99.8
+  "dispatch": 96.7,
+  "tomtom": 99.5
  }
 }
