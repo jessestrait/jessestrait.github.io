@@ -873,7 +873,14 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
         browser should ever download. A weekly job streams them once &mdash; 3.3&nbsp;million shape
         rows and 843,000 stop-time rows &mdash; and keeps only what is drawable. CapMetro publishes
         7,323 shape variants for 71 routes, one for every detour and short-turn, so the most-used
-        shape per route per direction is kept; that is what anyone means by &ldquo;the 20&rdquo;.
+        shape per route per direction is kept; that is what anyone means by &ldquo;the 20&rdquo;
+        &mdash; unless that shape has a hole in it. Some do: 579 of the 7,323 skip more than a
+        kilometre between consecutive points, and five routes were being drawn flying across open
+        ground because of it. Those now fall back to the most-used sound variant, which in every
+        case here is used by exactly as many trips. Route 491 has no sound variant in any
+        direction, so it is drawn with a visible break rather than a confident straight line
+        through country the bus does not cross. What is drawn stays within eight metres of the
+        shape CapMetro published, and the build refuses to ship if it does not.
         Tapping a stop lights its routes and filters the live vehicles to them, because most stops
         serve several routes &mdash; Lavaca at 6th serves fifteen &mdash; and a stop therefore has
         colours rather than a colour.</li>

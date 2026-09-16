@@ -346,3 +346,25 @@ fetchable (`outagemap.pec.coop` and `www.pec.coop/outages/` both failed to
 connect; `outages.pec.coop` returns a JS shell). If that is ever worth
 filling, start by watching the network tab on their public map the way the
 KUBRA chain was found.
+
+## CapMetro publishes broken route shapes (2026-09-16)
+
+579 of the 7,323 shape variants in the static GTFS skip more than 1.2 km
+between consecutive points. Five route/directions were picking one as their
+most-used shape, which drew the bus flying across open ground — route 392
+jumped 1,748 m over Walnut Creek, route 339 2,494 m.
+
+In every one of those five the feed publishes a sound sibling shape, used by
+exactly the same number of trips (3452/3453, 854/855, 4025/4026, 3540/3541,
+1356/1357). The tie used to be broken arbitrarily. tools/build_capmetro.py now
+measures every candidate's largest step first and prefers a sound one, provided
+it keeps at least half the trips of the most-used.
+
+Route 491 has no sound variant in either direction — all four candidates are
+broken — so it is split at the hole and drawn with a visible break.
+
+Threshold is 1,200 m, taken from the distribution rather than by feel: p90 of
+all candidates is 445 m, the genuinely broken ones start at 1,552 m, and the
+longest legitimate run is route 550's 900 m down the tollway.
+
+Worth reporting upstream to CapMetro if there is ever a channel for it.
