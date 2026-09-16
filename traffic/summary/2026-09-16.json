@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 62,
+  "dispatch": 63,
   "dispatch_only": 60,
-  "matched": 2,
-  "tomtom": 627,
-  "tomtom_only": 624
+  "matched": 3,
+  "tomtom": 674,
+  "tomtom_only": 671
  },
  "date": "2026-09-16",
  "match_rate": {
@@ -20,18 +20,18 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 2,
-   "n": 48,
-   "pct": 4.2
+   "matched": 3,
+   "n": 49,
+   "pct": 6.1
   },
   "tomtom_highway": {
    "matched": 3,
-   "n": 319,
+   "n": 340,
    "pct": 0.9
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 308,
+   "n": 334,
    "pct": 0.0
   }
  },
@@ -43,10 +43,10 @@
  },
  "onset_offset_min": {
   "max": 80.6,
-  "median": 30.0,
-  "min": -20.5,
-  "n": 2,
-  "q1": -20.5,
+  "median": -20.5,
+  "min": -28.5,
+  "n": 3,
+  "q1": -28.5,
   "q3": 80.6
  },
  "persistence_min": {
@@ -97,12 +97,6 @@
    "seg": "30.186,-97.773"
   },
   {
-   "from": "FM-1431/Chandler St/Exit 256 (I-35)",
-   "hour_of_week": 59,
-   "n": 2,
-   "seg": "30.535,-97.692"
-  },
-  {
    "from": "Highway 71 E",
    "hour_of_week": 60,
    "n": 2,
@@ -127,26 +121,32 @@
    "seg": "30.520,-97.559"
   },
   {
+   "from": "E Wells Branch Pkwy",
+   "hour_of_week": 60,
+   "n": 2,
+   "seg": "30.394,-97.596"
+  },
+  {
    "from": "Asa Dr / Colton Bluff Springs Rd",
    "hour_of_week": 60,
    "n": 2,
    "seg": "30.168,-97.740"
   },
   {
+   "from": "Portobella Dr",
+   "hour_of_week": 60,
+   "n": 2,
+   "seg": "30.378,-97.885"
+  },
+  {
    "from": "Silent Brook Trl",
    "hour_of_week": 60,
    "n": 2,
    "seg": "30.500,-97.622"
-  },
-  {
-   "from": "W Slaughter Ln (I-35)",
-   "hour_of_week": 60,
-   "n": 2,
-   "seg": "30.180,-97.777"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 96.8,
-  "tomtom": 99.5
+  "dispatch": 95.2,
+  "tomtom": 99.6
  }
 }
