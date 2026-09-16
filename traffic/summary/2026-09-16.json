@@ -7,17 +7,17 @@
  ],
  "counts": {
   "dispatch": 59,
-  "dispatch_only": 59,
-  "matched": 0,
-  "tomtom": 435,
-  "tomtom_only": 435
+  "dispatch_only": 58,
+  "matched": 1,
+  "tomtom": 459,
+  "tomtom_only": 458
  },
  "date": "2026-09-16",
  "match_rate": {
   "dispatch_highway": {
-   "matched": 0,
+   "matched": 1,
    "n": 13,
-   "pct": 0.0
+   "pct": 7.7
   },
   "dispatch_surface": {
    "matched": 0,
@@ -25,13 +25,13 @@
    "pct": 0.0
   },
   "tomtom_highway": {
-   "matched": 0,
-   "n": 236,
-   "pct": 0.0
+   "matched": 1,
+   "n": 246,
+   "pct": 0.4
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 199,
+   "n": 213,
    "pct": 0.0
   }
  },
@@ -42,7 +42,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "n": 0
+  "max": -4.0,
+  "median": -4.0,
+  "min": -4.0,
+  "n": 1,
+  "q1": -4.0,
+  "q3": -4.0
  },
  "persistence_min": {
   "n": 0
@@ -92,7 +97,13 @@
    "seg": "30.186,-97.773"
   },
   {
-   "from": "San Antonio Riverwalk",
+   "from": "FM-1431/Chandler St/Exit 256 (I-35)",
+   "hour_of_week": 59,
+   "n": 2,
+   "seg": "30.535,-97.692"
+  },
+  {
+   "from": "Baldwin St",
    "hour_of_week": 60,
    "n": 2,
    "seg": "30.520,-97.559"
@@ -132,16 +143,10 @@
    "hour_of_week": 47,
    "n": 1,
    "seg": "30.300,-97.758"
-  },
-  {
-   "from": "Thermal Dr/Metric Blvd (E Howard Ln)",
-   "hour_of_week": 45,
-   "n": 1,
-   "seg": "30.425,-97.673"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 100.0,
-  "tomtom": 100.0
+  "dispatch": 98.3,
+  "tomtom": 99.8
  }
 }
