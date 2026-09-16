@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 77,
-  "dispatch_only": 77,
+  "dispatch": 78,
+  "dispatch_only": 78,
   "matched": 0,
-  "tomtom": 1222,
-  "tomtom_only": 1222
+  "tomtom": 1239,
+  "tomtom_only": 1239
  },
  "date": "2026-09-16",
  "match_rate": {
@@ -21,17 +21,17 @@
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 60,
+   "n": 61,
    "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 634,
+   "n": 646,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 588,
+   "n": 593,
    "pct": 0.0
   }
  },
@@ -72,12 +72,6 @@
    "hour_of_week": 60,
    "n": 3,
    "seg": "30.380,-97.738"
-  },
-  {
-   "from": "Barton Springs Rd (S Congress Ave)",
-   "hour_of_week": 61,
-   "n": 3,
-   "seg": "30.262,-97.745"
   },
   {
    "from": "Austin",
@@ -138,6 +132,12 @@
    "hour_of_week": 48,
    "n": 2,
    "seg": "30.427,-97.671"
+  },
+  {
+   "from": "FM-1325/Exit 250 (I-35)",
+   "hour_of_week": 9,
+   "n": 2,
+   "seg": "30.478,-97.673"
   }
  ],
  "unmatched_pct": {
