@@ -6,18 +6,18 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 73,
-  "dispatch_only": 72,
+  "dispatch": 74,
+  "dispatch_only": 73,
   "matched": 1,
-  "tomtom": 1127,
-  "tomtom_only": 1126
+  "tomtom": 1161,
+  "tomtom_only": 1160
  },
  "date": "2026-09-16",
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 15,
-   "pct": 6.7
+   "n": 16,
+   "pct": 6.2
   },
   "dispatch_surface": {
    "matched": 0,
@@ -26,12 +26,12 @@
   },
   "tomtom_highway": {
    "matched": 1,
-   "n": 590,
+   "n": 609,
    "pct": 0.2
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 537,
+   "n": 552,
    "pct": 0.0
   }
  },
@@ -77,6 +77,18 @@
    "hour_of_week": 60,
    "n": 3,
    "seg": "30.380,-97.738"
+  },
+  {
+   "from": "Northland Dr",
+   "hour_of_week": 61,
+   "n": 3,
+   "seg": "30.335,-97.756"
+  },
+  {
+   "from": "S Interstate 35",
+   "hour_of_week": 61,
+   "n": 3,
+   "seg": "30.167,-97.787"
   },
   {
    "from": "Mopac Expy S",
@@ -131,18 +143,6 @@
    "hour_of_week": 59,
    "n": 2,
    "seg": "30.349,-97.555"
-  },
-  {
-   "from": "Highway 71 E",
-   "hour_of_week": 60,
-   "n": 2,
-   "seg": "30.200,-97.633"
-  },
-  {
-   "from": "FM-1431/Whitestone Blvd (N Bell Blvd/US-183)",
-   "hour_of_week": 60,
-   "n": 2,
-   "seg": "30.506,-97.821"
   }
  ],
  "unmatched_pct": {
