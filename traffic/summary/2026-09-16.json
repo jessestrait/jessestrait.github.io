@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 128,
+  "dispatch": 131,
   "dispatch_only": 126,
-  "matched": 2,
-  "tomtom": 1815,
-  "tomtom_only": 1811
+  "matched": 5,
+  "tomtom": 1856,
+  "tomtom_only": 1849
  },
  "date": "2026-09-16",
  "match_rate": {
@@ -20,19 +20,19 @@
    "pct": 3.3
   },
   "dispatch_surface": {
-   "matched": 1,
-   "n": 98,
-   "pct": 1.0
+   "matched": 4,
+   "n": 101,
+   "pct": 4.0
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 920,
-   "pct": 0.4
+   "matched": 3,
+   "n": 933,
+   "pct": 0.3
   },
   "tomtom_surface": {
-   "matched": 0,
-   "n": 895,
-   "pct": 0.0
+   "matched": 4,
+   "n": 923,
+   "pct": 0.4
   }
  },
  "matcher": {
@@ -42,12 +42,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 79.0,
-  "median": 53.5,
-  "min": 27.9,
-  "n": 2,
-  "q1": 27.9,
-  "q3": 79.0
+  "max": 27.9,
+  "median": 0.4,
+  "min": -27.7,
+  "n": 5,
+  "q1": -14.2,
+  "q3": 21.9
  },
  "persistence_min": {
   "n": 0
@@ -115,6 +115,12 @@
    "seg": "30.371,-97.742"
   },
   {
+   "from": "Tinnapark Ln",
+   "hour_of_week": 68,
+   "n": 3,
+   "seg": "30.164,-97.728"
+  },
+  {
    "from": "Airport Blvd",
    "hour_of_week": 48,
    "n": 2,
@@ -137,16 +143,10 @@
    "hour_of_week": 48,
    "n": 2,
    "seg": "30.257,-97.703"
-  },
-  {
-   "from": "Wells Branch Pkwy (I-35)",
-   "hour_of_week": 48,
-   "n": 2,
-   "seg": "30.427,-97.671"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 98.4,
-  "tomtom": 99.8
+  "dispatch": 96.2,
+  "tomtom": 99.6
  }
 }
