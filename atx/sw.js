@@ -6,8 +6,13 @@
  * are stored. Everything else falls through untouched to the network.
  *
  * Bump VERSION to ship a new shell; activate() drops every older cache.
+ *
+ * Bump it for a change to anything under /atx/data/ too, not just the shell.
+ * That geometry is served cache-first, so a rebuilt routes.geojson reaches
+ * new visitors and nobody else — the corrected bus routes shipped and every
+ * returning phone kept drawing the old ones until this line changed.
  */
-const VERSION = 'atx-v4';
+const VERSION = 'atx-v5';
 const SHELL = VERSION + '-shell';
 const GEO = VERSION + '-geo';
 const FONTS = VERSION + '-fonts';
