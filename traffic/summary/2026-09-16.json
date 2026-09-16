@@ -6,32 +6,32 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 71,
-  "dispatch_only": 69,
+  "dispatch": 73,
+  "dispatch_only": 71,
   "matched": 2,
-  "tomtom": 1050,
-  "tomtom_only": 1048
+  "tomtom": 1089,
+  "tomtom_only": 1087
  },
  "date": "2026-09-16",
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 14,
-   "pct": 7.1
+   "n": 15,
+   "pct": 6.7
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 57,
-   "pct": 1.8
+   "n": 58,
+   "pct": 1.7
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 549,
+   "n": 571,
    "pct": 0.4
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 501,
+   "n": 518,
    "pct": 0.0
   }
  },
@@ -42,12 +42,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": -4.0,
-  "median": -38.6,
+  "max": 6.4,
+  "median": -33.4,
   "min": -73.2,
   "n": 2,
   "q1": -73.2,
-  "q3": -4.0
+  "q3": 6.4
  },
  "persistence_min": {
   "n": 0
@@ -77,6 +77,12 @@
    "hour_of_week": 60,
    "n": 3,
    "seg": "30.380,-97.738"
+  },
+  {
+   "from": "Mopac Expy S",
+   "hour_of_week": 61,
+   "n": 3,
+   "seg": "30.371,-97.742"
   },
   {
    "from": "Airport Blvd",
@@ -121,12 +127,6 @@
    "seg": "30.186,-97.773"
   },
   {
-   "from": "FM-1431/Chandler St/Exit 256 (I-35)",
-   "hour_of_week": 59,
-   "n": 2,
-   "seg": "30.535,-97.692"
-  },
-  {
    "from": "Highway 71 E",
    "hour_of_week": 60,
    "n": 2,
@@ -146,7 +146,7 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 97.2,
+  "dispatch": 97.3,
   "tomtom": 99.8
  }
 }
