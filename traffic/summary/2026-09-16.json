@@ -7,10 +7,10 @@
  ],
  "counts": {
   "dispatch": 71,
-  "dispatch_only": 68,
-  "matched": 3,
-  "tomtom": 1014,
-  "tomtom_only": 1011
+  "dispatch_only": 69,
+  "matched": 2,
+  "tomtom": 1050,
+  "tomtom_only": 1048
  },
  "date": "2026-09-16",
  "match_rate": {
@@ -20,18 +20,18 @@
    "pct": 7.1
   },
   "dispatch_surface": {
-   "matched": 2,
+   "matched": 1,
    "n": 57,
-   "pct": 3.5
+   "pct": 1.8
   },
   "tomtom_highway": {
-   "matched": 3,
-   "n": 533,
-   "pct": 0.6
+   "matched": 2,
+   "n": 549,
+   "pct": 0.4
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 481,
+   "n": 501,
    "pct": 0.0
   }
  },
@@ -43,9 +43,9 @@
  },
  "onset_offset_min": {
   "max": -4.0,
-  "median": -46.6,
+  "median": -38.6,
   "min": -73.2,
-  "n": 3,
+  "n": 2,
   "q1": -73.2,
   "q3": -4.0
  },
@@ -77,12 +77,6 @@
    "hour_of_week": 60,
    "n": 3,
    "seg": "30.380,-97.738"
-  },
-  {
-   "from": "Barton Springs Rd (S Congress Ave)",
-   "hour_of_week": 61,
-   "n": 3,
-   "seg": "30.262,-97.745"
   },
   {
    "from": "Airport Blvd",
@@ -143,10 +137,16 @@
    "hour_of_week": 60,
    "n": 2,
    "seg": "30.506,-97.821"
+  },
+  {
+   "from": "Colinton Ave",
+   "hour_of_week": 60,
+   "n": 2,
+   "seg": "30.371,-97.613"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 95.8,
-  "tomtom": 99.7
+  "dispatch": 97.2,
+  "tomtom": 99.8
  }
 }
