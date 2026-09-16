@@ -7,12 +7,11 @@
  *
  * Bump VERSION to ship a new shell; activate() drops every older cache.
  *
- * Bump it for a change to anything under /atx/data/ too, not just the shell.
- * That geometry is served cache-first, so a rebuilt routes.geojson reaches
- * new visitors and nobody else — the corrected bus routes shipped and every
- * returning phone kept drawing the old ones until this line changed.
+ * The geometry under /atx/data/ no longer needs a bump to get through: it is
+ * served from cache and refreshed in the background, so a rebuild lands on the
+ * next load by itself. See fromCacheRefreshing.
  */
-const VERSION = 'atx-v5';
+const VERSION = 'atx-v6';
 const SHELL = VERSION + '-shell';
 const GEO = VERSION + '-geo';
 const FONTS = VERSION + '-fonts';
@@ -55,6 +54,31 @@ async function fromCache(req, cacheName) {
   return res;
 }
 
+/* Cache first, but refresh behind your back.
+ *
+ * The geometry changes on its own schedule, not on mine: a weekly job rebuilds
+ * the CapMetro routes from the published GTFS and commits whatever comes out.
+ * Plain cache-first made those rebuilds reach new visitors and nobody else —
+ * corrected bus routes shipped and every returning phone kept drawing the old
+ * ones, which is a worse failure than a slow load because it looks like
+ * success. Coordinating a VERSION bump with a job that runs by itself is not a
+ * fix; it is a thing to forget.
+ *
+ * So: answer instantly from the cache as before, then fetch in the background
+ * and write the new copy. A rebuild is one load behind instead of indefinite,
+ * and the network cost is the same request that would have been made anyway.
+ */
+async function fromCacheRefreshing(req, cacheName) {
+  const cache = await caches.open(cacheName);
+  const hit = await cache.match(req);
+  const fresh = fetch(req).then(res => {
+    if (res && res.ok) cache.put(req, res.clone());
+    return res;
+  }).catch(() => null);
+  // Offline with nothing stored is the only case that waits on the network.
+  return hit || (await fresh) || Response.error();
+}
+
 self.addEventListener('fetch', e => {
   const req = e.request;
   if (req.method !== 'GET') return;
@@ -91,7 +115,7 @@ self.addEventListener('fetch', e => {
   // same-origin rules below and needs no rule of its own.
 
   if (sameOrigin && url.pathname.startsWith('/atx/data/')) {
-    e.respondWith(fromCache(req, GEO));
+    e.respondWith(fromCacheRefreshing(req, GEO));
     return;
   }
 
