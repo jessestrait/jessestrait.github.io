@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 58,
-  "dispatch_only": 58,
+  "dispatch": 59,
+  "dispatch_only": 59,
   "matched": 0,
-  "tomtom": 416,
-  "tomtom_only": 416
+  "tomtom": 435,
+  "tomtom_only": 435
  },
  "date": "2026-09-16",
  "match_rate": {
@@ -21,17 +21,17 @@
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 45,
+   "n": 46,
    "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 225,
+   "n": 236,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 191,
+   "n": 199,
    "pct": 0.0
   }
  },
@@ -92,6 +92,12 @@
    "seg": "30.186,-97.773"
   },
   {
+   "from": "San Antonio Riverwalk",
+   "hour_of_week": 60,
+   "n": 2,
+   "seg": "30.520,-97.559"
+  },
+  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
@@ -132,12 +138,6 @@
    "hour_of_week": 45,
    "n": 1,
    "seg": "30.425,-97.673"
-  },
-  {
-   "from": "Wells Branch Pkwy (I-35)",
-   "hour_of_week": 42,
-   "n": 1,
-   "seg": "30.427,-97.671"
   }
  ],
  "unmatched_pct": {
