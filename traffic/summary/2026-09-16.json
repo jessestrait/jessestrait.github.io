@@ -7,17 +7,17 @@
  ],
  "counts": {
   "dispatch": 133,
-  "dispatch_only": 127,
-  "matched": 6,
-  "tomtom": 1946,
-  "tomtom_only": 1941
+  "dispatch_only": 128,
+  "matched": 5,
+  "tomtom": 2000,
+  "tomtom_only": 1994
  },
  "date": "2026-09-16",
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
+   "matched": 0,
    "n": 30,
-   "pct": 3.3
+   "pct": 0.0
   },
   "dispatch_surface": {
    "matched": 5,
@@ -25,14 +25,14 @@
    "pct": 4.9
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 980,
-   "pct": 0.4
+   "matched": 2,
+   "n": 1004,
+   "pct": 0.2
   },
   "tomtom_surface": {
-   "matched": 1,
-   "n": 966,
-   "pct": 0.1
+   "matched": 4,
+   "n": 996,
+   "pct": 0.4
   }
  },
  "matcher": {
@@ -43,11 +43,11 @@
  },
  "onset_offset_min": {
   "max": 27.9,
-  "median": 2.6,
+  "median": -0.7,
   "min": -36.1,
-  "n": 6,
-  "q1": -29.8,
-  "q3": 19.0
+  "n": 5,
+  "q1": -31.9,
+  "q3": 14.1
  },
  "persistence_min": {
   "n": 0
@@ -115,38 +115,38 @@
    "seg": "30.371,-97.742"
   },
   {
+   "from": "Burleson Rd (McKinney Falls Pkwy)",
+   "hour_of_week": 68,
+   "n": 3,
+   "seg": "30.164,-97.725"
+  },
+  {
+   "from": "S 1st St (W Ben White Blvd)",
+   "hour_of_week": 68,
+   "n": 3,
+   "seg": "30.223,-97.765"
+  },
+  {
    "from": "FM-2304/Manchaca Rd (W Ben White Blvd)",
    "hour_of_week": 68,
    "n": 3,
    "seg": "30.227,-97.772"
   },
   {
-   "from": "Airport Blvd",
-   "hour_of_week": 48,
-   "n": 2,
-   "seg": "30.301,-97.714"
+   "from": "Whitis Ave",
+   "hour_of_week": 68,
+   "n": 3,
+   "seg": "30.284,-97.742"
   },
   {
-   "from": "Cameron Rd",
-   "hour_of_week": 48,
-   "n": 2,
-   "seg": "30.418,-97.576"
-  },
-  {
-   "from": "W Ben White Blvd",
-   "hour_of_week": 48,
-   "n": 2,
-   "seg": "30.215,-97.753"
-  },
-  {
-   "from": "Chicon St (E 7th St)",
-   "hour_of_week": 48,
-   "n": 2,
-   "seg": "30.257,-97.703"
+   "from": "Airport Blvd exit [237A]",
+   "hour_of_week": 68,
+   "n": 3,
+   "seg": "30.279,-97.730"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 95.5,
+  "dispatch": 96.2,
   "tomtom": 99.7
  }
 }
