@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 67,
-  "dispatch_only": 64,
-  "matched": 3,
-  "tomtom": 860,
-  "tomtom_only": 857
+  "dispatch": 68,
+  "dispatch_only": 68,
+  "matched": 0,
+  "tomtom": 904,
+  "tomtom_only": 904
  },
  "date": "2026-09-16",
  "match_rate": {
@@ -20,18 +20,18 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 3,
-   "n": 53,
-   "pct": 5.7
+   "matched": 0,
+   "n": 54,
+   "pct": 0.0
   },
   "tomtom_highway": {
-   "matched": 3,
-   "n": 443,
-   "pct": 0.7
+   "matched": 0,
+   "n": 466,
+   "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 417,
+   "n": 438,
    "pct": 0.0
   }
  },
@@ -42,12 +42,7 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 80.6,
-  "median": -20.5,
-  "min": -28.5,
-  "n": 3,
-  "q1": -28.5,
-  "q3": 80.6
+  "n": 0
  },
  "persistence_min": {
   "n": 0
@@ -61,6 +56,12 @@
    "seg": "30.520,-97.559"
   },
   {
+   "from": "W Slaughter Ln (I-35)",
+   "hour_of_week": 60,
+   "n": 3,
+   "seg": "30.190,-97.770"
+  },
+  {
    "from": "Asa Dr / Colton Bluff Springs Rd",
    "hour_of_week": 60,
    "n": 3,
@@ -71,6 +72,12 @@
    "hour_of_week": 60,
    "n": 3,
    "seg": "30.431,-97.673"
+  },
+  {
+   "from": "Mopac Expy S",
+   "hour_of_week": 60,
+   "n": 3,
+   "seg": "30.380,-97.738"
   },
   {
    "from": "Airport Blvd",
@@ -115,18 +122,6 @@
    "seg": "30.186,-97.773"
   },
   {
-   "from": "FM-1431/Chandler St/Exit 256 (I-35)",
-   "hour_of_week": 59,
-   "n": 2,
-   "seg": "30.535,-97.692"
-  },
-  {
-   "from": "Highway 71 E",
-   "hour_of_week": 59,
-   "n": 2,
-   "seg": "30.200,-97.633"
-  },
-  {
    "from": "Highway 71 E",
    "hour_of_week": 60,
    "n": 2,
@@ -139,14 +134,14 @@
    "seg": "30.506,-97.821"
   },
   {
-   "from": "Pearce Ln (FM-973)",
+   "from": "Colinton Ave",
    "hour_of_week": 60,
    "n": 2,
-   "seg": "30.200,-97.640"
+   "seg": "30.371,-97.613"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 95.5,
-  "tomtom": 99.7
+  "dispatch": 100.0,
+  "tomtom": 100.0
  }
 }
