@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 28,
-  "dispatch_only": 27,
+  "dispatch": 31,
+  "dispatch_only": 30,
   "matched": 1,
-  "tomtom": 184,
-  "tomtom_only": 182
+  "tomtom": 193,
+  "tomtom_only": 191
  },
  "date": "2026-09-16",
  "match_rate": {
@@ -21,17 +21,17 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 22,
-   "pct": 4.5
+   "n": 25,
+   "pct": 4.0
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 83,
-   "pct": 2.4
+   "n": 88,
+   "pct": 2.3
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 101,
+   "n": 105,
    "pct": 0.0
   }
  },
@@ -59,6 +59,12 @@
    "hour_of_week": 48,
    "n": 2,
    "seg": "30.301,-97.714"
+  },
+  {
+   "from": "Cameron Rd",
+   "hour_of_week": 48,
+   "n": 2,
+   "seg": "30.418,-97.576"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -137,16 +143,10 @@
    "hour_of_week": 47,
    "n": 1,
    "seg": "30.279,-97.731"
-  },
-  {
-   "from": "E 38th 1 (I-35)",
-   "hour_of_week": 47,
-   "n": 1,
-   "seg": "30.303,-97.714"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 96.4,
-  "tomtom": 98.9
+  "dispatch": 96.8,
+  "tomtom": 99.0
  }
 }
