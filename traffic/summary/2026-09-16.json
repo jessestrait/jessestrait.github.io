@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 133,
-  "dispatch_only": 128,
-  "matched": 5,
-  "tomtom": 2099,
-  "tomtom_only": 2093
+  "dispatch": 136,
+  "dispatch_only": 127,
+  "matched": 9,
+  "tomtom": 2203,
+  "tomtom_only": 2193
  },
  "date": "2026-09-16",
  "match_rate": {
@@ -20,18 +20,18 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 5,
-   "n": 103,
-   "pct": 4.9
+   "matched": 9,
+   "n": 106,
+   "pct": 8.5
   },
   "tomtom_highway": {
-   "matched": 3,
-   "n": 1052,
-   "pct": 0.3
+   "matched": 7,
+   "n": 1102,
+   "pct": 0.6
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 1047,
+   "n": 1101,
    "pct": 0.3
   }
  },
@@ -44,10 +44,10 @@
  "onset_offset_min": {
   "max": 88.4,
   "median": 0.4,
-  "min": -36.1,
-  "n": 5,
-  "q1": -31.9,
-  "q3": 50.6
+  "min": -57.4,
+  "n": 9,
+  "q1": -46.6,
+  "q3": 26.4
  },
  "persistence_min": {
   "n": 0
@@ -127,26 +127,26 @@
    "seg": "30.223,-97.765"
   },
   {
+   "from": "N Interstate 35",
+   "hour_of_week": 68,
+   "n": 3,
+   "seg": "30.353,-97.691"
+  },
+  {
    "from": "FM-2304/Manchaca Rd (W Ben White Blvd)",
    "hour_of_week": 68,
    "n": 3,
    "seg": "30.227,-97.772"
   },
   {
-   "from": "Whitis Ave",
+   "from": "E 6th St (I-35)",
    "hour_of_week": 68,
    "n": 3,
-   "seg": "30.284,-97.742"
-  },
-  {
-   "from": "Airport Blvd exit [237A]",
-   "hour_of_week": 68,
-   "n": 3,
-   "seg": "30.279,-97.730"
+   "seg": "30.262,-97.736"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 96.2,
-  "tomtom": 99.7
+  "dispatch": 93.4,
+  "tomtom": 99.5
  }
 }
