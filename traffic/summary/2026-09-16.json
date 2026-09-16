@@ -6,32 +6,32 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 68,
+  "dispatch": 70,
   "dispatch_only": 68,
-  "matched": 0,
-  "tomtom": 904,
-  "tomtom_only": 904
+  "matched": 2,
+  "tomtom": 927,
+  "tomtom_only": 925
  },
  "date": "2026-09-16",
  "match_rate": {
   "dispatch_highway": {
-   "matched": 0,
+   "matched": 1,
    "n": 14,
-   "pct": 0.0
+   "pct": 7.1
   },
   "dispatch_surface": {
-   "matched": 0,
-   "n": 54,
-   "pct": 0.0
+   "matched": 1,
+   "n": 56,
+   "pct": 1.8
   },
   "tomtom_highway": {
-   "matched": 0,
-   "n": 466,
-   "pct": 0.0
+   "matched": 2,
+   "n": 479,
+   "pct": 0.4
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 438,
+   "n": 448,
    "pct": 0.0
   }
  },
@@ -42,7 +42,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "n": 0
+  "max": -4.0,
+  "median": -25.3,
+  "min": -46.6,
+  "n": 2,
+  "q1": -46.6,
+  "q3": -4.0
  },
  "persistence_min": {
   "n": 0
@@ -54,12 +59,6 @@
    "hour_of_week": 60,
    "n": 3,
    "seg": "30.520,-97.559"
-  },
-  {
-   "from": "W Slaughter Ln (I-35)",
-   "hour_of_week": 60,
-   "n": 3,
-   "seg": "30.190,-97.770"
   },
   {
    "from": "Asa Dr / Colton Bluff Springs Rd",
@@ -122,6 +121,18 @@
    "seg": "30.186,-97.773"
   },
   {
+   "from": "Parmer Ln/Exit 245 (I-35)",
+   "hour_of_week": 59,
+   "n": 2,
+   "seg": "30.395,-97.672"
+  },
+  {
+   "from": "Highway 71 E",
+   "hour_of_week": 59,
+   "n": 2,
+   "seg": "30.200,-97.633"
+  },
+  {
    "from": "Highway 71 E",
    "hour_of_week": 60,
    "n": 2,
@@ -132,16 +143,10 @@
    "hour_of_week": 60,
    "n": 2,
    "seg": "30.506,-97.821"
-  },
-  {
-   "from": "Colinton Ave",
-   "hour_of_week": 60,
-   "n": 2,
-   "seg": "30.371,-97.613"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 100.0,
-  "tomtom": 100.0
+  "dispatch": 97.1,
+  "tomtom": 99.8
  }
 }
