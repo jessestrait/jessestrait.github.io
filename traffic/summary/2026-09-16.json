@@ -1,0 +1,152 @@
+{
+ "caveats": [
+  "Dispatch published_date is when APD published, not when it happened.",
+  "Clearance resolution equals the poll interval; shorter incidents are invisible.",
+  "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
+  "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
+ ],
+ "counts": {
+  "dispatch": 22,
+  "dispatch_only": 21,
+  "matched": 1,
+  "tomtom": 146,
+  "tomtom_only": 145
+ },
+ "date": "2026-09-16",
+ "match_rate": {
+  "dispatch_highway": {
+   "matched": 0,
+   "n": 5,
+   "pct": 0.0
+  },
+  "dispatch_surface": {
+   "matched": 1,
+   "n": 17,
+   "pct": 5.9
+  },
+  "tomtom_highway": {
+   "matched": 0,
+   "n": 61,
+   "pct": 0.0
+  },
+  "tomtom_surface": {
+   "matched": 1,
+   "n": 85,
+   "pct": 1.2
+  }
+ },
+ "matcher": {
+  "buffer_m": 200.0,
+  "highway_buffer_m": 130.0,
+  "onset_window_min": 90.0,
+  "tolerance_min": 20.0
+ },
+ "onset_offset_min": {
+  "max": 28.9,
+  "median": 28.9,
+  "min": 28.9,
+  "n": 1,
+  "q1": 28.9,
+  "q3": 28.9
+ },
+ "persistence_min": {
+  "n": 0
+ },
+ "poll_interval_min": 5.0,
+ "structural_hotspots": [
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 2,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 2,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 2,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "N Lake Creek Pkwy",
+   "hour_of_week": 47,
+   "n": 1,
+   "seg": "30.476,-97.794"
+  },
+  {
+   "from": "N Lake Creek Pkwy",
+   "hour_of_week": 47,
+   "n": 1,
+   "seg": "30.475,-97.794"
+  },
+  {
+   "from": "Enfield Rd (TX-1)",
+   "hour_of_week": 47,
+   "n": 1,
+   "seg": "30.300,-97.758"
+  },
+  {
+   "from": "Thermal Dr/Metric Blvd (E Howard Ln)",
+   "hour_of_week": 45,
+   "n": 1,
+   "seg": "30.425,-97.673"
+  },
+  {
+   "from": "Wells Branch Pkwy (I-35)",
+   "hour_of_week": 42,
+   "n": 1,
+   "seg": "30.427,-97.671"
+  },
+  {
+   "from": "Secretariat Ridge Ln",
+   "hour_of_week": 47,
+   "n": 1,
+   "seg": "30.501,-97.579"
+  },
+  {
+   "from": "Guadalupe St",
+   "hour_of_week": 47,
+   "n": 1,
+   "seg": "30.282,-97.742"
+  },
+  {
+   "from": "W 15th St",
+   "hour_of_week": 47,
+   "n": 1,
+   "seg": "30.280,-97.750"
+  },
+  {
+   "from": "Harris Ridge Blvd (E Howard Ln)",
+   "hour_of_week": 47,
+   "n": 1,
+   "seg": "30.404,-97.640"
+  },
+  {
+   "from": "E Martin Luther King Jr Blvd",
+   "hour_of_week": 47,
+   "n": 1,
+   "seg": "30.279,-97.731"
+  },
+  {
+   "from": "E 38th 1 (I-35)",
+   "hour_of_week": 47,
+   "n": 1,
+   "seg": "30.303,-97.714"
+  },
+  {
+   "from": "S Congress Ave (W Oltorf St)",
+   "hour_of_week": 47,
+   "n": 1,
+   "seg": "30.233,-97.739"
+  }
+ ],
+ "unmatched_pct": {
+  "dispatch": 95.5,
+  "tomtom": 99.3
+ }
+}
