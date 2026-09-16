@@ -7,10 +7,10 @@
  ],
  "counts": {
   "dispatch": 73,
-  "dispatch_only": 71,
-  "matched": 2,
-  "tomtom": 1089,
-  "tomtom_only": 1087
+  "dispatch_only": 72,
+  "matched": 1,
+  "tomtom": 1127,
+  "tomtom_only": 1126
  },
  "date": "2026-09-16",
  "match_rate": {
@@ -20,18 +20,18 @@
    "pct": 6.7
   },
   "dispatch_surface": {
-   "matched": 1,
+   "matched": 0,
    "n": 58,
-   "pct": 1.7
+   "pct": 0.0
   },
   "tomtom_highway": {
-   "matched": 2,
-   "n": 571,
-   "pct": 0.4
+   "matched": 1,
+   "n": 590,
+   "pct": 0.2
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 518,
+   "n": 537,
    "pct": 0.0
   }
  },
@@ -43,10 +43,10 @@
  },
  "onset_offset_min": {
   "max": 6.4,
-  "median": -33.4,
-  "min": -73.2,
-  "n": 2,
-  "q1": -73.2,
+  "median": 6.4,
+  "min": 6.4,
+  "n": 1,
+  "q1": 6.4,
   "q3": 6.4
  },
  "persistence_min": {
@@ -127,6 +127,12 @@
    "seg": "30.186,-97.773"
   },
   {
+   "from": "FM-1100 (US-290)",
+   "hour_of_week": 59,
+   "n": 2,
+   "seg": "30.349,-97.555"
+  },
+  {
    "from": "Highway 71 E",
    "hour_of_week": 60,
    "n": 2,
@@ -137,16 +143,10 @@
    "hour_of_week": 60,
    "n": 2,
    "seg": "30.506,-97.821"
-  },
-  {
-   "from": "Colinton Ave",
-   "hour_of_week": 60,
-   "n": 2,
-   "seg": "30.371,-97.613"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 97.3,
-  "tomtom": 99.8
+  "dispatch": 98.6,
+  "tomtom": 99.9
  }
 }
