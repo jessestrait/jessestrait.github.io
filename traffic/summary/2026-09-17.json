@@ -9,30 +9,30 @@
   "dispatch": 147,
   "dispatch_only": 139,
   "matched": 8,
-  "tomtom": 2143,
-  "tomtom_only": 2134
+  "tomtom": 2240,
+  "tomtom_only": 2231
  },
  "date": "2026-09-17",
  "match_rate": {
   "dispatch_highway": {
-   "matched": 2,
+   "matched": 1,
    "n": 24,
-   "pct": 8.3
+   "pct": 4.2
   },
   "dispatch_surface": {
-   "matched": 6,
+   "matched": 7,
    "n": 123,
-   "pct": 4.9
+   "pct": 5.7
   },
   "tomtom_highway": {
-   "matched": 7,
-   "n": 1112,
-   "pct": 0.6
+   "matched": 5,
+   "n": 1151,
+   "pct": 0.4
   },
   "tomtom_surface": {
-   "matched": 2,
-   "n": 1031,
-   "pct": 0.2
+   "matched": 4,
+   "n": 1089,
+   "pct": 0.4
   }
  },
  "matcher": {
@@ -42,12 +42,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 69.8,
-  "median": 3.4,
-  "min": -88.8,
+  "max": 84.0,
+  "median": 11.7,
+  "min": -4.8,
   "n": 8,
-  "q1": -21.9,
-  "q3": 10.5
+  "q1": 8.3,
+  "q3": 75.6
  },
  "persistence_min": {
   "n": 0
@@ -59,6 +59,12 @@
    "hour_of_week": 85,
    "n": 5,
    "seg": "30.240,-97.800"
+  },
+  {
+   "from": "Metric Blvd (W Parmer Ln/FM-734)",
+   "hour_of_week": 93,
+   "n": 4,
+   "seg": "30.408,-97.678"
   },
   {
    "from": "Yager Ln (I-35)",
@@ -91,22 +97,16 @@
    "seg": "30.408,-97.678"
   },
   {
-   "from": "Westlake Dr (TX-360 Loop/N Capital of Texas Hwy)",
-   "hour_of_week": 93,
-   "n": 3,
-   "seg": "30.290,-97.828"
-  },
-  {
-   "from": "Metric Blvd (W Parmer Ln/FM-734)",
-   "hour_of_week": 93,
-   "n": 3,
-   "seg": "30.408,-97.678"
-  },
-  {
    "from": "W Ben White Blvd",
    "hour_of_week": 93,
    "n": 3,
    "seg": "30.223,-97.764"
+  },
+  {
+   "from": "S Interstate 35 / W Louis Henna Blvd",
+   "hour_of_week": 93,
+   "n": 3,
+   "seg": "30.482,-97.663"
   },
   {
    "from": "E Rundberg Ln (I-35)",
