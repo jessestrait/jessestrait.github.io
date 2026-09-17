@@ -9,8 +9,8 @@
   "dispatch": 89,
   "dispatch_only": 86,
   "matched": 3,
-  "tomtom": 1014,
-  "tomtom_only": 1010
+  "tomtom": 1044,
+  "tomtom_only": 1040
  },
  "date": "2026-09-17",
  "match_rate": {
@@ -26,12 +26,12 @@
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 535,
+   "n": 554,
    "pct": 0.7
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 479,
+   "n": 490,
    "pct": 0.0
   }
  },
@@ -57,7 +57,7 @@
   {
    "from": "S Lamar Blvd / W Ben White Blvd",
    "hour_of_week": 85,
-   "n": 4,
+   "n": 5,
    "seg": "30.240,-97.800"
   },
   {
@@ -71,6 +71,12 @@
    "hour_of_week": 84,
    "n": 3,
    "seg": "30.480,-97.674"
+  },
+  {
+   "from": "US-183/E 7th St/Ed Bluestein Blvd (Airport Blvd)",
+   "hour_of_week": 85,
+   "n": 3,
+   "seg": "30.258,-97.693"
   },
   {
    "from": "E Rundberg Ln (I-35)",
@@ -137,12 +143,6 @@
    "hour_of_week": 84,
    "n": 2,
    "seg": "30.340,-97.558"
-  },
-  {
-   "from": "W Slaughter Ln",
-   "hour_of_week": 84,
-   "n": 2,
-   "seg": "30.218,-97.894"
   }
  ],
  "unmatched_pct": {
