@@ -7,10 +7,10 @@
  ],
  "counts": {
   "dispatch": 38,
-  "dispatch_only": 34,
-  "matched": 4,
-  "tomtom": 277,
-  "tomtom_only": 273
+  "dispatch_only": 36,
+  "matched": 2,
+  "tomtom": 279,
+  "tomtom_only": 277
  },
  "date": "2026-09-17",
  "match_rate": {
@@ -20,18 +20,18 @@
    "pct": 20.0
   },
   "dispatch_surface": {
-   "matched": 3,
+   "matched": 1,
    "n": 33,
-   "pct": 9.1
+   "pct": 3.0
   },
   "tomtom_highway": {
-   "matched": 3,
+   "matched": 1,
    "n": 143,
-   "pct": 2.1
+   "pct": 0.7
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 134,
+   "n": 136,
    "pct": 0.7
   }
  },
@@ -43,11 +43,11 @@
  },
  "onset_offset_min": {
   "max": 80.5,
-  "median": -3.0,
-  "min": -44.7,
-  "n": 4,
-  "q1": -36.5,
-  "q3": 61.9
+  "median": 34.2,
+  "min": -12.0,
+  "n": 2,
+  "q1": -12.0,
+  "q3": 80.5
  },
  "persistence_min": {
   "n": 0
@@ -65,6 +65,12 @@
    "hour_of_week": 72,
    "n": 2,
    "seg": "30.474,-97.594"
+  },
+  {
+   "from": "FM Road 2222",
+   "hour_of_week": 72,
+   "n": 2,
+   "seg": "30.395,-97.827"
   },
   {
    "from": "Cameron Rd",
@@ -137,16 +143,10 @@
    "hour_of_week": 71,
    "n": 1,
    "seg": "30.527,-97.690"
-  },
-  {
-   "from": "S Interstate 35",
-   "hour_of_week": 71,
-   "n": 1,
-   "seg": "30.502,-97.682"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 89.5,
-  "tomtom": 98.6
+  "dispatch": 94.7,
+  "tomtom": 99.3
  }
 }
