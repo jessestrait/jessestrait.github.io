@@ -6,32 +6,32 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 152,
-  "dispatch_only": 143,
-  "matched": 9,
-  "tomtom": 2493,
-  "tomtom_only": 2481
+  "dispatch": 159,
+  "dispatch_only": 148,
+  "matched": 11,
+  "tomtom": 2629,
+  "tomtom_only": 2616
  },
  "date": "2026-09-17",
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
-   "n": 25,
-   "pct": 4.0
+   "matched": 2,
+   "n": 27,
+   "pct": 7.4
   },
   "dispatch_surface": {
-   "matched": 8,
-   "n": 127,
-   "pct": 6.3
+   "matched": 9,
+   "n": 132,
+   "pct": 6.8
   },
   "tomtom_highway": {
-   "matched": 6,
-   "n": 1258,
+   "matched": 7,
+   "n": 1333,
    "pct": 0.5
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 1235,
+   "n": 1296,
    "pct": 0.5
   }
  },
@@ -43,19 +43,14 @@
  },
  "onset_offset_min": {
   "max": 89.4,
-  "median": 12.0,
-  "min": -27.6,
-  "n": 9,
-  "q1": -12.8,
-  "q3": 48.4
+  "median": -4.8,
+  "min": -88.8,
+  "n": 11,
+  "q1": -54.9,
+  "q3": 14.8
  },
  "persistence_min": {
-  "max": -60.8,
-  "median": -60.8,
-  "min": -60.8,
-  "n": 1,
-  "q1": -60.8,
-  "q3": -60.8
+  "n": 0
  },
  "poll_interval_min": 5.0,
  "structural_hotspots": [
@@ -66,10 +61,22 @@
    "seg": "30.240,-97.800"
   },
   {
+   "from": "Westlake Dr (TX-360 Loop/N Capital of Texas Hwy)",
+   "hour_of_week": 93,
+   "n": 4,
+   "seg": "30.290,-97.828"
+  },
+  {
    "from": "W Ben White Blvd",
    "hour_of_week": 93,
    "n": 4,
    "seg": "30.223,-97.764"
+  },
+  {
+   "from": "S Interstate 35 / W Louis Henna Blvd",
+   "hour_of_week": 93,
+   "n": 4,
+   "seg": "30.482,-97.663"
   },
   {
    "from": "Yager Ln (I-35)",
@@ -102,10 +109,16 @@
    "seg": "30.408,-97.678"
   },
   {
-   "from": "Westlake Dr (TX-360 Loop/N Capital of Texas Hwy)",
+   "from": "Heatherwilde Blvd (Red Bud Ln)",
    "hour_of_week": 93,
    "n": 3,
-   "seg": "30.290,-97.828"
+   "seg": "30.496,-97.613"
+  },
+  {
+   "from": "Dittmar Rd (S Congress Ave)",
+   "hour_of_week": 93,
+   "n": 3,
+   "seg": "30.169,-97.788"
   },
   {
    "from": "Metric Blvd (W Parmer Ln/FM-734)",
@@ -114,22 +127,10 @@
    "seg": "30.408,-97.678"
   },
   {
-   "from": "W Saint Elmo Rd (S Congress Ave)",
+   "from": "E Riverside Dr (Montopolis Dr)",
    "hour_of_week": 93,
    "n": 3,
-   "seg": "30.206,-97.774"
-  },
-  {
-   "from": "Derby Downs Dr",
-   "hour_of_week": 93,
-   "n": 3,
-   "seg": "30.145,-97.732"
-  },
-  {
-   "from": "S Interstate 35 / W Louis Henna Blvd",
-   "hour_of_week": 93,
-   "n": 3,
-   "seg": "30.482,-97.663"
+   "seg": "30.215,-97.710"
   },
   {
    "from": "Dessau Rd/Cameron Rd (E Rundberg Ln)",
@@ -142,16 +143,10 @@
    "hour_of_week": 59,
    "n": 2,
    "seg": "30.375,-97.677"
-  },
-  {
-   "from": "Limestone Commercial Dr",
-   "hour_of_week": 72,
-   "n": 2,
-   "seg": "30.474,-97.594"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 94.1,
+  "dispatch": 93.1,
   "tomtom": 99.5
  }
 }
