@@ -7,17 +7,17 @@
  ],
  "counts": {
   "dispatch": 36,
-  "dispatch_only": 33,
-  "matched": 3,
-  "tomtom": 248,
-  "tomtom_only": 246
+  "dispatch_only": 34,
+  "matched": 2,
+  "tomtom": 257,
+  "tomtom_only": 255
  },
  "date": "2026-09-17",
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
+   "matched": 0,
    "n": 5,
-   "pct": 20.0
+   "pct": 0.0
   },
   "dispatch_surface": {
    "matched": 2,
@@ -26,12 +26,12 @@
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 131,
+   "n": 134,
    "pct": 1.5
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 117,
+   "n": 123,
    "pct": 0.0
   }
  },
@@ -43,9 +43,9 @@
  },
  "onset_offset_min": {
   "max": 6.1,
-  "median": -12.0,
+  "median": -19.3,
   "min": -44.7,
-  "n": 3,
+  "n": 2,
   "q1": -44.7,
   "q3": 6.1
  },
@@ -59,6 +59,12 @@
    "hour_of_week": 59,
    "n": 2,
    "seg": "30.375,-97.677"
+  },
+  {
+   "from": "Limestone Commercial Dr",
+   "hour_of_week": 72,
+   "n": 2,
+   "seg": "30.474,-97.594"
   },
   {
    "from": "Cameron Rd",
@@ -137,16 +143,10 @@
    "hour_of_week": 71,
    "n": 1,
    "seg": "30.502,-97.682"
-  },
-  {
-   "from": "FM-2244/Bee Cave Rd (TX-360 Loop/S Capital of Texas Hwy)",
-   "hour_of_week": 69,
-   "n": 1,
-   "seg": "30.342,-97.802"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 91.7,
+  "dispatch": 94.4,
   "tomtom": 99.2
  }
 }
