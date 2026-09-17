@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 159,
-  "dispatch_only": 149,
+  "dispatch": 160,
+  "dispatch_only": 150,
   "matched": 10,
-  "tomtom": 2738,
-  "tomtom_only": 2726
+  "tomtom": 2775,
+  "tomtom_only": 2763
  },
  "date": "2026-09-17",
  "match_rate": {
@@ -21,18 +21,18 @@
   },
   "dispatch_surface": {
    "matched": 8,
-   "n": 132,
-   "pct": 6.1
+   "n": 133,
+   "pct": 6.0
   },
   "tomtom_highway": {
-   "matched": 7,
-   "n": 1391,
-   "pct": 0.5
+   "matched": 5,
+   "n": 1414,
+   "pct": 0.4
   },
   "tomtom_surface": {
-   "matched": 5,
-   "n": 1347,
-   "pct": 0.4
+   "matched": 7,
+   "n": 1361,
+   "pct": 0.5
   }
  },
  "matcher": {
@@ -43,14 +43,19 @@
  },
  "onset_offset_min": {
   "max": 89.4,
-  "median": 0.9,
+  "median": 4.7,
   "min": -88.8,
   "n": 10,
   "q1": -62.4,
   "q3": 28.9
  },
  "persistence_min": {
-  "n": 0
+  "max": -86.4,
+  "median": -86.4,
+  "min": -86.4,
+  "n": 1,
+  "q1": -86.4,
+  "q3": -86.4
  },
  "poll_interval_min": 5.0,
  "structural_hotspots": [
@@ -59,6 +64,12 @@
    "hour_of_week": 85,
    "n": 5,
    "seg": "30.240,-97.800"
+  },
+  {
+   "from": "Westlake Dr (TX-360 Loop/N Capital of Texas Hwy)",
+   "hour_of_week": 93,
+   "n": 4,
+   "seg": "30.290,-97.828"
   },
   {
    "from": "W Ben White Blvd",
@@ -97,16 +108,22 @@
    "seg": "30.408,-97.678"
   },
   {
-   "from": "Westlake Dr (TX-360 Loop/N Capital of Texas Hwy)",
+   "from": "Dittmar Rd (S Congress Ave)",
    "hour_of_week": 93,
    "n": 3,
-   "seg": "30.290,-97.828"
+   "seg": "30.169,-97.788"
   },
   {
    "from": "Metric Blvd (W Parmer Ln/FM-734)",
    "hour_of_week": 93,
    "n": 3,
    "seg": "30.408,-97.678"
+  },
+  {
+   "from": "W Saint Elmo Rd (S Congress Ave)",
+   "hour_of_week": 93,
+   "n": 3,
+   "seg": "30.206,-97.774"
   },
   {
    "from": "S Interstate 35 / W Louis Henna Blvd",
@@ -131,22 +148,10 @@
    "hour_of_week": 94,
    "n": 3,
    "seg": "30.475,-97.794"
-  },
-  {
-   "from": "E Rundberg Ln (I-35)",
-   "hour_of_week": 59,
-   "n": 2,
-   "seg": "30.375,-97.677"
-  },
-  {
-   "from": "Limestone Commercial Dr",
-   "hour_of_week": 72,
-   "n": 2,
-   "seg": "30.474,-97.594"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 93.7,
+  "dispatch": 93.8,
   "tomtom": 99.6
  }
 }
