@@ -6,33 +6,33 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 147,
-  "dispatch_only": 139,
-  "matched": 8,
-  "tomtom": 2240,
-  "tomtom_only": 2231
+  "dispatch": 150,
+  "dispatch_only": 143,
+  "matched": 7,
+  "tomtom": 2314,
+  "tomtom_only": 2306
  },
  "date": "2026-09-17",
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 24,
-   "pct": 4.2
+   "n": 25,
+   "pct": 4.0
   },
   "dispatch_surface": {
-   "matched": 7,
-   "n": 123,
-   "pct": 5.7
+   "matched": 6,
+   "n": 125,
+   "pct": 4.8
   },
   "tomtom_highway": {
-   "matched": 5,
-   "n": 1151,
-   "pct": 0.4
+   "matched": 6,
+   "n": 1182,
+   "pct": 0.5
   },
   "tomtom_surface": {
-   "matched": 4,
-   "n": 1089,
-   "pct": 0.4
+   "matched": 2,
+   "n": 1132,
+   "pct": 0.2
   }
  },
  "matcher": {
@@ -43,11 +43,11 @@
  },
  "onset_offset_min": {
   "max": 84.0,
-  "median": 11.7,
+  "median": 12.0,
   "min": -4.8,
-  "n": 8,
-  "q1": 8.3,
-  "q3": 75.6
+  "n": 7,
+  "q1": 9.1,
+  "q3": 77.6
  },
  "persistence_min": {
   "n": 0
@@ -61,10 +61,10 @@
    "seg": "30.240,-97.800"
   },
   {
-   "from": "Metric Blvd (W Parmer Ln/FM-734)",
+   "from": "W Ben White Blvd",
    "hour_of_week": 93,
    "n": 4,
-   "seg": "30.408,-97.678"
+   "seg": "30.223,-97.764"
   },
   {
    "from": "Yager Ln (I-35)",
@@ -97,10 +97,28 @@
    "seg": "30.408,-97.678"
   },
   {
-   "from": "W Ben White Blvd",
+   "from": "Dittmar Rd (S Congress Ave)",
    "hour_of_week": 93,
    "n": 3,
-   "seg": "30.223,-97.764"
+   "seg": "30.169,-97.788"
+  },
+  {
+   "from": "Westlake Dr (TX-360 Loop/N Capital of Texas Hwy)",
+   "hour_of_week": 93,
+   "n": 3,
+   "seg": "30.290,-97.828"
+  },
+  {
+   "from": "Metric Blvd (W Parmer Ln/FM-734)",
+   "hour_of_week": 93,
+   "n": 3,
+   "seg": "30.408,-97.678"
+  },
+  {
+   "from": "Derby Downs Dr",
+   "hour_of_week": 93,
+   "n": 3,
+   "seg": "30.145,-97.732"
   },
   {
    "from": "S Interstate 35 / W Louis Henna Blvd",
@@ -125,28 +143,10 @@
    "hour_of_week": 72,
    "n": 2,
    "seg": "30.409,-97.558"
-  },
-  {
-   "from": "W Martin Luther King Jr Blvd (Rio Grande St)",
-   "hour_of_week": 72,
-   "n": 2,
-   "seg": "30.286,-97.745"
-  },
-  {
-   "from": "Thermal Dr/Metric Blvd (E Howard Ln)",
-   "hour_of_week": 73,
-   "n": 2,
-   "seg": "30.425,-97.673"
-  },
-  {
-   "from": "Bee Caves Rd / Westlake Medical Ctr",
-   "hour_of_week": 74,
-   "n": 2,
-   "seg": "30.291,-97.828"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 94.6,
-  "tomtom": 99.6
+  "dispatch": 95.3,
+  "tomtom": 99.7
  }
 }
