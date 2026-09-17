@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 150,
-  "dispatch_only": 141,
+  "dispatch": 152,
+  "dispatch_only": 143,
   "matched": 9,
-  "tomtom": 2424,
-  "tomtom_only": 2414
+  "tomtom": 2493,
+  "tomtom_only": 2481
  },
  "date": "2026-09-17",
  "match_rate": {
@@ -21,18 +21,18 @@
   },
   "dispatch_surface": {
    "matched": 8,
-   "n": 125,
-   "pct": 6.4
+   "n": 127,
+   "pct": 6.3
   },
   "tomtom_highway": {
-   "matched": 7,
-   "n": 1227,
-   "pct": 0.6
+   "matched": 6,
+   "n": 1258,
+   "pct": 0.5
   },
   "tomtom_surface": {
-   "matched": 3,
-   "n": 1197,
-   "pct": 0.3
+   "matched": 6,
+   "n": 1235,
+   "pct": 0.5
   }
  },
  "matcher": {
@@ -42,15 +42,20 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 77.5,
+  "max": 89.4,
   "median": 12.0,
-  "min": -84.8,
+  "min": -27.6,
   "n": 9,
-  "q1": -16.2,
+  "q1": -12.8,
   "q3": 48.4
  },
  "persistence_min": {
-  "n": 0
+  "max": -60.8,
+  "median": -60.8,
+  "min": -60.8,
+  "n": 1,
+  "q1": -60.8,
+  "q3": -60.8
  },
  "poll_interval_min": 5.0,
  "structural_hotspots": [
@@ -65,12 +70,6 @@
    "hour_of_week": 93,
    "n": 4,
    "seg": "30.223,-97.764"
-  },
-  {
-   "from": "S Interstate 35 / W Louis Henna Blvd",
-   "hour_of_week": 93,
-   "n": 4,
-   "seg": "30.482,-97.663"
   },
   {
    "from": "Yager Ln (I-35)",
@@ -103,12 +102,6 @@
    "seg": "30.408,-97.678"
   },
   {
-   "from": "Dittmar Rd (S Congress Ave)",
-   "hour_of_week": 93,
-   "n": 3,
-   "seg": "30.169,-97.788"
-  },
-  {
    "from": "Westlake Dr (TX-360 Loop/N Capital of Texas Hwy)",
    "hour_of_week": 93,
    "n": 3,
@@ -121,10 +114,22 @@
    "seg": "30.408,-97.678"
   },
   {
+   "from": "W Saint Elmo Rd (S Congress Ave)",
+   "hour_of_week": 93,
+   "n": 3,
+   "seg": "30.206,-97.774"
+  },
+  {
    "from": "Derby Downs Dr",
    "hour_of_week": 93,
    "n": 3,
    "seg": "30.145,-97.732"
+  },
+  {
+   "from": "S Interstate 35 / W Louis Henna Blvd",
+   "hour_of_week": 93,
+   "n": 3,
+   "seg": "30.482,-97.663"
   },
   {
    "from": "Dessau Rd/Cameron Rd (E Rundberg Ln)",
@@ -146,7 +151,7 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 94.0,
-  "tomtom": 99.6
+  "dispatch": 94.1,
+  "tomtom": 99.5
  }
 }
