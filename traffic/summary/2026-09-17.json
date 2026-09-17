@@ -9,30 +9,30 @@
   "dispatch": 159,
   "dispatch_only": 148,
   "matched": 11,
-  "tomtom": 2629,
-  "tomtom_only": 2616
+  "tomtom": 2688,
+  "tomtom_only": 2675
  },
  "date": "2026-09-17",
  "match_rate": {
   "dispatch_highway": {
-   "matched": 2,
+   "matched": 3,
    "n": 27,
-   "pct": 7.4
+   "pct": 11.1
   },
   "dispatch_surface": {
-   "matched": 9,
+   "matched": 8,
    "n": 132,
-   "pct": 6.8
+   "pct": 6.1
   },
   "tomtom_highway": {
-   "matched": 7,
-   "n": 1333,
-   "pct": 0.5
+   "matched": 8,
+   "n": 1362,
+   "pct": 0.6
   },
   "tomtom_surface": {
-   "matched": 6,
-   "n": 1296,
-   "pct": 0.5
+   "matched": 5,
+   "n": 1326,
+   "pct": 0.4
   }
  },
  "matcher": {
@@ -47,10 +47,15 @@
   "min": -88.8,
   "n": 11,
   "q1": -54.9,
-  "q3": 14.8
+  "q3": 27.0
  },
  "persistence_min": {
-  "n": 0
+  "max": 0.0,
+  "median": 0.0,
+  "min": 0.0,
+  "n": 1,
+  "q1": 0.0,
+  "q3": 0.0
  },
  "poll_interval_min": 5.0,
  "structural_hotspots": [
@@ -109,12 +114,6 @@
    "seg": "30.408,-97.678"
   },
   {
-   "from": "Heatherwilde Blvd (Red Bud Ln)",
-   "hour_of_week": 93,
-   "n": 3,
-   "seg": "30.496,-97.613"
-  },
-  {
    "from": "Dittmar Rd (S Congress Ave)",
    "hour_of_week": 93,
    "n": 3,
@@ -137,6 +136,12 @@
    "hour_of_week": 93,
    "n": 3,
    "seg": "30.357,-97.686"
+  },
+  {
+   "from": "N Lake Creek Pkwy",
+   "hour_of_week": 94,
+   "n": 3,
+   "seg": "30.475,-97.794"
   },
   {
    "from": "E Rundberg Ln (I-35)",
