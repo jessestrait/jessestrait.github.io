@@ -7,10 +7,10 @@
  ],
  "counts": {
   "dispatch": 48,
-  "dispatch_only": 47,
-  "matched": 1,
-  "tomtom": 339,
-  "tomtom_only": 338
+  "dispatch_only": 46,
+  "matched": 2,
+  "tomtom": 346,
+  "tomtom_only": 344
  },
  "date": "2026-09-17",
  "match_rate": {
@@ -20,19 +20,19 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 1,
+   "matched": 2,
    "n": 43,
-   "pct": 2.3
+   "pct": 4.7
   },
   "tomtom_highway": {
    "matched": 1,
-   "n": 175,
+   "n": 179,
    "pct": 0.6
   },
   "tomtom_surface": {
-   "matched": 0,
-   "n": 164,
-   "pct": 0.0
+   "matched": 1,
+   "n": 167,
+   "pct": 0.6
   }
  },
  "matcher": {
@@ -42,12 +42,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 11.7,
-  "median": 11.7,
+  "max": 40.2,
+  "median": 26.0,
   "min": 11.7,
-  "n": 1,
+  "n": 2,
   "q1": 11.7,
-  "q3": 11.7
+  "q3": 40.2
  },
  "persistence_min": {
   "n": 0
@@ -83,6 +83,12 @@
    "hour_of_week": 73,
    "n": 2,
    "seg": "30.425,-97.673"
+  },
+  {
+   "from": "Bee Caves Rd / Westlake Medical Ctr",
+   "hour_of_week": 74,
+   "n": 2,
+   "seg": "30.291,-97.828"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -137,16 +143,10 @@
    "hour_of_week": 71,
    "n": 1,
    "seg": "30.397,-97.827"
-  },
-  {
-   "from": "McNeil Dr",
-   "hour_of_week": 70,
-   "n": 1,
-   "seg": "30.398,-97.828"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 97.9,
-  "tomtom": 99.7
+  "dispatch": 95.8,
+  "tomtom": 99.4
  }
 }
