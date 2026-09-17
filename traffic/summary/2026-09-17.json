@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 65,
-  "dispatch_only": 65,
+  "dispatch": 66,
+  "dispatch_only": 66,
   "matched": 0,
-  "tomtom": 432,
-  "tomtom_only": 432
+  "tomtom": 436,
+  "tomtom_only": 436
  },
  "date": "2026-09-17",
  "match_rate": {
@@ -21,17 +21,17 @@
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 54,
+   "n": 55,
    "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 223,
+   "n": 226,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 209,
+   "n": 210,
    "pct": 0.0
   }
  },
@@ -104,6 +104,12 @@
    "seg": "30.363,-97.685"
   },
   {
+   "from": "Stassney Ln (I-35)",
+   "hour_of_week": 82,
+   "n": 2,
+   "seg": "30.189,-97.772"
+  },
+  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
@@ -132,12 +138,6 @@
    "hour_of_week": 44,
    "n": 2,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "Lakeline Blvd (S Bell Blvd/US-183)",
-   "hour_of_week": 69,
-   "n": 1,
-   "seg": "30.498,-97.814"
   }
  ],
  "unmatched_pct": {
