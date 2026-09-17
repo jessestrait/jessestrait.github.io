@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 73,
-  "dispatch_only": 71,
+  "dispatch": 74,
+  "dispatch_only": 72,
   "matched": 2,
-  "tomtom": 584,
-  "tomtom_only": 582
+  "tomtom": 627,
+  "tomtom_only": 625
  },
  "date": "2026-09-17",
  "match_rate": {
@@ -21,17 +21,17 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 61,
+   "n": 62,
    "pct": 1.6
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 300,
-   "pct": 0.7
+   "n": 314,
+   "pct": 0.6
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 284,
+   "n": 313,
    "pct": 0.0
   }
  },
@@ -121,6 +121,12 @@
    "seg": "30.195,-97.767"
   },
   {
+   "from": "W Louis Henna Blvd",
+   "hour_of_week": 84,
+   "n": 2,
+   "seg": "30.480,-97.674"
+  },
+  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
@@ -137,12 +143,6 @@
    "hour_of_week": 112,
    "n": 2,
    "seg": "30.244,-97.663"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "seg": "30.148,-97.704"
   }
  ],
  "unmatched_pct": {
