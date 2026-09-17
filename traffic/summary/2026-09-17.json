@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 56,
-  "dispatch_only": 55,
-  "matched": 1,
+  "dispatch": 57,
+  "dispatch_only": 57,
+  "matched": 0,
   "tomtom": 398,
-  "tomtom_only": 397
+  "tomtom_only": 398
  },
  "date": "2026-09-17",
  "match_rate": {
@@ -20,9 +20,9 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 1,
-   "n": 46,
-   "pct": 2.2
+   "matched": 0,
+   "n": 47,
+   "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 0,
@@ -30,9 +30,9 @@
    "pct": 0.0
   },
   "tomtom_surface": {
-   "matched": 1,
+   "matched": 0,
    "n": 195,
-   "pct": 0.5
+   "pct": 0.0
   }
  },
  "matcher": {
@@ -42,18 +42,19 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 63.2,
-  "median": 63.2,
-  "min": 63.2,
-  "n": 1,
-  "q1": 63.2,
-  "q3": 63.2
+  "n": 0
  },
  "persistence_min": {
   "n": 0
  },
  "poll_interval_min": 5.0,
  "structural_hotspots": [
+  {
+   "from": "E Rundberg Ln (I-35)",
+   "hour_of_week": 59,
+   "n": 2,
+   "seg": "30.375,-97.677"
+  },
   {
    "from": "Limestone Commercial Dr",
    "hour_of_week": 72,
@@ -137,16 +138,10 @@
    "hour_of_week": 68,
    "n": 1,
    "seg": "30.449,-97.830"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 71,
-   "n": 1,
-   "seg": "30.476,-97.794"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 98.2,
-  "tomtom": 99.7
+  "dispatch": 100.0,
+  "tomtom": 100.0
  }
 }
