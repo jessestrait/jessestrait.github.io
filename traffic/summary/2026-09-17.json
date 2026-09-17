@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 44,
-  "dispatch_only": 43,
+  "dispatch": 45,
+  "dispatch_only": 44,
   "matched": 1,
-  "tomtom": 318,
-  "tomtom_only": 317
+  "tomtom": 324,
+  "tomtom_only": 323
  },
  "date": "2026-09-17",
  "match_rate": {
@@ -21,17 +21,17 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 39,
-   "pct": 2.6
+   "n": 40,
+   "pct": 2.5
   },
   "tomtom_highway": {
    "matched": 1,
-   "n": 164,
+   "n": 166,
    "pct": 0.6
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 154,
+   "n": 158,
    "pct": 0.0
   }
  },
@@ -77,6 +77,18 @@
    "hour_of_week": 72,
    "n": 2,
    "seg": "30.286,-97.745"
+  },
+  {
+   "from": "Thermal Dr/Metric Blvd (E Howard Ln)",
+   "hour_of_week": 73,
+   "n": 2,
+   "seg": "30.425,-97.673"
+  },
+  {
+   "from": "Albert Brown Dr (TX-71)",
+   "hour_of_week": 72,
+   "n": 2,
+   "seg": "30.181,-97.538"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -131,22 +143,10 @@
    "hour_of_week": 71,
    "n": 1,
    "seg": "30.397,-97.827"
-  },
-  {
-   "from": "McNeil Dr",
-   "hour_of_week": 70,
-   "n": 1,
-   "seg": "30.398,-97.828"
-  },
-  {
-   "from": "I-35/FM-3406 (I-35)",
-   "hour_of_week": 71,
-   "n": 1,
-   "seg": "30.527,-97.690"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 97.7,
+  "dispatch": 97.8,
   "tomtom": 99.7
  }
 }
