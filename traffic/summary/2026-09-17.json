@@ -7,10 +7,10 @@
  ],
  "counts": {
   "dispatch": 88,
-  "dispatch_only": 84,
-  "matched": 4,
-  "tomtom": 949,
-  "tomtom_only": 944
+  "dispatch_only": 85,
+  "matched": 3,
+  "tomtom": 978,
+  "tomtom_only": 974
  },
  "date": "2026-09-17",
  "match_rate": {
@@ -20,19 +20,19 @@
    "pct": 6.7
   },
   "dispatch_surface": {
-   "matched": 3,
+   "matched": 2,
    "n": 73,
-   "pct": 4.1
+   "pct": 2.7
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 502,
+   "n": 519,
    "pct": 0.8
   },
   "tomtom_surface": {
-   "matched": 1,
-   "n": 447,
-   "pct": 0.2
+   "matched": 0,
+   "n": 459,
+   "pct": 0.0
   }
  },
  "matcher": {
@@ -43,11 +43,11 @@
  },
  "onset_offset_min": {
   "max": 71.1,
-  "median": 44.3,
+  "median": 55.4,
   "min": 17.4,
-  "n": 4,
-  "q1": 21.4,
-  "q3": 67.2
+  "n": 3,
+  "q1": 17.4,
+  "q3": 71.1
  },
  "persistence_min": {
   "n": 0
@@ -65,6 +65,12 @@
    "hour_of_week": 84,
    "n": 3,
    "seg": "30.480,-97.674"
+  },
+  {
+   "from": "S Lamar Blvd / W Ben White Blvd",
+   "hour_of_week": 85,
+   "n": 3,
+   "seg": "30.240,-97.800"
   },
   {
    "from": "E Rundberg Ln (I-35)",
@@ -137,16 +143,10 @@
    "hour_of_week": 84,
    "n": 2,
    "seg": "30.218,-97.894"
-  },
-  {
-   "from": "S A.W. Grimes Blvd",
-   "hour_of_week": 84,
-   "n": 2,
-   "seg": "30.494,-97.657"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 95.5,
-  "tomtom": 99.5
+  "dispatch": 96.6,
+  "tomtom": 99.6
  }
 }
