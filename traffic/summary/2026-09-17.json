@@ -7,10 +7,10 @@
  ],
  "counts": {
   "dispatch": 35,
-  "dispatch_only": 27,
-  "matched": 8,
-  "tomtom": 226,
-  "tomtom_only": 220
+  "dispatch_only": 32,
+  "matched": 3,
+  "tomtom": 238,
+  "tomtom_only": 236
  },
  "date": "2026-09-17",
  "match_rate": {
@@ -20,19 +20,19 @@
    "pct": 20.0
   },
   "dispatch_surface": {
-   "matched": 7,
+   "matched": 2,
    "n": 30,
-   "pct": 23.3
+   "pct": 6.7
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 120,
-   "pct": 3.3
+   "matched": 2,
+   "n": 127,
+   "pct": 1.6
   },
   "tomtom_surface": {
-   "matched": 2,
-   "n": 106,
-   "pct": 1.9
+   "matched": 0,
+   "n": 111,
+   "pct": 0.0
   }
  },
  "matcher": {
@@ -42,20 +42,15 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 79.8,
-  "median": 16.6,
+  "max": 6.1,
+  "median": -12.0,
   "min": -44.7,
-  "n": 8,
-  "q1": -11.6,
-  "q3": 55.8
+  "n": 3,
+  "q1": -44.7,
+  "q3": 6.1
  },
  "persistence_min": {
-  "max": 0.0,
-  "median": 0.0,
-  "min": 0.0,
-  "n": 1,
-  "q1": 0.0,
-  "q3": 0.0
+  "n": 0
  },
  "poll_interval_min": 5.0,
  "structural_hotspots": [
@@ -151,7 +146,7 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 77.1,
-  "tomtom": 97.3
+  "dispatch": 91.4,
+  "tomtom": 99.2
  }
 }
