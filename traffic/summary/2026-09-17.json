@@ -9,8 +9,8 @@
   "dispatch": 55,
   "dispatch_only": 55,
   "matched": 0,
-  "tomtom": 387,
-  "tomtom_only": 387
+  "tomtom": 389,
+  "tomtom_only": 389
  },
  "date": "2026-09-17",
  "match_rate": {
@@ -26,12 +26,12 @@
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 198,
+   "n": 199,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 189,
+   "n": 190,
    "pct": 0.0
   }
  },
@@ -49,12 +49,6 @@
  },
  "poll_interval_min": 5.0,
  "structural_hotspots": [
-  {
-   "from": "E Rundberg Ln (I-35)",
-   "hour_of_week": 59,
-   "n": 2,
-   "seg": "30.375,-97.677"
-  },
   {
    "from": "Limestone Commercial Dr",
    "hour_of_week": 72,
@@ -138,6 +132,12 @@
    "hour_of_week": 71,
    "n": 1,
    "seg": "30.476,-97.794"
+  },
+  {
+   "from": "FM-620 (W Parmer Ln/FM-734)",
+   "hour_of_week": 69,
+   "n": 1,
+   "seg": "30.501,-97.777"
   }
  ],
  "unmatched_pct": {
