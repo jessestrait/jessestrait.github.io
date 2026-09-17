@@ -133,9 +133,31 @@ def span(g):
     walk(g["coordinates"])
     return max(max(xs) - min(xs), max(ys) - min(ys)) if xs else 0
 
-# Anything smaller than ~130m adds nothing at city zoom and costs a lot of bytes.
+def live_area(geom):
+    """Total area of the outer rings, in square degrees. Needed alongside span
+    because span only measures the bounding box, and simplifying at 0.0008 deg
+    flattens a long thin sliver onto a single coordinate while leaving its box
+    as wide as ever. 223 rings of exactly zero area shipped that way, inside 49
+    features that drew nothing and counted as something."""
+    parts = geom["coordinates"] if geom["type"] == "MultiPolygon" else [geom["coordinates"]]
+    total = 0.0
+    for poly in parts:
+        if not poly:
+            continue
+        r = poly[0]
+        if len(r) < 4:
+            continue
+        acc = 0.0
+        for i in range(1, len(r)):
+            acc += r[i - 1][0] * r[i][1] - r[i][0] * r[i - 1][1]
+        total += abs(acc) / 2.0
+    return total
+
+# Anything smaller than ~130m adds nothing at city zoom and costs a lot of bytes,
+# and anything with no area left adds nothing at any zoom.
 kept = [{"type": "Feature", "geometry": f["geometry"], "properties": {}}
-        for f in fp if f.get("geometry") and span(f["geometry"]) > 0.0012]
+        for f in fp if f.get("geometry") and span(f["geometry"]) > 0.0012
+        and live_area(f["geometry"]) > 0.0]
 json.dump({"type": "FeatureCollection", "features": kept},
           open(f"{OUT}/floodplain.json", "w"), separators=(",", ":"))
 print("floodplain:", len(fp), "fetched,", len(kept), "kept", size(f"{OUT}/floodplain.json"))

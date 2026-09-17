@@ -368,3 +368,32 @@ all candidates is 445 m, the genuinely broken ones start at 1,552 m, and the
 longest legitimate run is route 550's 900 m down the tollway.
 
 Worth reporting upstream to CapMetro if there is ever a channel for it.
+
+## Audit of the other prebuilt geometry (2026-09-16)
+
+After the route shapes, checked every file in atx/data/ for the same classes
+of fault. tools/check_geo.py is that audit, kept so it can be rerun.
+
+Clean: no NaN, no coordinates outside the metro, no unclosed or short rings,
+and no truncated queries — blockgroups 644/644, parks 371/371, trails
+4096/4096, streets 28006/28006 all match their source counts, and the two
+that differ do so deliberately (floodplain drops slivers, zips is filtered to
+Austin Energy's).
+
+Found and fixed:
+  - floodplain shipped 225 rings of exactly zero area inside 51 features that
+    drew nothing. Simplifying at 0.0008 deg flattens a long thin sliver onto a
+    single coordinate while its bounding box stays wide, so the sliver filter —
+    which measures the box — passed it. The builder now also requires real
+    area. Two of those parts still carried a hole with area, i.e. a hole with
+    no polygon around it, which was subtracting 0.0027 km2 from the total.
+  - districts.json carried 2,844 points identical to their predecessor, 29% of
+    the file. It is the one layer no script builds; it was fetched by hand at
+    full precision and never simplified. Squashed, 210 KB -> 151 KB.
+
+Deliberately not checked by diffing shipped geometry against a fresh
+full-precision fetch: matching a simplified feature back to its source by
+centroid and extent is unreliable for small parallel features. It reported
+trails as 52 m out; fetching one trail by id showed 1.9 m against a 2.2 m
+budget. ArcGIS honours maxAllowableOffset, verified per-feature at three
+different offsets.

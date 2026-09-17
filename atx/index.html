@@ -2774,6 +2774,11 @@ function atxOrphans() {
   };
   Object.values(groundLayers).forEach(claim);
   claim(dotLayer); claim(liveLayer); claim(WX.layer);
+  // The choropleth and its labels are owned by the shading control rather
+  // than by groundLayers. Left unclaimed they read as ten orphans the moment
+  // anyone shades the map, and a check that cries wolf gets ignored.
+  claim(typeof geoLayer !== 'undefined' ? geoLayer : null);
+  claim(typeof labelLayer !== 'undefined' ? labelLayer : null);
   if (typeof TRANSIT === 'object') { claim(TRANSIT.routes); claim(TRANSIT.stops); }
 
   const found = [];
