@@ -1,0 +1,157 @@
+{
+ "caveats": [
+  "Dispatch published_date is when APD published, not when it happened.",
+  "Clearance resolution equals the poll interval; shorter incidents are invisible.",
+  "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
+  "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
+ ],
+ "counts": {
+  "dispatch": 35,
+  "dispatch_only": 27,
+  "matched": 8,
+  "tomtom": 226,
+  "tomtom_only": 220
+ },
+ "date": "2026-09-17",
+ "match_rate": {
+  "dispatch_highway": {
+   "matched": 1,
+   "n": 5,
+   "pct": 20.0
+  },
+  "dispatch_surface": {
+   "matched": 7,
+   "n": 30,
+   "pct": 23.3
+  },
+  "tomtom_highway": {
+   "matched": 4,
+   "n": 120,
+   "pct": 3.3
+  },
+  "tomtom_surface": {
+   "matched": 2,
+   "n": 106,
+   "pct": 1.9
+  }
+ },
+ "matcher": {
+  "buffer_m": 200.0,
+  "highway_buffer_m": 130.0,
+  "onset_window_min": 90.0,
+  "tolerance_min": 20.0
+ },
+ "onset_offset_min": {
+  "max": 79.8,
+  "median": 16.6,
+  "min": -44.7,
+  "n": 8,
+  "q1": -11.6,
+  "q3": 55.8
+ },
+ "persistence_min": {
+  "max": 0.0,
+  "median": 0.0,
+  "min": 0.0,
+  "n": 1,
+  "q1": 0.0,
+  "q3": 0.0
+ },
+ "poll_interval_min": 5.0,
+ "structural_hotspots": [
+  {
+   "from": "E Rundberg Ln (I-35)",
+   "hour_of_week": 59,
+   "n": 2,
+   "seg": "30.375,-97.677"
+  },
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 2,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 2,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Hergotz Ln",
+   "hour_of_week": 112,
+   "n": 2,
+   "seg": "30.244,-97.663"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 2,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Lakeline Blvd (S Bell Blvd/US-183)",
+   "hour_of_week": 69,
+   "n": 1,
+   "seg": "30.498,-97.814"
+  },
+  {
+   "from": "FM-2222/Bullick Hollow Rd (FM-620)",
+   "hour_of_week": 68,
+   "n": 1,
+   "seg": "30.449,-97.830"
+  },
+  {
+   "from": "N Lake Creek Pkwy",
+   "hour_of_week": 71,
+   "n": 1,
+   "seg": "30.476,-97.794"
+  },
+  {
+   "from": "FM-620 (W Parmer Ln/FM-734)",
+   "hour_of_week": 69,
+   "n": 1,
+   "seg": "30.501,-97.777"
+  },
+  {
+   "from": "FM Road 2222",
+   "hour_of_week": 71,
+   "n": 1,
+   "seg": "30.397,-97.827"
+  },
+  {
+   "from": "McNeil Dr",
+   "hour_of_week": 70,
+   "n": 1,
+   "seg": "30.398,-97.828"
+  },
+  {
+   "from": "I-35/FM-3406 (I-35)",
+   "hour_of_week": 71,
+   "n": 1,
+   "seg": "30.527,-97.690"
+  },
+  {
+   "from": "S Interstate 35",
+   "hour_of_week": 71,
+   "n": 1,
+   "seg": "30.502,-97.682"
+  },
+  {
+   "from": "FM-2244/Bee Cave Rd (TX-360 Loop/S Capital of Texas Hwy)",
+   "hour_of_week": 69,
+   "n": 1,
+   "seg": "30.342,-97.802"
+  },
+  {
+   "from": "FM-2222 (TX-360 Loop/N Capital of Texas Hwy)",
+   "hour_of_week": 71,
+   "n": 1,
+   "seg": "30.383,-97.770"
+  }
+ ],
+ "unmatched_pct": {
+  "dispatch": 77.1,
+  "tomtom": 97.3
+ }
+}
