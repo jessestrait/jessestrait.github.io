@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 60,
-  "dispatch_only": 60,
+  "dispatch": 61,
+  "dispatch_only": 61,
   "matched": 0,
-  "tomtom": 401,
-  "tomtom_only": 401
+  "tomtom": 408,
+  "tomtom_only": 408
  },
  "date": "2026-09-17",
  "match_rate": {
@@ -21,17 +21,17 @@
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 50,
+   "n": 51,
    "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 205,
+   "n": 208,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 196,
+   "n": 200,
    "pct": 0.0
   }
  },
@@ -128,16 +128,16 @@
    "seg": "30.148,-97.704"
   },
   {
+   "from": "Lexington Meadow Ln",
+   "hour_of_week": 44,
+   "n": 2,
+   "seg": "30.179,-97.616"
+  },
+  {
    "from": "Lakeline Blvd (S Bell Blvd/US-183)",
    "hour_of_week": 69,
    "n": 1,
    "seg": "30.498,-97.814"
-  },
-  {
-   "from": "FM-2222/Bullick Hollow Rd (FM-620)",
-   "hour_of_week": 68,
-   "n": 1,
-   "seg": "30.449,-97.830"
   }
  ],
  "unmatched_pct": {
