@@ -7,10 +7,10 @@
  ],
  "counts": {
   "dispatch": 150,
-  "dispatch_only": 142,
-  "matched": 8,
-  "tomtom": 2363,
-  "tomtom_only": 2354
+  "dispatch_only": 141,
+  "matched": 9,
+  "tomtom": 2424,
+  "tomtom_only": 2414
  },
  "date": "2026-09-17",
  "match_rate": {
@@ -20,19 +20,19 @@
    "pct": 4.0
   },
   "dispatch_surface": {
-   "matched": 7,
+   "matched": 8,
    "n": 125,
-   "pct": 5.6
+   "pct": 6.4
   },
   "tomtom_highway": {
    "matched": 7,
-   "n": 1204,
+   "n": 1227,
    "pct": 0.6
   },
   "tomtom_surface": {
-   "matched": 2,
-   "n": 1159,
-   "pct": 0.2
+   "matched": 3,
+   "n": 1197,
+   "pct": 0.3
   }
  },
  "matcher": {
@@ -42,12 +42,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 84.0,
-  "median": 40.9,
+  "max": 77.5,
+  "median": 12.0,
   "min": -84.8,
-  "n": 8,
-  "q1": -1.2,
-  "q3": 77.6
+  "n": 9,
+  "q1": -16.2,
+  "q3": 48.4
  },
  "persistence_min": {
   "n": 0
@@ -65,6 +65,12 @@
    "hour_of_week": 93,
    "n": 4,
    "seg": "30.223,-97.764"
+  },
+  {
+   "from": "S Interstate 35 / W Louis Henna Blvd",
+   "hour_of_week": 93,
+   "n": 4,
+   "seg": "30.482,-97.663"
   },
   {
    "from": "Yager Ln (I-35)",
@@ -121,12 +127,6 @@
    "seg": "30.145,-97.732"
   },
   {
-   "from": "S Interstate 35 / W Louis Henna Blvd",
-   "hour_of_week": 93,
-   "n": 3,
-   "seg": "30.482,-97.663"
-  },
-  {
    "from": "Dessau Rd/Cameron Rd (E Rundberg Ln)",
    "hour_of_week": 93,
    "n": 3,
@@ -146,7 +146,7 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 94.7,
+  "dispatch": 94.0,
   "tomtom": 99.6
  }
 }
