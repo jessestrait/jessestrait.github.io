@@ -6,33 +6,33 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 74,
-  "dispatch_only": 72,
-  "matched": 2,
-  "tomtom": 627,
-  "tomtom_only": 625
+  "dispatch": 80,
+  "dispatch_only": 75,
+  "matched": 5,
+  "tomtom": 760,
+  "tomtom_only": 756
  },
  "date": "2026-09-17",
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
-   "n": 12,
-   "pct": 8.3
+   "matched": 2,
+   "n": 15,
+   "pct": 13.3
   },
   "dispatch_surface": {
-   "matched": 1,
-   "n": 62,
-   "pct": 1.6
+   "matched": 3,
+   "n": 65,
+   "pct": 4.6
   },
   "tomtom_highway": {
-   "matched": 2,
-   "n": 314,
-   "pct": 0.6
+   "matched": 3,
+   "n": 395,
+   "pct": 0.8
   },
   "tomtom_surface": {
-   "matched": 0,
-   "n": 313,
-   "pct": 0.0
+   "matched": 1,
+   "n": 365,
+   "pct": 0.3
   }
  },
  "matcher": {
@@ -42,12 +42,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 1.2,
-  "median": 0.5,
-  "min": -0.1,
-  "n": 2,
-  "q1": -0.1,
-  "q3": 1.2
+  "max": 79.3,
+  "median": 5.4,
+  "min": -4.4,
+  "n": 5,
+  "q1": -2.2,
+  "q3": 59.5
  },
  "persistence_min": {
   "n": 0
@@ -59,6 +59,12 @@
    "hour_of_week": 151,
    "n": 3,
    "seg": "30.386,-97.673"
+  },
+  {
+   "from": "W Louis Henna Blvd",
+   "hour_of_week": 84,
+   "n": 3,
+   "seg": "30.480,-97.674"
   },
   {
    "from": "E Rundberg Ln (I-35)",
@@ -121,32 +127,26 @@
    "seg": "30.195,-97.767"
   },
   {
-   "from": "W Louis Henna Blvd",
+   "from": "Hesters Crossing Rd (I-35)",
    "hour_of_week": 84,
    "n": 2,
-   "seg": "30.480,-97.674"
+   "seg": "30.476,-97.673"
   },
   {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
+   "from": "W Slaughter Ln",
+   "hour_of_week": 84,
    "n": 2,
-   "seg": "30.245,-97.744"
+   "seg": "30.218,-97.894"
   },
   {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
+   "from": "S A.W. Grimes Blvd",
+   "hour_of_week": 84,
    "n": 2,
-   "seg": "30.234,-97.736"
-  },
-  {
-   "from": "Hergotz Ln",
-   "hour_of_week": 112,
-   "n": 2,
-   "seg": "30.244,-97.663"
+   "seg": "30.494,-97.657"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 97.3,
-  "tomtom": 99.7
+  "dispatch": 93.8,
+  "tomtom": 99.5
  }
 }
