@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 94,
-  "dispatch_only": 93,
+  "dispatch": 96,
+  "dispatch_only": 95,
   "matched": 1,
-  "tomtom": 1110,
-  "tomtom_only": 1109
+  "tomtom": 1122,
+  "tomtom_only": 1121
  },
  "date": "2026-09-17",
  "match_rate": {
@@ -21,17 +21,17 @@
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 78,
+   "n": 80,
    "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 1,
-   "n": 594,
+   "n": 604,
    "pct": 0.2
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 516,
+   "n": 518,
    "pct": 0.0
   }
  },
@@ -42,12 +42,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": -36.1,
-  "median": -36.1,
-  "min": -36.1,
+  "max": 64.9,
+  "median": 64.9,
+  "min": 64.9,
   "n": 1,
-  "q1": -36.1,
-  "q3": -36.1
+  "q1": 64.9,
+  "q3": 64.9
  },
  "persistence_min": {
   "n": 0
@@ -79,10 +79,10 @@
    "seg": "30.258,-97.693"
   },
   {
-   "from": "Airport Blvd/Exit 237 (I-35)",
+   "from": "S Interstate 35",
    "hour_of_week": 86,
    "n": 3,
-   "seg": "30.291,-97.722"
+   "seg": "30.195,-97.767"
   },
   {
    "from": "E Rundberg Ln (I-35)",
@@ -146,7 +146,7 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 98.9,
+  "dispatch": 99.0,
   "tomtom": 99.9
  }
 }
