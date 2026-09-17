@@ -7,10 +7,10 @@
  ],
  "counts": {
   "dispatch": 150,
-  "dispatch_only": 143,
-  "matched": 7,
-  "tomtom": 2314,
-  "tomtom_only": 2306
+  "dispatch_only": 142,
+  "matched": 8,
+  "tomtom": 2363,
+  "tomtom_only": 2354
  },
  "date": "2026-09-17",
  "match_rate": {
@@ -20,18 +20,18 @@
    "pct": 4.0
   },
   "dispatch_surface": {
-   "matched": 6,
+   "matched": 7,
    "n": 125,
-   "pct": 4.8
+   "pct": 5.6
   },
   "tomtom_highway": {
-   "matched": 6,
-   "n": 1182,
-   "pct": 0.5
+   "matched": 7,
+   "n": 1204,
+   "pct": 0.6
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 1132,
+   "n": 1159,
    "pct": 0.2
   }
  },
@@ -43,10 +43,10 @@
  },
  "onset_offset_min": {
   "max": 84.0,
-  "median": 12.0,
-  "min": -4.8,
-  "n": 7,
-  "q1": 9.1,
+  "median": 40.9,
+  "min": -84.8,
+  "n": 8,
+  "q1": -1.2,
   "q3": 77.6
  },
  "persistence_min": {
@@ -127,6 +127,12 @@
    "seg": "30.482,-97.663"
   },
   {
+   "from": "Dessau Rd/Cameron Rd (E Rundberg Ln)",
+   "hour_of_week": 93,
+   "n": 3,
+   "seg": "30.357,-97.686"
+  },
+  {
    "from": "E Rundberg Ln (I-35)",
    "hour_of_week": 59,
    "n": 2,
@@ -137,16 +143,10 @@
    "hour_of_week": 72,
    "n": 2,
    "seg": "30.474,-97.594"
-  },
-  {
-   "from": "Cameron Rd",
-   "hour_of_week": 72,
-   "n": 2,
-   "seg": "30.409,-97.558"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 95.3,
-  "tomtom": 99.7
+  "dispatch": 94.7,
+  "tomtom": 99.6
  }
 }
