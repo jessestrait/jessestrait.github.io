@@ -6,32 +6,32 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 88,
-  "dispatch_only": 85,
+  "dispatch": 89,
+  "dispatch_only": 86,
   "matched": 3,
-  "tomtom": 978,
-  "tomtom_only": 974
+  "tomtom": 1014,
+  "tomtom_only": 1010
  },
  "date": "2026-09-17",
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
-   "n": 15,
-   "pct": 6.7
+   "matched": 2,
+   "n": 16,
+   "pct": 12.5
   },
   "dispatch_surface": {
-   "matched": 2,
+   "matched": 1,
    "n": 73,
-   "pct": 2.7
+   "pct": 1.4
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 519,
-   "pct": 0.8
+   "n": 535,
+   "pct": 0.7
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 459,
+   "n": 479,
    "pct": 0.0
   }
  },
@@ -44,9 +44,9 @@
  "onset_offset_min": {
   "max": 71.1,
   "median": 55.4,
-  "min": 17.4,
+  "min": -36.1,
   "n": 3,
-  "q1": 17.4,
+  "q1": -36.1,
   "q3": 71.1
  },
  "persistence_min": {
@@ -54,6 +54,12 @@
  },
  "poll_interval_min": 5.0,
  "structural_hotspots": [
+  {
+   "from": "S Lamar Blvd / W Ben White Blvd",
+   "hour_of_week": 85,
+   "n": 4,
+   "seg": "30.240,-97.800"
+  },
   {
    "from": "Yager Ln (I-35)",
    "hour_of_week": 151,
@@ -65,12 +71,6 @@
    "hour_of_week": 84,
    "n": 3,
    "seg": "30.480,-97.674"
-  },
-  {
-   "from": "S Lamar Blvd / W Ben White Blvd",
-   "hour_of_week": 85,
-   "n": 3,
-   "seg": "30.240,-97.800"
   },
   {
    "from": "E Rundberg Ln (I-35)",
