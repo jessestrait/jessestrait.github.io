@@ -6,32 +6,32 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 162,
-  "dispatch_only": 158,
+  "dispatch": 167,
+  "dispatch_only": 163,
   "matched": 4,
-  "tomtom": 2857,
-  "tomtom_only": 2853
+  "tomtom": 2926,
+  "tomtom_only": 2922
  },
  "date": "2026-09-17",
  "match_rate": {
   "dispatch_highway": {
-   "matched": 2,
-   "n": 27,
-   "pct": 7.4
+   "matched": 0,
+   "n": 28,
+   "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 2,
-   "n": 135,
-   "pct": 1.5
+   "matched": 4,
+   "n": 139,
+   "pct": 2.9
   },
   "tomtom_highway": {
    "matched": 3,
-   "n": 1461,
+   "n": 1499,
    "pct": 0.2
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 1396,
+   "n": 1427,
    "pct": 0.1
   }
  },
@@ -42,12 +42,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 22.3,
-  "median": -20.0,
+  "max": 70.2,
+  "median": -28.6,
   "min": -88.8,
   "n": 4,
-  "q1": -80.3,
-  "q3": 20.5
+  "q1": -82.3,
+  "q3": 54.1
  },
  "persistence_min": {
   "n": 0
@@ -121,12 +121,6 @@
    "seg": "30.169,-97.788"
   },
   {
-   "from": "W Saint Elmo Rd (S Congress Ave)",
-   "hour_of_week": 93,
-   "n": 3,
-   "seg": "30.206,-97.774"
-  },
-  {
    "from": "E Riverside Dr (Montopolis Dr)",
    "hour_of_week": 93,
    "n": 3,
@@ -143,10 +137,16 @@
    "hour_of_week": 94,
    "n": 3,
    "seg": "30.475,-97.794"
+  },
+  {
+   "from": "Copper Mine Dr",
+   "hour_of_week": 94,
+   "n": 3,
+   "seg": "30.469,-97.589"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 97.5,
+  "dispatch": 97.6,
   "tomtom": 99.9
  }
 }
