@@ -6,33 +6,33 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 140,
-  "dispatch_only": 136,
-  "matched": 4,
-  "tomtom": 1965,
-  "tomtom_only": 1959
+  "dispatch": 147,
+  "dispatch_only": 139,
+  "matched": 8,
+  "tomtom": 2143,
+  "tomtom_only": 2134
  },
  "date": "2026-09-17",
  "match_rate": {
   "dispatch_highway": {
    "matched": 2,
-   "n": 23,
-   "pct": 8.7
+   "n": 24,
+   "pct": 8.3
   },
   "dispatch_surface": {
-   "matched": 2,
-   "n": 117,
-   "pct": 1.7
+   "matched": 6,
+   "n": 123,
+   "pct": 4.9
   },
   "tomtom_highway": {
-   "matched": 6,
-   "n": 1025,
+   "matched": 7,
+   "n": 1112,
    "pct": 0.6
   },
   "tomtom_surface": {
-   "matched": 0,
-   "n": 940,
-   "pct": 0.0
+   "matched": 2,
+   "n": 1031,
+   "pct": 0.2
   }
  },
  "matcher": {
@@ -43,11 +43,11 @@
  },
  "onset_offset_min": {
   "max": 69.8,
-  "median": -3.5,
-  "min": -6.2,
-  "n": 4,
-  "q1": -5.9,
-  "q3": 51.8
+  "median": 3.4,
+  "min": -88.8,
+  "n": 8,
+  "q1": -21.9,
+  "q3": 10.5
  },
  "persistence_min": {
   "n": 0
@@ -87,6 +87,18 @@
   {
    "from": "N Lamar Blvd",
    "hour_of_week": 90,
+   "n": 3,
+   "seg": "30.408,-97.678"
+  },
+  {
+   "from": "Westlake Dr (TX-360 Loop/N Capital of Texas Hwy)",
+   "hour_of_week": 93,
+   "n": 3,
+   "seg": "30.290,-97.828"
+  },
+  {
+   "from": "Metric Blvd (W Parmer Ln/FM-734)",
+   "hour_of_week": 93,
    "n": 3,
    "seg": "30.408,-97.678"
   },
@@ -131,22 +143,10 @@
    "hour_of_week": 74,
    "n": 2,
    "seg": "30.291,-97.828"
-  },
-  {
-   "from": "N Heatherwilde Blvd",
-   "hour_of_week": 74,
-   "n": 2,
-   "seg": "30.482,-97.612"
-  },
-  {
-   "from": "Braker Ln exit [243]",
-   "hour_of_week": 76,
-   "n": 2,
-   "seg": "30.363,-97.685"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 97.1,
-  "tomtom": 99.7
+  "dispatch": 94.6,
+  "tomtom": 99.6
  }
 }
