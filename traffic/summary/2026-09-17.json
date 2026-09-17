@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 35,
-  "dispatch_only": 32,
+  "dispatch": 36,
+  "dispatch_only": 33,
   "matched": 3,
-  "tomtom": 238,
-  "tomtom_only": 236
+  "tomtom": 248,
+  "tomtom_only": 246
  },
  "date": "2026-09-17",
  "match_rate": {
@@ -21,17 +21,17 @@
   },
   "dispatch_surface": {
    "matched": 2,
-   "n": 30,
-   "pct": 6.7
+   "n": 31,
+   "pct": 6.5
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 127,
-   "pct": 1.6
+   "n": 131,
+   "pct": 1.5
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 111,
+   "n": 117,
    "pct": 0.0
   }
  },
@@ -59,6 +59,12 @@
    "hour_of_week": 59,
    "n": 2,
    "seg": "30.375,-97.677"
+  },
+  {
+   "from": "Cameron Rd",
+   "hour_of_week": 72,
+   "n": 2,
+   "seg": "30.409,-97.558"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -137,16 +143,10 @@
    "hour_of_week": 69,
    "n": 1,
    "seg": "30.342,-97.802"
-  },
-  {
-   "from": "FM-2222 (TX-360 Loop/N Capital of Texas Hwy)",
-   "hour_of_week": 71,
-   "n": 1,
-   "seg": "30.383,-97.770"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 91.4,
+  "dispatch": 91.7,
   "tomtom": 99.2
  }
 }
