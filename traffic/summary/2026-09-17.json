@@ -7,10 +7,10 @@
  ],
  "counts": {
   "dispatch": 123,
-  "dispatch_only": 121,
-  "matched": 2,
-  "tomtom": 1340,
-  "tomtom_only": 1336
+  "dispatch_only": 122,
+  "matched": 1,
+  "tomtom": 1350,
+  "tomtom_only": 1348
  },
  "date": "2026-09-17",
  "match_rate": {
@@ -20,18 +20,18 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 2,
+   "matched": 1,
    "n": 103,
-   "pct": 1.9
+   "pct": 1.0
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 713,
-   "pct": 0.6
+   "matched": 2,
+   "n": 720,
+   "pct": 0.3
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 627,
+   "n": 630,
    "pct": 0.0
   }
  },
@@ -42,12 +42,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 63.5,
-  "median": 42.5,
+  "max": 21.6,
+  "median": 21.6,
   "min": 21.6,
-  "n": 2,
+  "n": 1,
   "q1": 21.6,
-  "q3": 63.5
+  "q3": 21.6
  },
  "persistence_min": {
   "n": 0
@@ -83,6 +83,12 @@
    "hour_of_week": 86,
    "n": 3,
    "seg": "30.195,-97.767"
+  },
+  {
+   "from": "N Lamar Blvd",
+   "hour_of_week": 90,
+   "n": 3,
+   "seg": "30.408,-97.678"
   },
   {
    "from": "E Rundberg Ln (I-35)",
@@ -137,16 +143,10 @@
    "hour_of_week": 82,
    "n": 2,
    "seg": "30.232,-97.619"
-  },
-  {
-   "from": "S Interstate 35",
-   "hour_of_week": 83,
-   "n": 2,
-   "seg": "30.195,-97.767"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 98.4,
-  "tomtom": 99.7
+  "dispatch": 99.2,
+  "tomtom": 99.9
  }
 }
