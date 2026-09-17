@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 161,
-  "dispatch_only": 154,
-  "matched": 7,
-  "tomtom": 2816,
-  "tomtom_only": 2809
+  "dispatch": 162,
+  "dispatch_only": 158,
+  "matched": 4,
+  "tomtom": 2857,
+  "tomtom_only": 2853
  },
  "date": "2026-09-17",
  "match_rate": {
@@ -20,18 +20,18 @@
    "pct": 7.4
   },
   "dispatch_surface": {
-   "matched": 5,
-   "n": 134,
-   "pct": 3.7
+   "matched": 2,
+   "n": 135,
+   "pct": 1.5
   },
   "tomtom_highway": {
-   "matched": 5,
-   "n": 1438,
-   "pct": 0.3
+   "matched": 3,
+   "n": 1461,
+   "pct": 0.2
   },
   "tomtom_surface": {
-   "matched": 2,
-   "n": 1378,
+   "matched": 1,
+   "n": 1396,
    "pct": 0.1
   }
  },
@@ -42,12 +42,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 34.4,
-  "median": -7.1,
+  "max": 22.3,
+  "median": -20.0,
   "min": -88.8,
-  "n": 7,
-  "q1": -84.8,
-  "q3": 22.3
+  "n": 4,
+  "q1": -80.3,
+  "q3": 20.5
  },
  "persistence_min": {
   "n": 0
@@ -67,10 +67,22 @@
    "seg": "30.290,-97.828"
   },
   {
+   "from": "Metric Blvd (W Parmer Ln/FM-734)",
+   "hour_of_week": 93,
+   "n": 4,
+   "seg": "30.408,-97.678"
+  },
+  {
    "from": "W Ben White Blvd",
    "hour_of_week": 93,
    "n": 4,
    "seg": "30.223,-97.764"
+  },
+  {
+   "from": "S Interstate 35 / W Louis Henna Blvd",
+   "hour_of_week": 93,
+   "n": 4,
+   "seg": "30.482,-97.663"
   },
   {
    "from": "Yager Ln (I-35)",
@@ -109,22 +121,10 @@
    "seg": "30.169,-97.788"
   },
   {
-   "from": "Metric Blvd (W Parmer Ln/FM-734)",
-   "hour_of_week": 93,
-   "n": 3,
-   "seg": "30.408,-97.678"
-  },
-  {
    "from": "W Saint Elmo Rd (S Congress Ave)",
    "hour_of_week": 93,
    "n": 3,
    "seg": "30.206,-97.774"
-  },
-  {
-   "from": "S Interstate 35 / W Louis Henna Blvd",
-   "hour_of_week": 93,
-   "n": 3,
-   "seg": "30.482,-97.663"
   },
   {
    "from": "E Riverside Dr (Montopolis Dr)",
@@ -146,7 +146,7 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 95.7,
-  "tomtom": 99.8
+  "dispatch": 97.5,
+  "tomtom": 99.9
  }
 }
