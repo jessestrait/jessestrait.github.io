@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 160,
-  "dispatch_only": 150,
-  "matched": 10,
-  "tomtom": 2775,
-  "tomtom_only": 2763
+  "dispatch": 161,
+  "dispatch_only": 154,
+  "matched": 7,
+  "tomtom": 2816,
+  "tomtom_only": 2809
  },
  "date": "2026-09-17",
  "match_rate": {
@@ -20,19 +20,19 @@
    "pct": 7.4
   },
   "dispatch_surface": {
-   "matched": 8,
-   "n": 133,
-   "pct": 6.0
+   "matched": 5,
+   "n": 134,
+   "pct": 3.7
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 1414,
-   "pct": 0.4
+   "n": 1438,
+   "pct": 0.3
   },
   "tomtom_surface": {
-   "matched": 7,
-   "n": 1361,
-   "pct": 0.5
+   "matched": 2,
+   "n": 1378,
+   "pct": 0.1
   }
  },
  "matcher": {
@@ -42,20 +42,15 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 89.4,
-  "median": 4.7,
+  "max": 34.4,
+  "median": -7.1,
   "min": -88.8,
-  "n": 10,
-  "q1": -62.4,
-  "q3": 28.9
+  "n": 7,
+  "q1": -84.8,
+  "q3": 22.3
  },
  "persistence_min": {
-  "max": -86.4,
-  "median": -86.4,
-  "min": -86.4,
-  "n": 1,
-  "q1": -86.4,
-  "q3": -86.4
+  "n": 0
  },
  "poll_interval_min": 5.0,
  "structural_hotspots": [
@@ -151,7 +146,7 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 93.8,
-  "tomtom": 99.6
+  "dispatch": 95.7,
+  "tomtom": 99.8
  }
 }
