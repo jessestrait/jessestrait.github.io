@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 38,
-  "dispatch_only": 37,
+  "dispatch": 39,
+  "dispatch_only": 38,
   "matched": 1,
-  "tomtom": 282,
-  "tomtom_only": 281
+  "tomtom": 287,
+  "tomtom_only": 286
  },
  "date": "2026-09-17",
  "match_rate": {
@@ -21,17 +21,17 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 33,
-   "pct": 3.0
+   "n": 34,
+   "pct": 2.9
   },
   "tomtom_highway": {
    "matched": 1,
-   "n": 144,
+   "n": 147,
    "pct": 0.7
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 138,
+   "n": 140,
    "pct": 0.0
   }
  },
@@ -42,12 +42,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 80.6,
-  "median": 80.6,
-  "min": 80.6,
+  "max": 21.2,
+  "median": 21.2,
+  "min": 21.2,
   "n": 1,
-  "q1": 80.6,
-  "q3": 80.6
+  "q1": 21.2,
+  "q3": 21.2
  },
  "persistence_min": {
   "n": 0
@@ -55,22 +55,10 @@
  "poll_interval_min": 5.0,
  "structural_hotspots": [
   {
-   "from": "E Rundberg Ln (I-35)",
-   "hour_of_week": 59,
-   "n": 2,
-   "seg": "30.375,-97.677"
-  },
-  {
    "from": "Limestone Commercial Dr",
    "hour_of_week": 72,
    "n": 2,
    "seg": "30.474,-97.594"
-  },
-  {
-   "from": "FM Road 2222",
-   "hour_of_week": 72,
-   "n": 2,
-   "seg": "30.395,-97.827"
   },
   {
    "from": "Cameron Rd",
@@ -143,10 +131,22 @@
    "hour_of_week": 70,
    "n": 1,
    "seg": "30.398,-97.828"
+  },
+  {
+   "from": "I-35/FM-3406 (I-35)",
+   "hour_of_week": 71,
+   "n": 1,
+   "seg": "30.527,-97.690"
+  },
+  {
+   "from": "S Interstate 35",
+   "hour_of_week": 71,
+   "n": 1,
+   "seg": "30.502,-97.682"
   }
  ],
  "unmatched_pct": {
   "dispatch": 97.4,
-  "tomtom": 99.6
+  "tomtom": 99.7
  }
 }
