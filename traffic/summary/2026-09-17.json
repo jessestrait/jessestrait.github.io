@@ -7,10 +7,10 @@
  ],
  "counts": {
   "dispatch": 80,
-  "dispatch_only": 75,
-  "matched": 5,
-  "tomtom": 760,
-  "tomtom_only": 756
+  "dispatch_only": 76,
+  "matched": 4,
+  "tomtom": 791,
+  "tomtom_only": 788
  },
  "date": "2026-09-17",
  "match_rate": {
@@ -20,18 +20,18 @@
    "pct": 13.3
   },
   "dispatch_surface": {
-   "matched": 3,
+   "matched": 2,
    "n": 65,
-   "pct": 4.6
+   "pct": 3.1
   },
   "tomtom_highway": {
-   "matched": 3,
-   "n": 395,
-   "pct": 0.8
+   "matched": 2,
+   "n": 408,
+   "pct": 0.5
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 365,
+   "n": 383,
    "pct": 0.3
   }
  },
@@ -43,11 +43,11 @@
  },
  "onset_offset_min": {
   "max": 79.3,
-  "median": 5.4,
-  "min": -4.4,
-  "n": 5,
-  "q1": -2.2,
-  "q3": 59.5
+  "median": 22.6,
+  "min": -42.9,
+  "n": 4,
+  "q1": -30.8,
+  "q3": 69.4
  },
  "persistence_min": {
   "n": 0
@@ -127,10 +127,10 @@
    "seg": "30.195,-97.767"
   },
   {
-   "from": "Hesters Crossing Rd (I-35)",
+   "from": "E Burton St / S Burnet St",
    "hour_of_week": 84,
    "n": 2,
-   "seg": "30.476,-97.673"
+   "seg": "30.340,-97.558"
   },
   {
    "from": "W Slaughter Ln",
@@ -146,7 +146,7 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 93.8,
-  "tomtom": 99.5
+  "dispatch": 95.0,
+  "tomtom": 99.6
  }
 }
