@@ -6,32 +6,32 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 39,
-  "dispatch_only": 39,
-  "matched": 0,
-  "tomtom": 327,
-  "tomtom_only": 327
+  "dispatch": 44,
+  "dispatch_only": 43,
+  "matched": 1,
+  "tomtom": 333,
+  "tomtom_only": 332
  },
  "date": "2026-09-18",
  "match_rate": {
   "dispatch_highway": {
-   "matched": 0,
-   "n": 5,
-   "pct": 0.0
+   "matched": 1,
+   "n": 7,
+   "pct": 14.3
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 34,
+   "n": 37,
    "pct": 0.0
   },
   "tomtom_highway": {
-   "matched": 0,
-   "n": 161,
-   "pct": 0.0
+   "matched": 1,
+   "n": 166,
+   "pct": 0.6
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 166,
+   "n": 167,
    "pct": 0.0
   }
  },
@@ -42,7 +42,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "n": 0
+  "max": 9.1,
+  "median": 9.1,
+  "min": 9.1,
+  "n": 1,
+  "q1": 9.1,
+  "q3": 9.1
  },
  "persistence_min": {
   "n": 0
@@ -74,6 +79,12 @@
    "seg": "30.229,-97.672"
   },
   {
+   "from": "E Oltorf St (Burleson Rd)",
+   "hour_of_week": 95,
+   "n": 2,
+   "seg": "30.219,-97.734"
+  },
+  {
    "from": "TX-343/S Lamar Blvd (W Mary St)",
    "hour_of_week": 98,
    "n": 2,
@@ -92,22 +103,10 @@
    "seg": "30.259,-97.729"
   },
   {
-   "from": "I-35/US-290 (E Cesar Chavez St/E 1st St/State Spur 343)",
-   "hour_of_week": 96,
-   "n": 2,
-   "seg": "30.258,-97.728"
-  },
-  {
    "from": "E Oltorf St",
    "hour_of_week": 68,
    "n": 2,
    "seg": "30.234,-97.736"
-  },
-  {
-   "from": "E Oltorf St (Burleson Rd)",
-   "hour_of_week": 95,
-   "n": 2,
-   "seg": "30.219,-97.734"
   },
   {
    "from": "Thompson Ln",
@@ -138,10 +137,16 @@
    "hour_of_week": 95,
    "n": 1,
    "seg": "30.485,-97.736"
+  },
+  {
+   "from": "FM-2222 (TX-360 Loop/N Capital of Texas Hwy)",
+   "hour_of_week": 95,
+   "n": 1,
+   "seg": "30.381,-97.774"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 100.0,
-  "tomtom": 100.0
+  "dispatch": 97.7,
+  "tomtom": 99.7
  }
 }
