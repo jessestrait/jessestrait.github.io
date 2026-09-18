@@ -8,13 +8,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 114,
-  "dispatch_only": 110,
+  "dispatch": 115,
+  "dispatch_only": 111,
   "here": 0,
   "here_matched": 0,
   "matched": 4,
-  "tomtom": 1324,
-  "tomtom_only": 1320
+  "tomtom": 1343,
+  "tomtom_only": 1339
  },
  "date": "2026-09-18",
  "dispatch_life_capped": true,
@@ -32,8 +32,8 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 23,
-   "pct": 4.3
+   "n": 24,
+   "pct": 4.2
   },
   "dispatch_surface": {
    "matched": 3,
@@ -41,14 +41,14 @@
    "pct": 3.3
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 683,
-   "pct": 0.6
+   "matched": 3,
+   "n": 691,
+   "pct": 0.4
   },
   "tomtom_surface": {
-   "matched": 0,
-   "n": 641,
-   "pct": 0.0
+   "matched": 1,
+   "n": 652,
+   "pct": 0.2
   }
  },
  "matcher": {
@@ -58,12 +58,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 2.4,
+  "max": 7.0,
   "median": -7.5,
   "min": -11.6,
   "n": 4,
   "q1": -10.9,
-  "q3": 0.3
+  "q3": 3.8
  },
  "persistence_min": {
   "n": 0,
@@ -100,6 +100,12 @@
    "hour_of_week": 112,
    "n": 3,
    "seg": "30.212,-97.657"
+  },
+  {
+   "from": "Domain Dr",
+   "hour_of_week": 115,
+   "n": 3,
+   "seg": "30.406,-97.722"
   },
   {
    "from": "Austin",
@@ -166,12 +172,6 @@
    "hour_of_week": 100,
    "n": 2,
    "seg": "30.186,-97.773"
-  },
-  {
-   "from": "Cesar Chavez St/1st St/Exit 234 (I-35)",
-   "hour_of_week": 99,
-   "n": 2,
-   "seg": "30.250,-97.736"
   }
  ],
  "unmatched_pct": {
@@ -181,8 +181,8 @@
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 114,
-  "neither": 110,
+  "n": 115,
+  "neither": 111,
   "tomtom_only": 4
  }
 }
