@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 29,
-  "dispatch_only": 29,
+  "dispatch": 30,
+  "dispatch_only": 30,
   "matched": 0,
-  "tomtom": 282,
-  "tomtom_only": 282
+  "tomtom": 296,
+  "tomtom_only": 296
  },
  "date": "2026-09-18",
  "match_rate": {
@@ -21,17 +21,17 @@
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 25,
+   "n": 26,
    "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 137,
+   "n": 144,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 145,
+   "n": 152,
    "pct": 0.0
   }
  },
@@ -68,7 +68,7 @@
    "seg": "30.245,-97.744"
   },
   {
-   "from": "E Cesar Chavez St",
+   "from": "Willow St",
    "hour_of_week": 97,
    "n": 2,
    "seg": "30.259,-97.729"
@@ -110,6 +110,12 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "Hawkins Ln",
+   "hour_of_week": 98,
+   "n": 2,
+   "seg": "30.229,-97.672"
+  },
+  {
    "from": "Woodall Dr",
    "hour_of_week": 95,
    "n": 1,
@@ -132,12 +138,6 @@
    "hour_of_week": 95,
    "n": 1,
    "seg": "30.202,-97.887"
-  },
-  {
-   "from": "Escarpment Blvd (Slaughter Ln)",
-   "hour_of_week": 93,
-   "n": 1,
-   "seg": "30.201,-97.867"
   }
  ],
  "unmatched_pct": {
