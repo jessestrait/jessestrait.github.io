@@ -8,13 +8,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 111,
-  "dispatch_only": 108,
+  "dispatch": 114,
+  "dispatch_only": 110,
   "here": 0,
   "here_matched": 0,
-  "matched": 3,
-  "tomtom": 1294,
-  "tomtom_only": 1291
+  "matched": 4,
+  "tomtom": 1324,
+  "tomtom_only": 1320
  },
  "date": "2026-09-18",
  "dispatch_life_capped": true,
@@ -32,22 +32,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 22,
-   "pct": 4.5
+   "n": 23,
+   "pct": 4.3
   },
   "dispatch_surface": {
-   "matched": 2,
-   "n": 89,
-   "pct": 2.2
+   "matched": 3,
+   "n": 91,
+   "pct": 3.3
   },
   "tomtom_highway": {
-   "matched": 3,
-   "n": 665,
-   "pct": 0.5
+   "matched": 4,
+   "n": 683,
+   "pct": 0.6
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 629,
+   "n": 641,
    "pct": 0.0
   }
  },
@@ -58,12 +58,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": -5.9,
-  "median": -9.0,
+  "max": 2.4,
+  "median": -7.5,
   "min": -11.6,
-  "n": 3,
-  "q1": -11.6,
-  "q3": -5.9
+  "n": 4,
+  "q1": -10.9,
+  "q3": 0.3
  },
  "persistence_min": {
   "n": 0,
@@ -100,6 +100,12 @@
    "hour_of_week": 112,
    "n": 3,
    "seg": "30.212,-97.657"
+  },
+  {
+   "from": "Austin",
+   "hour_of_week": 115,
+   "n": 3,
+   "seg": "30.166,-97.788"
   },
   {
    "from": "Presidential Blvd",
@@ -166,23 +172,17 @@
    "hour_of_week": 99,
    "n": 2,
    "seg": "30.250,-97.736"
-  },
-  {
-   "from": "Highway 290 W",
-   "hour_of_week": 100,
-   "n": 2,
-   "seg": "30.230,-97.883"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 97.3,
-  "tomtom": 99.8
+  "dispatch": 96.5,
+  "tomtom": 99.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 111,
-  "neither": 108,
-  "tomtom_only": 3
+  "n": 114,
+  "neither": 110,
+  "tomtom_only": 4
  }
 }
