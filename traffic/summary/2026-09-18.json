@@ -1,27 +1,27 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 110, q3 118 min over 66 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 109, q3 118 min over 69 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 73,
-  "dispatch_only": 71,
+  "dispatch": 77,
+  "dispatch_only": 75,
   "matched": 2,
-  "tomtom": 850,
-  "tomtom_only": 848
+  "tomtom": 865,
+  "tomtom_only": 863
  },
  "date": "2026-09-18",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 115.6,
+  "median": 115.5,
   "min": 83.0,
-  "n": 66,
-  "q1": 109.5,
-  "q3": 118.0
+  "n": 69,
+  "q1": 109.1,
+  "q3": 117.7
  },
  "match_rate": {
   "dispatch_highway": {
@@ -31,17 +31,17 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 55,
-   "pct": 1.8
+   "n": 59,
+   "pct": 1.7
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 427,
+   "n": 436,
    "pct": 0.5
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 423,
+   "n": 429,
    "pct": 0.0
   }
  },
@@ -53,10 +53,10 @@
  },
  "onset_offset_min": {
   "max": 72.9,
-  "median": 26.4,
-  "min": -20.1,
+  "median": 50.4,
+  "min": 27.9,
   "n": 2,
-  "q1": -20.1,
+  "q1": 27.9,
   "q3": 72.9
  },
  "persistence_min": {
@@ -138,12 +138,6 @@
    "seg": "30.230,-97.883"
   },
   {
-   "from": "E Dean Keeton St",
-   "hour_of_week": 100,
-   "n": 2,
-   "seg": "30.286,-97.727"
-  },
-  {
    "from": "S Interstate 35",
    "hour_of_week": 107,
    "n": 2,
@@ -154,10 +148,16 @@
    "hour_of_week": 107,
    "n": 2,
    "seg": "30.423,-97.671"
+  },
+  {
+   "from": "San Antonio Riverwalk",
+   "hour_of_week": 108,
+   "n": 2,
+   "seg": "30.520,-97.559"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 97.3,
+  "dispatch": 97.4,
   "tomtom": 99.8
  }
 }
