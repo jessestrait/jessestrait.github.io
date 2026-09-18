@@ -374,6 +374,32 @@ def match(tt_eps, dp_eps, buffer_m, hw_buffer_m, tol_min, onset_window_min):
     return out
 
 
+def merge_matches(prior, found):
+    """Accumulate the day's matches instead of replacing them.
+
+    This line used to read `day_doc["matches"] = matches`, beside two lines
+    that correctly extend. Each poll only matches across what is open right
+    now plus the few episodes that just closed, so assigning meant the file
+    ended the day holding the last poll's handful and nothing else. Re-running
+    the matcher over a whole archived day finds 101 pairs where the file
+    recorded 1, and persistence — how long a jam outlives the wreck — had
+    zero samples across four days because the pairs it needed were thrown
+    away minutes after being found.
+
+    Keyed on the pair, best score kept, so a match that improves as more of
+    the episode is observed replaces the earlier weaker read of it.
+    """
+    out = {}
+    for m in (prior or []) + (found or []):
+        k = (m.get("tomtom_id"), m.get("dispatch_id"))
+        if k[0] is None or k[1] is None:
+            continue
+        cur = out.get(k)
+        if cur is None or (m.get("score") or 0) > (cur.get("score") or 0):
+            out[k] = m
+    return [out[k] for k in sorted(out, key=lambda k: (k[1], k[0]))]
+
+
 # ── the numbers ─────────────────────────────────────────────────────────
 def dist_stats(vals):
     vals = [v for v in vals if v is not None]
@@ -459,6 +485,35 @@ def summarise(day, tt_closed, dp_closed, matches, tt_open, dp_open, interval_min
     }
 
 
+def rematch(out, args):
+    """Rebuild one day's matches from the episodes already archived for it.
+
+    Only works while the day's detail is still on disk — retention is two
+    days, so anything older keeps the understated numbers it was written
+    with, and the summary says which pass produced it."""
+    day = args.rematch
+    day_path = out / (day + ".json")
+    if not day_path.exists():
+        sys.exit("no archive for %s (retention is %d days)" % (day, args.retain_days))
+    doc = json.loads(day_path.read_text())
+    tt, dp = doc.get("tomtom_closed", []), doc.get("dispatch_closed", [])
+    before = len(doc.get("matches", []))
+    doc["matches"] = match(tt, dp, args.buffer, args.highway_buffer,
+                           args.tolerance, args.onset_window)
+    doc["rematched_at"] = iso(now())
+    day_path.write_text(json.dumps(doc, separators=(",", ":"), sort_keys=True))
+    summ = summarise(day, tt, dp, doc["matches"], [], [], args.interval,
+                     {"buffer_m": args.buffer, "highway_buffer_m": args.highway_buffer,
+                      "tolerance_min": args.tolerance,
+                      "onset_window_min": args.onset_window})
+    summ["rematched"] = True
+    (out / "summary" / (day + ".json")).write_text(
+        json.dumps(summ, separators=(",", ":"), sort_keys=True))
+    print("%s: %d matches -> %d  (%d tomtom, %d dispatch episodes on file)"
+          % (day, before, len(doc["matches"]), len(tt), len(dp)))
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="traffic")
@@ -474,7 +529,15 @@ def main():
                     help="poll cadence, recorded so clearance resolution is known")
     ap.add_argument("--retain-days", type=int, default=2,
                     help="days of TomTom-bearing daily files to keep; aggregates are forever")
+    ap.add_argument("--rematch", metavar="YYYY-MM-DD", default=None,
+                    help="recompute matches and the summary for a day already on "
+                         "disk, from its own archived episodes. Needs no key and "
+                         "fetches nothing — it is how the days recorded under the "
+                         "overwriting bug get their real numbers back.")
     args = ap.parse_args()
+
+    if args.rematch:
+        return rematch(pathlib.Path(args.out), args)
 
     key = os.environ.get("TOMTOM_ARCHIVE_KEY", "").strip()
     if not key:
@@ -510,7 +573,7 @@ def main():
         "date": day, "tomtom_closed": [], "dispatch_closed": [], "matches": []}
     day_doc["tomtom_closed"].extend(tt_closed)
     day_doc["dispatch_closed"].extend(dp_closed)
-    day_doc["matches"] = matches
+    day_doc["matches"] = merge_matches(day_doc.get("matches"), matches)
     day_doc["fetched_at"] = stamp
     day_path.write_text(json.dumps(day_doc, separators=(",", ":"), sort_keys=True))
 
