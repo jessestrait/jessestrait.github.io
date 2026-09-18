@@ -400,6 +400,30 @@ dl.mecard a{color:var(--accent-hi)}
 }
 .popcam{cursor:zoom-in; display:block}
 
+/* Twelve hours as twelve columns. Bars rather than a line because the
+   question is "which hour", not "what shape" — you read down to a column
+   and stop. */
+#outstrip[hidden]{display:none}
+#outstrip{display:flex; align-items:flex-end; gap:2px; height:52px}
+#outstrip .oh{
+  flex:1 1 0; display:flex; flex-direction:column; justify-content:flex-end;
+  align-items:center; gap:3px; height:100%;
+}
+#outstrip .obar{
+  width:100%; border-radius:2px 2px 0 0; background:var(--border);
+  min-height:2px; transition:height .2s ease;
+}
+#outstrip .oh.wet .obar{background:#3ad6c0}
+#outstrip .oh.now .obar{outline:1px solid var(--accent-hi); outline-offset:1px}
+#outstrip .olab{
+  font:.54rem 'JetBrains Mono',monospace; color:var(--muted); white-space:nowrap;
+}
+#outstrip .oh.now .olab{color:var(--text)}
+.aqidot{
+  display:inline-block; width:.55rem; height:.55rem; border-radius:50%;
+  margin-right:.35rem; vertical-align:baseline;
+}
+
 #transitclear:hover{border-color:var(--accent-hi)}
 
 /* The debug readout. Deliberately plain — it is a diagnostic, not a feature,
@@ -671,6 +695,13 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
     <div class="sec" id="wxsec" hidden>
       <h3>Weather alerts</h3>
       <div id="wxlist"></div>
+    </div>
+
+    <div class="sec" id="outsec" hidden>
+      <h3>Next twelve hours</h3>
+      <p class="hint" id="outline" style="margin:0 0 .5rem"></p>
+      <div id="outstrip"></div>
+      <p class="hint note" id="outair" style="margin:.55rem 0 0;font-size:.66rem"></p>
     </div>
 
     <div class="sec">
@@ -1039,6 +1070,19 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
         api.weather.gov, which is the central Austin reading the city itself quotes, falling back to
         Austin-Bergstrom if it goes quiet. It rides in the news ticker every few headlines rather
         than in a bar of its own.</li>
+      <li><b>Next twelve hours, and air quality</b> &mdash; <b>Open-Meteo</b>, free and keyless,
+        and <b>the one modelled thing on this page</b>. Everything else here is an observation:
+        a gauge read a stage, a station read a temperature, a bus reported where it was. A
+        forecast is not, and neither is the air quality &mdash; the US AQI comes out of the CAMS
+        model for this patch of the map rather than from a monitor standing in it. That is said
+        plainly wherever it appears, because the claim this page makes is that it shows what is
+        measured, and one row quietly not being that would cost the others their credibility.
+        The hourly strip only appears when some hour reaches 20% &mdash; it exists to answer
+        &ldquo;which hour&rdquo;, and twelve bars at the floor read as a broken chart rather than
+        as a dry afternoon. The backlog suggested PurpleAir or AirNow; both now require an API
+        key, and this page has nowhere to keep one a reader could not also read. Measured beats
+        modelled, so if this earns its place the upgrade is AirNow behind the relay that already
+        exists, where a key can live.</li>
       <li><b>Weather alerts</b> &mdash; <b>api.weather.gov</b>, the National Weather Service's own
         feed. Free, no key, and the only non-Austin source on the page. Every alert carries FIPS
         county codes whether or not it ships a polygon, which is what scopes it to Travis and its
@@ -5403,12 +5447,138 @@ async function loadConditions() {
   return null;
 }
 
+/* ══════════════════════════════════════════════════════════════════
+   What is coming — Open-Meteo, and the one modelled thing on the page.
+
+   Everything else here is an observation: a gauge read a stage, a station
+   read a temperature, a truck reported its position. A forecast is not,
+   and neither is the air quality — Open-Meteo serves US AQI out of the CAMS
+   model rather than from a monitor, so it is an estimate for this patch of
+   the map and not a reading taken in it. The copy says so, because the
+   whole claim of this page is that it shows you what is measured, and the
+   moment one row quietly stops being that the rest are worth less.
+
+   Chosen over the two the backlog suggested for one reason: PurpleAir and
+   AirNow both need an API key now, and this page has nowhere to put one
+   that a reader could not read too. Measured beats modelled, so if this
+   layer earns its place the upgrade is AirNow behind the existing worker,
+   where a key can live.
+   ══════════════════════════════════════════════════════════════════ */
+const OUTLOOK = { at: null, hours: [], aqi: null, pm25: null, ozone: null, aqAt: null };
+
+const OM_FORECAST = 'https://api.open-meteo.com/v1/forecast?latitude=30.27&longitude=-97.74'
+  + '&hourly=temperature_2m,precipitation_probability,precipitation'
+  + '&forecast_days=2&temperature_unit=fahrenheit&timezone=America%2FChicago';
+const OM_AIR = 'https://air-quality-api.open-meteo.com/v1/air-quality'
+  + '?latitude=30.27&longitude=-97.74&current=us_aqi,pm2_5,ozone&timezone=America%2FChicago';
+
+// The EPA's own bands, so the wording matches what anyone else would say.
+function aqiBand(v) {
+  if (v == null) return null;
+  if (v <= 50) return { t: 'good', c: '#4de3a0' };
+  if (v <= 100) return { t: 'moderate', c: '#f5b642' };
+  if (v <= 150) return { t: 'unhealthy for sensitive groups', c: '#ff9d2e' };
+  if (v <= 200) return { t: 'unhealthy', c: '#ff6b6b' };
+  if (v <= 300) return { t: 'very unhealthy', c: '#b98cff' };
+  return { t: 'hazardous', c: '#ff4d4d' };
+}
+
+async function loadOutlook() {
+  const [f, a] = await Promise.all([
+    fetch(OM_FORECAST).then(r => r.json()).catch(() => null),
+    fetch(OM_AIR).then(r => r.json()).catch(() => null)
+  ]);
+  if (f && f.hourly && f.hourly.time) {
+    const h = f.hourly;
+    const now = Date.now();
+    OUTLOOK.hours = h.time.map((t, i) => ({
+      // Open-Meteo returns local wall-clock with no zone, which Date parses
+      // as local — correct here only because the request asked for this
+      // city's zone and the reader is in it.
+      t: new Date(t),
+      temp: h.temperature_2m ? Math.round(h.temperature_2m[i]) : null,
+      pop: h.precipitation_probability ? h.precipitation_probability[i] : null
+    })).filter(x => +x.t >= now - 3600000).slice(0, 12);
+    OUTLOOK.at = new Date();
+  }
+  if (a && a.current) {
+    OUTLOOK.aqi = a.current.us_aqi != null ? Math.round(a.current.us_aqi) : null;
+    OUTLOOK.pm25 = a.current.pm2_5;
+    OUTLOOK.ozone = a.current.ozone;
+    OUTLOOK.aqAt = a.current.time || null;
+  }
+  paintOutlook();
+  paintConditions();
+}
+
+function paintOutlook() {
+  const sec = document.getElementById('outsec');
+  const line = document.getElementById('outline');
+  const strip = document.getElementById('outstrip');
+  const air = document.getElementById('outair');
+  if (!sec) return;
+  const hrs = OUTLOOK.hours;
+  if (!hrs.length && OUTLOOK.aqi == null) { sec.hidden = true; return; }
+  sec.hidden = false;
+
+  if (hrs.length) {
+    const wet = hrs.filter(h => (h.pop || 0) >= 30);
+    const top = hrs.reduce((m, h) => (h.pop || 0) > (m.pop || 0) ? h : m, hrs[0]);
+    const hour = d => {
+      const h = d.getHours();
+      return (h % 12 === 0 ? 12 : h % 12) + (h < 12 ? 'am' : 'pm');
+    };
+    const temps = hrs.map(h => h.temp).filter(t => t != null);
+    const range = temps.length ? Math.min(...temps) + '\u2013' + Math.max(...temps) + '\u00b0' : '';
+    line.textContent = (wet.length
+      ? 'Rain possible from ' + hour(wet[0].t) + ', peaking near ' + top.pop + '% at ' + hour(top.t)
+      : 'Dry through ' + hour(hrs[hrs.length - 1].t))
+      + (range ? ' \u00b7 ' + range : '');
+
+    /* The strip answers "which hour", so when the answer is "none of them"
+       it has nothing to say and goes away. Twelve bars at the two-pixel
+       floor read as a broken chart rather than as a dry afternoon, and the
+       sentence above already carries it. */
+    const peak = hrs.reduce((m, h) => Math.max(m, h.pop || 0), 0);
+    strip.hidden = peak < 20;
+    if (strip.hidden) { strip.innerHTML = ''; }
+    else strip.innerHTML = hrs.map((h, i) => {
+      const pop = h.pop == null ? 0 : h.pop;
+      // Floored at 2px so an hour with nothing still reads as a column
+      // rather than a gap, which would look like missing data.
+      const px = Math.max(2, Math.round(pop / 100 * 40));
+      return '<div class="oh' + (pop >= 30 ? ' wet' : '') + (i === 0 ? ' now' : '') + '"'
+        + ' title="' + hour(h.t) + ' \u00b7 ' + pop + '% \u00b7 '
+        + (h.temp != null ? h.temp + '\u00b0' : '') + '">'
+        + '<div class="obar" style="height:' + px + 'px"></div>'
+        + '<div class="olab">' + (i % 2 === 0 ? hour(h.t).replace(/[ap]m/, '') : '') + '</div>'
+        + '</div>';
+    }).join('');
+  } else {
+    strip.innerHTML = '';
+    strip.hidden = true;
+    line.textContent = '';
+  }
+
+  const band = aqiBand(OUTLOOK.aqi);
+  air.innerHTML = band
+    ? '<span class="aqidot" style="background:' + band.c + '"></span>'
+      + 'Air quality ' + OUTLOOK.aqi + ' \u2014 ' + band.t
+      + (OUTLOOK.pm25 != null ? ' \u00b7 PM2.5 ' + OUTLOOK.pm25.toFixed(1) + ' \u00b5g/m\u00b3' : '')
+      + '. Modelled for this area rather than measured at a monitor, '
+      + 'unlike everything else on this page.'
+    : 'Forecast and air quality from Open-Meteo. Modelled, not measured.';
+}
+
 function paintConditions() {
   const el = document.getElementById('tknow');
   if (!el) return;
   if (COND.tempF == null) { el.hidden = true; return; }
   const short = COND.text || COND.sky || '';
-  el.innerHTML = '<b>' + COND.tempF + '\u00b0</b>' + (short ? esc(short.toLowerCase()) : '');
+  const band = aqiBand(OUTLOOK.aqi);
+  el.innerHTML = '<b>' + COND.tempF + '\u00b0</b>' + (short ? esc(short.toLowerCase()) : '')
+    + (band ? ' <span class="aqidot" style="background:' + band.c + '"></span>'
+              + '<span style="opacity:.8">AQI ' + OUTLOOK.aqi + '</span>' : '');
   el.title = 'Austin now \u00b7 ' + [COND.tempF + '\u00b0F',
       COND.feelsF != null ? 'feels ' + COND.feelsF + '\u00b0' : null,
       short, COND.humidity != null ? COND.humidity + '% humidity' : null,
@@ -5426,6 +5596,8 @@ function conditionsHTML() {
   else if (COND.sky) bits.push(COND.sky);
   if (COND.humidity != null) bits.push(COND.humidity + '% humidity');
   if (COND.windMph) bits.push(COND.windMph + ' mph wind');
+  const band = aqiBand(OUTLOOK.aqi);
+  if (band) bits.push('AQI ' + OUTLOOK.aqi + ' ' + band.t);
   return '<span class="tk-item tk-wx"><span class="tk-src">Austin now</span>'
        + esc(bits.join('  \u00b7  '))
        + '<span class="tk-wx-src">' + esc(COND.station) + '</span></span>';
@@ -5527,6 +5699,9 @@ const NEWS_URL = 'https://raw.githubusercontent.com/jessestrait/'
 
 async function loadNews(force) {
   await loadConditions().catch(() => {});
+  // Alongside the observations, not instead of them: the station says what
+  // it is, Open-Meteo says what is coming.
+  loadOutlook().catch(() => {});
   // The ticker and the Headlines layer are two readings of one file, and both
   // ask for it at boot. A timestamp alone does not de-dupe that: they start
   // together, before either has landed to set one. So share the promise.
@@ -7873,7 +8048,14 @@ setInterval(() => { if (!document.hidden) loadAlerts(); }, 180000);
 // so; asking twice that often keeps the ticker close without hammering.
 setInterval(() => { if (!document.hidden) loadNews(true); }, 420000);
 // Observations land about every twenty minutes; the ticker repaints with them.
-setInterval(async () => { if (document.hidden) return; await loadConditions().catch(() => {}); paintTicker(); }, 600000);
+setInterval(async () => {
+  if (document.hidden) return;
+  await loadConditions().catch(() => {});
+  // Hourly data, so a ten-minute refresh is generous; it rides along with
+  // the conditions rather than running a timer of its own.
+  await loadOutlook().catch(() => {});
+  paintTicker();
+}, 600000);
 
 // Both halves of the CTECC dispatch feed, not just the one. Fire was never
 // in here, so live fire incidents sat frozen from page load until something
