@@ -1,17 +1,17 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 108, q3 118 min over 56 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 108, q3 118 min over 57 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 69,
-  "dispatch_only": 65,
+  "dispatch": 70,
+  "dispatch_only": 66,
   "matched": 4,
-  "tomtom": 684,
-  "tomtom_only": 680
+  "tomtom": 723,
+  "tomtom_only": 719
  },
  "date": "2026-09-18",
  "dispatch_life_capped": true,
@@ -19,8 +19,8 @@
   "max": 120.0,
   "median": 115.5,
   "min": 83.0,
-  "n": 56,
-  "q1": 107.7,
+  "n": 57,
+  "q1": 108.3,
   "q3": 118.1
  },
  "match_rate": {
@@ -31,17 +31,17 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 52,
+   "n": 53,
    "pct": 1.9
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 348,
+   "n": 361,
    "pct": 1.1
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 336,
+   "n": 362,
    "pct": 0.0
   }
  },
@@ -70,6 +70,12 @@
    "hour_of_week": 108,
    "n": 3,
    "seg": "30.162,-97.789"
+  },
+  {
+   "from": "exit [451]",
+   "hour_of_week": 108,
+   "n": 3,
+   "seg": "30.159,-97.654"
   },
   {
    "from": "Yager Ln (I-35)",
@@ -148,16 +154,10 @@
    "hour_of_week": 107,
    "n": 2,
    "seg": "30.423,-97.671"
-  },
-  {
-   "from": "San Antonio Riverwalk",
-   "hour_of_week": 108,
-   "n": 2,
-   "seg": "30.520,-97.559"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 94.2,
+  "dispatch": 94.3,
   "tomtom": 99.4
  }
 }
