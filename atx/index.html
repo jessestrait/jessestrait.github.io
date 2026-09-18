@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title>ATX Layers — Austin, live from the city's open data</title>
-<meta name="description" content="A multi-layer map of Austin built on the City of Austin open data portal: live traffic incidents, fire calls, crashes, 311 requests, permits, and council-district demographics." />
+<meta name="description" content="Austin on one live map: fire calls and 311 as they come in, buses mid-route, rain falling at the radar’s own intensity, traffic from TomTom, weather alerts, headlines, 8cm satellite imagery, and an archive of which ZIPs stay dark longest — weighed against who lives in each of 644 census block groups." />
 <link rel="manifest" href="manifest.json" />
 <meta name="theme-color" content="#080c14" />
 <!-- Installed to the home screen this runs chromeless. "black" rather than
@@ -357,6 +357,14 @@ dl.mecard a{color:var(--accent-hi)}
   border-radius:20px; padding:.5rem 1rem; cursor:pointer;
   font:600 .76rem 'DM Sans',sans-serif; box-shadow:0 6px 20px rgba(0,0,0,.55);
 }
+/* Quiet enough to be scanned past when you already know where you are
+   going, and present enough to explain the order when you do not. */
+.tierhead{
+  margin:.9rem 0 .3rem; font:600 .6rem 'DM Sans',sans-serif;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--muted); opacity:.75;
+}
+.tierhead:first-child{margin-top:.2rem}
+
 #transitclear:hover{border-color:var(--accent-hi)}
 
 /* The debug readout. Deliberately plain — it is a diagnostic, not a feature,
@@ -547,25 +555,40 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
   :root{--panel-w:100%}
   #shell{display:block; position:fixed}
   #map{position:absolute; inset:0; height:100%; width:100%}
+  /* One tall sheet parked at three heights, the way a native one works,
+     rather than a single 74vh slab that swallowed most of the screen the
+     moment you wanted to read one number off it. JS sets the transform;
+     these are the resting state and the no-JS fallback. */
   #panel{
     position:absolute; left:0; right:0; bottom:0; top:auto; width:100%;
-    height:74vh; border-right:0; border-top:1px solid var(--border);
-    border-radius:16px 16px 0 0; transform:translateY(calc(100% - 0px));
+    height:92vh; border-right:0; border-top:1px solid var(--border);
+    border-radius:16px 16px 0 0; transform:translateY(100%);
     transition:transform .28s ease; box-shadow:0 -14px 40px rgba(0,0,0,.6);
   }
-  #panel.open{transform:translateY(0)}
+  #panel.open{transform:translateY(45%)}
   /* Sticky, so the sheet stays draggable however far down the panel you have
      scrolled — and touch-action:none, because the drag has to win over the
      scroll here rather than race it. */
   #grab{
-    display:block; position:sticky; top:0; z-index:6; touch-action:none;
-    padding:.6rem 0 .5rem; background:var(--surface); border-radius:16px 16px 0 0;
-    cursor:grab;
+    display:flex; align-items:center; position:sticky; top:0; z-index:6;
+    touch-action:none; padding:.55rem .8rem .5rem; background:var(--surface);
+    border-radius:16px 16px 0 0; cursor:grab;
   }
-  #grab::before{
-    content:''; display:block; width:40px; height:4px; margin:0 auto;
+  #grab .bar{
+    flex:1 1 auto; height:4px; max-width:40px; margin:0 auto;
     border-radius:2px; background:var(--border);
   }
+  /* The close control lives in the grab bar and not floating over the sheet.
+     As a floating button it sat on top of whatever row happened to be at that
+     height — the Crime Reports header, as it turned out. In the bar it is in
+     the flow and can never cover anything. */
+  #grab .sheetclose{
+    flex:0 0 auto; background:none; border:0; color:var(--muted); cursor:pointer;
+    font:600 .7rem 'DM Sans',sans-serif; padding:.25rem .4rem; min-width:3.2rem;
+    text-align:right;
+  }
+  #grab .sheetspacer{flex:0 0 auto; min-width:3.2rem}
+  #grab .sheetclose:active{color:var(--text)}
   #panel.dragging{transition:none}
   #sheetbtn{
     display:block; position:absolute; left:50%; bottom:1rem; transform:translateX(-50%);
@@ -581,6 +604,7 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
   #topbar{gap:.6rem; padding:0 .75rem}
   #pulse{font-size:.65rem}
   #sheetbtn{bottom:2.2rem}
+  #panel.open ~ #sheetbtn, #shell.sheetopen #sheetbtn{display:none}
   .leaflet-control-attribution{max-width:62vw}
 }
 </style>
@@ -603,7 +627,11 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
 
 <div id="shell">
   <aside id="panel">
-    <div id="grab" aria-hidden="true"></div>
+    <div id="grab">
+      <span class="sheetspacer" aria-hidden="true"></span>
+      <span class="bar" aria-hidden="true"></span>
+      <button class="sheetclose" id="sheetclose" aria-label="Lower the panel">Hide</button>
+    </div>
 
     <div class="sec" id="wxsec" hidden>
       <h3>Weather alerts</h3>
@@ -868,6 +896,36 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
         and the file it points at rotates its name on every publish, so a small relay adds the
         missing header and changes nothing else. Vehicles in the yard are left off &mdash; where
         CapMetro parks is not the question.</li>
+      <li><b>Headlines</b> &mdash; <b>local newsroom RSS</b>, read by a scheduled job in this repo
+        rather than by your browser: the feeds do not send CORS headers, so the page could not
+        fetch them directly even though they are public. The job reads them, keeps the item and
+        drops everything else, and writes one small file to an orphan branch that the page loads
+        cross-origin from raw.githubusercontent, which does send the header. An item only earns a
+        dot on the map if its text names a place the gazetteer knows &mdash; a street, an
+        intersection, a ZIP &mdash; so most headlines ride in the ticker and never land anywhere.
+        A headline about the city is not a headline about a location.</li>
+      <li><b>Signals in fault</b> &mdash; <b>City of Austin</b> traffic-signal status, the
+        city's own record of which signals it cannot talk to or which are on flash. It is the
+        nearest thing to a live map of where the grid is hurting, which is why it is worth having
+        beside the outages &mdash; though the two do not always agree, and the City only operates
+        City signals: TxDOT's, and other jurisdictions', are somebody else's dataset.</li>
+      <li><b>MetroBike docks</b> &mdash; <b>GBFS</b>, the bikeshare interchange standard, straight
+        from CapMetro's operator. Two files, one for where the docks are and one for what is in
+        them, which is the whole reason the count can be live: the docks change yearly, the bikes
+        change by the minute.</li>
+      <li><b>Wildfires</b> &mdash; the <b>national incident layer</b> Esri hosts, filtered to
+        Texas and then to what is near enough here to matter. Deliberately not clipped to the
+        county: a fire 150&nbsp;km upwind is the one you would want to know about, and it would
+        never appear on a map of Austin.</li>
+      <li><b>Creek gauges</b> &mdash; <b>USGS instantaneous values</b>, stage and discharge for
+        every active gauge in the metro box, refreshed by them every fifteen minutes. No key, CORS
+        open, and an endpoint that has outlived most of the web. It is the half the crossings
+        layer is missing: crossings say what is closed, gauges say what is rising.</li>
+      <li><b>Roadway work zones</b> &mdash; <b>open right-of-way permits</b> rather than cones on
+        the ground, which is why the count runs to thousands and some end dates run years out.
+        Filtered to permits that have not expired, and drawn quietly except on the corridors the
+        city itself flags as traffic-sensitive. Off by default: it is the heaviest ground layer
+        and at city zoom it is the loudest thing on the map.</li>
       <li><b>Routes and stops</b> &mdash; CapMetro's <b>static GTFS</b>, which is a different feed
         from the live one: 34&nbsp;MB zipped and 168&nbsp;MB open, almost all of it in two files no
         browser should ever download. A weekly job streams them once &mdash; 3.3&nbsp;million shape
@@ -2233,7 +2291,79 @@ function rowFor(l) {
   });
   return el;
 }
-LAYERS.forEach(l => document.getElementById(l.group).appendChild(rowFor(l)));
+/* ── Ordering the layer list ──────────────────────────────────────
+   The list had grown to fifteen rows in the order they were built, which
+   from the outside reads as no order at all — low-water crossings first,
+   work zones last, with live fire calls and standing bus routes adjacent.
+
+   Sorted into three tiers by how fast the thing underneath actually moves,
+   because that is the question someone scanning the list is really asking.
+   Within a tier, whatever is switched on comes first.
+
+   Sorted once, at load, and deliberately not re-sorted when you tick
+   something: a list that reorders under your finger the moment you touch it
+   is worse than one in the wrong order. The order you get is the order your
+   saved link describes, which is the one that reflects how you use it.
+
+   The handoff asked for every checked layer hoisted above the headers. With
+   nine of fifteen on by default that puts most of the list in one
+   undifferentiated block and loses the grouping it asks for in the same
+   breath, so the two rules are applied in the other order — tier first,
+   checked first inside it. Easy to flip if it reads wrong in the hand. */
+const TIERS = [
+  ['live', 'Live now', ['firelive', 'c311', 'traffic', 'transit', 'signals',
+                        'bikes', 'gauges', 'lwc', 'outages']],
+  ['today', 'Lately', ['news', 'crashes', 'wildfire', 'permits']],
+  ['standing', 'Standing', ['busroutes', 'busstops', 'workzones']]
+];
+
+function tierOf(id) {
+  for (const [key, , ids] of TIERS) if (ids.includes(id)) return key;
+  return 'today';
+}
+
+/* The fallback above is silent, and silence is how power outages spent an
+   afternoon filed under "Lately" while refreshing every ten minutes. A layer
+   added later and not listed should say so once rather than quietly sort
+   itself into the wrong tier. */
+function warnUntiered(ids) {
+  const known = new Set(TIERS.flatMap(t => t[2]));
+  const missing = ids.filter(id => !known.has(id));
+  if (missing.length) {
+    console.warn('untiered layer(s), defaulting to Lately:', missing.join(', '));
+  }
+}
+
+function tierHeader(text) {
+  const h = document.createElement('div');
+  h.className = 'tierhead';
+  h.textContent = text;
+  return h;
+}
+
+/* Called after GROUND exists, further down, not here. The rows come from two
+   arrays declared a few hundred lines apart, and running this where it is
+   written would read GROUND before its const is initialised and take the
+   whole script down — which this file has been bitten by once already. */
+function buildRecent() {
+  const host = document.getElementById('recent');
+  const marks = LAYERS.filter(l => l.group === 'recent');
+  const ground = GROUND.filter(g => (g.group || 'ground') === 'recent');
+  const all = marks.map(l => ({ id: l.id, on: !!l.on, node: () => rowFor(l) }))
+    .concat(ground.map(g => ({ id: g.id, on: !!g.on, node: () => groundRow(g) })));
+  warnUntiered(all.map(r => r.id));
+
+  for (const [key, label] of TIERS) {
+    const rows = all.filter(r => tierOf(r.id) === key);
+    if (!rows.length) continue;
+    rows.sort((a, b) => (b.on - a.on));      // stable: ticked first, order kept
+    host.appendChild(tierHeader(label));
+    rows.forEach(r => host.appendChild(r.node()));
+  }
+}
+
+LAYERS.filter(l => l.group !== 'recent')
+      .forEach(l => document.getElementById(l.group).appendChild(rowFor(l)));
 
 /* The 311 mark is set in JetBrains Mono, and these rows are built before the
    webfont has arrived — so the first sprites bake in the fallback face. Throw
@@ -2708,7 +2838,11 @@ function groundRow(g) {
   return el;
 }
 const byGround = Object.fromEntries(GROUND.map(g => [g.id, g]));
-GROUND.forEach(g => document.getElementById(g.group || 'ground').appendChild(groundRow(g)));
+// The 'recent' ones are placed by buildRecent, in tier order, now that both
+// arrays it draws from exist.
+GROUND.filter(g => (g.group || 'ground') !== 'recent')
+      .forEach(g => document.getElementById(g.group || 'ground').appendChild(groundRow(g)));
+buildRecent();
 /* Ground layers used to load only when ticked, because none of them started
    on. The transit routes and stops do, so they need a boot path — the flag
    alone drew nothing and left two ticked boxes over an empty map. */
@@ -3093,9 +3227,13 @@ async function loadOutages(g, badge) {
     OUTAGE.at = new Date();
     drawOutages();
     if (badge) badge.textContent = OUTAGE.total.toLocaleString();
+    // Both halves have to agree with their own number. The ZIP half already
+    // did; "1 customers out across 1 ZIP" is the line most likely to be read
+    // during an actual outage, which is the worst place to look careless.
+    const nz = Object.keys(OUTAGE.byZip).length;
     setNote(g, OUTAGE.total
-      ? OUTAGE.cust.toLocaleString() + ' customers out across '
-        + Object.keys(OUTAGE.byZip).length + ' ZIP' + (Object.keys(OUTAGE.byZip).length === 1 ? '' : 's')
+      ? OUTAGE.cust.toLocaleString() + ' customer' + (OUTAGE.cust === 1 ? '' : 's')
+        + ' out across ' + nz + ' ZIP' + (nz === 1 ? '' : 's')
       : 'Austin Energy reports nothing out right now');
     pulse('updated ' + new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }));
     clearInterval(OUTAGE.timer);
@@ -3140,13 +3278,29 @@ const TRANSIT = {
 
 // Dim by default. These are context for everything else on the map, not
 // the subject, and 71 routes at full strength is a plate of spaghetti.
+/* Seventy-one routes at their published colours read louder than the live
+   incidents they sit under, which inverts the page: routes are standing
+   infrastructure, the same tier as parks and the floodplain, and the thing
+   that changed in the last hour should always win. So at rest they are
+   pulled most of the way to slate and drawn thin. Tapping one restores its
+   real colour, which is also what makes the tap feel like it did something. */
+const ROUTE_REST = [100, 116, 139];          // the slate they are pulled toward
+const routeMuted = hex => {
+  const h = (hex || '').replace('#', '');
+  if (h.length !== 6) return 'rgb(100,116,139)';
+  const c = [0, 2, 4].map(i => parseInt(h.slice(i, i + 2), 16));
+  // 0.78 of the way to slate: enough that a route is still recognisably its
+  // own colour when you look for it, not enough to compete when you are not.
+  return 'rgb(' + c.map((v, i) => Math.round(v + (ROUTE_REST[i] - v) * 0.78)).join(',') + ')';
+};
+
 const routeStyle = f => {
   const on = TRANSIT.sel && TRANSIT.sel.has(f.properties.id);
   const rail = f.properties.type !== 3;
   return {
-    color: f.properties.color || '#94a3b8',
-    weight: on ? (rail ? 5 : 3.5) : (rail ? 2 : 1.2),
-    opacity: on ? 0.95 : (TRANSIT.sel ? 0.12 : 0.34),
+    color: on ? (f.properties.color || '#94a3b8') : routeMuted(f.properties.color),
+    weight: on ? (rail ? 5 : 3.5) : (rail ? 1.6 : 1),
+    opacity: on ? 0.95 : (TRANSIT.sel ? 0.1 : 0.4),
     lineCap: 'round', lineJoin: 'round'
   };
 };
@@ -6940,14 +7094,84 @@ document.getElementById('refresh').onclick = softRefresh;
 document.getElementById('pulse').onclick = softRefresh;
 
 const sheet = document.getElementById('sheetbtn');
-const isSheet = () => getComputedStyle(sheet).display !== 'none';
+/* Probed off the grab bar, not the open button. The button is the thing that
+   hides once the sheet is up, so asking it "are we in sheet layout" answered
+   no the moment the sheet opened — and every detent silently cleared its own
+   transform. The grab bar is display:none on a desktop and visible on a phone
+   whatever the sheet is doing, which is the actual question. */
+const isSheet = () => getComputedStyle(document.getElementById('grab')).display !== 'none';
 
-function setPanel(open) {
-  const p = document.getElementById('panel');
-  p.classList.toggle('open', open);
-  sheet.textContent = open ? 'Hide panel' : 'Layers & stats';
+/* ── Sheet detents ────────────────────────────────────────────────
+   Three heights instead of one. The old sheet was a single 74vh slab, so
+   reading one number off the panel cost you three quarters of the map —
+   and the map is the thing the numbers are about.
+
+     peek   the grab bar and a line or two. Enough to see a count while
+            still looking at where it happened.
+     half   the layer list, which is what the panel is for most of the time.
+     full   everything, for the readouts and the About text.
+
+   Positions are computed in pixels from the panel's real height rather than
+   written as CSS classes, because the drag has to land between them and then
+   snap, and mixing an inline transform with a class-driven one fights. On a
+   desktop the panel is a sidebar and none of this applies — every entry
+   point checks isSheet() first and the inline transform is cleared. */
+const DETENTS = ['closed', 'peek', 'half', 'full'];
+const PEEK_PX = 108;                      // grab bar plus about one row
+const SHEET = { state: 'closed' };
+
+/* "Full" means as high as it can go without sliding under the chrome above
+   it — which is the ticker when there is one, the top bar when there is not.
+   Measured rather than assumed a constant, because the ticker is dismissable
+   and its height depends on how many headlines are in it. Getting this wrong
+   is the same bug as the floating button: something in front of the grab bar,
+   so the only way back down is a gesture with no visible handle. */
+function chromeBottom() {
+  const t = document.getElementById('ticker');
+  const bar = document.getElementById('topbar');
+  const tb = t && !t.hidden ? t.getBoundingClientRect().bottom : 0;
+  return Math.max(bar ? bar.getBoundingClientRect().bottom : 0, tb);
 }
-sheet.onclick = () => setPanel(!document.getElementById('panel').classList.contains('open'));
+
+function detentY(state, h) {
+  if (state === 'full') return Math.max(0, Math.round(chromeBottom() - innerHeight + h));
+  if (state === 'half') return Math.round(h * 0.45);
+  if (state === 'peek') return Math.max(0, h - PEEK_PX);
+  return h;
+}
+
+function applySheet(animate) {
+  const p = document.getElementById('panel');
+  const open = SHEET.state !== 'closed';
+  p.classList.toggle('open', open);
+  document.getElementById('shell').classList.toggle('sheetopen', open);
+  if (!isSheet()) { p.style.transform = ''; return; }
+  if (!animate) p.classList.add('dragging');
+  p.style.transform = 'translateY(' + detentY(SHEET.state, p.clientHeight) + 'px)';
+  if (!animate) requestAnimationFrame(() => p.classList.remove('dragging'));
+  const close = document.getElementById('sheetclose');
+  // At the lowest rung the only way left is out, so say so.
+  if (close) close.textContent = SHEET.state === 'peek' ? 'Close' : 'Hide';
+}
+
+function setSheet(state) {
+  SHEET.state = state;
+  applySheet(true);
+}
+
+// Everything that used to say "open the panel" still can.
+function setPanel(open) {
+  setSheet(open ? (isSheet() ? 'half' : 'full') : 'closed');
+  sheet.textContent = 'Layers & stats';
+}
+sheet.onclick = () => setPanel(SHEET.state === 'closed');
+document.getElementById('sheetclose').onclick = () => {
+  // Step down a rung at a time rather than dismissing outright: from full you
+  // usually want the map back, not the panel gone.
+  const i = DETENTS.indexOf(SHEET.state);
+  setSheet(DETENTS[Math.max(0, i - 1)]);
+};
+addEventListener('resize', () => applySheet(false));
 
 /* ── Swipe the sheet down to close ─────────────────────────────────
    The button stays: it is the only way back in, and a gesture with no
@@ -6968,7 +7192,7 @@ sheet.onclick = () => setPanel(!document.getElementById('panel').classList.conta
 
   const settle = () => {
     p.classList.remove('dragging');
-    p.style.transform = '';
+    applySheet(true);
   };
 
   p.addEventListener('touchstart', e => {
@@ -6983,14 +7207,21 @@ sheet.onclick = () => setPanel(!document.getElementById('panel').classList.conta
   p.addEventListener('touchmove', e => {
     if (!armed || e.touches.length !== 1) return;
     const d = e.touches[0].clientY - y0;
-    // Upward is a scroll, not a dismissal — hand it back untouched. Past a few
-    // pixels downward the drag is claimed, and from then on it owns the touch.
+    /* Upward used to be handed straight back, because the only thing a drag
+       could do was dismiss. With detents above the current one it has to be
+       claimable in both directions — but only from the handle. Dragging up
+       from the content is still a scroll, which is what content does. */
+    const fromHandle = handle.contains(e.target);
     if (!live) {
-      if (d < 6) { if (d < -2) armed = false; return; }
+      if (Math.abs(d) < 6) return;
+      if (d < 0 && !fromHandle) { armed = false; return; }
       live = true;
       p.classList.add('dragging');
     }
-    dy = Math.max(0, d);
+    const base = detentY(SHEET.state, p.clientHeight);
+    // Rubber-band past full rather than letting the sheet fly off the top.
+    const wanted = base + d;
+    dy = wanted < 0 ? wanted / 4 : Math.min(wanted, p.clientHeight);
     e.preventDefault();
     p.style.transform = 'translateY(' + dy + 'px)';
   }, { passive: false });
@@ -6998,17 +7229,27 @@ sheet.onclick = () => setPanel(!document.getElementById('panel').classList.conta
   p.addEventListener('touchend', e => {
     if (!live) { armed = false; return; }
     live = armed = false;
-    // A short flick should close as surely as a long drag, so distance or
-    // speed will do it. 0.45 px/ms is about a deliberate flick, not a nudge.
-    const v = dy / Math.max(1, e.timeStamp - t0);
-    if (dy > p.clientHeight * 0.28 || (dy > 40 && v > 0.45)) {
-      settle();
-      setPanel(false);
-      return;
+    const h = p.clientHeight;
+    const base = detentY(SHEET.state, h);
+    const v = (dy - base) / Math.max(1, e.timeStamp - t0);   // +down, -up
+    let target;
+    // A deliberate flick moves exactly one rung, which is predictable in a way
+    // that "wherever momentum lands you" is not. 0.45 px/ms is a flick rather
+    // than a nudge — the number the dismiss gesture already used.
+    if (Math.abs(v) > 0.45 && Math.abs(dy - base) > 40) {
+      const i = DETENTS.indexOf(SHEET.state);
+      target = DETENTS[Math.min(DETENTS.length - 1, Math.max(0, i + (v > 0 ? -1 : 1)))];
+    } else {
+      // Otherwise it settles at whichever rung it was left nearest.
+      let best = null, bd = Infinity;
+      for (const st of DETENTS) {
+        const d2 = Math.abs(detentY(st, h) - dy);
+        if (d2 < bd) { bd = d2; best = st; }
+      }
+      target = best;
     }
-    // Kept: let the CSS transition carry it back rather than snapping.
     p.classList.remove('dragging');
-    p.style.transform = '';
+    setSheet(target);
   });
 
   p.addEventListener('touchcancel', () => { live = armed = false; settle(); });
