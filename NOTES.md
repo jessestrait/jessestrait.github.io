@@ -487,3 +487,44 @@ caveats.
 +9.7 min, q1 -9.9, q3 +37.9, and the jam appears *after* APD publishes 66% of
 the time. That is the opposite of the intuition that probe data is an early
 warning, and it is worth knowing before B4 adds HERE as a third witness.
+
+## B4 (HERE) should not be built, and there is no third witness to hand (2026-09-18)
+
+**HERE.** Two clauses, either of which alone rules out the archive:
+
+  - data may be stored or cached for no more than thirty (30) days, and only
+    so far as needed to enable or improve an end user's use of the service;
+  - caching or storing location data "for the purpose of building a
+    repository of location assets" is prohibited outright.
+
+The second names Phase 1's purpose exactly, so designing restrictively — the
+escape used for TomTom's Phase 0.2, where the terms were unreadable and the
+answer was a 2-day retention with aggregates kept — does not help here. The
+thing prohibited is the reason for doing it.
+
+Provenance, stated because it matters: I could not fetch the primary text.
+legal.here.com/en-gb/terms/serviceterms returns 181 KB of page containing
+15 K of readable text and none of the clauses — rendered client-side, the
+same wall as TomTom's Phase 0.2. Both clauses come from search summaries of
+HERE's own terms and developer pages, corroborated independently. The
+decision is robust to the exact wording; the risk is not symmetric, since
+getting it wrong means an automated job breaching a commercial provider's
+terms every five minutes. It also needs a key, which is a second reason to
+stop rather than a first.
+
+**Then the hunt for a replacement, all negative:**
+
+  - TxDOT hosted ArcGIS: 770 services, all reference and planning — traffic
+    counts, networks, signals. No live incident or closure feed.
+  - its.txdot.gov/api/incidents answers 200 with 1.8 MB of the site's own SPA
+    shell, not JSON, and sends no CORS. A real endpoint would mean front-end
+    archaeology, like the KUBRA chain. (CORS itself would not have blocked
+    it — the archiver runs in Actions, not a browser.)
+  - Waze for Cities: Austin republishes none of it, on Socrata or GeoHub.
+  - Austin's own Bluetooth travel-time sensors (v7zg-5jg9, x44q-icha) would
+    have been the ideal third witness — a city-operated probe network with
+    completely different physics from TomTom's connected vehicles, public and
+    archivable. **Dead since 2021-12-22.**
+
+So the archive stays at two witnesses. That is fine: the onset statistic works
+and wants time, not sources.
