@@ -7,11 +7,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 59,
-  "dispatch_only": 58,
-  "matched": 1,
-  "tomtom": 427,
-  "tomtom_only": 425
+  "dispatch": 60,
+  "dispatch_only": 60,
+  "matched": 0,
+  "tomtom": 431,
+  "tomtom_only": 431
  },
  "date": "2026-09-18",
  "dispatch_life_capped": true,
@@ -25,24 +25,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
+   "matched": 0,
    "n": 13,
-   "pct": 7.7
+   "pct": 0.0
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 46,
+   "n": 47,
    "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 228,
+   "n": 231,
    "pct": 0.0
   },
   "tomtom_surface": {
-   "matched": 2,
-   "n": 199,
-   "pct": 1.0
+   "matched": 0,
+   "n": 200,
+   "pct": 0.0
   }
  },
  "matcher": {
@@ -52,12 +52,7 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 12.9,
-  "median": 12.9,
-  "min": 12.9,
-  "n": 1,
-  "q1": 12.9,
-  "q3": 12.9
+  "n": 0
  },
  "persistence_min": {
   "n": 0,
@@ -138,6 +133,12 @@
    "seg": "30.186,-97.773"
   },
   {
+   "from": "S Interstate 35",
+   "hour_of_week": 107,
+   "n": 2,
+   "seg": "30.195,-97.767"
+  },
+  {
    "from": "TX-343/S Lamar Blvd (W Mary St)",
    "hour_of_week": 98,
    "n": 2,
@@ -148,16 +149,10 @@
    "hour_of_week": 17,
    "n": 2,
    "seg": "30.245,-97.744"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "seg": "30.234,-97.736"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 98.3,
-  "tomtom": 99.5
+  "dispatch": 100.0,
+  "tomtom": 100.0
  }
 }
