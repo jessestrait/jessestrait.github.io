@@ -365,6 +365,41 @@ dl.mecard a{color:var(--accent-hi)}
 }
 .tierhead:first-child{margin-top:.2rem}
 
+/* ── Camera lightbox ─────────────────────────────────────────────
+   The stills are 1920x1080. Measured, because the answer decided the
+   feature: at 320-640 the right move would have been showing two or three
+   nearby cameras at once, since enlarging a small frame only enlarges the
+   blur. At full HD it is purely a display problem, and the popup was
+   showing one percent of the pixels the city is already sending. */
+#camshot[hidden]{display:none}
+#camshot{
+  position:fixed; inset:0; z-index:2000; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:.7rem; padding:1rem;
+  background:rgba(4,7,12,.92); backdrop-filter:blur(6px);
+}
+#camshot img{
+  max-width:min(100%,1600px); max-height:calc(100vh - 8rem);
+  border-radius:10px; border:1px solid var(--border); background:#000;
+}
+#camshot .camhead{
+  display:flex; align-items:baseline; gap:.7rem; flex-wrap:wrap;
+  max-width:min(100%,1600px); width:100%;
+}
+#camshot .camname{font:700 .95rem 'DM Sans',sans-serif; color:var(--text)}
+#camshot .camwhen{font:.7rem 'JetBrains Mono',monospace; color:var(--muted)}
+#camshot .camspacer{flex:1 1 auto}
+#camshot button{
+  font:600 .74rem 'DM Sans',sans-serif; cursor:pointer; color:var(--text);
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:8px; padding:.4rem .8rem;
+}
+#camshot button:hover{border-color:var(--accent-hi)}
+#camshot .camnote{
+  max-width:min(100%,1600px); font:.68rem 'DM Sans',sans-serif;
+  color:var(--muted); text-align:left; width:100%;
+}
+.popcam{cursor:zoom-in; display:block}
+
 #transitclear:hover{border-color:var(--accent-hi)}
 
 /* The debug readout. Deliberately plain — it is a diagnostic, not a feature,
@@ -798,6 +833,20 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
   <button id="sheetbtn">Layers &amp; stats</button>
 </div>
 
+<div id="camshot" hidden role="dialog" aria-modal="true" aria-label="Traffic camera">
+  <div class="camhead">
+    <span class="camname" id="camname"></span>
+    <span class="camwhen" id="camwhen"></span>
+    <span class="camspacer"></span>
+    <button id="camrefresh">Refresh</button>
+    <button id="camclose" aria-label="Close">Close</button>
+  </div>
+  <img id="camimg" alt="Live traffic camera still" />
+  <p class="camnote">The city serves these live and keeps nothing, and neither does this page.
+    A share of any grid will be dark, frozen, or pointed at a pole, and after sunset most of
+    them tell you only whether headlights are moving.</p>
+</div>
+
 <div id="about">
   <div class="box">
     <h2>Where this comes from</h2>
@@ -831,6 +880,18 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
         2003. This one carries no coordinates at all &mdash; only a council district and a census
         block group, which is why it shades those units rather than dropping pins. All the counting
         happens on Socrata's side.</li>
+      <li><b>Traffic cameras</b> &mdash; the city's <b>live stills</b>, which arrive at
+        1920&nbsp;&times;&nbsp;1080 &mdash; measured, because it decided the feature. Under about
+        640&nbsp;px the right answer would have been showing two or three nearby cameras at once,
+        since enlarging a small frame only enlarges the blur; at full HD the popup was simply
+        showing one percent of the pixels the city was already sending, so tapping the thumbnail
+        opens it near full width with a manual refresh. Nothing is stored. The dataset says
+        plainly that these monitor live conditions and that no video is recorded or retained, and
+        a still of a public street holds identifiable cars and people &mdash; an outage count is
+        infrastructure state, this is not the same thing, and building the archive the city chose
+        not to build is the one version of this page's habit that would create liability instead
+        of value. Expect a share of any grid to be dark, frozen or pointed at a pole, and expect
+        most of them after sunset to tell you only whether headlights are moving.</li>
       <li><b>Fire stations, libraries, public art, traffic cameras</b> — <code>i8r8-6nhk</code>, <code>tc36-hn4j</code>, <code>uuk6-933w</code>, <code>b4k4-adkb</code>.</li>
       <li><b>Council district boundaries + demographics</b> — <code>w3v2-cj58</code> and <code>puux-7swp</code>, simplified and joined ahead of time so the shading is instant.</li>
       <li><b>Census block groups, tree canopy and urban heat</b> — the Tree Equity Score layer on
@@ -1750,8 +1811,13 @@ const LAYERS = [
       return rows.map(r => {
         const c = r.location && r.location.coordinates;
         if (!c) return null;
+        // The thumbnail is the handle, not the picture: tapping it opens the
+        // frame at something closer to the size it was sent at.
         const shot = r.screenshot_address
-          ? '<img loading="lazy" alt="Live still" src="' + esc(r.screenshot_address) + '?t=' + Date.now() + '">'
+          ? '<img class="popcam" loading="lazy" alt="Live still \u2014 tap to enlarge"'
+            + ' data-cam="' + esc(r.screenshot_address) + '"'
+            + ' data-camname="' + esc(titleCase(r.location_name) || 'Traffic camera') + '"'
+            + ' src="' + esc(r.screenshot_address) + '?t=' + Date.now() + '">'
           : '';
         return {
           lat: c[1], lng: c[0], t: null, cat: 'Traffic camera', place: true,
@@ -5810,6 +5876,76 @@ function dbgRender() {
   });
   if (/[?&#]dbg=1/.test(location.href)) setTimeout(dbgRender, 1500);
 })();
+
+/* ── The camera lightbox ──────────────────────────────────────────
+   Deliberately not an archive. The dataset's own description says these
+   monitor live conditions and that nothing is recorded or retained, and a
+   still of a public street contains identifiable cars and people. Outage
+   counts are infrastructure state and worth writing down; this is not the
+   same thing, and building the archive the city chose not to build is the
+   one version of this project's habit that creates liability instead of
+   value. So: fetched on demand, shown, replaced, never stored.
+
+   No canvas either — the images carry no CORS header, so drawing one into a
+   canvas would taint it. An <img> does not need permission to be displayed,
+   only to be read back, and nothing here reads it back. */
+const CAM = { url: null, name: '', n: 0 };
+
+function camOpen(url, name) {
+  CAM.url = url;
+  CAM.name = name || 'Traffic camera';
+  document.getElementById('camname').textContent = CAM.name;
+  document.getElementById('camshot').hidden = false;
+  camLoad();
+}
+
+function camLoad() {
+  if (!CAM.url) return;
+  const img = document.getElementById('camimg');
+  const when = document.getElementById('camwhen');
+  when.textContent = 'fetching\u2026';
+  // Cache-busted, or the browser hands back the frame already in the popup
+  // and the refresh button appears to do nothing.
+  // A counter as well as the clock: two refreshes inside the same
+  // millisecond would otherwise build the same URL, and the browser would
+  // serve the frame it already had while the button appeared to work.
+  img.src = CAM.url + (CAM.url.includes('?') ? '&' : '?')
+          + 't=' + Date.now() + '_' + (++CAM.n);
+  img.onload = () => {
+    /* "fetched", not "captured" — the city publishes no capture time, and
+       the gap between the two is exactly the thing someone looking at a
+       wreck would want to be sure about. Saying only what is known. */
+    when.textContent = 'fetched ' + new Date().toLocaleTimeString([], {
+      hour: 'numeric', minute: '2-digit', second: '2-digit' })
+      + ' \u00b7 ' + img.naturalWidth + '\u00d7' + img.naturalHeight;
+  };
+  img.onerror = () => { when.textContent = 'that camera did not answer'; };
+}
+
+function camClose() {
+  document.getElementById('camshot').hidden = true;
+  // Dropped rather than left in the tag, so a closed lightbox is not quietly
+  // holding a picture of a street.
+  document.getElementById('camimg').removeAttribute('src');
+  CAM.url = null;
+}
+
+document.getElementById('camrefresh').onclick = camLoad;
+document.getElementById('camclose').onclick = camClose;
+document.getElementById('camshot').addEventListener('click', e => {
+  if (e.target.id === 'camshot') camClose();      // the backdrop closes it
+});
+addEventListener('keydown', e => {
+  if (e.key === 'Escape' && !document.getElementById('camshot').hidden) camClose();
+});
+/* Delegated, because the popup that holds the thumbnail does not exist until
+   Leaflet builds it and is thrown away when it closes. */
+document.addEventListener('click', e => {
+  const img = e.target.closest && e.target.closest('img.popcam');
+  if (!img) return;
+  e.preventDefault();
+  camOpen(img.dataset.cam, img.dataset.camname);
+});
 
 document.getElementById('sharebtn').onclick = copyLink;
 map.on('moveend zoomend', saveUrl);

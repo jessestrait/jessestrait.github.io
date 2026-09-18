@@ -420,3 +420,29 @@ was coming up, or whether the number was high. Both added:
 
 NWPS needs srid=EPSG_4326 on the bbox query or it returns an empty list with
 a 200. CORS is open on it.
+
+## Handoff-3 verification results (2026-09-17)
+
+Part C — camera stills are **1920x1080**. By the handoff's own decision tree
+that makes it a display problem, so: lightbox, no multi-camera grid. The
+images carry no CORS header, which does not matter — an <img> needs
+permission to be read back, not to be shown, and nothing reads them back.
+Not archived, deliberately; see the About entry.
+
+Part A — the premises were worth checking, and two are different from the
+handoff's read:
+
+  - zone_status IS lifecycle (Active / Inactive / Removed), as suspected.
+    Active: AISD 95, PRIVATE 17, RRISD 15, plus PISD and LISD.
+  - Districts are AISD, PISD, RRISD, **LISD (Leander)** and PRIVATE. Not
+    Del Valle.
+  - a7ua-4hkr carries NO geometry. The zone shapes are on GeoHub as
+    `School_Zones`, 361 polylines with SCHOOL_ZONE_ID, SCHOOL_NAME,
+    STREET_NAME — a school zone is a stretch of street, which is the right
+    shape for it.
+  - The big one: **the flash windows are in the data.** mzsm-hucz carries
+    am_plan, pm_plan and pm_2_plan per beacon as real clock windows
+    ("06:55 - 08:00", "14:30 - 15:35"), and pm_2_plan is the early-release
+    window the handoff expected to hand-maintain. Beacons also carry
+    coordinates. So A4's "times must come from elsewhere" is wrong: what is
+    still missing is only which DAYS are school days per district.
