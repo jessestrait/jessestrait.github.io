@@ -488,7 +488,7 @@ caveats.
 the time. That is the opposite of the intuition that probe data is an early
 warning, and it is worth knowing before B4 adds HERE as a third witness.
 
-## B4 (HERE) should not be built, and there is no third witness to hand (2026-09-18)
+## B4 (HERE): what the terms say, and the decision to build anyway (2026-09-18)
 
 **HERE.** Two clauses, either of which alone rules out the archive:
 
@@ -526,5 +526,73 @@ stop rather than a first.
     completely different physics from TomTom's connected vehicles, public and
     archivable. **Dead since 2021-12-22.**
 
-So the archive stays at two witnesses. That is fine: the onset statistic works
-and wants time, not sources.
+No replacement, then. The recommendation above was to stay at two witnesses.
+
+### Overridden, deliberately, and built (same day)
+
+Jesse's call, having read the above: build it. The reasoning is sound and I
+am recording it rather than paraphrasing it — the thirty-day cap is not a
+constraint this archive was ever going to strain, since vendor rows are
+pruned after **two** days and have been since TomTom went in. The collector
+now refuses `--retain-days` above 30 outright, so the cap is enforced by the
+code rather than by anyone remembering it. What is kept past two days are
+aggregates: counts, medians, the onset distribution. Those are derived
+statistics, not stored location data, and they are the entire product.
+
+The "repository of location assets" clause is the part that is genuinely
+strained, and it should be said plainly rather than argued away: a rolling
+two-day cache that exists to compute statistics is not what that clause
+appears to be aimed at, but I could not read the primary text to check, and
+that uncertainty does not disappear because the decision went the other way.
+What reduces the exposure to something Jesse judged acceptable: the page is
+his own, unlisted rather than promoted, HERE's rows are never republished
+raw beyond the current five-minute snapshot, and nothing accumulates.
+
+**What was built**
+
+  - `fetch_here()` in `tools/capture_traffic.py` — Traffic API v7 incidents,
+    `locationReferencing=shape` (required, and the only way to get geometry).
+    HERE documents that a bbox ceiling exists but not what it is, so a 400
+    splits Austin into quadrants and retries rather than hard-coding a guess.
+  - HERE is **optional**. No key means the job runs on two witnesses and says
+    so; a HERE fetch that fails mid-run keeps its open episodes open rather
+    than inventing clearances for all of them. The live chain must not be
+    takeable down by a third source.
+  - `probe_agreement()` — TomTom against HERE, line to line. Coverage, not
+    closest approach: two different halves of I-35 touch at the join and
+    score zero metres apart, which would have been a false pair every time.
+  - `summary.witnesses` — of the day's dispatch records, how many both probe
+    networks saw, how many only one saw, how many neither did. This is the
+    statistic the third witness was actually wanted for; with one probe feed
+    "small incident" and "thin fleet on that road" are indistinguishable.
+  - A `Traffic incidents (HERE)` layer on the map, reading `here-now.json`
+    off the data branch. **The page holds no HERE key** — the archiver
+    already polls every five minutes from Actions, so the page reads its
+    output. No vendor key in a public repo, and a thousand visitors cost
+    HERE one request rather than a thousand.
+
+**Testing, and what it caught.** No key exists yet, so HERE itself was never
+called. The parser was tested against a response built to the documented v7
+schema, the bbox fallback against a stubbed 400, and `probe_agreement` against
+400 real archived TomTom lines with synthetic HERE twins.
+
+That last test failed first time and was right to. It planted twins 25 m away
+and decoys 1.2 km away and counted labels — but a 1.2 km shift of an I-35
+segment lands back on I-35, where a *different* TomTom episode genuinely sits
+3 m away. The decoys were true pairs and the matcher was correct; the test's
+ground truth was wrong. Rewritten to verify decoys are actually far before
+using them as decoys, and to assert soundness against measured distance
+rather than against a label: 142/142 reported pairs inside their own buffer,
+0/68 verified-far decoys reported, 120/120 recall. Twelve of the original
+eighty decoys had landed on a real road — which is the whole reason the first
+version passed nothing.
+
+`--rematch` on the real 2026-09-17 archive returns 37 matches from 37: days
+recorded before HERE existed read exactly as they were written.
+
+**Still needed:** the key. Nothing HERE-shaped will appear until
+
+    gh secret set HERE_ARCHIVE_KEY --repo jessestrait/jessestrait.github.io
+
+is run with a freemium key from platform.here.com. Until then the layer reads
+"Waiting on a HERE key" and the archive carries on with two witnesses.

@@ -1,18 +1,33 @@
-# Two witnesses to Austin's streets, written down as they happen.
+# Three witnesses to Austin's streets, written down as they happen.
 #
-# TomTom sees congestion and APD/ATD sees the reported cause; neither is
-# archived anywhere, so the question "how long does a wreck take to become a
-# jam, and how long does the jam outlive it" has no source today. This builds
-# one. tools/capture_traffic.py has the matcher and the reasoning.
+# TomTom and HERE each see congestion, from different fleets, and APD/ATD
+# sees the reported cause; none of it is archived anywhere, so the question
+# "how long does a wreck take to become a jam, and how long does the jam
+# outlive it" has no source today. This builds one.
+# tools/capture_traffic.py has the matcher and the reasoning.
 #
 # The archive lives on the orphan `data` branch, beside the outages, so it
 # never rebuilds the Pages site.
 #
-# KEY. This needs its own TomTom key in the TOMTOM_ARCHIVE_KEY secret, and it
-# must NOT be the one in the page. That key is domain-restricted to
-# jessestrait.com — verified: a request without a referrer now comes back 403
-# InvalidReferer — and Actions sends no referrer, so the page key cannot work
-# here by construction. Two keys, two jobs, on purpose.
+# KEYS.
+#
+# TOMTOM_ARCHIVE_KEY (required) must NOT be the key in the page. That one is
+# domain-restricted to jessestrait.com — verified: a request without a
+# referrer comes back 403 InvalidReferer — and Actions sends no referrer, so
+# the page key cannot work here by construction. Two keys, two jobs.
+#
+# HERE_ARCHIVE_KEY (optional) is the third witness. Without it the job runs
+# on two exactly as it did before and says so in the log; it is not allowed
+# to take the chain down, because a missing third source is a smaller
+# problem than a stopped archive. Create one at platform.here.com under a
+# freemium project and add it with:
+#
+#     gh secret set HERE_ARCHIVE_KEY --repo jessestrait/jessestrait.github.io
+#
+# RETENTION. HERE caps caching of their data at thirty days. The collector
+# prunes vendor-bearing daily files after --retain-days, which is two, and
+# refuses any value above thirty outright — so the cap is enforced by the
+# code rather than by remembering.
 name: Capture traffic corroboration
 
 on:
@@ -68,6 +83,7 @@ jobs:
       - name: Poll eight times, five minutes apart
         env:
           TOMTOM_ARCHIVE_KEY: ${{ secrets.TOMTOM_ARCHIVE_KEY }}
+          HERE_ARCHIVE_KEY: ${{ secrets.HERE_ARCHIVE_KEY }}
         run: |
           set -uo pipefail
           if [ -z "${TOMTOM_ARCHIVE_KEY:-}" ]; then
@@ -89,7 +105,7 @@ jobs:
                 echo "nothing changed"
                 break
               fi
-              SUMMARY=$(python3 -c 'import json,glob,os; f=sorted(glob.glob("traffic/summary/*.json"))[-1]; c=json.load(open(f))["counts"]; print("%d tomtom, %d dispatch, %d matched" % (c["tomtom"], c["dispatch"], c["matched"]))')
+              SUMMARY=$(python3 -c 'import json,glob,os; f=sorted(glob.glob("traffic/summary/*.json"))[-1]; c=json.load(open(f))["counts"]; print("%d tomtom, %d here, %d dispatch, %d matched" % (c["tomtom"], c.get("here",0), c["dispatch"], c["matched"]))')
               git commit -q -m "Traffic: $SUMMARY at $(date -u +%Y-%m-%dT%H:%MZ)"
               if git push --quiet origin data; then
                 break

@@ -946,6 +946,16 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
         is not. TomTom is the one vendor whose terms allow their traffic over someone else's
         basemap; Google's renders only on a Google map and their terms forbid it elsewhere, which
         would have meant discarding everything this page is built on.</li>
+      <li><b>Traffic incidents</b> &mdash; <b>HERE Traffic v7</b>, a second probe network beside
+        TomTom's flow tiles. The two are not the same instrument: TomTom leans on phones and
+        PNDs, HERE on the factory-connected cars of its automaker owners, so where they disagree
+        about a road it is usually because one fleet is thin there. That difference is invisible
+        with a single source, which is the whole reason for carrying two.
+        The page does not call HERE itself &mdash; a scheduled job in this repo polls them every
+        five minutes and writes what it saw, and the page reads that. No vendor key sits in a
+        public page, and a thousand visitors cost HERE one request rather than a thousand.
+        Their data is cached for two days at most and never accumulated; the statistics derived
+        from it are kept, the rows are not.</li>
       <li><b>Rain</b> &mdash; NOAA's <b>base reflectivity</b> ImageServer, which is time-enabled:
         each read asks for a narrow window at the end of its extent, because a request with no time
         on it returns the whole two-hour archive composited into one image, and three quarters of
@@ -2596,7 +2606,7 @@ function rowFor(l) {
    checked first inside it. Easy to flip if it reads wrong in the hand. */
 const TIERS = [
   ['live', 'Live now', ['firelive', 'c311', 'traffic', 'transit', 'signals',
-                        'bikes', 'gauges', 'lwc', 'outages']],
+                        'bikes', 'gauges', 'lwc', 'outages', 'hereinc']],
   ['today', 'Lately', ['news', 'crashes', 'wildfire', 'permits']],
   ['standing', 'Standing', ['busroutes', 'busstops', 'workzones', 'schoolzones']]
 ];
@@ -3073,6 +3083,28 @@ const GROUND = [
     load: g => loadSchoolZones(g)
   },
   {
+    /* The second probe network.
+
+       TomTom's flow tiles are already here as a raster underlay, and they
+       answer "is this road slow". This answers "and what is on it", from a
+       different fleet: TomTom leans on phones and PNDs, HERE on the
+       factory-connected cars of its automaker owners. Where the two
+       disagree about a road it is usually because one fleet is thin there,
+       which is a fact about the measurement rather than about the traffic —
+       and it is invisible with one source.
+
+       Drawn from a file this repo writes, not from HERE directly. The
+       archiver already polls them every five minutes from Actions, so the
+       page reads its output instead of holding a key of its own: no vendor
+       key in a public page, no second request per visitor, and nothing to
+       rate-limit. It also means the layer is at worst one poll stale, which
+       for an incident that lasts half an hour is not a difference. */
+    id: 'hereinc', color: '#22d3ee', name: 'Traffic incidents (HERE)',
+    note: 'A second probe network \u00b7 rewritten every five minutes',
+    group: 'recent',
+    load: g => loadHereIncidents(g)
+  },
+  {
     id: 'workzones', color: '#fb923c', name: 'Roadway work zones',
     // Permits rather than cones: most of these are long-running right-of-way
     // grants, which is why the count runs to thousands and the end dates run
@@ -3456,6 +3488,86 @@ async function loadSchoolZones(g) {
     console.error(e);
     if (badge) badge.textContent = 'err';
     setNote(g, 'Could not load the school zones', true);
+  }
+}
+
+/* ── HERE traffic incidents ────────────────────────────────────────
+   Read from the archiver's own output on the data branch rather than from
+   HERE, for the reasons in the layer entry. raw.githubusercontent sends
+   Access-Control-Allow-Origin: * and caches for five minutes, which happens
+   to match the poll — so this is never more than two polls behind and costs
+   the vendor nothing.
+
+   Severity is a ramp, not a palette: low and minor stay cool and thin so a
+   quiet afternoon reads as quiet, and major and critical borrow the warning
+   colours the rest of the page already uses for the same idea. A closed
+   road is dashed, because "closed" is a different claim from "slow" and
+   should not be a shade of it. */
+const HERE_URL = 'https://raw.githubusercontent.com/jessestrait/'
+               + 'jessestrait.github.io/data/traffic/here-now.json';
+const HERE_CRIT = { critical: '#ff4d4d', major: '#fb923c',
+                    minor: '#22d3ee', low: '#38bdf8' };
+const HERE_WEIGHT = { critical: 5, major: 4, minor: 3, low: 2 };
+const HERE_WORD = {
+  accident: 'Crash', congestion: 'Congestion', construction: 'Roadwork',
+  disabledVehicle: 'Disabled vehicle', laneRestriction: 'Lane restriction',
+  massTransit: 'Transit', plannedEvent: 'Planned event',
+  roadHazard: 'Hazard', roadClosure: 'Road closed', weather: 'Weather'
+};
+const HERE = { timer: null };
+
+async function loadHereIncidents(g) {
+  const badge = document.getElementById('ct-g-' + g.id);
+  try {
+    const d = await fetch(HERE_URL, { cache: 'no-store' }).then(r => {
+      // 404 is the ordinary state before a key exists, not a failure to
+      // hide. Say which it is, because the fix is a one-line command.
+      if (r.status === 404) throw new Error('nokey');
+      if (!r.ok) throw new Error('http ' + r.status);
+      return r.json();
+    });
+    const lines = (d.incidents || []).filter(i => (i.geom || []).length > 1).map(i => {
+      const col = HERE_CRIT[i.criticality] || HERE_CRIT.minor;
+      const line = L.polyline(i.geom.map(c => [c[1], c[0]]), {
+        pane: 'groundPane', renderer: groundRenderer,
+        color: col, weight: (HERE_WEIGHT[i.criticality] || 3) + (COARSE ? 1 : 0),
+        opacity: i.criticality === 'low' ? 0.55 : 0.85,
+        dashArray: i.closed ? '6 5' : null
+      });
+      line.bindPopup(() => pop(col, HERE_WORD[i.type] || 'Incident',
+        i.where || (i.roads || []).join(', ') || 'Traffic incident', '', [
+          ['What', i.what],
+          ['Severity', i.criticality],
+          ['Road closed', i.closed ? 'Yes' : null],
+          ['Roads', (i.roads || []).join(', ') || null],
+          ['Length', i.length_m != null ? Math.round(i.length_m) + ' m' : null],
+          ['Reported', i.start_time ? new Date(i.start_time).toLocaleString() : null],
+          ['First seen here', i.first_seen ? new Date(i.first_seen).toLocaleTimeString() : null]
+        ],
+        '<p style="margin-top:.5rem;color:var(--muted);font-size:.72rem">'
+        + 'HERE Traffic v7, by way of this site\u2019s own five-minute poll. '
+        + 'A second probe network beside TomTom\u2019s flow tiles \u2014 where the two '
+        + 'disagree, one fleet is usually thin on that road.</p>'), { maxWidth: 320 });
+      return line;
+    });
+    adoptGround(g, L.layerGroup(lines));
+    if (g.on) groundLayers[g.id].addTo(map);
+    if (badge) badge.textContent = lines.length;
+    const when = d.fetched_at ? new Date(d.fetched_at) : null;
+    setNote(g, lines.length
+      ? lines.length + ' open \u00b7 ' + (when
+          ? 'as of ' + when.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })
+          : 'live')
+      : 'Nothing open in the bounding box right now');
+    // The file is rewritten every poll, so the layer has to come back for it
+    // or it is only right at load. Cleared and reset rather than stacked.
+    clearInterval(HERE.timer);
+    HERE.timer = setInterval(() => { if (g.on) loadHereIncidents(g); }, 5 * 60 * 1000);
+  } catch (e) {
+    if (badge) badge.textContent = e.message === 'nokey' ? '\u2014' : 'err';
+    setNote(g, e.message === 'nokey'
+      ? 'Waiting on a HERE key \u2014 set HERE_ARCHIVE_KEY in the repo secrets'
+      : 'Could not read the HERE incidents', true);
   }
 }
 
