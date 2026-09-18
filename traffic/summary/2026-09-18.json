@@ -6,18 +6,18 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 44,
-  "dispatch_only": 43,
+  "dispatch": 45,
+  "dispatch_only": 44,
   "matched": 1,
-  "tomtom": 349,
-  "tomtom_only": 348
+  "tomtom": 350,
+  "tomtom_only": 349
  },
  "date": "2026-09-18",
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 7,
-   "pct": 14.3
+   "n": 8,
+   "pct": 12.5
   },
   "dispatch_surface": {
    "matched": 0,
@@ -31,7 +31,7 @@
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 176,
+   "n": 177,
    "pct": 0.0
   }
  },
@@ -103,12 +103,6 @@
    "seg": "30.250,-97.736"
   },
   {
-   "from": "W Ben White Blvd",
-   "hour_of_week": 100,
-   "n": 2,
-   "seg": "30.209,-97.756"
-  },
-  {
    "from": "TX-343/S Lamar Blvd (W Mary St)",
    "hour_of_week": 98,
    "n": 2,
@@ -143,10 +137,16 @@
    "hour_of_week": 44,
    "n": 2,
    "seg": "30.179,-97.616"
+  },
+  {
+   "from": "Woodall Dr",
+   "hour_of_week": 95,
+   "n": 1,
+   "seg": "30.516,-97.871"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 97.7,
+  "dispatch": 97.8,
   "tomtom": 99.7
  }
 }
