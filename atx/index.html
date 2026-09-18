@@ -1459,8 +1459,20 @@ const LAYERS = [
     glyphPx: 26,
     glyphLabel: f => f.lbl,
     async load() {
+      /* USGS answers 503 for roughly one request in five at the moment —
+         measured, five tries against both the windowed and the latest-value
+         URL, and they fail together, so it is the service and not the size
+         of the ask. One retry turns a layer that is visibly broken a fifth
+         of the time into one that is broken one time in twenty-five. */
       const [j, stages] = await Promise.all([
-        fetch(USGS, { cache: 'no-store' }).then(r => r.json()),
+        (async () => {
+          for (let i = 0; ; i++) {
+            const r = await fetch(USGS, { cache: 'no-store' });
+            if (r.ok) return r.json();
+            if (i >= 2) throw new Error('USGS answered ' + r.status);
+            await new Promise(z => setTimeout(z, 900 * (i + 1)));
+          }
+        })(),
         floodStages()
       ]);
       const sites = {};
