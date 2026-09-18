@@ -441,9 +441,33 @@ def summarise(day, tt_closed, dp_closed, matches, tt_open, dp_open, interval_min
                                "n": 0, "from": t.get("from")})
         h["n"] += 1
 
+    # How long APD's own records stay open, which turns out to decide what
+    # this archive can and cannot measure.
+    #
+    # Across 290 episodes the p95 is 119.5 minutes, the p50 is 115, and the
+    # two commonest five-minute bins are 115 and 120. Nothing survives much
+    # past two hours. That is a retention rule, not a distribution of
+    # clearance times — a fender bender and a rollover cannot both take 115
+    # minutes. So a dispatch record's end is when the feed dropped it, not
+    # when the road reopened, and any statistic subtracting it is measuring
+    # APD's housekeeping.
+    #
+    # Detected rather than hard-coded, so if the feed's behaviour changes the
+    # summary stops carrying the warning by itself.
+    life = dist_stats([
+        (parse(d.get("ended_at")) - (parse(d.get("published")) or parse(d.get("first_seen"))))
+        .total_seconds() / 60
+        for d in dp_closed
+        if parse(d.get("ended_at")) and (parse(d.get("published")) or parse(d.get("first_seen")))
+    ])
+    capped = bool(life.get("n", 0) >= 20 and life.get("q3") is not None
+                  and 100 <= life["q3"] <= 130 and (life["q3"] - life["q1"]) < 30)
+
     return {
         "date": day,
         "poll_interval_min": interval_min,
+        "dispatch_record_life_min": life,
+        "dispatch_life_capped": capped,
         "matcher": matcher_params,
         "counts": {
             "tomtom": len(tt_all), "dispatch": len(dp_all), "matched": len(matches),
@@ -453,13 +477,18 @@ def summarise(day, tt_closed, dp_closed, matches, tt_open, dp_open, interval_min
         # Signed on purpose. Probe data often sees the jam before APD
         # publishes, so negatives are expected and are themselves the finding.
         "onset_offset_min": dist_stats([m.get("onset_offset_min") for m in matches]),
-        "persistence_min": dist_stats([
+        # Kept, but flagged: while dispatch records are capped this is the
+        # difference between a jam's real end and an administrative one, and
+        # it is not the "how long does the jam outlive the wreck" number the
+        # archive was built to produce. Reported so the flag travels with it.
+        "persistence_min": dict(dist_stats([
             (parse(t.get("ended_at")) - parse(d.get("ended_at"))).total_seconds() / 60
             for m in matches
             for t in [next((x for x in tt_closed if x["id"] == m["tomtom_id"]), None)]
             for d in [next((x for x in dp_closed if x["id"] == m["dispatch_id"]), None)]
             if t and d and parse(t.get("ended_at")) and parse(d.get("ended_at"))
-        ]),
+        ]), **({"unreliable": "dispatch records are capped, so their end is "
+                              "administrative rather than a clearance"} if capped else {})),
         "match_rate": {
             "dispatch_highway": rate(dp_all, m_dp, True),
             "dispatch_surface": rate(dp_all, m_dp, False),
@@ -475,6 +504,13 @@ def summarise(day, tt_closed, dp_closed, matches, tt_open, dp_open, interval_min
         "structural_hotspots": sorted(hot.values(), key=lambda x: -x["n"])[:15],
         "caveats": [
             "Dispatch published_date is when APD published, not when it happened.",
+            ("Dispatch records appear to be dropped on a fixed life of about two "
+             "hours (q1 %.0f, q3 %.0f min over %d episodes), so their end time is "
+             "the feed's retention rather than a clearance. persistence_min is "
+             "not a measure of how long the jam outlived the wreck."
+             % (life.get("q1", 0), life.get("q3", 0), life.get("n", 0)))
+            if capped else
+            "Dispatch record lifetimes look like real clearances this day, not a cap.",
             "Clearance resolution equals the poll interval; shorter incidents are invisible.",
             "Statistics from matched pairs are subject to the matcher's own tolerances; "
             "the unmatched rate is reported beside them for that reason.",

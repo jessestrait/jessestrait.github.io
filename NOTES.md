@@ -452,3 +452,38 @@ handoff's read:
     window the handoff expected to hand-maintain. Beacons also carry
     coordinates. So A4's "times must come from elsewhere" is wrong: what is
     still missing is only which DAYS are school days per district.
+
+## Phase 1 actually works now, and half of it never can (2026-09-18)
+
+Two findings, four days into the traffic archive.
+
+**The matcher was discarding the day's matches every poll.** One line —
+`day_doc["matches"] = matches`, beside two that `.extend()`. Each poll only
+matches across what is open at that moment, so the file kept the last poll's
+handful. Re-running the two retained days: the 16th 5 -> 33, the 17th 1 -> 37,
+and persistence went from zero samples to 33 and 37.
+
+How it was found, because the obvious suspect was wrong: 25% of dispatch
+records have a TomTom record within 200 m and 90 min while the matcher was
+accepting 0.7%, so the signal existed. Instrumenting the gates to catch the
+road-name test — TomTom writes "Lakeline Blvd (S Bell Blvd/US-183)", APD
+writes "4900-5424 E Slaughter Ln", an exact set intersection should never
+fire — showed it rejecting nothing, and 101 pairs surviving every gate on a
+day the file recorded one. That pointed at the write.
+
+**APD dispatch records are dropped on a two-hour cap.** 290 episodes: p50
+115.2 min, p95 119.5, nothing past ~120, modal 5-minute bins 115 (96) and
+120 (78). A fender bender and a rollover cannot both take 115 minutes — that
+is retention, not clearance.
+
+So `ended_at` on a dispatch record is administrative, and **persistence —
+"how long does the jam outlive the wreck" — is not obtainable from this
+pairing at all.** Half of Phase 1's headline is unanswerable, and no amount
+of matcher tuning changes it. The summary now detects the cap from the data
+rather than assuming it, flags persistence_min unreliable, and says so in the
+caveats.
+
+**Onset offset survives and is the real result.** n=70 over two days: median
++9.7 min, q1 -9.9, q3 +37.9, and the jam appears *after* APD publishes 66% of
+the time. That is the opposite of the intuition that probe data is an early
+warning, and it is worth knowing before B4 adds HERE as a third witness.
