@@ -6,18 +6,18 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 45,
-  "dispatch_only": 44,
+  "dispatch": 46,
+  "dispatch_only": 45,
   "matched": 1,
-  "tomtom": 360,
-  "tomtom_only": 359
+  "tomtom": 361,
+  "tomtom_only": 360
  },
  "date": "2026-09-18",
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 8,
-   "pct": 12.5
+   "n": 9,
+   "pct": 11.1
   },
   "dispatch_surface": {
    "matched": 0,
@@ -26,7 +26,7 @@
   },
   "tomtom_highway": {
    "matched": 1,
-   "n": 179,
+   "n": 180,
    "pct": 0.6
   },
   "tomtom_surface": {
@@ -54,6 +54,12 @@
  },
  "poll_interval_min": 5.0,
  "structural_hotspots": [
+  {
+   "from": "E Dean Keeton St",
+   "hour_of_week": 100,
+   "n": 3,
+   "seg": "30.286,-97.727"
+  },
   {
    "from": "Yager Ln (I-35)",
    "hour_of_week": 151,
@@ -119,12 +125,6 @@
    "hour_of_week": 98,
    "n": 2,
    "seg": "30.249,-97.764"
-  },
-  {
-   "from": "Clyde Littlefield Dr",
-   "hour_of_week": 100,
-   "n": 2,
-   "seg": "30.286,-97.727"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
