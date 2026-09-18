@@ -614,17 +614,15 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
   :root{--panel-w:100%}
   #shell{display:block; position:fixed}
   #map{position:absolute; inset:0; height:100%; width:100%}
-  /* One tall sheet parked at three heights, the way a native one works,
-     rather than a single 74vh slab that swallowed most of the screen the
-     moment you wanted to read one number off it. JS sets the transform;
-     these are the resting state and the no-JS fallback. */
+  /* One height, in on a tap and out on a tap. It spent a night at four
+     detents; see the note by SHEET for why that came back out. */
   #panel{
     position:absolute; left:0; right:0; bottom:0; top:auto; width:100%;
-    height:92vh; border-right:0; border-top:1px solid var(--border);
+    height:74vh; border-right:0; border-top:1px solid var(--border);
     border-radius:16px 16px 0 0; transform:translateY(100%);
     transition:transform .28s ease; box-shadow:0 -14px 40px rgba(0,0,0,.6);
   }
-  #panel.open{transform:translateY(45%)}
+  #panel.open{transform:translateY(0)}
   /* Sticky, so the sheet stays draggable however far down the panel you have
      scrolled — and touch-action:none, because the drag has to win over the
      scroll here rather than race it. */
@@ -7710,82 +7708,41 @@ document.getElementById('pulse').onclick = softRefresh;
 const sheet = document.getElementById('sheetbtn');
 /* Probed off the grab bar, not the open button. The button is the thing that
    hides once the sheet is up, so asking it "are we in sheet layout" answered
-   no the moment the sheet opened — and every detent silently cleared its own
-   transform. The grab bar is display:none on a desktop and visible on a phone
-   whatever the sheet is doing, which is the actual question. */
+   no the moment the sheet opened. The grab bar is display:none on a desktop
+   and visible on a phone whatever the sheet is doing, which is the actual
+   question. */
 const isSheet = () => getComputedStyle(document.getElementById('grab')).display !== 'none';
 
-/* ── Sheet detents ────────────────────────────────────────────────
-   Three heights instead of one. The old sheet was a single 74vh slab, so
-   reading one number off the panel cost you three quarters of the map —
-   and the map is the thing the numbers are about.
+/* ── The sheet is one height ──────────────────────────────────────
+   It spent one night at four detents with a drag-to-snap between them, and
+   that was worse in two ways. The panel stood 92vh tall and the resting rung
+   translated it 45% down, so the bottom 41vh of its own content sat below
+   the viewport with nothing able to scroll it back into view — the layer
+   list ran off the end of the phone. And four rungs is three decisions
+   every time you want to read one number off it.
 
-     peek   the grab bar and a line or two. Enough to see a count while
-            still looking at where it happened.
-     half   the layer list, which is what the panel is for most of the time.
-     full   everything, for the readouts and the About text.
+   So: 74vh, in on a tap, out on a tap or a swipe down, which is what it was.
+   The one part of the detent version worth keeping is the close control
+   living inside the grab bar rather than floating over the sheet, which is
+   what stopped it sitting on top of the Crime Reports header. */
+const SHEET = { open: false };
 
-   Positions are computed in pixels from the panel's real height rather than
-   written as CSS classes, because the drag has to land between them and then
-   snap, and mixing an inline transform with a class-driven one fights. On a
-   desktop the panel is a sidebar and none of this applies — every entry
-   point checks isSheet() first and the inline transform is cleared. */
-const DETENTS = ['closed', 'peek', 'half', 'full'];
-const PEEK_PX = 108;                      // grab bar plus about one row
-const SHEET = { state: 'closed' };
-
-/* "Full" means as high as it can go without sliding under the chrome above
-   it — which is the ticker when there is one, the top bar when there is not.
-   Measured rather than assumed a constant, because the ticker is dismissable
-   and its height depends on how many headlines are in it. Getting this wrong
-   is the same bug as the floating button: something in front of the grab bar,
-   so the only way back down is a gesture with no visible handle. */
-function chromeBottom() {
-  const t = document.getElementById('ticker');
-  const bar = document.getElementById('topbar');
-  const tb = t && !t.hidden ? t.getBoundingClientRect().bottom : 0;
-  return Math.max(bar ? bar.getBoundingClientRect().bottom : 0, tb);
-}
-
-function detentY(state, h) {
-  if (state === 'full') return Math.max(0, Math.round(chromeBottom() - innerHeight + h));
-  if (state === 'half') return Math.round(h * 0.45);
-  if (state === 'peek') return Math.max(0, h - PEEK_PX);
-  return h;
-}
-
-function applySheet(animate) {
+function applySheet() {
   const p = document.getElementById('panel');
-  const open = SHEET.state !== 'closed';
-  p.classList.toggle('open', open);
-  document.getElementById('shell').classList.toggle('sheetopen', open);
-  if (!isSheet()) { p.style.transform = ''; return; }
-  if (!animate) p.classList.add('dragging');
-  p.style.transform = 'translateY(' + detentY(SHEET.state, p.clientHeight) + 'px)';
-  if (!animate) requestAnimationFrame(() => p.classList.remove('dragging'));
-  const close = document.getElementById('sheetclose');
-  // At the lowest rung the only way left is out, so say so.
-  if (close) close.textContent = SHEET.state === 'peek' ? 'Close' : 'Hide';
+  p.classList.toggle('open', SHEET.open);
+  document.getElementById('shell').classList.toggle('sheetopen', SHEET.open);
+  // The class carries the position again, so no inline transform survives a
+  // drag — including one left behind by a rotation mid-gesture.
+  p.style.transform = '';
 }
 
-function setSheet(state) {
-  SHEET.state = state;
-  applySheet(true);
-}
-
-// Everything that used to say "open the panel" still can.
 function setPanel(open) {
-  setSheet(open ? (isSheet() ? 'half' : 'full') : 'closed');
-  sheet.textContent = 'Layers & stats';
+  SHEET.open = open;
+  applySheet();
 }
-sheet.onclick = () => setPanel(SHEET.state === 'closed');
-document.getElementById('sheetclose').onclick = () => {
-  // Step down a rung at a time rather than dismissing outright: from full you
-  // usually want the map back, not the panel gone.
-  const i = DETENTS.indexOf(SHEET.state);
-  setSheet(DETENTS[Math.max(0, i - 1)]);
-};
-addEventListener('resize', () => applySheet(false));
+sheet.onclick = () => setPanel(!SHEET.open);
+document.getElementById('sheetclose').onclick = () => setPanel(false);
+addEventListener('resize', applySheet);
 
 /* ── Swipe the sheet down to close ─────────────────────────────────
    The button stays: it is the only way back in, and a gesture with no
@@ -7804,13 +7761,14 @@ addEventListener('resize', () => applySheet(false));
   const handle = document.getElementById('grab');
   let y0 = 0, t0 = 0, dy = 0, live = false, armed = false;
 
-  const settle = () => {
+  const release = () => {
+    live = armed = false;
     p.classList.remove('dragging');
-    applySheet(true);
+    p.style.transform = '';
   };
 
   p.addEventListener('touchstart', e => {
-    if (!isSheet() || !p.classList.contains('open') || e.touches.length !== 1) return;
+    if (!isSheet() || !SHEET.open || e.touches.length !== 1) return;
     armed = handle.contains(e.target) || p.scrollTop <= 0;
     live = false;
     dy = 0;
@@ -7821,52 +7779,29 @@ addEventListener('resize', () => applySheet(false));
   p.addEventListener('touchmove', e => {
     if (!armed || e.touches.length !== 1) return;
     const d = e.touches[0].clientY - y0;
-    /* Upward used to be handed straight back, because the only thing a drag
-       could do was dismiss. With detents above the current one it has to be
-       claimable in both directions — but only from the handle. Dragging up
-       from the content is still a scroll, which is what content does. */
-    const fromHandle = handle.contains(e.target);
     if (!live) {
-      if (Math.abs(d) < 6) return;
-      if (d < 0 && !fromHandle) { armed = false; return; }
+      // Upward is a scroll and always was; hand it straight back.
+      if (d < -6) { armed = false; return; }
+      if (d < 6) return;
       live = true;
       p.classList.add('dragging');
     }
-    const base = detentY(SHEET.state, p.clientHeight);
-    // Rubber-band past full rather than letting the sheet fly off the top.
-    const wanted = base + d;
-    dy = wanted < 0 ? wanted / 4 : Math.min(wanted, p.clientHeight);
+    dy = Math.max(0, d);
     e.preventDefault();
     p.style.transform = 'translateY(' + dy + 'px)';
   }, { passive: false });
 
   p.addEventListener('touchend', e => {
     if (!live) { armed = false; return; }
-    live = armed = false;
-    const h = p.clientHeight;
-    const base = detentY(SHEET.state, h);
-    const v = (dy - base) / Math.max(1, e.timeStamp - t0);   // +down, -up
-    let target;
-    // A deliberate flick moves exactly one rung, which is predictable in a way
-    // that "wherever momentum lands you" is not. 0.45 px/ms is a flick rather
-    // than a nudge — the number the dismiss gesture already used.
-    if (Math.abs(v) > 0.45 && Math.abs(dy - base) > 40) {
-      const i = DETENTS.indexOf(SHEET.state);
-      target = DETENTS[Math.min(DETENTS.length - 1, Math.max(0, i + (v > 0 ? -1 : 1)))];
-    } else {
-      // Otherwise it settles at whichever rung it was left nearest.
-      let best = null, bd = Infinity;
-      for (const st of DETENTS) {
-        const d2 = Math.abs(detentY(st, h) - dy);
-        if (d2 < bd) { bd = d2; best = st; }
-      }
-      target = best;
-    }
-    p.classList.remove('dragging');
-    setSheet(target);
+    // 0.45 px/ms is a flick rather than a nudge; a quarter of the sheet is
+    // far enough that you meant it even without the speed.
+    const flung = dy / Math.max(1, e.timeStamp - t0) > 0.45;
+    const far = dy > p.clientHeight * 0.25;
+    release();
+    if (flung || far) setPanel(false);
   });
 
-  p.addEventListener('touchcancel', () => { live = armed = false; settle(); });
+  p.addEventListener('touchcancel', release);
 })();
 
 
