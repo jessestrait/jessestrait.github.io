@@ -1,20 +1,20 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 108, q3 118 min over 125 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 108, q3 118 min over 126 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 147,
-  "dispatch_only": 141,
+  "dispatch": 149,
+  "dispatch_only": 143,
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 2307,
-  "tomtom_only": 2302
+  "tomtom": 2336,
+  "tomtom_only": 2331
  },
  "date": "2026-09-18",
  "dispatch_life_capped": true,
@@ -22,9 +22,9 @@
   "max": 120.0,
   "median": 115.3,
   "min": 80.8,
-  "n": 125,
-  "q1": 107.6,
-  "q3": 117.8
+  "n": 126,
+  "q1": 107.9,
+  "q3": 117.7
  },
  "here_onset_offset_min": {
   "n": 0
@@ -32,22 +32,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 3,
-   "n": 33,
-   "pct": 9.1
+   "n": 34,
+   "pct": 8.8
   },
   "dispatch_surface": {
    "matched": 3,
-   "n": 114,
+   "n": 115,
    "pct": 2.6
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 1186,
+   "n": 1201,
    "pct": 0.4
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 1121,
+   "n": 1135,
    "pct": 0.0
   }
  },
@@ -58,12 +58,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 50.2,
-  "median": 27.8,
+  "max": 76.9,
+  "median": 28.0,
   "min": -88.3,
   "n": 6,
   "q1": -10.7,
-  "q3": 40.7
+  "q3": 56.9
  },
  "persistence_min": {
   "n": 0,
@@ -132,6 +132,12 @@
    "seg": "30.223,-97.764"
   },
   {
+   "from": "FM-2304/Manchaca Rd (W Ben White Blvd)",
+   "hour_of_week": 118,
+   "n": 3,
+   "seg": "30.227,-97.772"
+  },
+  {
    "from": "W Oltorf St (S Lamar Blvd)",
    "hour_of_week": 118,
    "n": 3,
@@ -166,23 +172,17 @@
    "hour_of_week": 98,
    "n": 2,
    "seg": "30.229,-97.672"
-  },
-  {
-   "from": "E Oltorf St (Burleson Rd)",
-   "hour_of_week": 95,
-   "n": 2,
-   "seg": "30.219,-97.734"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 95.9,
+  "dispatch": 96.0,
   "tomtom": 99.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 147,
-  "neither": 141,
+  "n": 149,
+  "neither": 143,
   "tomtom_only": 6
  }
 }
