@@ -1,17 +1,17 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 109, q3 118 min over 70 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 109, q3 117 min over 71 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 77,
-  "dispatch_only": 76,
+  "dispatch": 79,
+  "dispatch_only": 78,
   "matched": 1,
-  "tomtom": 870,
-  "tomtom_only": 869
+  "tomtom": 883,
+  "tomtom_only": 882
  },
  "date": "2026-09-18",
  "dispatch_life_capped": true,
@@ -19,9 +19,9 @@
   "max": 120.0,
   "median": 115.5,
   "min": 83.0,
-  "n": 70,
-  "q1": 109.2,
-  "q3": 117.5
+  "n": 71,
+  "q1": 108.9,
+  "q3": 117.4
  },
  "match_rate": {
   "dispatch_highway": {
@@ -31,17 +31,17 @@
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 59,
+   "n": 61,
    "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 1,
-   "n": 439,
+   "n": 446,
    "pct": 0.2
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 431,
+   "n": 437,
    "pct": 0.0
   }
  },
@@ -52,12 +52,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 27.9,
-  "median": 27.9,
-  "min": 27.9,
+  "max": 71.4,
+  "median": 71.4,
+  "min": 71.4,
   "n": 1,
-  "q1": 27.9,
-  "q3": 27.9
+  "q1": 71.4,
+  "q3": 71.4
  },
  "persistence_min": {
   "n": 0,
@@ -138,12 +138,6 @@
    "seg": "30.230,-97.883"
   },
   {
-   "from": "S Interstate 35",
-   "hour_of_week": 107,
-   "n": 2,
-   "seg": "30.186,-97.773"
-  },
-  {
    "from": "E Braker Ln (I-35)",
    "hour_of_week": 107,
    "n": 2,
@@ -154,6 +148,12 @@
    "hour_of_week": 108,
    "n": 2,
    "seg": "30.520,-97.559"
+  },
+  {
+   "from": "Orange Blossom Way",
+   "hour_of_week": 108,
+   "n": 2,
+   "seg": "30.168,-97.740"
   }
  ],
  "unmatched_pct": {
