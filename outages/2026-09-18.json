@@ -325,6 +325,81 @@
     "type": "zip"
    },
    "source": "austin-energy/kubra"
+  },
+  {
+   "customers_served": 4683,
+   "duration_min": 181,
+   "ended": true,
+   "ended_at": "2026-09-18T17:12:10Z",
+   "etr_last": "ETR-EXP",
+   "first_seen": "2026-09-18T13:25:24Z",
+   "id": "zip-78730-20260918T132524Z",
+   "kind": "power_outage",
+   "last_seen": "2026-09-18T16:26:48Z",
+   "peak_customers_affected": 2,
+   "peak_outages": 1,
+   "polls": 7,
+   "scope": {
+    "bbox": [
+     -97.88236600050205,
+     30.322173999320185,
+     -97.79081599992756,
+     30.40376299846865
+    ],
+    "id": "78730",
+    "type": "zip"
+   },
+   "source": "austin-energy/kubra"
+  },
+  {
+   "customers_served": 14621,
+   "duration_min": 136,
+   "ended": true,
+   "ended_at": "2026-09-18T17:12:10Z",
+   "etr_last": "ETR-EXP",
+   "first_seen": "2026-09-18T14:10:41Z",
+   "id": "zip-78746-20260918T141041Z",
+   "kind": "power_outage",
+   "last_seen": "2026-09-18T16:26:48Z",
+   "peak_customers_affected": 2,
+   "peak_outages": 1,
+   "polls": 6,
+   "scope": {
+    "bbox": [
+     -97.8661810003712,
+     30.239554998913455,
+     -97.7611649996853,
+     30.35175899911355
+    ],
+    "id": "78746",
+    "type": "zip"
+   },
+   "source": "austin-energy/kubra"
+  },
+  {
+   "customers_served": 17351,
+   "duration_min": 91,
+   "ended": true,
+   "ended_at": "2026-09-18T17:12:10Z",
+   "etr_last": "2026-09-18T17:05:16Z",
+   "first_seen": "2026-09-18T14:56:00Z",
+   "id": "zip-78724-20260918T145600Z",
+   "kind": "power_outage",
+   "last_seen": "2026-09-18T16:26:48Z",
+   "peak_customers_affected": 89,
+   "peak_outages": 1,
+   "polls": 4,
+   "scope": {
+    "bbox": [
+     -97.67414810028494,
+     30.247422799220043,
+     -97.5538594996423,
+     30.342751299755758
+    ],
+    "id": "78724",
+    "type": "zip"
+   },
+   "source": "austin-energy/kubra"
   }
  ],
  "polls": [
@@ -467,6 +542,13 @@
    "customers_served": 591919,
    "outages": 7,
    "source_at": "2026-09-18T16:23:45Z"
+  },
+  {
+   "at": "2026-09-18T17:12:10Z",
+   "customers_affected": 8,
+   "customers_served": 591919,
+   "outages": 4,
+   "source_at": "2026-09-18T17:09:08Z"
   }
  ],
  "timezone": "America/Chicago"
