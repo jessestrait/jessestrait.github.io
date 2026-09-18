@@ -10,8 +10,8 @@
   "dispatch": 70,
   "dispatch_only": 66,
   "matched": 4,
-  "tomtom": 723,
-  "tomtom_only": 719
+  "tomtom": 740,
+  "tomtom_only": 735
  },
  "date": "2026-09-18",
  "dispatch_life_capped": true,
@@ -36,13 +36,13 @@
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 361,
+   "n": 373,
    "pct": 1.1
   },
   "tomtom_surface": {
-   "matched": 0,
-   "n": 362,
-   "pct": 0.0
+   "matched": 1,
+   "n": 367,
+   "pct": 0.3
   }
  },
  "matcher": {
@@ -53,10 +53,10 @@
  },
  "onset_offset_min": {
   "max": 78.9,
-  "median": 56.2,
+  "median": 55.9,
   "min": -1.8,
   "n": 4,
-  "q1": 12.6,
+  "q1": 12.4,
   "q3": 73.4
  },
  "persistence_min": {
@@ -70,12 +70,6 @@
    "hour_of_week": 108,
    "n": 3,
    "seg": "30.162,-97.789"
-  },
-  {
-   "from": "exit [451]",
-   "hour_of_week": 108,
-   "n": 3,
-   "seg": "30.159,-97.654"
   },
   {
    "from": "Yager Ln (I-35)",
@@ -154,10 +148,16 @@
    "hour_of_week": 107,
    "n": 2,
    "seg": "30.423,-97.671"
+  },
+  {
+   "from": "San Antonio Riverwalk",
+   "hour_of_week": 108,
+   "n": 2,
+   "seg": "30.520,-97.559"
   }
  ],
  "unmatched_pct": {
   "dispatch": 94.3,
-  "tomtom": 99.4
+  "tomtom": 99.3
  }
 }
