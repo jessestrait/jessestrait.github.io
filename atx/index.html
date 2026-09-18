@@ -920,7 +920,17 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
       <li><b>Creek gauges</b> &mdash; <b>USGS instantaneous values</b>, stage and discharge for
         every active gauge in the metro box, refreshed by them every fifteen minutes. No key, CORS
         open, and an endpoint that has outlived most of the web. It is the half the crossings
-        layer is missing: crossings say what is closed, gauges say what is rising.</li>
+        layer is missing: crossings say what is closed, gauges say what is rising.
+        An hour of readings is fetched rather than the latest one, because a stage on its own does
+        not say whether the creek is coming up, and that is the part anyone acts on. Rising means
+        a tenth of a foot an hour &mdash; measured, not guessed: across a dry hour the largest
+        change on any of 37 gauges was 0.075&nbsp;ft/hr, so a tenth is movement rather than the
+        sensor breathing. And a stage is meaningless without a scale, so the
+        <b>National Weather Service</b> flood thresholds are baked in beside it: 4.2&nbsp;ft is
+        alarming on Shoal Creek and nothing on the Colorado. Eleven of the 36 gauges NOAA lists
+        here publish one, and they are the named creeks. Tap a closed crossing and it names the
+        nearest gauge and what the water is doing &mdash; straight-line nearest, so it says which
+        creek and lets you judge whether that is the one under the road.</li>
       <li><b>Roadway work zones</b> &mdash; <b>open right-of-way permits</b> rather than cones on
         the ground, which is why the count runs to thousands and some end dates run years out.
         Filtered to permits that have not expired, and drawn quietly except on the corridors the
@@ -1077,7 +1087,57 @@ const CAPMETRO = RELAY;
    active gauge in the metro box, refreshed by them every fifteen minutes.
    CORS open, no key, and the endpoint has outlived most of the web. */
 const USGS = 'https://waterservices.usgs.gov/nwis/iv/?format=json'
-           + '&bBox=-98.15,30.05,-97.35,30.62&parameterCd=00065,00060&siteStatus=active';
+           + '&bBox=-98.15,30.05,-97.35,30.62&parameterCd=00065,00060&siteStatus=active'
+           // An hour of readings rather than the latest one. A stage on its own
+           // does not say whether the creek is coming up, which is the only part
+           // anyone acts on, and the window costs 42 KB over the single value.
+           + '&period=PT1H';
+
+/* What counts as rising. Taken from the gauges rather than from feel: over a
+   dry hour the largest change across 37 sites was 0.075 ft/hr and the 95th
+   percentile was 0.03, so anything at a tenth of a foot an hour is movement
+   and not the sensor breathing. */
+const RISING_FT_HR = 0.10;
+
+/* NWS flood thresholds, baked by tools/build_flood_stages.py. Without them a
+   stage is a number with no meaning attached — 4.2 ft is alarming on Shoal
+   Creek and unremarkable on the Colorado. Eleven of the 36 gauges NOAA lists
+   here publish both a USGS id and a threshold, and they are the named creeks:
+   Barton, Bull, Shoal, Onion, Williamson, Slaughter. Fetched once and kept,
+   because they change when NWS revises a forecast point and not otherwise. */
+const GAUGE = { stages: null, sites: [] };
+async function floodStages() {
+  if (GAUGE.stages) return GAUGE.stages;
+  try {
+    const j = await fetch('data/floodstages.json').then(r => r.json());
+    GAUGE.stages = j.sites || {};
+  } catch (e) {
+    GAUGE.stages = {};            // the stage still draws; only context is lost
+  }
+  return GAUGE.stages;
+}
+
+function kmApart(aLat, aLng, bLat, bLng) {
+  const R = 6371, rad = d => d * Math.PI / 180;
+  const dLat = rad(bLat - aLat), dLng = rad(bLng - aLng);
+  const h = Math.sin(dLat / 2) ** 2
+    + Math.cos(rad(aLat)) * Math.cos(rad(bLat)) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+
+/* Nearest reporting gauge to a point, for the crossings to ask about.
+   Straight-line and not along the channel, so it is only ever "the nearest
+   gauge", never "the gauge on this creek" — the popup says which creek it is
+   and lets the reader make that call. Six kilometres because past that the
+   nearest gauge is usually on a different watershed and would mislead. */
+function nearestGauge(lat, lng, maxKm) {
+  let best = null, bd = Infinity;
+  for (const g of GAUGE.sites) {
+    const d = kmApart(lat, lng, g.lat, g.lng);
+    if (d < bd) { bd = d; best = g; }
+  }
+  return best && bd <= (maxKm || 6) ? { g: best, km: bd } : null;
+}
 
 /* ATXfloods is the regional low-water-crossing status board, run by the
    jurisdictions themselves. Its own site never advertises an API; this URL
@@ -1278,25 +1338,42 @@ const LAYERS = [
     glyphPx: 26,
     glyphLabel: f => f.lbl,
     async load() {
-      const j = await fetch(USGS, { cache: 'no-store' }).then(r => r.json());
+      const [j, stages] = await Promise.all([
+        fetch(USGS, { cache: 'no-store' }).then(r => r.json()),
+        floodStages()
+      ]);
       const sites = {};
       ((j.value || {}).timeSeries || []).forEach(ts => {
         const si = ts.sourceInfo || {}, gl = (si.geoLocation || {}).geogLocation;
         if (!gl) return;
         const code = si.siteCode[0].value;
         const param = ts.variable.variableCode[0].value;
-        const vals = ((ts.values || [])[0] || {}).value || [];
-        const last = vals[vals.length - 1];
-        if (!last) return;
-        const v = parseFloat(last.value);
+        const raw = ((ts.values || [])[0] || {}).value || [];
         // USGS writes -999999 when the sensor has nothing to say.
-        if (!isFinite(v) || v <= -999) return;
+        const series = raw.map(v => ({ t: new Date(v.dateTime), v: parseFloat(v.value) }))
+                          .filter(x => isFinite(x.v) && x.v > -999 && !isNaN(+x.t));
+        if (!series.length) return;
+        const last = series[series.length - 1];
         const st = sites[code] || (sites[code] = {
           name: si.siteName, lat: +gl.latitude, lng: +gl.longitude, code: code
         });
-        if (param === '00065') { st.stage = v; st.t = new Date(last.dateTime); }
-        if (param === '00060') { st.flow = v; }
+        if (param === '00065') {
+          st.stage = last.v;
+          st.t = last.t;
+          /* Rate over the whole window rather than between the last two
+             readings: consecutive values differ by a hundredth of a foot and
+             dividing that by fifteen minutes turns sensor noise into a
+             dramatic number. Needs three points, so a gauge that has just
+             come back online reports no trend rather than a wrong one. */
+          if (series.length >= 3) {
+            const hrs = (last.t - series[0].t) / 3600000;
+            if (hrs > 0.25) st.rate = (last.v - series[0].v) / hrs;
+          }
+        }
+        if (param === '00060') st.flow = last.v;
       });
+
+      let rising = 0, elevated = 0;
       const out = Object.values(sites).filter(x => x.stage != null).map(x => {
         // Above a hundred feet this is a reservoir elevation rather than a
         // creek stage, and the decimal is noise at that scale.
@@ -1305,18 +1382,67 @@ const LAYERS = [
         // city and state are the same for all of them and only cost width.
         const nm = x.name.replace(/,?\s*(nr|at|near)?\s*Austin,\s*TX$/i, '')
                          .replace(/,\s*TX$/i, '');
+        const up = x.rate != null && x.rate >= RISING_FT_HR;
+        const down = x.rate != null && x.rate <= -RISING_FT_HR;
+        if (up) rising++;
+
+        const lv = (stages[x.code] || {}).levels || {};
+        const rec = (stages[x.code] || {}).record;
+        // Action stage is the level at which the forecast office starts
+        // paying attention, so it is the right line for the map to draw too.
+        const mark = lv.action != null ? lv.action : lv.minor;
+        const over = mark != null && x.stage >= mark;
+        if (over) elevated++;
+
+        let context = null;
+        if (mark != null) {
+          context = over
+            ? 'at or above the ' + (lv.action != null ? 'action' : 'minor flood')
+              + ' stage of ' + mark + ' ft'
+            : (mark - x.stage).toFixed(1) + ' ft below the '
+              + (lv.action != null ? 'action' : 'minor flood') + ' stage of ' + mark + ' ft';
+        }
+        // Not the same as steady: one means the creek is not moving, the
+        // other means the gauge has not said enough for anyone to know.
+        const trend = x.rate == null ? 'not enough readings'
+          : up ? 'rising ' + x.rate.toFixed(2) + ' ft/hr'
+          : down ? 'falling ' + Math.abs(x.rate).toFixed(2) + ' ft/hr'
+          : 'steady';
+
         return {
           lat: x.lat, lng: x.lng, t: x.t || null, cat: 'Creek gauge', place: true, lbl: lbl,
-          html: pop('#2dd4bf', 'Creek gauge', nm, x.t ? ago(x.t) : '', [
+          // Both reasons to look: coming up fast, or already high.
+          big: up || over,
+          stage: x.stage, rate: x.rate, nm: nm,
+          html: pop('#2dd4bf', over ? 'Creek gauge \u00b7 elevated' : 'Creek gauge',
+            nm, x.t ? ago(x.t) : '', [
             ['Stage', x.stage.toFixed(2) + ' ft'],
+            ['Last hour', trend],
+            ['Against flood stage', context, false],
             ['Discharge', x.flow != null ? x.flow.toLocaleString() + ' cfs' : null],
+            ['Record', rec ? rec.stage + ' ft on ' + rec.on : null],
             ['Read at', x.t ? x.t.toLocaleTimeString() : null],
             ['USGS site', '<a href="https://waterdata.usgs.gov/monitoring-location/'
               + esc(x.code) + '/" target="_blank" rel="noopener">' + esc(x.code) + '</a>', true]
           ])
         };
       });
-      setNote(byId.gauges, out.length + ' gauges reporting');
+
+      // Kept so a crossing can ask what the water near it is doing.
+      GAUGE.sites = out.map(o => ({
+        lat: o.lat, lng: o.lng, nm: o.nm, stage: o.stage, rate: o.rate
+      }));
+
+      /* The note leads with whichever fact is worth acting on. On a dry day
+         that is the count; in a storm it is the two creeks coming up, and
+         burying those behind "42 gauges reporting" would be the wrong way
+         round. */
+      const bits = [];
+      if (rising) bits.push(rising + ' rising');
+      if (elevated) bits.push(elevated + ' above action stage');
+      setNote(byId.gauges, bits.length
+        ? bits.join(', ') + ' \u00b7 ' + out.length + ' gauges'
+        : out.length + ' gauges reporting, none rising');
       return out;
     }
   },
@@ -1342,22 +1468,44 @@ const LAYERS = [
         out.push({
           lat: lat, lng: lng, t: null, closed: closed, big: closed,
           cat: closed ? 'Closed' : 'Open',
-          html: pop('#ff6b6b', closed ? 'Crossing CLOSED' : 'Crossing open',
-            titleCase(r.name) || 'Low-water crossing', t ? 'updated ' + ago(t) : '', [
-              ['Status', closed ? 'Closed' : 'Open'],
-              ['Where', r.address],
-              ['Reported by', r.jurisdiction],
-              ['Note', r.comment || null],
-              ['Updated', t ? t.toLocaleString() : null]
-            ], closed
-              ? '<p style="margin-top:.5rem;color:#ffb570;font-size:.74rem">'
-                + 'Turn around, don\u2019t drown. Six inches of moving water takes a car.</p>'
-              : '')
+          /* Built when the popup opens, not when the layer loads, so it can
+             read the gauges whether they arrived before this or after. The
+             two feeds are independent and either can win the race. */
+          html: () => {
+            const near = nearestGauge(lat, lng, 6);
+            let water = null;
+            if (near) {
+              const r2 = near.g.rate;
+              const moving = r2 == null ? 'steady'
+                : r2 >= RISING_FT_HR ? 'rising ' + r2.toFixed(2) + ' ft/hr'
+                : r2 <= -RISING_FT_HR ? 'falling ' + Math.abs(r2).toFixed(2) + ' ft/hr'
+                : 'steady';
+              water = near.g.nm + ' \u2014 ' + near.g.stage.toFixed(2) + ' ft, ' + moving
+                    + ' <span style="opacity:.6">(' + near.km.toFixed(1) + ' km away)</span>';
+            }
+            return pop('#ff6b6b', closed ? 'Crossing CLOSED' : 'Crossing open',
+              titleCase(r.name) || 'Low-water crossing', t ? 'updated ' + ago(t) : '', [
+                ['Status', closed ? 'Closed' : 'Open'],
+                ['Where', r.address],
+                ['Nearest gauge', water, true],
+                ['Reported by', r.jurisdiction],
+                ['Note', r.comment || null],
+                ['Updated', t ? t.toLocaleString() : null]
+              ], closed
+                ? '<p style="margin-top:.5rem;color:#ffb570;font-size:.74rem">'
+                  + 'Turn around, don\u2019t drown. Six inches of moving water takes a car.</p>'
+                : '');
+          }
         });
       });
       const shut = out.filter(x => x.closed).length;
+      // A crossing closes because a creek came up, so when any are shut the
+      // note says whether the water is still climbing — the thing that
+      // decides whether more are about to close.
+      const up = GAUGE.sites.filter(g => g.rate != null && g.rate >= RISING_FT_HR).length;
       setNote(byId.lwc, shut
         ? shut + ' closed right now, of ' + out.length + ' crossings'
+          + (up ? ' \u00b7 ' + up + ' creek' + (up === 1 ? '' : 's') + ' still rising' : '')
         : 'All ' + out.length + ' crossings open');
       return out;
     }

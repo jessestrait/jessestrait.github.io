@@ -397,3 +397,26 @@ centroid and extent is unreliable for small parallel features. It reported
 trails as 52 m out; fetching one trail by id showed 1.9 m against a 2.2 m
 budget. ArcGIS honours maxAllowableOffset, verified per-feature at three
 different offsets.
+
+## Creek gauges got a trend and a scale (2026-09-17)
+
+The gauges layer already read USGS; what it could not say was whether a creek
+was coming up, or whether the number was high. Both added:
+
+  - USGS is now asked for an hour (period=PT1H) rather than the latest value,
+    +42 KB, and the rate is taken across the whole window rather than between
+    the last two readings — consecutive values differ by hundredths and
+    dividing that by 15 minutes turns noise into drama.
+  - Rising is 0.10 ft/hr. Measured on a dry night: across 37 gauges the
+    largest hourly change was 0.075 ft/hr and p95 was 0.03.
+  - NWS flood thresholds baked by tools/build_flood_stages.py into
+    atx/data/floodstages.json (2 KB). The NWPS bbox listing does not carry
+    them or the USGS id, so it is one request per gauge — fine at build time,
+    not in a browser. 11 of 36 gauges publish both; they are the named creeks.
+    Rebuild if NWS revises a forecast point, which is rare.
+  - A closed crossing now names the nearest gauge and what it is doing. Built
+    when the popup opens, not when the layer loads, because the two feeds race
+    and either can win.
+
+NWPS needs srid=EPSG_4326 on the bbox query or it returns an empty list with
+a 200. CORS is open on it.
