@@ -9,8 +9,8 @@
   "dispatch": 29,
   "dispatch_only": 29,
   "matched": 0,
-  "tomtom": 276,
-  "tomtom_only": 276
+  "tomtom": 279,
+  "tomtom_only": 279
  },
  "date": "2026-09-18",
  "match_rate": {
@@ -26,12 +26,12 @@
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 134,
+   "n": 136,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 142,
+   "n": 143,
    "pct": 0.0
   }
  },
@@ -50,12 +50,6 @@
  "poll_interval_min": 5.0,
  "structural_hotspots": [
   {
-   "from": "S 1st St (W Riverside Dr)",
-   "hour_of_week": 17,
-   "n": 2,
-   "seg": "30.264,-97.756"
-  },
-  {
    "from": "Yager Ln (I-35)",
    "hour_of_week": 151,
    "n": 2,
@@ -66,6 +60,18 @@
    "hour_of_week": 17,
    "n": 2,
    "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Cesar Chavez St",
+   "hour_of_week": 97,
+   "n": 2,
+   "seg": "30.259,-97.729"
+  },
+  {
+   "from": "I-35/US-290 (E Cesar Chavez St/E 1st St/State Spur 343)",
+   "hour_of_week": 96,
+   "n": 2,
+   "seg": "30.258,-97.728"
   },
   {
    "from": "E Oltorf St",
@@ -96,12 +102,6 @@
    "hour_of_week": 44,
    "n": 2,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "E Cesar Chavez St",
-   "hour_of_week": 97,
-   "n": 2,
-   "seg": "30.259,-97.729"
   },
   {
    "from": "Woodall Dr",
