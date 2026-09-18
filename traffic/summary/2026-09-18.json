@@ -1,47 +1,53 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 109, q3 117 min over 71 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 105, q3 117 min over 74 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
-  "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
+  "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
+  "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 80,
-  "dispatch_only": 79,
-  "matched": 1,
-  "tomtom": 890,
-  "tomtom_only": 889
+  "dispatch": 88,
+  "dispatch_only": 85,
+  "here": 0,
+  "here_matched": 0,
+  "matched": 3,
+  "tomtom": 904,
+  "tomtom_only": 901
  },
  "date": "2026-09-18",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 115.5,
+  "median": 115.4,
   "min": 83.0,
-  "n": 71,
-  "q1": 108.9,
-  "q3": 117.4
+  "n": 74,
+  "q1": 104.7,
+  "q3": 117.3
+ },
+ "here_onset_offset_min": {
+  "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
-   "n": 18,
-   "pct": 5.6
+   "matched": 2,
+   "n": 20,
+   "pct": 10.0
   },
   "dispatch_surface": {
-   "matched": 0,
-   "n": 62,
-   "pct": 0.0
+   "matched": 1,
+   "n": 68,
+   "pct": 1.5
   },
   "tomtom_highway": {
-   "matched": 1,
-   "n": 447,
-   "pct": 0.2
+   "matched": 3,
+   "n": 453,
+   "pct": 0.7
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 443,
+   "n": 451,
    "pct": 0.0
   }
  },
@@ -53,10 +59,10 @@
  },
  "onset_offset_min": {
   "max": 71.4,
-  "median": 71.4,
-  "min": 71.4,
-  "n": 1,
-  "q1": 71.4,
+  "median": 5.8,
+  "min": -1.9,
+  "n": 3,
+  "q1": -1.9,
   "q3": 71.4
  },
  "persistence_min": {
@@ -64,6 +70,18 @@
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
+ "probe_agreement": {
+  "cover": {
+   "n": 0
+  },
+  "n": 0,
+  "onset_offset_min": {
+   "n": 0
+  },
+  "pct_of_here": 0.0,
+  "pct_of_tomtom": 0.0,
+  "type_agree": 0
+ },
  "structural_hotspots": [
   {
    "from": "S Interstate 35",
@@ -138,6 +156,12 @@
    "seg": "30.230,-97.883"
   },
   {
+   "from": "Wells Branch Pkwy/Exit 248 (I-35)",
+   "hour_of_week": 14,
+   "n": 2,
+   "seg": "30.421,-97.672"
+  },
+  {
    "from": "E Braker Ln (I-35)",
    "hour_of_week": 107,
    "n": 2,
@@ -148,16 +172,17 @@
    "hour_of_week": 108,
    "n": 2,
    "seg": "30.520,-97.559"
-  },
-  {
-   "from": "Orange Blossom Way",
-   "hour_of_week": 108,
-   "n": 2,
-   "seg": "30.168,-97.740"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 98.8,
-  "tomtom": 99.9
+  "dispatch": 96.6,
+  "tomtom": 99.7
+ },
+ "witnesses": {
+  "both": 0,
+  "here_only": 0,
+  "n": 88,
+  "neither": 85,
+  "tomtom_only": 3
  }
 }
