@@ -1,14 +1,14 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 110, q3 118 min over 47 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 108, q3 118 min over 48 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 52,
-  "dispatch_only": 51,
+  "dispatch": 54,
+  "dispatch_only": 53,
   "matched": 1,
   "tomtom": 381,
   "tomtom_only": 380
@@ -19,19 +19,19 @@
   "max": 120.0,
   "median": 115.7,
   "min": 83.0,
-  "n": 47,
-  "q1": 109.6,
+  "n": 48,
+  "q1": 107.7,
   "q3": 118.2
  },
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 10,
-   "pct": 10.0
+   "n": 11,
+   "pct": 9.1
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 42,
+   "n": 43,
    "pct": 0.0
   },
   "tomtom_highway": {
