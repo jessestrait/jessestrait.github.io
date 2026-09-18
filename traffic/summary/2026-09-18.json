@@ -6,11 +6,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 33,
-  "dispatch_only": 33,
+  "dispatch": 39,
+  "dispatch_only": 39,
   "matched": 0,
-  "tomtom": 304,
-  "tomtom_only": 304
+  "tomtom": 318,
+  "tomtom_only": 318
  },
  "date": "2026-09-18",
  "match_rate": {
@@ -21,17 +21,17 @@
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 28,
+   "n": 34,
    "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 147,
+   "n": 153,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 157,
+   "n": 165,
    "pct": 0.0
   }
  },
@@ -60,6 +60,24 @@
    "hour_of_week": 90,
    "n": 2,
    "seg": "30.318,-97.724"
+  },
+  {
+   "from": "Mueller Blvd",
+   "hour_of_week": 98,
+   "n": 2,
+   "seg": "30.305,-97.702"
+  },
+  {
+   "from": "Hawkins Ln",
+   "hour_of_week": 98,
+   "n": 2,
+   "seg": "30.229,-97.672"
+  },
+  {
+   "from": "S 1st St (Mary St W)",
+   "hour_of_week": 98,
+   "n": 2,
+   "seg": "30.249,-97.764"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -98,12 +116,6 @@
    "seg": "30.240,-97.666"
   },
   {
-   "from": "Hawkins Ln",
-   "hour_of_week": 98,
-   "n": 2,
-   "seg": "30.229,-97.672"
-  },
-  {
    "from": "Ellas Inlet Dr / Felix Sparke Dr",
    "hour_of_week": 68,
    "n": 2,
@@ -126,18 +138,6 @@
    "hour_of_week": 95,
    "n": 1,
    "seg": "30.485,-97.736"
-  },
-  {
-   "from": "FM-2222 (TX-360 Loop/N Capital of Texas Hwy)",
-   "hour_of_week": 95,
-   "n": 1,
-   "seg": "30.381,-97.774"
-  },
-  {
-   "from": "Austin",
-   "hour_of_week": 95,
-   "n": 1,
-   "seg": "30.202,-97.887"
   }
  ],
  "unmatched_pct": {
