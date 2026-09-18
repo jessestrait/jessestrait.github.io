@@ -7,10 +7,10 @@
  ],
  "counts": {
   "dispatch": 22,
-  "dispatch_only": 21,
-  "matched": 1,
-  "tomtom": 196,
-  "tomtom_only": 195
+  "dispatch_only": 22,
+  "matched": 0,
+  "tomtom": 209,
+  "tomtom_only": 209
  },
  "date": "2026-09-18",
  "match_rate": {
@@ -20,18 +20,18 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 1,
+   "matched": 0,
    "n": 19,
-   "pct": 5.3
+   "pct": 0.0
   },
   "tomtom_highway": {
-   "matched": 1,
-   "n": 97,
-   "pct": 1.0
+   "matched": 0,
+   "n": 101,
+   "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 99,
+   "n": 108,
    "pct": 0.0
   }
  },
@@ -42,12 +42,7 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 6.1,
-  "median": 6.1,
-  "min": 6.1,
-  "n": 1,
-  "q1": 6.1,
-  "q3": 6.1
+  "n": 0
  },
  "persistence_min": {
   "n": 0
@@ -55,7 +50,7 @@
  "poll_interval_min": 5.0,
  "structural_hotspots": [
   {
-   "from": "E Braker Ln (I-35)",
+   "from": "N Interstate 35",
    "hour_of_week": 95,
    "n": 2,
    "seg": "30.362,-97.686"
@@ -71,6 +66,12 @@
    "hour_of_week": 68,
    "n": 2,
    "seg": "30.234,-97.736"
+  },
+  {
+   "from": "E Oltorf St (Burleson Rd)",
+   "hour_of_week": 95,
+   "n": 2,
+   "seg": "30.219,-97.734"
   },
   {
    "from": "Thompson Ln",
@@ -137,16 +138,10 @@
    "hour_of_week": 95,
    "n": 1,
    "seg": "30.202,-97.866"
-  },
-  {
-   "from": "Stone Hill Dr",
-   "hour_of_week": 95,
-   "n": 1,
-   "seg": "30.474,-97.596"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 95.5,
-  "tomtom": 99.5
+  "dispatch": 100.0,
+  "tomtom": 100.0
  }
 }
