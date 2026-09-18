@@ -7,11 +7,11 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 58,
-  "dispatch_only": 57,
+  "dispatch": 59,
+  "dispatch_only": 58,
   "matched": 1,
-  "tomtom": 418,
-  "tomtom_only": 416
+  "tomtom": 427,
+  "tomtom_only": 425
  },
  "date": "2026-09-18",
  "dispatch_life_capped": true,
@@ -26,8 +26,8 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 12,
-   "pct": 8.3
+   "n": 13,
+   "pct": 7.7
   },
   "dispatch_surface": {
    "matched": 0,
@@ -36,12 +36,12 @@
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 224,
+   "n": 228,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 194,
+   "n": 199,
    "pct": 1.0
   }
  },
@@ -132,6 +132,12 @@
    "seg": "30.230,-97.883"
   },
   {
+   "from": "S Interstate 35",
+   "hour_of_week": 107,
+   "n": 2,
+   "seg": "30.186,-97.773"
+  },
+  {
    "from": "TX-343/S Lamar Blvd (W Mary St)",
    "hour_of_week": 98,
    "n": 2,
@@ -148,12 +154,6 @@
    "hour_of_week": 68,
    "n": 2,
    "seg": "30.234,-97.736"
-  },
-  {
-   "from": "Thompson Ln",
-   "hour_of_week": 94,
-   "n": 2,
-   "seg": "30.240,-97.666"
   }
  ],
  "unmatched_pct": {
