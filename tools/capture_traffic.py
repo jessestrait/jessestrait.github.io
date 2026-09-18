@@ -474,8 +474,11 @@ def summarise(day, tt_closed, dp_closed, matches, tt_open, dp_open, interval_min
             "dispatch_only": len([d for d in dp_all if d["id"] not in m_dp]),
             "tomtom_only": len([t for t in tt_all if t["id"] not in m_tt]),
         },
-        # Signed on purpose. Probe data often sees the jam before APD
-        # publishes, so negatives are expected and are themselves the finding.
+        # Signed on purpose, and the sign turned out to be the finding — just
+        # not the one this comment used to assert. It said probe data often
+        # sees the jam before APD publishes. Over the first 70 matched pairs
+        # the median is +9.7 minutes and the jam appears after the dispatch
+        # 66% of the time, so on this evidence it usually does not.
         "onset_offset_min": dist_stats([m.get("onset_offset_min") for m in matches]),
         # Kept, but flagged: while dispatch records are capped this is the
         # difference between a jam's real end and an administrative one, and
