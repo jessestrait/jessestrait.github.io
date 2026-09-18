@@ -1,33 +1,33 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 111, q3 118 min over 45 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 110, q3 118 min over 47 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 51,
+  "dispatch": 52,
   "dispatch_only": 51,
-  "matched": 0,
-  "tomtom": 377,
-  "tomtom_only": 377
+  "matched": 1,
+  "tomtom": 381,
+  "tomtom_only": 380
  },
  "date": "2026-09-18",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 115.9,
-  "min": 84.4,
-  "n": 45,
-  "q1": 110.8,
+  "median": 115.7,
+  "min": 83.0,
+  "n": 47,
+  "q1": 109.6,
   "q3": 118.2
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 0,
-   "n": 9,
-   "pct": 0.0
+   "matched": 1,
+   "n": 10,
+   "pct": 10.0
   },
   "dispatch_surface": {
    "matched": 0,
@@ -35,13 +35,13 @@
    "pct": 0.0
   },
   "tomtom_highway": {
-   "matched": 0,
-   "n": 192,
-   "pct": 0.0
+   "matched": 1,
+   "n": 195,
+   "pct": 0.5
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 185,
+   "n": 186,
    "pct": 0.0
   }
  },
@@ -52,7 +52,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "n": 0
+  "max": 5.5,
+  "median": 5.5,
+  "min": 5.5,
+  "n": 1,
+  "q1": 5.5,
+  "q3": 5.5
  },
  "persistence_min": {
   "n": 0,
@@ -152,7 +157,7 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 100.0,
-  "tomtom": 100.0
+  "dispatch": 98.1,
+  "tomtom": 99.7
  }
 }
