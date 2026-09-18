@@ -1,20 +1,20 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 109, q3 118 min over 105 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 109, q3 118 min over 106 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 120,
-  "dispatch_only": 115,
+  "dispatch": 122,
+  "dispatch_only": 114,
   "here": 0,
   "here_matched": 0,
-  "matched": 5,
-  "tomtom": 1606,
-  "tomtom_only": 1602
+  "matched": 8,
+  "tomtom": 1707,
+  "tomtom_only": 1697
  },
  "date": "2026-09-18",
  "dispatch_life_capped": true,
@@ -22,9 +22,9 @@
   "max": 120.0,
   "median": 115.5,
   "min": 83.0,
-  "n": 105,
-  "q1": 109.1,
-  "q3": 117.8
+  "n": 106,
+  "q1": 109.2,
+  "q3": 117.7
  },
  "here_onset_offset_min": {
   "n": 0
@@ -36,19 +36,19 @@
    "pct": 11.5
   },
   "dispatch_surface": {
-   "matched": 2,
-   "n": 94,
-   "pct": 2.1
+   "matched": 5,
+   "n": 96,
+   "pct": 5.2
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 795,
-   "pct": 0.5
+   "matched": 5,
+   "n": 847,
+   "pct": 0.6
   },
   "tomtom_surface": {
-   "matched": 0,
-   "n": 811,
-   "pct": 0.0
+   "matched": 5,
+   "n": 860,
+   "pct": 0.6
   }
  },
  "matcher": {
@@ -58,12 +58,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 45.6,
-  "median": 23.3,
+  "max": 63.4,
+  "median": 28.9,
   "min": -39.2,
-  "n": 5,
-  "q1": -32.6,
-  "q3": 40.0
+  "n": 8,
+  "q1": -20.4,
+  "q3": 55.3
  },
  "persistence_min": {
   "n": 0,
@@ -126,6 +126,12 @@
    "seg": "30.480,-97.674"
   },
   {
+   "from": "W Ben White Blvd",
+   "hour_of_week": 116,
+   "n": 3,
+   "seg": "30.223,-97.764"
+  },
+  {
    "from": "Yager Ln (I-35)",
    "hour_of_week": 151,
    "n": 2,
@@ -166,23 +172,17 @@
    "hour_of_week": 99,
    "n": 2,
    "seg": "30.195,-97.767"
-  },
-  {
-   "from": "S Interstate 35",
-   "hour_of_week": 100,
-   "n": 2,
-   "seg": "30.186,-97.773"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 95.8,
-  "tomtom": 99.8
+  "dispatch": 93.4,
+  "tomtom": 99.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 120,
-  "neither": 115,
-  "tomtom_only": 5
+  "n": 122,
+  "neither": 114,
+  "tomtom_only": 8
  }
 }
