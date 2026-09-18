@@ -1,20 +1,20 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 108, q3 118 min over 88 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 108, q3 118 min over 89 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 101,
-  "dispatch_only": 100,
+  "dispatch": 104,
+  "dispatch_only": 102,
   "here": 0,
   "here_matched": 0,
-  "matched": 1,
-  "tomtom": 1077,
-  "tomtom_only": 1076
+  "matched": 2,
+  "tomtom": 1097,
+  "tomtom_only": 1095
  },
  "date": "2026-09-18",
  "dispatch_life_capped": true,
@@ -22,9 +22,9 @@
   "max": 120.0,
   "median": 115.5,
   "min": 83.0,
-  "n": 88,
-  "q1": 107.5,
-  "q3": 117.6
+  "n": 89,
+  "q1": 108.0,
+  "q3": 117.5
  },
  "here_onset_offset_min": {
   "n": 0
@@ -36,18 +36,18 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 1,
-   "n": 80,
-   "pct": 1.2
+   "matched": 2,
+   "n": 83,
+   "pct": 2.4
   },
   "tomtom_highway": {
-   "matched": 1,
-   "n": 545,
-   "pct": 0.2
+   "matched": 2,
+   "n": 555,
+   "pct": 0.4
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 532,
+   "n": 542,
    "pct": 0.0
   }
  },
@@ -58,12 +58,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 63.4,
-  "median": 63.4,
-  "min": 63.4,
-  "n": 1,
-  "q1": 63.4,
-  "q3": 63.4
+  "max": -9.0,
+  "median": -31.1,
+  "min": -53.1,
+  "n": 2,
+  "q1": -53.1,
+  "q3": -9.0
  },
  "persistence_min": {
   "n": 0,
@@ -175,14 +175,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 99.0,
-  "tomtom": 99.9
+  "dispatch": 98.1,
+  "tomtom": 99.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 101,
-  "neither": 100,
-  "tomtom_only": 1
+  "n": 104,
+  "neither": 102,
+  "tomtom_only": 2
  }
 }
