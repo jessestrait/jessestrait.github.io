@@ -434,8 +434,14 @@ handoff's read:
 
   - zone_status IS lifecycle (Active / Inactive / Removed), as suspected.
     Active: AISD 95, PRIVATE 17, RRISD 15, plus PISD and LISD.
-  - Districts are AISD, PISD, RRISD, **LISD (Leander)** and PRIVATE. Not
-    Del Valle.
+  - Districts: **eight**, not five, and Del Valle IS among them — I said it
+    was not, off a group query my parser had truncated. Austin 104,
+    Private 19, Round Rock 15, Pflugerville 6, Leander 5, Eanes 5, Del Valle
+    3, Manor 2, plus 9 blank. The register spells several of them more than
+    one way ("AISD" / "AISD (Austin)", "PRIVATE" / "Private",
+    "AISD / PRIVATE" / "AISD /PRIVATE"), so the builder normalises. One zone
+    is flagged year-round, which is exactly the case a reader's instinct
+    about the school year would get wrong.
   - a7ua-4hkr carries NO geometry. The zone shapes are on GeoHub as
     `School_Zones`, 361 polylines with SCHOOL_ZONE_ID, SCHOOL_NAME,
     STREET_NAME — a school zone is a stretch of street, which is the right

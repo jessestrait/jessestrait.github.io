@@ -992,6 +992,22 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
         here publish one, and they are the named creeks. Tap a closed crossing and it names the
         nearest gauge and what the water is doing &mdash; straight-line nearest, so it says which
         creek and lets you judge whether that is the one under the road.</li>
+      <li><b>School zones</b> &mdash; three sources joined at build time: the city's
+        <b>zone register</b>, the <b>beacons</b> themselves, and <b>GeoHub centrelines</b>. The
+        register carries no geometry and the beacons carry the schedules, so the join is the
+        feature: a beacon id reads &ldquo;7322-529-&rdquo;, and that 7322 is the zone, which is
+        also GeoHub's. 161 of the 162 active zones come out with both a real window and a
+        position; 27 have no published centreline and are drawn at their beacons instead, which
+        the popup says. Only Active zones &mdash; the register also lists Inactive and Removed
+        ones, and drawing a retired zone would be worse than drawing nothing.
+        <b>What it will not tell you is whether school is in session.</b> The hours are published
+        and exact, including the early-release window, so the page says a zone is
+        <i>scheduled</i> when a weekday window is open and leaves the last step to you. No
+        district here publishes its calendar in any form a page can read, and there are eight of
+        them &mdash; Austin, Pflugerville, Round Rock, Leander, Eanes, Del Valle, Manor and a set
+        of private schools &mdash; with different terms, different holidays, and one that runs
+        year round. A school-zone layer that is confidently wrong on a teacher work day is worse
+        than one that tells you what it actually knows.</li>
       <li><b>Roadway work zones</b> &mdash; <b>open right-of-way permits</b> rather than cones on
         the ground, which is why the count runs to thousands and some end dates run years out.
         Filtered to permits that have not expired, and drawn quietly except on the corridors the
@@ -2528,7 +2544,7 @@ const TIERS = [
   ['live', 'Live now', ['firelive', 'c311', 'traffic', 'transit', 'signals',
                         'bikes', 'gauges', 'lwc', 'outages']],
   ['today', 'Lately', ['news', 'crashes', 'wildfire', 'permits']],
-  ['standing', 'Standing', ['busroutes', 'busstops', 'workzones']]
+  ['standing', 'Standing', ['busroutes', 'busstops', 'workzones', 'schoolzones']]
 ];
 
 function tierOf(id) {
@@ -2985,6 +3001,24 @@ const GROUND = [
     load: g => loadTransitStops(g)
   },
   {
+    /* School zones, and the honest half of the question.
+
+       When they flash is published — the beacons carry real clock windows,
+       including the early-release one — so that part is fact. Whether school
+       is in session today is not published anywhere, and the five districts
+       here do not share a calendar, so the page will not claim it. A zone
+       whose window is open on a weekday is "scheduled", and the reader is
+       told to supply the bit only they know: whether it is spring break.
+
+       Deciding that for them would mean a hand-kept calendar going stale
+       every August, and a school-zone layer that is confidently wrong is
+       worse than no school-zone layer. */
+    id: 'schoolzones', color: '#f5b642', name: 'School zones',
+    note: 'When the beacons are scheduled to flash',
+    group: 'recent',
+    load: g => loadSchoolZones(g)
+  },
+  {
     id: 'workzones', color: '#fb923c', name: 'Roadway work zones',
     // Permits rather than cones: most of these are long-running right-of-way
     // grants, which is why the count runs to thousands and the end dates run
@@ -3262,6 +3296,115 @@ async function atxSweep(only) {
    That was the layer that would not switch off. It only ever hit the layers
    that start ticked AND appear in the saved link, which is exactly the three
    that were reported: bus routes, transit stops, work zones. */
+/* ══════════════════════════════════════════════════════════════════
+   School zones — scheduled, not asserted.
+   ══════════════════════════════════════════════════════════════════ */
+const SCHOOL = { layer: null, timer: null, meta: null };
+
+// "06:55" out of 415, for the note and the popup.
+function clockOf(mins) {
+  const h = Math.floor(mins / 60), m = mins % 60;
+  const ampm = h < 12 ? 'am' : 'pm';
+  const hh = h % 12 === 0 ? 12 : h % 12;
+  return hh + ':' + String(m).padStart(2, '0') + ' ' + ampm;
+}
+
+/* Weekday only. Beacons do not flash at weekends anywhere in this data, and
+   that much is safe to assert without a calendar — unlike a Tuesday in
+   March, which may or may not be a school day. */
+function zoneOpenNow(win, now) {
+  const d = now || new Date();
+  const day = d.getDay();
+  if (day === 0 || day === 6) return false;
+  const t = d.getHours() * 60 + d.getMinutes();
+  return (win || []).some(w => t >= w[0] && t < w[1]);
+}
+
+// The next window to open today, for the note when nothing is live.
+function nextZoneWindow(feats, now) {
+  const d = now || new Date();
+  if (d.getDay() === 0 || d.getDay() === 6) return null;
+  const t = d.getHours() * 60 + d.getMinutes();
+  let best = null;
+  feats.forEach(f => (f.properties.win || []).forEach(w => {
+    if (w[0] > t && (best === null || w[0] < best)) best = w[0];
+  }));
+  return best;
+}
+
+function schoolStyle(f) {
+  const on = zoneOpenNow(f.properties.win);
+  return {
+    color: on ? '#f5b642' : '#8a7a52',
+    weight: on ? 4 : 1.8,
+    opacity: on ? 0.95 : 0.35,
+    lineCap: 'round', lineJoin: 'round'
+  };
+}
+
+function schoolRestyle() {
+  if (!SCHOOL.layer) return;
+  SCHOOL.layer.setStyle(schoolStyle);
+  const feats = SCHOOL.meta || [];
+  const live = feats.filter(f => zoneOpenNow(f.properties.win)).length;
+  const next = nextZoneWindow(feats);
+  setNote(byGround.schoolzones, live
+    ? live + ' zone' + (live === 1 ? '' : 's') + ' scheduled now \u2014 if school is in session'
+    : (next != null ? 'None scheduled \u00b7 next at ' + clockOf(next)
+                    : 'None scheduled today'));
+}
+
+async function loadSchoolZones(g) {
+  const badge = document.getElementById('ct-g-' + g.id);
+  try {
+    const gj = await fetch('data/schoolzones.json').then(r => r.json());
+    SCHOOL.meta = gj.features;
+    SCHOOL.layer = L.geoJSON(gj, {
+      pane: 'groundPane', renderer: groundRenderer, style: schoolStyle,
+      // 27 zones publish no centreline; those ship as their beacons, which
+      // is a real position rather than a dropped zone.
+      pointToLayer: (f, ll) => L.circleMarker(ll, {
+        pane: 'groundPane', renderer: groundRenderer,
+        radius: COARSE ? 6 : 4.5, weight: 2, fillOpacity: 0.25
+      }),
+      onEachFeature: (f, lyr) => {
+        const p = f.properties;
+        lyr.bindPopup(() => {
+          const on = zoneOpenNow(p.win);
+          const when = (p.win || []).map(w => clockOf(w[0]) + ' \u2013 ' + clockOf(w[1])).join(', ');
+          return pop('#f5b642', on ? 'School zone \u00b7 scheduled now' : 'School zone',
+            p.zone || p.school || 'School zone', '', [
+              ['School', p.school],
+              ['District', p.isd],
+              ['Beacons flash', when],
+              ['Streets', (p.streets || []).join(', ') || null],
+              ['Calendar', p.yearRound ? 'year-round school \u2014 in session outside the usual terms' : null],
+              ['Drawn from', p.beaconsOnly ? 'beacon positions \u2014 no centreline published' : null]
+            ],
+            '<p style="margin-top:.5rem;color:var(--muted);font-size:.72rem">'
+            + (on ? 'Inside a scheduled window right now. '
+                  : 'Outside its scheduled windows right now. ')
+            + 'Whether school is actually in session today is not published by any '
+            + 'of the five districts here, so this says when the beacons are set to '
+            + 'flash and leaves the last step to you.</p>');
+        }, { maxWidth: 320 });
+      }
+    });
+    adoptGround(g, SCHOOL.layer);
+    if (g.on) SCHOOL.layer.addTo(map);
+    if (badge) badge.textContent = gj.features.length;
+    schoolRestyle();
+    // A window opens or closes on a minute boundary, so the styling has to
+    // move on its own or the layer is only right when you reload.
+    clearInterval(SCHOOL.timer);
+    SCHOOL.timer = setInterval(schoolRestyle, 60000);
+  } catch (e) {
+    console.error(e);
+    if (badge) badge.textContent = 'err';
+    setNote(g, 'Could not load the school zones', true);
+  }
+}
+
 async function loadGround(g) {
   if (g.loading) return;
   g.loading = true;
