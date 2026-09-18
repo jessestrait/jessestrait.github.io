@@ -1,29 +1,29 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 108, q3 118 min over 126 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 106, q3 118 min over 130 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 149,
-  "dispatch_only": 143,
+  "dispatch": 151,
+  "dispatch_only": 144,
   "here": 0,
   "here_matched": 0,
-  "matched": 6,
-  "tomtom": 2336,
-  "tomtom_only": 2331
+  "matched": 7,
+  "tomtom": 2393,
+  "tomtom_only": 2386
  },
  "date": "2026-09-18",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 115.3,
+  "median": 115.2,
   "min": 80.8,
-  "n": 126,
-  "q1": 107.9,
+  "n": 130,
+  "q1": 105.5,
   "q3": 117.7
  },
  "here_onset_offset_min": {
@@ -31,24 +31,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 3,
+   "matched": 4,
    "n": 34,
-   "pct": 8.8
+   "pct": 11.8
   },
   "dispatch_surface": {
    "matched": 3,
-   "n": 115,
+   "n": 117,
    "pct": 2.6
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 1201,
+   "n": 1228,
    "pct": 0.4
   },
   "tomtom_surface": {
-   "matched": 0,
-   "n": 1135,
-   "pct": 0.0
+   "matched": 2,
+   "n": 1165,
+   "pct": 0.2
   }
  },
  "matcher": {
@@ -59,11 +59,11 @@
  },
  "onset_offset_min": {
   "max": 76.9,
-  "median": 28.0,
-  "min": -88.3,
-  "n": 6,
-  "q1": -10.7,
-  "q3": 56.9
+  "median": 23.2,
+  "min": -40.6,
+  "n": 7,
+  "q1": 15.2,
+  "q3": 50.2
  },
  "persistence_min": {
   "n": 0,
@@ -144,6 +144,12 @@
    "seg": "30.264,-97.757"
   },
   {
+   "from": "Cesar Chavez St exit [234A]",
+   "hour_of_week": 119,
+   "n": 3,
+   "seg": "30.262,-97.736"
+  },
+  {
    "from": "Yager Ln (I-35)",
    "hour_of_week": 151,
    "n": 2,
@@ -166,23 +172,17 @@
    "hour_of_week": 98,
    "n": 2,
    "seg": "30.264,-97.738"
-  },
-  {
-   "from": "Hawkins Ln",
-   "hour_of_week": 98,
-   "n": 2,
-   "seg": "30.229,-97.672"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 96.0,
-  "tomtom": 99.8
+  "dispatch": 95.4,
+  "tomtom": 99.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 149,
-  "neither": 143,
-  "tomtom_only": 6
+  "n": 151,
+  "neither": 144,
+  "tomtom_only": 7
  }
 }
