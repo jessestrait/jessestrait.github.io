@@ -9,12 +9,12 @@
  ],
  "counts": {
   "dispatch": 138,
-  "dispatch_only": 129,
+  "dispatch_only": 132,
   "here": 0,
   "here_matched": 0,
-  "matched": 9,
-  "tomtom": 2075,
-  "tomtom_only": 2062
+  "matched": 6,
+  "tomtom": 2114,
+  "tomtom_only": 2106
  },
  "date": "2026-09-18",
  "dispatch_life_capped": true,
@@ -31,24 +31,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 5,
+   "matched": 4,
    "n": 30,
-   "pct": 16.7
+   "pct": 13.3
   },
   "dispatch_surface": {
-   "matched": 4,
+   "matched": 2,
    "n": 108,
-   "pct": 3.7
+   "pct": 1.9
   },
   "tomtom_highway": {
-   "matched": 8,
-   "n": 1059,
-   "pct": 0.8
+   "matched": 7,
+   "n": 1079,
+   "pct": 0.6
   },
   "tomtom_surface": {
-   "matched": 5,
-   "n": 1016,
-   "pct": 0.5
+   "matched": 1,
+   "n": 1035,
+   "pct": 0.1
   }
  },
  "matcher": {
@@ -58,20 +58,15 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 61.4,
-  "median": 29.4,
+  "max": 37.5,
+  "median": 4.5,
   "min": -88.3,
-  "n": 9,
-  "q1": -23.6,
-  "q3": 43.4
+  "n": 6,
+  "q1": -75.2,
+  "q3": 32.6
  },
  "persistence_min": {
-  "max": 0.0,
-  "median": 0.0,
-  "min": 0.0,
-  "n": 1,
-  "q1": 0.0,
-  "q3": 0.0,
+  "n": 0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -180,14 +175,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 93.5,
-  "tomtom": 99.4
+  "dispatch": 95.7,
+  "tomtom": 99.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 138,
-  "neither": 129,
-  "tomtom_only": 9
+  "neither": 132,
+  "tomtom_only": 6
  }
 }
