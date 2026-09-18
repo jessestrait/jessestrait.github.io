@@ -6,32 +6,32 @@
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless."
  ],
  "counts": {
-  "dispatch": 26,
-  "dispatch_only": 26,
+  "dispatch": 29,
+  "dispatch_only": 29,
   "matched": 0,
-  "tomtom": 263,
-  "tomtom_only": 263
+  "tomtom": 276,
+  "tomtom_only": 276
  },
  "date": "2026-09-18",
  "match_rate": {
   "dispatch_highway": {
    "matched": 0,
-   "n": 3,
+   "n": 4,
    "pct": 0.0
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 23,
+   "n": 25,
    "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 127,
+   "n": 134,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 136,
+   "n": 142,
    "pct": 0.0
   }
  },
@@ -49,6 +49,18 @@
  },
  "poll_interval_min": 5.0,
  "structural_hotspots": [
+  {
+   "from": "S 1st St (W Riverside Dr)",
+   "hour_of_week": 17,
+   "n": 2,
+   "seg": "30.264,-97.756"
+  },
+  {
+   "from": "Yager Ln (I-35)",
+   "hour_of_week": 151,
+   "n": 2,
+   "seg": "30.386,-97.673"
+  },
   {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
@@ -86,6 +98,12 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "E Cesar Chavez St",
+   "hour_of_week": 97,
+   "n": 2,
+   "seg": "30.259,-97.729"
+  },
+  {
    "from": "Woodall Dr",
    "hour_of_week": 95,
    "n": 1,
@@ -120,24 +138,6 @@
    "hour_of_week": 95,
    "n": 1,
    "seg": "30.201,-97.867"
-  },
-  {
-   "from": "Davis Ln (TX-1)",
-   "hour_of_week": 95,
-   "n": 1,
-   "seg": "30.202,-97.866"
-  },
-  {
-   "from": "Stone Hill Dr",
-   "hour_of_week": 95,
-   "n": 1,
-   "seg": "30.474,-97.596"
-  },
-  {
-   "from": "S 1st St (Barton Springs Rd)",
-   "hour_of_week": 95,
-   "n": 1,
-   "seg": "30.264,-97.764"
   }
  ],
  "unmatched_pct": {
