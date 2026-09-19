@@ -13,18 +13,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 0,
-  "tomtom": 275,
-  "tomtom_only": 275
+  "tomtom": 285,
+  "tomtom_only": 285
  },
  "date": "2026-09-19",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
-  "max": 115.2,
-  "median": 107.9,
+  "max": 118.4,
+  "median": 111.8,
   "min": 100.8,
-  "n": 5,
-  "q1": 103.4,
-  "q3": 113.5
+  "n": 7,
+  "q1": 106.0,
+  "q3": 115.2
  },
  "here_onset_offset_min": {
   "n": 0
@@ -42,12 +42,12 @@
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 111,
+   "n": 115,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 164,
+   "n": 170,
    "pct": 0.0
   }
  },
@@ -96,16 +96,22 @@
    "seg": "30.262,-97.736"
   },
   {
+   "from": "Stone Hill Dr",
+   "hour_of_week": 120,
+   "n": 2,
+   "seg": "30.474,-97.596"
+  },
+  {
    "from": "Panther Dr",
    "hour_of_week": 120,
    "n": 2,
    "seg": "30.475,-97.591"
   },
   {
-   "from": "FM-2244 (TX-1)",
+   "from": "S Heatherwilde Blvd (Wells Branch Pkwy)",
    "hour_of_week": 120,
    "n": 2,
-   "seg": "30.256,-97.803"
+   "seg": "30.441,-97.665"
   },
   {
    "from": "S Lamar Blvd",
@@ -114,13 +120,19 @@
    "seg": "30.256,-97.763"
   },
   {
+   "from": "San Antonio St (2nd St)",
+   "hour_of_week": 120,
+   "n": 2,
+   "seg": "30.265,-97.747"
+  },
+  {
    "from": "Austin",
    "hour_of_week": 120,
    "n": 2,
    "seg": "30.233,-97.740"
   },
   {
-   "from": "Sabine St",
+   "from": "Cesar Chavez St exit [234A]",
    "hour_of_week": 120,
    "n": 2,
    "seg": "30.262,-97.736"
@@ -154,18 +166,6 @@
    "hour_of_week": 44,
    "n": 2,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "Round Rock-Georgetown",
-   "hour_of_week": 119,
-   "n": 1,
-   "seg": "30.486,-97.771"
-  },
-  {
-   "from": "FM-620 (W Parmer Ln/FM-734)",
-   "hour_of_week": 119,
-   "n": 1,
-   "seg": "30.484,-97.769"
   }
  ],
  "unmatched_pct": {
