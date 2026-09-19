@@ -9,31 +9,31 @@
  ],
  "counts": {
   "dispatch": 19,
-  "dispatch_only": 17,
+  "dispatch_only": 19,
   "here": 0,
   "here_matched": 0,
-  "matched": 2,
-  "tomtom": 229,
-  "tomtom_only": 227
+  "matched": 0,
+  "tomtom": 238,
+  "tomtom_only": 238
  },
  "date": "2026-09-19",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
-  "max": 111.8,
-  "median": 106.9,
+  "max": 115.2,
+  "median": 107.9,
   "min": 100.8,
-  "n": 4,
-  "q1": 102.1,
-  "q3": 110.8
+  "n": 5,
+  "q1": 103.4,
+  "q3": 113.5
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 2,
+   "matched": 0,
    "n": 5,
-   "pct": 40.0
+   "pct": 0.0
   },
   "dispatch_surface": {
    "matched": 0,
@@ -41,13 +41,13 @@
    "pct": 0.0
   },
   "tomtom_highway": {
-   "matched": 2,
-   "n": 96,
-   "pct": 2.1
+   "matched": 0,
+   "n": 102,
+   "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 133,
+   "n": 136,
    "pct": 0.0
   }
  },
@@ -58,12 +58,7 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 37.9,
-  "median": 28.2,
-  "min": 18.5,
-  "n": 2,
-  "q1": 18.5,
-  "q3": 37.9
+  "n": 0
  },
  "persistence_min": {
   "n": 0
@@ -167,21 +162,21 @@
    "seg": "30.428,-97.671"
   },
   {
-   "from": "Harris Ridge Blvd (E Howard Ln)",
+   "from": "Parmer Ln/Exit 245 (I-35)",
    "hour_of_week": 119,
    "n": 1,
-   "seg": "30.424,-97.669"
+   "seg": "30.416,-97.673"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 89.5,
-  "tomtom": 99.1
+  "dispatch": 100.0,
+  "tomtom": 100.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 19,
-  "neither": 17,
-  "tomtom_only": 2
+  "neither": 19,
+  "tomtom_only": 0
  }
 }
