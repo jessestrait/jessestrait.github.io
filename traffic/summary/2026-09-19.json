@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 109, q3 118 min over 53 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 108, q3 117 min over 55 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
@@ -13,18 +13,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 2,
-  "tomtom": 538,
-  "tomtom_only": 537
+  "tomtom": 539,
+  "tomtom_only": 535
  },
  "date": "2026-09-19",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 115.2,
+  "median": 115.1,
   "min": 81.9,
-  "n": 53,
-  "q1": 109.0,
-  "q3": 117.5
+  "n": 55,
+  "q1": 108.5,
+  "q3": 117.1
  },
  "here_onset_offset_min": {
   "n": 0
@@ -41,13 +41,13 @@
    "pct": 4.3
   },
   "tomtom_highway": {
-   "matched": 1,
+   "matched": 4,
    "n": 214,
-   "pct": 0.5
+   "pct": 1.9
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 324,
+   "n": 325,
    "pct": 0.0
   }
  },
@@ -59,14 +59,19 @@
  },
  "onset_offset_min": {
   "max": 61.9,
-  "median": 18.0,
-  "min": -25.9,
+  "median": 36.2,
+  "min": 10.6,
   "n": 2,
-  "q1": -25.9,
+  "q1": 10.6,
   "q3": 61.9
  },
  "persistence_min": {
-  "n": 0,
+  "max": 0.0,
+  "median": 0.0,
+  "min": 0.0,
+  "n": 1,
+  "q1": 0.0,
+  "q3": 0.0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -82,101 +87,123 @@
   "pct_of_tomtom": 0.0,
   "type_agree": 0
  },
+ "roadworks": {
+  "explained_by_roadworks": 100,
+  "hotspot_buckets": 478,
+  "hotspot_buckets_on_roadworks": 92,
+  "txdot_rows": 5,
+  "unreported_congestion": 524
+ },
  "structural_hotspots": [
-  {
-   "from": "Cesar Chavez St exit [234A]",
-   "hour_of_week": 121,
-   "n": 4,
-   "seg": "30.262,-97.736"
-  },
   {
    "from": "W 23rd St",
    "hour_of_week": 122,
    "n": 3,
+   "roadworks": false,
    "seg": "30.288,-97.748"
   },
   {
    "from": "E 7th St",
    "hour_of_week": 123,
    "n": 3,
-   "seg": "30.264,-97.727"
-  },
-  {
-   "from": "E 6th St",
-   "hour_of_week": 125,
-   "n": 3,
+   "roadworks": false,
    "seg": "30.264,-97.727"
   },
   {
    "from": "I-35 (E 5th St)",
    "hour_of_week": 125,
    "n": 3,
+   "roadworks": false,
    "seg": "30.266,-97.738"
+  },
+  {
+   "from": "E 6th St",
+   "hour_of_week": 126,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.264,-97.727"
   },
   {
    "from": "FM Road 2222",
    "hour_of_week": 119,
    "n": 2,
+   "roadworks": false,
    "seg": "30.397,-97.827"
   },
   {
    "from": "Brazos St (2nd St)",
    "hour_of_week": 119,
    "n": 2,
+   "roadworks": false,
    "seg": "30.264,-97.742"
-  },
-  {
-   "from": "Cesar Chavez St exit [234A]",
-   "hour_of_week": 119,
-   "n": 2,
-   "seg": "30.262,-97.736"
   },
   {
    "from": "Stone Hill Dr",
    "hour_of_week": 120,
    "n": 2,
+   "roadworks": false,
    "seg": "30.474,-97.596"
   },
   {
    "from": "Panther Dr",
    "hour_of_week": 120,
    "n": 2,
+   "roadworks": false,
    "seg": "30.475,-97.591"
   },
   {
    "from": "S Heatherwilde Blvd (Wells Branch Pkwy)",
    "hour_of_week": 120,
    "n": 2,
+   "roadworks": false,
    "seg": "30.441,-97.665"
   },
   {
    "from": "W 15th St (N Lamar Blvd)",
    "hour_of_week": 120,
    "n": 2,
+   "roadworks": false,
    "seg": "30.273,-97.753"
   },
   {
    "from": "S Lamar Blvd",
    "hour_of_week": 120,
    "n": 2,
+   "roadworks": false,
    "seg": "30.256,-97.763"
   },
   {
    "from": "N Lake Creek Pkwy",
    "hour_of_week": 120,
    "n": 2,
+   "roadworks": false,
    "seg": "30.475,-97.794"
   },
   {
    "from": "State Highway 130 / Copper Mine Dr",
    "hour_of_week": 120,
    "n": 2,
+   "roadworks": false,
    "seg": "30.470,-97.592"
+  },
+  {
+   "from": "San Antonio St",
+   "hour_of_week": 120,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.265,-97.748"
+  },
+  {
+   "from": "San Antonio St (2nd St)",
+   "hour_of_week": 120,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.265,-97.747"
   }
  ],
  "unmatched_pct": {
   "dispatch": 96.6,
-  "tomtom": 99.8
+  "tomtom": 99.3
  },
  "witnesses": {
   "both": 0,
