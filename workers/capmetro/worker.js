@@ -40,12 +40,35 @@ const FEEDS = {
     // live fetch, so half a cycle is the most anyone sees.
     ttl: 15,
   },
-  // Trip updates are published only as protobuf, so this one is bytes and the
-  // caller needs a decoder. Here because it costs nothing to route.
+  /* Trip updates: predicted arrivals, delays and skipped stops, which is
+     what turns a moving dot into "the 803 is four minutes down".
+
+     This used to point at rmk2-acnw, the protobuf build, on the assumption
+     that trip updates were published only as bytes — they are not.
+     mqtr-wwpy is the same feed as JSON, and the page can read it with no
+     decoder at all. 745 KB raw against 180 KB of protobuf, but it gzips to
+     a fraction of that and deleting a protobuf decoder from a single-file
+     page is worth several hundred kilobytes of wire. */
   trips: {
-    url: 'https://data.texas.gov/download/rmk2-acnw/application%2Foctet-stream',
-    type: 'application/octet-stream',
+    url: 'https://data.texas.gov/download/mqtr-wwpy/text%2Fplain',
+    type: 'application/json; charset=utf-8',
+    // Republishes on the same cadence as the positions.
     ttl: 20,
+  },
+  /* Service alerts: detours, stop closures, elevator outages.
+
+     Not GTFS-realtime shaped despite the name — no header, no entity, just
+     a bare JSON array of alert objects with activePeriods and
+     informedEntities. Handled as what it is rather than what it is called.
+
+     It also carries the name and work email of the CapMetro employee who
+     filed each alert. That is CapMetro's decision to publish and not this
+     relay's to censor — it passes bytes through unchanged, which is the one
+     promise it makes — but nothing on the page reads those fields. */
+  alerts: {
+    url: 'https://data.texas.gov/download/9zu9-jwr2/text%2Fplain',
+    type: 'application/json; charset=utf-8',
+    ttl: 120,
   },
   /* ADS-B positions. No CORS header at all, rather than a redirect that
      drops it. 40 nautical miles covers the approach and departure corridors
@@ -95,7 +118,8 @@ const CORS = {
 const INDEX = `Austin feed relay
 
   /vehicles   CapMetro vehicle positions, GTFS-realtime JSON
-  /trips      CapMetro trip updates, GTFS-realtime protobuf
+  /trips      CapMetro trip updates, GTFS-realtime JSON
+  /alerts     CapMetro service alerts, a bare JSON array
   /aircraft   ADS-B traffic within 40 nm of downtown
   /faa        FAA national airspace status, XML
   /lcra       LCRA hydromet, every gauge in the basin

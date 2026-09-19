@@ -669,3 +669,52 @@ exists. If one ever does, re-adding the layer is a GROUND entry plus a
 loader that reads `here-now.json`; see commit 00b9a87 for the version that
 was removed. Old shared links naming `hereinc` restore harmlessly — the URL
 restore iterates GROUND and skips ids it does not find (verified).
+
+## CapMetro 7.3–7.5: arrivals, alerts, and the nearest stop (2026-09-19)
+
+**Trip updates are published as JSON, and the relay was pointed at the
+wrong file.** `/trips` went to `rmk2-acnw`, the protobuf build, on the
+assumption that trip updates only came as bytes — the relay's own comment
+said "the caller needs a decoder". They do not: **`mqtr-wwpy` is the same
+feed as JSON**, and `9zu9-jwr2` is the service alerts, also JSON. So the
+page needs no protobuf decoder. 728 KB raw for trips, but 36 KB gzipped;
+alerts are 58 KB raw and 9 KB gzipped.
+
+**The one honest limitation.** The trip-updates feed carries absolute
+arrival times and *nothing else*: no `delay` on the trip update, no `delay`
+inside any arrival or departure object. Verified by walking every field of
+every prediction across all 1,591 entities in a live pull — the only keys
+present anywhere are `arrival.time` (1,217) and `departure.time` (81). So
+the page can say "next one in six minutes" and cannot say "four minutes
+late". Computing lateness needs `stop_times.txt` from the static GTFS to
+subtract from, which is megabytes for a number nobody asked for; the
+prediction is what someone waiting actually wants. The About text says so.
+
+**Alerts are not GTFS-realtime shaped** despite the name — a bare JSON
+array, no header, no entity. 91 in the feed, 83 active, touching 46 routes
+and 77 stops, effects NO_SERVICE / DETOUR / REDUCED_SERVICE /
+MODIFIED_SERVICE. Filtered on `deletedAt` and on `activePeriods` covering
+now, then indexed by route and by stop and deduped across both, because a
+detour is usually filed against both and showing it twice reads as two
+problems.
+
+**PII.** Each alert carries `userFullname` and `userEmail` — the CapMetro
+staffer who filed it, at their work address. That is CapMetro's decision to
+publish and the relay passes bytes through unchanged, which is the one
+promise it makes. But nothing on the page reads those fields, and there is
+a test asserting no rendered alert HTML contains them.
+
+**Buses move.** See the commit; the short version is a stable vehicle id,
+markers reconciled rather than rebuilt, and a canvas of their own because
+Leaflet repaints an entire canvas when any layer on it moves. `busFrame()`
+is deliberately a named function rather than a closure in the rAF callback
+so the animation can be driven with a clock in a test.
+
+**Everything degrades to silence.** Until the relay is redeployed, `/alerts`
+is a 404 and `/trips` still answers protobuf; both land as caught failures
+and the transit layer behaves exactly as it did before. Verified against
+the live deployed relay: 0 arrivals, 0 alerts, 14 buses, note unchanged.
+
+**Still needed: the relay deploy.** From `workers/capmetro/`:
+
+    npx wrangler deploy

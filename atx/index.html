@@ -985,7 +985,18 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
         cannot read directly: data.texas.gov answers with a redirect that carries no CORS header,
         and the file it points at rotates its name on every publish, so a small relay adds the
         missing header and changes nothing else. Vehicles in the yard are left off &mdash; where
-        CapMetro parks is not the question.</li>
+        CapMetro parks is not the question. They <b>move</b> rather than blink: positions land
+        about once a minute and each vehicle slides from where it was to where it is, on a canvas
+        of its own so a hundred moving buses never repaint the sixteen thousand other marks.</li>
+      <li><b>When the next bus comes</b> &mdash; CapMetro's <b>trip updates</b> and
+        <b>service alerts</b>, through the same relay. Tap a stop for the next few arrivals by
+        route, which stops are being skipped, and any detour or suspension affecting it.
+        A caveat that matters: the feed publishes <em>predicted arrival times</em> and no delay
+        field at all &mdash; checked across all 1,591 trips in a live pull &mdash; so this can say
+        &ldquo;next one in six minutes&rdquo; and cannot say &ldquo;four minutes late&rdquo;.
+        Saying the second would need CapMetro's static timetable to subtract from, which is
+        megabytes. The alerts feed also carries the name and work email of the CapMetro staffer
+        who filed each one; nothing here reads those fields.</li>
       <li><b>Headlines</b> &mdash; <b>local newsroom RSS</b>, read by a scheduled job in this repo
         rather than by your browser: the feeds do not send CORS headers, so the page could not
         fetch them directly even though they are public. The job reads them, keeps the item and
@@ -1699,8 +1710,14 @@ const LAYERS = [
     glyphPx: 28,
     glyphLabel: f => f.route || '',
     async load() {
-      const j = await fetch(CAPMETRO + '/vehicles', { cache: 'no-store' })
-        .then(r => { if (!r.ok) throw new Error('relay ' + r.status); return r.json(); });
+      // Predictions and alerts first, so the popups built below can carry
+      // them. It is its own try/catch inside, so a missing feed costs the
+      // extra readouts and never the positions.
+      const [j] = await Promise.all([
+        fetch(CAPMETRO + '/vehicles', { cache: 'no-store' })
+          .then(r => { if (!r.ok) throw new Error('relay ' + r.status); return r.json(); }),
+        loadTransitRT()
+      ]);
       const at = +((j.header || {}).timestamp) || 0;
       const out = [];
       (j.entity || []).forEach(e => {
@@ -1716,6 +1733,7 @@ const LAYERS = [
         // The identity that makes a bus a bus across polls rather than a new
         // dot every minute. Without this there is nothing to move.
         const vid = (v.vehicle || {}).id || (v.vehicle || {}).label || e.id;
+        const alerts = TRT.byRoute.get(String(route)) || [];
         out.push({
           vid: vid, bearing: p.bearing,
           lat: +p.latitude, lng: +p.longitude, t, cat: 'Route ' + route, route: route,
@@ -1727,12 +1745,14 @@ const LAYERS = [
               ['Speed', mph != null ? mph.toFixed(0) + ' mph' : null],
               ['Trip', trip.tripId],
               ['Reported', t ? t.toLocaleTimeString() : null]
-            ])
+            ], trtAlertHtml(alerts, 2))
         });
       });
+      const nAlert = TRT.alerts.length;
       setNote(byId.transit, out.length
         ? out.length + ' in service \u00b7 reported '
           + (at ? Math.max(0, Math.round(Date.now() / 1000 - at)) + 's ago' : 'just now')
+          + (nAlert ? ' \u00b7 ' + nAlert + ' alert' + (nAlert === 1 ? '' : 's') : '')
         : 'CapMetro reports nothing in service');
       return out;
     }
@@ -4081,12 +4101,25 @@ async function loadTransitStops(g) {
           L.DomEvent.stop(e);
           selectRoutes(p.route_ids, p.name);
         });
-        lyr.bindPopup(() => pop('#e2e8f0', 'Stop', p.name || 'Transit stop', '', [
-          ['Routes', routeChips(p.route_ids), true],
-          ['Stop', p.id]
-        ], '<p style="margin-top:.5rem;color:var(--muted);font-size:.72rem">'
-         + 'Its routes are lit on the map and the live vehicles are filtered '
-         + 'to them.</p>'), { maxWidth: 320 });
+        // Lazy, so every open reads the current predictions rather than
+        // whatever was true when the layer loaded.
+        lyr.bindPopup(() => {
+          const next = trtArrivalHtml(p.id);
+          const alerts = trtAlertsFor(p.id, p.route_ids);
+          const skip = TRT.skipped.get(String(p.id));
+          return pop('#e2e8f0', 'Stop', p.name || 'Transit stop', '', [
+            ['Next', next, true],
+            ['Not stopping', skip && skip.size ? [...skip].sort().join(', ') : null],
+            ['Routes', routeChips(p.route_ids), true],
+            ['Stop', p.id]
+          ], trtAlertHtml(alerts)
+           + '<p style="margin-top:.5rem;color:var(--muted);font-size:.72rem">'
+           + (next
+               ? 'Predicted arrivals from CapMetro\u2019s trip updates. '
+               : 'CapMetro is publishing no predictions for this stop right now. ')
+           + 'Its routes are lit on the map and the live vehicles are filtered '
+           + 'to them.</p>');
+        }, { maxWidth: 320 });
       }
     });
     // Not added here: syncStopVisibility decides, since below zoom 14 the
@@ -4099,6 +4132,199 @@ async function loadTransitStops(g) {
     if (badge) badge.textContent = 'err';
     setNote(g, 'Could not load the stops', true);
   }
+}
+
+/* ── What the buses are actually doing ────────────────────────────────
+   Positions tell you where a bus is. These two tell you whether it is
+   coming to you and whether it is going the usual way.
+
+   Both arrive as JSON, which was a surprise worth writing down: the relay
+   pointed /trips at rmk2-acnw, the protobuf build, on the assumption that
+   trip updates were published only as bytes. They are not — mqtr-wwpy is
+   the same feed as JSON, and 9zu9-jwr2 is the alerts. So the page needs no
+   protobuf decoder at all.
+
+   TRIP UPDATES ARE PREDICTIONS, NOT DELAYS. The feed carries absolute
+   arrival times and nothing else: no `delay` on the trip update, no `delay`
+   inside any arrival or departure, checked across all 1,591 entities. So
+   this cannot say "the 803 is four minutes down" without the static
+   schedule to subtract, and stop_times.txt is megabytes. What it can say,
+   and what anyone waiting actually wants, is "next one in six minutes".
+
+   Alerts are not GTFS-realtime shaped despite the name: a bare JSON array,
+   no header, no entity. They also carry the name and work email of the
+   CapMetro staffer who filed each one. Nothing here reads those fields.
+
+   Everything degrades to silence. Until the relay is redeployed /alerts is
+   a 404 and /trips still answers protobuf, and in both cases the transit
+   layer behaves exactly as it did before this existed. */
+const TRT = {
+  arrivals: new Map(),   // stopId -> [{route, tripId, at}]
+  skipped: new Map(),    // stopId -> Set of route ids not stopping
+  byRoute: new Map(),    // routeId -> [alert]
+  byStop: new Map(),     // stopId  -> [alert]
+  alerts: [], tripsAt: 0, alertsAt: 0, busy: false
+};
+const TRT_TRIPS_MS = 45000;      // predictions go stale fast
+const TRT_ALERTS_MS = 300000;    // a detour does not
+
+async function relayJson(path) {
+  const r = await fetch(RELAY + path, { cache: 'no-store' });
+  if (!r.ok) throw new Error(path + ' ' + r.status);
+  // The deployed relay may still be the older one answering protobuf here;
+  // that lands as a JSON parse error and is treated as "not available yet".
+  return r.json();
+}
+
+function trtLoadTrips(doc) {
+  const arrivals = new Map(), skipped = new Map();
+  const now = Date.now();
+  (doc.entity || []).forEach(e => {
+    const tu = e.tripUpdate; if (!tu) return;
+    const trip = tu.trip || {}, route = trip.routeId;
+    (tu.stopTimeUpdate || []).forEach(stu => {
+      const sid = stu.stopId; if (!sid) return;
+      if (stu.scheduleRelationship === 'SKIPPED') {
+        if (!skipped.has(sid)) skipped.set(sid, new Set());
+        if (route) skipped.get(sid).add(route);
+        return;
+      }
+      const t = (stu.arrival || stu.departure || {}).time;
+      if (!t) return;
+      const at = +t * 1000;
+      // A prediction in the past is a bus that has been and gone.
+      if (at < now - 60000) return;
+      if (!arrivals.has(sid)) arrivals.set(sid, []);
+      arrivals.get(sid).push({ route: route, tripId: trip.tripId, at: at });
+    });
+  });
+  arrivals.forEach(list => list.sort((a, b) => a.at - b.at));
+  TRT.arrivals = arrivals;
+  TRT.skipped = skipped;
+  TRT.tripsAt = now;
+}
+
+function trtLoadAlerts(list) {
+  const now = Date.now();
+  const live = (Array.isArray(list) ? list : []).filter(a => {
+    if (a.deletedAt) return false;
+    const ps = a.activePeriods || [];
+    if (!ps.length) return true;   // no window given means it stands
+    return ps.some(p => {
+      const s = p.start ? Date.parse(p.start) : null;
+      const e = p.end ? Date.parse(p.end) : null;
+      return (!s || s <= now) && (!e || e >= now);
+    });
+  });
+  const byRoute = new Map(), byStop = new Map();
+  live.forEach(a => {
+    (a.informedEntities || []).forEach(ie => {
+      if (ie.routeId) {
+        if (!byRoute.has(ie.routeId)) byRoute.set(ie.routeId, []);
+        byRoute.get(ie.routeId).push(a);
+      }
+      if (ie.stopId) {
+        if (!byStop.has(ie.stopId)) byStop.set(ie.stopId, []);
+        byStop.get(ie.stopId).push(a);
+      }
+    });
+  });
+  TRT.alerts = live; TRT.byRoute = byRoute; TRT.byStop = byStop;
+  TRT.alertsAt = now;
+}
+
+async function loadTransitRT() {
+  if (TRT.busy) return;
+  TRT.busy = true;
+  const now = Date.now();
+  const jobs = [];
+  if (now - TRT.tripsAt > TRT_TRIPS_MS) {
+    jobs.push(relayJson('/trips').then(trtLoadTrips).catch(() => {}));
+  }
+  if (now - TRT.alertsAt > TRT_ALERTS_MS) {
+    jobs.push(relayJson('/alerts').then(trtLoadAlerts).catch(() => {}));
+  }
+  try { await Promise.all(jobs); } finally { TRT.busy = false; }
+}
+
+// Minutes from now, rounded the way a person reads a countdown.
+function trtMins(at) {
+  const m = Math.round((at - Date.now()) / 60000);
+  return m <= 0 ? 'due' : m + ' min';
+}
+
+/* The next few buses at one stop, deduped by route so a stop served every
+   four minutes does not show the same number six times before the second
+   route gets a look in. */
+function trtNextAt(stopId, limit) {
+  const list = TRT.arrivals.get(String(stopId)) || [];
+  const seen = new Set(), out = [];
+  for (const a of list) {
+    const k = a.route || a.tripId;
+    if (seen.has(k)) continue;
+    seen.add(k);
+    out.push(a);
+    if (out.length >= (limit || 4)) break;
+  }
+  return out;
+}
+
+function trtArrivalHtml(stopId) {
+  const next = trtNextAt(stopId, 4);
+  if (!next.length) return null;
+  return next.map(a => '<span style="display:inline-block;margin:0 .5rem .15rem 0">'
+    + '<b style="color:#a3e635">' + esc(a.route || '?') + '</b> '
+    + '<span style="font-family:\'JetBrains Mono\',monospace;font-size:.72rem">'
+    + esc(trtMins(a.at)) + '</span></span>').join('');
+}
+
+const TRT_EFFECT = {
+  NO_SERVICE: ['No service', '#ff4d4d'], DETOUR: ['Detour', '#fb923c'],
+  REDUCED_SERVICE: ['Reduced service', '#fbbf24'],
+  MODIFIED_SERVICE: ['Modified service', '#fbbf24'],
+  SIGNIFICANT_DELAYS: ['Delays', '#fbbf24'], STOP_MOVED: ['Stop moved', '#fbbf24']
+};
+
+/* Alerts for a stop and for the routes that serve it, deduped — a detour is
+   usually filed against both, and showing it twice reads as two problems. */
+function trtAlertsFor(stopId, routeIds) {
+  const out = [], seen = new Set();
+  const take = a => { if (a && !seen.has(a.id)) { seen.add(a.id); out.push(a); } };
+  if (stopId) (TRT.byStop.get(String(stopId)) || []).forEach(take);
+  (routeIds || []).forEach(r => (TRT.byRoute.get(String(r)) || []).forEach(take));
+  return out;
+}
+
+function trtAlertHtml(alerts, limit) {
+  if (!alerts || !alerts.length) return '';
+  const rows = alerts.slice(0, limit || 3).map(a => {
+    const [word, col] = TRT_EFFECT[a.effect] || ['Notice', '#fbbf24'];
+    return '<div style="margin-top:.4rem;padding-left:.5rem;border-left:2px solid ' + col + '">'
+      + '<b style="color:' + col + ';font-size:.7rem;text-transform:uppercase;'
+      + 'letter-spacing:.04em">' + esc(word) + '</b><br>'
+      + '<span style="font-size:.75rem">' + esc(a.headerText || '') + '</span></div>';
+  }).join('');
+  const more = alerts.length > (limit || 3)
+    ? '<div style="margin-top:.3rem;color:var(--muted);font-size:.7rem">and '
+      + (alerts.length - (limit || 3)) + ' more</div>' : '';
+  return rows + more;
+}
+
+/* Nearest stop by straight-line distance over the stops already in memory.
+   A linear scan of ~2,300 points, run once when someone presses locate —
+   not a thing worth an index. Capped at a kilometre: past that it is not
+   "your stop", it is a stop. */
+function nearestStop(lat, lng) {
+  if (!TRANSIT.stops) return null;
+  let best = null;
+  TRANSIT.stops.eachLayer(l => {
+    const p = (l.feature || {}).properties; if (!p) return;
+    const ll = l.getLatLng();
+    const m = metersBetween(lat, lng, ll.lat, ll.lng);
+    if (m > 1000) return;
+    if (!best || m < best.m) best = { m: m, id: p.id, name: p.name, routes: p.route_ids };
+  });
+  return best;
 }
 
 map.on('zoomend', syncStopVisibility);
@@ -5146,6 +5372,28 @@ async function renderMeCard() {
       const n = CRIME.byUnit[p.k] || 0;
       rows.push([(CRIME.cat || 'Crime reports') + ', ' + (CRIME.year === 'all' ? 'all years' : CRIME.year),
         n.toLocaleString() + ' &nbsp;(' + (n / p.pop * 10000).toFixed(0) + ' per 10k)', true]);
+    }
+  }
+
+  /* The nearest stop, and when the next bus reaches it.
+
+     This is the one reading on the card that answers a question you might
+     act on in the next ten minutes, so it goes above the demographics
+     rather than below them. It reads the stop geometry the transit layer
+     already loaded — if that layer has never been switched on there is
+     nothing to search, and the row is simply absent rather than being a
+     reason to fetch two megabytes. */
+  const stop = nearestStop(lat, lng);
+  if (stop) {
+    const next = trtArrivalHtml(stop.id);
+    rows.push(['Nearest stop', esc(stop.name || 'Stop ' + stop.id)
+      + ' <span style="color:var(--muted)">\u00b7 ' + dist(stop.m) + '</span>', true]);
+    if (next) rows.push(['Next bus', next, true]);
+    const al = trtAlertsFor(stop.id, stop.routes);
+    if (al.length) {
+      const [word, col] = TRT_EFFECT[al[0].effect] || ['Notice', '#fbbf24'];
+      rows.push(['Service', '<b style="color:' + col + '">' + esc(word) + '</b> \u2014 '
+        + esc(al[0].headerText || ''), true]);
     }
   }
 
