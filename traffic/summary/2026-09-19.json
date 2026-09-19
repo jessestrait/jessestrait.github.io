@@ -1,15 +1,15 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 106, q3 117 min over 63 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 104, q3 117 min over 66 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 68,
-  "dispatch_only": 68,
+  "dispatch": 69,
+  "dispatch_only": 69,
   "here": 0,
   "here_matched": 0,
   "matched": 0,
@@ -20,10 +20,10 @@
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 113.2,
+  "median": 112.4,
   "min": 81.9,
-  "n": 63,
-  "q1": 106.0,
+  "n": 66,
+  "q1": 104.0,
   "q3": 117.1
  },
  "here_onset_offset_min": {
@@ -37,7 +37,7 @@
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 53,
+   "n": 54,
    "pct": 0.0
   },
   "tomtom_highway": {
@@ -198,8 +198,8 @@
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 68,
-  "neither": 68,
+  "n": 69,
+  "neither": 69,
   "tomtom_only": 0
  }
 }
