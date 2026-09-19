@@ -765,6 +765,41 @@ to read it removed it before its popup could open. Fixed with a one-tick
 `TTR.hold` flag rather than `stopPropagation`, because stopping the event
 also robs `bindPopup` of the click it opens on.
 
+**The bbox took three passes, and the first two were wrong.**
+
+Pass one snapped the box to a 0.05° grid and the comment claimed a nudge of
+the map cost nothing. Measured, it did not: the box changes whenever
+*either edge* crosses a grid line, so panning in small steps re-snaps
+constantly — **0.71 / 0.46 / 0.25** of small pans at zoom 12 / 13 / 14.
+
+Pass two made the box **sticky**: keep it until the viewport actually
+leaves it, and only then recompute. **0.29 / 0.13 / 0.04** — between 2.4×
+and 6× fewer requests.
+
+Pass three fixed the hole that left. A view whose edge lands exactly on a
+grid line snaps to itself and gets *no* slack on that side, so a 0.005°
+nudge escaped and re-asked immediately, which defeats stickiness entirely.
+Half a cell of padding before snapping guarantees margin on every side.
+Worst case after padding is a 0.85° span — 7,699 km², still under TomTom's
+10,000 km² ceiling.
+
+Verified live on jessestrait.com afterwards: a view edge on a grid line no
+longer re-asks on a nudge, travelling across town does, zooming out widens
+the box, and zooming back in does not re-ask because the wider box already
+covers it.
+
+**Live verification** (jessestrait.com, where the key is valid): Phase 2
+returned 51–55 incidents with 15–21 minutes of delay in view, categories
+and magnitudes mapping correctly. Phase 3 on I-35 downtown returned
+"20 mph of 20 free-flow · 100% of normal, road class 5, confidence 1.00"
+with a 37-point segment highlighted. Phase 4 returned three properly nested
+rings, 53 / 35 / 19 km tall, spiking out along the highway corridors.
+
+One gotcha worth keeping: `atxAudit` flagged `ttinc` as broken during
+testing because the test set `layer.on = true` in JS rather than ticking
+the box, leaving the flag and the checkbox disagreeing. That is the check
+doing its job, not a bug — toggling through the real control audits clean.
+
 **Off-domain behaviour.** The page key is locked to jessestrait.com, so on a
 dev server all three answer 403 InvalidReferer. That is correct, not a bug
 to route around, and each says so specifically ("TomTom refused the key for
