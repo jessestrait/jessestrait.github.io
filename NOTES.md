@@ -659,3 +659,13 @@ hours old. Within the Austin bbox the newest was about 4.6 days old — the
 feed is live, Austin's own rows simply change slowly. The layer says
 *scheduled*, not *active now*, for the same reason the school zones do: the
 dates span the whole project and the nightly window lives in prose.
+
+**The HERE map layer is gone (2026-09-19).** A checkbox that can only ever
+say "Waiting on a HERE key" is clutter, so the layer, its loader and its
+About entry came out of `atx/index.html`. Nothing else changed: the archive
+side of HERE — `fetch_here`, `probe_agreement`, `summary.witnesses` — is
+untouched in `tools/capture_traffic.py` and still runs the moment a key
+exists. If one ever does, re-adding the layer is a GROUND entry plus a
+loader that reads `here-now.json`; see commit 00b9a87 for the version that
+was removed. Old shared links naming `hereinc` restore harmlessly — the URL
+restore iterates GROUND and skips ids it does not find (verified).
