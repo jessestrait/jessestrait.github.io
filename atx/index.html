@@ -3151,7 +3151,15 @@ function ttiBoxNums() {
   const dh = half(b.getNorth() - b.getSouth());
   const down = v => Math.floor(v / TTI_GRID) * TTI_GRID;
   const up = v => Math.ceil(v / TTI_GRID) * TTI_GRID;
-  return [down(c.lng - dw), down(c.lat - dh), up(c.lng + dw), up(c.lat + dh)];
+  /* Half a cell of padding before snapping, so there is always slack.
+     Without it a view whose edge happens to land exactly on a grid line
+     snaps to itself and gets no margin on that side at all — measured: a
+     0.005° nudge west then escaped the box and re-asked immediately. The
+     stickiness below is only worth anything if the box is genuinely bigger
+     than the view. Costs at most one extra cell per side. */
+  const pad = TTI_GRID / 2;
+  return [down(c.lng - dw - pad), down(c.lat - dh - pad),
+          up(c.lng + dw + pad), up(c.lat + dh + pad)];
 }
 
 const ttiFmt = n => n.map(v => v.toFixed(3)).join(',');
