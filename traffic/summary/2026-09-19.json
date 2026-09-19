@@ -8,13 +8,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 19,
-  "dispatch_only": 19,
+  "dispatch": 20,
+  "dispatch_only": 20,
   "here": 0,
   "here_matched": 0,
   "matched": 0,
-  "tomtom": 259,
-  "tomtom_only": 259
+  "tomtom": 275,
+  "tomtom_only": 275
  },
  "date": "2026-09-19",
  "dispatch_life_capped": false,
@@ -37,17 +37,17 @@
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 14,
+   "n": 15,
    "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 105,
+   "n": 111,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 154,
+   "n": 164,
    "pct": 0.0
   }
  },
@@ -88,6 +88,36 @@
    "hour_of_week": 119,
    "n": 2,
    "seg": "30.264,-97.742"
+  },
+  {
+   "from": "Cesar Chavez St exit [234A]",
+   "hour_of_week": 119,
+   "n": 2,
+   "seg": "30.262,-97.736"
+  },
+  {
+   "from": "Panther Dr",
+   "hour_of_week": 120,
+   "n": 2,
+   "seg": "30.475,-97.591"
+  },
+  {
+   "from": "FM-2244 (TX-1)",
+   "hour_of_week": 120,
+   "n": 2,
+   "seg": "30.256,-97.803"
+  },
+  {
+   "from": "S Lamar Blvd",
+   "hour_of_week": 120,
+   "n": 2,
+   "seg": "30.256,-97.763"
+  },
+  {
+   "from": "Austin",
+   "hour_of_week": 120,
+   "n": 2,
+   "seg": "30.233,-97.740"
   },
   {
    "from": "Sabine St",
@@ -136,36 +166,6 @@
    "hour_of_week": 119,
    "n": 1,
    "seg": "30.484,-97.769"
-  },
-  {
-   "from": "FM-1325/Exit 250 (I-35)",
-   "hour_of_week": 116,
-   "n": 1,
-   "seg": "30.494,-97.678"
-  },
-  {
-   "from": "Tecoma Cir / W William Cannon Dr",
-   "hour_of_week": 119,
-   "n": 1,
-   "seg": "30.260,-97.860"
-  },
-  {
-   "from": "Burnet Rd",
-   "hour_of_week": 119,
-   "n": 1,
-   "seg": "30.383,-97.724"
-  },
-  {
-   "from": "Wells Branch Pkwy/Exit 248 (I-35)",
-   "hour_of_week": 119,
-   "n": 1,
-   "seg": "30.428,-97.671"
-  },
-  {
-   "from": "Parmer Ln/Exit 245 (I-35)",
-   "hour_of_week": 119,
-   "n": 1,
-   "seg": "30.416,-97.673"
   }
  ],
  "unmatched_pct": {
@@ -175,8 +175,8 @@
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 19,
-  "neither": 19,
+  "n": 20,
+  "neither": 20,
   "tomtom_only": 0
  }
 }
