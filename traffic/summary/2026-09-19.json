@@ -1,54 +1,54 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 111, q3 118 min over 24 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 111, q3 118 min over 27 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 41,
-  "dispatch_only": 40,
+  "dispatch": 46,
+  "dispatch_only": 42,
   "here": 0,
   "here_matched": 0,
-  "matched": 1,
-  "tomtom": 463,
-  "tomtom_only": 462
+  "matched": 4,
+  "tomtom": 478,
+  "tomtom_only": 475
  },
  "date": "2026-09-19",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 115.8,
+  "median": 115.2,
   "min": 100.8,
-  "n": 24,
-  "q1": 110.6,
-  "q3": 118.4
+  "n": 27,
+  "q1": 111.1,
+  "q3": 118.3
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 0,
-   "n": 9,
-   "pct": 0.0
+   "matched": 1,
+   "n": 10,
+   "pct": 10.0
   },
   "dispatch_surface": {
-   "matched": 1,
-   "n": 32,
-   "pct": 3.1
+   "matched": 3,
+   "n": 36,
+   "pct": 8.3
   },
   "tomtom_highway": {
-   "matched": 1,
-   "n": 186,
-   "pct": 0.5
+   "matched": 2,
+   "n": 192,
+   "pct": 1.0
   },
   "tomtom_surface": {
-   "matched": 0,
-   "n": 277,
-   "pct": 0.0
+   "matched": 1,
+   "n": 286,
+   "pct": 0.3
   }
  },
  "matcher": {
@@ -59,11 +59,11 @@
  },
  "onset_offset_min": {
   "max": 66.1,
-  "median": 66.1,
-  "min": 66.1,
-  "n": 1,
-  "q1": 66.1,
-  "q3": 66.1
+  "median": -3.2,
+  "min": -30.2,
+  "n": 4,
+  "q1": -27.0,
+  "q3": 52.3
  },
  "persistence_min": {
   "n": 0,
@@ -94,6 +94,12 @@
    "hour_of_week": 122,
    "n": 3,
    "seg": "30.288,-97.748"
+  },
+  {
+   "from": "E 7th St",
+   "hour_of_week": 123,
+   "n": 3,
+   "seg": "30.264,-97.727"
   },
   {
    "from": "FM Road 2222",
@@ -166,23 +172,17 @@
    "hour_of_week": 120,
    "n": 2,
    "seg": "30.265,-97.747"
-  },
-  {
-   "from": "E 12th St (San Jacinto Blvd)",
-   "hour_of_week": 120,
-   "n": 2,
-   "seg": "30.267,-97.741"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 97.6,
-  "tomtom": 99.8
+  "dispatch": 91.3,
+  "tomtom": 99.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 41,
-  "neither": 40,
-  "tomtom_only": 1
+  "n": 46,
+  "neither": 42,
+  "tomtom_only": 4
  }
 }
