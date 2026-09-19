@@ -8,13 +8,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 20,
+  "dispatch": 21,
   "dispatch_only": 20,
   "here": 0,
   "here_matched": 0,
-  "matched": 0,
-  "tomtom": 285,
-  "tomtom_only": 285
+  "matched": 1,
+  "tomtom": 313,
+  "tomtom_only": 312
  },
  "date": "2026-09-19",
  "dispatch_life_capped": false,
@@ -22,18 +22,18 @@
   "max": 118.4,
   "median": 111.8,
   "min": 100.8,
-  "n": 7,
+  "n": 11,
   "q1": 106.0,
-  "q3": 115.2
+  "q3": 116.4
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 0,
-   "n": 5,
-   "pct": 0.0
+   "matched": 1,
+   "n": 6,
+   "pct": 16.7
   },
   "dispatch_surface": {
    "matched": 0,
@@ -41,13 +41,13 @@
    "pct": 0.0
   },
   "tomtom_highway": {
-   "matched": 0,
-   "n": 115,
-   "pct": 0.0
+   "matched": 1,
+   "n": 123,
+   "pct": 0.8
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 170,
+   "n": 190,
    "pct": 0.0
   }
  },
@@ -58,7 +58,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "n": 0
+  "max": -19.8,
+  "median": -19.8,
+  "min": -19.8,
+  "n": 1,
+  "q1": -19.8,
+  "q3": -19.8
  },
  "persistence_min": {
   "n": 0
@@ -114,10 +119,28 @@
    "seg": "30.441,-97.665"
   },
   {
+   "from": "W 15th St (N Lamar Blvd)",
+   "hour_of_week": 120,
+   "n": 2,
+   "seg": "30.273,-97.753"
+  },
+  {
    "from": "S Lamar Blvd",
    "hour_of_week": 120,
    "n": 2,
    "seg": "30.256,-97.763"
+  },
+  {
+   "from": "N Lake Creek Pkwy",
+   "hour_of_week": 120,
+   "n": 2,
+   "seg": "30.475,-97.794"
+  },
+  {
+   "from": "State Highway 130 / Copper Mine Dr",
+   "hour_of_week": 120,
+   "n": 2,
+   "seg": "30.470,-97.592"
   },
   {
    "from": "San Antonio St (2nd St)",
@@ -126,57 +149,39 @@
    "seg": "30.265,-97.747"
   },
   {
+   "from": "E 12th St (San Jacinto Blvd)",
+   "hour_of_week": 120,
+   "n": 2,
+   "seg": "30.267,-97.741"
+  },
+  {
    "from": "Austin",
    "hour_of_week": 120,
    "n": 2,
    "seg": "30.233,-97.740"
   },
   {
+   "from": "W 5th St (N Lamar Blvd)",
+   "hour_of_week": 120,
+   "n": 2,
+   "seg": "30.264,-97.757"
+  },
+  {
    "from": "Cesar Chavez St exit [234A]",
    "hour_of_week": 120,
    "n": 2,
    "seg": "30.262,-97.736"
-  },
-  {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
-   "n": 2,
-   "seg": "30.245,-97.744"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "seg": "30.234,-97.736"
-  },
-  {
-   "from": "Hergotz Ln",
-   "hour_of_week": 112,
-   "n": 2,
-   "seg": "30.244,-97.663"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "seg": "30.179,-97.616"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 100.0,
-  "tomtom": 100.0
+  "dispatch": 95.2,
+  "tomtom": 99.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 20,
+  "n": 21,
   "neither": 20,
-  "tomtom_only": 0
+  "tomtom_only": 1
  }
 }
