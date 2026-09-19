@@ -1,0 +1,187 @@
+{
+ "caveats": [
+  "Dispatch published_date is when APD published, not when it happened.",
+  "Dispatch record lifetimes look like real clearances this day, not a cap.",
+  "Clearance resolution equals the poll interval; shorter incidents are invisible.",
+  "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
+  "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
+  "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
+ ],
+ "counts": {
+  "dispatch": 19,
+  "dispatch_only": 17,
+  "here": 0,
+  "here_matched": 0,
+  "matched": 2,
+  "tomtom": 229,
+  "tomtom_only": 227
+ },
+ "date": "2026-09-19",
+ "dispatch_life_capped": false,
+ "dispatch_record_life_min": {
+  "max": 111.8,
+  "median": 106.9,
+  "min": 100.8,
+  "n": 4,
+  "q1": 102.1,
+  "q3": 110.8
+ },
+ "here_onset_offset_min": {
+  "n": 0
+ },
+ "match_rate": {
+  "dispatch_highway": {
+   "matched": 2,
+   "n": 5,
+   "pct": 40.0
+  },
+  "dispatch_surface": {
+   "matched": 0,
+   "n": 14,
+   "pct": 0.0
+  },
+  "tomtom_highway": {
+   "matched": 2,
+   "n": 96,
+   "pct": 2.1
+  },
+  "tomtom_surface": {
+   "matched": 0,
+   "n": 133,
+   "pct": 0.0
+  }
+ },
+ "matcher": {
+  "buffer_m": 200.0,
+  "highway_buffer_m": 130.0,
+  "onset_window_min": 90.0,
+  "tolerance_min": 20.0
+ },
+ "onset_offset_min": {
+  "max": 37.9,
+  "median": 28.2,
+  "min": 18.5,
+  "n": 2,
+  "q1": 18.5,
+  "q3": 37.9
+ },
+ "persistence_min": {
+  "n": 0
+ },
+ "poll_interval_min": 5.0,
+ "probe_agreement": {
+  "cover": {
+   "n": 0
+  },
+  "n": 0,
+  "onset_offset_min": {
+   "n": 0
+  },
+  "pct_of_here": 0.0,
+  "pct_of_tomtom": 0.0,
+  "type_agree": 0
+ },
+ "structural_hotspots": [
+  {
+   "from": "FM Road 2222",
+   "hour_of_week": 119,
+   "n": 2,
+   "seg": "30.397,-97.827"
+  },
+  {
+   "from": "Brazos St (2nd St)",
+   "hour_of_week": 119,
+   "n": 2,
+   "seg": "30.264,-97.742"
+  },
+  {
+   "from": "Cesar Chavez St exit [234A]",
+   "hour_of_week": 119,
+   "n": 2,
+   "seg": "30.262,-97.736"
+  },
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 2,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 2,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Hergotz Ln",
+   "hour_of_week": 112,
+   "n": 2,
+   "seg": "30.244,-97.663"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 2,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Lexington Meadow Ln",
+   "hour_of_week": 44,
+   "n": 2,
+   "seg": "30.179,-97.616"
+  },
+  {
+   "from": "Round Rock-Georgetown",
+   "hour_of_week": 119,
+   "n": 1,
+   "seg": "30.486,-97.771"
+  },
+  {
+   "from": "FM-620 (W Parmer Ln/FM-734)",
+   "hour_of_week": 119,
+   "n": 1,
+   "seg": "30.484,-97.769"
+  },
+  {
+   "from": "FM-1325/Exit 250 (I-35)",
+   "hour_of_week": 116,
+   "n": 1,
+   "seg": "30.494,-97.678"
+  },
+  {
+   "from": "Tecoma Cir / W William Cannon Dr",
+   "hour_of_week": 119,
+   "n": 1,
+   "seg": "30.260,-97.860"
+  },
+  {
+   "from": "Burnet Rd",
+   "hour_of_week": 119,
+   "n": 1,
+   "seg": "30.383,-97.724"
+  },
+  {
+   "from": "Wells Branch Pkwy/Exit 248 (I-35)",
+   "hour_of_week": 119,
+   "n": 1,
+   "seg": "30.428,-97.671"
+  },
+  {
+   "from": "Harris Ridge Blvd (E Howard Ln)",
+   "hour_of_week": 119,
+   "n": 1,
+   "seg": "30.424,-97.669"
+  }
+ ],
+ "unmatched_pct": {
+  "dispatch": 89.5,
+  "tomtom": 99.1
+ },
+ "witnesses": {
+  "both": 0,
+  "here_only": 0,
+  "n": 19,
+  "neither": 17,
+  "tomtom_only": 2
+ }
+}
