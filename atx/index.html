@@ -3140,23 +3140,52 @@ const TTI_MIN_DEG = 0.08;
 const TTI_FIELDS = '{incidents{type,geometry{type,coordinates},properties{id,'
   + 'iconCategory,magnitudeOfDelay,startTime,endTime,from,to,length,delay,'
   + 'roadNumbers,numberOfReports,lastReportTime,events{code,description}}}}';
-const TTI = { cache: new Map(), lastBox: null, timer: null, note: '' };
+const TTI = { cache: new Map(), lastBox: null, lastNums: null, timer: null, note: '' };
 
-function ttiBox() {
+// The box the current view would ask for, snapped outward to the grid.
+function ttiBoxNums() {
   const b = map.getBounds();
   const c = b.getCenter();
   const half = d => Math.max(TTI_MIN_DEG, Math.min(d, TTI_MAX_DEG)) / 2;
   const dw = half(b.getEast() - b.getWest());
   const dh = half(b.getNorth() - b.getSouth());
-  const snapDown = v => Math.floor(v / TTI_GRID) * TTI_GRID;
-  const snapUp = v => Math.ceil(v / TTI_GRID) * TTI_GRID;
-  return [snapDown(c.lng - dw), snapDown(c.lat - dh),
-          snapUp(c.lng + dw), snapUp(c.lat + dh)].map(v => v.toFixed(3)).join(',');
+  const down = v => Math.floor(v / TTI_GRID) * TTI_GRID;
+  const up = v => Math.ceil(v / TTI_GRID) * TTI_GRID;
+  return [down(c.lng - dw), down(c.lat - dh), up(c.lng + dw), up(c.lat + dh)];
+}
+
+const ttiFmt = n => n.map(v => v.toFixed(3)).join(',');
+
+/* Snapping alone does not buy as much as it looks like it should. The box
+   changes whenever *either edge* crosses a grid line, so panning a screen's
+   width in small steps re-snaps constantly — measured at 0.25 to 0.71 of
+   small pans depending on zoom, which is not "a nudge costs nothing".
+
+   So the box is sticky instead: it is kept until the viewport actually
+   leaves it, and only then recomputed around the new view. Because the box
+   is snapped outward it always starts strictly larger than the view, which
+   is the slack that makes small pans free. Crossing out of it is a real
+   change of subject and worth a request. */
+function ttiBox() {
+  const want = ttiBoxNums();
+  const keep = TTI.lastNums;
+  if (keep) {
+    const b = map.getBounds();
+    const inside = b.getWest() >= keep[0] && b.getSouth() >= keep[1]
+                && b.getEast() <= keep[2] && b.getNorth() <= keep[3];
+    // Still inside, and the view has not zoomed out past what that box
+    // covers — a wider view needs a wider box even from the same centre.
+    const stillBigEnough = (keep[2] - keep[0]) >= (want[2] - want[0]) - 1e-9
+                        && (keep[3] - keep[1]) >= (want[3] - want[1]) - 1e-9;
+    if (inside && stillBigEnough) return TTI.lastBox;
+  }
+  TTI.lastNums = want;
+  return (TTI.lastBox = ttiFmt(want));
 }
 
 async function ttiLoad() {
   if (ttKeyMissing()) { setNote(byId.ttinc, 'Needs a TomTom key', true); return []; }
-  const box = TTI.lastBox = ttiBox();
+  const box = ttiBox();
   const hit = TTI.cache.get(box);
   if (hit && Date.now() - hit.at < TTI_TTL) { setNote(byId.ttinc, hit.note); return hit.feats; }
 
