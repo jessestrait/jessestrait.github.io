@@ -718,3 +718,55 @@ the live deployed relay: 0 arrivals, 0 alerts, 14 buses, note unchanged.
 **Still needed: the relay deploy.** From `workers/capmetro/`:
 
     npx wrangler deploy
+
+## TomTom Phases 2, 3 and 4 (2026-09-19)
+
+The tiles were the only TomTom layer here and they are the crudest: you
+cannot count a pixel, tap one, or ask it how many minutes of delay it
+represents. They are also the expensive one — tile cost scales with map
+*motion*, every pan and zoom refetching a grid, which is how nine days came
+to 68,665 requests. Everything below scales with *attention* instead, and
+bills on a different meter.
+
+**Phase 2 — incidents as objects.** The same Incident Details endpoint the
+archiver has been recording, browser-side on the page key. One request per
+settled view, `moveend` debounced 600 ms, bounding box snapped to a 0.05°
+grid so a small pan reuses the answer, 60 s cache, twelve boxes retained.
+Drawn as linestrings on `ttincPane` under the pins, coloured by
+`magnitudeOfDelay`, with a countable mark at the upstream end and the
+view's total delay in the layer note. Off by default. No confidence
+styling — that is Phase 5 and it wants weeks of matcher output first.
+
+The bbox needs both a ceiling and a floor. TomTom rejects anything over
+10,000 km² with a 400 (measured when the archiver's box was sized), so the
+span clamps to 0.7°; verified that a 4°-wide view clamps to 5,594 km².
+And a map that has not been laid out reports a **zero-size viewport** —
+seen for real in a hidden tab — which without a floor becomes a one-cell
+box holding nothing, cached as a confident answer for the next minute.
+Floored at 0.08°.
+
+**Phase 3 — flow segment, tap-only.** `flowSegmentData/relative0/12`, in
+mph. Zoom 12 is the granularity that matters: lower averages a whole
+corridor into uselessness, higher splits a road into pieces shorter than
+the queue being asked about. Reached from a button inside any incident
+popup. The segment TomTom measured is highlighted for 20 seconds, because a
+speed with no extent invites you to read it as being about wherever your
+finger landed. Confidence is shown beside the number since it varies.
+
+**Phase 4 — reachable range, tap-only.** Three nested polygons at 10/15/20
+minutes, `traffic=true&departAt=now`, on `rangePane` under the pins. Reached
+from a button in the locate readout or by long-press anywhere — Leaflet
+fires `contextmenu` for both right-click and touch long-press, so one
+handler covers both.
+
+One real bug found and fixed in testing: Leaflet bubbles a path click up to
+the map, and the map click is what dismisses the rings — so tapping a ring
+to read it removed it before its popup could open. Fixed with a one-tick
+`TTR.hold` flag rather than `stopPropagation`, because stopping the event
+also robs `bindPopup` of the click it opens on.
+
+**Off-domain behaviour.** The page key is locked to jessestrait.com, so on a
+dev server all three answer 403 InvalidReferer. That is correct, not a bug
+to route around, and each says so specifically ("TomTom refused the key for
+this domain") rather than failing silently. Verified, along with a clean
+audit and zero orphans on toggle off.

@@ -245,6 +245,15 @@ label.mini{font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; col
   #scrublabel{order:4; flex:1 0 100%; text-align:center; font-size:.64rem; margin-top:.1rem}
 }
 
+/* The one control that lives inside a popup. Styled here rather than
+   inline because it appears in two of them. */
+.pop button.ttask, button.ttrange{
+  display:block; width:100%; margin-top:.55rem; padding:.45rem .6rem;
+  background:var(--accent); color:#fff; border:0; border-radius:7px;
+  font:600 .74rem 'DM Sans',sans-serif; cursor:pointer;
+}
+.pop button.ttask:hover, button.ttrange:hover{background:var(--accent-hi)}
+
 /* ── Where you are ───────────────────────────────────── */
 dl.mecard{display:grid; grid-template-columns:auto 1fr; gap:3px .7rem; margin:.2rem 0 0}
 dl.mecard dt{color:var(--muted); font-size:.72rem; white-space:nowrap}
@@ -946,6 +955,25 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
         is not. TomTom is the one vendor whose terms allow their traffic over someone else's
         basemap; Google's renders only on a Google map and their terms forbid it elsewhere, which
         would have meant discarding everything this page is built on.</li>
+      <li><b>Congestion as objects</b> &mdash; the same <b>TomTom</b> congestion the flow tiles
+        paint, from the <b>Incident Details</b> endpoint, drawn as lines you can tap and counted
+        into a number. The tiles are pixels: you cannot count one, tap one, or ask it how many
+        minutes of delay it represents. These are the same events the archiver has been recording
+        for days. They also cost differently &mdash; tiles bill per tile and scale with map
+        motion, which is how nine days came to 68,665 requests; this bills per request and scales
+        with attention, one call per settled view on a snapped grid, cached for a minute.
+        Off by default. Probe-derived, not reported: a jam here with no dispatch pin beside it
+        means nobody called it in.</li>
+      <li><b>How fast is this road</b> &mdash; TomTom <b>Flow Segment Data</b>, on a tap and never
+        otherwise. Current speed against free-flow for the stretch of road under the incident you
+        tapped, with the segment it measured highlighted so the number is not read as being about
+        wherever your finger landed. Confidence is reported beside it, because it varies.</li>
+      <li><b>How far can I get</b> &mdash; TomTom <b>Reachable Range</b>. Ten, fifteen and twenty
+        minutes of driving from a point, as three nested polygons, in the traffic that exists
+        right now. It is the only thing on this page that answers a question instead of describing
+        a fact &mdash; everything else says what <em>is</em>; this says what you could do about it.
+        Ask from the locate readout, or long-press anywhere on the map. Tap-only by design: three
+        requests per ask is fine, three per pan would not be.</li>
       <li><b>Rain</b> &mdash; NOAA's <b>base reflectivity</b> ImageServer, which is time-enabled:
         each read asks for a narrow window at the end of its extent, because a request with no time
         on it returns the whole two-hour archive composited into one image, and three quarters of
@@ -1783,6 +1811,30 @@ const LAYERS = [
     }
   },
   {
+    /* The same incidents the tiles paint, as things instead of pixels.
+
+       The flow tiles have been the only TomTom layer here and they are the
+       crudest one: you cannot count a pixel, tap it, or ask it how long the
+       delay is. This is the same congestion from the Incident Details
+       endpoint — the feed the archiver has been recording for days — drawn
+       as linestrings you can tap and summed into a number.
+
+       Costed differently on purpose. Tiles bill per tile and scale with map
+       motion: every pan and zoom refetches a grid, which is how nine days
+       came to 68,665 requests. This bills per request and scales with
+       attention — one call per settled viewport, on a snapped grid so small
+       pans reuse the answer, cached for a minute. Off by default; the tiles
+       stay the thing that is on when you arrive.
+
+       No confidence styling here. Whether dispatch and probe agree is the
+       archive's question, and it wants weeks of matcher output before the
+       map asserts anything about it. */
+    id: 'ttinc', group: 'recent', color: '#ff8c42', on: false,
+    name: 'Congestion, as objects',
+    note: 'TomTom incidents \u00b7 countable and tappable',
+    load: () => ttiLoad()
+  },
+  {
     // The ticker's headlines, as pins. Only the ones that named a place can be
     // drawn — the coordinates come from gazetteer.json, which is built from
     // this map's own street, ZIP and district files. #ff9d2e was the fire
@@ -1986,7 +2038,7 @@ L.control.zoom({ position: 'bottomright' }).addTo(map);
 
 // leaflet.heat always draws into Leaflet's own overlayPane (z-index 400), so the
 // choropleth goes below that and everything else stacks above it.
-const PANES = { cloudPane: 232, radarPane: 240, trafficPane: 250, groundPane: 330, districtPane: 350, labelPane2: 460, alertPane: 470, dotPane: 490, busPane: 500, livePane: 520 };
+const PANES = { cloudPane: 232, radarPane: 240, trafficPane: 250, groundPane: 330, districtPane: 350, labelPane2: 460, alertPane: 470, ttincPane: 420, dotPane: 490, busPane: 500, livePane: 520, rangePane: 360 };
 Object.entries(PANES).forEach(([p, z]) => { map.createPane(p).style.zIndex = z; });
 /* Leaflet's canvas renderer resolves a click by walking its layers in draw
    order and keeping the LAST one whose hit area contains the point. With
@@ -2661,7 +2713,7 @@ function rowFor(l) {
    checked first inside it. Easy to flip if it reads wrong in the hand. */
 const TIERS = [
   ['live', 'Live now', ['firelive', 'c311', 'traffic', 'transit', 'signals',
-                        'bikes', 'gauges', 'lwc', 'outages', 'txdot']],
+                        'bikes', 'gauges', 'lwc', 'outages', 'txdot', 'ttinc']],
   ['today', 'Lately', ['news', 'crashes', 'wildfire', 'permits']],
   ['standing', 'Standing', ['busroutes', 'busstops', 'workzones', 'schoolzones']]
 ];
@@ -3017,11 +3069,357 @@ function renderNow() {
     liveLayer.addTo(map);
   }
 
+  drawTtLines(vis);
   drawGeo(vis);
   insights(vis);
   if (window.syncModes) syncModes();
   if (window.saveUrl) saveUrl();
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   TomTom beyond the tiles — incidents as objects, a number for one
+   road, and a polygon for "where can I get from here".
+
+   All three share one key and one rule: nothing here runs on map
+   movement except the incident layer, and that one snaps its bounding
+   box to a coarse grid and caches, so a nudge of the map costs nothing.
+   The flow lookup and the reachable range are tap-only, always. A
+   request per pan would be ruinous and the answers do not change fast
+   enough to be worth it.
+
+   The key is the page's own, domain-locked to jessestrait.com. Off that
+   domain — a local dev server, say — TomTom answers 403 InvalidReferer,
+   which is the correct behaviour and not a bug to route around.
+   ══════════════════════════════════════════════════════════════════ */
+const TT_API = 'https://api.tomtom.com';
+
+// The same collapse the archiver uses, so the vocabulary on the map and
+// the vocabulary in the archive are one vocabulary.
+const TT_ICON = {
+  0: 'Unknown', 1: 'Crash', 2: 'Fog', 3: 'Hazard', 4: 'Rain', 5: 'Ice',
+  6: 'Jam', 7: 'Lane closed', 8: 'Road closed', 9: 'Roadworks',
+  10: 'Wind', 11: 'Flooding', 14: 'Broken down'
+};
+// magnitudeOfDelay, 0 unknown to 4 indefinite. Colour carries severity so
+// a glance answers "is any of this worth caring about".
+const TT_MAG = ['#9aa4b2', '#ffd166', '#ff9d2e', '#ff4d4d', '#c026d3'];
+const TT_MAGWORD = ['Unknown', 'Minor', 'Moderate', 'Major', 'Closed / indefinite'];
+
+function ttKeyMissing() {
+  return !TOMTOM_KEY;
+}
+
+async function ttGet(url) {
+  const r = await fetch(url, { cache: 'no-store' });
+  if (!r.ok) {
+    // 403 here is nearly always the referer lock rather than a bad key.
+    const e = new Error(r.status === 403 ? 'tt403' : 'tt' + r.status);
+    e.status = r.status;
+    throw e;
+  }
+  return r.json();
+}
+
+/* ── Phase 2: incidents as objects ───────────────────────────────── */
+
+// About 5.5 km. Coarse enough that panning a block reuses the last answer,
+// fine enough that zooming into a neighbourhood does not fetch the county.
+const TTI_GRID = 0.05;
+const TTI_TTL = 60000;
+// TomTom rejects a box over 10,000 km2 with a 400 — measured, not guessed,
+// when the archiver's bbox was being sized. That is roughly a degree square
+// here, so the view is clamped well inside it rather than discovering the
+// limit in production.
+const TTI_MAX_DEG = 0.7;
+/* And a floor. A map that has not been laid out yet reports a zero-size
+   viewport — seen for real in a hidden tab — and without this that becomes
+   a one-cell bounding box holding nothing, cached as an answer for the next
+   minute. Better to ask about slightly more of the city than to cache a
+   confident nothing. */
+const TTI_MIN_DEG = 0.08;
+const TTI_FIELDS = '{incidents{type,geometry{type,coordinates},properties{id,'
+  + 'iconCategory,magnitudeOfDelay,startTime,endTime,from,to,length,delay,'
+  + 'roadNumbers,numberOfReports,lastReportTime,events{code,description}}}}';
+const TTI = { cache: new Map(), lastBox: null, timer: null, note: '' };
+
+function ttiBox() {
+  const b = map.getBounds();
+  const c = b.getCenter();
+  const half = d => Math.max(TTI_MIN_DEG, Math.min(d, TTI_MAX_DEG)) / 2;
+  const dw = half(b.getEast() - b.getWest());
+  const dh = half(b.getNorth() - b.getSouth());
+  const snapDown = v => Math.floor(v / TTI_GRID) * TTI_GRID;
+  const snapUp = v => Math.ceil(v / TTI_GRID) * TTI_GRID;
+  return [snapDown(c.lng - dw), snapDown(c.lat - dh),
+          snapUp(c.lng + dw), snapUp(c.lat + dh)].map(v => v.toFixed(3)).join(',');
+}
+
+async function ttiLoad() {
+  if (ttKeyMissing()) { setNote(byId.ttinc, 'Needs a TomTom key', true); return []; }
+  const box = TTI.lastBox = ttiBox();
+  const hit = TTI.cache.get(box);
+  if (hit && Date.now() - hit.at < TTI_TTL) { setNote(byId.ttinc, hit.note); return hit.feats; }
+
+  let d;
+  try {
+    d = await ttGet(TT_API + '/traffic/services/5/incidentDetails?key='
+      + encodeURIComponent(TOMTOM_KEY) + '&bbox=' + encodeURIComponent(box)
+      + '&fields=' + encodeURIComponent(TTI_FIELDS) + '&language=en-GB');
+  } catch (err) {
+    setNote(byId.ttinc, err.message === 'tt403'
+      ? 'TomTom refused the key for this domain'
+      : 'TomTom did not answer', true);
+    return [];
+  }
+
+  let delaySum = 0;
+  const feats = [];
+  (d.incidents || []).forEach(inc => {
+    const p = inc.properties || {};
+    const g = inc.geometry || {};
+    if (g.type !== 'LineString' || !(g.coordinates || []).length) return;
+    const co = g.coordinates;
+    const mag = Math.max(0, Math.min(4, p.magnitudeOfDelay || 0));
+    const col = TT_MAG[mag];
+    const word = TT_ICON[p.iconCategory] || 'Incident';
+    if (p.delay) delaySum += p.delay;
+    const events = (p.events || []).map(e => e.description).filter(Boolean);
+    feats.push({
+      // The mark sits at the upstream end, where the queue starts — which
+      // is the end you care about if you are approaching it.
+      lat: co[0][1], lng: co[0][0], big: true,
+      t: p.startTime ? new Date(p.startTime) : null,
+      cat: word, geom: co, mag: mag, delay: p.delay || 0, ttid: p.id,
+      html: pop(col, 'TomTom · ' + word,
+        (p.roadNumbers || []).join(', ') || p.from || 'Congestion',
+        p.startTime ? ago(new Date(p.startTime)) : '', [
+          ['Delay', p.delay ? Math.round(p.delay / 60) + ' min' : null],
+          ['Severity', TT_MAGWORD[mag]],
+          ['From', p.from],
+          ['To', p.to],
+          ['Length', p.length != null ? Math.round(p.length) + ' m' : null],
+          ['What', events.join('; ') || null],
+          ['Probe reports', p.numberOfReports != null ? p.numberOfReports : null],
+          ['Last report', p.lastReportTime ? new Date(p.lastReportTime).toLocaleTimeString() : null]
+        ],
+        '<button class="ttask" data-lat="' + co[0][1] + '" data-lng="' + co[0][0] + '">'
+        + 'How fast is this road right now?</button>'
+        + '<p style="margin-top:.5rem;color:var(--muted);font-size:.72rem">'
+        + 'Probe-derived: measured from vehicles moving, not reported by anyone. '
+        + 'A jam here with no dispatch pin beside it means nobody called it in.</p>')
+    });
+  });
+
+  const note = feats.length
+    ? feats.length + ' in view · ' + Math.round(delaySum / 60) + ' min of delay'
+    : 'Nothing congested in view';
+  TTI.note = note;
+  setNote(byId.ttinc, note);
+  TTI.cache.set(box, { at: Date.now(), feats: feats, note: note });
+  // A handful of neighbouring views is all anyone revisits.
+  if (TTI.cache.size > 12) TTI.cache.delete(TTI.cache.keys().next().value);
+  return feats;
+}
+
+/* The lines. Rebuilt with each render rather than reconciled — unlike the
+   buses these do not move, so there is nothing to animate and a rebuild of
+   a few dozen polylines is cheaper than tracking them. */
+let ttLines = null, ttLineRenderer = null;
+function drawTtLines(vis) {
+  if (ttLines) { map.removeLayer(ttLines); ttLines = null; }
+  if (ttLineRenderer) { map.removeLayer(ttLineRenderer); ttLineRenderer = null; }
+  const list = vis.filter(({ l }) => l.id === 'ttinc');
+  if (!list.length) return;
+  ttLineRenderer = nearestCanvas({ pane: 'ttincPane', padding: 0.35,
+                                   tolerance: HIT_TOLERANCE }).addTo(map);
+  ttLines = L.layerGroup([], { pane: 'ttincPane' });
+  list.forEach(({ f }) => {
+    L.polyline(f.geom.map(c => [c[1], c[0]]), {
+      pane: 'ttincPane', renderer: ttLineRenderer,
+      color: TT_MAG[f.mag], weight: f.mag >= 3 ? 6 : f.mag === 2 ? 4.5 : 3,
+      opacity: 0.85, lineCap: 'round'
+    }).bindPopup(f.html, { maxWidth: 320 }).addTo(ttLines);
+  });
+  ttLines.addTo(map);
+}
+
+/* One request per settled view. moveend rather than move, debounced on top
+   of that, and the snapped box means most settles resolve from cache with
+   no request at all. */
+map.on('moveend', () => {
+  if (!byId.ttinc.on) return;
+  clearTimeout(TTI.timer);
+  TTI.timer = setTimeout(() => {
+    if (!byId.ttinc.on) return;
+    if (ttiBox() === TTI.lastBox
+        && (TTI.cache.get(TTI.lastBox) || {}).at > Date.now() - TTI_TTL) return;
+    delete state.data.ttinc;
+    fetchLayer(byId.ttinc);
+  }, 600);
+});
+
+/* ── Phase 3: how fast is this road, right now ───────────────────── */
+
+/* Tap-only, and deliberately not a layer. It answers one question about
+   one road at the moment you ask it, which is a different kind of thing
+   from everything else on this map — those all describe a state of the
+   world that exists whether or not you are looking.
+
+   Zoom 12 is the segment granularity: lower gives you a whole corridor
+   averaged into uselessness, higher splits a road into pieces shorter than
+   the queue you are asking about. */
+const TTF = { layer: null, timer: null };
+
+async function ttFlow(lat, lng, into) {
+  if (ttKeyMissing()) return;
+  const say = html => { if (into) into.innerHTML = html; };
+  say('<span style="color:var(--muted)">asking TomTom…</span>');
+  let d;
+  try {
+    d = await ttGet(TT_API + '/traffic/services/4/flowSegmentData/relative0/12/json'
+      + '?key=' + encodeURIComponent(TOMTOM_KEY)
+      + '&point=' + lat.toFixed(5) + ',' + lng.toFixed(5)
+      + '&unit=mph&openLr=false');
+  } catch (err) {
+    say('<span style="color:#ff8f8f">' + (err.message === 'tt403'
+      ? 'TomTom refused the key for this domain.' : 'TomTom did not answer.') + '</span>');
+    return;
+  }
+  const f = d.flowSegmentData || {};
+  if (f.currentSpeed == null) { say('<span style="color:var(--muted)">No road here.</span>'); return; }
+  const pct = f.freeFlowSpeed ? Math.round(100 * f.currentSpeed / f.freeFlowSpeed) : null;
+  const col = f.roadClosure ? '#ff4d4d'
+    : pct == null ? '#9aa4b2' : pct >= 85 ? '#4de3a0' : pct >= 60 ? '#ffd166' : '#ff4d4d';
+  say('<div style="margin-top:.2rem">'
+    + '<b style="color:' + col + ';font-size:1.05rem;font-family:\'JetBrains Mono\',monospace">'
+    + (f.roadClosure ? 'Closed' : f.currentSpeed + ' mph') + '</b> '
+    + '<span style="color:var(--muted);font-size:.75rem">of ' + f.freeFlowSpeed
+    + ' free-flow' + (pct != null ? ' · ' + pct + '% of normal' : '') + '</span>'
+    + '<div style="color:var(--muted);font-size:.7rem;margin-top:.15rem">'
+    + (f.frc ? f.frc.replace('FRC', 'road class ') + ' · ' : '')
+    + 'confidence ' + (f.confidence != null ? f.confidence.toFixed(2) : '?')
+    + (f.currentTravelTime != null && f.freeFlowTravelTime != null
+        ? ' · costing ' + Math.max(0, Math.round((f.currentTravelTime - f.freeFlowTravelTime)))
+          + 's over this segment'
+        : '')
+    + '</div></div>');
+
+  // Show which stretch of road the number is about — a speed with no extent
+  // invites you to read it as being about wherever you happened to tap.
+  const co = ((f.coordinates || {}).coordinate || [])
+    .filter(c => c && c.latitude != null).map(c => [c.latitude, c.longitude]);
+  if (TTF.layer) { map.removeLayer(TTF.layer); TTF.layer = null; }
+  if (co.length > 1) {
+    TTF.layer = L.polyline(co, { pane: 'ttincPane', color: col, weight: 8,
+                                 opacity: 0.55, lineCap: 'round' }).addTo(map);
+    clearTimeout(TTF.timer);
+    // Long enough to look at, short enough that it never becomes furniture.
+    TTF.timer = setTimeout(() => {
+      if (TTF.layer) { map.removeLayer(TTF.layer); TTF.layer = null; }
+    }, 20000);
+  }
+}
+
+// The readout's button lives in the panel rather than the map, so it is
+// caught here rather than by the map-scoped handler below.
+document.addEventListener('click', e => {
+  const b = e.target.closest && e.target.closest('button.ttrange');
+  if (!b) return;
+  e.preventDefault();
+  ttRange(+b.dataset.lat, +b.dataset.lng);
+});
+
+// Popups are strings, so the button inside one is reached by delegation.
+document.getElementById('map').addEventListener('click', e => {
+  const b = e.target.closest && e.target.closest('.ttask');
+  if (!b) return;
+  e.preventDefault();
+  const box = document.createElement('div');
+  b.replaceWith(box);
+  ttFlow(+b.dataset.lat, +b.dataset.lng, box);
+});
+
+/* ── Phase 4: where can I get from here ──────────────────────────── */
+
+/* The only thing on this map that answers a question rather than
+   describing a fact. Everything else says what is; this says what you
+   could do about it, in current traffic, from where you are standing.
+
+   Three nested budgets, because one polygon is a claim and three are a
+   shape — you can see the rush hour pulling the edges in along the
+   corridors that are jammed while the quiet side of town keeps its
+   distance. Tap-only and never on move: three requests per ask is fine,
+   three per pan is not. */
+const TTR = { layer: null, busy: false };
+const TTR_BUDGETS = [10, 15, 20];
+const TTR_FILL = ['#4de3a0', '#ffd166', '#ff8c42'];
+
+function ttRangeClear() {
+  if (TTR.layer) { map.removeLayer(TTR.layer); TTR.layer = null; }
+}
+
+async function ttRange(lat, lng) {
+  if (ttKeyMissing() || TTR.busy) return;
+  TTR.busy = true;
+  pulse('asking how far you can get', 'loading');
+  try {
+    const rings = await Promise.all(TTR_BUDGETS.map(async (min, i) => {
+      try {
+        const d = await ttGet(TT_API + '/routing/1/calculateReachableRange/'
+          + lat.toFixed(5) + ',' + lng.toFixed(5) + '/json'
+          + '?key=' + encodeURIComponent(TOMTOM_KEY)
+          + '&timeBudgetInSec=' + (min * 60)
+          + '&routeType=fastest&traffic=true&departAt=now&travelMode=car');
+        const b = ((d.reachableRange || {}).boundary || [])
+          .filter(pt => pt && pt.latitude != null)
+          .map(pt => [pt.latitude, pt.longitude]);
+        return b.length > 2 ? { min: min, ring: b, i: i } : null;
+      } catch (err) { return null; }
+    }));
+    const good = rings.filter(Boolean);
+    if (!good.length) {
+      pulse('TomTom would not answer that', 'err');
+      return;
+    }
+    ttRangeClear();
+    TTR.layer = L.layerGroup([], { pane: 'rangePane' });
+    // Biggest first, so the tighter budgets sit on top of the looser ones
+    // and the nesting reads as nesting rather than as three overlapping
+    // blobs fighting over the same pixels.
+    good.sort((a, b) => b.min - a.min).forEach(r => {
+      const ring = L.polygon(r.ring, {
+        pane: 'rangePane', color: TTR_FILL[r.i], weight: 1.5, opacity: 0.9,
+        fillColor: TTR_FILL[r.i], fillOpacity: 0.13
+      });
+      /* Leaflet bubbles a path click up to the map, and the map click is
+         what dismisses these — so without this, tapping a ring to read it
+         removes it before the popup can open. A flag rather than
+         stopPropagation, because stopping the event also robs bindPopup of
+         the click it opens on. */
+      ring.on('click', () => {
+        TTR.hold = true;
+        setTimeout(() => { TTR.hold = false; }, 0);
+      });
+      ring.bindPopup(pop(TTR_FILL[r.i], 'Reachable', r.min + ' minutes from here', '', [],
+        '<p style="margin-top:.4rem;color:var(--muted);font-size:.72rem">'
+        + 'Driving, in the traffic TomTom sees right now. Ask again in an hour '
+        + 'and it will be a different shape.</p>'));
+      ring.addTo(TTR.layer);
+    });
+    TTR.layer.addTo(map);
+    pulse(good.map(r => r.min).join('/') + ' min reachable');
+  } finally { TTR.busy = false; }
+}
+
+// Long-press on a phone and right-click on a desktop are the same Leaflet
+// event, which is convenient: one gesture, both places.
+map.on('contextmenu', e => {
+  if (ttKeyMissing()) return;
+  ttRange(e.latlng.lat, e.latlng.lng);
+});
+// Any plain tap on the map clears it, the same gesture that clears a
+// transit selection — one way out of everything.
+map.on('click', () => { if (!TTR.hold) ttRangeClear(); });
 
 /* ══════════════════════════════════════════════════════════════════
    Crime — 2.7m APD reports, 2003 to now. There are no coordinates in
@@ -3487,6 +3885,11 @@ function atxOrphans() {
   // owned by BUS rather than by dotLayer. Unclaimed, a hundred moving
   // vehicles read as a hundred orphans.
   claim(BUS.layer);
+  // Same reasoning for the TomTom incident lines and a reachable-range
+  // polygon: painted, persistent, and owned by something other than the
+  // dot layer.
+  claim(typeof ttLines !== 'undefined' ? ttLines : null);
+  claim(TTF.layer); claim(TTR.layer);
   // The choropleth and its labels are owned by the shading control rather
   // than by groundLayers. Left unclaimed they read as ten orphans the moment
   // anyone shades the map, and a check that cries wolf gets ignored.
@@ -5409,6 +5812,16 @@ async function renderMeCard() {
 
   const dl = rows.map(r => '<dt>' + esc(r[0]) + '</dt><dd>' + r[1] + '</dd>').join('');
   let html = '<dl class="mecard">' + dl + '</dl>';
+
+  /* The reachable range needs somewhere to be found from. A long-press on
+     the map works anywhere, but a gesture with no visible control is a
+     gesture nobody finds — the same rule the sheet's open button follows. */
+  if (TOMTOM_KEY) {
+    html += '<button class="ttrange" data-lat="' + lat + '" data-lng="' + lng + '">'
+      + 'How far can I get in 10, 15, 20 minutes?</button>'
+      + '<p class="hint" style="margin:.35rem 0 0">In the traffic TomTom sees right '
+      + 'now. Long-press anywhere on the map to ask from there instead.</p>';
+  }
 
   if (!bgF && !dF) {
     html += '<p class="hint" style="margin:.6rem 0 0">You are outside the area Austin maps &mdash; '
