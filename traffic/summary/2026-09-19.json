@@ -8,13 +8,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 21,
-  "dispatch_only": 21,
+  "dispatch": 24,
+  "dispatch_only": 23,
   "here": 0,
   "here_matched": 0,
-  "matched": 0,
-  "tomtom": 328,
-  "tomtom_only": 328
+  "matched": 1,
+  "tomtom": 339,
+  "tomtom_only": 338
  },
  "date": "2026-09-19",
  "dispatch_life_capped": false,
@@ -22,32 +22,32 @@
   "max": 119.9,
   "median": 115.2,
   "min": 100.8,
-  "n": 14,
-  "q1": 107.4,
-  "q3": 116.7
+  "n": 15,
+  "q1": 107.9,
+  "q3": 116.4
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 0,
-   "n": 6,
-   "pct": 0.0
+   "matched": 1,
+   "n": 7,
+   "pct": 14.3
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 15,
+   "n": 17,
    "pct": 0.0
   },
   "tomtom_highway": {
-   "matched": 0,
-   "n": 130,
-   "pct": 0.0
+   "matched": 1,
+   "n": 138,
+   "pct": 0.7
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 198,
+   "n": 201,
    "pct": 0.0
   }
  },
@@ -58,7 +58,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "n": 0
+  "max": -75.0,
+  "median": -75.0,
+  "min": -75.0,
+  "n": 1,
+  "q1": -75.0,
+  "q3": -75.0
  },
  "persistence_min": {
   "n": 0
@@ -138,6 +143,12 @@
    "seg": "30.470,-97.592"
   },
   {
+   "from": "San Antonio St",
+   "hour_of_week": 120,
+   "n": 2,
+   "seg": "30.265,-97.748"
+  },
+  {
    "from": "San Antonio St (2nd St)",
    "hour_of_week": 120,
    "n": 2,
@@ -160,23 +171,17 @@
    "hour_of_week": 120,
    "n": 2,
    "seg": "30.264,-97.757"
-  },
-  {
-   "from": "Cesar Chavez St exit [234A]",
-   "hour_of_week": 120,
-   "n": 2,
-   "seg": "30.262,-97.736"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 100.0,
-  "tomtom": 100.0
+  "dispatch": 95.8,
+  "tomtom": 99.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 21,
-  "neither": 21,
-  "tomtom_only": 0
+  "n": 24,
+  "neither": 23,
+  "tomtom_only": 1
  }
 }
