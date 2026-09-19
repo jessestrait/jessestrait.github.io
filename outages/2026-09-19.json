@@ -125,6 +125,31 @@
     "type": "zip"
    },
    "source": "austin-energy/kubra"
+  },
+  {
+   "customers_served": 7013,
+   "duration_min": 30,
+   "ended": true,
+   "ended_at": "2026-09-19T20:24:17Z",
+   "etr_last": "2026-09-19T21:20:04Z",
+   "first_seen": "2026-09-19T19:38:58Z",
+   "id": "zip-78750-20260919T193858Z",
+   "kind": "power_outage",
+   "last_seen": "2026-09-19T20:09:03Z",
+   "peak_customers_affected": 1,
+   "peak_outages": 1,
+   "polls": 3,
+   "scope": {
+    "bbox": [
+     -97.84441600013574,
+     30.359926999131993,
+     -97.76917199959217,
+     30.468281399197114
+    ],
+    "id": "78750",
+    "type": "zip"
+   },
+   "source": "austin-energy/kubra"
   }
  ],
  "polls": [
@@ -351,6 +376,13 @@
    "customers_served": 591919,
    "outages": 1,
    "source_at": "2026-09-19T20:06:01Z"
+  },
+  {
+   "at": "2026-09-19T20:24:17Z",
+   "customers_affected": 0,
+   "customers_served": 591919,
+   "outages": 0,
+   "source_at": "2026-09-19T20:23:39Z"
   }
  ],
  "timezone": "America/Chicago"
