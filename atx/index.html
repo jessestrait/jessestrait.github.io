@@ -956,6 +956,14 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
         public page, and a thousand visitors cost HERE one request rather than a thousand.
         Their data is cached for two days at most and never accumulated; the statistics derived
         from it are kept, the rows are not.</li>
+      <li><b>Highway conditions</b> &mdash; <b>TxDOT DriveTexas</b>, keyless and open. The city's
+        right-of-way permits stop at the city's own streets; I-35, Mopac, US-183 and the loops
+        belong to the state, so a night closure of the I-35 main lanes appeared in nothing else
+        on this map. Three sibling services publish the same schema and two of them are dead
+        &mdash; one empty, one a frozen snapshot from August 2020 &mdash; which is worth knowing
+        if you ever go looking. This is the live one. Its dates span the whole project, out to
+        2029 on the I-35 work, and the nightly window lives in the description text, so the layer
+        says what is <em>scheduled</em> rather than claiming what is coned off right now.</li>
       <li><b>Rain</b> &mdash; NOAA's <b>base reflectivity</b> ImageServer, which is time-enabled:
         each read asks for a narrow window at the end of its extent, because a request with no time
         on it returns the whole two-hour archive composited into one image, and three quarters of
@@ -1153,6 +1161,47 @@ const esc = s => String(s == null ? '' : s)
 const titleCase = s => String(s || '').toLowerCase()
   .replace(/\b([a-z])/g, (m, c) => c.toUpperCase()).trim();
 const money = n => n == null ? '—' : '$' + Math.round(n).toLocaleString();
+/* ── TxDOT's own spellings ──────────────────────────────────────────
+   Routes arrive zero-padded in TxDOT's internal form — IH0035, US0183,
+   RM2222, SL0343 — which is unreadable on a popup. SL is a state loop,
+   and Loop 1 is Mopac to everyone who lives here. */
+const TX_COLOR = { Closure: '#ff4d4d', Damage: '#fb7185', Construction: '#fbbf24' };
+const TX_DIR = { N: 'Northbound', S: 'Southbound', E: 'Eastbound', W: 'Westbound',
+                 NS: 'Both directions', EW: 'Both directions' };
+function txRoute(r) {
+  const m = /^([A-Z]{2})0*(\d+)$/.exec(String(r || '').trim());
+  if (!m) return String(r || 'Highway');
+  const n = m[2];
+  if (m[1] === 'SL') return n === '1' ? 'Mopac (Loop 1)' : 'Loop ' + n;
+  return ({ IH: 'I-', US: 'US-', SH: 'SH ', FM: 'FM ', RM: 'RM ', SS: 'Spur ',
+            BI: 'Bus I-', BU: 'Bus US-', PA: 'Park Rd ' }[m[1]] || (m[1] + ' ')) + n;
+}
+// delay_flag is 0/1 on the live service and 'Y'/'N' on its dead siblings.
+const txFlag = v => v === 1 || v === '1' || v === 'Y' || v === true;
+// The descriptions carry <br/> and bullet characters. pop() escapes what it
+// is given, so the markup has to come out here rather than be trusted there.
+const txPlain = d => String(d || '').replace(/<[^>]*>/g, ' ')
+  .replace(/[\u2022\t]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 240) || null;
+/* `roadway` is a human-written local name where it is filled in at all —
+   "Airport Freeway", "Knickerbocker Rd", "I35E NBFR" — so it is used
+   verbatim: titleCase turns "US 75" into "Us 75". A third of the non-null
+   values just restate the route in a different spelling (IH35 against
+   IH0035), and those are dropped rather than printed twice. */
+function txLocal(roadway, route) {
+  // IH and I are the same interstate: "I-20" against route IH0020 is a
+  // restatement, not an extra fact.
+  const norm = x => String(x || '').toUpperCase().replace(/[^A-Z0-9]/g, '')
+    .replace(/([A-Z]+)0*(\d+)/, '$1$2').replace(/^IH/, 'I');
+  const r = String(roadway || '').trim();
+  return r && norm(r) !== norm(route) ? r : null;
+}
+
+function txSpan(a, b) {
+  const f = t => t ? new Date(t).toLocaleDateString([], { month: 'short', day: 'numeric',
+                                                         year: 'numeric' }) : null;
+  const s = f(a), e = f(b);
+  return s && e ? s + ' \u2013 ' + e : (s || e);
+}
 const sinceISO = days => new Date(Date.now() - days * 864e5).toISOString().slice(0, 19);
 // AFD call types arrive as "CODE - Human Label", with the spacing all over the
 // place: "ALARM - Fire Alarm", "BOX -Structure Fire", "BOXL- Structure Fire".
@@ -2606,7 +2655,7 @@ function rowFor(l) {
    checked first inside it. Easy to flip if it reads wrong in the hand. */
 const TIERS = [
   ['live', 'Live now', ['firelive', 'c311', 'traffic', 'transit', 'signals',
-                        'bikes', 'gauges', 'lwc', 'outages', 'hereinc']],
+                        'bikes', 'gauges', 'lwc', 'outages', 'hereinc', 'txdot']],
   ['today', 'Lately', ['news', 'crashes', 'wildfire', 'permits']],
   ['standing', 'Standing', ['busroutes', 'busstops', 'workzones', 'schoolzones']]
 ];
@@ -3103,6 +3152,64 @@ const GROUND = [
     note: 'A second probe network \u00b7 rewritten every five minutes',
     group: 'recent',
     load: g => loadHereIncidents(g)
+  },
+  {
+    /* TxDOT, because the city does not own the roads that matter most.
+
+       Austin's right-of-way permits (the work-zones layer below) cover city
+       streets. I-35, Mopac, US-183 and the loops belong to the state, and
+       their closures appear in none of the city's datasets — so the single
+       most consequential traffic fact in Austin, a night closure of the I-35
+       main lanes, was missing from a map of Austin traffic.
+
+       Keyless and CORS-open, which is why this exists at all after HERE
+       turned out to need a card. It is not a replacement for HERE: this is
+       the road authority *reporting* its own work, not a second fleet
+       *measuring* congestion. Different kind of witness, different gap.
+
+       Careful with the sibling services. HCRS_Edit_AGO returns nothing and
+       HCRS_CC looks perfect — 481 lines, same schema — and is a frozen
+       snapshot from August 2020. This one is TDEM's published copy and its
+       newest row was three hours old when it went in. Check the timestamps
+       before trusting any of them. */
+    id: 'txdot', color: '#fbbf24', name: 'TxDOT highway conditions',
+    note: 'I-35, Mopac and 183 \u2014 the roads the city does not own',
+    group: 'recent',
+    url: 'https://services5.arcgis.com/Rvw11bGpzJNE7apK/arcgis/rest/services/'
+       + 'DriveTexas_API/FeatureServer/0/query?where=1%3D1'
+       + '&geometry=' + encodeURIComponent('-97.95,30.10,-97.55,30.52')
+       + '&geometryType=esriGeometryEnvelope&inSR=4326'
+       + '&spatialRel=esriSpatialRelIntersects'
+       + '&outFields=' + encodeURIComponent('condition,travel_direction,route_name,'
+           + 'delay_flag,detour_flag,roadway,from_limit,to_limit,start_time,end_time,'
+           + 'description,create_time')
+       + '&outSR=4326&f=geojson',
+    style: p => {
+      const c = TX_COLOR[p.condition] || '#fbbf24';
+      // A closure is a different claim from "work is happening here", so it
+      // is dashed rather than a darker shade of the same thing — the same
+      // rule the HERE layer uses.
+      return { color: c, weight: txFlag(p.delay_flag) ? 4 : 2.5,
+               opacity: 0.9, dashArray: p.condition === 'Closure' ? '7 5' : null };
+    },
+    popup: p => pop(TX_COLOR[p.condition] || '#fbbf24',
+      'TxDOT \u00b7 ' + (p.condition || 'Condition'),
+      txRoute(p.route_name) + (txLocal(p.roadway, p.route_name)
+        ? ' \u00b7 ' + txLocal(p.roadway, p.route_name) : ''), '', [
+        ['What', txPlain(p.description)],
+        ['Direction', TX_DIR[p.travel_direction] || p.travel_direction],
+        ['Expect delays', txFlag(p.delay_flag) ? 'Yes' : null],
+        ['Detour in place', txFlag(p.detour_flag) ? 'Yes' : null],
+        ['From', p.from_limit],
+        ['To', p.to_limit],
+        ['Scheduled', txSpan(p.start_time, p.end_time)],
+        ['Reported', p.create_time ? new Date(p.create_time).toLocaleString() : null]
+      ],
+      '<p style="margin-top:.5rem;color:var(--muted);font-size:.72rem">'
+      + 'TxDOT DriveTexas. The dates are the whole span of the work, which for '
+      + 'the I-35 projects runs to 2029 \u2014 the nightly window, where there is '
+      + 'one, is in the text above. This says what is scheduled, not what is '
+      + 'coned off at this minute.</p>')
   },
   {
     id: 'workzones', color: '#fb923c', name: 'Roadway work zones',

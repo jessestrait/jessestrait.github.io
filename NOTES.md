@@ -596,3 +596,66 @@ recorded before HERE existed read exactly as they were written.
 
 is run with a freemium key from platform.here.com. Until then the layer reads
 "Waiting on a HERE key" and the archive carries on with two witnesses.
+
+## B5 (TxDOT): found live after HERE died on a payment wall (2026-09-19)
+
+HERE is blocked, not abandoned. Its Traffic API appears to require the
+**Base Plan**, which demands a credit card at registration — the no-card
+**Limited Plan** does not list Traffic anywhere in its RPS table, which
+names 24 services down to Destination Weather. Jesse's card would not go
+through. The integration stays built, tested and dormant; it needs
+`HERE_ARCHIVE_KEY` and nothing else.
+
+Two apparent substitutes are traps, recorded so nobody tries them twice:
+**Azure Maps** traffic is TomTom-sourced, so it is the fleet we already have
+wearing a different badge; **Amazon Location** only returns incidents
+attached to a route it computed for you, so it cannot answer "what is
+happening in this box", which is the only question this archive asks.
+
+### The feed that does work
+
+    services5.arcgis.com/Rvw11bGpzJNE7apK/.../DriveTexas_API/FeatureServer/0
+
+TxDOT DriveTexas, via TDEM's published copy. No key, no card,
+`Access-Control-Allow-Origin: *`. 632 rows statewide, 5 in the Austin bbox,
+all I-35. Readable fields: condition, route_name, travel_direction,
+delay_flag, detour_flag, roadway, from_limit, to_limit, start_time,
+end_time, description, create_time.
+
+**Three sibling services publish the same schema and two are dead.**
+`HCRS_Edit_AGO` returns zero rows on both layers. `HCRS_CC` is the dangerous
+one: 20 points and 481 lines, correct schema, entirely convincing — and
+every timestamp is from **August 2020**. It is a frozen snapshot. The only
+thing that distinguishes the live service is `create_time`, so check it
+before trusting any TxDOT endpoint. This is the same failure as the
+Bluetooth travel-time sensors, which also looked perfect and also stopped
+publishing years ago.
+
+**What it is and is not.** Not a HERE replacement. HERE would have been a
+second probe *network* — congestion measured from vehicle telemetry, an
+independent instrument. TxDOT is the road authority *reporting its own
+work*. It is a second reporter beside APD dispatch, not a second
+measurement, so `probe_agreement` and the `witnesses` breakdown still want
+HERE. What it fills is the coverage gap B5 named: the state owns I-35,
+Mopac and US-183, and their closures appear in no city dataset.
+
+**Where it changes a number.** `summary.roadworks`. Of the day's congestion
+that no dispatch record explains, how much sits on a stretch TxDOT has
+coned off. Measured against the real 2026-09-17 archive: **395 of 2,903
+unreported jams, 13.6%**, and 352 of 2,644 recurrence buckets. That was the
+largest false category in `structural_hotspots` — a jam recurring every
+weekday at 7am on a road rebuilt since 2024 is not an unexplained property
+of the road. They are marked rather than dropped (the recurrence is real,
+it just has a cause on file) and sorted last, so the head of the list is now
+genuinely unexplained congestion: S Lamar at Ben White, Westlake Dr, Metric
+at Parmer.
+
+**Not upserted as episodes, deliberately.** These are multi-year projects
+with end dates in 2029, so "it left the feed" means a work order changed,
+not a road reopening at that minute. Current state only, replaced each poll.
+
+**Freshness, stated precisely.** Statewide the newest row was under three
+hours old. Within the Austin bbox the newest was about 4.6 days old — the
+feed is live, Austin's own rows simply change slowly. The layer says
+*scheduled*, not *active now*, for the same reason the school zones do: the
+dates span the whole project and the nightly window lives in prose.

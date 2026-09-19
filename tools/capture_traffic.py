@@ -68,6 +68,13 @@ FIELDS = ("{incidents{type,geometry{type,coordinates},properties{id,iconCategory
 TOMTOM = "https://api.tomtom.com/traffic/services/5/incidentDetails"
 HERE = "https://data.traffic.hereapi.com/v7/incidents"
 SODA = "https://data.austintexas.gov/resource/dx9v-zd7x.json"
+# TxDOT DriveTexas, via TDEM's published copy. Keyless and CORS-open.
+# Two near-identical sibling services exist and both are dead: HCRS_Edit_AGO
+# returns nothing, HCRS_CC is a frozen August-2020 snapshot with the same
+# schema and 481 convincing rows. Check create_time before trusting any of
+# them — that is the only thing that distinguishes this one.
+TXDOT = ("https://services5.arcgis.com/Rvw11bGpzJNE7apK/arcgis/rest/services/"
+         "DriveTexas_API/FeatureServer/0/query")
 
 # TomTom's iconCategory, collapsed to the shared vocabulary. Checked against a
 # live Austin response: 6 jam, 8 road closed, 9 roadworks and 7 lane closed are
@@ -340,6 +347,70 @@ def fetch_here(key, bbox=BBOX, depth=0):
     return out
 
 
+def fetch_txdot(bbox=BBOX):
+    """TxDOT's own account of what it has closed.
+
+    A fourth feed, and a different kind of witness from the other three: the
+    road authority reporting its own work, not a fleet measuring congestion
+    and not a dispatcher logging a call. It earns its place because the state
+    owns the roads that matter most here — I-35, Mopac, US-183 — and their
+    closures appear in no city dataset.
+
+    Its value to the archive is narrow and specific: a recurring jam on a
+    stretch TxDOT has had coned off for two years is not an unexplained
+    structural hotspot, and counting it as one was the largest false
+    category in the summary. See summarise()."""
+    w, s_, e, n = (float(x) for x in bbox.split(","))
+    d = get(TXDOT, {
+        "where": "1=1",
+        "geometry": "%s,%s,%s,%s" % (w, s_, e, n),
+        "geometryType": "esriGeometryEnvelope", "inSR": "4326",
+        "spatialRel": "esriSpatialRelIntersects",
+        "outFields": ("condition,route_name,travel_direction,delay_flag,detour_flag,"
+                      "roadway,from_limit,to_limit,start_time,end_time,description,"
+                      "create_time,GLOBALID"),
+        "outSR": "4326", "f": "geojson",
+    })
+    out = {}
+    for f in d.get("features", []):
+        p = f.get("properties") or {}
+        i = p.get("GLOBALID")
+        g = f.get("geometry") or {}
+        if not i or not g:
+            continue
+        # The service returns LineString and occasionally MultiLineString;
+        # flatten, because everything downstream reads one vertex list.
+        if g.get("type") == "LineString":
+            pts = g.get("coordinates") or []
+        elif g.get("type") == "MultiLineString":
+            pts = [c for part in (g.get("coordinates") or []) for c in part]
+        else:
+            continue
+        if len(pts) < 2:
+            continue
+        roads = roads_in(p.get("route_name")) | roads_in(p.get("roadway")) \
+            | roads_in(p.get("from_limit"))
+        out[i] = {
+            "id": i,
+            # Its vocabulary is already close to the shared one.
+            "cat": {"Closure": "closure", "Construction": "roadwork",
+                    "Damage": "hazard"}.get(p.get("condition"), "unknown"),
+            "condition": p.get("condition"),
+            "route": p.get("route_name"),
+            "roads": sorted(roads),
+            "direction": p.get("travel_direction"),
+            "delay": p.get("delay_flag") in (1, "1", "Y", True),
+            "detour": p.get("detour_flag") in (1, "1", "Y", True),
+            "from": p.get("from_limit"),
+            "to": p.get("to_limit"),
+            "geom": simplify(pts),
+            "start_time": p.get("start_time"),
+            "end_time": p.get("end_time"),
+            "created": p.get("create_time"),
+        }
+    return out
+
+
 def fetch_dispatch(hours=2):
     since = iso(now() - dt.timedelta(hours=hours))
     rows = get(SODA, {
@@ -603,7 +674,7 @@ def dist_stats(vals):
 
 def summarise(day, tt_closed, dp_closed, matches, tt_open, dp_open, interval_min,
               matcher_params, hr_closed=(), hr_open=(), hr_matches=(),
-              agreements=()):
+              agreements=(), tx=()):
     tt_all = tt_closed + tt_open
     dp_all = dp_closed + dp_open
     hr_all = list(hr_closed) + list(hr_open)
@@ -613,6 +684,23 @@ def summarise(day, tt_closed, dp_closed, matches, tt_open, dp_open, interval_min
     m_dp = {m["dispatch_id"] for m in matches}
     m_hr = {m["here_id"] for m in hr_matches}
     hr_dp = {m["dispatch_id"] for m in hr_matches}
+    tx = list(tx)
+
+    def on_roadworks(geom, roads):
+        """Does a TxDOT closure cover this stretch? Same coverage test the
+        probe feeds use against each other."""
+        if not geom:
+            return False
+        for w in tx:
+            wg = w.get("geom") or []
+            if not wg:
+                continue
+            lim = 130.0 if (roads or w.get("roads")) else 200.0
+            if roads and w.get("roads") and not (set(roads) & set(w["roads"])):
+                continue
+            if max(line_cover(geom, wg, lim), line_cover(wg, geom, lim)) >= 0.5:
+                return True
+        return False
 
     def rate(items, matched_ids, hw):
         sel = [x for x in items if bool(x.get("roads")) == hw]
@@ -623,18 +711,30 @@ def summarise(day, tt_closed, dp_closed, matches, tt_open, dp_open, interval_min
 
     # Congestion nobody reported. The ones that recur at the same place and
     # the same hour of the week are a fact about the road, not an event.
+    #
+    # TxDOT is what stops this being wrong. A jam that recurs every weekday
+    # at 7am on a stretch the state has had coned off since 2024 is not an
+    # unexplained property of the road — it is roadworks, and calling it a
+    # structural hotspot was the largest false category in this list. Marked
+    # rather than dropped: the recurrence is still real, it just has a cause
+    # on file, and dropping it would hide the I-35 rebuild entirely.
     hot = {}
+    explained = 0
     for t in tt_all:
         if t["id"] in m_tt or t.get("cat") not in ("jam", "closure"):
             continue
         st = parse(t.get("start_time")) or parse(t.get("first_seen"))
         if not st:
             continue
+        works = on_roadworks(t.get("geom"), t.get("roads"))
+        if works:
+            explained += 1
         k = "%s|%d" % (seg_key(t.get("geom")), st.weekday() * 24 + st.hour)
         h = hot.setdefault(k, {"seg": seg_key(t.get("geom")),
                                "hour_of_week": st.weekday() * 24 + st.hour,
-                               "n": 0, "from": t.get("from")})
+                               "n": 0, "from": t.get("from"), "roadworks": False})
         h["n"] += 1
+        h["roadworks"] = h["roadworks"] or works
 
     # How long APD's own records stay open, which turns out to decide what
     # this archive can and cannot measure.
@@ -700,6 +800,17 @@ def summarise(day, tt_closed, dp_closed, matches, tt_open, dp_open, interval_min
             "onset_offset_min": dist_stats([a.get("onset_offset_min") for a in agreements]),
         },
         "here_onset_offset_min": dist_stats([m.get("onset_offset_min") for m in hr_matches]),
+        # The fourth feed, and the one number it is here to change.
+        "roadworks": {
+            "txdot_rows": len(tx),
+            "unreported_congestion": len([t for t in tt_all if t["id"] not in m_tt
+                                          and t.get("cat") in ("jam", "closure")]),
+            "explained_by_roadworks": explained,
+            # Across every recurrence bucket, not just the fifteen listed
+            # below — the list is a sample and this is the population.
+            "hotspot_buckets": len(hot),
+            "hotspot_buckets_on_roadworks": len([h for h in hot.values() if h["roadworks"]]),
+        },
         # Signed on purpose, and the sign turned out to be the finding — just
         # not the one this comment used to assert. It said probe data often
         # sees the jam before APD publishes. Over the first 70 matched pairs
@@ -730,7 +841,10 @@ def summarise(day, tt_closed, dp_closed, matches, tt_open, dp_open, interval_min
             "tomtom": round(100 * len([t for t in tt_all if t["id"] not in m_tt])
                             / max(1, len(tt_all)), 1),
         },
-        "structural_hotspots": sorted(hot.values(), key=lambda x: -x["n"])[:15],
+        # Roadworks-explained ones sort last: they are still recurrences, but
+        # the interesting end of this list is the congestion nothing explains.
+        "structural_hotspots": sorted(hot.values(),
+                                      key=lambda x: (x["roadworks"], -x["n"]))[:15],
         "caveats": [
             "Dispatch published_date is when APD published, not when it happened.",
             ("Dispatch records appear to be dropped on a fixed life of about two "
@@ -787,7 +901,7 @@ def rematch(out, args):
                       "tolerance_min": args.tolerance,
                       "onset_window_min": args.onset_window},
                      hr_closed=hr, hr_matches=doc["here_matches"],
-                     agreements=doc["agreements"])
+                     agreements=doc["agreements"], tx=doc.get("txdot", []))
     summ["rematched"] = True
     (out / "summary" / (day + ".json")).write_text(
         json.dumps(summ, separators=(",", ":"), sort_keys=True))
@@ -860,6 +974,14 @@ def main():
 
     tt_seen = fetch_tomtom(key)
     dp_seen = fetch_dispatch()
+    # No key, so it never blocks the run; a failure is one feed's worth of
+    # loss, same rule as HERE.
+    try:
+        tx_seen = fetch_txdot()
+    except (urllib.error.URLError, ValueError) as err:
+        print("TxDOT fetch failed (%s) — carrying on without it." % err, file=sys.stderr)
+        tx_seen = {}
+
     hr_seen = {}
     if here_key:
         try:
@@ -889,6 +1011,7 @@ def main():
     agreements = probe_agreement(list(tt_open.values()) + tt_closed,
                                  list(hr_open.values()) + hr_closed,
                                  args.buffer, args.highway_buffer, args.tolerance)
+    tx_rows = sorted(tx_seen.values(), key=lambda x: x["id"])
 
     day = stamp[:10]
     day_path = out / (day + ".json")
@@ -904,11 +1027,16 @@ def main():
     day_doc["agreements"] = merge_matches(day_doc.get("agreements"), agreements,
                                           keys=("tomtom_id", "here_id"))
     day_doc["fetched_at"] = stamp
+    day_doc["txdot"] = tx_rows
     day_path.write_text(json.dumps(day_doc, separators=(",", ":"), sort_keys=True))
 
+    # TxDOT rows are not episodes and are deliberately not upserted: these
+    # are multi-year projects, so "it disappeared from the feed" is a change
+    # to a work order rather than a road reopening at that minute. Current
+    # state only, replaced each poll.
     state_path.write_text(json.dumps(
         {"fetched_at": stamp, "tomtom": tt_open, "dispatch": dp_open,
-         "here": hr_open},
+         "here": hr_open, "txdot": tx_rows},
         separators=(",", ":"), sort_keys=True))
 
     # What HERE currently sees, for the map to draw. Live state only: this
@@ -943,7 +1071,7 @@ def main():
                       "onset_window_min": args.onset_window},
                      hr_closed=day_doc["here_closed"], hr_open=list(hr_open.values()),
                      hr_matches=day_doc["here_matches"],
-                     agreements=day_doc["agreements"])
+                     agreements=day_doc["agreements"], tx=tx_rows)
     (out / "summary" / (day + ".json")).write_text(
         json.dumps(summ, indent=1, sort_keys=True))
 
@@ -958,11 +1086,15 @@ def main():
 
     c = summ["counts"]
     w = summ["witnesses"]
+    rw = summ["roadworks"]
     print("%s  tomtom %d (+%d closed)  here %d (+%d closed)  dispatch %d (+%d "
-          "closed)  matched %d/%d  agreed %d  both-saw %d  neither %d  pruned %d"
+          "closed)  txdot %d  matched %d/%d  agreed %d  both-saw %d  neither %d  "
+          "unreported %d (%d roadworks)  pruned %d"
           % (stamp, len(tt_open), len(tt_closed), len(hr_open), len(hr_closed),
-             len(dp_open), len(dp_closed), c["matched"], c["here_matched"],
-             summ["probe_agreement"]["n"], w["both"], w["neither"], pruned))
+             len(dp_open), len(dp_closed), rw["txdot_rows"], c["matched"],
+             c["here_matched"], summ["probe_agreement"]["n"], w["both"],
+             w["neither"], rw["unreported_congestion"],
+             rw["explained_by_roadworks"], pruned))
 
 
 if __name__ == "__main__":
