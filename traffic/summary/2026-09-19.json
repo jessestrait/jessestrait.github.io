@@ -1,29 +1,29 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 111, q3 118 min over 27 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 110, q3 118 min over 34 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
   "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 46,
-  "dispatch_only": 42,
+  "dispatch": 51,
+  "dispatch_only": 47,
   "here": 0,
   "here_matched": 0,
   "matched": 4,
-  "tomtom": 478,
-  "tomtom_only": 475
+  "tomtom": 493,
+  "tomtom_only": 490
  },
  "date": "2026-09-19",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
-  "max": 119.9,
-  "median": 115.2,
-  "min": 100.8,
-  "n": 27,
-  "q1": 111.1,
+  "max": 120.0,
+  "median": 115.1,
+  "min": 81.9,
+  "n": 34,
+  "q1": 110.0,
   "q3": 118.3
  },
  "here_onset_offset_min": {
@@ -32,22 +32,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 10,
-   "pct": 10.0
+   "n": 11,
+   "pct": 9.1
   },
   "dispatch_surface": {
    "matched": 3,
-   "n": 36,
-   "pct": 8.3
+   "n": 40,
+   "pct": 7.5
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 192,
+   "n": 196,
    "pct": 1.0
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 286,
+   "n": 297,
    "pct": 0.3
   }
  },
@@ -175,14 +175,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 91.3,
+  "dispatch": 92.2,
   "tomtom": 99.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 46,
-  "neither": 42,
+  "n": 51,
+  "neither": 47,
   "tomtom_only": 4
  }
 }
