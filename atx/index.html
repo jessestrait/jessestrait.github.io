@@ -972,11 +972,12 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
         each layer sweeps the same relative position through its own range rather than pretending
         to one timeline. Anything without a clock &mdash; stations, libraries, art, cameras, and
         every ground shape &mdash; is standing infrastructure and stays put.</li>
-      <li><b>Live congestion</b> &mdash; <b>TomTom</b> raster flow tiles, optional and now off
-        until you switch them on. They bill per tile and refetch on every pan, which ran to
-        185,000&ndash;212,000 requests a month against a 200,000 allowance; leaving them on by
-        default risked exhausting the key and taking the traffic archive down with it, and the
-        archive is the part that cannot be replaced. One click away. It sits deliberately <em>under</em> the APD/ATD dispatch pins, because traffic
+      <li><b>Live congestion</b> &mdash; <b>TomTom</b> raster flow tiles, on when the page opens.
+        They bill per tile and refetch on every pan, which runs to 185,000&ndash;212,000 requests
+        a month against a 200,000 allowance &mdash; so they are the one layer here with a real
+        marginal cost. The reason that is affordable is that the traffic archive no longer shares
+        the risk: it rations itself against its own much smaller allowance, and the corridor board
+        below is sampled once by a scheduled job rather than once per visitor. It sits deliberately <em>under</em> the APD/ATD dispatch pins, because traffic
         on its own is something every phone already has &mdash; the jam next to the wreck causing it
         is not. TomTom is the one vendor whose terms allow their traffic over someone else's
         basemap; Google's renders only on a Google map and their terms forbid it elsewhere, which
@@ -7731,9 +7732,15 @@ let lastTouch = Date.now();
    produce. Tiles bill per pan of every visit; the archive bills 531 calls
    a day and cannot be replaced by anything.
 
-   So: one click away instead of automatic, and the allowance stays
-   headroom for the part that matters. */
-const TRAFFIC_DEFAULT = false;
+   Back on by default 2026-09-20, once credits were bought. The reasoning
+   above still holds and is kept rather than deleted — it is why the
+   archive now rations itself and why the corridor board is sampled by the
+   job instead of the browser. What changed is that the tile overage is
+   paid for and this is the layer Jesse actually looks at. Roughly 185K-
+   212K a month against a 200K allowance, so about a dollar of overage;
+   the thing that was dangerous was exhausting the key and taking the
+   archive down with it, and the archive no longer shares the risk. */
+const TRAFFIC_DEFAULT = true;
 // relative0-dark is the variant meant for dark basemaps; relative-delay
 // draws only the segments that are actually slow, if this reads too busy.
 // Note: the thickness parameter is rejected on the relative0 styles — it is

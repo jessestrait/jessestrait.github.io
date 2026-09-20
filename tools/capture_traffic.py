@@ -68,15 +68,26 @@ FIELDS = ("{incidents{type,geometry{type,coordinates},properties{id,iconCategory
 TOMTOM = "https://api.tomtom.com/traffic/services/5/incidentDetails"
 FLOW = "https://api.tomtom.com/traffic/services/4/flowSegmentData/relative0/12/json"
 
-# Nine corridors, sampled for speed rather than drawn. Every one of these
-# coordinates sits on the motorway centreline: they were snapped to real
-# OSM `highway=motorway` nodes and then reverse-geocoded to confirm the
-# road name, because the first set — picked by eye from intersections —
-# landed on residential side streets. Deen Avenue, Willowrun Cove, Juniper
-# Road. TomTom's flow endpoint snaps to whatever road is nearest and
-# answers without complaint, so it would have reported a cul-de-sac's
-# speed under the label "I-35 at Rundberg" and nothing would have looked
-# wrong. Verify a coordinate before trusting a number attached to it.
+# Nine corridors, sampled for speed rather than drawn.
+#
+# Each coordinate survived three checks, and each check caught something
+# the one before it missed.
+#
+#   1. Picked by eye from intersections — landed on Deen Avenue,
+#      Willowrun Cove and Juniper Road. Residential side streets.
+#   2. Snapped to OSM `highway=motorway` nodes and reverse-geocoded to
+#      confirm the road name. Fixed eight of nine.
+#   3. Asked TomTom for each one's functional road class once credits
+#      were live. US-290 still came back FRC5 — a local road with 21
+#      shape points — because an OSM motorway node can still sit on a
+#      frontage road as far as TomTom's map is concerned.
+#
+# All nine now return FRC0-FRC3 with highway free-flow speeds. TomTom's
+# flow endpoint snaps to whatever road is nearest and answers without
+# complaint, so a wrong coordinate produces a confident number about a
+# cul-de-sac and nothing looks broken. Verify a coordinate before
+# trusting a number attached to it, and verify it against the service
+# that will be answering.
 CORRIDORS = [
     ("I-35 north",   "at Rundberg",     30.35226, -97.69181),
     ("I-35 central", "downtown",        30.26788, -97.73376),
@@ -84,7 +95,13 @@ CORRIDORS = [
     ("Mopac north",  "at Far West",     30.35630, -97.74613),
     ("Mopac south",  "at Barton Skyway", 30.26610, -97.78151),
     ("US-183 north", "at Burnet",       30.37415, -97.72866),
-    ("US-290 west",  "at Oak Hill",     30.23506, -97.82407),
+    # Re-picked once credits were live and the road class could be read
+    # back. The OSM-snapped point at 30.23506,-97.82407 answered FRC5 — a
+    # local road, 21 shape points — because it had landed on a frontage
+    # road running beside the highway. Being on the right *line* in OSM is
+    # not the same as being on the right *carriageway* in TomTom's map.
+    # This one answers FRC2 with 259 shape points and a 69 mph free-flow.
+    ("US-290 west",  "west of Ben White", 30.22773, -97.78117),
     ("SH-71 east",   "at the airport",  30.21936, -97.67035),
     ("Loop 360",     "at Bee Caves",    30.29603, -97.82797),
 ]
