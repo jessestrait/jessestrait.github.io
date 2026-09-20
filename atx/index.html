@@ -6120,10 +6120,29 @@ map.addControl(new LocateControl());
    fires one, which would otherwise strand follow mode off for good. */
 function meSettle() {
   ME.settling = true;
-  const done = () => { ME.settling = false; };
+  // Marks the zoom that follows as *ours*, so meRelease below can tell a
+  // flyTo we asked for from a pinch the reader asked for.
+  ME.selfZoom = true;
+  const done = () => { ME.settling = false; ME.selfZoom = false; };
   map.once('moveend', done);
   setTimeout(done, 2000);
 }
+
+/* Any deliberate move by the reader ends follow mode.
+
+   `dragstart` alone was not enough, and this was the bug: zooming is not
+   dragging. Someone who pinched or scrolled out without ever panning kept
+   follow switched on, and watchPosition fires every few seconds — so the
+   next fix called setView with ME.zoom and snapped them back to their own
+   dot at zoom 16. It reads as the map fighting you, and it is worst
+   exactly when you are trying to zoom out, because that is the gesture
+   that does not clear follow and the one whose result is most obviously
+   undone.
+
+   zoomstart fires for our own flyTo too, hence ME.selfZoom. */
+function meRelease() { ME.follow = false; }
+['dragstart', 'wheel', 'dblclick'].forEach(ev => map.on(ev, meRelease));
+map.on('zoomstart', () => { if (!ME.selfZoom) meRelease(); });
 
 function meHint(html, tone) {
   const el = document.getElementById('mehint');
@@ -6241,13 +6260,19 @@ async function onFix(pos) {
     ME.zoom = Math.max(map.getZoom(), ME_ZOOM);
     meSettle();
     map.flyTo([lat, lng], ME.zoom, { duration: 1.1 });
-    // Following the dot forever fights the user the moment they pan away.
-    map.once('dragstart', () => { ME.follow = false; });
+    // Release is wired once, globally, on drag *and zoom* — see meRelease.
   } else if (ME.follow && !ME.settling) {
     // Animating every GPS tick while someone walks is jittery and fights the
     // canvas redraw; the deliberate moves (first fix, recenter) still fly.
-    // ME.zoom rather than map.getZoom(): see meSettle.
-    map.setView([lat, lng], ME.zoom || map.getZoom(), { animate: false });
+    //
+    // The zoom is the *current* one, not ME.zoom. ME.zoom exists because a
+    // fix landing mid-flyTo would otherwise write back an interpolated
+    // zoom and cancel the animation — but !ME.settling already means the
+    // flight has landed, so there is nothing to protect against here, and
+    // holding ME.zoom meant every tick re-imposed the zoom the reader had
+    // just changed. Following should keep you centred, never pull you
+    // back in.
+    map.setView([lat, lng], map.getZoom(), { animate: false });
   }
 
   // Cleared rather than dropped: this is what clears "Waiting for your browser
@@ -6378,7 +6403,6 @@ async function renderMeCard() {
     ME.zoom = Math.max(map.getZoom(), ME_ZOOM);
     meSettle();
     map.flyTo([ME.pos.lat, ME.pos.lng], ME.zoom, { duration: 0.8 });
-    map.once('dragstart', () => { ME.follow = false; });
   };
 }
 
