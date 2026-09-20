@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 90, q3 117 min over 99 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 90, q3 117 min over 102 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 112,
-  "dispatch_only": 111,
+  "dispatch": 116,
+  "dispatch_only": 115,
   "here": 0,
   "here_matched": 0,
   "matched": 1,
@@ -21,11 +21,11 @@
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 108.3,
+  "median": 108.0,
   "min": 19.4,
-  "n": 99,
+  "n": 102,
   "q1": 90.5,
-  "q3": 116.8
+  "q3": 116.6
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,7 +38,7 @@
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 87,
+   "n": 91,
    "pct": 0.0
   },
   "tomtom_highway": {
@@ -91,7 +91,7 @@
   "unreported_congestion": 536
  },
  "sampling": {
-  "flow_spent_this_month": 225,
+  "flow_spent_this_month": 234,
   "incident_budget": 2500,
   "incidents_spent_this_month": 22,
   "off_peak_min": 45,
@@ -219,8 +219,8 @@
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 112,
-  "neither": 111,
+  "n": 116,
+  "neither": 115,
   "tomtom_only": 1
  }
 }
