@@ -267,6 +267,12 @@ dl.mecard a{color:var(--accent-hi)}
 .sub .seg{margin-top:.35rem}
 .sub .seg button{font-size:.68rem; padding:.32rem .2rem}
 
+/* Flow tiles, zoomed out. TomTom draws only highways down here and draws
+   them faint; this is the difference between "there is something on the
+   map" and "I can follow I-35". On each tile image rather than the pane —
+   a pane filter breaks canvas compositing above it. */
+#map.flowlow .flowtile{ filter:saturate(1.75) brightness(1.4) contrast(1.1); }
+
 /* ── Corridor board ──────────────────────────────────── */
 /* A row per corridor: name, a bar showing how much of free-flow speed is
    left, and the number. The bar is the thing you read at a glance and the
@@ -3993,7 +3999,7 @@ const GROUND = [
        worse than no school-zone layer. */
     id: 'schoolzones', color: '#f5b642', name: 'School zones',
     note: 'When the beacons are scheduled to flash',
-    group: 'recent',
+    group: 'recent', on: true,
     load: g => loadSchoolZones(g)
   },
   {
@@ -4017,7 +4023,7 @@ const GROUND = [
        before trusting any of them. */
     id: 'txdot', color: '#fbbf24', name: 'TxDOT highway conditions',
     note: 'I-35, Mopac and 183 \u2014 the roads the city does not own',
-    group: 'recent',
+    group: 'recent', on: true,
     url: 'https://services5.arcgis.com/Rvw11bGpzJNE7apK/arcgis/rest/services/'
        + 'DriveTexas_API/FeatureServer/0/query?where=1%3D1'
        + '&geometry=' + encodeURIComponent('-97.95,30.10,-97.55,30.52')
@@ -7747,6 +7753,45 @@ const TRAFFIC_DEFAULT = true;
 // only accepted on absolute, relative, relative-delay and reduced-sensitivity.
 const TRAFFIC_STYLE = 'relative0-dark';
 
+/* Why the flow lines fade as you zoom out, and what can actually be done.
+
+   Measured, by rendering the tiles to a canvas and counting painted
+   pixels over downtown: z12 paints 5.0% of the tile, z11 1.4%, z10 0.6%,
+   z9 0.31%. Coverage roughly halves per zoom out — and it is not that
+   the lines get thinner, it is that TomTom draws *fewer roads*. By z9 it
+   is highways only.
+
+   So the obvious fixes do not work:
+
+     - `thickness` is rejected outright on the relative0 styles. Asking
+       for it returns 400, verified.
+     - The `relative` style does accept it and paints 12% of the tile at
+       z9 against 0.31% — but 99% of those pixels are green, because it
+       colours every free-flowing road too. At z11 it covers 62% of the
+       tile. It would smother the basemap and throw away the thing this
+       style is good at: relative0-dark keeps 15% of its pixels red, so
+       the eye goes to the congestion.
+     - Loading a deeper tile and scaling it down (minNativeZoom) shrinks
+       the lines by exactly as much as the extra detail gains.
+
+   What is left is making the few roads it does draw easier to see. Mean
+   alpha on a painted pixel falls from 167 at z12 to 142 at z9, and the
+   layer sits at 0.85 opacity on top of that — so at z9 a line is landing
+   at about 47% effective. Full opacity plus more saturation and a little
+   brightness at low zoom gets it back to something you can follow.
+
+   The filter goes on the tile images, not on the pane: a pane filter
+   breaks canvas compositing for every layer stacked above it, which is
+   the same trap the basemap tinting had to avoid. */
+const TRAFFIC_LOW_ZOOM = 11;
+
+function syncTrafficPunch() {
+  const low = map.getZoom() <= TRAFFIC_LOW_ZOOM;
+  map.getContainer().classList.toggle('flowlow', low);
+  if (TRAFFIC.layer) TRAFFIC.layer.setOpacity(low ? 1 : 0.85);
+}
+map.on('zoomend', syncTrafficPunch);
+
 function trafficUrl() {
   return 'https://api.tomtom.com/traffic/map/4/tile/flow/' + TRAFFIC_STYLE
     + '/{z}/{x}/{y}.png?key=' + encodeURIComponent(TOMTOM_KEY)
@@ -7779,8 +7824,10 @@ function trafficOn(on) {
   clearTimeout(TRAFFIC.retry); TRAFFIC.retry = null;
   TRAFFIC.layer = L.tileLayer(trafficUrl(), {
     pane: 'trafficPane', maxZoom: 22, opacity: 0.85, t: Date.now(),
+    className: 'flowtile',
     attribution: 'Traffic &copy; <a href="https://www.tomtom.com/">TomTom</a>'
   });
+  syncTrafficPunch();
   // Counted, because the allowance is counted in tiles and there is otherwise
   // no way to see what a session costs until it stops working.
   TRAFFIC.layer.on('tileload', () => {
