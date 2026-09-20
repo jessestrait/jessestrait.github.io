@@ -35,7 +35,19 @@ on:
     # Backup only; the self-dispatch chain below is what actually keeps this
     # alive. Offset from the other two chains in this repo (outages 4,19,34,49
     # — news 11,41) so three jobs never queue against each other.
-    - cron: "9,24,39,54 * * * *"
+    #
+    # This used to fire four times an hour against a chain that cycles every
+    # 42 minutes, and every one of those firings *added a run* — the backup
+    # was racing the thing it was backing up. Measured over 40 runs: 1.9
+    # starts an hour where the chain alone gives 1.4, seven of them from
+    # `schedule`, shortest gap 10.9 minutes. That surplus is what put the
+    # archive six times over TomTom's 2,500/month Incident Details
+    # allowance, at about 531 polls a day against the ~274 intended.
+    #
+    # Twice an hour now, and — the part that actually fixes it — a
+    # scheduled run checks whether the chain is alive before doing
+    # anything. See "Stand down".
+    - cron: "24,54 * * * *"
   workflow_dispatch: {}
 
 permissions:
@@ -53,8 +65,46 @@ jobs:
     # off, so the whole job is 45 minutes of sleep plus overhead.
     timeout-minutes: 70
     steps:
+      # Every poll rewrites open.json with a new fetched_at, so the data
+      # branch gets a commit roughly every five minutes while the chain is
+      # healthy. That makes "when was data last committed" a reliable
+      # liveness check, and a cheap one — one API call, no checkout.
+      #
+      # A scheduled run that finds the chain alive stops here, and
+      # critically does *not* arm a successor: a backup that dispatches
+      # while the primary is running is not a backup, it is a second
+      # primary. That was half the surplus.
+      - name: Stand down if the chain is already alive
+        id: check
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -uo pipefail
+          LAST=$(gh api "repos/${{ github.repository }}/commits/data" \
+                   --jq '.commit.committer.date' 2>/dev/null || echo "")
+          if [ -z "$LAST" ]; then
+            echo "No data branch yet — the backup should run."
+            echo "alive=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          AGE=$(( $(date -u +%s) - $(date -u -d "$LAST" +%s 2>/dev/null \
+                 || python3 -c "import datetime,sys;print(int(datetime.datetime.fromisoformat(sys.argv[1].replace('Z','+00:00')).timestamp()))" "$LAST") ))
+          echo "Last data commit was ${AGE}s ago."
+          # 25 minutes: comfortably more than the 5-minute poll gap, and
+          # comfortably less than the 42-minute chain cycle, so this says
+          # "a job is running" and not "a job ran recently".
+          if [ "$AGE" -lt 1500 ]; then
+            echo "Chain is alive. Standing down rather than racing it."
+            echo "alive=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::No data commit for ${AGE}s — the chain looks dead, taking over."
+            echo "alive=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Arm the next run
         # First, so the chain survives even if everything below fails.
+        if: steps.check.outputs.alive != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -63,11 +113,14 @@ jobs:
             || echo "Self-dispatch failed — the cron backup will have to catch it."
 
       - uses: actions/checkout@v4
+        if: steps.check.outputs.alive != 'true'
 
       - name: Stash the collector before leaving main
+        if: steps.check.outputs.alive != 'true'
         run: cp tools/capture_traffic.py "$RUNNER_TEMP/capture_traffic.py"
 
       - name: Switch to the archive branch, creating it the first time
+        if: steps.check.outputs.alive != 'true'
         run: |
           set -euo pipefail
           git config user.name  "traffic-archive[bot]"
@@ -81,6 +134,7 @@ jobs:
           fi
 
       - name: Poll eight times, five minutes apart
+        if: steps.check.outputs.alive != 'true'
         env:
           TOMTOM_ARCHIVE_KEY: ${{ secrets.TOMTOM_ARCHIVE_KEY }}
           HERE_ARCHIVE_KEY: ${{ secrets.HERE_ARCHIVE_KEY }}

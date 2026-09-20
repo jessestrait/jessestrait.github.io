@@ -891,3 +891,52 @@ like ("Framework: Static", an output directory prompt, and a worker named
 after the repo rather than `capmetro`). Wrangler's `.gitignore` additions
 were kept — `.dev.vars*` and `.env*` are exactly the files that should
 never be committed.
+
+## What TomTom is actually costing, and the two fixes (2026-09-19)
+
+From TomTom's own analytics export, 2026-09-05 to 09-18:
+
+| | requests/day | per month | free allowance | over |
+|---|---|---|---|---|
+| Page key (flow tiles) | 6,098 last 7d, 6,966 over 14d | 185K–212K | **200K** | 0–12K |
+| Archive key (Incident Details) | 531 | **16,150** | **2,500** | **13,650** |
+
+**The archive is 7% of the requests and roughly 90% of the bill**, because
+Traffic Incident Details has an allowance eighty times smaller than tiles.
+At the per-1,000 rates available (third-party; TomTom's own price list
+404s) that is about $10/month for the archive against $0–1 for the tiles —
+call it $7–11/month all in. The *structure* is certain even if the exact
+dollars are not.
+
+**Fix 1 — the backup was racing the thing it backed up.** The `schedule:`
+cron fired four times an hour against a self-dispatch chain that cycles
+every 42 minutes, and each firing *armed another successor*, because the
+self-dispatch was the first step and ran unconditionally. Measured over 40
+runs: 1.9 starts an hour where the chain alone gives 1.4, seven of them
+from `schedule`, shortest gap 10.9 minutes — roughly 531 polls a day
+against the ~274 intended.
+
+Now twice an hour, and a scheduled run first asks whether the chain is
+alive: every poll rewrites `open.json` with a new `fetched_at`, so the data
+branch gets a commit about every five minutes while things are healthy,
+which makes "when was data last committed" a reliable liveness check for
+one API call and no checkout. Under 25 minutes old means a job is running,
+and the scheduled run stands down **without arming a successor** — a
+backup that dispatches while the primary is running is not a backup, it is
+a second primary.
+
+**Fix 2 — the flow tiles are off by default.** Not for the money; tile
+overage is about a dollar. Because exhausting the tile allowance stops the
+*whole key* answering, which takes the archive's incident feed down with
+it — and the archive is the thing this project exists to produce. 185K–212K
+against 200K, with a peak day of 16,624 (three times the median), is one
+busy week from blocking everything. One click away instead of automatic,
+and the allowance stays headroom for the part that cannot be replaced. The
+`traffic` **mode** still switches them on, because that is someone asking.
+
+**What was deliberately not done: slowing the archive poll.** It is the
+obvious lever — 5 to 15 minutes would drop under the free tier outright —
+and it would destroy the measurement. Clearance resolution equals the poll
+interval, and the onset statistic has a median of +9.7 minutes. You cannot
+measure a 9.7-minute offset with a 15-minute ruler. Paying for the archive
+is the right trade; starving it is not.

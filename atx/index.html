@@ -949,8 +949,11 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
         each layer sweeps the same relative position through its own range rather than pretending
         to one timeline. Anything without a clock &mdash; stations, libraries, art, cameras, and
         every ground shape &mdash; is standing infrastructure and stays put.</li>
-      <li><b>Live congestion</b> &mdash; <b>TomTom</b> raster flow tiles, optional and off unless a
-        key is set. It sits deliberately <em>under</em> the APD/ATD dispatch pins, because traffic
+      <li><b>Live congestion</b> &mdash; <b>TomTom</b> raster flow tiles, optional and now off
+        until you switch them on. They bill per tile and refetch on every pan, which ran to
+        185,000&ndash;212,000 requests a month against a 200,000 allowance; leaving them on by
+        default risked exhausting the key and taking the traffic archive down with it, and the
+        archive is the part that cannot be replaced. One click away. It sits deliberately <em>under</em> the APD/ATD dispatch pins, because traffic
         on its own is something every phone already has &mdash; the jam next to the wreck causing it
         is not. TomTom is the one vendor whose terms allow their traffic over someone else's
         basemap; Google's renders only on a Google map and their terms forbid it elsewhere, which
@@ -7580,10 +7583,27 @@ const TRAFFIC_IDLE = 1200000;     // stop refreshing after 20 minutes untouched
 let lastTouch = Date.now();
 ['mousedown', 'touchstart', 'keydown', 'wheel'].forEach(ev =>
   addEventListener(ev, () => { lastTouch = Date.now(); }, { passive: true }));
-// Congestion is on when the page opens: it is the one layer that is useful
-// before you have touched anything. Every load costs TomTom tiles, so this
-// is the knob to turn back off if the monthly allowance ever gets tight.
-const TRAFFIC_DEFAULT = true;
+/* Off when the page opens, as of 2026-09-19. It used to be on, because it
+   is the one layer that is useful before you have touched anything, and
+   the comment here said this was "the knob to turn back off if the monthly
+   allowance ever gets tight". It got tight.
+
+   The numbers, from TomTom's own usage export: 6,098 requests a day over
+   the last week and 6,966 over the last fortnight, which projects to
+   185,000–212,000 a month against a 200,000/month tile allowance. The peak
+   day was 16,624 — nearly three times the median — so a couple of busy
+   days is the difference between comfortable and blocked.
+
+   The money was never the point: tile overage runs about a dollar a
+   month. Being blocked is the point. When this allowance is exhausted the
+   whole key stops answering, which takes the archive's incident feed down
+   with it — and that feed is the thing this project actually exists to
+   produce. Tiles bill per pan of every visit; the archive bills 531 calls
+   a day and cannot be replaced by anything.
+
+   So: one click away instead of automatic, and the allowance stays
+   headroom for the part that matters. */
+const TRAFFIC_DEFAULT = false;
 // relative0-dark is the variant meant for dark basemaps; relative-delay
 // draws only the segments that are actually slow, if this reads too busy.
 // Note: the thickness parameter is rejected on the relative0 styles — it is
