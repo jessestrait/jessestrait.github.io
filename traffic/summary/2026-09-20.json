@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 32,
-  "dispatch_only": 29,
+  "dispatch": 35,
+  "dispatch_only": 32,
   "here": 0,
   "here_matched": 0,
   "matched": 3,
@@ -33,13 +33,13 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 4,
-   "pct": 25.0
+   "n": 5,
+   "pct": 20.0
   },
   "dispatch_surface": {
    "matched": 2,
-   "n": 28,
-   "pct": 7.1
+   "n": 30,
+   "pct": 6.7
   },
   "tomtom_highway": {
    "matched": 2,
@@ -61,9 +61,9 @@
  "onset_offset_min": {
   "max": 45.6,
   "median": 13.3,
-  "min": -13.0,
+  "min": -7.3,
   "n": 3,
-  "q1": -13.0,
+  "q1": -7.3,
   "q3": 45.6
  },
  "persistence_min": {
@@ -142,7 +142,21 @@
    "seg": "30.284,-97.731"
   },
   {
-   "from": "Red River St",
+   "from": "Lavaca St",
+   "hour_of_week": 147,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.280,-97.742"
+  },
+  {
+   "from": "San Jacinto Blvd (Duval St)",
+   "hour_of_week": 147,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.292,-97.734"
+  },
+  {
+   "from": "E Dean Keeton St / Robert Dedman Dr",
    "hour_of_week": 146,
    "n": 2,
    "roadworks": false,
@@ -196,31 +210,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "Lavaca St",
-   "hour_of_week": 147,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.280,-97.742"
-  },
-  {
-   "from": "San Jacinto Blvd (Duval St)",
-   "hour_of_week": 147,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.292,-97.734"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 90.6,
+  "dispatch": 91.4,
   "tomtom": 98.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 32,
-  "neither": 29,
+  "n": 35,
+  "neither": 32,
   "tomtom_only": 3
  }
 }
