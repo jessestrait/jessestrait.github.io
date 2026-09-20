@@ -65,10 +65,22 @@ jobs:
     # off, so the whole job is 45 minutes of sleep plus overhead.
     timeout-minutes: 70
     steps:
-      # Every poll rewrites open.json with a new fetched_at, so the data
-      # branch gets a commit roughly every five minutes while the chain is
-      # healthy. That makes "when was data last committed" a reliable
-      # liveness check, and a cheap one — one API call, no checkout.
+      # Every poll rewrites traffic/open.json, so the last commit touching
+      # THAT PATH is a reliable liveness check — one API call, no checkout.
+      #
+      # The first version of this asked for the last commit on the `data`
+      # branch, full stop, and that was wrong in a way that killed the
+      # archive within the hour. Three workflows share that branch:
+      # traffic, outages and news. An Outages commit at 05:28 made the
+      # branch look four minutes fresh, so the 05:33 scheduled run stood
+      # down — while the traffic chain had actually stopped at 05:25 and
+      # had no successor, its own having been cancelled by the
+      # concurrency group. Cron could then never revive it, because
+      # something else was always committing. Diagnosed from the data
+      # branch's own log: Headlines and Outages commits interleaved with
+      # a traffic gap.
+      #
+      # Path-scoped, so only this job's own output counts as a pulse.
       #
       # A scheduled run that finds the chain alive stops here, and
       # critically does *not* arm a successor: a backup that dispatches
@@ -81,10 +93,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -uo pipefail
-          LAST=$(gh api "repos/${{ github.repository }}/commits/data" \
-                   --jq '.commit.committer.date' 2>/dev/null || echo "")
-          if [ -z "$LAST" ]; then
-            echo "No data branch yet — the backup should run."
+          LAST=$(gh api \
+                   "repos/${{ github.repository }}/commits?sha=data&path=traffic/open.json&per_page=1" \
+                   --jq '.[0].commit.committer.date' 2>/dev/null || echo "")
+          if [ -z "$LAST" ] || [ "$LAST" = "null" ]; then
+            echo "No traffic archive yet — the backup should run."
             echo "alive=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
