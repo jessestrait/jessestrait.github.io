@@ -66,6 +66,28 @@ FIELDS = ("{incidents{type,geometry{type,coordinates},properties{id,iconCategory
           "timeValidity,numberOfReports,lastReportTime,events{code,description}}}}")
 
 TOMTOM = "https://api.tomtom.com/traffic/services/5/incidentDetails"
+FLOW = "https://api.tomtom.com/traffic/services/4/flowSegmentData/relative0/12/json"
+
+# Nine corridors, sampled for speed rather than drawn. Every one of these
+# coordinates sits on the motorway centreline: they were snapped to real
+# OSM `highway=motorway` nodes and then reverse-geocoded to confirm the
+# road name, because the first set — picked by eye from intersections —
+# landed on residential side streets. Deen Avenue, Willowrun Cove, Juniper
+# Road. TomTom's flow endpoint snaps to whatever road is nearest and
+# answers without complaint, so it would have reported a cul-de-sac's
+# speed under the label "I-35 at Rundberg" and nothing would have looked
+# wrong. Verify a coordinate before trusting a number attached to it.
+CORRIDORS = [
+    ("I-35 north",   "at Rundberg",     30.35226, -97.69181),
+    ("I-35 central", "downtown",        30.26788, -97.73376),
+    ("I-35 south",   "at Ben White",    30.21866, -97.75019),
+    ("Mopac north",  "at Far West",     30.35630, -97.74613),
+    ("Mopac south",  "at Barton Skyway", 30.26610, -97.78151),
+    ("US-183 north", "at Burnet",       30.37415, -97.72866),
+    ("US-290 west",  "at Oak Hill",     30.23506, -97.82407),
+    ("SH-71 east",   "at the airport",  30.21936, -97.67035),
+    ("Loop 360",     "at Bee Caves",    30.29603, -97.82797),
+]
 HERE = "https://data.traffic.hereapi.com/v7/incidents"
 SODA = "https://data.austintexas.gov/resource/dx9v-zd7x.json"
 # TxDOT DriveTexas, via TDEM's published copy. Keyless and CORS-open.
@@ -411,6 +433,74 @@ def fetch_txdot(bbox=BBOX):
     return out
 
 
+# ── the corridor board ──────────────────────────────────────────────────
+#
+# Sampled here rather than in the page, and that is the whole design.
+# The page is public: anything it fetches costs one request per visitor
+# per refresh, so a board that polled nine corridors from the browser
+# would scale with traffic and there is no ceiling on traffic. Sampled
+# from the job it costs the same whether one person is looking or a
+# thousand, and the page reads a file.
+#
+# Flow Segment Data allows 20,000 a month — eight times the Incident
+# Details allowance, and until now entirely unused. The schedule below
+# spends about 14,000 of it.
+
+def flow_due(state_at, now_utc):
+    """Twenty minutes through the day, an hour overnight.
+
+    Corridor speed does not move much at 3am and moves fastest at the
+    start of a rush hour, so the sampling is weighted to match: 06:00 to
+    20:00 local gets a reading every 20 minutes, the rest of the night
+    every hour. That is ~468 requests a day, about 14,200 a month against
+    the 20,000 allowance, with headroom left deliberately."""
+    if not state_at:
+        return True
+    last = parse(state_at)
+    if not last:
+        return True
+    # Austin is UTC-5 in daylight time and UTC-6 otherwise; an hour either
+    # way does not matter to a day/night split, so the offset is fixed
+    # rather than pulling in a timezone database for one comparison.
+    local_hour = (now_utc - dt.timedelta(hours=5)).hour
+    gap = 20 if 6 <= local_hour < 20 else 60
+    return (now_utc - last).total_seconds() >= gap * 60 - 30
+
+
+def fetch_corridors(key):
+    """Current speed against free-flow for each named corridor.
+
+    One request per corridor; failures are per-corridor and a corridor
+    that does not answer is simply absent rather than taking the sample
+    down with it."""
+    out = []
+    for name, where, lat, lng in CORRIDORS:
+        try:
+            d = get(FLOW, {"key": key, "point": "%.5f,%.5f" % (lat, lng),
+                           "unit": "mph", "openLr": "false"})
+        except (urllib.error.URLError, ValueError) as err:
+            print("corridor %s: %s" % (name, err), file=sys.stderr)
+            continue
+        f = d.get("flowSegmentData") or {}
+        cur, free = f.get("currentSpeed"), f.get("freeFlowSpeed")
+        if cur is None or not free:
+            continue
+        out.append({
+            "name": name, "where": where, "lat": lat, "lng": lng,
+            "mph": cur, "free_mph": free,
+            "pct": round(100.0 * cur / free),
+            "closed": bool(f.get("roadClosure")),
+            "confidence": f.get("confidence"),
+            "frc": f.get("frc"),
+            # Seconds this segment is costing right now over its free-flow
+            # time — the number that answers "is it worth avoiding".
+            "lost_s": (round(f["currentTravelTime"] - f["freeFlowTravelTime"])
+                       if f.get("currentTravelTime") is not None
+                       and f.get("freeFlowTravelTime") is not None else None),
+        })
+    return out
+
+
 def fetch_dispatch(hours=2):
     since = iso(now() - dt.timedelta(hours=hours))
     rows = get(SODA, {
@@ -440,6 +530,83 @@ def fetch_dispatch(hours=2):
             "status_time": r.get("traffic_report_status_date_time"),
         }
     return out
+
+
+# ── staying inside the allowance ────────────────────────────────────────
+#
+# TomTom's free tiers are per product per month, and the two this job
+# touches are wildly different sizes:
+#
+#     Traffic Incident Details    2,500 / month
+#     Traffic Flow Segment Data  20,000 / month
+#
+# Incident Details is the tight one, and it is the one this job lives on.
+# At a poll every five minutes around the clock it wants ~8,300 a month,
+# three times the allowance, which is how the account came to be blocked.
+#
+# WHY NOT JUST POLL SLOWER. Because the measurement dies. Clearance
+# resolution equals the poll interval, and the headline statistic — how
+# long after a reported incident the congestion appears — has a median of
+# +9.7 minutes. A 17-minute interval, which is what 2,500 a month buys
+# evenly spread, cannot resolve a 9.7-minute offset at all. Spreading the
+# budget evenly is the one option that spends it all and buys nothing.
+#
+# So the budget is spent where the pairs are. Weekday rush hours get the
+# full five-minute cadence; everything else is sampled at thirty minutes,
+# which is still enough to see an episode open and close. That lands at
+# roughly 2,400 a month, inside the allowance, with the resolution
+# concentrated on the hours that produce nearly all the matched pairs.
+#
+# The cost is a real sampling bias and it is recorded rather than hidden:
+# every summary carries `sampling`, and the caveats say plainly that the
+# onset figure is weighted toward rush hour.
+RUSH_HOURS = {7, 8, 16, 17, 18}          # local, weekdays
+RUSH_INTERVAL_MIN = 5
+# 45, not 30. At 30 the simulated month spent exactly 2,500 — the hard
+# ceiling was doing the work rather than backing it up, which would mean
+# the archive going silent for the last days of every month. At 45 the
+# schedule wants ~2,130, about 85% of the allowance, and the ceiling is
+# what it should be: a backstop that never normally fires.
+OFF_INTERVAL_MIN = 45
+# A hard ceiling underneath the schedule, so a bug in the schedule cannot
+# empty the allowance: the job counts what it spends and stops asking.
+INCIDENT_BUDGET = 2500
+
+
+def local_now(now_utc):
+    """Austin local, near enough. A fixed -5 is wrong for half the year by
+    one hour, which cannot move an hour-of-day bucket enough to matter and
+    avoids a timezone dependency for one comparison."""
+    return now_utc - dt.timedelta(hours=5)
+
+
+def in_rush(now_utc):
+    t = local_now(now_utc)
+    return t.weekday() < 5 and t.hour in RUSH_HOURS
+
+
+def month_key(now_utc):
+    return now_utc.strftime("%Y-%m")
+
+
+def budget_state(state, now_utc):
+    """Requests spent this calendar month, reset when the month turns."""
+    b = state.get("budget") or {}
+    if b.get("month") != month_key(now_utc):
+        b = {"month": month_key(now_utc), "incidents": 0, "flow": 0, "skipped": 0}
+    return b
+
+
+def incidents_due(state, now_utc):
+    """Is this poll one we should spend an Incident Details request on?"""
+    last = parse((state.get("budget") or {}).get("incidents_at"))
+    want = RUSH_INTERVAL_MIN if in_rush(now_utc) else OFF_INTERVAL_MIN
+    if last is None:
+        return True, want
+    gap = (now_utc - last).total_seconds() / 60
+    # 30 seconds of slack, because the poll loop drifts by a second or two
+    # each cycle and an exact comparison would skip every other sample.
+    return gap >= want - 0.5, want
 
 
 # ── upsert ──────────────────────────────────────────────────────────────
@@ -674,7 +841,7 @@ def dist_stats(vals):
 
 def summarise(day, tt_closed, dp_closed, matches, tt_open, dp_open, interval_min,
               matcher_params, hr_closed=(), hr_open=(), hr_matches=(),
-              agreements=(), tx=()):
+              agreements=(), tx=(), sampling=None):
     tt_all = tt_closed + tt_open
     dp_all = dp_closed + dp_open
     hr_all = list(hr_closed) + list(hr_open)
@@ -761,6 +928,9 @@ def summarise(day, tt_closed, dp_closed, matches, tt_open, dp_open, interval_min
     return {
         "date": day,
         "poll_interval_min": interval_min,
+        # Not a constant any more, and the statistics below depend on it,
+        # so it travels with them. See RUSH_HOURS.
+        "sampling": sampling or {},
         "dispatch_record_life_min": life,
         "dispatch_life_capped": capped,
         "matcher": matcher_params,
@@ -855,6 +1025,13 @@ def summarise(day, tt_closed, dp_closed, matches, tt_open, dp_open, interval_min
             if capped else
             "Dispatch record lifetimes look like real clearances this day, not a cap.",
             "Clearance resolution equals the poll interval; shorter incidents are invisible.",
+            ("Incident Details is sampled every %d minutes during weekday rush hours and "
+             "every %d minutes otherwise, to stay inside TomTom's 2,500/month allowance. "
+             "The onset figure is therefore weighted toward rush hour: it is closer to "
+             "'how long a rush-hour incident takes to become a jam' than to a figure for "
+             "all hours equally. Off-peak episodes shorter than %d minutes can be missed "
+             "entirely."
+             % (RUSH_INTERVAL_MIN, OFF_INTERVAL_MIN, OFF_INTERVAL_MIN)),
             "Statistics from matched pairs are subject to the matcher's own tolerances; "
             "the unmatched rate is reported beside them for that reason.",
             "A pair is only believed to be one event if the two start times fall within "
@@ -965,14 +1142,35 @@ def main():
     out = pathlib.Path(args.out)
     (out / "summary").mkdir(parents=True, exist_ok=True)
 
-    stamp = iso(now())
+    now_utc = now()
+    stamp = iso(now_utc)
     state_path = out / "open.json"
     state = json.loads(state_path.read_text()) if state_path.exists() else {}
     tt_open = state.get("tomtom", {})
     dp_open = state.get("dispatch", {})
     hr_open = state.get("here", {})
+    budget = budget_state(state, now_utc)
 
-    tt_seen = fetch_tomtom(key)
+    # Two gates on the expensive feed: the schedule, and a hard ceiling
+    # under it. The ceiling exists because a schedule is a belief about
+    # how often something runs and the counter is a fact about how often
+    # it did.
+    due, want_gap = incidents_due(state, now_utc)
+    room = budget["incidents"] < INCIDENT_BUDGET
+    poll_tt = due and room
+    if due and not room:
+        print("Incident Details budget for %s is spent (%d/%d) — holding off."
+              % (budget["month"], budget["incidents"], INCIDENT_BUDGET),
+              file=sys.stderr)
+
+    # Dispatch is Austin open data and free, so it is polled every time
+    # regardless; only the metered feed is rationed.
+    tt_seen = fetch_tomtom(key) if poll_tt else None
+    if poll_tt:
+        budget["incidents"] += 1
+        budget["incidents_at"] = stamp
+    else:
+        budget["skipped"] = budget.get("skipped", 0) + 1
     dp_seen = fetch_dispatch()
     # No key, so it never blocks the run; a failure is one feed's worth of
     # loss, same rule as HERE.
@@ -994,7 +1192,10 @@ def main():
                   "are and carrying on." % err, file=sys.stderr)
             hr_seen = None
 
-    tt_closed = upsert(tt_open, tt_seen, stamp)
+    # A skipped poll must not look like "every incident cleared at once".
+    # upsert closes anything absent from `seen`, so passing None means
+    # leave the open episodes exactly as they are.
+    tt_closed = upsert(tt_open, tt_seen, stamp) if tt_seen is not None else []
     dp_closed = upsert(dp_open, dp_seen, stamp)
     hr_closed = upsert(hr_open, hr_seen, stamp) if hr_seen is not None else []
 
@@ -1012,6 +1213,22 @@ def main():
                                  list(hr_open.values()) + hr_closed,
                                  args.buffer, args.highway_buffer, args.tolerance)
     tx_rows = sorted(tx_seen.values(), key=lambda x: x["id"])
+
+    # Corridor speeds, on their own much larger allowance and their own
+    # much slower clock.
+    corridors = None
+    if flow_due((state.get("budget") or {}).get("flow_at"), now_utc):
+        corridors = fetch_corridors(key)
+        if corridors:
+            budget["flow"] = budget.get("flow", 0) + len(corridors)
+            budget["flow_at"] = stamp
+            (out / "corridors.json").write_text(json.dumps({
+                "fetched_at": stamp,
+                "source": "TomTom Traffic Flow Segment Data",
+                "note": "Sampled by a scheduled job, not by your browser, so a "
+                        "thousand readers cost one reading.",
+                "corridors": corridors,
+            }, separators=(",", ":"), sort_keys=True))
 
     day = stamp[:10]
     day_path = out / (day + ".json")
@@ -1036,7 +1253,7 @@ def main():
     # state only, replaced each poll.
     state_path.write_text(json.dumps(
         {"fetched_at": stamp, "tomtom": tt_open, "dispatch": dp_open,
-         "here": hr_open, "txdot": tx_rows},
+         "here": hr_open, "txdot": tx_rows, "budget": budget},
         separators=(",", ":"), sort_keys=True))
 
     # What HERE currently sees, for the map to draw. Live state only: this
@@ -1071,7 +1288,14 @@ def main():
                       "onset_window_min": args.onset_window},
                      hr_closed=day_doc["here_closed"], hr_open=list(hr_open.values()),
                      hr_matches=day_doc["here_matches"],
-                     agreements=day_doc["agreements"], tx=tx_rows)
+                     agreements=day_doc["agreements"], tx=tx_rows,
+                     sampling={"rush_min": RUSH_INTERVAL_MIN,
+                               "off_peak_min": OFF_INTERVAL_MIN,
+                               "rush_hours_local": sorted(RUSH_HOURS),
+                               "this_poll": "rush" if in_rush(now_utc) else "off-peak",
+                               "incident_budget": INCIDENT_BUDGET,
+                               "incidents_spent_this_month": budget["incidents"],
+                               "flow_spent_this_month": budget.get("flow", 0)})
     (out / "summary" / (day + ".json")).write_text(
         json.dumps(summ, indent=1, sort_keys=True))
 
@@ -1087,6 +1311,10 @@ def main():
     c = summ["counts"]
     w = summ["witnesses"]
     rw = summ["roadworks"]
+    print("budget %s: incidents %d/%d spent, %d polls skipped, flow %d/20000%s"
+          % (budget["month"], budget["incidents"], INCIDENT_BUDGET,
+             budget.get("skipped", 0), budget.get("flow", 0),
+             "  (corridors sampled this poll)" if corridors else ""))
     print("%s  tomtom %d (+%d closed)  here %d (+%d closed)  dispatch %d (+%d "
           "closed)  txdot %d  matched %d/%d  agreed %d  both-saw %d  neither %d  "
           "unreported %d (%d roadworks)  pruned %d"

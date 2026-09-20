@@ -940,3 +940,60 @@ and it would destroy the measurement. Clearance resolution equals the poll
 interval, and the onset statistic has a median of +9.7 minutes. You cannot
 measure a 9.7-minute offset with a 15-minute ruler. Paying for the archive
 is the right trade; starving it is not.
+
+## The corridor board, and a budget that cannot be forgotten (2026-09-19)
+
+**Flow Segment Data allows 20,000 a month — eight times Incident Details —
+and was entirely unused.** I had earlier told Jesse it was 2,500; that was
+wrong and it made Phase 3 look far more constrained than it is.
+
+**The board.** Nine named stretches — three on I-35, two on Mopac, US-183,
+US-290, SH-71, Loop 360 — showing current speed against free-flow as
+numbers and a bar. It answers what the flow tiles never could: an overlay
+says a road is red, it cannot say Mopac is doing 34 of 65, and it cannot be
+read without looking at the map. It also survives the tiles being off,
+which they now are.
+
+**Sampled server-side, and that is the design.** The page is public, so a
+board polling nine corridors from the browser would cost nine requests per
+visitor per refresh with no ceiling on visitors. Sampled from the archiver
+it costs 468 requests a day regardless — ~14,000 a month, 70% of the
+allowance. The page reads `traffic/corridors.json` off the data branch.
+
+**Every coordinate was verified, and the first set was wrong.** Points
+chosen by eye from intersections landed on Deen Avenue, Willowrun Cove and
+Juniper Road — residential side streets. TomTom's flow endpoint snaps to
+whatever road is nearest and answers without complaint, so the board would
+have reported a cul-de-sac's speed under the label "I-35 at Rundberg" and
+nothing would have looked wrong. The final set was snapped to OSM
+`highway=motorway` centreline nodes and reverse-geocoded to confirm each
+road name. **Verify a coordinate before trusting a number attached to it.**
+
+### Staying inside the Incident Details allowance
+
+2,500 a month, and a five-minute poll around the clock wants ~8,300.
+
+**Polling slower everywhere is the one option that spends the whole budget
+and buys nothing.** Clearance resolution equals the poll interval and the
+headline onset statistic has a median of +9.7 minutes; the ~17-minute
+interval that 2,500 buys evenly spread cannot resolve that at all.
+
+So the budget is spent where the pairs are: **five minutes during weekday
+rush hours (07, 08, 16, 17, 18 local), forty-five minutes otherwise.**
+Simulated over a full October that wants 2,158 requests — 86% — and over
+February 1,956. A hard ceiling of 2,500 sits underneath as a backstop.
+
+The first attempt used thirty minutes off-peak and spent *exactly* 2,500 in
+the simulation, which meant the ceiling was doing the work rather than
+backing it up — the archive would have gone silent for the last days of
+every month. Forty-five gives the schedule its own headroom.
+
+**The cost is a real sampling bias, and it is recorded rather than
+hidden.** Every summary carries a `sampling` block, and the caveats say
+plainly that the onset figure is weighted toward rush hour and that
+off-peak episodes shorter than 45 minutes can be missed.
+
+One subtlety in the implementation: a skipped poll passes `None` to
+`upsert`, not `{}`. An empty dict means "nothing is open any more" and
+would close every episode at once, inventing a city-wide simultaneous
+clearance every time the budget said wait.
