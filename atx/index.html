@@ -4790,13 +4790,25 @@ async function loadStorms(g) {
       ? cells.length + ' cell' + (cells.length === 1 ? '' : 's') + ' on radar'
         + (rotating ? ' · ' + rotating + ' rotating' : '')
       : 'Nothing on radar near Austin');
+  } catch (e) {
+    /* 404 is the ordinary state for a few minutes after the path is first
+       written — raw.githubusercontent caches misses as well as hits — so
+       it is "not yet", not "broken". Either way the layer must keep
+       trying: the first version set the retry interval inside the try,
+       which meant a failed first load never retried and the layer stayed
+       dead until someone reloaded the page. That is the same defect the
+       fetchLayer backoff exists to prevent, reintroduced two hundred
+       lines away in a loader that does its own fetching. */
+    if (badge) badge.textContent = '—';
+    setNote(g, e.message === 'storms 404'
+      ? 'Waiting for the first radar sample'
+      : 'Radar storm tracking unavailable', e.message !== 'storms 404');
+  } finally {
+    // Set on both paths, always.
     clearInterval(STORM.timer);
     STORM.timer = setInterval(() => {
       if (!document.hidden && g.on) loadStorms(g);
     }, 300000);
-  } catch (e) {
-    if (badge) badge.textContent = '—';
-    setNote(g, 'Radar storm tracking unavailable');
   }
 }
 
