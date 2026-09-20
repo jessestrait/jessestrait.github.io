@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 19,
-  "dispatch_only": 19,
+  "dispatch": 20,
+  "dispatch_only": 20,
   "here": 0,
   "here_matched": 0,
   "matched": 0,
@@ -20,12 +20,12 @@
  "date": "2026-09-20",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
-  "max": 92.8,
-  "median": 88.2,
+  "max": 118.4,
+  "median": 90.5,
   "min": 19.4,
-  "n": 3,
-  "q1": 19.4,
-  "q3": 92.8
+  "n": 4,
+  "q1": 36.6,
+  "q3": 112.0
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,7 +38,7 @@
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 16,
+   "n": 17,
    "pct": 0.0
   },
   "tomtom_highway": {
@@ -101,6 +101,13 @@
  },
  "structural_hotspots": [
   {
+   "from": "Barton Springs Rd (S Congress Ave)",
+   "hour_of_week": 145,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.264,-97.744"
+  },
+  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
@@ -141,13 +148,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "Barton Springs Rd (S Congress Ave)",
-   "hour_of_week": 145,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.264,-97.744"
   },
   {
    "from": "Southwest Pkwy (William Cannon Dr)",
@@ -213,8 +213,8 @@
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 19,
-  "neither": 19,
+  "n": 20,
+  "neither": 20,
   "tomtom_only": 0
  }
 }
