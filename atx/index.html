@@ -1168,11 +1168,48 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
 
 const API = 'https://data.austintexas.gov/resource/';
 
+/* Every failure here used to look the same to the page: a rejected promise,
+   an "err" badge, and no way to tell "this dataset moved" from "the city's
+   whole portal is down". Those want completely different reactions, and on
+   the morning data.austintexas.gov 503'd for hours the page showed eight
+   identical errors and read as broken software.
+
+   Worse, the browser lies about which it is. A 503 error page carries no
+   CORS header, so a plain outage surfaces in the console as "blocked by
+   CORS policy: No 'Access-Control-Allow-Origin' header" — which sends you
+   looking for a configuration problem that does not exist. A network-level
+   rejection is therefore recorded as *unreachable*, not as a CORS fault.
+
+   So failures carry a host and a status, and UPSTREAM keeps the tally. */
+const UPSTREAM = {};
+
+function upstreamNote(host, ok, status) {
+  const u = UPSTREAM[host] || (UPSTREAM[host] = { ok: 0, fail: 0, status: null, at: 0 });
+  if (ok) { u.ok++; u.fail = 0; u.status = null; }
+  else { u.fail++; u.status = status; u.at = Date.now(); }
+  return u;
+}
+
 async function soda(id, params) {
   const qs = Object.entries(params)
     .map(([k, v]) => encodeURIComponent(k) + '=' + encodeURIComponent(v)).join('&');
-  const res = await fetch(API + id + '.json?' + qs);
-  if (!res.ok) throw new Error(id + ' returned ' + res.status);
+  let res;
+  try {
+    res = await fetch(API + id + '.json?' + qs);
+  } catch (netErr) {
+    // Blocked, offline, or an error page with no CORS header on it.
+    upstreamNote('data.austintexas.gov', false, 0);
+    const e = new Error('data.austintexas.gov unreachable');
+    e.host = 'data.austintexas.gov'; e.status = 0;
+    throw e;
+  }
+  if (!res.ok) {
+    upstreamNote('data.austintexas.gov', false, res.status);
+    const e = new Error(id + ' returned ' + res.status);
+    e.host = 'data.austintexas.gov'; e.status = res.status;
+    throw e;
+  }
+  upstreamNote('data.austintexas.gov', true);
   return res.json();
 }
 
@@ -2795,6 +2832,25 @@ function pulse(msg, cls) {
   document.getElementById('pulse').className = cls || '';
 }
 
+/* A layer that fails is not finished, it is waiting.
+
+   This used to set state.data[id] = [] and stop. Only five layers have a
+   refresh timer, so everything else — 311, signals, crashes, wildfire,
+   headlines — stayed "err" until someone reloaded the page, even long
+   after the upstream recovered. A transient outage became a permanent
+   one as far as the viewer was concerned.
+
+   Now a failure is recorded with an attempt count and retried on a backing
+   -off schedule. The backoff matters: a portal that is down is down for
+   everyone, and hammering it every thirty seconds from every open tab is
+   both rude and useless. */
+const RETRY_STEPS = [20000, 45000, 120000, 300000, 900000];
+state.failed = {};
+
+function retryDelay(n) {
+  return RETRY_STEPS[Math.min(n, RETRY_STEPS.length - 1) - 1] || RETRY_STEPS[0];
+}
+
 async function fetchLayer(l) {
   if (state.busy[l.id]) return;
   state.busy[l.id] = true;
@@ -2804,18 +2860,75 @@ async function fetchLayer(l) {
     const feats = (await l.load(state.days)).filter(f =>
       f && isFinite(f.lat) && isFinite(f.lng) && Math.abs(f.lat) > 1);
     state.data[l.id] = feats;
+    delete state.failed[l.id];
     setCount(l.id, feats.length.toLocaleString());
     pulse('updated ' + new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }));
   } catch (err) {
     console.error(err);
     state.data[l.id] = [];
+    const f = state.failed[l.id] || { n: 0 };
+    f.n++; f.at = Date.now(); f.host = err.host || null; f.status = err.status;
+    f.next = f.at + retryDelay(f.n);
+    state.failed[l.id] = f;
     setCount(l.id, 'err');
-    pulse('a layer failed to load', 'err');
   } finally {
     state.busy[l.id] = false;
+    outageBanner();
     render();
   }
 }
+
+/* One line about the outage, not eight about its symptoms.
+
+   When several layers fail against the same host the interesting fact is
+   the host, once — "Austin's data portal is not answering" — rather than a
+   column of identical err badges that reads as the page being broken.
+   Named specifically, because "a feed is down" tells you nothing you can
+   act on or wait out. */
+function outageBanner() {
+  const failed = LAYERS.filter(l => l.on && state.failed[l.id]);
+  if (!failed.length) {
+    if (!Object.keys(state.failed).length) pulse('updated '
+      + new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }));
+    return;
+  }
+  const byHost = {};
+  failed.forEach(l => {
+    const h = (state.failed[l.id].host) || 'a source';
+    byHost[h] = (byHost[h] || 0) + 1;
+  });
+  const worst = Object.entries(byHost).sort((a, b) => b[1] - a[1])[0];
+  const soonest = Math.min(...failed.map(l => state.failed[l.id].next));
+  const secs = Math.max(0, Math.round((soonest - Date.now()) / 1000));
+  pulse(worst[1] > 1
+    ? worst[0] + ' is not answering \u00b7 ' + worst[1] + ' layers waiting, retrying in '
+      + (secs > 90 ? Math.round(secs / 60) + 'm' : secs + 's')
+    : failed[0].name.toLowerCase() + ' failed \u00b7 retrying in '
+      + (secs > 90 ? Math.round(secs / 60) + 'm' : secs + 's'), 'err');
+}
+
+/* The retry loop. One timer for every layer rather than a timer each, and
+   it only ever wakes a layer whose own backoff has elapsed.
+
+   Named, not an anonymous interval body, so recovery can be tested without
+   waiting out a real backoff — the same reason busFrame is a function. A
+   recovery path you have never actually seen run is a recovery path you do
+   not have. */
+function retryDue() {
+  const now = Date.now();
+  const due = LAYERS.filter(l => l.on && state.failed[l.id]
+                              && state.failed[l.id].next <= now
+                              && !state.busy[l.id]);
+  if (!due.length) { outageBanner(); return null; }
+  // One at a time, fewest attempts first, so a portal coming back up is
+  // rediscovered gently rather than by eight simultaneous requests.
+  due.sort((a, b) => state.failed[a.id].n - state.failed[b.id].n);
+  delete state.data[due[0].id];
+  fetchLayer(due[0]);
+  return due[0].id;
+}
+
+setInterval(() => { if (!document.hidden) retryDue(); }, 10000);
 
 function refreshActive(clearAll) {
   LAYERS.forEach(l => {
@@ -3109,15 +3222,39 @@ function ttKeyMissing() {
   return !TOMTOM_KEY;
 }
 
+/* TomTom returns 403 for two completely different things and the first
+   pass at this assumed the wrong one.
+
+   It assumed a 403 meant the referer lock — reasonable, since the page key
+   is domain-restricted. But a 403 also means "you are out of credits", and
+   the page duly told me the key was refused for this domain while standing
+   on exactly the domain the key is locked to. That is the same mistake the
+   Socrata outage made in the other direction: an error reported as the
+   cause you expected rather than the cause it actually was.
+
+   So the body is read. TomTom puts a machine-readable reason in
+   detailedError.code and it costs nothing to believe it. */
 async function ttGet(url) {
   const r = await fetch(url, { cache: 'no-store' });
-  if (!r.ok) {
-    // 403 here is nearly always the referer lock rather than a bad key.
-    const e = new Error(r.status === 403 ? 'tt403' : 'tt' + r.status);
-    e.status = r.status;
-    throw e;
-  }
-  return r.json();
+  if (r.ok) { upstreamNote('api.tomtom.com', true); return r.json(); }
+  let code = '';
+  try { code = ((await r.json()).detailedError || {}).code || ''; } catch (e) {}
+  const e = new Error(code === 'InsufficientFunds' ? 'ttcredits'
+    : r.status === 403 ? 'tt403' : 'tt' + r.status);
+  e.status = r.status;
+  e.code = code;
+  e.host = 'api.tomtom.com';
+  upstreamNote('api.tomtom.com', false, r.status);
+  throw e;
+}
+
+// One place that knows how to say what went wrong, so every caller says
+// the same true thing.
+function ttWhy(err) {
+  if (err.message === 'ttcredits') return 'TomTom account is out of credits';
+  if (err.message === 'tt403') return 'TomTom refused the key for this domain';
+  if (err.status === 429) return 'TomTom is rate-limiting';
+  return 'TomTom did not answer';
 }
 
 /* ── Phase 2: incidents as objects ───────────────────────────────── */
@@ -3203,9 +3340,7 @@ async function ttiLoad() {
       + encodeURIComponent(TOMTOM_KEY) + '&bbox=' + encodeURIComponent(box)
       + '&fields=' + encodeURIComponent(TTI_FIELDS) + '&language=en-GB');
   } catch (err) {
-    setNote(byId.ttinc, err.message === 'tt403'
-      ? 'TomTom refused the key for this domain'
-      : 'TomTom did not answer', true);
+    setNote(byId.ttinc, ttWhy(err), true);
     return [];
   }
 
@@ -3318,8 +3453,7 @@ async function ttFlow(lat, lng, into) {
       + '&point=' + lat.toFixed(5) + ',' + lng.toFixed(5)
       + '&unit=mph&openLr=false');
   } catch (err) {
-    say('<span style="color:#ff8f8f">' + (err.message === 'tt403'
-      ? 'TomTom refused the key for this domain.' : 'TomTom did not answer.') + '</span>');
+    say('<span style="color:#ff8f8f">' + esc(ttWhy(err)) + '.</span>');
     return;
   }
   const f = d.flowSegmentData || {};
@@ -3411,11 +3545,11 @@ async function ttRange(lat, lng) {
           .filter(pt => pt && pt.latitude != null)
           .map(pt => [pt.latitude, pt.longitude]);
         return b.length > 2 ? { min: min, ring: b, i: i } : null;
-      } catch (err) { return null; }
+      } catch (err) { TTR.lastErr = err; return null; }
     }));
     const good = rings.filter(Boolean);
     if (!good.length) {
-      pulse('TomTom would not answer that', 'err');
+      pulse(TTR.lastErr ? ttWhy(TTR.lastErr) : 'TomTom would not answer that', 'err');
       return;
     }
     ttRangeClear();
@@ -3906,6 +4040,118 @@ function auditOnMap(g) {
    attached to it — which is exactly what a layer that will not switch off
    looks like from the user's side. hasLayer() cannot see this, because the
    object it is asked about is the wrong one. */
+/* ── atxTest() — is this site actually working? ────────────────────
+   Written the morning three things broke at once and it took a
+   conversation to find out that none of them were the page: Austin's
+   portal was 503ing, data.texas.gov was 503ing behind the relay, and the
+   TomTom account had run out of credits. Three unrelated upstream
+   failures, presented as eight identical "err" badges.
+
+   So this asks every upstream directly and says which are alive, rather
+   than leaving you to infer it from which layers look empty. It is the
+   check to run first, before reading any code — most of the time the
+   answer is "the page is fine, X is down", and knowing that in ten
+   seconds is the whole point.
+
+       await atxTest()            a table, and a verdict
+       await atxTest(true)        quiet; returns the rows
+
+   Deliberately not automatic. It costs a request per upstream, and a page
+   that probes eleven services on load to prove it can is worse than one
+   that just loads. */
+const PROBES = [
+  { host: 'data.austintexas.gov', what: 'City open data — fire, 311, crashes, dispatch',
+    url: () => API + 'wpu4-x69d.json?$limit=1',
+    layers: ['firelive', 'c311', 'signals', 'crashes', 'traffic', 'permits'] },
+  { host: 'capmetro.jessestrait.workers.dev', what: 'Relay — buses, aircraft, lakes',
+    url: () => RELAY + '/vehicles', layers: ['transit'] },
+  { host: 'api.tomtom.com', what: 'Congestion tiles and objects',
+    url: () => TT_API + '/traffic/services/5/incidentDetails?key='
+      + encodeURIComponent(TOMTOM_KEY) + '&bbox=-97.75,30.25,-97.70,30.30'
+      + '&fields=' + encodeURIComponent('{incidents{properties{id}}}'),
+    layers: ['ttinc'] },
+  { host: 'api.weather.gov', what: 'Alerts and conditions',
+    // The page's own URL, verbatim. The first version of this probe added
+    // &limit=1 to keep it cheap and got a 400 for it — a self-test that
+    // invents its own request tests the invention, not the site.
+    url: () => 'https://api.weather.gov/alerts/active?area=TX', layers: [] },
+  { host: 'services5.arcgis.com', what: 'TxDOT highway conditions',
+    url: () => 'https://services5.arcgis.com/Rvw11bGpzJNE7apK/arcgis/rest/services/'
+      + 'DriveTexas_API/FeatureServer/0/query?where=1%3D1&returnCountOnly=true&f=json',
+    layers: [] },
+  { host: 'raw.githubusercontent.com', what: 'Headlines and the outage archive',
+    url: () => NEWS_URL, layers: ['news'] },
+  { host: 'waterservices.usgs.gov', what: 'Creek gauges',
+    url: () => 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08158000&period=PT1H',
+    layers: ['gauges'] },
+  { host: 'austin.publicbikesystem.net', what: 'MetroBike docks',
+    url: () => GBFS + 'station_status.json', layers: ['bikes'] }
+];
+
+async function probeOne(p) {
+  const t0 = performance.now();
+  const row = { host: p.host, what: p.what, layers: p.layers };
+  try {
+    const r = await fetch(p.url(), { cache: 'no-store' });
+    row.ms = Math.round(performance.now() - t0);
+    row.status = r.status;
+    if (r.ok) { row.ok = true; return row; }
+    row.ok = false;
+    // TomTom hides the interesting part in the body.
+    try {
+      const j = await r.json();
+      row.why = (j.detailedError || {}).code || (j.message || '').slice(0, 60) || null;
+    } catch (e) {}
+    return row;
+  } catch (e) {
+    row.ms = Math.round(performance.now() - t0);
+    row.ok = false;
+    row.status = 0;
+    /* A fetch that rejects outright is nearly always the upstream being
+       down and serving an error page with no CORS header on it — the
+       browser then reports a CORS violation, which sends you hunting a
+       configuration bug that does not exist. Named honestly here. */
+    row.why = 'unreachable (often an error page with no CORS header)';
+    return row;
+  }
+}
+
+async function atxTest(quiet) {
+  const rows = await Promise.all(PROBES.map(probeOne));
+  // What the page itself currently thinks, which is the other half of the
+  // picture: an upstream can be up while a layer still holds a failure.
+  rows.forEach(r => {
+    r.layersFailing = (r.layers || []).filter(id => state.failed[id]).length;
+  });
+  const down = rows.filter(r => !r.ok);
+  const stuck = LAYERS.filter(l => l.on && state.failed[l.id]).map(l => l.id);
+  const verdict = !down.length && !stuck.length
+    ? 'everything answering'
+    : down.length
+      ? down.length + ' upstream(s) down: ' + down.map(r => r.host).join(', ')
+      : 'upstreams fine; ' + stuck.length + ' layer(s) still holding a failure';
+  if (!quiet) {
+    console.log('%c' + verdict, 'font-weight:700;font-size:13px;color:'
+      + (down.length || stuck.length ? '#ff8f8f' : '#4de3a0'));
+    console.table(rows.map(r => ({
+      host: r.host, ok: r.ok, status: r.status, ms: r.ms,
+      why: r.why || '', 'layers waiting': r.layersFailing || 0
+    })));
+    if (stuck.length) console.log('layers holding a failure:', stuck.join(', '),
+      '\n(they retry on a backoff; atxRetry() forces it now)');
+  }
+  return { verdict, rows, stuck };
+}
+
+// Drop every backoff and try everything again, for when you know the
+// upstream just came back and do not want to wait out the timer.
+function atxRetry() {
+  const ids = Object.keys(state.failed);
+  ids.forEach(id => { delete state.failed[id]; delete state.data[id]; });
+  LAYERS.filter(l => l.on && !state.data[l.id]).forEach(fetchLayer);
+  return 'retrying ' + ids.length + ' layer(s): ' + ids.join(', ');
+}
+
 function atxOrphans() {
   const owned = new Set();
   // Recursive, because some of these are groups of groups — the weather

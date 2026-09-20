@@ -805,3 +805,64 @@ dev server all three answer 403 InvalidReferer. That is correct, not a bug
 to route around, and each says so specifically ("TomTom refused the key for
 this domain") rather than failing silently. Verified, along with a clean
 audit and zero orphans on toggle off.
+
+## The morning three unrelated things broke at once (2026-09-19)
+
+Reported as "I can't see buses, it says a feed is down, and on my iPhone
+there's no 311 or fire — this seems all fucked". None of it was the page,
+but the page's presentation of it deserved the reaction.
+
+**What was actually happening, all at the same time:**
+
+  - `data.austintexas.gov` returning **503** on every dataset. That is
+    fire, 311, signals, crashes and the dispatch feed.
+  - `data.texas.gov` returning **503**, so the relay correctly answered
+    `502 No upstream answered` — which is the buses.
+  - The **TomTom account out of credits**: 403 with
+    `{"detailedError":{"code":"InsufficientFunds"}}`.
+
+**The browser lies about the first one, and this is worth remembering.** A
+503 error page carries no CORS header, so a plain upstream outage surfaces
+in the console as *"blocked by CORS policy: No 'Access-Control-Allow-Origin'
+header is present"*. That sends you hunting a configuration bug that does
+not exist. Always check the upstream with curl before believing a CORS
+message.
+
+**Three real defects this exposed, all now fixed.**
+
+1. **A failed layer never retried.** `fetchLayer` set `state.data[id] = []`
+   and stopped. Only five layers have a refresh timer, so 311, signals,
+   crashes, wildfire and headlines stayed "err" until a manual reload —
+   a transient outage became a permanent one for the viewer. Now failures
+   are recorded with an attempt count and retried on a backoff
+   (20s / 45s / 2m / 5m / 15m), one layer at a time, fewest attempts
+   first, so a portal coming back is rediscovered gently.
+
+2. **Eight identical "err" badges and "a feed is down".** The interesting
+   fact is the *host*, once. The pulse now reads
+   "data.austintexas.gov is not answering · 4 layers waiting, retrying in
+   20s".
+
+3. **The TomTom 403 was reported as the wrong cause.** The first pass
+   assumed 403 meant the referer lock — reasonable, the page key is
+   domain-locked — so it said "TomTom refused the key for this domain"
+   while standing on exactly the domain the key is locked to. The same
+   mistake as the CORS message, made by my own code. It now reads
+   `detailedError.code` and distinguishes out-of-credits from the domain
+   lock from rate-limiting.
+
+**`atxTest()`** — the routine that should have existed before this.
+Probes every upstream directly and prints a table with a verdict, so the
+first question ("is it me or is it them?") takes ten seconds instead of a
+conversation. `atxRetry()` drops every backoff for when you know an
+upstream just came back. Deliberately not automatic: a page that probes
+eight services on load to prove it can is worse than one that just loads.
+
+Its own first run cried wolf twice — an invented `&limit=1` on the NWS
+alerts URL returned 400, and a guessed bcycle hostname 404'd. Both probes
+now use the page's own URLs verbatim. A self-test that invents its own
+request tests the invention.
+
+Recovery is tested rather than assumed: `retryDue()` is a named function,
+not an anonymous interval body, for the same reason `busFrame()` is —
+a recovery path nobody has watched run is not a recovery path.
