@@ -1781,7 +1781,9 @@ const LAYERS = [
       const [j] = await Promise.all([
         fetch(CAPMETRO + '/vehicles', { cache: 'no-store' })
           .then(r => { if (!r.ok) throw new Error('relay ' + r.status); return r.json(); }),
-        loadTransitRT()
+        // Alerts only. Arrival predictions are a 117 KB download and this
+        // layer does not read them; see loadTransitRT.
+        loadTransitRT({ alerts: true })
       ]);
       const at = +((j.header || {}).timestamp) || 0;
       const out = [];
@@ -1813,7 +1815,10 @@ const LAYERS = [
             ], trtAlertHtml(alerts, 2))
         });
       });
-      const nAlert = TRT.alerts.length;
+      // Distinct notices, for the same reason the popups dedupe: 107 rows
+      // are 68 things gone wrong, and the larger number is not the truer one.
+      const nAlert = new Set(TRT.alerts.map(
+        a => (a.headerText || a.id || '').trim().toLowerCase())).size;
       setNote(byId.transit, out.length
         ? out.length + ' in service \u00b7 reported '
           + (at ? Math.max(0, Math.round(Date.now() / 1000 - at)) + 's ago' : 'just now')
@@ -4735,6 +4740,10 @@ function syncStopVisibility() {
   const has = map.hasLayer(TRANSIT.stops);
   if (want && !has) TRANSIT.stops.addTo(map);
   if (!want && has) map.removeLayer(TRANSIT.stops);
+  /* Stops are visible, so a popup is one tap away and the predictions are
+     about to be worth their weight. Fires at most once per TRT_TRIPS_MS
+     and never at city zoom, where no stop is drawn. */
+  if (want) loadTransitRT({ trips: true });
   setNote(byGround.busstops, want
     ? '2,336 stops · tap one to light its routes'
     : 'Zoom past ' + TRANSIT.STOP_ZOOM + ' to see stops');
@@ -4919,15 +4928,30 @@ function trtLoadAlerts(list) {
   TRT.alertsAt = now;
 }
 
-async function loadTransitRT() {
+/* Trips are 1.6 MB raw and **117 KB gzipped over the wire**, measured
+   against the live relay — every 45 seconds, that is nine megabytes an
+   hour on a phone left open. Alerts are 9 KB.
+
+   The first version pulled both on the transit layer's own minute cycle,
+   which spent all of that on data nothing was reading: arrivals are only
+   ever used by a stop popup and the locate readout. Stops do not even
+   draw below zoom 14.
+
+   So `want` says which feeds the caller actually needs. Alerts ride the
+   normal cycle because they are cheap and the layer note counts them;
+   trips are fetched when stops become visible, when a stop popup is
+   about to open, and when the readout asks — and not otherwise. At the
+   default city zoom the page now never fetches them at all. */
+async function loadTransitRT(want) {
+  const need = want || { alerts: true };
   if (TRT.busy) return;
   TRT.busy = true;
   const now = Date.now();
   const jobs = [];
-  if (now - TRT.tripsAt > TRT_TRIPS_MS) {
+  if (need.trips && now - TRT.tripsAt > TRT_TRIPS_MS) {
     jobs.push(relayJson('/trips').then(trtLoadTrips).catch(() => {}));
   }
-  if (now - TRT.alertsAt > TRT_ALERTS_MS) {
+  if (need.alerts && now - TRT.alertsAt > TRT_ALERTS_MS) {
     jobs.push(relayJson('/alerts').then(trtLoadAlerts).catch(() => {}));
   }
   try { await Promise.all(jobs); } finally { TRT.busy = false; }
@@ -4958,10 +4982,16 @@ function trtNextAt(stopId, limit) {
 function trtArrivalHtml(stopId) {
   const next = trtNextAt(stopId, 4);
   if (!next.length) return null;
-  return next.map(a => '<span style="display:inline-block;margin:0 .5rem .15rem 0">'
-    + '<b style="color:#a3e635">' + esc(a.route || '?') + '</b> '
-    + '<span style="font-family:\'JetBrains Mono\',monospace;font-size:.72rem">'
-    + esc(trtMins(a.at)) + '</span></span>').join('');
+  /* The route is a chip and the time is not. Without that, route 1
+     arriving in one minute renders as "1 1 min", which is unreadable —
+     seen on the live feed at Capitol Station, where "801 due 1 1 min 30
+     2 min" was four facts and looked like noise. */
+  return next.map(a => '<span style="display:inline-flex;align-items:baseline;gap:.3rem;'
+    + 'margin:0 .45rem .2rem 0">'
+    + '<b style="background:#a3e63522;color:#a3e635;border-radius:4px;padding:1px 5px;'
+    + 'font-size:.72rem;font-variant-numeric:tabular-nums">' + esc(a.route || '?') + '</b>'
+    + '<span style="font-family:\'JetBrains Mono\',monospace;font-size:.72rem;'
+    + 'color:var(--text)">' + esc(trtMins(a.at)) + '</span></span>').join('');
 }
 
 const TRT_EFFECT = {
@@ -4975,7 +5005,20 @@ const TRT_EFFECT = {
    usually filed against both, and showing it twice reads as two problems. */
 function trtAlertsFor(stopId, routeIds) {
   const out = [], seen = new Set();
-  const take = a => { if (a && !seen.has(a.id)) { seen.add(a.id); out.push(a); } };
+  /* Deduped on the *headline*, not the id. CapMetro files one alert row
+     per affected stop, so a single detour arrives as three or five rows
+     with identical text — measured on the live feed: 107 alerts, 68
+     distinct headlines, 26 headlines appearing more than once, one of
+     them five times. Deduping by id showed "Stop Closure on Routes 318
+     and 333" five times in a row, which reads as a rendering bug rather
+     than as five stops. */
+  const take = a => {
+    if (!a) return;
+    const k = (a.headerText || a.id || '').trim().toLowerCase();
+    if (seen.has(k)) return;
+    seen.add(k);
+    out.push(a);
+  };
   if (stopId) (TRT.byStop.get(String(stopId)) || []).forEach(take);
   (routeIds || []).forEach(r => (TRT.byRoute.get(String(r)) || []).forEach(take));
   return out;
@@ -6069,6 +6112,9 @@ async function renderMeCard() {
      already loaded — if that layer has never been switched on there is
      nothing to search, and the row is simply absent rather than being a
      reason to fetch two megabytes. */
+  // The readout is the other consumer of arrival times; it is async, so
+  // it can simply wait for them.
+  await loadTransitRT({ trips: true }).catch(() => {});
   const stop = nearestStop(lat, lng);
   if (stop) {
     const next = trtArrivalHtml(stop.id);
