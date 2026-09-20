@@ -1091,3 +1091,70 @@ archive lives on — and it spends one request per settled viewport *per
 visitor*. On by default it would empty the archive's allowance within
 days. The tiles bill against their own 200K bucket and are the right
 thing to have on by default.
+
+## Storm cells, and bus headings (2026-09-20)
+
+**Two things on the map that move, both on by default.**
+
+### Storm cells
+
+NEXRAD's storm-attribute table via Iowa State Mesonet — free, keyless,
+`Access-Control-Allow-Origin: *`. The radar layer already shows where
+rain *is*; this tracks individual cells and gives each a motion vector,
+a hail probability, and — rarely, and the reason it earns its place — a
+mesocyclone or tornado vortex signature.
+
+Sliced by the archiver rather than fetched by the page: the national
+file is 540 KB and **the endpoint ignores every filter parameter**
+(`?nexrad=EWX` returns all 1,393 cells, verified). A central-Texas slice
+is under 20 KB. It rides the traffic job purely for the cadence — NEXRAD
+rebuilds the table each volume scan, about every five minutes, and that
+is the only job in the repo running that often.
+
+**`drct` is the direction a cell comes FROM, not where it is going**, and
+this was established by measurement rather than assumption. Two samples
+eleven minutes apart, matched on (radar, storm_id), actual displacement
+bearing compared against `drct` for the 148 cells that moved more than
+1.5 km:
+
+| comparison | median error |
+|---|---|
+| actual travel vs `drct` | **157.2°** |
+| actual travel vs `drct + 180` | **22.8°** |
+
+Drawing the track from `drct` would have pointed every storm in Texas
+backwards, confidently. `moving_to` is stored already corrected, with the
+raw value beside it so the correction stays visible. The 23° residual is
+real — cells wobble and the algorithm lags — so the track is drawn as a
+30-minute projection and the copy calls it a heading, not a promise.
+
+Colour follows reflectivity, which is the convention people already read.
+Rotation overrides it: a mesocyclone gets a magenta ring whatever its
+echo strength, because that attribute is about danger rather than
+intensity. Verified against live cells: the two rotating ones got rings
+at 44 and 55 dBZ while the 68 dBZ cell did not.
+
+### Bus headings
+
+The vehicle feed has carried `bearing` all along and nothing used it. The
+glyph is not rotated — it is a bus body with a route number in it, and a
+rotated "803" is unreadable at 28px — so the body stays upright and a
+small triangle sits outside it pointing the way the vehicle is going.
+
+Gated on speed above 3 mph: a parked bus still reports whatever heading
+it last had, and the pip would point somewhere arbitrary and confidently.
+`_updateBounds` grew by 7px to cover the pip, or it would be clipped at
+the edge of the view.
+
+### Rejected, with reasons
+
+  - **Aircraft.** The relay plumbing exists and the feed is the obvious
+    candidate, but every source blocks the egress: adsb.lol returns 429
+    to the Worker, adsb.fi 403s datacenter IPs, airplanes.live 403s even
+    from a home connection, and none of the three send CORS so the page
+    cannot fetch them directly. Not solvable from Cloudflare.
+  - **Dockless scooters.** Austin's GBFS discovery document lists
+    `station_information`, `station_status`, `geofencing_zones` and no
+    `vehicle_status`. MetroBike is dock-only; there is nothing free-
+    floating to draw.
+  - **The ISS.** Moves beautifully, has nothing to do with Austin.

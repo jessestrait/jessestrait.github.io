@@ -154,7 +154,8 @@ jobs:
               git reset --hard --quiet refs/remotes/origin/data || true
               mkdir -p traffic
               python3 "$RUNNER_TEMP/capture_traffic.py" --out traffic --interval 5 || break
-              git add traffic
+              # weather/ too: the storm-cell slice rides this job's cadence.
+              git add traffic weather
               if git diff --cached --quiet; then
                 echo "nothing changed"
                 break

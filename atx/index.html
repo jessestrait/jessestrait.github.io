@@ -1847,6 +1847,11 @@ const LAYERS = [
         const alerts = TRT.byRoute.get(String(route)) || [];
         out.push({
           vid: vid, bearing: p.bearing,
+          /* A parked bus still reports whatever heading it last had, so
+             the pip would point somewhere arbitrary and confidently. 3
+             mph is walking pace: below it the vehicle is at a stop or in
+             the yard and has no direction worth drawing. */
+          heading: (p.bearing != null && mph != null && mph > 3) ? p.bearing : null,
           lat: +p.latitude, lng: +p.longitude, t, cat: 'Route ' + route, route: route,
           html: pop('#a3e635', 'Route ' + route,
             'Vehicle ' + ((v.vehicle || {}).label || (v.vehicle || {}).id || '?'),
@@ -2124,7 +2129,7 @@ L.control.zoom({ position: 'bottomright' }).addTo(map);
 
 // leaflet.heat always draws into Leaflet's own overlayPane (z-index 400), so the
 // choropleth goes below that and everything else stacks above it.
-const PANES = { cloudPane: 232, radarPane: 240, trafficPane: 250, corridorPane: 258, groundPane: 330, districtPane: 350, labelPane2: 460, alertPane: 470, ttincPane: 420, dotPane: 490, busPane: 500, livePane: 520, rangePane: 360 };
+const PANES = { cloudPane: 232, radarPane: 240, stormPane: 246, trafficPane: 250, corridorPane: 258, groundPane: 330, districtPane: 350, labelPane2: 460, alertPane: 470, ttincPane: 420, dotPane: 490, busPane: 500, livePane: 520, rangePane: 360 };
 Object.entries(PANES).forEach(([p, z]) => { map.createPane(p).style.zIndex = z; });
 /* Leaflet's canvas renderer resolves a click by walking its layers in draw
    order and keeping the LAST one whose hit area contains the point. With
@@ -2662,6 +2667,31 @@ const GlyphMarker = L.CircleMarker.extend({
     // size; the sprite's extra resolution is what keeps it crisp.
     const s = this.options.sprite, half = s.size / 2;
     ctx.drawImage(s.cv, this._point.x - half, this._point.y - half, s.size, s.size);
+
+    /* A heading pip, for the one layer whose marks are going somewhere.
+
+       The glyph itself is not rotated: it is a bus body with a route
+       number in it, and a rotated "803" is unreadable at 28px. So the
+       body stays upright and a small triangle sits outside it pointing
+       the way the vehicle is travelling. Upright number, visible
+       direction, no compromise on either.
+
+       Canvas zero is the +x axis and bearing zero is north, so rotating
+       by the bearing lines the triangle's -y up with the heading. */
+    const hd = this.options.heading;
+    if (hd == null) return;
+    ctx.save();
+    ctx.translate(this._point.x, this._point.y);
+    ctx.rotate(hd * Math.PI / 180);
+    const r = half + 1;
+    ctx.beginPath();
+    ctx.moveTo(0, -(r + 6));
+    ctx.lineTo(-4.5, -r);
+    ctx.lineTo(4.5, -r);
+    ctx.closePath();
+    ctx.fillStyle = this.options.color;
+    ctx.fill();
+    ctx.restore();
   },
 
   // Bounds have to cover the mark whichever form is being drawn: they are
@@ -2669,7 +2699,8 @@ const GlyphMarker = L.CircleMarker.extend({
   // Leaflet clip a mark away at the edge of the view.
   _updateBounds: function () {
     const s = this.options.sprite;
-    const r = Math.max(this._radius, s ? s.size / 2 : 0) + this._clickTolerance();
+    // +7 for the heading pip, which sticks out past the sprite box.
+    const r = Math.max(this._radius, s ? s.size / 2 + 7 : 0) + this._clickTolerance();
     const p = L.point(r, r);
     this._pxBounds = new L.Bounds(this._point.subtract(p), this._point.add(p));
   },
@@ -2799,7 +2830,7 @@ function rowFor(l) {
    checked first inside it. Easy to flip if it reads wrong in the hand. */
 const TIERS = [
   ['live', 'Live now', ['firelive', 'c311', 'traffic', 'transit', 'signals',
-                        'bikes', 'gauges', 'lwc', 'outages', 'txdot', 'ttinc']],
+                        'bikes', 'gauges', 'lwc', 'outages', 'txdot', 'ttinc', 'storms']],
   ['today', 'Lately', ['news', 'crashes', 'wildfire', 'permits']],
   ['standing', 'Standing', ['busroutes', 'busstops', 'workzones', 'schoolzones']]
 ];
@@ -3037,6 +3068,7 @@ function markerFor(f, l, pane, renderer) {
         sprite: glyphSprite(l.id, l.color,
                             l.glyphPx && (COARSE ? l.glyphPx + 2 : l.glyphPx),
                             l.glyphLabel ? l.glyphLabel(f) : null),
+        heading: f.heading == null ? null : f.heading,
         layerRef: l
       }, opts))
     : L.circleMarker([f.lat, f.lng], opts);
@@ -4062,6 +4094,29 @@ const GROUND = [
     load: g => loadSchoolZones(g)
   },
   {
+    /* Storm cells, and where each one is going.
+
+       The radar layer already shows where rain *is*. This is the other
+       half: NEXRAD's own storm-attribute table, which tracks individual
+       cells and gives each one a motion vector, a hail probability and —
+       rarely, and the reason this earns its place — a mesocyclone or
+       tornado vortex signature.
+
+       Sliced by the archiver rather than fetched here: the national file
+       is 540 KB and the endpoint ignores every filter parameter it is
+       offered (nexrad=EWX returns all 1,393 cells, verified). A
+       central-Texas slice is under 20 KB.
+
+       The projected track is drawn from `moving_to`, which is the feed's
+       `drct` plus 180 — see fetch_storms. `drct` is the direction a cell
+       comes *from*, and drawing it raw would point every storm in Texas
+       backwards. */
+    id: 'storms', color: '#ff6ad5', name: 'Storm cells',
+    note: 'Radar-tracked, with where each is heading',
+    group: 'recent', on: true,
+    load: g => loadStorms(g)
+  },
+  {
     /* TxDOT, because the city does not own the roads that matter most.
 
        Austin's right-of-way permits (the work-zones layer below) cover city
@@ -4624,6 +4679,124 @@ async function loadSchoolZones(g) {
     console.error(e);
     if (badge) badge.textContent = 'err';
     setNote(g, 'Could not load the school zones', true);
+  }
+}
+
+/* ── Storm cells ──────────────────────────────────────────────────
+   Each cell is drawn twice: a disc where it is now, and a tapering
+   track to where it will be in half an hour at its current speed and
+   heading. The track is the point of the layer — radar already tells
+   you where the rain is, and nothing else on this page tells you which
+   way it is coming.
+
+   Thirty minutes because it is long enough to be worth knowing and
+   short enough to still be roughly true: cells wobble, and the feed's
+   own motion estimate lags the cell it describes. The residual when
+   this was checked against observed displacement was about 23 degrees,
+   so the track is a heading, not a promise.
+
+   Colour follows reflectivity, which is the convention every weather
+   product uses and the one people already read. Rotation overrides it:
+   a cell with a mesocyclone gets a ring regardless of how strong its
+   echo is, because that is the one attribute here that is about danger
+   rather than intensity. */
+const STORM_URL = 'https://raw.githubusercontent.com/jessestrait/'
+                + 'jessestrait.github.io/data/weather/storms.json';
+const STORM = { timer: null, at: 0 };
+const STORM_MIN = 30;           // minutes of projected track
+
+// "toward the ENE" reads; "toward 067°" does not, for a thing in the sky.
+const COMPASS = ['N','NNE','NE','ENE','E','ESE','SE','SSE',
+                 'S','SSW','SW','WSW','W','WNW','NW','NNW'];
+const compass = deg => COMPASS[Math.round(((deg % 360) + 360) % 360 / 22.5) % 16];
+
+function stormColour(dbz) {
+  if (dbz == null) return '#4dd2ff';
+  if (dbz >= 60) return '#ff4d4d';
+  if (dbz >= 50) return '#ff9d2e';
+  if (dbz >= 40) return '#ffd166';
+  return '#4dd2ff';
+}
+
+/* Great-circle-ish projection. Over 30 minutes of storm motion the flat
+   approximation is wrong by metres, and the cell itself is kilometres
+   across, so this is well inside the noise. */
+function stormAhead(lat, lng, bearingDeg, knots, minutes) {
+  const km = knots * 1.852 * (minutes / 60);
+  const b = bearingDeg * Math.PI / 180;
+  return [lat + (km * Math.cos(b)) / 111.32,
+          lng + (km * Math.sin(b)) / (111.32 * Math.cos(lat * Math.PI / 180))];
+}
+
+async function loadStorms(g) {
+  const badge = document.getElementById('ct-g-' + g.id);
+  try {
+    const d = await fetch(STORM_URL, { cache: 'no-store' }).then(r => {
+      if (!r.ok) throw new Error('storms ' + r.status);
+      return r.json();
+    });
+    const cells = d.cells || [];
+    STORM.at = d.fetched_at ? Date.parse(d.fetched_at) : 0;
+    const renderer = nearestCanvas({ pane: 'stormPane', padding: 0.3,
+                                     tolerance: HIT_TOLERANCE });
+    const grp = L.layerGroup([], { pane: 'stormPane' });
+    renderer.addTo(map);
+    let rotating = 0;
+    cells.forEach(c => {
+      const col = stormColour(c.dbz);
+      const spin = !!(c.meso || c.tvs);
+      if (spin) rotating++;
+      const body = pop(spin ? '#ff6ad5' : col,
+        spin ? (c.tvs ? 'Tornado signature' : 'Rotating cell') : 'Storm cell',
+        (c.dbz != null ? c.dbz + ' dBZ' : 'Cell') + ' · ' + (c.radar || '?') + ' ' + (c.cell || ''),
+        STORM.at ? ago(new Date(STORM.at)) : '', [
+          ['Moving', c.kt != null && c.moving_to != null
+            ? Math.round(c.kt * 1.151) + ' mph toward ' + compass(c.moving_to) : null],
+          ['Echo top', c.top_kft != null ? Math.round(c.top_kft) + ',000 ft' : null],
+          ['Hail', c.hail_pct ? c.hail_pct + '% chance' : null],
+          ['Severe hail', c.severe_hail_pct ? c.severe_hail_pct + '% chance' : null],
+          ['Max hail size', c.size_in ? c.size_in + ' in' : null],
+          ['Rotation', c.meso || null],
+          ['Tornado signature', c.tvs || null]
+        ],
+        '<p style="margin-top:.5rem;color:var(--muted);font-size:.72rem">'
+        + 'From the radar’s own storm tracking, not from the rain image. The '
+        + 'line is where this cell reaches in ' + STORM_MIN + ' minutes if it holds '
+        + 'its speed and heading — a heading, not a promise.</p>');
+
+      // the track first, so the cell sits on top of its own tail
+      if (c.kt && c.moving_to != null) {
+        const to = stormAhead(c.lat, c.lng, c.moving_to, c.kt, STORM_MIN);
+        L.polyline([[c.lat, c.lng], to], {
+          pane: 'stormPane', renderer: renderer, color: col,
+          weight: 2.5, opacity: 0.55, dashArray: '5 4'
+        }).bindPopup(body, { maxWidth: 320 }).addTo(grp);
+        L.circleMarker(to, {
+          pane: 'stormPane', renderer: renderer, radius: 2.5,
+          color: col, weight: 0, fillColor: col, fillOpacity: 0.7
+        }).addTo(grp);
+      }
+      L.circleMarker([c.lat, c.lng], {
+        pane: 'stormPane', renderer: renderer,
+        radius: Math.max(5, Math.min(13, ((c.dbz || 35) - 25) / 3.2)),
+        color: spin ? '#ff6ad5' : col, weight: spin ? 3 : 1.5,
+        fillColor: col, fillOpacity: 0.3
+      }).bindPopup(body, { maxWidth: 320 }).addTo(grp);
+    });
+    adoptGround(g, grp);
+    if (g.on) grp.addTo(map); else map.removeLayer(renderer);
+    if (badge) badge.textContent = cells.length;
+    setNote(g, cells.length
+      ? cells.length + ' cell' + (cells.length === 1 ? '' : 's') + ' on radar'
+        + (rotating ? ' · ' + rotating + ' rotating' : '')
+      : 'Nothing on radar near Austin');
+    clearInterval(STORM.timer);
+    STORM.timer = setInterval(() => {
+      if (!document.hidden && g.on) loadStorms(g);
+    }, 300000);
+  } catch (e) {
+    if (badge) badge.textContent = '—';
+    setNote(g, 'Radar storm tracking unavailable');
   }
 }
 

@@ -537,6 +537,72 @@ def fetch_corridors(key):
     return out
 
 
+# ── storm cells ─────────────────────────────────────────────────────────
+#
+# A hitchhiker, and the comment is here so nobody wonders why weather is
+# in the traffic collector. It is here for the cadence: NEXRAD rebuilds
+# its storm attribute table on every volume scan, roughly every five
+# minutes, and this is the only job in the repo that runs that often.
+#
+# It is sliced here rather than in the page because the national file is
+# 540 KB and the endpoint ignores every filter parameter offered to it —
+# nexrad=EWX returns all 1,393 cells, verified. A central-Texas slice is
+# under 20 KB.
+STORMS = "https://mesonet.agron.iastate.edu/geojson/nexrad_attr.geojson"
+# Wide enough to see weather coming, not so wide it becomes a map of
+# Texas: roughly Llano to Bastrop, Waco to San Marcos, plus the approach.
+STORM_BOX = (-99.5, 29.5, -96.5, 31.5)
+
+
+def fetch_storms():
+    """Radar-derived storm cells near Austin, with where each is going.
+
+    DIRECTION. `drct` is the direction the cell is coming **from**, the
+    meteorological wind convention — not the direction of travel. This
+    was not guessed: two samples eleven minutes apart were matched on
+    (radar, storm_id) and the actual displacement bearing compared
+    against `drct` for the 148 cells that moved more than 1.5 km. The
+    median error against `drct` was 157 degrees and against `drct + 180`
+    it was 23. Drawing the arrow from `drct` would have pointed every
+    storm in the state backwards.
+
+    So `moving_to` is stored already corrected, and the raw value is kept
+    beside it so the correction stays visible rather than becoming folk
+    knowledge."""
+    d = get(STORMS, {})
+    w, s_, e, n = STORM_BOX
+    out = []
+    for f in d.get("features", []) or []:
+        g = f.get("geometry") or {}
+        if g.get("type") != "Point":
+            continue
+        lon, lat = (g.get("coordinates") or [None, None])[:2]
+        if lon is None or not (w <= lon <= e and s_ <= lat <= n):
+            continue
+        p = f.get("properties") or {}
+        kt = p.get("sknt")
+        out.append({
+            "id": "%s-%s" % (p.get("nexrad"), p.get("storm_id")),
+            "radar": p.get("nexrad"), "cell": p.get("storm_id"),
+            "lat": round(lat, 4), "lng": round(lon, 4),
+            "dbz": p.get("max_dbz"),
+            "top_kft": p.get("max_dbz_height"),
+            "size_in": p.get("max_size"),
+            "kt": kt,
+            "from_deg": p.get("drct"),
+            "moving_to": (p["drct"] + 180) % 360 if p.get("drct") is not None else None,
+            # Probability of hail, and of *severe* hail. The second is the
+            # one worth colouring for.
+            "hail_pct": p.get("poh"), "severe_hail_pct": p.get("posh"),
+            # Rotation, and a tornado vortex signature. Rare, and the whole
+            # reason a layer like this earns its place on the page.
+            "meso": None if p.get("meso") in (None, "NONE") else p.get("meso"),
+            "tvs": None if p.get("tvs") in (None, "NONE") else p.get("tvs"),
+        })
+    out.sort(key=lambda x: -(x["dbz"] or 0))
+    return out
+
+
 def fetch_dispatch(hours=2):
     since = iso(now() - dt.timedelta(hours=hours))
     rows = get(SODA, {
@@ -1250,6 +1316,23 @@ def main():
                                  args.buffer, args.highway_buffer, args.tolerance)
     tx_rows = sorted(tx_seen.values(), key=lambda x: x["id"])
 
+    # Storm cells. Free, keyless, and refreshed on the radar's own clock,
+    # so it runs every poll rather than on a budget.
+    try:
+        storms = fetch_storms()
+        wx = out.parent / "weather"
+        wx.mkdir(parents=True, exist_ok=True)
+        (wx / "storms.json").write_text(json.dumps({
+            "fetched_at": stamp,
+            "source": "NWS NEXRAD storm attributes, via Iowa State Mesonet",
+            "note": "moving_to is drct+180: the feed gives the direction a cell "
+                    "comes FROM, verified against observed displacement.",
+            "cells": storms,
+        }, separators=(",", ":"), sort_keys=True))
+    except (urllib.error.URLError, ValueError) as err:
+        print("storm cells failed (%s) — carrying on." % err, file=sys.stderr)
+        storms = None
+
     # Corridor speeds, on their own much larger allowance and their own
     # much slower clock.
     corridors = None
@@ -1347,6 +1430,10 @@ def main():
     c = summ["counts"]
     w = summ["witnesses"]
     rw = summ["roadworks"]
+    if storms is not None:
+        sev = [c for c in storms if c.get("tvs") or c.get("meso")]
+        print("storm cells near Austin: %d%s"
+              % (len(storms), "  (%d with rotation)" % len(sev) if sev else ""))
     print("budget %s: incidents %d/%d spent, %d polls skipped, flow %d/20000%s"
           % (budget["month"], budget["incidents"], INCIDENT_BUDGET,
              budget.get("skipped", 0), budget.get("flow", 0),
