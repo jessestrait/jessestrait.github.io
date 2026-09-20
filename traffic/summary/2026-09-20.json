@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 110, q3 118 min over 33 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 93, q3 118 min over 39 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 54,
-  "dispatch_only": 52,
+  "dispatch": 57,
+  "dispatch_only": 54,
   "here": 0,
   "here_matched": 0,
-  "matched": 2,
-  "tomtom": 344,
-  "tomtom_only": 341
+  "matched": 3,
+  "tomtom": 355,
+  "tomtom_only": 351
  },
  "date": "2026-09-20",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 116.4,
+  "median": 115.9,
   "min": 19.4,
-  "n": 33,
-  "q1": 109.5,
-  "q3": 118.5
+  "n": 39,
+  "q1": 92.8,
+  "q3": 118.4
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,22 +33,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 0,
-   "n": 7,
+   "n": 8,
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 2,
-   "n": 47,
-   "pct": 4.3
+   "matched": 3,
+   "n": 49,
+   "pct": 6.1
   },
   "tomtom_highway": {
-   "matched": 2,
-   "n": 130,
-   "pct": 1.5
+   "matched": 3,
+   "n": 133,
+   "pct": 2.3
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 214,
+   "n": 222,
    "pct": 0.5
   }
  },
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": -51.6,
-  "median": -60.0,
+  "max": -29.2,
+  "median": -51.6,
   "min": -68.4,
-  "n": 2,
+  "n": 3,
   "q1": -68.4,
-  "q3": -51.6
+  "q3": -29.2
  },
  "persistence_min": {
   "n": 0,
@@ -85,15 +85,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 95,
-  "hotspot_buckets": 303,
-  "hotspot_buckets_on_roadworks": 90,
+  "hotspot_buckets": 310,
+  "hotspot_buckets_on_roadworks": 89,
   "txdot_rows": 4,
-  "unreported_congestion": 327
+  "unreported_congestion": 337
  },
  "sampling": {
-  "flow_spent_this_month": 36,
+  "flow_spent_this_month": 45,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 6,
+  "incidents_spent_this_month": 7,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -156,6 +156,13 @@
    "seg": "30.290,-97.728"
   },
   {
+   "from": "E 6th St (Red River St)",
+   "hour_of_week": 147,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.268,-97.737"
+  },
+  {
    "from": "E Dean Keeton St",
    "hour_of_week": 130,
    "n": 2,
@@ -191,18 +198,11 @@
    "seg": "30.286,-97.734"
   },
   {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
+   "from": "Pedernales St (E 6th St)",
+   "hour_of_week": 146,
    "n": 2,
    "roadworks": false,
-   "seg": "30.245,-97.744"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.234,-97.736"
+   "seg": "30.263,-97.727"
   },
   {
    "from": "St Elmo Rd E (Todd Ln)",
@@ -213,14 +213,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 96.3,
-  "tomtom": 99.1
+  "dispatch": 94.7,
+  "tomtom": 98.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 54,
-  "neither": 52,
-  "tomtom_only": 2
+  "n": 57,
+  "neither": 54,
+  "tomtom_only": 3
  }
 }
