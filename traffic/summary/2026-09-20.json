@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 21,
-  "dispatch_only": 21,
+  "dispatch": 22,
+  "dispatch_only": 22,
   "here": 0,
   "here_matched": 0,
   "matched": 0,
-  "tomtom": 161,
-  "tomtom_only": 161
+  "tomtom": 181,
+  "tomtom_only": 181
  },
  "date": "2026-09-20",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
-  "max": 118.9,
-  "median": 114.5,
+  "max": 119.6,
+  "median": 117.1,
   "min": 19.4,
-  "n": 7,
-  "q1": 88.2,
-  "q3": 118.4
+  "n": 9,
+  "q1": 90.5,
+  "q3": 118.9
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 18,
+   "n": 19,
    "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 63,
+   "n": 69,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 98,
+   "n": 112,
    "pct": 0.0
   }
  },
@@ -78,16 +78,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 41,
-  "hotspot_buckets": 140,
-  "hotspot_buckets_on_roadworks": 39,
+  "explained_by_roadworks": 47,
+  "hotspot_buckets": 158,
+  "hotspot_buckets_on_roadworks": 44,
   "txdot_rows": 4,
-  "unreported_congestion": 149
+  "unreported_congestion": 169
  },
  "sampling": {
   "flow_spent_this_month": 9,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1,
+  "incidents_spent_this_month": 2,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -106,6 +106,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.264,-97.744"
+  },
+  {
+   "from": "I-35 (E 12th St)",
+   "hour_of_week": 145,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.273,-97.736"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -197,13 +204,6 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.133,-97.646"
-  },
-  {
-   "from": "FM 812",
-   "hour_of_week": 124,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.145,-97.625"
   }
  ],
  "unmatched_pct": {
@@ -213,8 +213,8 @@
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 21,
-  "neither": 21,
+  "n": 22,
+  "neither": 22,
   "tomtom_only": 0
  }
 }
