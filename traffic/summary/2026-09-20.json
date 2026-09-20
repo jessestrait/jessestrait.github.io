@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 22 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 112, q3 119 min over 26 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,47 +9,47 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 35,
-  "dispatch_only": 32,
+  "dispatch": 43,
+  "dispatch_only": 38,
   "here": 0,
   "here_matched": 0,
-  "matched": 3,
-  "tomtom": 264,
-  "tomtom_only": 261
+  "matched": 5,
+  "tomtom": 335,
+  "tomtom_only": 329
  },
  "date": "2026-09-20",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 117.1,
+  "median": 116.8,
   "min": 19.4,
-  "n": 22,
-  "q1": 115.4,
-  "q3": 118.8
+  "n": 26,
+  "q1": 112.0,
+  "q3": 118.6
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
+   "matched": 2,
    "n": 5,
-   "pct": 20.0
+   "pct": 40.0
   },
   "dispatch_surface": {
-   "matched": 2,
-   "n": 30,
-   "pct": 6.7
+   "matched": 3,
+   "n": 38,
+   "pct": 7.9
   },
   "tomtom_highway": {
-   "matched": 2,
-   "n": 104,
-   "pct": 1.9
+   "matched": 5,
+   "n": 129,
+   "pct": 3.9
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 160,
-   "pct": 0.6
+   "n": 206,
+   "pct": 0.5
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 45.6,
-  "median": 13.3,
-  "min": -7.3,
-  "n": 3,
-  "q1": -7.3,
-  "q3": 45.6
+  "max": 66.3,
+  "median": 48.5,
+  "min": -54.2,
+  "n": 5,
+  "q1": -4.3,
+  "q3": 64.2
  },
  "persistence_min": {
   "n": 0,
@@ -84,16 +84,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 68,
-  "hotspot_buckets": 230,
-  "hotspot_buckets_on_roadworks": 64,
+  "explained_by_roadworks": 89,
+  "hotspot_buckets": 292,
+  "hotspot_buckets_on_roadworks": 84,
   "txdot_rows": 4,
-  "unreported_congestion": 249
+  "unreported_congestion": 315
  },
  "sampling": {
-  "flow_spent_this_month": 27,
+  "flow_spent_this_month": 36,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 4,
+  "incidents_spent_this_month": 5,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -121,13 +121,6 @@
    "seg": "30.273,-97.736"
   },
   {
-   "from": "E 6th St",
-   "hour_of_week": 146,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.267,-97.738"
-  },
-  {
    "from": "E 12th St (Trinity St)",
    "hour_of_week": 145,
    "n": 2,
@@ -135,18 +128,18 @@
    "seg": "30.274,-97.737"
   },
   {
-   "from": "E 20th St",
-   "hour_of_week": 134,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.284,-97.731"
-  },
-  {
    "from": "Lavaca St",
    "hour_of_week": 147,
    "n": 2,
    "roadworks": false,
    "seg": "30.280,-97.742"
+  },
+  {
+   "from": "W 26th St (Guadalupe St)",
+   "hour_of_week": 147,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.282,-97.742"
   },
   {
    "from": "San Jacinto Blvd (Duval St)",
@@ -210,17 +203,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
+  },
+  {
+   "from": "Pearl St",
+   "hour_of_week": 148,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.286,-97.745"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 91.4,
-  "tomtom": 98.9
+  "dispatch": 88.4,
+  "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 35,
-  "neither": 32,
-  "tomtom_only": 3
+  "n": 43,
+  "neither": 38,
+  "tomtom_only": 5
  }
 }
