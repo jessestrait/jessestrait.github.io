@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 26,
-  "dispatch_only": 26,
+  "dispatch": 28,
+  "dispatch_only": 27,
   "here": 0,
   "here_matched": 0,
-  "matched": 0,
+  "matched": 1,
   "tomtom": 202,
-  "tomtom_only": 202
+  "tomtom_only": 201
  },
  "date": "2026-09-20",
  "dispatch_life_capped": false,
@@ -32,19 +32,19 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 0,
-   "n": 3,
-   "pct": 0.0
+   "matched": 1,
+   "n": 4,
+   "pct": 25.0
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 23,
+   "n": 24,
    "pct": 0.0
   },
   "tomtom_highway": {
-   "matched": 0,
+   "matched": 1,
    "n": 80,
-   "pct": 0.0
+   "pct": 1.2
   },
   "tomtom_surface": {
    "matched": 0,
@@ -59,7 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "n": 0
+  "max": -13.0,
+  "median": -13.0,
+  "min": -13.0,
+  "n": 1,
+  "q1": -13.0,
+  "q3": -13.0
  },
  "persistence_min": {
   "n": 0
@@ -78,11 +83,11 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 53,
-  "hotspot_buckets": 178,
-  "hotspot_buckets_on_roadworks": 50,
+  "explained_by_roadworks": 52,
+  "hotspot_buckets": 177,
+  "hotspot_buckets_on_roadworks": 49,
   "txdot_rows": 4,
-  "unreported_congestion": 190
+  "unreported_congestion": 189
  },
  "sampling": {
   "flow_spent_this_month": 18,
@@ -129,6 +134,13 @@
    "seg": "30.234,-97.736"
   },
   {
+   "from": "St Elmo Rd E (Todd Ln)",
+   "hour_of_week": 146,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.214,-97.736"
+  },
+  {
    "from": "Thompson Ln",
    "hour_of_week": 94,
    "n": 2,
@@ -155,13 +167,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "TX-71/E Ben White Blvd (Todd Ln)",
-   "hour_of_week": 146,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.214,-97.736"
   },
   {
    "from": "Southwest Pkwy (William Cannon Dr)",
@@ -207,14 +212,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 100.0,
-  "tomtom": 100.0
+  "dispatch": 96.4,
+  "tomtom": 99.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 26,
-  "neither": 26,
-  "tomtom_only": 0
+  "n": 28,
+  "neither": 27,
+  "tomtom_only": 1
  }
 }
