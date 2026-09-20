@@ -2124,7 +2124,7 @@ L.control.zoom({ position: 'bottomright' }).addTo(map);
 
 // leaflet.heat always draws into Leaflet's own overlayPane (z-index 400), so the
 // choropleth goes below that and everything else stacks above it.
-const PANES = { cloudPane: 232, radarPane: 240, trafficPane: 250, groundPane: 330, districtPane: 350, labelPane2: 460, alertPane: 470, ttincPane: 420, dotPane: 490, busPane: 500, livePane: 520, rangePane: 360 };
+const PANES = { cloudPane: 232, radarPane: 240, trafficPane: 250, corridorPane: 258, groundPane: 330, districtPane: 350, labelPane2: 460, alertPane: 470, ttincPane: 420, dotPane: 490, busPane: 500, livePane: 520, rangePane: 360 };
 Object.entries(PANES).forEach(([p, z]) => { map.createPane(p).style.zIndex = z; });
 /* Leaflet's canvas renderer resolves a click by walking its layers in draw
    order and keeping the LAST one whose hit area contains the point. With
@@ -3714,6 +3714,64 @@ function paintCorridors() {
           + '</b> is the slowest right now.' : '');
 }
 
+/* ── The corridors, drawn ─────────────────────────────────────────
+   TomTom's flow tiles thin out as you zoom out — by zoom 9 they draw
+   highways only and faintly — and the tile API cannot be asked to do
+   otherwise. Measured: `thickness` is rejected on this style (400), the
+   `relative` style paints 62% of a z11 tile almost entirely green, and
+   scaling a deeper tile down loses more coverage and alpha than the
+   extra detail gains (0.62% → 0.53%, alpha 154 → 104).
+
+   So below the zoom where the tiles stop being legible, the nine
+   corridors are drawn from their own geometry instead — which arrives in
+   the same flow response the board already reads, at no extra request.
+   The width is then ours to choose, and at city zoom a 6px line is
+   visible in a way a hairline is not.
+
+   Only at low zoom. Above it the real tiles are better: they cover every
+   road rather than nine, and doubling them up would just thicken nine
+   arbitrary stretches. */
+const CORR_DRAW_MAX_ZOOM = 11;
+let corrLines = null, corrRenderer = null;
+
+function drawCorridors() {
+  /* TRAFFIC is a const declared four thousand lines below this, and
+     loadCorridors() fires at load. Today the fetch always resolves after
+     the script has finished, so the reference is fine — but that is a
+     timing accident, not a guarantee, and reading a const in its temporal
+     dead zone throws rather than returning undefined. `buildRecent`
+     already cost an afternoon to exactly this. Cheap to be explicit. */
+  let tilesOn;
+  try { tilesOn = TRAFFIC.on; } catch (e) { return; }
+  const want = tilesOn && map.getZoom() <= CORR_DRAW_MAX_ZOOM
+            && CORR.rows.some(c => (c.geom || []).length > 1);
+  if (corrLines) { map.removeLayer(corrLines); corrLines = null; }
+  if (corrRenderer) { map.removeLayer(corrRenderer); corrRenderer = null; }
+  if (!want) return;
+  corrRenderer = nearestCanvas({ pane: 'corridorPane', padding: 0.3,
+                                 tolerance: HIT_TOLERANCE }).addTo(map);
+  corrLines = L.layerGroup([], { pane: 'corridorPane' });
+  CORR.rows.forEach(c => {
+    if ((c.geom || []).length < 2) return;
+    const col = corrColour(c.pct, c.closed);
+    L.polyline(c.geom.map(p => [p[1], p[0]]), {
+      pane: 'corridorPane', renderer: corrRenderer,
+      color: col, weight: 6, opacity: 0.9, lineCap: 'round', lineJoin: 'round'
+    }).bindPopup(pop(col, 'TomTom flow', c.name + ' \u00b7 ' + c.where, '', [
+      ['Now', c.closed ? 'closed' : c.mph + ' mph'],
+      ['Free-flow', c.free_mph + ' mph'],
+      ['Of normal', c.pct + '%'],
+      ['Costing', c.lost_s != null ? c.lost_s + 's over this stretch' : null]
+    ], '<p style="margin-top:.5rem;color:var(--muted);font-size:.72rem">'
+     + 'Drawn from the segment TomTom measured, because its own flow tiles '
+     + 'go faint at this zoom. The stretch runs as far as conditions stay '
+     + 'the same, so a jammed segment is short and a clear one is long.</p>'))
+      .addTo(corrLines);
+  });
+  corrLines.addTo(map);
+}
+map.on('zoomend', drawCorridors);
+
 async function loadCorridors() {
   try {
     const d = await fetch(CORR_URL, { cache: 'no-store' }).then(r => {
@@ -3724,6 +3782,7 @@ async function loadCorridors() {
     CORR.rows = (d.corridors || []).filter(c => c && c.mph != null);
     CORR.at = d.fetched_at ? Date.parse(d.fetched_at) : 0;
     paintCorridors();
+    drawCorridors();
   } catch (e) {
     // Silent: a board that is not there yet should not announce itself.
     document.getElementById('corrsec').hidden = true;
@@ -4317,6 +4376,7 @@ function atxOrphans() {
   // polygon: painted, persistent, and owned by something other than the
   // dot layer.
   claim(typeof ttLines !== 'undefined' ? ttLines : null);
+  claim(typeof corrLines !== 'undefined' ? corrLines : null);
   claim(TTF.layer); claim(TTR.layer);
   // The choropleth and its labels are owned by the shading control rather
   // than by groundLayers. Left unclaimed they read as ten orphans the moment
@@ -7789,6 +7849,9 @@ function syncTrafficPunch() {
   const low = map.getZoom() <= TRAFFIC_LOW_ZOOM;
   map.getContainer().classList.toggle('flowlow', low);
   if (TRAFFIC.layer) TRAFFIC.layer.setOpacity(low ? 1 : 0.85);
+  // The drawn corridors belong to this layer: switching congestion off
+  // has to take them with it.
+  if (window.drawCorridors) drawCorridors();
 }
 map.on('zoomend', syncTrafficPunch);
 

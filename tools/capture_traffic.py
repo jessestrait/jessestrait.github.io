@@ -514,6 +514,25 @@ def fetch_corridors(key):
             "lost_s": (round(f["currentTravelTime"] - f["freeFlowTravelTime"])
                        if f.get("currentTravelTime") is not None
                        and f.get("freeFlowTravelTime") is not None else None),
+            # The shape of the segment the reading is about.
+            #
+            # This comes back in the same response at no extra cost, and
+            # it is what lets the map draw these roads itself. TomTom's
+            # own flow tiles thin out as you zoom out — by zoom 9 they
+            # draw highways only, faintly — and nothing in the tile API
+            # can be asked to do otherwise: thickness is rejected on this
+            # style, and scaling a deeper tile down loses more than it
+            # gains (measured). Drawing the corridors from their own
+            # geometry sidesteps all of it, because then the width is
+            # ours to choose.
+            #
+            # Note the length is itself informative: a segment runs until
+            # conditions change, so a jammed stretch comes back short
+            # (I-35 central, 0.8 km) and a clear one long (I-35 north,
+            # 15.9 km).
+            "geom": simplify([[c["longitude"], c["latitude"]]
+                              for c in ((f.get("coordinates") or {}).get("coordinate") or [])
+                              if c.get("latitude") is not None], keep=48),
         })
     return out
 
