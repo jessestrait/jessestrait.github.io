@@ -1042,3 +1042,52 @@ layer Jesse actually looks at. That is affordable now specifically because
 the archive no longer shares the risk: it rations itself against its own
 allowance, and the corridor board is sampled once by the job rather than
 once per visitor.
+
+## Why the flow tiles fade as you zoom out (2026-09-20)
+
+Measured by rendering the tiles to a canvas and counting painted pixels
+over downtown:
+
+| zoom | tile painted | mean alpha | red share |
+|---|---|---|---|
+| 12 | 5.00% | 167 | 0.08 |
+| 11 | 1.44% | 155 | 0.14 |
+| 10 | 0.60% | 158 | 0.15 |
+| 9 | 0.31% | 142 | 0.15 |
+
+Coverage halves per zoom out — and **it is not thinner lines, it is
+TomTom drawing fewer roads.** By z9 it is highways only.
+
+Three fixes tried and rejected, each measured rather than assumed:
+
+  - **`thickness`** is rejected outright on the relative0 styles. The
+    request returns 400. (The existing comment said so; now confirmed.)
+  - **The `relative` style** does accept it — 12% coverage at z9 against
+    0.31% — but 99% of those pixels are green because it colours
+    free-flowing roads too, and at z11 it covers 62% of the tile. It
+    would smother the basemap and throw away what relative0-dark is good
+    at: 15% of its pixels are red, so the eye goes to the congestion.
+  - **Scaling a deeper tile down** (`minNativeZoom`) shrinks the lines by
+    as much as the extra detail gains.
+
+So what is left is legibility, not geometry: at zoom ≤11 the layer goes
+to full opacity and the tiles get `saturate(1.75) brightness(1.4)
+contrast(1.1)`. At z9 a line was landing at roughly 47% effective alpha
+(142/255 × 0.85 opacity); now it reads. Before-and-after at z10 is the
+difference between an empty dark map and being able to follow I-35,
+Mopac and 183 across the city.
+
+**The filter is on the tile images, not the pane.** A pane filter breaks
+canvas compositing for every layer stacked above it — the same trap the
+basemap tinting had to avoid.
+
+**Defaults now on:** bus routes, transit stops, school zones, TxDOT
+highway conditions, and the Congestion flow tiles.
+
+**Deliberately still off: "Congestion, as objects"** (`ttinc`). It is a
+different row from the Congestion tiles and a very different cost. It
+draws on Traffic **Incident Details** — the 2,500/month bucket the
+archive lives on — and it spends one request per settled viewport *per
+visitor*. On by default it would empty the archive's allowance within
+days. The tiles bill against their own 200K bucket and are the right
+thing to have on by default.
