@@ -7872,6 +7872,12 @@ function trafficOn(on) {
     // Clears the automatic retry too, so switching it off by hand means off.
     clearTimeout(TRAFFIC.retry); TRAFFIC.retry = null;
     setTrafficNote('Congestion under the incident pins &mdash; the jam and its cause together.');
+    // The drawn corridors are part of this layer, and this branch returns
+    // before the sync below — so they have to be cleared here or they
+    // stay on the map after the layer is switched off. Exactly the class
+    // of bug atxOrphans exists to catch, except these are *owned*, so it
+    // would not have caught them.
+    drawCorridors();
     if (window.syncModes) syncModes();
     return;
   }
