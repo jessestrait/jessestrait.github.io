@@ -997,3 +997,48 @@ One subtlety in the implementation: a skipped poll passes `None` to
 `upsert`, not `{}`. An empty dict means "nothing is open any more" and
 would close every episode at once, inventing a city-wide simultaneous
 clearance every time the budget said wait.
+
+### Verified live once credits were bought (2026-09-20)
+
+All of it, against the real API on jessestrait.com:
+
+  - **Phase 2** — 112 incidents in view, 57 minutes of delay, magnitudes
+    spread across all five severity levels.
+  - **Phase 3** — a real reading with confidence 0.99 and the measured
+    segment drawn.
+  - **Phase 4** — three nested rings at 47 / 30 / 15 km.
+  - **The corridor board** — first real sample written to
+    `traffic/corridors.json` at 01:11Z, all nine corridors present, all
+    FRC0–FRC3, none on a local road.
+  - **The budget** — `open.json` now carries
+    `{"month":"2026-09","incidents":1,"flow":9,"skipped":0}` and the
+    collector's whole schedule was exercised end to end against a stubbed
+    network: rush polls, off-peak skips, the 45-minute gap, the hard
+    ceiling refusing at 2,500, and — the one that would have been a nasty
+    bug — a skipped poll leaving open episodes open rather than closing
+    them all at once.
+
+**The third round of coordinate checking earned its place.** With credits
+live I could finally ask TomTom what road each point lands on, and US-290
+still came back **FRC5, a local road with 21 shape points** — an OSM
+`highway=motorway` node had put it on a frontage road. Being on the right
+line in OSM is not the same as being on the right carriageway in TomTom's
+map. Re-picked to FRC2, 259 shape points, 69 mph free-flow. Three rounds,
+each catching what the last missed: by eye (side streets), OSM centrelines
+(frontage road), TomTom's own road class (clean).
+
+**A nice accidental cross-check:** the first sample caught I-35 central at
+13 mph against a 57 mph free-flow at one in the morning — which is exactly
+the overnight southbound main-lane closure the TxDOT layer was already
+showing. Two independent sources, same road, same night.
+
+**One thing the budget guard cannot fix retroactively:** its counter
+started at zero on 2026-09-20, but September's Incident Details spend was
+already ~16,000 before the rationing existed. September is over budget
+regardless; the guard governs cleanly from October.
+
+**Tiles are back on by default**, since credits are bought and it is the
+layer Jesse actually looks at. That is affordable now specifically because
+the archive no longer shares the risk: it rations itself against its own
+allowance, and the corridor board is sampled once by the job rather than
+once per visitor.
