@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 91, q3 116 min over 105 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 91, q3 116 min over 107 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 117,
-  "dispatch_only": 117,
+  "dispatch": 118,
+  "dispatch_only": 118,
   "here": 0,
   "here_matched": 0,
   "matched": 0,
-  "tomtom": 568,
-  "tomtom_only": 568
+  "tomtom": 585,
+  "tomtom_only": 585
  },
  "date": "2026-09-20",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 107.7,
+  "median": 108.3,
   "min": 19.4,
-  "n": 105,
-  "q1": 90.9,
+  "n": 107,
+  "q1": 91.2,
   "q3": 116.5
  },
  "here_onset_offset_min": {
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 92,
+   "n": 93,
    "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 227,
+   "n": 232,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 341,
+   "n": 353,
    "pct": 0.0
   }
  },
@@ -79,16 +79,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 136,
-  "hotspot_buckets": 511,
-  "hotspot_buckets_on_roadworks": 130,
+  "explained_by_roadworks": 142,
+  "hotspot_buckets": 529,
+  "hotspot_buckets_on_roadworks": 136,
   "txdot_rows": 4,
-  "unreported_congestion": 553
+  "unreported_congestion": 570
  },
  "sampling": {
   "flow_spent_this_month": 243,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 23,
+  "incidents_spent_this_month": 24,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -101,13 +101,6 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
-  {
-   "from": "W Anderson Ln (Anderson Sq)",
-   "hour_of_week": 162,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.353,-97.715"
-  },
   {
    "from": "Barton Springs Rd (S Congress Ave)",
    "hour_of_week": 145,
@@ -205,6 +198,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.286,-97.734"
+  },
+  {
+   "from": "Pedernales St (E 6th St)",
+   "hour_of_week": 146,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.263,-97.727"
   }
  ],
  "unmatched_pct": {
@@ -214,8 +214,8 @@
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 117,
-  "neither": 117,
+  "n": 118,
+  "neither": 118,
   "tomtom_only": 0
  }
 }
