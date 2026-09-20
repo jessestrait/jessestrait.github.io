@@ -5,7 +5,26 @@ the first one. ~2,900 requests a day for a single reader on the busiest
 route; the free plan allows 100,000.
 
 ```
-npx wrangler deploy
+cd workers/capmetro && npx wrangler deploy
+```
+
+**Run it from this directory.** The `cd` is not decoration. Wrangler looks
+for a config in the working directory and, finding none, *guesses* one —
+run from the repo root it decides the whole repository is a static site,
+writes a `wrangler.jsonc` naming it `jessestrait-github-io`, and uploads
+everything including `.git/`. That happened once, on 2026-09-19: 1,218
+files published to a Workers URL nobody wanted, git objects and all. It
+does not deploy this worker while doing it.
+
+You should see it name the worker **capmetro** (from `wrangler.toml` here).
+If it says "Framework: Static" or asks about an output directory, you are
+in the wrong directory — answer no and cancel.
+
+To remove a deployment made by mistake, from a directory with no wrangler
+config in it:
+
+```
+cd ~ && npx wrangler delete --name <the-wrong-name>
 ```
 
 Then point the map at the deployed URL:

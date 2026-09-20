@@ -866,3 +866,28 @@ request tests the invention.
 Recovery is tested rather than assumed: `retryDue()` is a named function,
 not an anonymous interval body, for the same reason `busFrame()` is —
 a recovery path nobody has watched run is not a recovery path.
+
+## `npx wrangler deploy` from the repo root publishes the whole repo (2026-09-19)
+
+Running the relay deploy from the repository root instead of
+`workers/capmetro` did not fail, which is the dangerous part. Wrangler
+found no config, **guessed** one, wrote a `wrangler.jsonc` at the root
+naming the whole repository as a static Cloudflare site with
+`"assets": {"directory": "."}`, and published **1,218 files including
+`.git/objects`** to `jessestrait-github-io.jessestrait.workers.dev`.
+Verified live: `/.git/config` and `/.git/HEAD` both answered 200. It never
+touched the actual worker.
+
+Exposure was low and it is worth saying why rather than hand-waving: the
+GitHub repo is already public, so the history was already public. A scan of
+all 1,866 commits across every ref found no secret-shaped assignments, no
+`TOMTOM_ARCHIVE_KEY` value ever committed, and no HERE key — the only key
+in the tree is the page's TomTom key, which is deliberately public and
+domain-locked. Deleted the deployment regardless.
+
+Prevention: the stray root `wrangler.jsonc` is removed, and the worker's
+README now says why the `cd` matters and what a wrong-directory run looks
+like ("Framework: Static", an output directory prompt, and a worker named
+after the repo rather than `capmetro`). Wrangler's `.gitignore` additions
+were kept — `.dev.vars*` and `.env*` are exactly the files that should
+never be committed.
