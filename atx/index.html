@@ -4249,6 +4249,158 @@ buildRecent();
 /* Ground layers used to load only when ticked, because none of them started
    on. The transit routes and stops do, so they need a boot path — the flag
    alone drew nothing and left two ticked boxes over an empty map. */
+/* Defined above the boot pass below, and that is load-bearing.
+
+   `GROUND.filter(g => g.on).forEach(loadGround)` runs here, hundreds of
+   lines before most of this file's constants are initialised. Every
+   other ground loader survives that by accident: their first statement
+   is `await fetch('data/something.json')` — a string literal — so they
+   yield before touching anything, and by the time the continuation runs
+   the script has finished and every const exists.
+
+   loadStorms did not. Its first statement was `await fetch(STORM_URL)`,
+   and an argument is evaluated *before* the await, so it read a const in
+   its temporal dead zone and threw. The symptom was baffling rather than
+   obvious: the catch wrote "Radar storm tracking unavailable", and then
+   the finally threw again on `STORM.timer` — also in the dead zone — so
+   the retry timer was never set and the layer stayed dead, while calling
+   the very same function by hand from the console worked perfectly.
+
+   This is the third time this file has been bitten by the dead zone
+   (see buildRecent, and the guard in drawCorridors). The durable fix
+   would be to move the boot pass to the end of the script; until then,
+   a loader that touches a module constant before its first await must
+   be defined above this line. */
+/* ── Storm cells ──────────────────────────────────────────────────
+   Each cell is drawn twice: a disc where it is now, and a tapering
+   track to where it will be in half an hour at its current speed and
+   heading. The track is the point of the layer — radar already tells
+   you where the rain is, and nothing else on this page tells you which
+   way it is coming.
+
+   Thirty minutes because it is long enough to be worth knowing and
+   short enough to still be roughly true: cells wobble, and the feed's
+   own motion estimate lags the cell it describes. The residual when
+   this was checked against observed displacement was about 23 degrees,
+   so the track is a heading, not a promise.
+
+   Colour follows reflectivity, which is the convention every weather
+   product uses and the one people already read. Rotation overrides it:
+   a cell with a mesocyclone gets a ring regardless of how strong its
+   echo is, because that is the one attribute here that is about danger
+   rather than intensity. */
+const STORM_URL = 'https://raw.githubusercontent.com/jessestrait/'
+                + 'jessestrait.github.io/data/weather/storms.json';
+const STORM = { timer: null, at: 0 };
+const STORM_MIN = 30;           // minutes of projected track
+
+// "toward the ENE" reads; "toward 067°" does not, for a thing in the sky.
+const COMPASS = ['N','NNE','NE','ENE','E','ESE','SE','SSE',
+                 'S','SSW','SW','WSW','W','WNW','NW','NNW'];
+const compass = deg => COMPASS[Math.round(((deg % 360) + 360) % 360 / 22.5) % 16];
+
+function stormColour(dbz) {
+  if (dbz == null) return '#4dd2ff';
+  if (dbz >= 60) return '#ff4d4d';
+  if (dbz >= 50) return '#ff9d2e';
+  if (dbz >= 40) return '#ffd166';
+  return '#4dd2ff';
+}
+
+/* Great-circle-ish projection. Over 30 minutes of storm motion the flat
+   approximation is wrong by metres, and the cell itself is kilometres
+   across, so this is well inside the noise. */
+function stormAhead(lat, lng, bearingDeg, knots, minutes) {
+  const km = knots * 1.852 * (minutes / 60);
+  const b = bearingDeg * Math.PI / 180;
+  return [lat + (km * Math.cos(b)) / 111.32,
+          lng + (km * Math.sin(b)) / (111.32 * Math.cos(lat * Math.PI / 180))];
+}
+
+async function loadStorms(g) {
+  const badge = document.getElementById('ct-g-' + g.id);
+  try {
+    const d = await fetch(STORM_URL, { cache: 'no-store' }).then(r => {
+      if (!r.ok) throw new Error('storms ' + r.status);
+      return r.json();
+    });
+    const cells = d.cells || [];
+    STORM.at = d.fetched_at ? Date.parse(d.fetched_at) : 0;
+    const renderer = nearestCanvas({ pane: 'stormPane', padding: 0.3,
+                                     tolerance: HIT_TOLERANCE });
+    const grp = L.layerGroup([], { pane: 'stormPane' });
+    renderer.addTo(map);
+    let rotating = 0;
+    cells.forEach(c => {
+      const col = stormColour(c.dbz);
+      const spin = !!(c.meso || c.tvs);
+      if (spin) rotating++;
+      const body = pop(spin ? '#ff6ad5' : col,
+        spin ? (c.tvs ? 'Tornado signature' : 'Rotating cell') : 'Storm cell',
+        (c.dbz != null ? c.dbz + ' dBZ' : 'Cell') + ' · ' + (c.radar || '?') + ' ' + (c.cell || ''),
+        STORM.at ? ago(new Date(STORM.at)) : '', [
+          ['Moving', c.kt != null && c.moving_to != null
+            ? Math.round(c.kt * 1.151) + ' mph toward ' + compass(c.moving_to) : null],
+          ['Echo top', c.top_kft != null ? Math.round(c.top_kft) + ',000 ft' : null],
+          ['Hail', c.hail_pct ? c.hail_pct + '% chance' : null],
+          ['Severe hail', c.severe_hail_pct ? c.severe_hail_pct + '% chance' : null],
+          ['Max hail size', c.size_in ? c.size_in + ' in' : null],
+          ['Rotation', c.meso || null],
+          ['Tornado signature', c.tvs || null]
+        ],
+        '<p style="margin-top:.5rem;color:var(--muted);font-size:.72rem">'
+        + 'From the radar’s own storm tracking, not from the rain image. The '
+        + 'line is where this cell reaches in ' + STORM_MIN + ' minutes if it holds '
+        + 'its speed and heading — a heading, not a promise.</p>');
+
+      // the track first, so the cell sits on top of its own tail
+      if (c.kt && c.moving_to != null) {
+        const to = stormAhead(c.lat, c.lng, c.moving_to, c.kt, STORM_MIN);
+        L.polyline([[c.lat, c.lng], to], {
+          pane: 'stormPane', renderer: renderer, color: col,
+          weight: 2.5, opacity: 0.55, dashArray: '5 4'
+        }).bindPopup(body, { maxWidth: 320 }).addTo(grp);
+        L.circleMarker(to, {
+          pane: 'stormPane', renderer: renderer, radius: 2.5,
+          color: col, weight: 0, fillColor: col, fillOpacity: 0.7
+        }).addTo(grp);
+      }
+      L.circleMarker([c.lat, c.lng], {
+        pane: 'stormPane', renderer: renderer,
+        radius: Math.max(5, Math.min(13, ((c.dbz || 35) - 25) / 3.2)),
+        color: spin ? '#ff6ad5' : col, weight: spin ? 3 : 1.5,
+        fillColor: col, fillOpacity: 0.3
+      }).bindPopup(body, { maxWidth: 320 }).addTo(grp);
+    });
+    adoptGround(g, grp);
+    if (g.on) grp.addTo(map); else map.removeLayer(renderer);
+    if (badge) badge.textContent = cells.length;
+    setNote(g, cells.length
+      ? cells.length + ' cell' + (cells.length === 1 ? '' : 's') + ' on radar'
+        + (rotating ? ' · ' + rotating + ' rotating' : '')
+      : 'Nothing on radar near Austin');
+  } catch (e) {
+    /* 404 is the ordinary state for a few minutes after the path is first
+       written — raw.githubusercontent caches misses as well as hits — so
+       it is "not yet", not "broken". Either way the layer must keep
+       trying: the first version set the retry interval inside the try,
+       which meant a failed first load never retried and the layer stayed
+       dead until someone reloaded the page. That is the same defect the
+       fetchLayer backoff exists to prevent, reintroduced two hundred
+       lines away in a loader that does its own fetching. */
+    if (badge) badge.textContent = '—';
+    setNote(g, e.message === 'storms 404'
+      ? 'Waiting for the first radar sample'
+      : 'Radar storm tracking unavailable', e.message !== 'storms 404');
+  } finally {
+    // Set on both paths, always.
+    clearInterval(STORM.timer);
+    STORM.timer = setInterval(() => {
+      if (!document.hidden && g.on) loadStorms(g);
+    }, 300000);
+  }
+}
+
 GROUND.filter(g => g.on).forEach(g => loadGround(g));
 
 /* ══════════════════════════════════════════════════════════════════
@@ -4679,136 +4831,6 @@ async function loadSchoolZones(g) {
     console.error(e);
     if (badge) badge.textContent = 'err';
     setNote(g, 'Could not load the school zones', true);
-  }
-}
-
-/* ── Storm cells ──────────────────────────────────────────────────
-   Each cell is drawn twice: a disc where it is now, and a tapering
-   track to where it will be in half an hour at its current speed and
-   heading. The track is the point of the layer — radar already tells
-   you where the rain is, and nothing else on this page tells you which
-   way it is coming.
-
-   Thirty minutes because it is long enough to be worth knowing and
-   short enough to still be roughly true: cells wobble, and the feed's
-   own motion estimate lags the cell it describes. The residual when
-   this was checked against observed displacement was about 23 degrees,
-   so the track is a heading, not a promise.
-
-   Colour follows reflectivity, which is the convention every weather
-   product uses and the one people already read. Rotation overrides it:
-   a cell with a mesocyclone gets a ring regardless of how strong its
-   echo is, because that is the one attribute here that is about danger
-   rather than intensity. */
-const STORM_URL = 'https://raw.githubusercontent.com/jessestrait/'
-                + 'jessestrait.github.io/data/weather/storms.json';
-const STORM = { timer: null, at: 0 };
-const STORM_MIN = 30;           // minutes of projected track
-
-// "toward the ENE" reads; "toward 067°" does not, for a thing in the sky.
-const COMPASS = ['N','NNE','NE','ENE','E','ESE','SE','SSE',
-                 'S','SSW','SW','WSW','W','WNW','NW','NNW'];
-const compass = deg => COMPASS[Math.round(((deg % 360) + 360) % 360 / 22.5) % 16];
-
-function stormColour(dbz) {
-  if (dbz == null) return '#4dd2ff';
-  if (dbz >= 60) return '#ff4d4d';
-  if (dbz >= 50) return '#ff9d2e';
-  if (dbz >= 40) return '#ffd166';
-  return '#4dd2ff';
-}
-
-/* Great-circle-ish projection. Over 30 minutes of storm motion the flat
-   approximation is wrong by metres, and the cell itself is kilometres
-   across, so this is well inside the noise. */
-function stormAhead(lat, lng, bearingDeg, knots, minutes) {
-  const km = knots * 1.852 * (minutes / 60);
-  const b = bearingDeg * Math.PI / 180;
-  return [lat + (km * Math.cos(b)) / 111.32,
-          lng + (km * Math.sin(b)) / (111.32 * Math.cos(lat * Math.PI / 180))];
-}
-
-async function loadStorms(g) {
-  const badge = document.getElementById('ct-g-' + g.id);
-  try {
-    const d = await fetch(STORM_URL, { cache: 'no-store' }).then(r => {
-      if (!r.ok) throw new Error('storms ' + r.status);
-      return r.json();
-    });
-    const cells = d.cells || [];
-    STORM.at = d.fetched_at ? Date.parse(d.fetched_at) : 0;
-    const renderer = nearestCanvas({ pane: 'stormPane', padding: 0.3,
-                                     tolerance: HIT_TOLERANCE });
-    const grp = L.layerGroup([], { pane: 'stormPane' });
-    renderer.addTo(map);
-    let rotating = 0;
-    cells.forEach(c => {
-      const col = stormColour(c.dbz);
-      const spin = !!(c.meso || c.tvs);
-      if (spin) rotating++;
-      const body = pop(spin ? '#ff6ad5' : col,
-        spin ? (c.tvs ? 'Tornado signature' : 'Rotating cell') : 'Storm cell',
-        (c.dbz != null ? c.dbz + ' dBZ' : 'Cell') + ' · ' + (c.radar || '?') + ' ' + (c.cell || ''),
-        STORM.at ? ago(new Date(STORM.at)) : '', [
-          ['Moving', c.kt != null && c.moving_to != null
-            ? Math.round(c.kt * 1.151) + ' mph toward ' + compass(c.moving_to) : null],
-          ['Echo top', c.top_kft != null ? Math.round(c.top_kft) + ',000 ft' : null],
-          ['Hail', c.hail_pct ? c.hail_pct + '% chance' : null],
-          ['Severe hail', c.severe_hail_pct ? c.severe_hail_pct + '% chance' : null],
-          ['Max hail size', c.size_in ? c.size_in + ' in' : null],
-          ['Rotation', c.meso || null],
-          ['Tornado signature', c.tvs || null]
-        ],
-        '<p style="margin-top:.5rem;color:var(--muted);font-size:.72rem">'
-        + 'From the radar’s own storm tracking, not from the rain image. The '
-        + 'line is where this cell reaches in ' + STORM_MIN + ' minutes if it holds '
-        + 'its speed and heading — a heading, not a promise.</p>');
-
-      // the track first, so the cell sits on top of its own tail
-      if (c.kt && c.moving_to != null) {
-        const to = stormAhead(c.lat, c.lng, c.moving_to, c.kt, STORM_MIN);
-        L.polyline([[c.lat, c.lng], to], {
-          pane: 'stormPane', renderer: renderer, color: col,
-          weight: 2.5, opacity: 0.55, dashArray: '5 4'
-        }).bindPopup(body, { maxWidth: 320 }).addTo(grp);
-        L.circleMarker(to, {
-          pane: 'stormPane', renderer: renderer, radius: 2.5,
-          color: col, weight: 0, fillColor: col, fillOpacity: 0.7
-        }).addTo(grp);
-      }
-      L.circleMarker([c.lat, c.lng], {
-        pane: 'stormPane', renderer: renderer,
-        radius: Math.max(5, Math.min(13, ((c.dbz || 35) - 25) / 3.2)),
-        color: spin ? '#ff6ad5' : col, weight: spin ? 3 : 1.5,
-        fillColor: col, fillOpacity: 0.3
-      }).bindPopup(body, { maxWidth: 320 }).addTo(grp);
-    });
-    adoptGround(g, grp);
-    if (g.on) grp.addTo(map); else map.removeLayer(renderer);
-    if (badge) badge.textContent = cells.length;
-    setNote(g, cells.length
-      ? cells.length + ' cell' + (cells.length === 1 ? '' : 's') + ' on radar'
-        + (rotating ? ' · ' + rotating + ' rotating' : '')
-      : 'Nothing on radar near Austin');
-  } catch (e) {
-    /* 404 is the ordinary state for a few minutes after the path is first
-       written — raw.githubusercontent caches misses as well as hits — so
-       it is "not yet", not "broken". Either way the layer must keep
-       trying: the first version set the retry interval inside the try,
-       which meant a failed first load never retried and the layer stayed
-       dead until someone reloaded the page. That is the same defect the
-       fetchLayer backoff exists to prevent, reintroduced two hundred
-       lines away in a loader that does its own fetching. */
-    if (badge) badge.textContent = '—';
-    setNote(g, e.message === 'storms 404'
-      ? 'Waiting for the first radar sample'
-      : 'Radar storm tracking unavailable', e.message !== 'storms 404');
-  } finally {
-    // Set on both paths, always.
-    clearInterval(STORM.timer);
-    STORM.timer = setInterval(() => {
-      if (!document.hidden && g.on) loadStorms(g);
-    }, 300000);
   }
 }
 
