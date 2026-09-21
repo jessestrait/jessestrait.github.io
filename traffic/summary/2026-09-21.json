@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 106, q3 117 min over 64 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 106, q3 117 min over 65 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 0,
-  "tomtom": 423,
-  "tomtom_only": 423
+  "tomtom": 435,
+  "tomtom_only": 435
  },
  "date": "2026-09-21",
  "dispatch_life_capped": true,
@@ -23,7 +23,7 @@
   "max": 120.0,
   "median": 115.4,
   "min": 79.5,
-  "n": 64,
+  "n": 65,
   "q1": 106.4,
   "q3": 117.4
  },
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 228,
+   "n": 235,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 195,
+   "n": 200,
    "pct": 0.0
   }
  },
@@ -79,16 +79,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 107,
-  "hotspot_buckets": 393,
-  "hotspot_buckets_on_roadworks": 104,
+  "explained_by_roadworks": 110,
+  "hotspot_buckets": 404,
+  "hotspot_buckets_on_roadworks": 107,
   "txdot_rows": 8,
-  "unreported_congestion": 411
+  "unreported_congestion": 423
  },
  "sampling": {
-  "flow_spent_this_month": 414,
+  "flow_spent_this_month": 423,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 49,
+  "incidents_spent_this_month": 50,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -158,6 +158,13 @@
    "seg": "30.274,-97.763"
   },
   {
+   "from": "FM Road 2222",
+   "hour_of_week": 12,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.395,-97.831"
+  },
+  {
    "from": "Green Emerald Ter",
    "hour_of_week": 14,
    "n": 2,
@@ -198,13 +205,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "Lakeline Mall Dr",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.475,-97.795"
   }
  ],
  "unmatched_pct": {
