@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 106, q3 118 min over 78 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 104, q3 117 min over 83 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 98,
-  "dispatch_only": 88,
+  "dispatch": 104,
+  "dispatch_only": 93,
   "here": 0,
   "here_matched": 0,
-  "matched": 10,
-  "tomtom": 619,
-  "tomtom_only": 610
+  "matched": 11,
+  "tomtom": 709,
+  "tomtom_only": 699
  },
  "date": "2026-09-21",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 115.6,
+  "median": 115.3,
   "min": 36.3,
-  "n": 78,
-  "q1": 106.4,
-  "q3": 117.7
+  "n": 83,
+  "q1": 103.5,
+  "q3": 117.4
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 4,
-   "n": 27,
-   "pct": 14.8
+   "n": 28,
+   "pct": 14.3
   },
   "dispatch_surface": {
-   "matched": 6,
-   "n": 71,
-   "pct": 8.5
+   "matched": 7,
+   "n": 76,
+   "pct": 9.2
   },
   "tomtom_highway": {
-   "matched": 7,
-   "n": 347,
-   "pct": 2.0
+   "matched": 9,
+   "n": 399,
+   "pct": 2.3
   },
   "tomtom_surface": {
-   "matched": 2,
-   "n": 272,
-   "pct": 0.7
+   "matched": 1,
+   "n": 310,
+   "pct": 0.3
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 45.9,
-  "median": 5.0,
+  "median": 5.1,
   "min": -42.5,
-  "n": 10,
-  "q1": -11.0,
-  "q3": 24.4
+  "n": 11,
+  "q1": -0.5,
+  "q3": 15.5
  },
  "persistence_min": {
-  "max": -15.2,
-  "median": -15.2,
-  "min": -15.2,
+  "max": 0.0,
+  "median": 0.0,
+  "min": 0.0,
   "n": 1,
-  "q1": -15.2,
-  "q3": -15.2,
+  "q1": 0.0,
+  "q3": 0.0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 147,
-  "hotspot_buckets": 576,
-  "hotspot_buckets_on_roadworks": 144,
+  "explained_by_roadworks": 160,
+  "hotspot_buckets": 663,
+  "hotspot_buckets_on_roadworks": 156,
   "txdot_rows": 8,
-  "unreported_congestion": 597
+  "unreported_congestion": 686
  },
  "sampling": {
-  "flow_spent_this_month": 477,
+  "flow_spent_this_month": 486,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 53,
+  "incidents_spent_this_month": 54,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -182,6 +182,20 @@
    "seg": "30.162,-97.874"
   },
   {
+   "from": "W Parmer Ln (N Lamar Blvd)",
+   "hour_of_week": 21,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.417,-97.676"
+  },
+  {
+   "from": "45th St (TX-1)",
+   "hour_of_week": 21,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.275,-97.771"
+  },
+  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
@@ -201,31 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.244,-97.663"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.616"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 89.8,
-  "tomtom": 98.5
+  "dispatch": 89.4,
+  "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 98,
-  "neither": 88,
-  "tomtom_only": 10
+  "n": 104,
+  "neither": 93,
+  "tomtom_only": 11
  }
 }
