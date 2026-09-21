@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 32,
-  "dispatch_only": 32,
+  "dispatch": 34,
+  "dispatch_only": 34,
   "here": 0,
   "here_matched": 0,
   "matched": 0,
-  "tomtom": 156,
-  "tomtom_only": 156
+  "tomtom": 170,
+  "tomtom_only": 170
  },
  "date": "2026-09-21",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 26,
+   "n": 28,
    "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 59,
+   "n": 68,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 97,
+   "n": 102,
    "pct": 0.0
   }
  },
@@ -79,16 +79,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 45,
-  "hotspot_buckets": 140,
-  "hotspot_buckets_on_roadworks": 45,
+  "explained_by_roadworks": 53,
+  "hotspot_buckets": 153,
+  "hotspot_buckets_on_roadworks": 53,
   "txdot_rows": 9,
-  "unreported_congestion": 147
+  "unreported_congestion": 161
  },
  "sampling": {
   "flow_spent_this_month": 279,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 28,
+  "incidents_spent_this_month": 29,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -151,6 +151,13 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "FM 812",
+   "hour_of_week": 3,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.145,-97.625"
+  },
+  {
    "from": "Lakeline Mall Dr",
    "hour_of_week": 167,
    "n": 1,
@@ -198,13 +205,6 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.115,-97.869"
-  },
-  {
-   "from": "Manchaca Rd (Slaughter Ln)",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.167,-97.791"
   }
  ],
  "unmatched_pct": {
@@ -214,8 +214,8 @@
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 32,
-  "neither": 32,
+  "n": 34,
+  "neither": 34,
   "tomtom_only": 0
  }
 }
