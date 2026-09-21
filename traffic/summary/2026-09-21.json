@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 104, q3 117 min over 83 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 102, q3 117 min over 91 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 105,
-  "dispatch_only": 98,
+  "dispatch": 111,
+  "dispatch_only": 102,
   "here": 0,
   "here_matched": 0,
-  "matched": 7,
-  "tomtom": 755,
-  "tomtom_only": 747
+  "matched": 9,
+  "tomtom": 855,
+  "tomtom_only": 846
  },
  "date": "2026-09-21",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 115.3,
+  "median": 111.6,
   "min": 36.3,
-  "n": 83,
-  "q1": 103.5,
-  "q3": 117.4
+  "n": 91,
+  "q1": 101.5,
+  "q3": 117.3
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,22 +33,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 2,
-   "n": 28,
-   "pct": 7.1
+   "n": 29,
+   "pct": 6.9
   },
   "dispatch_surface": {
-   "matched": 5,
-   "n": 77,
-   "pct": 6.5
+   "matched": 7,
+   "n": 82,
+   "pct": 8.5
   },
   "tomtom_highway": {
-   "matched": 8,
-   "n": 427,
+   "matched": 9,
+   "n": 482,
    "pct": 1.9
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 328,
+   "n": 373,
    "pct": 0.0
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 86.2,
-  "median": 15.5,
-  "min": -0.5,
-  "n": 7,
-  "q1": 5.5,
-  "q3": 74.2
+  "median": 11.2,
+  "min": -73.4,
+  "n": 9,
+  "q1": -28.9,
+  "q3": 56.3
  },
  "persistence_min": {
   "n": 0,
@@ -84,16 +84,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 163,
-  "hotspot_buckets": 711,
-  "hotspot_buckets_on_roadworks": 158,
+  "explained_by_roadworks": 176,
+  "hotspot_buckets": 805,
+  "hotspot_buckets_on_roadworks": 170,
   "txdot_rows": 8,
-  "unreported_congestion": 734
+  "unreported_congestion": 833
  },
  "sampling": {
-  "flow_spent_this_month": 486,
+  "flow_spent_this_month": 495,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 55,
+  "incidents_spent_this_month": 56,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -184,43 +184,43 @@
    "seg": "30.417,-97.676"
   },
   {
+   "from": "Onion Creek Pkwy/Exit 225 (I-35)",
+   "hour_of_week": 20,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.083,-97.822"
+  },
+  {
+   "from": "Lake Austin Blvd (Exposition Blvd)",
+   "hour_of_week": 22,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.289,-97.773"
+  },
+  {
+   "from": "Pflugerville Pkwy exit [429]",
+   "hour_of_week": 22,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.446,-97.593"
+  },
+  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.234,-97.736"
-  },
-  {
-   "from": "Hergotz Ln",
-   "hour_of_week": 112,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.244,-97.663"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.148,-97.704"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 93.3,
+  "dispatch": 91.9,
   "tomtom": 98.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 105,
-  "neither": 98,
-  "tomtom_only": 7
+  "n": 111,
+  "neither": 102,
+  "tomtom_only": 9
  }
 }
