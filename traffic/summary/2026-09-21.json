@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 107, q3 117 min over 47 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 107, q3 117 min over 48 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,46 +9,46 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 55,
+  "dispatch": 56,
   "dispatch_only": 53,
   "here": 0,
   "here_matched": 0,
-  "matched": 2,
-  "tomtom": 267,
-  "tomtom_only": 265
+  "matched": 3,
+  "tomtom": 281,
+  "tomtom_only": 278
  },
  "date": "2026-09-21",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 115.7,
+  "median": 115.8,
   "min": 79.5,
-  "n": 47,
-  "q1": 106.7,
-  "q3": 117.3
+  "n": 48,
+  "q1": 106.8,
+  "q3": 117.4
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 2,
+   "matched": 3,
    "n": 15,
-   "pct": 13.3
+   "pct": 20.0
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 40,
+   "n": 41,
    "pct": 0.0
   },
   "tomtom_highway": {
-   "matched": 2,
-   "n": 127,
-   "pct": 1.6
+   "matched": 3,
+   "n": 134,
+   "pct": 2.2
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 140,
+   "n": 147,
    "pct": 0.0
   }
  },
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 35.4,
-  "median": 26.4,
+  "max": 76.0,
+  "median": 35.4,
   "min": 17.3,
-  "n": 2,
+  "n": 3,
   "q1": 17.3,
-  "q3": 35.4
+  "q3": 76.0
  },
  "persistence_min": {
   "n": 0,
@@ -84,16 +84,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 75,
-  "hotspot_buckets": 243,
-  "hotspot_buckets_on_roadworks": 73,
+  "explained_by_roadworks": 77,
+  "hotspot_buckets": 256,
+  "hotspot_buckets_on_roadworks": 75,
   "txdot_rows": 7,
-  "unreported_congestion": 254
+  "unreported_congestion": 267
  },
  "sampling": {
   "flow_spent_this_month": 360,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 40,
+  "incidents_spent_this_month": 41,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -107,7 +107,7 @@
  },
  "structural_hotspots": [
   {
-   "from": "Creston St",
+   "from": "San Antonio Riverwalk",
    "hour_of_week": 12,
    "n": 3,
    "roadworks": false,
@@ -213,14 +213,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 96.4,
-  "tomtom": 99.3
+  "dispatch": 94.6,
+  "tomtom": 98.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 55,
+  "n": 56,
   "neither": 53,
-  "tomtom_only": 2
+  "tomtom_only": 3
  }
 }
