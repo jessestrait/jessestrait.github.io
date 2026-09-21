@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 14,
-  "dispatch_only": 14,
+  "dispatch_only": 13,
   "here": 0,
   "here_matched": 0,
-  "matched": 0,
-  "tomtom": 123,
-  "tomtom_only": 123
+  "matched": 1,
+  "tomtom": 135,
+  "tomtom_only": 134
  },
  "date": "2026-09-21",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 0,
+   "matched": 1,
    "n": 13,
-   "pct": 0.0
+   "pct": 7.7
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 44,
+   "n": 49,
    "pct": 0.0
   },
   "tomtom_surface": {
-   "matched": 0,
-   "n": 79,
-   "pct": 0.0
+   "matched": 1,
+   "n": 86,
+   "pct": 1.2
   }
  },
  "matcher": {
@@ -59,7 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "n": 0
+  "max": 8.4,
+  "median": 8.4,
+  "min": 8.4,
+  "n": 1,
+  "q1": 8.4,
+  "q3": 8.4
  },
  "persistence_min": {
   "n": 0
@@ -78,16 +83,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 28,
-  "hotspot_buckets": 108,
-  "hotspot_buckets_on_roadworks": 28,
+  "explained_by_roadworks": 33,
+  "hotspot_buckets": 119,
+  "hotspot_buckets_on_roadworks": 33,
   "txdot_rows": 4,
-  "unreported_congestion": 114
+  "unreported_congestion": 125
  },
  "sampling": {
   "flow_spent_this_month": 252,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 24,
+  "incidents_spent_this_month": 25,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -185,13 +190,6 @@
    "seg": "30.404,-97.725"
   },
   {
-   "from": "Fairfield Dr (Research Blvd)",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.353,-97.715"
-  },
-  {
    "from": "Nuthatch Dr",
    "hour_of_week": 167,
    "n": 1,
@@ -204,17 +202,24 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.167,-97.791"
+  },
+  {
+   "from": "W Anderson Ln (Anderson Sq)",
+   "hour_of_week": 162,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.353,-97.715"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 100.0,
-  "tomtom": 100.0
+  "dispatch": 92.9,
+  "tomtom": 99.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 14,
-  "neither": 14,
-  "tomtom_only": 0
+  "neither": 13,
+  "tomtom_only": 1
  }
 }
