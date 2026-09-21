@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 107, q3 117 min over 46 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 107, q3 117 min over 47 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -10,31 +10,31 @@
  ],
  "counts": {
   "dispatch": 55,
-  "dispatch_only": 55,
+  "dispatch_only": 53,
   "here": 0,
   "here_matched": 0,
-  "matched": 0,
-  "tomtom": 220,
-  "tomtom_only": 220
+  "matched": 2,
+  "tomtom": 267,
+  "tomtom_only": 265
  },
  "date": "2026-09-21",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 115.8,
+  "median": 115.7,
   "min": 79.5,
-  "n": 46,
-  "q1": 106.6,
-  "q3": 117.4
+  "n": 47,
+  "q1": 106.7,
+  "q3": 117.3
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 0,
+   "matched": 2,
    "n": 15,
-   "pct": 0.0
+   "pct": 13.3
   },
   "dispatch_surface": {
    "matched": 0,
@@ -42,13 +42,13 @@
    "pct": 0.0
   },
   "tomtom_highway": {
-   "matched": 0,
-   "n": 100,
-   "pct": 0.0
+   "matched": 2,
+   "n": 127,
+   "pct": 1.6
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 120,
+   "n": 140,
    "pct": 0.0
   }
  },
@@ -59,7 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "n": 0
+  "max": 35.4,
+  "median": 26.4,
+  "min": 17.3,
+  "n": 2,
+  "q1": 17.3,
+  "q3": 35.4
  },
  "persistence_min": {
   "n": 0,
@@ -79,16 +84,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 68,
-  "hotspot_buckets": 200,
-  "hotspot_buckets_on_roadworks": 66,
+  "explained_by_roadworks": 75,
+  "hotspot_buckets": 243,
+  "hotspot_buckets_on_roadworks": 73,
   "txdot_rows": 7,
-  "unreported_congestion": 209
+  "unreported_congestion": 254
  },
  "sampling": {
-  "flow_spent_this_month": 351,
+  "flow_spent_this_month": 360,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 39,
+  "incidents_spent_this_month": 40,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -98,9 +103,16 @@
    18
   ],
   "rush_min": 5,
-  "this_poll": "off-peak"
+  "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Creston St",
+   "hour_of_week": 12,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.520,-97.559"
+  },
   {
    "from": "W Anderson Ln (Anderson Sq)",
    "hour_of_week": 162,
@@ -198,24 +210,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.115,-97.869"
-  },
-  {
-   "from": "Manchaca Rd (Slaughter Ln)",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.167,-97.791"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 100.0,
-  "tomtom": 100.0
+  "dispatch": 96.4,
+  "tomtom": 99.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 55,
-  "neither": 55,
-  "tomtom_only": 0
+  "neither": 53,
+  "tomtom_only": 2
  }
 }
