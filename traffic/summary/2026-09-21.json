@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 65,
-  "dispatch_only": 64,
+  "dispatch_only": 65,
   "here": 0,
   "here_matched": 0,
-  "matched": 1,
-  "tomtom": 389,
-  "tomtom_only": 388
+  "matched": 0,
+  "tomtom": 395,
+  "tomtom_only": 395
  },
  "date": "2026-09-21",
  "dispatch_life_capped": true,
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
+   "matched": 0,
    "n": 15,
-   "pct": 6.7
+   "pct": 0.0
   },
   "dispatch_surface": {
    "matched": 0,
@@ -42,13 +42,13 @@
    "pct": 0.0
   },
   "tomtom_highway": {
-   "matched": 1,
-   "n": 211,
-   "pct": 0.5
+   "matched": 0,
+   "n": 215,
+   "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 178,
+   "n": 180,
    "pct": 0.0
   }
  },
@@ -59,20 +59,10 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 54.8,
-  "median": 54.8,
-  "min": 54.8,
-  "n": 1,
-  "q1": 54.8,
-  "q3": 54.8
+  "n": 0
  },
  "persistence_min": {
-  "max": 0.0,
-  "median": 0.0,
-  "min": 0.0,
-  "n": 1,
-  "q1": 0.0,
-  "q3": 0.0,
+  "n": 0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -89,16 +79,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 97,
-  "hotspot_buckets": 362,
-  "hotspot_buckets_on_roadworks": 95,
+  "explained_by_roadworks": 99,
+  "hotspot_buckets": 366,
+  "hotspot_buckets_on_roadworks": 96,
   "txdot_rows": 7,
-  "unreported_congestion": 376
+  "unreported_congestion": 383
  },
  "sampling": {
   "flow_spent_this_month": 378,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 45,
+  "incidents_spent_this_month": 46,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -145,6 +135,20 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.238,-97.663"
+  },
+  {
+   "from": "US-183/Research Blvd (Burnet Rd)",
+   "hour_of_week": 13,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.381,-97.725"
+  },
+  {
+   "from": "S Capital of Texas Hwy (Westbank Dr)",
+   "hour_of_week": 13,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.276,-97.816"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -201,31 +205,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.404,-97.722"
-  },
-  {
-   "from": "Domain Blvd",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.404,-97.724"
-  },
-  {
-   "from": "Domain Dr",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.406,-97.722"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 98.5,
-  "tomtom": 99.7
+  "dispatch": 100.0,
+  "tomtom": 100.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 65,
-  "neither": 64,
-  "tomtom_only": 1
+  "neither": 65,
+  "tomtom_only": 0
  }
 }
