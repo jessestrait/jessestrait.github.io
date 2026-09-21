@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 36,
-  "dispatch_only": 36,
+  "dispatch": 37,
+  "dispatch_only": 37,
   "here": 0,
   "here_matched": 0,
   "matched": 0,
-  "tomtom": 170,
-  "tomtom_only": 170
+  "tomtom": 175,
+  "tomtom_only": 175
  },
  "date": "2026-09-21",
  "dispatch_life_capped": true,
@@ -38,12 +38,12 @@
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 30,
+   "n": 31,
    "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 68,
+   "n": 73,
    "pct": 0.0
   },
   "tomtom_surface": {
@@ -79,16 +79,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 53,
-  "hotspot_buckets": 153,
-  "hotspot_buckets_on_roadworks": 53,
+  "explained_by_roadworks": 54,
+  "hotspot_buckets": 159,
+  "hotspot_buckets_on_roadworks": 54,
   "txdot_rows": 9,
-  "unreported_congestion": 161
+  "unreported_congestion": 166
  },
  "sampling": {
   "flow_spent_this_month": 288,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 29,
+  "incidents_spent_this_month": 30,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -109,6 +109,13 @@
    "seg": "30.353,-97.715"
   },
   {
+   "from": "Elroy Rd / Kellam Rd",
+   "hour_of_week": 3,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.145,-97.625"
+  },
+  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
@@ -121,13 +128,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.234,-97.736"
-  },
-  {
-   "from": "Thompson Ln",
-   "hour_of_week": 94,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.244,-97.669"
   },
   {
    "from": "Hergotz Ln",
@@ -149,13 +149,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "FM 812",
-   "hour_of_week": 3,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.145,-97.625"
   },
   {
    "from": "Lakeline Mall Dr",
@@ -205,6 +198,13 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.115,-97.869"
+  },
+  {
+   "from": "Manchaca Rd (Slaughter Ln)",
+   "hour_of_week": 167,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.167,-97.791"
   }
  ],
  "unmatched_pct": {
@@ -214,8 +214,8 @@
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 36,
-  "neither": 36,
+  "n": 37,
+  "neither": 37,
   "tomtom_only": 0
  }
 }
