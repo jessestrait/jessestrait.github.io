@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 102, q3 117 min over 92 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 102, q3 117 min over 93 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -10,20 +10,20 @@
  ],
  "counts": {
   "dispatch": 111,
-  "dispatch_only": 106,
+  "dispatch_only": 105,
   "here": 0,
   "here_matched": 0,
-  "matched": 5,
-  "tomtom": 883,
-  "tomtom_only": 877
+  "matched": 6,
+  "tomtom": 905,
+  "tomtom_only": 898
  },
  "date": "2026-09-21",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 111.8,
+  "median": 112.0,
   "min": 36.3,
-  "n": 92,
+  "n": 93,
   "q1": 101.6,
   "q3": 117.4
  },
@@ -37,19 +37,19 @@
    "pct": 3.4
   },
   "dispatch_surface": {
-   "matched": 4,
+   "matched": 5,
    "n": 82,
-   "pct": 4.9
+   "pct": 6.1
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 499,
+   "n": 511,
    "pct": 1.2
   },
   "tomtom_surface": {
-   "matched": 0,
-   "n": 384,
-   "pct": 0.0
+   "matched": 1,
+   "n": 394,
+   "pct": 0.3
   }
  },
  "matcher": {
@@ -60,14 +60,19 @@
  },
  "onset_offset_min": {
   "max": 74.2,
-  "median": 5.5,
+  "median": 8.3,
   "min": -57.4,
-  "n": 5,
-  "q1": -28.9,
-  "q3": 42.7
+  "n": 6,
+  "q1": -14.7,
+  "q3": 38.2
  },
  "persistence_min": {
-  "n": 0,
+  "max": -90.0,
+  "median": -90.0,
+  "min": -90.0,
+  "n": 1,
+  "q1": -90.0,
+  "q3": -90.0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -84,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 180,
-  "hotspot_buckets": 831,
-  "hotspot_buckets_on_roadworks": 173,
+  "explained_by_roadworks": 181,
+  "hotspot_buckets": 852,
+  "hotspot_buckets_on_roadworks": 175,
   "txdot_rows": 8,
-  "unreported_congestion": 864
+  "unreported_congestion": 885
  },
  "sampling": {
   "flow_spent_this_month": 495,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 57,
+  "incidents_spent_this_month": 58,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -198,29 +203,29 @@
    "seg": "30.289,-97.773"
   },
   {
+   "from": "US-183/Research Blvd (Burnet Rd)",
+   "hour_of_week": 22,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.379,-97.725"
+  },
+  {
    "from": "John Henry Faulk Dr",
    "hour_of_week": 22,
    "n": 2,
    "roadworks": false,
    "seg": "30.432,-97.653"
-  },
-  {
-   "from": "Pflugerville Pkwy exit [429]",
-   "hour_of_week": 22,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.446,-97.593"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 95.5,
-  "tomtom": 99.3
+  "dispatch": 94.6,
+  "tomtom": 99.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 111,
-  "neither": 106,
-  "tomtom_only": 5
+  "neither": 105,
+  "tomtom_only": 6
  }
 }
