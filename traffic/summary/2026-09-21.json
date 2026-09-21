@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 0,
-  "tomtom": 395,
-  "tomtom_only": 395
+  "tomtom": 407,
+  "tomtom_only": 407
  },
  "date": "2026-09-21",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 215,
+   "n": 219,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 180,
+   "n": 188,
    "pct": 0.0
   }
  },
@@ -79,16 +79,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 99,
-  "hotspot_buckets": 366,
-  "hotspot_buckets_on_roadworks": 96,
+  "explained_by_roadworks": 100,
+  "hotspot_buckets": 377,
+  "hotspot_buckets_on_roadworks": 97,
   "txdot_rows": 7,
-  "unreported_congestion": 383
+  "unreported_congestion": 395
  },
  "sampling": {
   "flow_spent_this_month": 378,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 46,
+  "incidents_spent_this_month": 47,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -137,6 +137,13 @@
    "seg": "30.238,-97.663"
   },
   {
+   "from": "W Ben White Blvd",
+   "hour_of_week": 12,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.219,-97.756"
+  },
+  {
    "from": "US-183/Research Blvd (Burnet Rd)",
    "hour_of_week": 13,
    "n": 2,
@@ -144,11 +151,11 @@
    "seg": "30.381,-97.725"
   },
   {
-   "from": "S Capital of Texas Hwy (Westbank Dr)",
+   "from": "W 5th St",
    "hour_of_week": 13,
    "n": 2,
    "roadworks": false,
-   "seg": "30.276,-97.816"
+   "seg": "30.274,-97.763"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -198,13 +205,6 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.475,-97.795"
-  },
-  {
-   "from": "Alterra Pkwy",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.404,-97.722"
   }
  ],
  "unmatched_pct": {
