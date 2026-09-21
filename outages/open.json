@@ -1,5 +1,5 @@
 {
- "captured_at": "2026-09-21T15:28:34Z",
+ "captured_at": "2026-09-21T16:13:53Z",
  "episodes": [
   {
    "customers_served": 24695,
@@ -8,10 +8,10 @@
    "first_seen": "2026-09-21T13:12:23Z",
    "id": "zip-78759-20260921T131223Z",
    "kind": "power_outage",
-   "last_seen": "2026-09-21T15:28:34Z",
+   "last_seen": "2026-09-21T16:13:53Z",
    "peak_customers_affected": 6,
    "peak_outages": 1,
-   "polls": 5,
+   "polls": 6,
    "scope": {
     "bbox": [
      -97.79529059993826,
@@ -27,14 +27,14 @@
   {
    "customers_served": 20317,
    "ended": false,
-   "etr_last": "2026-09-21T15:49:31Z",
+   "etr_last": "ETR-EXP",
    "first_seen": "2026-09-21T13:27:26Z",
    "id": "zip-78723-20260921T132726Z",
    "kind": "power_outage",
-   "last_seen": "2026-09-21T15:28:34Z",
+   "last_seen": "2026-09-21T16:13:53Z",
    "peak_customers_affected": 1,
    "peak_outages": 1,
-   "polls": 4,
+   "polls": 5,
    "scope": {
     "bbox": [
      -97.71419300010275,
@@ -50,14 +50,14 @@
   {
    "customers_served": 36392,
    "ended": false,
-   "etr_last": "2026-09-21T15:33:42Z",
+   "etr_last": "ETR-EXP",
    "first_seen": "2026-09-21T13:27:26Z",
    "id": "zip-78745-20260921T132726Z",
    "kind": "power_outage",
-   "last_seen": "2026-09-21T15:28:34Z",
+   "last_seen": "2026-09-21T16:13:53Z",
    "peak_customers_affected": 1,
    "peak_outages": 1,
-   "polls": 4,
+   "polls": 5,
    "scope": {
     "bbox": [
      -97.84236599993895,
@@ -71,62 +71,16 @@
    "source": "austin-energy/kubra"
   },
   {
-   "customers_served": 15362,
-   "ended": false,
-   "etr_last": "2026-09-21T16:38:42Z",
-   "first_seen": "2026-09-21T14:43:13Z",
-   "id": "zip-78731-20260921T144313Z",
-   "kind": "power_outage",
-   "last_seen": "2026-09-21T15:28:34Z",
-   "peak_customers_affected": 10,
-   "peak_outages": 1,
-   "polls": 2,
-   "scope": {
-    "bbox": [
-     -97.79700000022555,
-     30.30480199874927,
-     -97.74336799952607,
-     30.38513099921702
-    ],
-    "id": "78731",
-    "type": "zip"
-   },
-   "source": "austin-energy/kubra"
-  },
-  {
-   "customers_served": 4683,
-   "ended": false,
-   "etr_last": "2026-09-21T15:48:35Z",
-   "first_seen": "2026-09-21T14:43:13Z",
-   "id": "zip-78730-20260921T144313Z",
-   "kind": "power_outage",
-   "last_seen": "2026-09-21T15:28:34Z",
-   "peak_customers_affected": 7,
-   "peak_outages": 1,
-   "polls": 2,
-   "scope": {
-    "bbox": [
-     -97.88236600050205,
-     30.322173999320185,
-     -97.79081599992756,
-     30.40376299846865
-    ],
-    "id": "78730",
-    "type": "zip"
-   },
-   "source": "austin-energy/kubra"
-  },
-  {
    "customers_served": 29932,
    "ended": false,
    "etr_last": "2026-09-21T16:56:30Z",
    "first_seen": "2026-09-21T15:28:34Z",
    "id": "zip-78741-20260921T152834Z",
    "kind": "power_outage",
-   "last_seen": "2026-09-21T15:28:34Z",
+   "last_seen": "2026-09-21T16:13:53Z",
    "peak_customers_affected": 1,
    "peak_outages": 1,
-   "polls": 1,
+   "polls": 2,
    "scope": {
     "bbox": [
      -97.75198400028799,
@@ -146,10 +100,10 @@
    "first_seen": "2026-09-21T15:28:34Z",
    "id": "zip-78734-20260921T152834Z",
    "kind": "power_outage",
-   "last_seen": "2026-09-21T15:28:34Z",
+   "last_seen": "2026-09-21T16:13:53Z",
    "peak_customers_affected": 1,
    "peak_outages": 1,
-   "polls": 1,
+   "polls": 2,
    "scope": {
     "bbox": [
      -98.0138749995519,
@@ -161,7 +115,30 @@
     "type": "zip"
    },
    "source": "austin-energy/kubra"
+  },
+  {
+   "customers_served": 15252,
+   "ended": false,
+   "etr_last": "2026-09-21T18:09:17Z",
+   "first_seen": "2026-09-21T16:13:53Z",
+   "id": "zip-78754-20260921T161353Z",
+   "kind": "power_outage",
+   "last_seen": "2026-09-21T16:13:53Z",
+   "peak_customers_affected": 4,
+   "peak_outages": 1,
+   "polls": 1,
+   "scope": {
+    "bbox": [
+     -97.68624920044316,
+     30.326059399623272,
+     -97.60251750023369,
+     30.406215999145722
+    ],
+    "id": "78754",
+    "type": "zip"
+   },
+   "source": "austin-energy/kubra"
   }
  ],
- "source_published": "2026-09-21T15:23:39Z"
+ "source_published": "2026-09-21T16:03:53Z"
 }
