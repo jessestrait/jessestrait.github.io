@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 104,
-  "dispatch_only": 93,
+  "dispatch": 105,
+  "dispatch_only": 98,
   "here": 0,
   "here_matched": 0,
-  "matched": 11,
-  "tomtom": 709,
-  "tomtom_only": 699
+  "matched": 7,
+  "tomtom": 755,
+  "tomtom_only": 747
  },
  "date": "2026-09-21",
  "dispatch_life_capped": true,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 4,
+   "matched": 2,
    "n": 28,
-   "pct": 14.3
+   "pct": 7.1
   },
   "dispatch_surface": {
-   "matched": 7,
-   "n": 76,
-   "pct": 9.2
+   "matched": 5,
+   "n": 77,
+   "pct": 6.5
   },
   "tomtom_highway": {
-   "matched": 9,
-   "n": 399,
-   "pct": 2.3
+   "matched": 8,
+   "n": 427,
+   "pct": 1.9
   },
   "tomtom_surface": {
-   "matched": 1,
-   "n": 310,
-   "pct": 0.3
+   "matched": 0,
+   "n": 328,
+   "pct": 0.0
   }
  },
  "matcher": {
@@ -59,20 +59,15 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 45.9,
-  "median": 5.1,
-  "min": -42.5,
-  "n": 11,
-  "q1": -0.5,
-  "q3": 15.5
+  "max": 86.2,
+  "median": 15.5,
+  "min": -0.5,
+  "n": 7,
+  "q1": 5.5,
+  "q3": 74.2
  },
  "persistence_min": {
-  "max": 0.0,
-  "median": 0.0,
-  "min": 0.0,
-  "n": 1,
-  "q1": 0.0,
-  "q3": 0.0,
+  "n": 0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -89,16 +84,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 160,
-  "hotspot_buckets": 663,
-  "hotspot_buckets_on_roadworks": 156,
+  "explained_by_roadworks": 163,
+  "hotspot_buckets": 711,
+  "hotspot_buckets_on_roadworks": 158,
   "txdot_rows": 8,
-  "unreported_congestion": 686
+  "unreported_congestion": 734
  },
  "sampling": {
   "flow_spent_this_month": 486,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 54,
+  "incidents_spent_this_month": 55,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -189,13 +184,6 @@
    "seg": "30.417,-97.676"
   },
   {
-   "from": "45th St (TX-1)",
-   "hour_of_week": 21,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.275,-97.771"
-  },
-  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
@@ -215,17 +203,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.244,-97.663"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 89.4,
-  "tomtom": 98.6
+  "dispatch": 93.3,
+  "tomtom": 98.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 104,
-  "neither": 93,
-  "tomtom_only": 11
+  "n": 105,
+  "neither": 98,
+  "tomtom_only": 7
  }
 }
