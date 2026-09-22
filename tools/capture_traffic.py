@@ -1399,8 +1399,23 @@ def main():
             } for e in sorted(hr_open.values(), key=lambda x: x["id"])],
         }, separators=(",", ":"), sort_keys=True))
 
+    # day_doc["matches"], not `matches`. `matches` is only what this poll
+    # found across what is open right now plus the few episodes that just
+    # closed — a handful. The day's real total is the accumulated set.
+    #
+    # This is the same bug as the one merge_matches was written to fix,
+    # surviving one line further down: that fix made the *day file*
+    # accumulate correctly while the *summary* went on reporting the last
+    # poll. And the summary is the half that is kept forever — day files
+    # are pruned after two days, summaries never are. So the permanent
+    # record of the archive's headline number was a sample of the last
+    # five minutes. Measured on 2026-09-21: the day file held 29 matches
+    # and the summary said 3.
+    #
+    # hr_matches and agreements below already passed the accumulated set;
+    # only the primary one was wrong, which is why it went unnoticed.
     summ = summarise(day, day_doc["tomtom_closed"], day_doc["dispatch_closed"],
-                     matches, list(tt_open.values()), list(dp_open.values()),
+                     day_doc["matches"], list(tt_open.values()), list(dp_open.values()),
                      args.interval,
                      {"buffer_m": args.buffer, "highway_buffer_m": args.highway_buffer,
                       "tolerance_min": args.tolerance,
