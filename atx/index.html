@@ -1494,33 +1494,77 @@ const LAYERS = [
        lists signals that are not behaving, so an empty layer is the healthy
        state rather than a broken one. It pairs with the outage layer — a
        signal that has gone dark is usually a feeder that has. */
+    /* Named for what it is, which is mostly not what it sounds like.
+
+       This layer used to be called "Signals in fault" and its count read
+       "N not reporting normally". Both are defensible and together they
+       gave exactly the wrong impression: that the lights were out across
+       town. Checked against the dataset, **every one of the 285 current
+       rows is a Communication issue** and none are on flash. A comms
+       issue means the city's system cannot reach the cabinet. The signal
+       itself is almost always cycling normally; nobody at the
+       intersection would notice.
+
+       The two states are genuinely different and are now separated
+       everywhere — name, count, colour and mark size. A signal on flash
+       is a four-way stop nobody told you about and deserves to shout.
+       One the city cannot poll is an operations problem, and it should
+       not look like a hazard. */
     id: 'signals', group: 'recent', color: '#818cf8', on: true,
-    name: 'Signals in fault', note: 'Signals the city cannot talk to, or on flash',
+    name: 'Signals not reporting',
+    note: 'Mostly a telemetry fault, not a dark intersection',
     async load() {
-      const rows = await soda('5zpr-dehc', { '$limit': 2000 });
+      /* Filtered server-side on age, because the dataset keeps rows that
+         never cleared: 9 of 285 were over a year old and the oldest
+         dated from July 2021, 1,887 days. Those are decommissioned
+         cabinets or stuck records, and drawing them as current faults is
+         how a map ends up claiming the city is falling apart. Thirty
+         days is generous for a real outstanding fault and removes all
+         eleven of the stale ones. */
+      const since = sinceISO(30);
+      const rows = await soda('5zpr-dehc', {
+        '$select': 'location,location_name,cross_st,signal_id,operation_text,'
+                 + 'operation_state_datetime',
+        '$where': "location IS NOT NULL AND operation_state_datetime > '" + since + "'",
+        '$order': 'operation_state_datetime DESC',
+        '$limit': 2000
+      });
       const out = [];
+      let flashing = 0;
       rows.forEach(r => {
         const c = (r.location || {}).coordinates;
         if (!c) return;
         const t = r.operation_state_datetime ? new Date(r.operation_state_datetime) : null;
         const txt = r.operation_text || 'Unknown state';
+        const flash = /flash/i.test(txt);
+        if (flash) flashing++;
         out.push({
-          lat: c[1], lng: c[0], t: t, cat: txt,
-          // A signal on flash is a four-way stop nobody told you about; a
-          // comms fault mostly means the city is blind to it, not that the
-          // lights are out. Only the first deserves the bigger mark.
-          big: /flash/i.test(txt),
-          html: pop('#818cf8', 'Signal \u00b7 ' + txt,
+          lat: c[1], lng: c[0], t: t, cat: txt, flash: flash,
+          // Only flash earns the bigger mark and the warning colour.
+          big: flash,
+          colour: flash ? '#ffb020' : '#818cf8',
+          html: pop(flash ? '#ffb020' : '#818cf8',
+            flash ? 'Signal on flash' : 'Signal \u00b7 unreachable',
             titleCase(r.location_name) || 'Signal ' + r.signal_id, t ? ago(t) : '', [
               ['State', txt],
               ['Signal', r.signal_id],
               ['Cross street', titleCase(r.cross_st)],
               ['Since', t ? t.toLocaleString() : null]
-            ])
+            ],
+            '<p style="margin-top:.5rem;color:var(--muted);font-size:.72rem">'
+            + (flash
+                ? 'On flash: treat it as a four-way stop. This is the state '
+                  + 'worth knowing about before you reach it.'
+                : 'The city\u2019s system cannot reach this cabinet. The signal '
+                  + 'itself is most likely cycling normally \u2014 this is a '
+                  + 'telemetry fault, not a dark intersection.')
+            + '</p>')
         });
       });
+      const unreachable = out.length - flashing;
       setNote(byId.signals, out.length
-        ? out.length + ' not reporting normally'
+        ? (flashing ? flashing + ' on flash' : 'None on flash')
+          + (unreachable ? ' \u00b7 ' + unreachable + ' unreachable' : '')
         : 'Every signal reporting normally');
       return out;
     }
@@ -3057,11 +3101,15 @@ function clearMapLayers() {
 function markerFor(f, l, pane, renderer) {
   // One set of options either way, so the dot a GlyphMarker falls back to is
   // the same dot every other layer draws — not a reimplementation of it.
+  // f.colour lets one layer hold two states that should not look alike —
+  // a signal on flash against one the city merely cannot poll. Falls back
+  // to the layer colour, which is what every other layer uses.
+  const col = f.colour || l.color;
   const opts = {
     pane: pane || 'dotPane', renderer: renderer || dotRenderer,
     radius: f.place ? (COARSE ? 7 : 5.5) : f.big ? 6 : 3.6,
-    color: l.color, weight: f.place || f.big ? 1.8 : 0,
-    fillColor: l.color, fillOpacity: f.place ? 0.2 : 0.72, opacity: 0.95
+    color: col, weight: f.place || f.big ? 1.8 : 0,
+    fillColor: col, fillOpacity: f.place ? 0.2 : 0.72, opacity: 0.95
   };
   const m = GLYPH_ART[l.id]
     ? new GlyphMarker([f.lat, f.lng], L.extend({
