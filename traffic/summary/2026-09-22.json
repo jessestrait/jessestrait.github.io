@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 97, q3 118 min over 76 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 97, q3 118 min over 77 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 87,
-  "dispatch_only": 66,
+  "dispatch": 88,
+  "dispatch_only": 65,
   "here": 0,
   "here_matched": 0,
-  "matched": 27,
-  "tomtom": 826,
-  "tomtom_only": 800
+  "matched": 30,
+  "tomtom": 845,
+  "tomtom_only": 816
  },
  "date": "2026-09-22",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 111.2,
+  "median": 111.5,
   "min": 83.6,
-  "n": 76,
-  "q1": 96.8,
+  "n": 77,
+  "q1": 96.9,
   "q3": 117.6
  },
  "here_onset_offset_min": {
@@ -32,23 +32,23 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 11,
+   "matched": 12,
    "n": 19,
-   "pct": 57.9
+   "pct": 63.2
   },
   "dispatch_surface": {
-   "matched": 10,
-   "n": 68,
-   "pct": 14.7
+   "matched": 11,
+   "n": 69,
+   "pct": 15.9
   },
   "tomtom_highway": {
-   "matched": 23,
-   "n": 414,
-   "pct": 5.6
+   "matched": 26,
+   "n": 428,
+   "pct": 6.1
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 412,
+   "n": 417,
    "pct": 0.7
   }
  },
@@ -59,20 +59,20 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 78.0,
-  "median": 11.2,
+  "max": 87.0,
+  "median": 12.2,
   "min": -81.6,
-  "n": 27,
-  "q1": -27.0,
-  "q3": 27.6
+  "n": 30,
+  "q1": -25.5,
+  "q3": 39.1
  },
  "persistence_min": {
   "max": 47.6,
   "median": -77.9,
   "min": -136.0,
-  "n": 22,
-  "q1": -89.3,
-  "q3": -41.6,
+  "n": 24,
+  "q1": -89.4,
+  "q3": -41.5,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 151,
-  "hotspot_buckets": 665,
-  "hotspot_buckets_on_roadworks": 132,
+  "explained_by_roadworks": 155,
+  "hotspot_buckets": 679,
+  "hotspot_buckets_on_roadworks": 136,
   "txdot_rows": 7,
-  "unreported_congestion": 780
+  "unreported_congestion": 796
  },
  "sampling": {
   "flow_spent_this_month": 684,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 78,
+  "incidents_spent_this_month": 79,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -142,7 +142,7 @@
   {
    "from": "Avenida Mercado St / Steel Timber Dr",
    "hour_of_week": 16,
-   "n": 2,
+   "n": 3,
    "roadworks": false,
    "seg": "30.104,-97.813"
   },
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 75.9,
-  "tomtom": 96.9
+  "dispatch": 73.9,
+  "tomtom": 96.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 87,
-  "neither": 66,
-  "tomtom_only": 21
+  "n": 88,
+  "neither": 65,
+  "tomtom_only": 23
  }
 }
