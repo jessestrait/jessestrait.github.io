@@ -1164,8 +1164,16 @@ def rematch(out, args):
     tt, dp = doc.get("tomtom_closed", []), doc.get("dispatch_closed", [])
     hr = doc.get("here_closed", [])
     before = len(doc.get("matches", []))
-    doc["matches"] = match(tt, dp, args.buffer, args.highway_buffer,
-                           args.tolerance, args.onset_window)
+    # Merged, not replaced. A rematch sees only what is in the day file's
+    # closed arrays; the accumulated set also holds pairs found while one
+    # side was still open, which are just as real. Replacing therefore
+    # *lost* matches — on 2026-09-21 it would have taken an accumulated 29
+    # down to a recomputed 16 and called that a repair. Re-running the
+    # matcher should never be able to reduce what is known.
+    doc["matches"] = merge_matches(
+        doc.get("matches"),
+        match(tt, dp, args.buffer, args.highway_buffer,
+              args.tolerance, args.onset_window))
     # Days recorded before HERE existed have no here_closed and get an empty
     # list back, which is what they should have.
     doc["here_matches"] = match(hr, dp, args.buffer, args.highway_buffer,
