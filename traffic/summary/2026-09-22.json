@@ -1,0 +1,225 @@
+{
+ "caveats": [
+  "Dispatch published_date is when APD published, not when it happened.",
+  "Dispatch record lifetimes look like real clearances this day, not a cap.",
+  "Clearance resolution equals the poll interval; shorter incidents are invisible.",
+  "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
+  "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
+  "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
+  "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
+ ],
+ "counts": {
+  "dispatch": 17,
+  "dispatch_only": 14,
+  "here": 0,
+  "here_matched": 0,
+  "matched": 3,
+  "tomtom": 174,
+  "tomtom_only": 171
+ },
+ "date": "2026-09-22",
+ "dispatch_life_capped": false,
+ "dispatch_record_life_min": {
+  "max": 119.0,
+  "median": 106.3,
+  "min": 96.8,
+  "n": 3,
+  "q1": 96.8,
+  "q3": 119.0
+ },
+ "here_onset_offset_min": {
+  "n": 0
+ },
+ "match_rate": {
+  "dispatch_highway": {
+   "matched": 2,
+   "n": 3,
+   "pct": 66.7
+  },
+  "dispatch_surface": {
+   "matched": 1,
+   "n": 14,
+   "pct": 7.1
+  },
+  "tomtom_highway": {
+   "matched": 3,
+   "n": 77,
+   "pct": 3.9
+  },
+  "tomtom_surface": {
+   "matched": 0,
+   "n": 97,
+   "pct": 0.0
+  }
+ },
+ "matcher": {
+  "buffer_m": 200.0,
+  "highway_buffer_m": 130.0,
+  "onset_window_min": 90.0,
+  "tolerance_min": 20.0
+ },
+ "onset_offset_min": {
+  "max": 59.3,
+  "median": 20.1,
+  "min": 11.2,
+  "n": 3,
+  "q1": 11.2,
+  "q3": 59.3
+ },
+ "persistence_min": {
+  "n": 0
+ },
+ "poll_interval_min": 5.0,
+ "probe_agreement": {
+  "cover": {
+   "n": 0
+  },
+  "n": 0,
+  "onset_offset_min": {
+   "n": 0
+  },
+  "pct_of_here": 0.0,
+  "pct_of_tomtom": 0.0,
+  "type_agree": 0
+ },
+ "roadworks": {
+  "explained_by_roadworks": 36,
+  "hotspot_buckets": 157,
+  "hotspot_buckets_on_roadworks": 36,
+  "txdot_rows": 8,
+  "unreported_congestion": 162
+ },
+ "sampling": {
+  "flow_spent_this_month": 513,
+  "incident_budget": 2500,
+  "incidents_spent_this_month": 61,
+  "off_peak_min": 45,
+  "rush_hours_local": [
+   7,
+   8,
+   16,
+   17,
+   18
+  ],
+  "rush_min": 5,
+  "this_poll": "off-peak"
+ },
+ "structural_hotspots": [
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Hergotz Ln",
+   "hour_of_week": 112,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.244,-97.663"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Lexington Meadow Ln",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.179,-97.616"
+  },
+  {
+   "from": "N TX-183 (Anderson Mill Rd)",
+   "hour_of_week": 23,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.454,-97.824"
+  },
+  {
+   "from": "N Lake Creek Pkwy",
+   "hour_of_week": 23,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.475,-97.794"
+  },
+  {
+   "from": "Round Rock-Georgetown",
+   "hour_of_week": 23,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.487,-97.771"
+  },
+  {
+   "from": "Grand Avenue Pkwy (I-35)",
+   "hour_of_week": 22,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.502,-97.683"
+  },
+  {
+   "from": "Highway 45",
+   "hour_of_week": 21,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.488,-97.676"
+  },
+  {
+   "from": "Burnet Rd",
+   "hour_of_week": 23,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.373,-97.726"
+  },
+  {
+   "from": "Lamar Blvd (US-183)",
+   "hour_of_week": 22,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.371,-97.722"
+  },
+  {
+   "from": "Thermal Dr/Metric Blvd (E Howard Ln)",
+   "hour_of_week": 21,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.425,-97.673"
+  },
+  {
+   "from": "Heatherwilde Blvd (Red Bud Ln)",
+   "hour_of_week": 23,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.496,-97.613"
+  },
+  {
+   "from": "US-290 (W William Cannon Dr)",
+   "hour_of_week": 23,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.222,-97.839"
+  }
+ ],
+ "unmatched_pct": {
+  "dispatch": 82.4,
+  "tomtom": 98.3
+ },
+ "witnesses": {
+  "both": 0,
+  "here_only": 0,
+  "n": 17,
+  "neither": 14,
+  "tomtom_only": 3
+ }
+}
