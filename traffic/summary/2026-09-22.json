@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 124,
+  "dispatch": 125,
   "dispatch_only": 91,
   "here": 0,
   "here_matched": 0,
-  "matched": 41,
-  "tomtom": 1243,
-  "tomtom_only": 1203
+  "matched": 44,
+  "tomtom": 1334,
+  "tomtom_only": 1291
  },
  "date": "2026-09-22",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 51.7
   },
   "dispatch_surface": {
-   "matched": 18,
-   "n": 95,
-   "pct": 18.9
+   "matched": 19,
+   "n": 96,
+   "pct": 19.8
   },
   "tomtom_highway": {
-   "matched": 34,
-   "n": 651,
-   "pct": 5.2
+   "matched": 35,
+   "n": 699,
+   "pct": 5.0
   },
   "tomtom_surface": {
-   "matched": 6,
-   "n": 592,
-   "pct": 1.0
+   "matched": 8,
+   "n": 635,
+   "pct": 1.3
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.9,
-  "median": 13.3,
+  "median": 12.8,
   "min": -81.6,
-  "n": 41,
-  "q1": -22.4,
-  "q3": 36.6
+  "n": 44,
+  "q1": -18.8,
+  "q3": 37.0
  },
  "persistence_min": {
   "max": 47.6,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 208,
-  "hotspot_buckets": 1061,
-  "hotspot_buckets_on_roadworks": 189,
+  "explained_by_roadworks": 214,
+  "hotspot_buckets": 1140,
+  "hotspot_buckets_on_roadworks": 193,
   "txdot_rows": 7,
-  "unreported_congestion": 1180
+  "unreported_congestion": 1268
  },
  "sampling": {
   "flow_spent_this_month": 738,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 82,
+  "incidents_spent_this_month": 83,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -138,6 +138,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.179,-97.616"
+  },
+  {
+   "from": "Anacua Loop",
+   "hour_of_week": 46,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.143,-97.802"
   },
   {
    "from": "Avenida Mercado St / Steel Timber Dr",
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.418,-97.576"
-  },
-  {
-   "from": "E Howard Ln",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.371,-97.613"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 73.4,
+  "dispatch": 72.8,
   "tomtom": 96.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 124,
+  "n": 125,
   "neither": 91,
-  "tomtom_only": 33
+  "tomtom_only": 34
  }
 }
