@@ -300,9 +300,12 @@ dl.mecard a{color:var(--accent-hi)}
 .bar .lbl span{overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
 .bar .track{height:5px; background:var(--bg); border-radius:3px; overflow:hidden}
 .bar .fill{height:100%; border-radius:3px; background:var(--accent); transition:width .3s}
-#hours{display:flex; align-items:flex-end; gap:2px; height:46px; margin-top:.5rem}
-#hours i{flex:1; background:var(--accent); opacity:.55; border-radius:1.5px; min-height:1px}
-#hours i.pk{opacity:1; background:var(--accent-hi)}
+/* A class, not an id. Two different charts use this — crime per year and
+   incidents by hour — and both can be on the page at once, so an id made
+   the document invalid for a hook nothing ever looked up by id. */
+.sparkbars{display:flex; align-items:flex-end; gap:2px; height:46px; margin-top:.5rem}
+.sparkbars i{flex:1; background:var(--accent); opacity:.55; border-radius:1.5px; min-height:1px}
+.sparkbars i.pk{opacity:1; background:var(--accent-hi)}
 .axis{display:flex; justify-content:space-between; font-size:.6rem; color:var(--muted); margin-top:3px; font-family:'JetBrains Mono',monospace}
 .empty{font-size:.75rem; color:var(--muted); line-height:1.6; font-style:italic}
 
@@ -4020,7 +4023,7 @@ function crimeTrend() {
   const change = complete.length > 1
     ? Math.round((complete[complete.length - 1].n - complete[0].n) / complete[0].n * 100) : null;
   box.innerHTML = '<div style="margin-top:1rem"><label class="mini">Reports per year, citywide</label>'
-    + '<div id="hours" style="height:40px">'
+    + '<div class="sparkbars" style="height:40px">'
     + rows.map(r => '<i style="height:' + Math.max(2, r.n / max * 100) + '%;background:#ffd166"'
         + ' title="' + r.y + ' — ' + r.n.toLocaleString() + '"></i>').join('')
     + '</div><div class="axis"><span>' + first.y + '</span><span>' + last.y + '</span></div>'
@@ -4339,7 +4342,7 @@ buildRecent();
    rather than intensity. */
 const STORM_URL = 'https://raw.githubusercontent.com/jessestrait/'
                 + 'jessestrait.github.io/data/weather/storms.json';
-const STORM = { timer: null, at: 0 };
+const STORM = { timer: null, at: 0, renderer: null };
 const STORM_MIN = 30;           // minutes of projected track
 
 // "toward the ENE" reads; "toward 067°" does not, for a thing in the sky.
@@ -4374,10 +4377,15 @@ async function loadStorms(g) {
     });
     const cells = d.cells || [];
     STORM.at = d.fetched_at ? Date.parse(d.fetched_at) : 0;
-    const renderer = nearestCanvas({ pane: 'stormPane', padding: 0.3,
-                                     tolerance: HIT_TOLERANCE });
+    /* Created once and reused. The first version built a renderer on
+       every refresh and added it to the map without removing the last —
+       a fresh full-size canvas every five minutes, 288 of them a day,
+       none of them ever collected. Caught by counting the entries in
+       CANVAS_STACK across two reloads: one became three. */
+    const renderer = STORM.renderer
+      || (STORM.renderer = nearestCanvas({ pane: 'stormPane', padding: 0.3,
+                                           tolerance: HIT_TOLERANCE }));
     const grp = L.layerGroup([], { pane: 'stormPane' });
-    renderer.addTo(map);
     let rotating = 0;
     cells.forEach(c => {
       const col = stormColour(c.dbz);
@@ -4421,7 +4429,8 @@ async function loadStorms(g) {
       }).bindPopup(body, { maxWidth: 320 }).addTo(grp);
     });
     adoptGround(g, grp);
-    if (g.on) grp.addTo(map); else map.removeLayer(renderer);
+    if (g.on) { renderer.addTo(map); grp.addTo(map); }
+    else map.removeLayer(renderer);
     if (badge) badge.textContent = cells.length;
     setNote(g, cells.length
       ? cells.length + ' cell' + (cells.length === 1 ? '' : 's') + ' on radar'
@@ -4900,6 +4909,13 @@ async function loadGround(g) {
     const gj = await res.json();
     adoptGround(g, L.geoJSON(gj, {
       pane: 'groundPane',
+      /* Lines and polygons need the renderer named too, not just points.
+         Without it Leaflet quietly builds its own canvas for the pane, so
+         these ended up on a second groundPane surface — found by
+         inspecting CANVAS_STACK, which showed two renderers on that pane
+         with the TxDOT lines alone on the second. A wasted canvas, and
+         hit-testing split across two draw lists for no reason. */
+      renderer: groundRenderer,
       style: f => (typeof g.style === 'function' ? g.style(f.properties || {}) : g.style),
       pointToLayer: (f, ll) => L.circleMarker(ll, {
         pane: 'groundPane', renderer: groundRenderer,
@@ -7532,7 +7548,7 @@ function insights(vis) {
     const max = Math.max(...hours);
     const peak = hours.indexOf(max);
     html += '<div style="margin-top:1rem"><label class="mini">By hour of day</label>'
-      + '<div id="hours">'
+      + '<div class="sparkbars">'
       + hours.map((n, h) => '<i class="' + (h === peak ? 'pk' : '') + '" style="height:'
         + Math.max(2, n / max * 100) + '%" title="' + h + ':00 — ' + n + '"></i>').join('')
       + '</div><div class="axis"><span>12a</span><span>6a</span><span>12p</span><span>6p</span><span>11p</span></div>'
