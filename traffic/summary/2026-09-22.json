@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 96, q3 117 min over 63 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 96, q3 118 min over 69 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,42 +9,42 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 76,
-  "dispatch_only": 59,
+  "dispatch": 80,
+  "dispatch_only": 60,
   "here": 0,
   "here_matched": 0,
-  "matched": 22,
+  "matched": 25,
   "tomtom": 800,
-  "tomtom_only": 778
+  "tomtom_only": 776
  },
  "date": "2026-09-22",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 108.9,
+  "median": 110.9,
   "min": 83.6,
-  "n": 63,
-  "q1": 95.9,
-  "q3": 117.4
+  "n": 69,
+  "q1": 96.5,
+  "q3": 117.6
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 10,
-   "n": 15,
-   "pct": 66.7
+   "matched": 11,
+   "n": 17,
+   "pct": 64.7
   },
   "dispatch_surface": {
-   "matched": 7,
-   "n": 61,
-   "pct": 11.5
+   "matched": 9,
+   "n": 63,
+   "pct": 14.3
   },
   "tomtom_highway": {
-   "matched": 19,
+   "matched": 21,
    "n": 401,
-   "pct": 4.7
+   "pct": 5.2
   },
   "tomtom_surface": {
    "matched": 3,
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 78.0,
-  "median": 12.2,
+  "median": 11.2,
   "min": -81.6,
-  "n": 22,
-  "q1": -21.0,
-  "q3": 30.9
+  "n": 25,
+  "q1": -29.3,
+  "q3": 24.1
  },
  "persistence_min": {
   "max": 47.6,
   "median": -47.6,
   "min": -136.0,
-  "n": 17,
-  "q1": -88.8,
-  "q3": -20.7,
+  "n": 19,
+  "q1": -89.3,
+  "q3": -41.4,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -89,14 +89,14 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 146,
-  "hotspot_buckets": 641,
-  "hotspot_buckets_on_roadworks": 127,
+  "explained_by_roadworks": 145,
+  "hotspot_buckets": 639,
+  "hotspot_buckets_on_roadworks": 126,
   "txdot_rows": 7,
-  "unreported_congestion": 758
+  "unreported_congestion": 756
  },
  "sampling": {
-  "flow_spent_this_month": 648,
+  "flow_spent_this_month": 657,
   "incident_budget": 2500,
   "incidents_spent_this_month": 77,
   "off_peak_min": 45,
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 77.6,
-  "tomtom": 97.2
+  "dispatch": 75.0,
+  "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 76,
-  "neither": 59,
-  "tomtom_only": 17
+  "n": 80,
+  "neither": 60,
+  "tomtom_only": 20
  }
 }
