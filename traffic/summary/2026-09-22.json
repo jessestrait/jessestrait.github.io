@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 96,
-  "dispatch_only": 73,
+  "dispatch": 97,
+  "dispatch_only": 74,
   "here": 0,
   "here_matched": 0,
   "matched": 30,
-  "tomtom": 845,
-  "tomtom_only": 816
+  "tomtom": 867,
+  "tomtom_only": 838
  },
  "date": "2026-09-22",
  "dispatch_life_capped": true,
@@ -33,8 +33,8 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 12,
-   "n": 22,
-   "pct": 54.5
+   "n": 23,
+   "pct": 52.2
   },
   "dispatch_surface": {
    "matched": 11,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 26,
-   "n": 428,
-   "pct": 6.1
+   "n": 439,
+   "pct": 5.9
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 417,
+   "n": 428,
    "pct": 0.7
   }
  },
@@ -68,11 +68,11 @@
  },
  "persistence_min": {
   "max": 47.6,
-  "median": -80.5,
+  "median": -78.4,
   "min": -136.0,
-  "n": 26,
-  "q1": -93.7,
-  "q3": -41.6,
+  "n": 27,
+  "q1": -93.5,
+  "q3": -41.4,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 155,
-  "hotspot_buckets": 679,
-  "hotspot_buckets_on_roadworks": 136,
+  "explained_by_roadworks": 161,
+  "hotspot_buckets": 701,
+  "hotspot_buckets_on_roadworks": 142,
   "txdot_rows": 7,
-  "unreported_congestion": 796
+  "unreported_congestion": 817
  },
  "sampling": {
   "flow_spent_this_month": 702,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 79,
+  "incidents_spent_this_month": 80,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -142,7 +142,7 @@
   {
    "from": "Avenida Mercado St / Steel Timber Dr",
    "hour_of_week": 16,
-   "n": 3,
+   "n": 2,
    "roadworks": false,
    "seg": "30.104,-97.813"
   },
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.0,
-  "tomtom": 96.6
+  "dispatch": 76.3,
+  "tomtom": 96.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 96,
-  "neither": 73,
+  "n": 97,
+  "neither": 74,
   "tomtom_only": 23
  }
 }
