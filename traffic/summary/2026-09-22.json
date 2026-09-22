@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 54,
-  "dispatch_only": 46,
+  "dispatch": 62,
+  "dispatch_only": 50,
   "here": 0,
   "here_matched": 0,
-  "matched": 8,
-  "tomtom": 427,
-  "tomtom_only": 419
+  "matched": 15,
+  "tomtom": 685,
+  "tomtom_only": 670
  },
  "date": "2026-09-22",
  "dispatch_life_capped": true,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 7,
-   "n": 10,
-   "pct": 70.0
+   "matched": 8,
+   "n": 11,
+   "pct": 72.7
   },
   "dispatch_surface": {
-   "matched": 1,
-   "n": 44,
-   "pct": 2.3
+   "matched": 4,
+   "n": 51,
+   "pct": 7.8
   },
   "tomtom_highway": {
-   "matched": 8,
-   "n": 206,
-   "pct": 3.9
+   "matched": 14,
+   "n": 330,
+   "pct": 4.2
   },
   "tomtom_surface": {
-   "matched": 0,
-   "n": 221,
-   "pct": 0.0
+   "matched": 1,
+   "n": 355,
+   "pct": 0.3
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 59.3,
-  "median": 12.8,
-  "min": -33.6,
-  "n": 8,
-  "q1": 9.2,
-  "q3": 35.7
+  "max": 78.0,
+  "median": 12.3,
+  "min": -35.3,
+  "n": 15,
+  "q1": -19.7,
+  "q3": 40.9
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 84,
-  "hotspot_buckets": 398,
-  "hotspot_buckets_on_roadworks": 83,
+  "explained_by_roadworks": 123,
+  "hotspot_buckets": 534,
+  "hotspot_buckets_on_roadworks": 105,
   "txdot_rows": 7,
-  "unreported_congestion": 408
+  "unreported_congestion": 650
  },
  "sampling": {
-  "flow_spent_this_month": 612,
+  "flow_spent_this_month": 621,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 73,
+  "incidents_spent_this_month": 74,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,34 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Lexington Meadow Ln",
+   "hour_of_week": 44,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.179,-97.616"
+  },
   {
    "from": "Avenida Mercado St / Steel Timber Dr",
    "hour_of_week": 16,
@@ -133,99 +161,71 @@
    "seg": "30.256,-97.721"
   },
   {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
+   "from": "N Lake Creek Pkwy",
+   "hour_of_week": 36,
    "n": 2,
    "roadworks": false,
-   "seg": "30.245,-97.744"
+   "seg": "30.475,-97.794"
   },
   {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
+   "from": "US Highway 183",
+   "hour_of_week": 36,
    "n": 2,
    "roadworks": false,
-   "seg": "30.234,-97.736"
+   "seg": "30.379,-97.739"
   },
   {
-   "from": "Hergotz Ln",
-   "hour_of_week": 112,
+   "from": "Austin",
+   "hour_of_week": 36,
    "n": 2,
    "roadworks": false,
-   "seg": "30.244,-97.663"
+   "seg": "30.201,-97.866"
   },
   {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
+   "from": "Old Fredericksburg Rd (TX-71)",
+   "hour_of_week": 36,
    "n": 2,
    "roadworks": false,
-   "seg": "30.148,-97.704"
+   "seg": "30.236,-97.846"
   },
   {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
+   "from": "US Highway 290 W / W Ben White Blvd",
+   "hour_of_week": 36,
    "n": 2,
    "roadworks": false,
-   "seg": "30.179,-97.616"
+   "seg": "30.235,-97.797"
   },
   {
-   "from": "Waterbrook Dr",
+   "from": "Northridge Dr",
    "hour_of_week": 36,
    "n": 2,
    "roadworks": false,
    "seg": "30.307,-97.690"
   },
   {
-   "from": "N TX-183 (Anderson Mill Rd)",
-   "hour_of_week": 23,
-   "n": 1,
+   "from": "S Pleasant Valley Rd (E William Cannon Dr)",
+   "hour_of_week": 36,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.454,-97.824"
+   "seg": "30.189,-97.767"
   },
   {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 23,
-   "n": 1,
+   "from": "Wolf Pack Dr",
+   "hour_of_week": 36,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.475,-97.794"
-  },
-  {
-   "from": "Round Rock-Georgetown",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.487,-97.771"
-  },
-  {
-   "from": "Grand Avenue Pkwy (I-35)",
-   "hour_of_week": 22,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.502,-97.683"
-  },
-  {
-   "from": "Highway 45",
-   "hour_of_week": 21,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.488,-97.676"
-  },
-  {
-   "from": "Burnet Rd",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.373,-97.726"
+   "seg": "30.423,-97.577"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.2,
-  "tomtom": 98.1
+  "dispatch": 80.6,
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 54,
-  "neither": 46,
-  "tomtom_only": 8
+  "n": 62,
+  "neither": 50,
+  "tomtom_only": 12
  }
 }
