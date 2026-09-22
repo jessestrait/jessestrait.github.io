@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 17,
-  "dispatch_only": 15,
+  "dispatch": 22,
+  "dispatch_only": 20,
   "here": 0,
   "here_matched": 0,
   "matched": 2,
-  "tomtom": 174,
-  "tomtom_only": 172
+  "tomtom": 185,
+  "tomtom_only": 183
  },
  "date": "2026-09-22",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.0,
-  "median": 112.0,
+  "median": 112.4,
   "min": 96.8,
-  "n": 4,
-  "q1": 99.2,
-  "q3": 118.6
+  "n": 9,
+  "q1": 108.9,
+  "q3": 118.3
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 14,
-   "pct": 7.1
+   "n": 19,
+   "pct": 5.3
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 77,
-   "pct": 2.6
+   "n": 80,
+   "pct": 2.5
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 97,
+   "n": 105,
    "pct": 0.0
   }
  },
@@ -67,7 +67,12 @@
   "q3": 59.3
  },
  "persistence_min": {
-  "n": 0
+  "max": -41.4,
+  "median": -41.4,
+  "min": -41.4,
+  "n": 1,
+  "q1": -41.4,
+  "q3": -41.4
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -83,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 37,
-  "hotspot_buckets": 158,
-  "hotspot_buckets_on_roadworks": 37,
+  "explained_by_roadworks": 40,
+  "hotspot_buckets": 167,
+  "hotspot_buckets_on_roadworks": 40,
   "txdot_rows": 8,
-  "unreported_congestion": 163
+  "unreported_congestion": 174
  },
  "sampling": {
-  "flow_spent_this_month": 513,
+  "flow_spent_this_month": 522,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 61,
+  "incidents_spent_this_month": 62,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +116,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
+  },
+  {
+   "from": "I-35/US-290 (E Cesar Chavez St/E 1st St/State Spur 343)",
+   "hour_of_week": 23,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.259,-97.730"
   },
   {
    "from": "E Oltorf St",
@@ -139,6 +151,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
+  },
+  {
+   "from": "N Pleasant Valley Rd (E Cesar Chavez St/E 1st St)",
+   "hour_of_week": 24,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.256,-97.721"
   },
   {
    "from": "N TX-183 (Anderson Mill Rd)",
@@ -195,31 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.425,-97.673"
-  },
-  {
-   "from": "Heatherwilde Blvd (Red Bud Ln)",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.496,-97.613"
-  },
-  {
-   "from": "US-290 (W William Cannon Dr)",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.222,-97.839"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.2,
+  "dispatch": 90.9,
   "tomtom": 98.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 17,
-  "neither": 15,
+  "n": 22,
+  "neither": 20,
   "tomtom_only": 2
  }
 }
