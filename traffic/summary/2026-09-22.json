@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 96, q3 117 min over 51 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 96, q3 117 min over 52 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -10,22 +10,22 @@
  ],
  "counts": {
   "dispatch": 69,
-  "dispatch_only": 56,
+  "dispatch_only": 55,
   "here": 0,
   "here_matched": 0,
-  "matched": 16,
-  "tomtom": 685,
-  "tomtom_only": 669
+  "matched": 17,
+  "tomtom": 770,
+  "tomtom_only": 753
  },
  "date": "2026-09-22",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 106.9,
+  "median": 107.0,
   "min": 85.7,
-  "n": 51,
-  "q1": 95.9,
-  "q3": 117.1
+  "n": 52,
+  "q1": 96.0,
+  "q3": 117.0
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,18 +37,18 @@
    "pct": 64.3
   },
   "dispatch_surface": {
-   "matched": 4,
+   "matched": 5,
    "n": 55,
-   "pct": 7.3
+   "pct": 9.1
   },
   "tomtom_highway": {
-   "matched": 15,
-   "n": 330,
-   "pct": 4.5
+   "matched": 16,
+   "n": 379,
+   "pct": 4.2
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 355,
+   "n": 391,
    "pct": 0.3
   }
  },
@@ -62,17 +62,17 @@
   "max": 78.0,
   "median": 12.2,
   "min": -35.3,
-  "n": 16,
-  "q1": -23.7,
-  "q3": 35.7
+  "n": 17,
+  "q1": -22.4,
+  "q3": 30.5
  },
  "persistence_min": {
   "max": 0.0,
   "median": -41.7,
   "min": -82.5,
-  "n": 7,
-  "q1": -82.5,
-  "q3": -41.4,
+  "n": 8,
+  "q1": -81.2,
+  "q3": -10.3,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 123,
-  "hotspot_buckets": 533,
-  "hotspot_buckets_on_roadworks": 105,
+  "explained_by_roadworks": 132,
+  "hotspot_buckets": 611,
+  "hotspot_buckets_on_roadworks": 112,
   "txdot_rows": 7,
-  "unreported_congestion": 649
+  "unreported_congestion": 733
  },
  "sampling": {
   "flow_spent_this_month": 630,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 74,
+  "incidents_spent_this_month": 75,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -168,13 +168,6 @@
    "seg": "30.475,-97.794"
   },
   {
-   "from": "US Highway 183",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.379,-97.739"
-  },
-  {
    "from": "Austin",
    "hour_of_week": 36,
    "n": 2,
@@ -210,22 +203,29 @@
    "seg": "30.189,-97.767"
   },
   {
-   "from": "Wolf Pack Dr",
+   "from": "Cameron Rd",
+   "hour_of_week": 35,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.418,-97.576"
+  },
+  {
+   "from": "E Howard Ln",
    "hour_of_week": 36,
    "n": 2,
    "roadworks": false,
-   "seg": "30.423,-97.577"
+   "seg": "30.371,-97.613"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.2,
-  "tomtom": 97.7
+  "dispatch": 79.7,
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 69,
-  "neither": 56,
-  "tomtom_only": 13
+  "neither": 55,
+  "tomtom_only": 14
  }
 }
