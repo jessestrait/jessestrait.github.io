@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 103, q3 118 min over 39 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 103, q3 118 min over 41 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 42,
-  "dispatch_only": 37,
+  "dispatch": 43,
+  "dispatch_only": 38,
   "here": 0,
   "here_matched": 0,
   "matched": 5,
-  "tomtom": 231,
-  "tomtom_only": 226
+  "tomtom": 234,
+  "tomtom_only": 229
  },
  "date": "2026-09-22",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 111.8,
+  "median": 111.9,
   "min": 86.9,
-  "n": 39,
-  "q1": 103.0,
-  "q3": 117.7
+  "n": 41,
+  "q1": 103.3,
+  "q3": 117.8
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,8 +38,8 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 35,
-   "pct": 2.9
+   "n": 36,
+   "pct": 2.8
   },
   "tomtom_highway": {
    "matched": 5,
@@ -48,7 +48,7 @@
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 121,
+   "n": 124,
    "pct": 0.0
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 62,
-  "hotspot_buckets": 206,
+  "hotspot_buckets": 209,
   "hotspot_buckets_on_roadworks": 61,
   "txdot_rows": 10,
-  "unreported_congestion": 215
+  "unreported_congestion": 218
  },
  "sampling": {
   "flow_spent_this_month": 576,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 70,
+  "incidents_spent_this_month": 71,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -119,18 +119,18 @@
    "seg": "30.104,-97.813"
   },
   {
+   "from": "N Pleasant Valley Rd (E Cesar Chavez St/E 1st St)",
+   "hour_of_week": 24,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.256,-97.721"
+  },
+  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
-  },
-  {
-   "from": "I-35/US-290 (E Cesar Chavez St/E 1st St/State Spur 343)",
-   "hour_of_week": 23,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.259,-97.730"
   },
   {
    "from": "E Oltorf St",
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.1,
-  "tomtom": 97.8
+  "dispatch": 88.4,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 42,
-  "neither": 37,
+  "n": 43,
+  "neither": 38,
   "tomtom_only": 5
  }
 }
