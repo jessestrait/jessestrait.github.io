@@ -1205,6 +1205,11 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- The city. pmtiles reads the archive over byte ranges; city3d.js
+     decodes the vector tiles and stands the buildings up. Both are inert
+     until the layer is switched on. -->
+<script src="https://cdn.jsdelivr.net/npm/pmtiles@4.3.0/dist/pmtiles.js"></script>
+<script src="city3d.js"></script>
 <script>
 /* ══════════════════════════════════════════════════════════════════
    ATX Layers — no backend and no storage. Almost everything is a live
@@ -2879,7 +2884,7 @@ const TIERS = [
   ['live', 'Live now', ['firelive', 'c311', 'traffic', 'transit', 'signals',
                         'bikes', 'gauges', 'lwc', 'outages', 'txdot', 'ttinc', 'storms']],
   ['today', 'Lately', ['news', 'crashes', 'wildfire', 'permits']],
-  ['standing', 'Standing', ['busroutes', 'busstops', 'workzones', 'schoolzones']]
+  ['standing', 'Standing', ['busroutes', 'busstops', 'workzones', 'schoolzones', 'city']]
 ];
 
 function tierOf(id) {
@@ -4145,6 +4150,33 @@ const GROUND = [
     load: g => loadSchoolZones(g)
   },
   {
+    /* The city, standing up.
+
+       Leaflet has no camera — it is a plan view and always will be — so
+       this is the old trick: footprints drawn with their walls leaning
+       away from the centre of the screen and their roofs offset to match.
+       Straight up in the middle, leaning out at the edges, which is what
+       looking down at a model actually does.
+
+       It sits below every mark on purpose. The buildings are scenery; the
+       fire call on top of them is the point of the page.
+
+       Footprints and heights are OpenStreetMap's, read from the same
+       PMTiles archive the tilted view at /atx/3d/ uses — one file, byte
+       ranges, only the tiles under the viewport. Where OSM has no height
+       — about 57% of buildings in central Austin, counted rather than
+       guessed at — one is invented from the building's own id, so the
+       skyline has texture and stays the same between visits. The layer
+       says what share is real. */
+    id: 'city', color: '#53709f', name: 'Buildings, in 3D',
+    note: 'Zoom past 15 \u2014 OpenStreetMap footprints and heights',
+    // On by default, and it costs nothing to be: the archive is not
+    // touched and nothing is drawn until the map is past zoom 15, which
+    // the opening view is not.
+    group: 'recent', on: true,
+    load: g => loadCity(g)
+  },
+  {
     /* Storm cells, and where each one is going.
 
        The radar layer already shows where rain *is*. This is the other
@@ -4278,6 +4310,15 @@ function groundRow(g) {
     + '<span class="ct" id="ct-g-' + g.id + '">&mdash;</span>';
   el.querySelector('input').addEventListener('change', e => {
     g.on = e.target.checked;
+    // The city paints canvases rather than adding a Leaflet layer, so the
+    // usual add/remove dance does not apply to it.
+    if (g.id === 'city') {
+      if (window.CITY3D) { CITY3D.attach(map, () => setNote(g, CITY3D.status(map)));
+                           CITY3D.setOn(map, g.on); }
+      if (window.syncModes) syncModes();
+      if (window.saveUrl) saveUrl();
+      return;
+    }
     if (!g.on) {
       if (groundLayers[g.id]) map.removeLayer(groundLayers[g.id]);
       if (window.syncModes) syncModes();
@@ -4673,6 +4714,14 @@ function atxAudit(quiet) {
 
   GROUND.forEach(g => {
     const box = auditBox(g.id, true);
+    // The city owns canvases, not a Leaflet layer, so "is it on the map"
+    // is a different question for it than for everything else.
+    if (g.id === 'city') {
+      const on = !!(window.CITY3D && CITY3D.on);
+      rows.push({ id: g.id, kind: 'ground', checked: box, flag: !!g.on,
+                  built: on, onMap: on, ok: box === !!g.on && on === !!g.on });
+      return;
+    }
     const onMap = auditOnMap(g);
     const built = !!groundLayers[g.id];
     // Most entries have no `on` at all, so compare booleans rather than
@@ -4889,6 +4938,27 @@ async function loadSchoolZones(g) {
     if (badge) badge.textContent = 'err';
     setNote(g, 'Could not load the school zones', true);
   }
+}
+
+/* ── The city layer's loader ────────────────────────────────────────
+   Unlike every other ground layer this one owns no Leaflet layer object:
+   it paints two canvases of its own on panes below the marks. So it
+   never calls adoptGround, and atxOrphans has nothing of its to claim —
+   there is no L.Layer here to strand. */
+function loadCity(g) {
+  const badge = document.getElementById('ct-g-' + g.id);
+  if (!window.CITY3D || !window.pmtiles) {
+    if (badge) badge.textContent = '\u2014';
+    setNote(g, 'The city library did not load', true);
+    return;
+  }
+  CITY3D.attach(map, () => {
+    setNote(g, CITY3D.status(map));
+    if (badge) badge.textContent = (CITY3D.buildings || []).length
+      ? (CITY3D.buildings || []).length.toLocaleString() : '\u2014';
+  });
+  CITY3D.setOn(map, !!g.on);
+  setNote(g, CITY3D.status(map));
 }
 
 async function loadGround(g) {
