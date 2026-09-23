@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 134,
-  "dispatch_only": 108,
+  "dispatch_only": 107,
   "here": 0,
   "here_matched": 0,
-  "matched": 33,
-  "tomtom": 1037,
-  "tomtom_only": 1001
+  "matched": 36,
+  "tomtom": 1086,
+  "tomtom_only": 1047
  },
  "date": "2026-09-23",
  "dispatch_life_capped": true,
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 8,
+   "matched": 9,
    "n": 28,
-   "pct": 28.6
+   "pct": 32.1
   },
   "dispatch_surface": {
    "matched": 18,
@@ -42,14 +42,14 @@
    "pct": 17.0
   },
   "tomtom_highway": {
-   "matched": 28,
-   "n": 521,
-   "pct": 5.4
+   "matched": 30,
+   "n": 541,
+   "pct": 5.5
   },
   "tomtom_surface": {
-   "matched": 8,
-   "n": 516,
-   "pct": 1.6
+   "matched": 9,
+   "n": 545,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 88.9,
-  "median": 25.3,
+  "median": 18.2,
   "min": -58.9,
-  "n": 33,
-  "q1": -13.2,
-  "q3": 45.9
+  "n": 36,
+  "q1": -16.7,
+  "q3": 43.4
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 192,
-  "hotspot_buckets": 955,
-  "hotspot_buckets_on_roadworks": 187,
+  "explained_by_roadworks": 198,
+  "hotspot_buckets": 999,
+  "hotspot_buckets_on_roadworks": 193,
   "txdot_rows": 6,
-  "unreported_congestion": 984
+  "unreported_congestion": 1030
  },
  "sampling": {
   "flow_spent_this_month": 936,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 109,
+  "incidents_spent_this_month": 110,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -203,29 +203,29 @@
    "seg": "30.145,-97.805"
   },
   {
-   "from": "US-183 (TX-360 Loop/N Capital of Texas Hwy)",
+   "from": "W 38th St (N Lamar Blvd)",
    "hour_of_week": 70,
    "n": 2,
    "roadworks": false,
-   "seg": "30.388,-97.760"
+   "seg": "30.310,-97.740"
   },
   {
-   "from": "E 5th St (Brazos St)",
+   "from": "US-290/Ben White Blvd W (Manchaca Rd/FM-2304)",
    "hour_of_week": 70,
    "n": 2,
    "roadworks": false,
-   "seg": "30.264,-97.743"
+   "seg": "30.217,-97.796"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.6,
-  "tomtom": 96.5
+  "dispatch": 79.9,
+  "tomtom": 96.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 134,
-  "neither": 108,
-  "tomtom_only": 26
+  "neither": 107,
+  "tomtom_only": 27
  }
 }
