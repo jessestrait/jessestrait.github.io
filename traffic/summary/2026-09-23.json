@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 64,
-  "dispatch_only": 58,
+  "dispatch": 65,
+  "dispatch_only": 59,
   "here": 0,
   "here_matched": 0,
   "matched": 7,
@@ -38,8 +38,8 @@
   },
   "dispatch_surface": {
    "matched": 3,
-   "n": 48,
-   "pct": 6.2
+   "n": 49,
+   "pct": 6.1
   },
   "tomtom_highway": {
    "matched": 5,
@@ -147,6 +147,13 @@
    "seg": "30.240,-97.730"
   },
   {
+   "from": "Nature Center Dr",
+   "hour_of_week": 62,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.269,-97.770"
+  },
+  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
@@ -182,13 +189,6 @@
    "seg": "30.179,-97.616"
   },
   {
-   "from": "Nature Center Dr",
-   "hour_of_week": 62,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.269,-97.770"
-  },
-  {
    "from": "Cypress Creek Rd",
    "hour_of_week": 47,
    "n": 1,
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 90.6,
+  "dispatch": 90.8,
   "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 64,
-  "neither": 58,
+  "n": 65,
+  "neither": 59,
   "tomtom_only": 6
  }
 }
