@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 100, q3 117 min over 98 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 98, q3 117 min over 104 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,47 +9,47 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 127,
-  "dispatch_only": 106,
+  "dispatch": 134,
+  "dispatch_only": 108,
   "here": 0,
   "here_matched": 0,
-  "matched": 25,
-  "tomtom": 903,
-  "tomtom_only": 875
+  "matched": 33,
+  "tomtom": 1037,
+  "tomtom_only": 1001
  },
  "date": "2026-09-23",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 114.3,
+  "median": 112.9,
   "min": 8.5,
-  "n": 98,
-  "q1": 100.0,
-  "q3": 117.3
+  "n": 104,
+  "q1": 97.7,
+  "q3": 117.1
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 7,
-   "n": 27,
-   "pct": 25.9
+   "matched": 8,
+   "n": 28,
+   "pct": 28.6
   },
   "dispatch_surface": {
-   "matched": 14,
-   "n": 100,
-   "pct": 14.0
+   "matched": 18,
+   "n": 106,
+   "pct": 17.0
   },
   "tomtom_highway": {
-   "matched": 23,
-   "n": 458,
-   "pct": 5.0
+   "matched": 28,
+   "n": 521,
+   "pct": 5.4
   },
   "tomtom_surface": {
-   "matched": 5,
-   "n": 445,
-   "pct": 1.1
+   "matched": 8,
+   "n": 516,
+   "pct": 1.6
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 88.9,
-  "median": 26.6,
-  "min": -57.8,
-  "n": 25,
-  "q1": -4.3,
-  "q3": 45.5
+  "median": 25.3,
+  "min": -58.9,
+  "n": 33,
+  "q1": -13.2,
+  "q3": 45.9
  },
  "persistence_min": {
   "max": 0.0,
-  "median": -56.6,
+  "median": -40.8,
   "min": -1091.4,
-  "n": 12,
-  "q1": -99.8,
-  "q3": -31.0,
+  "n": 15,
+  "q1": -92.5,
+  "q3": 0.0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 173,
-  "hotspot_buckets": 836,
-  "hotspot_buckets_on_roadworks": 170,
+  "explained_by_roadworks": 192,
+  "hotspot_buckets": 955,
+  "hotspot_buckets_on_roadworks": 187,
   "txdot_rows": 6,
-  "unreported_congestion": 858
+  "unreported_congestion": 984
  },
  "sampling": {
-  "flow_spent_this_month": 927,
+  "flow_spent_this_month": 936,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 108,
+  "incidents_spent_this_month": 109,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -175,11 +175,25 @@
    "seg": "30.395,-97.721"
   },
   {
+   "from": "Trinity St (E 11th St)",
+   "hour_of_week": 70,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.271,-97.735"
+  },
+  {
    "from": "N I-35 (Manor Rd)",
    "hour_of_week": 70,
    "n": 2,
    "roadworks": false,
    "seg": "30.284,-97.721"
+  },
+  {
+   "from": "S 1st St (W Oltorf St)",
+   "hour_of_week": 70,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.240,-97.755"
   },
   {
    "from": "Taft Ln (S 1st St)",
@@ -189,43 +203,29 @@
    "seg": "30.145,-97.805"
   },
   {
-   "from": "Palm Way",
-   "hour_of_week": 63,
+   "from": "US-183 (TX-360 Loop/N Capital of Texas Hwy)",
+   "hour_of_week": 70,
    "n": 2,
    "roadworks": false,
-   "seg": "30.404,-97.722"
+   "seg": "30.388,-97.760"
   },
   {
-   "from": "Nature Center Dr",
-   "hour_of_week": 62,
+   "from": "E 5th St (Brazos St)",
+   "hour_of_week": 70,
    "n": 2,
    "roadworks": false,
-   "seg": "30.269,-97.770"
-  },
-  {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.245,-97.744"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.234,-97.736"
+   "seg": "30.264,-97.743"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 83.5,
-  "tomtom": 96.9
+  "dispatch": 80.6,
+  "tomtom": 96.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 127,
-  "neither": 106,
-  "tomtom_only": 21
+  "n": 134,
+  "neither": 108,
+  "tomtom_only": 26
  }
 }
