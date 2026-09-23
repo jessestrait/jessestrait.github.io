@@ -1,0 +1,225 @@
+{
+ "caveats": [
+  "Dispatch published_date is when APD published, not when it happened.",
+  "Dispatch record lifetimes look like real clearances this day, not a cap.",
+  "Clearance resolution equals the poll interval; shorter incidents are invisible.",
+  "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
+  "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
+  "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
+  "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
+ ],
+ "counts": {
+  "dispatch": 25,
+  "dispatch_only": 23,
+  "here": 0,
+  "here_matched": 0,
+  "matched": 2,
+  "tomtom": 190,
+  "tomtom_only": 188
+ },
+ "date": "2026-09-23",
+ "dispatch_life_capped": false,
+ "dispatch_record_life_min": {
+  "max": 112.3,
+  "median": 106.2,
+  "min": 89.7,
+  "n": 8,
+  "q1": 96.7,
+  "q3": 110.5
+ },
+ "here_onset_offset_min": {
+  "n": 0
+ },
+ "match_rate": {
+  "dispatch_highway": {
+   "matched": 2,
+   "n": 6,
+   "pct": 33.3
+  },
+  "dispatch_surface": {
+   "matched": 0,
+   "n": 19,
+   "pct": 0.0
+  },
+  "tomtom_highway": {
+   "matched": 2,
+   "n": 77,
+   "pct": 2.6
+  },
+  "tomtom_surface": {
+   "matched": 0,
+   "n": 113,
+   "pct": 0.0
+  }
+ },
+ "matcher": {
+  "buffer_m": 200.0,
+  "highway_buffer_m": 130.0,
+  "onset_window_min": 90.0,
+  "tolerance_min": 20.0
+ },
+ "onset_offset_min": {
+  "max": 48.2,
+  "median": -4.8,
+  "min": -57.8,
+  "n": 2,
+  "q1": -57.8,
+  "q3": 48.2
+ },
+ "persistence_min": {
+  "n": 0
+ },
+ "poll_interval_min": 5.0,
+ "probe_agreement": {
+  "cover": {
+   "n": 0
+  },
+  "n": 0,
+  "onset_offset_min": {
+   "n": 0
+  },
+  "pct_of_here": 0.0,
+  "pct_of_tomtom": 0.0,
+  "type_agree": 0
+ },
+ "roadworks": {
+  "explained_by_roadworks": 39,
+  "hotspot_buckets": 170,
+  "hotspot_buckets_on_roadworks": 38,
+  "txdot_rows": 7,
+  "unreported_congestion": 177
+ },
+ "sampling": {
+  "flow_spent_this_month": 765,
+  "incident_budget": 2500,
+  "incidents_spent_this_month": 88,
+  "off_peak_min": 45,
+  "rush_hours_local": [
+   7,
+   8,
+   16,
+   17,
+   18
+  ],
+  "rush_min": 5,
+  "this_poll": "off-peak"
+ },
+ "structural_hotspots": [
+  {
+   "from": "Plumas Ln",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.221,-97.795"
+  },
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Hergotz Ln",
+   "hour_of_week": 113,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.244,-97.663"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Lexington Meadow Ln",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.179,-97.616"
+  },
+  {
+   "from": "Cypress Creek Rd",
+   "hour_of_week": 47,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.473,-97.843"
+  },
+  {
+   "from": "FM-2222/Bullick Hollow Rd (FM-620)",
+   "hour_of_week": 45,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.452,-97.829"
+  },
+  {
+   "from": "Lakeline Mall Dr",
+   "hour_of_week": 47,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.476,-97.793"
+  },
+  {
+   "from": "FM-1325/Exit 250 (I-35)",
+   "hour_of_week": 44,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.502,-97.683"
+  },
+  {
+   "from": "FM-2222 (TX-360 Loop/N Capital of Texas Hwy)",
+   "hour_of_week": 43,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.381,-97.774"
+  },
+  {
+   "from": "Parker Dr",
+   "hour_of_week": 47,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.480,-97.676"
+  },
+  {
+   "from": "Austin",
+   "hour_of_week": 47,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.199,-97.886"
+  },
+  {
+   "from": "FM-2244 (TX-1)",
+   "hour_of_week": 46,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.293,-97.759"
+  },
+  {
+   "from": "Double Creek Dr (Gattis School Rd)",
+   "hour_of_week": 46,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.497,-97.617"
+  }
+ ],
+ "unmatched_pct": {
+  "dispatch": 92.0,
+  "tomtom": 98.9
+ },
+ "witnesses": {
+  "both": 0,
+  "here_only": 0,
+  "n": 25,
+  "neither": 23,
+  "tomtom_only": 2
+ }
+}
