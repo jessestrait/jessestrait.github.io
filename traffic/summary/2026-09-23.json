@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 10,
-  "tomtom": 386,
-  "tomtom_only": 374
+  "tomtom": 405,
+  "tomtom_only": 393
  },
  "date": "2026-09-23",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 11,
-   "n": 185,
-   "pct": 5.9
+   "n": 194,
+   "pct": 5.7
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 201,
+   "n": 211,
    "pct": 0.5
   }
  },
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 114,
-  "hotspot_buckets": 341,
-  "hotspot_buckets_on_roadworks": 112,
+  "explained_by_roadworks": 118,
+  "hotspot_buckets": 357,
+  "hotspot_buckets_on_roadworks": 115,
   "txdot_rows": 6,
-  "unreported_congestion": 358
+  "unreported_congestion": 377
  },
  "sampling": {
-  "flow_spent_this_month": 891,
+  "flow_spent_this_month": 900,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 104,
+  "incidents_spent_this_month": 105,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -154,6 +154,20 @@
    "seg": "30.104,-97.814"
   },
   {
+   "from": "Apogee Blvd",
+   "hour_of_week": 15,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.142,-97.729"
+  },
+  {
+   "from": "E 7th St / Webberville Rd",
+   "hour_of_week": 65,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.261,-97.717"
+  },
+  {
    "from": "Palm Way",
    "hour_of_week": 63,
    "n": 2,
@@ -201,25 +215,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "Cypress Creek Rd",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.473,-97.843"
-  },
-  {
-   "from": "FM-2222/Bullick Hollow Rd (FM-620)",
-   "hour_of_week": 45,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.452,-97.829"
   }
  ],
  "unmatched_pct": {
   "dispatch": 91.2,
-  "tomtom": 96.9
+  "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
