@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 264,
-  "tomtom_only": 259
+  "tomtom": 270,
+  "tomtom_only": 265
  },
  "date": "2026-09-23",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 118,
-   "pct": 3.4
+   "n": 120,
+   "pct": 3.3
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 146,
+   "n": 150,
    "pct": 0.7
   }
  },
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 72,
-  "hotspot_buckets": 236,
-  "hotspot_buckets_on_roadworks": 71,
+  "explained_by_roadworks": 74,
+  "hotspot_buckets": 241,
+  "hotspot_buckets_on_roadworks": 73,
   "txdot_rows": 9,
-  "unreported_congestion": 245
+  "unreported_congestion": 251
  },
  "sampling": {
   "flow_spent_this_month": 801,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 93,
+  "incidents_spent_this_month": 94,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -140,13 +140,6 @@
    "seg": "30.245,-97.744"
   },
   {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.234,-97.736"
-  },
-  {
    "from": "Hergotz Ln",
    "hour_of_week": 113,
    "n": 2,
@@ -166,6 +159,20 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
+  },
+  {
+   "from": "Woodland Ave",
+   "hour_of_week": 52,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.240,-97.730"
+  },
+  {
+   "from": "N Pleasant Valley Rd (E Cesar Chavez St/E 1st St)",
+   "hour_of_week": 52,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.256,-97.722"
   },
   {
    "from": "Cypress Creek Rd",
@@ -208,13 +215,6 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.480,-97.676"
-  },
-  {
-   "from": "Austin",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.199,-97.886"
   }
  ],
  "unmatched_pct": {
