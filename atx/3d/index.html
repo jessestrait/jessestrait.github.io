@@ -45,7 +45,46 @@
     min-width:6.5rem;text-align:left}
   #ctl button:active{background:#22304a}
   #ctl button[aria-pressed="true"]{background:var(--accent);color:#04121f;border-color:var(--accent)}
+  /* Layer panel */
+  #panel{top:.7rem;right:.7rem;width:14.5rem;max-height:calc(100vh - 1.4rem);
+    overflow:auto;padding:.55rem}
+  #panel .grp + .grp{margin-top:.6rem}
+  .mini{display:block;font:700 .62rem/1 'DM Sans',sans-serif;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--muted);margin:.25rem 0 .35rem}
+  .row{display:grid;grid-template-columns:auto auto 1fr auto;align-items:center;
+    gap:.45rem;padding:.24rem 0;cursor:pointer}
+  .row input{accent-color:var(--accent);margin:0;width:.85rem;height:.85rem}
+  .sw{width:.6rem;height:.6rem;border-radius:2px}
+  .row .nm{font-size:.76rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .row .ct{font:400 .66rem 'JetBrains Mono',ui-monospace,monospace;color:var(--muted)}
+  #tools{display:flex;gap:.3rem;margin-top:.6rem;flex-wrap:wrap}
+  #tools button{flex:1 1 auto;background:#1a2437;color:var(--ink);border:1px solid var(--line);
+    border-radius:7px;padding:.36rem .3rem;font:600 .68rem 'DM Sans',sans-serif;cursor:pointer}
+  #tools button[aria-pressed="true"]{background:var(--accent);color:#04121f;border-color:var(--accent)}
+  #pitchwrap{margin-top:.5rem;display:flex;align-items:center;gap:.45rem}
+  #pitchwrap label{font:600 .66rem 'DM Sans',sans-serif;color:var(--muted);white-space:nowrap}
+  #pitch{flex:1;accent-color:var(--accent);min-width:0}
+
+  /* Popups, matched to the flat map's */
+  .maplibregl-popup-content{background:var(--panel)!important;color:var(--ink)!important;
+    border:1px solid var(--line);border-radius:11px;padding:.7rem .8rem;
+    box-shadow:0 8px 28px rgba(0,0,0,.55);backdrop-filter:blur(8px)}
+  .maplibregl-popup-tip{border-top-color:var(--panel)!important;
+    border-bottom-color:var(--panel)!important}
+  .pop .tag{display:inline-block;font:700 .6rem 'DM Sans',sans-serif;letter-spacing:.07em;
+    text-transform:uppercase;padding:2px 6px;border-radius:4px}
+  .pop h4{margin:.35rem 0 .1rem;font:700 .88rem/1.25 'Poppins',system-ui,sans-serif}
+  .pop .when{color:var(--muted);font-size:.7rem}
+  .pop dl{display:grid;grid-template-columns:auto 1fr;gap:2px .6rem;margin:.45rem 0 0}
+  .pop dt{color:var(--muted);font-size:.68rem;white-space:nowrap}
+  .pop dd{margin:0;font-size:.74rem}
+  .pop .note{margin:.5rem 0 0;color:var(--muted);font-size:.7rem}
+
+  /* Flat mode: the miniature scrim would only fight a plan view. */
+  body.is-flat #tilt, body.is-flat #vig{display:none}
+
   @media (max-width:520px){
+    #panel{width:11.5rem;font-size:.72rem}
     #title{max-width:calc(100vw - 6.5rem)}
     #ctl button{min-width:0;padding:.45rem .5rem}
   }
@@ -58,22 +97,30 @@
 
 <div class="hud" id="title">
   <h1>Austin, from above</h1>
-  <p>Real building heights from OpenStreetMap. Real buses from CapMetro, moving now.
-     The cars are invented — they follow real streets.
-     <a href="/atx/">← the flat map</a></p>
+  <p>The same live Austin as <a href="/atx/">the flat map</a>, over a city built from
+     OpenStreetMap building heights. Fire, traffic, 311, signals, crashes, storms and
+     buses are real. The cars are invented &mdash; they follow real streets.
+     Drag <b>Tilt</b> to nothing and this becomes the flat map.</p>
 </div>
 
-<div class="hud" id="ctl">
-  <button id="b-cars" aria-pressed="true">Traffic</button>
-  <button id="b-buses" aria-pressed="true">Buses</button>
-  <button id="b-tilt" aria-pressed="true">Miniature</button>
-  <button id="b-frame">Reframe</button>
+<div class="hud" id="panel">
+  <div id="layers"></div>
+  <div id="tools">
+    <button id="b-cars" aria-pressed="true">Cars</button>
+    <button id="b-tilt" aria-pressed="true">Model</button>
+    <button id="b-frame">Reframe</button>
+  </div>
+  <div id="pitchwrap">
+    <label for="pitch">Tilt</label>
+    <input type="range" id="pitch" min="0" max="75" value="62" step="1" aria-label="Camera tilt" />
+  </div>
 </div>
 
 <div class="hud" id="stat"><span id="statline">loading the city…</span></div>
 
 <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.9.0/dist/maplibre-gl.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/pmtiles@4.3.0/dist/pmtiles.js"></script>
+<script src="layers.js"></script>
 <script src="app.js"></script>
 <script data-goatcounter="https://jesserstrait.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>

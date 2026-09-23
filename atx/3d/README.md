@@ -1,7 +1,22 @@
 # Austin, from above
 
-A 3D companion to the flat map at `/atx/`. Same city, same live feeds,
-pitched over and lit like a model.
+The same live Austin as `/atx/`, over a city built from OpenStreetMap
+building heights.
+
+## Flat and 3D are one map
+
+This is the whole design, and it is why there was nothing to "combine".
+In MapLibre the flat map **is** this map at pitch 0 with the buildings
+hidden — same camera, same layers, same data, same URL state. The tilt is
+a slider, not a mode. Drag it to zero and you have the plan view; drag it
+up and the city stands.
+
+The layer list is a registry in `layers.js`: each layer declares where its
+data comes from, what shape it is and what colour, and `app.js` turns the
+whole list into a map in one generic pass. MapLibre does hit-testing,
+culling and data-driven styling itself, which is why this is a few hundred
+lines where `/atx/index.html` needs nine thousand to do the same job on a
+canvas it drives by hand.
 
 ## What is real and what is not
 

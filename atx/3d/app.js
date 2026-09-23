@@ -186,72 +186,224 @@ function stepCars(dt) {
   if (src) src.setData({ type: 'FeatureCollection', features: CARS.on ? feats : [] });
 }
 
-/* ── Real buses ───────────────────────────────────────────────────────
-   The same relay /atx/ reads. Positions are real, headings are real, and
-   a vehicle that is not on a route is left out exactly as it is there. */
-const RELAY = 'https://capmetro.jessestrait.workers.dev';
-const BUS = { on: true, feats: [], at: 0 };
 
-async function loadBuses() {
+/* ── The layers ───────────────────────────────────────────────────────
+   One generic pass over the registry in layers.js. MapLibre does the
+   hit-testing, culling and data-driven styling that the flat map has to
+   hand-roll on a canvas, so a layer here is a declaration rather than a
+   renderer — which is why this file is short and index.html at /atx/ is
+   nine thousand lines.
+
+   Sources are created empty and filled when the data lands, so a slow
+   feed never holds up the city. */
+const REG = window.ATX3D.LAYERS;
+const STATE = {};                       // id -> {on, n, at, err}
+
+function addLayerFor(l) {
+  const sid = 'src-' + l.id;
+  map.addSource(sid, { type: 'geojson',
+    data: { type: 'FeatureCollection', features: [] } });
+
+  const vis = { visibility: l.on ? 'visible' : 'none' };
+
+  if (l.kind === 'fill') {
+    map.addLayer({ id: l.id, type: 'fill', source: sid, layout: vis,
+      paint: { 'fill-color': l.colour, 'fill-opacity': l.opacity == null ? 0.3 : l.opacity } },
+      'buildings');
+  } else if (l.kind === 'line') {
+    map.addLayer({ id: l.id, type: 'line', source: sid, layout:
+        Object.assign({ 'line-cap': 'round', 'line-join': 'round' }, vis),
+      paint: {
+        // A route keeps CapMetro's own colour where the data carries one.
+        'line-color': l.colourFrom
+          ? ['case', ['has', l.colourFrom],
+              ['concat', '#', ['get', l.colourFrom]], l.colour]
+          : l.colour,
+        'line-width': ['interpolate', ['linear'], ['zoom'],
+          10, (l.width || 2) * 0.5, 16, (l.width || 2) * 2],
+        'line-opacity': l.opacity == null ? 0.9 : l.opacity
+      } }, 'buildings');
+  } else {
+    /* Points sit above the buildings, not among them: a fire call behind a
+       tower is still a fire call you need to see. Height is not simulated —
+       these are flat marks on top of a 3D city, deliberately, because
+       pretending a 311 request happened on the fourth floor would be
+       inventing data. */
+    map.addLayer({ id: l.id, type: 'circle', source: sid, layout: vis,
+      paint: {
+        'circle-color': l.id === 'signals'
+          ? ['case', ['==', ['get', 'flash'], 1], '#ffb020', l.colour] : l.colour,
+        'circle-radius': ['interpolate', ['linear'], ['zoom'],
+          10, (l.radius || 3.5) * 0.55, 15, l.radius || 3.5, 18, (l.radius || 3.5) * 1.9],
+        'circle-stroke-color': '#070b12',
+        'circle-stroke-width': 1,
+        'circle-opacity': 0.95
+      } });
+    if (l.labelFrom) {
+      map.addLayer({ id: l.id + '-label', type: 'symbol', source: sid, minzoom: 14.5,
+        layout: Object.assign({ 'text-field': ['get', l.labelFrom], 'text-size': 10,
+          'text-font': ['Noto Sans Regular'], 'text-offset': [0, -1.2],
+          'text-allow-overlap': false }, vis),
+        paint: { 'text-color': l.colour, 'text-halo-color': '#070b12', 'text-halo-width': 1.2 } });
+    }
+  }
+}
+
+async function loadLayer(l) {
+  const st = STATE[l.id] || (STATE[l.id] = { on: !!l.on });
+  st.busy = true; paintPanel();
   try {
-    const j = await fetch(RELAY + '/vehicles', { cache: 'no-store' }).then(r => {
-      if (!r.ok) throw new Error('relay ' + r.status); return r.json();
-    });
-    const out = [];
-    (j.entity || []).forEach(e => {
-      const v = e.vehicle || {}, p = v.position, trip = v.trip || {};
-      if (!p || p.latitude == null || !trip.routeId) return;
-      out.push({ type: 'Feature',
-        properties: { route: String(trip.routeId), bearing: p.bearing || 0 },
-        geometry: { type: 'Point', coordinates: [+p.longitude, +p.latitude] } });
-    });
-    BUS.feats = out;
-    BUS.at = Date.now();
-    const src = map.getSource('buses');
-    if (src) src.setData({ type: 'FeatureCollection', features: BUS.on ? out : [] });
-  } catch (e) { /* the city is still a city without them */ }
-  paintStat();
+    const gj = await l.load();
+    const feats = (gj && gj.features) || [];
+    // The prebuilt files are already GeoJSON; the live ones are built above.
+    map.getSource('src-' + l.id).setData(
+      gj.type === 'FeatureCollection' ? gj : { type: 'FeatureCollection', features: feats });
+    st.n = feats.length; st.at = Date.now(); st.err = null;
+  } catch (e) {
+    st.err = e.message || 'failed';
+  } finally { st.busy = false; paintPanel(); }
 }
 
-function paintStat() {
-  const when = BUS.at ? new Date(BUS.at).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }) : '—';
-  say('<b>' + BUS.feats.length + '</b> buses, real, ' + when
-    + ' &nbsp;·&nbsp; <b>' + CARS.list.length + '</b> cars, invented'
-    + ' &nbsp;·&nbsp; buildings from OSM');
+function setLayerOn(l, on) {
+  const st = STATE[l.id] || (STATE[l.id] = {});
+  st.on = on;
+  const v = on ? 'visible' : 'none';
+  [l.id, l.id + '-label'].forEach(id => {
+    if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', v);
+  });
+  if (on && st.n == null && !st.busy) loadLayer(l);
+  paintPanel();
+  saveUrl();
 }
 
+/* ── The panel ────────────────────────────────────────────────────── */
+function paintPanel() {
+  const box = document.getElementById('layers');
+  if (!box) return;
+  const groups = [['live', 'Live now'], ['ground', 'Standing']];
+  box.innerHTML = groups.map(([g, title]) =>
+    '<div class="grp"><label class="mini">' + title + '</label>'
+    + REG.filter(l => (l.group || 'live') === g).map(l => {
+        const st = STATE[l.id] || {};
+        const count = st.busy ? '···' : st.err ? 'err'
+          : st.n == null ? '' : st.n.toLocaleString();
+        return '<label class="row" data-id="' + l.id + '">'
+          + '<input type="checkbox"' + (st.on ? ' checked' : '') + '>'
+          + '<span class="sw" style="background:' + l.colour + '"></span>'
+          + '<span class="nm">' + window.ATX3D.esc(l.name) + '</span>'
+          + '<span class="ct">' + count + '</span></label>';
+      }).join('') + '</div>').join('');
+  box.querySelectorAll('.row input').forEach(inp => {
+    inp.addEventListener('change', e => {
+      const id = e.target.closest('.row').dataset.id;
+      setLayerOn(REG.find(l => l.id === id), e.target.checked);
+    });
+  });
+}
+
+/* ── Popups ───────────────────────────────────────────────────────────
+   One handler for every layer. queryRenderedFeatures already knows what
+   is under the finger and in what order, which is the whole of the
+   nearestCanvas machinery the flat map needed. */
+function wirePopups() {
+  const ids = REG.map(l => l.id).filter(id => map.getLayer(id));
+  map.on('click', e => {
+    const hits = map.queryRenderedFeatures(e.point, { layers: ids });
+    if (!hits.length) return;
+    const f = hits[0];
+    const html = f.properties && f.properties.html;
+    if (!html) return;
+    new maplibregl.Popup({ maxWidth: '320px', closeButton: true, offset: 10 })
+      .setLngLat(f.geometry.type === 'Point' ? f.geometry.coordinates : e.lngLat)
+      .setHTML(html).addTo(map);
+  });
+  map.on('mousemove', e => {
+    const hits = map.queryRenderedFeatures(e.point, { layers: ids });
+    map.getCanvas().style.cursor = hits.length ? 'pointer' : '';
+  });
+}
+
+/* ── Flat and model are the same map ──────────────────────────────────
+   This is the part worth stating plainly. Combining the two maps did not
+   mean merging two renderers: in MapLibre the flat map *is* this map at
+   pitch 0 with the buildings switched off. One camera, one set of
+   layers, one source of truth — the tilt is a slider, not a mode. */
+function setTilt(pitch) {
+  map.easeTo({ pitch: pitch, duration: 450 });
+  const flat = pitch < 12;
+  if (map.getLayer('buildings'))
+    map.setLayoutProperty('buildings', 'visibility', flat ? 'none' : 'visible');
+  document.getElementById('tilt').style.display = flat ? 'none' : '';
+  document.getElementById('vig').style.display = flat ? 'none' : '';
+  document.body.classList.toggle('is-flat', flat);
+  saveUrl();
+}
+
+/* ── Shareable state ──────────────────────────────────────────────── */
+let urlTimer = null;
+function saveUrl() {
+  clearTimeout(urlTimer);
+  urlTimer = setTimeout(() => {
+    const c = map.getCenter();
+    const p = new URLSearchParams();
+    p.set('c', c.lat.toFixed(4) + ',' + c.lng.toFixed(4));
+    p.set('z', map.getZoom().toFixed(1));
+    p.set('p', Math.round(map.getPitch()));
+    p.set('b', Math.round(map.getBearing()));
+    p.set('l', REG.filter(l => (STATE[l.id] || {}).on).map(l => l.id).join(','));
+    history.replaceState(null, '', '#' + p.toString());
+  }, 400);
+}
+
+function restoreUrl() {
+  const p = new URLSearchParams(location.hash.slice(1));
+  if (!p.has('c')) return false;
+  const [lat, lng] = (p.get('c') || '').split(',').map(Number);
+  if (isFinite(lat) && isFinite(lng)) {
+    map.jumpTo({ center: [lng, lat], zoom: +p.get('z') || 15.2,
+                 pitch: +p.get('p') || 62, bearing: +p.get('b') || 0 });
+  }
+  if (p.has('l')) {
+    const want = (p.get('l') || '').split(',').filter(Boolean);
+    REG.forEach(l => { (STATE[l.id] || (STATE[l.id] = {})).on = want.includes(l.id); });
+  }
+  return true;
+}
+
+/* ── Boot ─────────────────────────────────────────────────────────── */
 map.on('load', () => {
+  // Buildings already exist in the style; every registry layer goes above
+  // the ground shapes and below the marks, in one pass.
+  REG.forEach(l => { STATE[l.id] = { on: !!l.on }; });
+  restoreUrl();
+  REG.forEach(addLayerFor);
+
+  // Invented traffic, on its own source above the roads.
   map.addSource('cars', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
-  map.addLayer({
-    id: 'cars', type: 'circle', source: 'cars', minzoom: 12,
+  map.addLayer({ id: 'cars', type: 'circle', source: 'cars', minzoom: 12,
     paint: {
       'circle-color': ['get', 'hue'],
       'circle-radius': ['interpolate', ['linear'], ['zoom'], 12, 1.1, 15, 2.6, 18, 5],
-      'circle-opacity': 0.95,
-      'circle-blur': 0.25
-    }
-  });
-  map.addSource('buses', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
-  map.addLayer({
-    id: 'buses', type: 'circle', source: 'buses', minzoom: 10,
-    paint: {
-      'circle-color': '#a3e635',
-      'circle-radius': ['interpolate', ['linear'], ['zoom'], 10, 2.4, 15, 5.5, 18, 9],
-      'circle-stroke-color': '#0a0e16', 'circle-stroke-width': 1.2,
-      'circle-opacity': 0.98
-    }
-  });
-  map.addLayer({
-    id: 'bus-label', type: 'symbol', source: 'buses', minzoom: 14.5,
-    layout: { 'text-field': ['get', 'route'], 'text-size': 10,
-              'text-font': ['Noto Sans Regular'], 'text-offset': [0, -1.1] },
-    paint: { 'text-color': '#a3e635', 'text-halo-color': '#0a0e16', 'text-halo-width': 1.2 }
-  });
+      'circle-opacity': 0.95, 'circle-blur': 0.25
+    } }, REG.find(l => (l.group || 'live') === 'live').id);
+
+  wirePopups();
+  paintPanel();
+  setTilt(map.getPitch());
+
+  // Everything switched on loads now; everything else waits to be asked.
+  REG.filter(l => (STATE[l.id] || {}).on).forEach(loadLayer);
 
   harvestRoads();
-  loadBuses();
-  setInterval(() => { if (!document.hidden) loadBuses(); }, 60000);
   map.on('idle', harvestRoads);
+  map.on('moveend', saveUrl);
+
+  // The live half refreshes on its own clock, the standing half never does.
+  setInterval(() => {
+    if (document.hidden) return;
+    REG.filter(l => (l.group || 'live') === 'live' && (STATE[l.id] || {}).on)
+       .forEach(loadLayer);
+  }, 60000);
 
   let last = performance.now();
   const frame = now => {
@@ -263,25 +415,27 @@ map.on('load', () => {
   setInterval(paintStat, 2000);
 });
 
+function paintStat() {
+  const live = REG.filter(l => (l.group || 'live') === 'live' && (STATE[l.id] || {}).n)
+    .reduce((s, l) => s + STATE[l.id].n, 0);
+  const el = document.getElementById('statline');
+  if (el) el.innerHTML = '<b>' + live.toLocaleString() + '</b> live marks &nbsp;·&nbsp; <b>'
+    + CARS.list.length + '</b> cars, invented &nbsp;·&nbsp; buildings from OSM';
+}
+
 /* ── Controls ─────────────────────────────────────────────────────── */
-const toggle = (btn, fn) => {
-  const b = document.getElementById(btn);
+const press = (id, fn) => {
+  const b = document.getElementById(id);
+  if (!b) return;
   b.addEventListener('click', () => {
     const on = b.getAttribute('aria-pressed') !== 'true';
     b.setAttribute('aria-pressed', on ? 'true' : 'false');
     fn(on);
   });
 };
-toggle('b-cars', on => { CARS.on = on; });
-toggle('b-buses', on => {
-  BUS.on = on;
-  const src = map.getSource('buses');
-  if (src) src.setData({ type: 'FeatureCollection', features: on ? BUS.feats : [] });
-});
-toggle('b-tilt', on => {
-  document.getElementById('tilt').style.display = on ? '' : 'none';
-  document.getElementById('vig').style.display = on ? '' : 'none';
-});
-document.getElementById('b-frame').addEventListener('click', () => {
-  map.easeTo({ center: CENTRE, zoom: 15.2, pitch: 62, bearing: -22, duration: 900 });
-});
+press('b-cars', on => { CARS.on = on; });
+press('b-tilt', on => setTilt(on ? 62 : 0));
+document.getElementById('b-frame').addEventListener('click', () =>
+  map.easeTo({ center: CENTRE, zoom: 15.2, pitch: map.getPitch(), bearing: -22, duration: 900 }));
+const pitchEl = document.getElementById('pitch');
+if (pitchEl) pitchEl.addEventListener('input', e => setTilt(+e.target.value));
