@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 98, q3 117 min over 104 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 97, q3 117 min over 113 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -14,17 +14,17 @@
   "here": 0,
   "here_matched": 0,
   "matched": 36,
-  "tomtom": 1086,
-  "tomtom_only": 1047
+  "tomtom": 1165,
+  "tomtom_only": 1125
  },
  "date": "2026-09-23",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 112.9,
+  "median": 112.0,
   "min": 8.5,
-  "n": 104,
-  "q1": 97.7,
+  "n": 113,
+  "q1": 96.9,
   "q3": 117.1
  },
  "here_onset_offset_min": {
@@ -42,14 +42,14 @@
    "pct": 17.0
   },
   "tomtom_highway": {
-   "matched": 30,
-   "n": 541,
-   "pct": 5.5
+   "matched": 31,
+   "n": 572,
+   "pct": 5.4
   },
   "tomtom_surface": {
    "matched": 9,
-   "n": 545,
-   "pct": 1.7
+   "n": 593,
+   "pct": 1.5
   }
  },
  "matcher": {
@@ -68,10 +68,10 @@
  },
  "persistence_min": {
   "max": 0.0,
-  "median": -40.8,
+  "median": -41.4,
   "min": -1091.4,
-  "n": 15,
-  "q1": -92.5,
+  "n": 20,
+  "q1": -70.6,
   "q3": 0.0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 198,
-  "hotspot_buckets": 999,
-  "hotspot_buckets_on_roadworks": 193,
+  "explained_by_roadworks": 211,
+  "hotspot_buckets": 1069,
+  "hotspot_buckets_on_roadworks": 205,
   "txdot_rows": 6,
-  "unreported_congestion": 1030
+  "unreported_congestion": 1107
  },
  "sampling": {
-  "flow_spent_this_month": 936,
+  "flow_spent_this_month": 945,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 110,
+  "incidents_spent_this_month": 111,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -154,6 +154,13 @@
    "seg": "30.104,-97.814"
   },
   {
+   "from": "W Martin Luther King Jr Blvd",
+   "hour_of_week": 62,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.284,-97.748"
+  },
+  {
    "from": "Apogee Blvd",
    "hour_of_week": 15,
    "n": 2,
@@ -203,23 +210,16 @@
    "seg": "30.145,-97.805"
   },
   {
-   "from": "W 38th St (N Lamar Blvd)",
+   "from": "FM-969 (FM-973)",
    "hour_of_week": 70,
    "n": 2,
    "roadworks": false,
-   "seg": "30.310,-97.740"
-  },
-  {
-   "from": "US-290/Ben White Blvd W (Manchaca Rd/FM-2304)",
-   "hour_of_week": 70,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.217,-97.796"
+   "seg": "30.210,-97.638"
   }
  ],
  "unmatched_pct": {
   "dispatch": 79.9,
-  "tomtom": 96.4
+  "tomtom": 96.6
  },
  "witnesses": {
   "both": 0,
