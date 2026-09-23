@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 107, q3 118 min over 80 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 100, q3 117 min over 97 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,47 +9,47 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 97,
-  "dispatch_only": 88,
+  "dispatch": 125,
+  "dispatch_only": 104,
   "here": 0,
   "here_matched": 0,
-  "matched": 12,
-  "tomtom": 422,
-  "tomtom_only": 408
+  "matched": 24,
+  "tomtom": 819,
+  "tomtom_only": 792
  },
  "date": "2026-09-23",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 115.5,
-  "min": 89.3,
-  "n": 80,
-  "q1": 107.2,
-  "q3": 117.6
+  "median": 114.3,
+  "min": 8.5,
+  "n": 97,
+  "q1": 99.8,
+  "q3": 117.3
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 5,
-   "n": 21,
-   "pct": 23.8
+   "matched": 7,
+   "n": 27,
+   "pct": 25.9
   },
   "dispatch_surface": {
-   "matched": 4,
-   "n": 76,
-   "pct": 5.3
+   "matched": 14,
+   "n": 98,
+   "pct": 14.3
   },
   "tomtom_highway": {
-   "matched": 12,
-   "n": 201,
-   "pct": 6.0
+   "matched": 22,
+   "n": 423,
+   "pct": 5.2
   },
   "tomtom_surface": {
-   "matched": 2,
-   "n": 221,
-   "pct": 0.9
+   "matched": 5,
+   "n": 396,
+   "pct": 1.3
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 88.9,
-  "median": 19.2,
+  "median": 21.7,
   "min": -57.8,
-  "n": 12,
-  "q1": -18.2,
-  "q3": 48.4
+  "n": 24,
+  "q1": -5.2,
+  "q3": 46.4
  },
  "persistence_min": {
-  "max": -20.2,
-  "median": -69.4,
+  "max": 0.0,
+  "median": -56.6,
   "min": -1091.4,
-  "n": 10,
-  "q1": -110.1,
-  "q3": -31.1,
+  "n": 12,
+  "q1": -99.8,
+  "q3": -31.0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 120,
-  "hotspot_buckets": 372,
-  "hotspot_buckets_on_roadworks": 117,
+  "explained_by_roadworks": 169,
+  "hotspot_buckets": 755,
+  "hotspot_buckets_on_roadworks": 166,
   "txdot_rows": 6,
-  "unreported_congestion": 392
+  "unreported_congestion": 775
  },
  "sampling": {
-  "flow_spent_this_month": 918,
+  "flow_spent_this_month": 927,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 106,
+  "incidents_spent_this_month": 107,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -108,7 +108,7 @@
    18
   ],
   "rush_min": 5,
-  "this_poll": "off-peak"
+  "this_poll": "rush"
  },
  "structural_hotspots": [
   {
@@ -196,13 +196,6 @@
    "seg": "30.234,-97.736"
   },
   {
-   "from": "Thompson Ln",
-   "hour_of_week": 94,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.244,-97.669"
-  },
-  {
    "from": "Ellas Inlet Dr / Felix Sparke Dr",
    "hour_of_week": 68,
    "n": 2,
@@ -215,17 +208,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
+  },
+  {
+   "from": "Brazos St",
+   "hour_of_week": 70,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.266,-97.743"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 90.7,
+  "dispatch": 83.2,
   "tomtom": 96.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 97,
-  "neither": 88,
-  "tomtom_only": 9
+  "n": 125,
+  "neither": 104,
+  "tomtom_only": 21
  }
 }
