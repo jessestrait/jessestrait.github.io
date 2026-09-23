@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 29,
-  "dispatch_only": 26,
+  "dispatch_only": 25,
   "here": 0,
   "here_matched": 0,
-  "matched": 3,
-  "tomtom": 207,
-  "tomtom_only": 204
+  "matched": 4,
+  "tomtom": 225,
+  "tomtom_only": 221
  },
  "date": "2026-09-23",
  "dispatch_life_capped": false,
@@ -37,18 +37,18 @@
    "pct": 42.9
   },
   "dispatch_surface": {
-   "matched": 0,
+   "matched": 1,
    "n": 22,
-   "pct": 0.0
+   "pct": 4.5
   },
   "tomtom_highway": {
-   "matched": 3,
-   "n": 84,
-   "pct": 3.6
+   "matched": 4,
+   "n": 95,
+   "pct": 4.2
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 123,
+   "n": 130,
    "pct": 0.0
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 48.2,
-  "median": 41.1,
+  "median": 24.9,
   "min": -57.8,
-  "n": 3,
-  "q1": -57.8,
-  "q3": 48.2
+  "n": 4,
+  "q1": -41.2,
+  "q3": 46.4
  },
  "persistence_min": {
   "max": -31.1,
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 41,
-  "hotspot_buckets": 186,
-  "hotspot_buckets_on_roadworks": 41,
+  "explained_by_roadworks": 50,
+  "hotspot_buckets": 199,
+  "hotspot_buckets_on_roadworks": 50,
   "txdot_rows": 7,
-  "unreported_congestion": 193
+  "unreported_congestion": 207
  },
  "sampling": {
-  "flow_spent_this_month": 765,
+  "flow_spent_this_month": 774,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 89,
+  "incidents_spent_this_month": 90,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -130,6 +130,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
+  },
+  {
+   "from": "I-35/US-290 (E Cesar Chavez St/E 1st St/State Spur 343)",
+   "hour_of_week": 48,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.260,-97.733"
   },
   {
    "from": "E Oltorf St",
@@ -207,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.199,-97.886"
-  },
-  {
-   "from": "FM-2244 (TX-1)",
-   "hour_of_week": 46,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.293,-97.759"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 89.7,
-  "tomtom": 98.6
+  "dispatch": 86.2,
+  "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 29,
-  "neither": 26,
-  "tomtom_only": 3
+  "neither": 25,
+  "tomtom_only": 4
  }
 }
