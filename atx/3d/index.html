@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Austin, from above — ATX Layers 3D</title>
+<meta name="description" content="Austin as a model city, built from OpenStreetMap building heights and driven by live CapMetro vehicles. A 3D companion to jessestrait.com/atx." />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.9.0/dist/maplibre-gl.css" />
+<style>
+  :root{
+    --bg:#0a0e16; --ink:#e8edf6; --muted:#8b97ab; --accent:#4da3ff;
+    --panel:rgba(15,22,35,.92); --line:#1e2a3d;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);
+    font:14px/1.5 'DM Sans',system-ui,-apple-system,sans-serif;overflow:hidden}
+  #map{position:absolute;inset:0}
+
+  /* The miniature effect. MapLibre has no post-processing, but most of what
+     sells a tilt-shift is simply that only a band across the middle is sharp.
+     Two blurred copies of the map would be the honest way and cost a second
+     render; this instead lays a soft scrim top and bottom, which reads as
+     depth of field at a glance and costs one compositor layer. */
+  #tilt{position:absolute;inset:0;pointer-events:none;z-index:2;
+    backdrop-filter:blur(3px);
+    -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 18%,transparent 38%,
+                                        transparent 62%,#000 84%,#000 100%);
+            mask-image:linear-gradient(to bottom,#000 0%,#000 18%,transparent 38%,
+                                        transparent 62%,#000 84%,#000 100%);}
+  /* A vignette does the rest: a model sits on a table, not in a void. */
+  #vig{position:absolute;inset:0;pointer-events:none;z-index:3;
+    background:radial-gradient(ellipse at 50% 55%,transparent 45%,rgba(4,7,12,.55) 100%)}
+
+  .hud{position:absolute;z-index:6;background:var(--panel);border:1px solid var(--line);
+    border-radius:12px;backdrop-filter:blur(8px);box-shadow:0 8px 28px rgba(0,0,0,.5)}
+  #title{top:.7rem;left:.7rem;padding:.6rem .8rem;max-width:min(22rem,calc(100vw - 1.4rem))}
+  #title h1{margin:0;font:700 .95rem/1.2 'Poppins',system-ui,sans-serif;letter-spacing:.01em}
+  #title p{margin:.3rem 0 0;color:var(--muted);font-size:.74rem}
+  #title a{color:var(--accent)}
+  #stat{bottom:.7rem;left:.7rem;padding:.5rem .7rem;font:400 .72rem/1.45 'JetBrains Mono',ui-monospace,monospace;color:var(--muted)}
+  #stat b{color:var(--ink);font-weight:700}
+  #ctl{top:.7rem;right:.7rem;display:flex;flex-direction:column;gap:.35rem;padding:.5rem}
+  #ctl button{background:#1a2437;color:var(--ink);border:1px solid var(--line);
+    border-radius:8px;padding:.45rem .6rem;font:600 .72rem 'DM Sans',sans-serif;cursor:pointer;
+    min-width:6.5rem;text-align:left}
+  #ctl button:active{background:#22304a}
+  #ctl button[aria-pressed="true"]{background:var(--accent);color:#04121f;border-color:var(--accent)}
+  @media (max-width:520px){
+    #title{max-width:calc(100vw - 6.5rem)}
+    #ctl button{min-width:0;padding:.45rem .5rem}
+  }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div id="tilt"></div>
+<div id="vig"></div>
+
+<div class="hud" id="title">
+  <h1>Austin, from above</h1>
+  <p>Real building heights from OpenStreetMap. Real buses from CapMetro, moving now.
+     The cars are invented — they follow real streets.
+     <a href="/atx/">← the flat map</a></p>
+</div>
+
+<div class="hud" id="ctl">
+  <button id="b-cars" aria-pressed="true">Traffic</button>
+  <button id="b-buses" aria-pressed="true">Buses</button>
+  <button id="b-tilt" aria-pressed="true">Miniature</button>
+  <button id="b-frame">Reframe</button>
+</div>
+
+<div class="hud" id="stat"><span id="statline">loading the city…</span></div>
+
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.9.0/dist/maplibre-gl.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pmtiles@4.3.0/dist/pmtiles.js"></script>
+<script src="app.js"></script>
+<script data-goatcounter="https://jesserstrait.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
