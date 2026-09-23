@@ -263,16 +263,26 @@
     C.carCanvas = mk('carPane'); C.carCtx = C.carCanvas.getContext('2d');
   }
 
+  /* Sized to the viewport plus a margin and positioned in *layer*
+     coordinates, which is exactly what L.Canvas does and for the same
+     reason: layer coordinates do not change as you pan, so Leaflet's own
+     translation of the map pane carries the canvas along for free and
+     nothing has to be redrawn until you let go. The margin is what keeps
+     the edges from being blank while you drag into them. */
+  const PAD = 0.25;
+
   function sizeCanvas(map, cv) {
     const s = map.getSize(), dpr = Math.min(window.devicePixelRatio || 1, 2);
-    if (cv.width !== s.x * dpr || cv.height !== s.y * dpr) {
-      cv.width = s.x * dpr; cv.height = s.y * dpr;
-      cv.style.width = s.x + 'px'; cv.style.height = s.y + 'px';
+    const padPx = L.point(s.x * PAD, s.y * PAD).round();
+    const w = s.x + padPx.x * 2, h = s.y + padPx.y * 2;
+    if (cv.width !== w * dpr || cv.height !== h * dpr) {
+      cv.width = w * dpr; cv.height = h * dpr;
+      cv.style.width = w + 'px'; cv.style.height = h + 'px';
     }
-    // The pane is translated by Leaflet as you drag; undo that so the
-    // canvas stays pinned to the viewport and is redrawn in screen space.
-    const tl = map.containerPointToLayerPoint([0, 0]);
-    L.DomUtil.setPosition(cv, tl);
+    const origin = map.containerPointToLayerPoint(padPx.multiplyBy(-1));
+    L.DomUtil.setPosition(cv, origin);
+    cv._origin = origin;
+    cv._pad = padPx;
     return dpr;
   }
 
@@ -282,6 +292,21 @@
   function collect(map) {
     const out = [];
     const z = map.getZoom();
+    /* Tile coordinates convert to Leaflet layer points by pure
+       arithmetic: the tile scheme and Leaflet's Web Mercator are the same
+       projection, so a tile-local point is (tile + local/extent) scaled by
+       256·2^(z − tileZoom), less the map's pixel origin.
+       Calling latLngToLayerPoint per vertex instead meant an atan and a
+       sinh for every one of about thirty-five thousand points on every
+       settle, which was most of the 58 ms this used to take. Exact, not
+       an approximation — same projection, just not routed through a
+       latitude and back. */
+    const pxOrigin = map.getPixelOrigin();
+    const tileScale = 256 * Math.pow(2, z - H.TILE_Z);
+    const origin = (C.canvas && C.canvas._origin) || map.containerPointToLayerPoint([0, 0]);
+    const pad = (C.canvas && C.canvas._pad) || L.point(0, 0);
+    const size = map.getSize();
+    const maxX = size.x + pad.x * 2, maxY = size.y + pad.y * 2;
     // Metres per pixel at this latitude, so a height in metres becomes a
     // believable number of pixels rather than an arbitrary one.
     const c = map.getCenter();
@@ -302,43 +327,69 @@
         for (const ring of f.rings) {
           if (ring.length < 8) continue;
           const pts = [];
-          let cx = 0, cy = 0;
+          let cx = 0, cy = 0, minX = 1e9, minY = 1e9, maxPX = -1e9, maxPY = -1e9;
+          const ax = (tx * tileScale) - pxOrigin.x - origin.x;
+          const ay = (ty * tileScale) - pxOrigin.y - origin.y;
+          const k = tileScale / ext;
           for (let i = 0; i < ring.length; i += 2) {
-            const lon = (tx + ring[i] / ext) / n * 360 - 180;
-            const yy = (ty + ring[i + 1] / ext) / n;
-            const lat = Math.atan(Math.sinh(Math.PI * (1 - 2 * yy))) * 180 / Math.PI;
-            const p = map.latLngToContainerPoint([lat, lon]);
-            pts.push(p.x, p.y); cx += p.x; cy += p.y;
+            const x = ax + ring[i] * k, y = ay + ring[i + 1] * k;
+            pts.push(x, y); cx += x; cy += y;
+            if (x < minX) minX = x; if (y < minY) minY = y;
+            if (x > maxPX) maxPX = x; if (y > maxPY) maxPY = y;
           }
           const m = pts.length / 2;
-          out.push({ pts: pts, cx: cx / m, cy: cy / m, h: hm / mpp, real: real });
+          const hpx = hm / mpp;
+          // Off the padded canvas entirely, or too small to read: not worth
+          // the path. Culling here is worth more than any drawing trick,
+          // because a building skipped costs nothing at all.
+          if (maxPX < -40 || maxPY < -40 || minX > maxX + 40 || minY > maxY + 40 + hpx) continue;
+          if ((maxPX - minX) < 2 && (maxPY - minY) < 2) continue;
+          out.push({ pts: pts, cx: cx / m, cy: cy / m, h: hpx, real: real });
         }
       }
+    }
+    /* Sorted here, once per settle, rather than on every draw. Painter's
+       order does not change while the view is still, and sorting a few
+       thousand buildings inside the draw call was most of what made
+       zooming feel like wading. */
+    const oy = maxY / 2;
+    out.sort((p, q) => (Math.abs(p.cy - oy) - Math.abs(q.cy - oy)) || (p.cy - q.cy));
+    /* And a ceiling. Past a few thousand the view is too wide for any of
+       this to be legible, and the tall ones carry the skyline, so the
+       shortest go first. */
+    if (out.length > 4000) {
+      out.sort((p, q) => q.h - p.h);
+      out.length = 4000;
+      out.sort((p, q) => (Math.abs(p.cy - oy) - Math.abs(q.cy - oy)) || (p.cy - q.cy));
     }
     return out;
   }
 
   const WALL_LIT = '#2c3a58', WALL_DIM = '#1b2438', ROOF = '#3b4e74', ROOF_HI = '#53709f';
 
-  function draw(map) {
+  /* Draw is now called only when the view settles, never during a pan or
+     a zoom — the canvas is carried by the pane on a pan and CSS-scaled
+     during a zoom, exactly as Leaflet's own canvas layers behave. */
+  function draw(map, resize) {
     if (!C.canvas) return;
-    const dpr = sizeCanvas(map, C.canvas);
-    const ctx = C.ctx, s = map.getSize();
+    const dpr = resize === false
+      ? Math.min(window.devicePixelRatio || 1, 2)
+      : sizeCanvas(map, C.canvas);
+    const ctx = C.ctx;
+    const w = C.canvas.width / dpr, h = C.canvas.height / dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.clearRect(0, 0, s.x, s.y);
+    ctx.clearRect(0, 0, w, h);
     if (!C.on || map.getZoom() < H.MIN_Z) return;
 
     const b = C.buildings || [];
-    const ox = s.x / 2, oy = s.y / 2;
+    const ox = w / 2, oy = h / 2;
     // Lean: a building's roof is offset away from the centre of the
     // screen in proportion to its height. Straight up in the middle,
     // leaning out at the edges — which is what a wide-angle look down at
     // a model actually does.
     const k = C.lift;
-    // Painter's algorithm: far from centre first, so nearer buildings
-    // overlap the ones behind them rather than the other way round.
-    b.sort((p, q) => (Math.abs(p.cy - oy) - Math.abs(q.cy - oy)) || (p.cy - q.cy));
-
+    // Already in painter's order from collect(); sorting here would redo
+    // that work on every settle for no gain.
     for (const bl of b) {
       const dx = (bl.cx - ox) / Math.max(ox, 1) * k * bl.h;
       const dy = (bl.cy - oy) / Math.max(oy, 1) * k * bl.h - bl.h;
@@ -415,10 +466,18 @@
 
   function stepCars(map, dt) {
     if (!C.carCanvas) return;
+    /* The car canvas is repositioned every frame rather than transformed,
+       because unlike the buildings its contents move anyway — so there is
+       nothing to save by holding it still. Coordinates are layer points
+       made relative to the canvas origin, matching the buildings; drawing
+       container points onto a layer-positioned canvas would offset every
+       car by the padding. */
     const dpr = D.sizeCanvas(map, C.carCanvas);
-    const ctx = C.carCtx, s = map.getSize();
+    const ctx = C.carCtx;
+    const w = C.carCanvas.width / dpr, h = C.carCanvas.height / dpr;
+    const origin = C.carCanvas._origin || L.point(0, 0);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.clearRect(0, 0, s.x, s.y);
+    ctx.clearRect(0, 0, w, h);
     if (!C.on || !C.carsOn || map.getZoom() < H.MIN_Z - 1) return;
 
     const want = map.getZoom() >= 16 ? 200 : 110;
@@ -437,11 +496,12 @@
       }
       const A = c.line[c.i], B = c.line[c.i + c.dir];
       if (!A || !B) continue;
-      const p = map.latLngToContainerPoint([A[0] + (B[0] - A[0]) * c.t,
-                                            A[1] + (B[1] - A[1]) * c.t]);
-      if (p.x < -20 || p.y < -20 || p.x > s.x + 20 || p.y > s.y + 20) continue;
+      const p = map.latLngToLayerPoint([A[0] + (B[0] - A[0]) * c.t,
+                                        A[1] + (B[1] - A[1]) * c.t]);
+      const x = p.x - origin.x, y = p.y - origin.y;
+      if (x < -20 || y < -20 || x > w + 20 || y > h + 20) continue;
       ctx.fillStyle = c.c;
-      ctx.fillRect(p.x - r, p.y - r, r * 2, r * 2);
+      ctx.fillRect(x - r, y - r, r * 2, r * 2);
     }
   }
 
@@ -455,13 +515,22 @@
   let settle = null;
 
   async function refresh(map) {
+    // Drop whatever transform the zoom animation left behind; sizeCanvas
+    // is about to position this properly again.
+    if (C.canvas) L.DomUtil.setTransform(C.canvas, L.point(0, 0), 1);
     if (!C.on) { D.draw(map); return; }
     if (map.getZoom() < H.MIN_Z) { C.buildings = []; D.draw(map); C.onNote && C.onNote(); return; }
     const want = H.visibleTiles(map);
     await Promise.all(want.map(([z, x, y]) => H.tile(z, x, y)));
+    /* Position the canvas first. collect() projects against its origin,
+       and draw() used to be what set that origin — so after a zoom every
+       building was projected against the *previous* view's origin and
+       came out shifted until the next settle corrected it. Order matters
+       here and it did not look like it did. */
+    D.sizeCanvas(map, C.canvas);
     C.buildings = D.collect(map);
     CAR.harvestRoads(map);
-    D.draw(map);
+    D.draw(map, false);
     C.onNote && C.onNote();
   }
 
@@ -474,7 +543,9 @@
     const now = performance.now();
     const dt = Math.min(0.1, (now - (C.last || now)) / 1000);
     C.last = now;
-    if (!document.hidden && C.on) CAR.stepCars(map, dt);
+    // Not while the map is animating: the frames are wanted by the zoom,
+    // and two hundred squares drawn behind it help nobody.
+    if (!document.hidden && C.on && !C.zooming) CAR.stepCars(map, dt);
     C.raf = requestAnimationFrame(() => frame(map));
   }
 
@@ -487,10 +558,36 @@
     // getting heavier the more you fiddle with the checkbox.
     if (C.wired) return;
     C.wired = true;
+
+    /* The city is redrawn only when the view settles.
+     *
+     * The first version redrew on every `move`, which during a zoom meant
+     * several thousand canvas paths per frame — and drew them from
+     * coordinates collected at the *last* settle, so it was paying that
+     * price to render the wrong positions. That is the lag.
+     *
+     * Leaflet's own canvas layers do not work that way and neither does
+     * this now. Panning moves the canvas because it is positioned in
+     * layer coordinates and Leaflet translates the pane. Zooming scales
+     * it with a CSS transform, which is one GPU composite rather than
+     * thousands of paths. Only when the map comes to rest is anything
+     * recomputed. It is locked to the other layers because it is doing
+     * what the other layers do. */
+    map.on('zoomstart', () => { C.zooming = true; });
+    map.on('zoomend', () => { C.zooming = false; });
+    map.on('zoomanim', e => {
+      const cv = C.canvas;
+      if (!cv || !C.on) return;
+      const scale = map.getZoomScale(e.zoom, map.getZoom());
+      const offset = map._latLngToNewLayerPoint(
+        map.layerPointToLatLng(cv._origin || L.point(0, 0)), e.zoom, e.center);
+      L.DomUtil.setTransform(cv, offset, scale);
+      // The cars are redrawn every frame from live coordinates, so they
+      // need no transform — but they must not be left behind a stale one.
+      if (C.carCanvas) L.DomUtil.setTransform(C.carCanvas, L.point(0, 0), 1);
+    });
+
     map.on('moveend zoomend resize', () => scheduleRefresh(map));
-    // Redraw during a drag so the city travels with the ground rather
-    // than lagging a frame behind it.
-    map.on('move', () => { if (C.on) D.draw(map); });
     if (!C.raf) frame(map);
   };
 
