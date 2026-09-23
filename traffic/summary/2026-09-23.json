@@ -9,32 +9,32 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 25,
+  "dispatch": 26,
   "dispatch_only": 23,
   "here": 0,
   "here_matched": 0,
-  "matched": 2,
-  "tomtom": 190,
-  "tomtom_only": 188
+  "matched": 3,
+  "tomtom": 207,
+  "tomtom_only": 204
  },
  "date": "2026-09-23",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 111.4,
+  "median": 111.8,
   "min": 89.7,
-  "n": 13,
-  "q1": 102.8,
-  "q3": 117.4
+  "n": 14,
+  "q1": 104.0,
+  "q3": 117.0
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 2,
-   "n": 6,
-   "pct": 33.3
+   "matched": 3,
+   "n": 7,
+   "pct": 42.9
   },
   "dispatch_surface": {
    "matched": 0,
@@ -42,13 +42,13 @@
    "pct": 0.0
   },
   "tomtom_highway": {
-   "matched": 2,
-   "n": 77,
-   "pct": 2.6
+   "matched": 3,
+   "n": 84,
+   "pct": 3.6
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 113,
+   "n": 123,
    "pct": 0.0
   }
  },
@@ -60,14 +60,19 @@
  },
  "onset_offset_min": {
   "max": 48.2,
-  "median": -4.8,
+  "median": 41.1,
   "min": -57.8,
-  "n": 2,
+  "n": 3,
   "q1": -57.8,
   "q3": 48.2
  },
  "persistence_min": {
-  "n": 0
+  "max": -31.1,
+  "median": -31.1,
+  "min": -31.1,
+  "n": 1,
+  "q1": -31.1,
+  "q3": -31.1
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -83,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 39,
-  "hotspot_buckets": 170,
-  "hotspot_buckets_on_roadworks": 38,
+  "explained_by_roadworks": 41,
+  "hotspot_buckets": 186,
+  "hotspot_buckets_on_roadworks": 41,
   "txdot_rows": 7,
-  "unreported_congestion": 177
+  "unreported_congestion": 193
  },
  "sampling": {
   "flow_spent_this_month": 765,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 88,
+  "incidents_spent_this_month": 89,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -146,6 +151,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
+  },
+  {
+   "from": "Barton Springs Rd",
+   "hour_of_week": 48,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.269,-97.770"
   },
   {
    "from": "Cypress Creek Rd",
@@ -202,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.293,-97.759"
-  },
-  {
-   "from": "Double Creek Dr (Gattis School Rd)",
-   "hour_of_week": 46,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.497,-97.617"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 92.0,
-  "tomtom": 98.9
+  "dispatch": 88.5,
+  "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 25,
+  "n": 26,
   "neither": 23,
-  "tomtom_only": 2
+  "tomtom_only": 3
  }
 }
