@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 100, q3 117 min over 89 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 100, q3 117 min over 90 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 104,
-  "dispatch_only": 77,
+  "dispatch": 105,
+  "dispatch_only": 78,
   "here": 0,
   "here_matched": 0,
   "matched": 34,
-  "tomtom": 2084,
-  "tomtom_only": 2047
+  "tomtom": 2131,
+  "tomtom_only": 2093
  },
  "date": "2026-09-24",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 112.5,
+  "median": 112.8,
   "min": 40.2,
-  "n": 89,
-  "q1": 99.9,
-  "q3": 117.3
+  "n": 90,
+  "q1": 100.0,
+  "q3": 117.4
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 12,
-   "n": 77,
-   "pct": 15.6
+   "n": 78,
+   "pct": 15.4
   },
   "tomtom_highway": {
-   "matched": 31,
-   "n": 1047,
-   "pct": 3.0
+   "matched": 33,
+   "n": 1076,
+   "pct": 3.1
   },
   "tomtom_surface": {
-   "matched": 6,
-   "n": 1037,
-   "pct": 0.6
+   "matched": 5,
+   "n": 1055,
+   "pct": 0.5
   }
  },
  "matcher": {
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 305,
-  "hotspot_buckets": 1862,
-  "hotspot_buckets_on_roadworks": 281,
+  "explained_by_roadworks": 316,
+  "hotspot_buckets": 1911,
+  "hotspot_buckets_on_roadworks": 292,
   "txdot_rows": 8,
-  "unreported_congestion": 2027
+  "unreported_congestion": 2073
  },
  "sampling": {
   "flow_spent_this_month": 1179,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 151,
+  "incidents_spent_this_month": 152,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -182,13 +182,6 @@
    "seg": "30.502,-97.682"
   },
   {
-   "from": "W Slaughter Ln (FM-1826)",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.194,-97.924"
-  },
-  {
    "from": "Westlake Dr (TX-360 Loop/N Capital of Texas Hwy)",
    "hour_of_week": 93,
    "n": 3,
@@ -210,22 +203,29 @@
    "seg": "30.281,-97.750"
   },
   {
-   "from": "W Martin Luther King Jr Blvd (Guadalupe St)",
+   "from": "W Riverside Dr (Barton Springs Rd)",
    "hour_of_week": 93,
    "n": 3,
    "roadworks": false,
-   "seg": "30.289,-97.742"
+   "seg": "30.259,-97.747"
+  },
+  {
+   "from": "Service Dr",
+   "hour_of_week": 71,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.508,-97.697"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 74.0,
+  "dispatch": 74.3,
   "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 104,
-  "neither": 77,
+  "n": 105,
+  "neither": 78,
   "tomtom_only": 27
  }
 }
