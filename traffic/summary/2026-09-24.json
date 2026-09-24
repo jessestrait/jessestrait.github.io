@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 52,
-  "dispatch_only": 40,
+  "dispatch_only": 39,
   "here": 0,
   "here_matched": 0,
-  "matched": 14,
-  "tomtom": 547,
-  "tomtom_only": 533
+  "matched": 16,
+  "tomtom": 595,
+  "tomtom_only": 579
  },
  "date": "2026-09-24",
  "dispatch_life_capped": true,
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 6,
+   "matched": 7,
    "n": 16,
-   "pct": 37.5
+   "pct": 43.8
   },
   "dispatch_surface": {
    "matched": 6,
@@ -42,13 +42,13 @@
    "pct": 16.7
   },
   "tomtom_highway": {
-   "matched": 12,
-   "n": 271,
-   "pct": 4.4
+   "matched": 14,
+   "n": 294,
+   "pct": 4.8
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 276,
+   "n": 301,
    "pct": 0.7
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 79.1,
-  "median": -2.5,
+  "median": 0.7,
   "min": -41.8,
-  "n": 14,
-  "q1": -19.9,
-  "q3": 53.9
+  "n": 16,
+  "q1": -17.6,
+  "q3": 50.1
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 109,
-  "hotspot_buckets": 503,
-  "hotspot_buckets_on_roadworks": 108,
+  "explained_by_roadworks": 112,
+  "hotspot_buckets": 547,
+  "hotspot_buckets_on_roadworks": 110,
   "txdot_rows": 8,
-  "unreported_congestion": 517
+  "unreported_congestion": 563
  },
  "sampling": {
   "flow_spent_this_month": 1044,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 127,
+  "incidents_spent_this_month": 128,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -154,11 +154,18 @@
    "seg": "30.518,-97.558"
   },
   {
-   "from": "San Antonio Riverwalk",
+   "from": "Immanuel Rd",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
-   "seg": "30.520,-97.559"
+   "seg": "30.425,-97.626"
+  },
+  {
+   "from": "McKinney Falls Pkwy (Burleson Rd)",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.201,-97.709"
   },
   {
    "from": "Palm Way",
@@ -208,24 +215,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.417,-97.848"
-  },
-  {
-   "from": "N TX-183 (Anderson Mill Rd)",
-   "hour_of_week": 69,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.454,-97.824"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.9,
-  "tomtom": 97.4
+  "dispatch": 75.0,
+  "tomtom": 97.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 52,
-  "neither": 40,
-  "tomtom_only": 12
+  "neither": 39,
+  "tomtom_only": 13
  }
 }
