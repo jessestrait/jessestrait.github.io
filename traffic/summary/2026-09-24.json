@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 99, q3 117 min over 84 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 100, q3 117 min over 85 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -14,18 +14,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 32,
-  "tomtom": 1544,
-  "tomtom_only": 1510
+  "tomtom": 1612,
+  "tomtom_only": 1577
  },
  "date": "2026-09-24",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 110.8,
+  "median": 111.1,
   "min": 40.2,
-  "n": 84,
-  "q1": 99.3,
-  "q3": 117.0
+  "n": 85,
+  "q1": 99.5,
+  "q3": 117.1
  },
  "here_onset_offset_min": {
   "n": 0
@@ -42,14 +42,14 @@
    "pct": 15.9
   },
   "tomtom_highway": {
-   "matched": 29,
-   "n": 777,
+   "matched": 30,
+   "n": 810,
    "pct": 3.7
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 767,
-   "pct": 0.7
+   "n": 802,
+   "pct": 0.6
   }
  },
  "matcher": {
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 238,
-  "hotspot_buckets": 1418,
-  "hotspot_buckets_on_roadworks": 233,
+  "explained_by_roadworks": 242,
+  "hotspot_buckets": 1479,
+  "hotspot_buckets_on_roadworks": 236,
   "txdot_rows": 8,
-  "unreported_congestion": 1490
+  "unreported_congestion": 1557
  },
  "sampling": {
-  "flow_spent_this_month": 1152,
+  "flow_spent_this_month": 1161,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 144,
+  "incidents_spent_this_month": 145,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
