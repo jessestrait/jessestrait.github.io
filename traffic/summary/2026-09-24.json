@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 51,
+  "dispatch": 52,
   "dispatch_only": 40,
   "here": 0,
   "here_matched": 0,
-  "matched": 13,
-  "tomtom": 500,
-  "tomtom_only": 487
+  "matched": 14,
+  "tomtom": 547,
+  "tomtom_only": 533
  },
  "date": "2026-09-24",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 37.5
   },
   "dispatch_surface": {
-   "matched": 5,
-   "n": 35,
-   "pct": 14.3
+   "matched": 6,
+   "n": 36,
+   "pct": 16.7
   },
   "tomtom_highway": {
-   "matched": 11,
-   "n": 250,
+   "matched": 12,
+   "n": 271,
    "pct": 4.4
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 250,
-   "pct": 0.8
+   "n": 276,
+   "pct": 0.7
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 79.1,
-  "median": -2.6,
+  "median": -2.5,
   "min": -41.8,
-  "n": 13,
-  "q1": -20.2,
-  "q3": 55.5
+  "n": 14,
+  "q1": -19.9,
+  "q3": 53.9
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 103,
-  "hotspot_buckets": 459,
-  "hotspot_buckets_on_roadworks": 103,
+  "explained_by_roadworks": 109,
+  "hotspot_buckets": 503,
+  "hotspot_buckets_on_roadworks": 108,
   "txdot_rows": 8,
-  "unreported_congestion": 471
+  "unreported_congestion": 517
  },
  "sampling": {
   "flow_spent_this_month": 1044,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 126,
+  "incidents_spent_this_month": 127,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Elroy Rd (TX-130)",
+   "hour_of_week": 83,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.180,-97.632"
+  },
   {
    "from": "Service Dr",
    "hour_of_week": 71,
@@ -133,25 +140,18 @@
    "seg": "30.257,-97.724"
   },
   {
-   "from": "Greensboro Dr",
+   "from": "Proud Panda Dr",
    "hour_of_week": 83,
    "n": 2,
    "roadworks": false,
-   "seg": "30.304,-97.662"
+   "seg": "30.162,-97.650"
   },
   {
-   "from": "exit [451]",
+   "from": "Liard River Rd",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
-   "seg": "30.160,-97.653"
-  },
-  {
-   "from": "Elroy Rd (TX-130)",
-   "hour_of_week": 83,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.180,-97.632"
+   "seg": "30.518,-97.558"
   },
   {
    "from": "San Antonio Riverwalk",
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.4,
+  "dispatch": 76.9,
   "tomtom": 97.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 51,
+  "n": 52,
   "neither": 40,
-  "tomtom_only": 11
+  "tomtom_only": 12
  }
 }
