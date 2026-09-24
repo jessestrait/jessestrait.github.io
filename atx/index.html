@@ -4196,6 +4196,29 @@ const GROUND = [
     load: g => loadCity(g)
   },
   {
+    /* Fifteen minutes from where you are standing, right now.
+
+       This is the only thing on the page that is about you rather than
+       about Austin, and the only one that answers a question the other
+       layers cannot: not "where is the traffic" but "what does the
+       traffic cost me". Two polygons come back — what you can reach in
+       a quarter of an hour in the traffic there actually is, and what
+       you could reach on empty roads — and the gap between them is the
+       congestion, in the only unit anyone cares about.
+
+       Metered, and the meter is small: TomTom's Reachable Range
+       allowance is 2,500 calls a month against 200,000 map tiles, and
+       this spends two of them per tap. That is why it is a button and
+       not something that follows you around, and why it is off by
+       default. At two per tap the allowance is about 1,250 uses a
+       month, which is far more than one person taps a button. */
+    id: 'reach', color: '#38bdf8', name: '15 minutes from here',
+    note: 'Tap the crosshair first — TomTom, 2 calls per tap',
+    group: 'places', on: false,
+    load: g => loadReach(g),
+    popup: () => ''
+  },
+  {
     /* Storm cells, and where each one is going.
 
        The radar layer already shows where rain *is*. This is the other
@@ -4426,6 +4449,101 @@ function stormAhead(lat, lng, bearingDeg, knots, minutes) {
   const b = bearingDeg * Math.PI / 180;
   return [lat + (km * Math.cos(b)) / 111.32,
           lng + (km * Math.sin(b)) / (111.32 * Math.cos(lat * Math.PI / 180))];
+}
+
+/* ── Fifteen minutes from here ────────────────────────────────────────
+   See the layer entry for why this is a button and not a live thing.
+
+   Two calls, deliberately: `traffic=true` is what the roads are doing,
+   `traffic=false` is the same fifteen minutes on empty ones. One on its
+   own is just a blob; the pair is the measurement. */
+const REACH = { busy: false, sec: 900 };
+
+function ringAreaKm2(pts) {
+  // Shoelace, with longitude squeezed by the latitude so the answer is
+  // in real area rather than in degrees.
+  if (!pts || pts.length < 3) return 0;
+  const lat0 = pts[0][0] * Math.PI / 180;
+  const kx = 111.320 * Math.cos(lat0), ky = 110.574;
+  let a = 0;
+  for (let i = 0, j = pts.length - 1; i < pts.length; j = i++) {
+    a += (pts[j][1] * kx) * (pts[i][0] * ky) - (pts[i][1] * kx) * (pts[j][0] * ky);
+  }
+  return Math.abs(a / 2);
+}
+
+async function reachRing(lat, lng, withTraffic) {
+  const url = TT_API + '/routing/1/calculateReachableRange/'
+    + lat.toFixed(5) + ',' + lng.toFixed(5) + '/json'
+    + '?key=' + encodeURIComponent(TOMTOM_KEY)
+    + '&timeBudgetInSec=' + REACH.sec
+    + '&travelMode=car'
+    + '&traffic=' + (withTraffic ? 'true' : 'false');
+  const d = await ttGet(url);
+  const b = ((d || {}).reachableRange || {}).boundary || [];
+  return b.map(p => [p.latitude, p.longitude]);
+}
+
+async function loadReach(g) {
+  const badge = document.getElementById('ct-g-' + g.id);
+  if (REACH.busy) return;
+
+  if (!ME.pos) {
+    if (badge) badge.textContent = '—';
+    setNote(g, 'Tap the crosshair so the page knows where you are');
+    return;
+  }
+  if (ttKeyMissing()) {
+    if (badge) badge.textContent = '—';
+    setNote(g, 'No TomTom key on this build', true);
+    return;
+  }
+
+  REACH.busy = true;
+  setNote(g, 'Asking TomTom how far you can get…');
+  try {
+    const { lat, lng } = ME.pos;
+    const [now, free] = await Promise.all([reachRing(lat, lng, true),
+                                           reachRing(lat, lng, false)]);
+    if (!now.length) throw new Error('empty range');
+
+    const grp = L.layerGroup([], { pane: 'groundPane' });
+    // Free-flow first and underneath, as the outline of what you are
+    // missing; the real one on top, filled.
+    if (free.length) {
+      L.polygon(free, { pane: 'groundPane', color: '#38bdf8', weight: 1,
+                        opacity: 0.55, dashArray: '4 4', fill: false,
+                        interactive: false }).addTo(grp);
+    }
+    const aNow = ringAreaKm2(now), aFree = ringAreaKm2(free);
+    const lost = aFree > 0 ? Math.max(0, 1 - aNow / aFree) : 0;
+    L.polygon(now, {
+      pane: 'groundPane', color: '#38bdf8', weight: 1.6, opacity: 0.9,
+      fillColor: '#38bdf8', fillOpacity: 0.12
+    }).bindPopup(pop('#38bdf8', 'Fifteen minutes', 'From where you are',
+      'TomTom, just now', [
+        ['Reachable now', Math.round(aNow).toLocaleString() + ' km²'],
+        ['On empty roads', aFree ? Math.round(aFree).toLocaleString() + ' km²' : null],
+        ['Lost to traffic', aFree ? Math.round(lost * 100) + '%' : null]
+      ],
+      '<p style="margin-top:.5rem;color:var(--muted);font-size:.72rem">'
+      + 'Driving, from your own position. The dashed outline is the same '
+      + 'quarter of an hour with no traffic at all — the gap between '
+      + 'them is what the roads are costing you right now.</p>'),
+      { maxWidth: 300 }).addTo(grp);
+
+    adoptGround(g, grp).addTo(map);
+    if (badge) badge.textContent = Math.round(aNow).toLocaleString();
+    setNote(g, aFree
+      ? Math.round(aNow).toLocaleString() + ' km² now · '
+        + Math.round(lost * 100) + '% less than on empty roads'
+      : Math.round(aNow).toLocaleString() + ' km² reachable');
+  } catch (e) {
+    if (badge) badge.textContent = 'err';
+    setNote(g, ttWhy(e) || 'TomTom did not answer', true);
+  } finally {
+    REACH.busy = false;
+  }
 }
 
 async function loadStorms(g) {
@@ -6621,6 +6739,12 @@ async function onFix(pos) {
   ME.pos = { lat, lng, accuracy };
   // The 3D layer puts a little more traffic on your own streets.
   if (window.CITY3D && CITY3D.setHere) CITY3D.setHere(map, lat, lng);
+  /* The reachable-range layer cannot draw anything until there is a
+     position, so it asks for one and waits here rather than failing. It
+     is metered, so only on the first fix — not on every GPS update. */
+  if (first && byGround.reach && byGround.reach.on && !groundLayers.reach) {
+    loadReach(byGround.reach);
+  }
   ME.busy = false;
   ME.btn.classList.remove('busy');
   ME.btn.classList.add('on');

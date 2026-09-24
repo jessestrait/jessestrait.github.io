@@ -74,20 +74,49 @@ const FEEDS = {
      drops it. 40 nautical miles covers the approach and departure corridors
      either side of AUS as well as the county.
 
-     Two upstreams, tried in order, because the obvious one does not want
-     this traffic: adsb.fi answers a laptop happily and returns 403 to
-     Cloudflare, which is a deliberate block on datacenter addresses rather
-     than a fault, and rate-limits hard besides (429 on a second call seconds
-     later). adsb.lol serves the same readsb payload and does not object. The
-     fallback is kept so a bad day at one does not take the layer down —
-     note the response shapes differ, `ac` here against `aircraft` there. */
+     CURRENTLY DEAD, AND NOT BECAUSE OF A BUG HERE. Every free ADS-B
+     source refuses a Cloudflare Worker while answering a laptop on the
+     same second. Measured 2026-09-24, repeatedly:
+
+       api.airplanes.live      403
+       api.adsb.lol            429   (three times, six seconds apart)
+       opendata.adsb.fi        403
+       opensky-network.org     522   (Cloudflare cannot even connect;
+                                      the same URL answers a laptop in
+                                      0.63 s with 11 aircraft over Austin)
+
+     These are deliberate blocks on datacenter address space, which is
+     exactly what these feeds exist to prevent, so there is no header or
+     retry that fixes it. All four are kept in the chain because the
+     block is a policy and policies change, and because a chain of four
+     costs nothing while it fails fast.
+
+     The route that would actually work is the one the traffic archive
+     already uses: a scheduled GitHub Action polling from a different
+     address range and committing to the `data` branch, with the page
+     reading the file. Not built — positions six minutes old are worth
+     much less than live ones, and it is worth checking first whether
+     Actions runners are blocked too.
+
+     If it ever does answer: three payload shapes — `ac`, `aircraft`,
+     and OpenSky's positional `states` arrays — so a reader has to
+     sniff. That is the price of the relay staying a relay: it passes
+     bytes through and never reshapes, which is what keeps it working
+     when an upstream changes its mind. */
   aircraft: {
     urls: [
+      'https://api.airplanes.live/v2/point/30.27/-97.74/40',
       'https://api.adsb.lol/v2/lat/30.27/lon/-97.74/dist/40',
       'https://opendata.adsb.fi/api/v2/lat/30.27/lon/-97.74/dist/40',
+      'https://opensky-network.org/api/states/all'
+        + '?lamin=29.95&lomin=-98.20&lamax=30.60&lomax=-97.30',
     ],
     type: 'application/json; charset=utf-8',
-    ttl: 10,
+    // Raised from 10s with OpenSky in the chain: 400 credits a day is
+    // about one call every three and a half minutes if it were the only
+    // source, and the workers.dev Cache API is a no-op, so this header is
+    // the only thing between the page and the budget.
+    ttl: 45,
   },
   // FAA national airspace status. XML, no CORS. Almost always says nothing
   // about Austin, which is the point — it is an exception feed.
