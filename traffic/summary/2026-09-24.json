@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch record lifetimes look like real clearances this day, not a cap.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 93, q3 111 min over 21 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -14,18 +14,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 5,
-  "tomtom": 290,
-  "tomtom_only": 285
+  "tomtom": 315,
+  "tomtom_only": 310
  },
  "date": "2026-09-24",
- "dispatch_life_capped": false,
+ "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 118.2,
-  "median": 98.6,
+  "median": 101.7,
   "min": 79.0,
-  "n": 16,
-  "q1": 88.9,
-  "q3": 112.5
+  "n": 21,
+  "q1": 92.9,
+  "q3": 110.9
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 132,
-   "pct": 3.0
+   "n": 146,
+   "pct": 2.7
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 158,
+   "n": 169,
    "pct": 0.6
   }
  },
@@ -67,7 +67,13 @@
   "q3": 68.9
  },
  "persistence_min": {
-  "n": 0
+  "max": 0.0,
+  "median": 0.0,
+  "min": -41.3,
+  "n": 5,
+  "q1": -20.6,
+  "q3": 0.0,
+  "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -83,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 56,
-  "hotspot_buckets": 264,
-  "hotspot_buckets_on_roadworks": 56,
+  "explained_by_roadworks": 64,
+  "hotspot_buckets": 286,
+  "hotspot_buckets_on_roadworks": 64,
   "txdot_rows": 6,
-  "unreported_congestion": 271
+  "unreported_congestion": 294
  },
  "sampling": {
   "flow_spent_this_month": 954,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 111,
+  "incidents_spent_this_month": 112,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -155,6 +161,13 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "Chicon St (E Cesar Chavez St/E 1st St)",
+   "hour_of_week": 72,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.257,-97.724"
+  },
+  {
    "from": "Cypress Creek Rd",
    "hour_of_week": 71,
    "n": 1,
@@ -202,18 +215,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.454,-97.797"
-  },
-  {
-   "from": "Deepwood Dr",
-   "hour_of_week": 71,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.508,-97.699"
   }
  ],
  "unmatched_pct": {
   "dispatch": 76.2,
-  "tomtom": 98.3
+  "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
