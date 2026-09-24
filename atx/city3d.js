@@ -162,6 +162,7 @@
     on: false, pm: null, tiles: new Map(), busy: new Set(), proj: new Map(), roadCache: new Map(), roadTotal: 0, roadPx: 0, jamLift: 1, traffic: null,
     quality: 1, drawMs: 0, blackouts: [], boZoom: null, here: null,
     water: [], waterCache: new Map(), drops: [], gauges: null, waterLen: 0,
+    alarms: [], t0: performance.now(),
     buildings: null, roads: null, cars: [], raf: null, last: 0,
     canvas: null, ctx: null, carCanvas: null, carCtx: null,
     lift: 0.55,          // how hard the city leans. 0 is a plan, 1 is a lot.
@@ -1410,6 +1411,41 @@
       rects.push(x - r - 1, y - r - 1, r * 2 + 2, r * 2 + 2);
     }
 
+    /* Emergency lights, where AFD is actually working.
+
+       The dispatch feed marks a call ACTIVE while crews are on it, and
+       those are real addresses with real times. What is *not* known is
+       the route an engine took to get there, so nothing here pretends
+       to drive one: inventing a path through streets, at a speed, to a
+       fire that is already burning would be making up the most
+       specific-looking part of the picture. What is drawn instead is
+       the thing anyone standing on that block would actually see —
+       red and blue washing over the buildings.
+
+       Two lights out of phase at about 1.4 Hz, which is roughly what a
+       light bar does. */
+    const alarms = C.alarms;
+    if (alarms.length) {
+      const ms = (performance.now() - C.t0) / 1000;
+      for (const a of alarms) {
+        const p = map.latLngToLayerPoint([a.lat, a.lng]);
+        const x = p.x - origin.x, y = p.y - origin.y;
+        const R = map.getZoom() >= 17 ? 46 : map.getZoom() >= 16 ? 30 : 20;
+        if (x < -R || y < -R || x > w + R || y > h + R) continue;
+        const ph = Math.sin((ms * 1.4 + a.off) * Math.PI * 2);
+        const red = ph > 0;
+        const amp = Math.abs(ph);
+        if (amp < 0.08) continue;
+        const g = ctx.createRadialGradient(x, y, 0, x, y, R);
+        g.addColorStop(0, red ? 'rgba(255,70,60,' + (0.42 * amp).toFixed(3) + ')'
+                              : 'rgba(80,140,255,' + (0.42 * amp).toFixed(3) + ')');
+        g.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = g;
+        ctx.fillRect(x - R, y - R, R * 2, R * 2);
+        rects.push(x - R - 1, y - R - 1, R * 2 + 2, R * 2 + 2);
+      }
+    }
+
     /* The water, on the same canvas and in the same frame, so it shares
        one clear and one dirty-rect list with the cars. */
     const wantDrops = Math.max(0, Math.min(260,
@@ -1548,6 +1584,15 @@
      say. Used only to weight detail toward them; never sent anywhere. */
   /* USGS discharge, handed over by the creek-gauge layer so the page
      does not ask twice. `cfs` is cubic feet per second. */
+  /* Calls AFD is on right now, from the dispatch layer the page
+     already polls. `off` spreads the flashes so a row of them does not
+     strobe in unison. */
+  C.setAlarms = function (map, list) {
+    C.alarms = (list || []).filter(a => a && isFinite(a.lat) && isFinite(a.lng))
+      .slice(0, 40)
+      .map((a, i) => ({ lat: a.lat, lng: a.lng, off: (i * 0.37) % 1 }));
+  };
+
   C.setFlow = function (map, gauges) {
     C.gauges = (gauges || []).filter(g => g && isFinite(g.cfs) && isFinite(g.lat));
     for (const [, lines] of C.waterCache) for (const l of lines) l.cfs = undefined;
@@ -1597,6 +1642,8 @@
     }
     const inc = C.traffic && C.traffic.incidents;
     if (inc) bits.push(inc + ' live incidents on the network');
+    if (C.alarms.length) bits.push(C.alarms.length + ' call'
+      + (C.alarms.length === 1 ? '' : 's') + ' AFD is on right now');
     if (C.blackouts.length) {
       const worst = Math.round(100 * Math.max.apply(null, C.blackouts.map(b => b.pct)));
       bits.push('lights out in ' + C.blackouts.length + ' ZIP'

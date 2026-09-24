@@ -1455,7 +1455,7 @@ const LAYERS = [
         '$where': "published_date > '" + sinceISO(days) + "' AND latitude IS NOT NULL",
         '$order': 'published_date DESC', '$limit': 5000
       });
-      return rows.map(r => {
+      const out = rows.map(r => {
         const live = r.traffic_report_status === 'ACTIVE';
         const t = r.published_date ? new Date(r.published_date) : null;
         const cat = titleCase(fireIssue(r.issue_reported));
@@ -1469,6 +1469,14 @@ const LAYERS = [
           ])
         };
       });
+      /* The 3D layer washes red and blue over the blocks AFD is working
+         on. Only the ACTIVE ones — an archived call from this morning
+         is not a scene with lights on it. */
+      if (window.CITY3D && CITY3D.setAlarms) {
+        CITY3D.setAlarms(map, out.filter(f => f.live)
+          .map(f => ({ lat: f.lat, lng: f.lng })));
+      }
+      return out;
     }
   },
   {
