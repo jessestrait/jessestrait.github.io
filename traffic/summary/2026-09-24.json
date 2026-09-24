@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 100, q3 117 min over 87 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 100, q3 117 min over 88 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 101,
-  "dispatch_only": 75,
+  "dispatch": 102,
+  "dispatch_only": 76,
   "here": 0,
   "here_matched": 0,
   "matched": 33,
-  "tomtom": 1801,
-  "tomtom_only": 1765
+  "tomtom": 1876,
+  "tomtom_only": 1840
  },
  "date": "2026-09-24",
  "dispatch_life_capped": true,
@@ -23,9 +23,9 @@
   "max": 120.0,
   "median": 112.5,
   "min": 40.2,
-  "n": 87,
-  "q1": 99.8,
-  "q3": 117.0
+  "n": 88,
+  "q1": 99.9,
+  "q3": 117.2
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 11,
-   "n": 74,
-   "pct": 14.9
+   "n": 75,
+   "pct": 14.7
   },
   "tomtom_highway": {
    "matched": 31,
-   "n": 904,
-   "pct": 3.4
+   "n": 942,
+   "pct": 3.3
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 897,
-   "pct": 0.6
+   "n": 934,
+   "pct": 0.5
   }
  },
  "matcher": {
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 272,
-  "hotspot_buckets": 1641,
-  "hotspot_buckets_on_roadworks": 261,
+  "explained_by_roadworks": 282,
+  "hotspot_buckets": 1699,
+  "hotspot_buckets_on_roadworks": 266,
   "txdot_rows": 8,
-  "unreported_congestion": 1745
+  "unreported_congestion": 1820
  },
  "sampling": {
   "flow_spent_this_month": 1170,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 147,
+  "incidents_spent_this_month": 148,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Metric Blvd",
+   "hour_of_week": 93,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.372,-97.724"
+  },
   {
    "from": "Elroy Rd (TX-130)",
    "hour_of_week": 83,
@@ -154,6 +161,20 @@
    "seg": "30.267,-97.755"
   },
   {
+   "from": "E Ben White Blvd",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.215,-97.699"
+  },
+  {
+   "from": "W Riverside Dr (Barton Springs Rd)",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.259,-97.747"
+  },
+  {
    "from": "Service Dr",
    "hour_of_week": 71,
    "n": 2,
@@ -194,38 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.518,-97.558"
-  },
-  {
-   "from": "Immanuel Rd",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.425,-97.626"
-  },
-  {
-   "from": "Manor Downs Rd / Hill Ln",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.349,-97.563"
-  },
-  {
-   "from": "FM-969 (FM-973)",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.205,-97.639"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 74.3,
-  "tomtom": 98.0
+  "dispatch": 74.5,
+  "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 101,
-  "neither": 75,
+  "n": 102,
+  "neither": 76,
   "tomtom_only": 26
  }
 }
