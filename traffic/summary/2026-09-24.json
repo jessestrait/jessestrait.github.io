@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 100, q3 117 min over 63 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 98, q3 117 min over 72 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 72,
-  "dispatch_only": 51,
+  "dispatch": 87,
+  "dispatch_only": 65,
   "here": 0,
   "here_matched": 0,
-  "matched": 28,
-  "tomtom": 1106,
-  "tomtom_only": 1078
+  "matched": 29,
+  "tomtom": 1157,
+  "tomtom_only": 1128
  },
  "date": "2026-09-24",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 112.5,
-  "min": 79.0,
-  "n": 63,
-  "q1": 99.8,
-  "q3": 116.9
+  "median": 109.1,
+  "min": 40.2,
+  "n": 72,
+  "q1": 98.5,
+  "q3": 116.6
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 12,
-   "n": 20,
-   "pct": 60.0
+   "n": 25,
+   "pct": 48.0
   },
   "dispatch_surface": {
-   "matched": 9,
-   "n": 52,
-   "pct": 17.3
+   "matched": 10,
+   "n": 62,
+   "pct": 16.1
   },
   "tomtom_highway": {
-   "matched": 24,
-   "n": 573,
+   "matched": 25,
+   "n": 599,
    "pct": 4.2
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 533,
-   "pct": 0.8
+   "n": 558,
+   "pct": 0.7
   }
  },
  "matcher": {
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 87.0,
-  "median": 0.4,
+  "median": 3.2,
   "min": -67.4,
-  "n": 28,
-  "q1": -19.1,
-  "q3": 38.9
+  "n": 29,
+  "q1": -18.6,
+  "q3": 34.1
  },
  "persistence_min": {
   "max": 134.9,
-  "median": -41.3,
-  "min": -123.8,
-  "n": 23,
-  "q1": -88.8,
+  "median": -31.0,
+  "min": -187.3,
+  "n": 28,
+  "q1": -87.5,
   "q3": 0.0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 175,
-  "hotspot_buckets": 1005,
-  "hotspot_buckets_on_roadworks": 171,
+  "explained_by_roadworks": 186,
+  "hotspot_buckets": 1053,
+  "hotspot_buckets_on_roadworks": 182,
   "txdot_rows": 8,
-  "unreported_congestion": 1061
+  "unreported_congestion": 1109
  },
  "sampling": {
-  "flow_spent_this_month": 1107,
+  "flow_spent_this_month": 1116,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 138,
+  "incidents_spent_this_month": 139,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -161,11 +161,11 @@
    "seg": "30.162,-97.650"
   },
   {
-   "from": "Avenida Mercado St / Steel Timber Dr",
-   "hour_of_week": 16,
+   "from": "Academy Dr",
+   "hour_of_week": 56,
    "n": 2,
    "roadworks": false,
-   "seg": "30.104,-97.813"
+   "seg": "30.251,-97.746"
   },
   {
    "from": "Liard River Rd",
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 70.8,
+  "dispatch": 74.7,
   "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 72,
-  "neither": 51,
-  "tomtom_only": 21
+  "n": 87,
+  "neither": 65,
+  "tomtom_only": 22
  }
 }
