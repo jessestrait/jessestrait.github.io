@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 100, q3 117 min over 92 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 100, q3 117 min over 93 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -14,16 +14,16 @@
   "here": 0,
   "here_matched": 0,
   "matched": 37,
-  "tomtom": 2479,
-  "tomtom_only": 2436
+  "tomtom": 2532,
+  "tomtom_only": 2489
  },
  "date": "2026-09-24",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 112.8,
+  "median": 113.1,
   "min": 40.2,
-  "n": 92,
+  "n": 93,
   "q1": 100.1,
   "q3": 117.3
  },
@@ -42,14 +42,14 @@
    "pct": 16.0
   },
   "tomtom_highway": {
-   "matched": 36,
-   "n": 1247,
+   "matched": 37,
+   "n": 1278,
    "pct": 2.9
   },
   "tomtom_surface": {
-   "matched": 7,
-   "n": 1232,
-   "pct": 0.6
+   "matched": 6,
+   "n": 1254,
+   "pct": 0.5
   }
  },
  "matcher": {
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 349,
-  "hotspot_buckets": 2220,
-  "hotspot_buckets_on_roadworks": 317,
+  "explained_by_roadworks": 359,
+  "hotspot_buckets": 2260,
+  "hotspot_buckets_on_roadworks": 322,
   "txdot_rows": 8,
-  "unreported_congestion": 2416
+  "unreported_congestion": 2469
  },
  "sampling": {
   "flow_spent_this_month": 1188,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 155,
+  "incidents_spent_this_month": 156,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -210,11 +210,11 @@
    "seg": "30.516,-97.655"
   },
   {
-   "from": "Service Dr",
-   "hour_of_week": 71,
-   "n": 2,
+   "from": "Christina Garza Dr",
+   "hour_of_week": 94,
+   "n": 3,
    "roadworks": false,
-   "seg": "30.508,-97.697"
+   "seg": "30.350,-97.556"
   }
  ],
  "unmatched_pct": {
