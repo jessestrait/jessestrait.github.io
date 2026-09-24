@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 96, q3 116 min over 44 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 97, q3 116 min over 46 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,47 +9,47 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 59,
-  "dispatch_only": 42,
+  "dispatch": 63,
+  "dispatch_only": 43,
   "here": 0,
   "here_matched": 0,
-  "matched": 23,
-  "tomtom": 889,
-  "tomtom_only": 867
+  "matched": 26,
+  "tomtom": 955,
+  "tomtom_only": 930
  },
  "date": "2026-09-24",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 105.4,
+  "median": 108.1,
   "min": 79.0,
-  "n": 44,
-  "q1": 96.0,
-  "q3": 115.6
+  "n": 46,
+  "q1": 97.1,
+  "q3": 115.5
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 10,
-   "n": 18,
-   "pct": 55.6
+   "matched": 11,
+   "n": 19,
+   "pct": 57.9
   },
   "dispatch_surface": {
-   "matched": 7,
-   "n": 41,
-   "pct": 17.1
+   "matched": 9,
+   "n": 44,
+   "pct": 20.5
   },
   "tomtom_highway": {
-   "matched": 20,
-   "n": 455,
-   "pct": 4.4
+   "matched": 21,
+   "n": 493,
+   "pct": 4.3
   },
   "tomtom_surface": {
-   "matched": 2,
-   "n": 434,
-   "pct": 0.5
+   "matched": 4,
+   "n": 462,
+   "pct": 0.9
   }
  },
  "matcher": {
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 87.0,
-  "median": 3.9,
+  "median": 3.5,
   "min": -67.4,
-  "n": 23,
-  "q1": -19.6,
-  "q3": 52.3
+  "n": 26,
+  "q1": -18.0,
+  "q3": 45.8
  },
  "persistence_min": {
-  "max": 0.0,
-  "median": -41.3,
+  "max": 134.9,
+  "median": -33.5,
   "min": -123.8,
-  "n": 11,
-  "q1": -93.2,
+  "n": 12,
+  "q1": -93.0,
   "q3": 0.0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 144,
-  "hotspot_buckets": 810,
-  "hotspot_buckets_on_roadworks": 138,
+  "explained_by_roadworks": 149,
+  "hotspot_buckets": 874,
+  "hotspot_buckets_on_roadworks": 143,
   "txdot_rows": 8,
-  "unreported_congestion": 851
+  "unreported_congestion": 914
  },
  "sampling": {
-  "flow_spent_this_month": 1053,
+  "flow_spent_this_month": 1062,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 132,
+  "incidents_spent_this_month": 133,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -175,11 +175,11 @@
    "seg": "30.349,-97.563"
   },
   {
-   "from": "Tur Weg Ln",
+   "from": "FM-969 (FM-973)",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
-   "seg": "30.348,-97.562"
+   "seg": "30.205,-97.639"
   },
   {
    "from": "Dove Haven Dr",
@@ -210,22 +210,22 @@
    "seg": "30.320,-97.660"
   },
   {
-   "from": "Turnersville Rd",
+   "from": "Goodnight Ranch Blvd",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
-   "seg": "30.102,-97.811"
+   "seg": "30.152,-97.764"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 71.2,
-  "tomtom": 97.5
+  "dispatch": 68.3,
+  "tomtom": 97.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 59,
-  "neither": 42,
-  "tomtom_only": 17
+  "n": 63,
+  "neither": 43,
+  "tomtom_only": 20
  }
 }
