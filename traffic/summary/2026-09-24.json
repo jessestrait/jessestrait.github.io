@@ -1,0 +1,225 @@
+{
+ "caveats": [
+  "Dispatch published_date is when APD published, not when it happened.",
+  "Dispatch record lifetimes look like real clearances this day, not a cap.",
+  "Clearance resolution equals the poll interval; shorter incidents are invisible.",
+  "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
+  "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
+  "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
+  "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
+ ],
+ "counts": {
+  "dispatch": 21,
+  "dispatch_only": 16,
+  "here": 0,
+  "here_matched": 0,
+  "matched": 5,
+  "tomtom": 290,
+  "tomtom_only": 285
+ },
+ "date": "2026-09-24",
+ "dispatch_life_capped": false,
+ "dispatch_record_life_min": {
+  "max": 118.2,
+  "median": 98.6,
+  "min": 79.0,
+  "n": 16,
+  "q1": 88.9,
+  "q3": 112.5
+ },
+ "here_onset_offset_min": {
+  "n": 0
+ },
+ "match_rate": {
+  "dispatch_highway": {
+   "matched": 3,
+   "n": 5,
+   "pct": 60.0
+  },
+  "dispatch_surface": {
+   "matched": 2,
+   "n": 16,
+   "pct": 12.5
+  },
+  "tomtom_highway": {
+   "matched": 4,
+   "n": 132,
+   "pct": 3.0
+  },
+  "tomtom_surface": {
+   "matched": 1,
+   "n": 158,
+   "pct": 0.6
+  }
+ },
+ "matcher": {
+  "buffer_m": 200.0,
+  "highway_buffer_m": 130.0,
+  "onset_window_min": 90.0,
+  "tolerance_min": 20.0
+ },
+ "onset_offset_min": {
+  "max": 79.1,
+  "median": 52.3,
+  "min": -41.8,
+  "n": 5,
+  "q1": 0.9,
+  "q3": 68.9
+ },
+ "persistence_min": {
+  "n": 0
+ },
+ "poll_interval_min": 5.0,
+ "probe_agreement": {
+  "cover": {
+   "n": 0
+  },
+  "n": 0,
+  "onset_offset_min": {
+   "n": 0
+  },
+  "pct_of_here": 0.0,
+  "pct_of_tomtom": 0.0,
+  "type_agree": 0
+ },
+ "roadworks": {
+  "explained_by_roadworks": 56,
+  "hotspot_buckets": 264,
+  "hotspot_buckets_on_roadworks": 56,
+  "txdot_rows": 6,
+  "unreported_congestion": 271
+ },
+ "sampling": {
+  "flow_spent_this_month": 954,
+  "incident_budget": 2500,
+  "incidents_spent_this_month": 111,
+  "off_peak_min": 45,
+  "rush_hours_local": [
+   7,
+   8,
+   16,
+   17,
+   18
+  ],
+  "rush_min": 5,
+  "this_poll": "off-peak"
+ },
+ "structural_hotspots": [
+  {
+   "from": "Service Dr",
+   "hour_of_week": 71,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.508,-97.697"
+  },
+  {
+   "from": "State Highway 130",
+   "hour_of_week": 71,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.418,-97.576"
+  },
+  {
+   "from": "Palm Way",
+   "hour_of_week": 63,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.404,-97.722"
+  },
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Lexington Meadow Ln",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.179,-97.616"
+  },
+  {
+   "from": "Cypress Creek Rd",
+   "hour_of_week": 71,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.474,-97.843"
+  },
+  {
+   "from": "Wilson Parke Ave",
+   "hour_of_week": 71,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.417,-97.848"
+  },
+  {
+   "from": "N TX-183 (Anderson Mill Rd)",
+   "hour_of_week": 69,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.454,-97.824"
+  },
+  {
+   "from": "FM-620 (W Parmer Ln/FM-734)",
+   "hour_of_week": 71,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.496,-97.775"
+  },
+  {
+   "from": "Millwright Pkwy",
+   "hour_of_week": 71,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.450,-97.798"
+  },
+  {
+   "from": "Timbercrest Ln",
+   "hour_of_week": 71,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.451,-97.803"
+  },
+  {
+   "from": "Woodland Village Dr",
+   "hour_of_week": 71,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.454,-97.797"
+  },
+  {
+   "from": "Deepwood Dr",
+   "hour_of_week": 71,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.508,-97.699"
+  }
+ ],
+ "unmatched_pct": {
+  "dispatch": 76.2,
+  "tomtom": 98.3
+ },
+ "witnesses": {
+  "both": 0,
+  "here_only": 0,
+  "n": 21,
+  "neither": 16,
+  "tomtom_only": 5
+ }
+}
