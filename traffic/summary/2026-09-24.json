@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 9,
-  "tomtom": 354,
-  "tomtom_only": 345
+  "tomtom": 355,
+  "tomtom_only": 346
  },
  "date": "2026-09-24",
  "dispatch_life_capped": true,
@@ -48,7 +48,7 @@
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 187,
+   "n": 188,
    "pct": 1.1
   }
  },
@@ -93,12 +93,12 @@
   "hotspot_buckets": 323,
   "hotspot_buckets_on_roadworks": 83,
   "txdot_rows": 11,
-  "unreported_congestion": 330
+  "unreported_congestion": 331
  },
  "sampling": {
   "flow_spent_this_month": 999,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 118,
+  "incidents_spent_this_month": 119,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -138,6 +138,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
+  },
+  {
+   "from": "Chicon St (E Cesar Chavez St/E 1st St)",
+   "hour_of_week": 72,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.257,-97.724"
   },
   {
    "from": "E Oltorf St",
@@ -208,13 +215,6 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.454,-97.797"
-  },
-  {
-   "from": "Deepwood Dr",
-   "hour_of_week": 71,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.508,-97.699"
   }
  ],
  "unmatched_pct": {
