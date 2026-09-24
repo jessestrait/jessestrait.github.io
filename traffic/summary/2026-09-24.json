@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 98, q3 116 min over 37 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 97, q3 116 min over 38 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 39,
-  "dispatch_only": 30,
+  "dispatch": 42,
+  "dispatch_only": 33,
   "here": 0,
   "here_matched": 0,
   "matched": 10,
@@ -21,11 +21,11 @@
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 107.4,
+  "median": 105.4,
   "min": 79.0,
-  "n": 37,
-  "q1": 98.0,
-  "q3": 115.6
+  "n": 38,
+  "q1": 96.8,
+  "q3": 115.5
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,13 +33,13 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 5,
-   "n": 10,
-   "pct": 50.0
+   "n": 11,
+   "pct": 45.5
   },
   "dispatch_surface": {
    "matched": 4,
-   "n": 29,
-   "pct": 13.8
+   "n": 31,
+   "pct": 12.9
   },
   "tomtom_highway": {
    "matched": 8,
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.9,
+  "dispatch": 78.6,
   "tomtom": 97.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 39,
-  "neither": 30,
+  "n": 42,
+  "neither": 33,
   "tomtom_only": 9
  }
 }
