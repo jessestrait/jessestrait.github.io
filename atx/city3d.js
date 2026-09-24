@@ -160,6 +160,7 @@
 
   const CITY = {
     on: false, pm: null, tiles: new Map(), busy: new Set(), proj: new Map(), roadCache: new Map(), roadTotal: 0, roadPx: 0, jamLift: 1, traffic: null,
+    quality: 1, drawMs: 0,
     buildings: null, roads: null, cars: [], raf: null, last: 0,
     canvas: null, ctx: null, carCanvas: null, carCtx: null,
     lift: 0.55,          // how hard the city leans. 0 is a plan, 1 is a lot.
@@ -271,13 +272,20 @@
      the edges from being blank while you drag into them. */
   const PAD = 0.25;
 
-  function sizeCanvas(map, cv) {
+  /* The car canvas is cleared and repainted sixty times a second, so
+     every pixel in it is paid for continuously rather than once per
+     settle. Giving it the buildings' 25% margin made it 2.25 times
+     larger than the window for no benefit at all — a car that leaves
+     the screen is recycled, so nothing is ever drawn in the margin. */
+  function sizeCanvas(map, cv, pad) {
     const s = map.getSize(), dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const padPx = L.point(s.x * PAD, s.y * PAD).round();
+    const f = pad == null ? PAD : pad;
+    const padPx = L.point(s.x * f, s.y * f).round();
     const w = s.x + padPx.x * 2, h = s.y + padPx.y * 2;
     if (cv.width !== w * dpr || cv.height !== h * dpr) {
       cv.width = w * dpr; cv.height = h * dpr;
       cv.style.width = w + 'px'; cv.style.height = h + 'px';
+      C.carWipe = true;
     }
     const origin = map.containerPointToLayerPoint(padPx.multiplyBy(-1));
     L.DomUtil.setPosition(cv, origin);
@@ -362,13 +370,36 @@
         out.push(b);
       }
     }
-    const oy = by0 + (by1 - by0) / 2;
-    out.sort((p, q) => (Math.abs(p.cy - oy) - Math.abs(q.cy - oy)) || (p.cy - q.cy));
-    if (out.length > 4000) {
-      out.sort((p, q) => q.h - p.h);
-      out.length = 4000;
-      out.sort((p, q) => (Math.abs(p.cy - oy) - Math.abs(q.cy - oy)) || (p.cy - q.cy));
+    /* How many is worth drawing.
+
+       Zoom 15 is the widest 3D view and by far the heaviest — four
+       thousand buildings, each two or three pixels tall. Zoom 18 shows
+       a couple of hundred, each the size of a thumbnail. A flat cap
+       spends the whole budget at exactly the zoom where the detail is
+       least visible, so the cap follows the zoom, and CAP is lowered
+       further by the adaptive guard when a machine cannot keep up. */
+    const z = map.getZoom();
+    const lim = Math.round((z <= 15 ? 2200 : z === 16 ? 3200 : 4000) * C.quality);
+    if (out.length > lim) {
+      out.sort((p, q) => q.h - p.h);      // keep the ones you can see
+      out.length = lim;
     }
+
+    /* Batch order is spatial, not front-to-back.
+
+       Every ctx.fill() rasterises its path's bounding box, and a batch
+       of forty-eight buildings scattered across the view has a bounding
+       box the size of the whole canvas — 2700 x 1800 device pixels of
+       it, three hundred times per draw. Sorting into horizontal bands
+       first makes each batch a small neighbourhood, so each fill covers
+       a small box: 30.3 ms to 15.9 ms for the walls at zoom 15, on a
+       fast machine, and the gap is wider the slower the rasteriser.
+
+       Depth order is given up to get it, which is affordable here
+       because the short buildings are batched into flat passes anyway
+       and at three pixels tall almost none of them overlap. The towers
+       still draw individually, in depth order, afterwards. */
+    out.sort((p, q) => (Math.floor(p.cy / 96) - Math.floor(q.cy / 96)) || (p.cx - q.cx));
     return out;
   }
 
@@ -402,8 +433,24 @@
      rest are behind the roof. Culling them halves the quads and also
      fixes a real artefact — a back wall drawn after the roof of the
      building in front of it showed through as a dark smear. */
+  /* The machine gets a vote.
+
+     This runs on an iPhone 16 and on an Intel MacBook whose fans come
+     on, and those are an order of magnitude apart. Rather than pick a
+     budget for the slowest one, measure the draw and adjust: a draw
+     over 60 ms lowers the detail, a run of draws under 20 ms raises it
+     back, and it settles within a few settles either way. Nothing here
+     is per-frame, so the measurement is cheap and the adjustment is
+     never visible as a jump. */
+  function adapt(ms) {
+    C.drawMs = C.drawMs ? C.drawMs * 0.7 + ms * 0.3 : ms;
+    if (C.drawMs > 60 && C.quality > 0.3) C.quality = Math.max(0.3, C.quality - 0.15);
+    else if (C.drawMs < 20 && C.quality < 1) C.quality = Math.min(1, C.quality + 0.1);
+  }
+
   function draw(map, resize) {
     if (!C.canvas) return;
+    const t0 = performance.now();
     const dpr = resize === false
       ? Math.min(window.devicePixelRatio || 1, 2)
       : sizeCanvas(map, C.canvas);
@@ -496,6 +543,7 @@
       ctx.strokeStyle = 'rgba(10,14,22,.55)'; ctx.lineWidth = 0.6; ctx.stroke();
     }
     ctx.restore();
+    adapt(performance.now() - t0);
   }
 
   global.CITY3D._draw = { ensurePanes, sizeCanvas, collect, draw };
@@ -784,6 +832,11 @@
      spawned somewhere you could not see. That is why moving the map left
      the streets empty. */
   function harvestRoads(map) {
+    /* One stamp for "the model's answers may have changed": the minute
+       of the clock, and which fetch of the incident file we are on. */
+    const st = C.clock || (C.clock = clockState());
+    C.readStamp = st.hour * 60 + st.min + ':'
+                + ((C.traffic && C.traffic.at) || 0);
     const out = [];
     let total = 0, plain = 0;
     for (const [tz, tx, ty] of H.visibleTiles(map)) {
@@ -823,11 +876,22 @@
         if (C.roadCache.size > 80) C.roadCache.delete(C.roadCache.keys().next().value);
       }
       for (const l of lines) {
-        /* The geometry is cached per tile; the reading never is. The
-           hour moves, and the incident file is refetched every five
-           minutes, so a road's speed is asked again on every settle. */
-        l.pct = trafficAt(l.lat, l.lng, l.kind);
-        l.load = hitLoad;
+        /* The geometry is cached per tile; the reading is cached for a
+           minute.
+
+           Asking the model afresh for every road on every settle cost
+           between 4 and 13 ms on a fast machine, which is a tax on
+           every pan for an answer that cannot have changed: the hour
+           moves by a minute at a time and the incident file is
+           refetched every five. `stamp` is bumped whenever either of
+           those actually changes, so a real change still lands on the
+           next settle rather than waiting out a timer. */
+        if (l.stamp !== C.readStamp) {
+          l.pct = trafficAt(l.lat, l.lng, l.kind);
+          l.load = hitLoad;
+          l.stamp = C.readStamp;
+        }
+        hitLoad = l.load;
         // Busier roads get more of the cars, and a jammed road gets more
         // still — traffic moving at a third of free-flow has about three
         // times as many vehicles on the same tarmac.
@@ -910,12 +974,34 @@
 
   function stepCars(map, dt) {
     if (!C.carCanvas) return;
-    const dpr = D.sizeCanvas(map, C.carCanvas);
+    const dpr = D.sizeCanvas(map, C.carCanvas, 0);
     const ctx = C.carCtx;
     const w = C.carCanvas.width / dpr, h = C.carCanvas.height / dpr;
     const origin = C.carCanvas._origin || L.point(0, 0);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.clearRect(0, 0, w, h);
+
+    /* Clear where the cars were, not the whole canvas.
+
+       This is the one piece of work that happens sixty times a second.
+       Clearing the full canvas meant wiping the entire window — some
+       five million device pixels on a Retina display — every frame,
+       whether anything had moved or not. Three hundred four-pixel
+       squares is about one ten-thousandth of that. On a machine with
+       integrated graphics the difference is the fans. */
+    /* The canvas moves with the map. Once it has, last frame's
+       rectangles point at the wrong places, so the whole thing goes. */
+    const ok = C.carOrigin && C.carOrigin.x === origin.x && C.carOrigin.y === origin.y;
+    C.carOrigin = origin;
+    const prev = C.carRects;
+    if (prev && prev.length && ok && !C.carWipe) {
+      for (let i = 0; i < prev.length; i += 4)
+        ctx.clearRect(prev[i], prev[i + 1], prev[i + 2], prev[i + 3]);
+    } else {
+      ctx.clearRect(0, 0, w, h);
+    }
+    C.carWipe = false;
+    const rects = [];
+    C.carRects = rects;
     if (!C.on || !C.carsOn || map.getZoom() < H.MIN_Z - 1) return;
 
     // Density follows the road network on screen rather than a flat
@@ -953,6 +1039,8 @@
       }
       ctx.fillStyle = c.c;
       ctx.fillRect(x - r, y - r, r * 2, r * 2);
+      // A pixel of slack each way so antialiasing leaves nothing behind.
+      rects.push(x - r - 1, y - r - 1, r * 2 + 2, r * 2 + 2);
     }
   }
 
