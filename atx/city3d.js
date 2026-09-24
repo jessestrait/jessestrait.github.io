@@ -403,6 +403,112 @@
     return out;
   }
 
+  /* ── Where the sun is ───────────────────────────────────────────────
+
+     Buildings already lean away from the centre of the screen, which is
+     what perspective does to a photograph taken from above. Shadows do
+     not do that — they all run the same way, set by the sun. A real
+     aerial photograph of a city shows both at once, so the two live
+     together here without fighting.
+
+     This is the standard low-precision solar position (the one SunCalc
+     uses): good to a fraction of a degree, which is far beyond what a
+     shadow a few pixels long can show. No data source, no network, no
+     API — the sun's position over Austin is arithmetic. */
+  const RAD = Math.PI / 180;
+
+  function sunPosition(date, lat, lng) {
+    const d = date.valueOf() / 86400000 - 0.5 + 2440588 - 2451545;
+    const M = RAD * (357.5291 + 0.98560028 * d);
+    const Ctr = RAD * (1.9148 * Math.sin(M) + 0.02 * Math.sin(2 * M)
+                     + 0.0003 * Math.sin(3 * M));
+    const L = M + Ctr + RAD * 102.9372 + Math.PI;
+    const e = RAD * 23.4397;
+    const dec = Math.asin(Math.sin(e) * Math.sin(L));
+    const ra = Math.atan2(Math.sin(L) * Math.cos(e), Math.cos(L));
+    const th = RAD * (280.16 + 360.9856235 * d) - RAD * -lng;
+    const H = th - ra, phi = RAD * lat;
+    const alt = Math.asin(Math.sin(phi) * Math.sin(dec)
+                        + Math.cos(phi) * Math.cos(dec) * Math.cos(H));
+    // Measured from due south, turning west; shifted to a compass bearing.
+    const az = Math.atan2(Math.sin(H),
+                          Math.cos(H) * Math.sin(phi) - Math.tan(dec) * Math.cos(phi))
+             + Math.PI;
+    return { alt: alt, az: az };
+  }
+
+  /* The palette follows the light.
+
+     Austin at seven in the morning is not Austin at noon and is not
+     Austin at ten at night, and a city that is the same colour at all
+     three reads as a diagram. Everything below is keyed off the sun's
+     altitude, so the change arrives at the right time on the right day
+     without a table of sunrise times. */
+  function skyState(map) {
+    const c = map ? map.getCenter() : { lat: 30.2672, lng: -97.7431 };
+    const s = sunPosition(new Date(), c.lat, c.lng);
+    const altDeg = s.alt / RAD;
+    /* -6° is civil twilight, the point where you would want headlights;
+       full daylight colour is not reached until the sun is properly up,
+       or the city snaps from night to noon within minutes of sunrise. */
+    const day = Math.max(0, Math.min(1, (altDeg + 6) / 20));
+    // Golden hour: low but up.
+    const gold = altDeg > -2 && altDeg < 14
+               ? 1 - Math.abs(altDeg - 6) / 8 : 0;
+    return {
+      alt: altDeg, az: s.az, day: day, gold: Math.max(0, gold),
+      up: altDeg > -0.5,
+      // Shadows stretch as the sun drops and are not drawn once it is
+      // near the horizon, where the length runs away to infinity and
+      // the whole screen turns into one smear.
+      shadow: altDeg > 3 ? Math.min(6, 1 / Math.tan(Math.max(s.alt, 3 * RAD))) : 0
+    };
+  }
+
+  /* Mix two hex colours. Cheap, and the inputs are constants. */
+  function mix(a, b, t) {
+    const pa = parseInt(a.slice(1), 16), pb = parseInt(b.slice(1), 16);
+    const r = Math.round((pa >> 16) * (1 - t) + (pb >> 16) * t);
+    const g = Math.round(((pa >> 8) & 255) * (1 - t) + ((pb >> 8) & 255) * t);
+    const bl = Math.round((pa & 255) * (1 - t) + (pb & 255) * t);
+    return 'rgb(' + r + ',' + g + ',' + bl + ')';
+  }
+
+  // Night, day and the half hour at either end of the day.
+  const NIGHT = { wallLit: '#2c3a58', wallDim: '#1b2438', roof: '#3b4e74', roofHi: '#53709f' };
+  const DAY   = { wallLit: '#8fa3c4', wallDim: '#5d6e8d', roof: '#aebdd6', roofHi: '#c8d5e8' };
+  const GOLD  = { wallLit: '#c99a6b', wallDim: '#6b5645', roof: '#e0b483', roofHi: '#f2d3a7' };
+
+  /* What fraction of a tower's windows are lit, by local hour. Offices
+     empty through the evening and a few floors never go dark. */
+  function lightsOn(t) {
+    const CURVE = [0.10, 0.07, 0.05, 0.05, 0.06, 0.12, 0.28, 0.45,
+                   0.55, 0.58, 0.58, 0.58, 0.58, 0.58, 0.58, 0.58,
+                   0.56, 0.52, 0.50, 0.46, 0.40, 0.32, 0.24, 0.16];
+    const i = Math.floor(t) % 24, f = t - Math.floor(t);
+    return CURVE[i] * (1 - f) + CURVE[(i + 1) % 24] * f;
+  }
+
+  function palette(sky) {
+    const p = {};
+    for (const k of ['wallLit', 'wallDim', 'roof', 'roofHi']) {
+      let c = mix(NIGHT[k], DAY[k], sky.day);
+      if (sky.gold > 0) c = mixRGB(c, GOLD[k], sky.gold * 0.55);
+      p[k] = c;
+    }
+    return p;
+  }
+
+  /* mix() takes hex; once a colour has been through it, it is rgb(). */
+  function mixRGB(a, b, t) {
+    const m = a.match(/\d+/g).map(Number);
+    const pb = parseInt(b.slice(1), 16);
+    const r = Math.round(m[0] * (1 - t) + (pb >> 16) * t);
+    const g = Math.round(m[1] * (1 - t) + ((pb >> 8) & 255) * t);
+    const bl = Math.round(m[2] * (1 - t) + (pb & 255) * t);
+    return 'rgb(' + r + ',' + g + ',' + bl + ')';
+  }
+
   const WALL_LIT = '#2c3a58', WALL_DIM = '#1b2438', ROOF = '#3b4e74', ROOF_HI = '#53709f';
 
   /* Why the path is flushed every few dozen shapes.
@@ -475,12 +581,41 @@
     const k = C.lift, hx = Math.max(w / 2, 1), hy = Math.max(h / 2, 1);
     const TALL = 26;
 
+    const sky = C.sky || (C.sky = skyState(map));
+    const P = palette(sky);
+    /* The sun sits at a compass bearing, so on screen it lies toward
+       (sin az, -cos az) — north being up. A shadow runs the other way. */
+    const shx = -Math.sin(sky.az) * sky.shadow;
+    const shy =  Math.cos(sky.az) * sky.shadow;
+
+    /* Shadows first, under everything.
+
+       One flat pass over the footprints, offset by the sun. They are
+       drawn as the footprint rather than as a proper swept silhouette
+       because at these lengths the difference is a pixel and the
+       silhouette costs a subpath per edge — the thing that made this
+       layer slow in the first place. */
+    if (sky.shadow > 0) {
+      ctx.fillStyle = 'rgba(8,12,20,' + (0.10 + 0.22 * sky.day).toFixed(3) + ')';
+      let sn = 0;
+      ctx.beginPath();
+      for (const bl of b) {
+        const dx = bl.h * shx, dy = bl.h * shy;
+        const p = bl.pts, m = p.length;
+        ctx.moveTo(p[0] + dx, p[1] + dy);
+        for (let i = 2; i < m; i += 2) ctx.lineTo(p[i] + dx, p[i + 1] + dy);
+        ctx.closePath();
+        if (++sn >= BATCH) { ctx.fill(); ctx.beginPath(); sn = 0; }
+      }
+      if (sn) ctx.fill();
+    }
+
     /* Pass one: the short buildings, which are most of them. Walls in
        one flushed run, then roofs in another, so the roofs all land on
        top of the walls without needing per-building ordering. At a
        median height of eight metres almost nothing overlaps anyway. */
     let n = 0;
-    ctx.fillStyle = WALL_DIM;
+    ctx.fillStyle = P.wallDim;
     ctx.beginPath();
     for (const bl of b) {
       if (bl.h >= TALL) continue;
@@ -502,7 +637,7 @@
     if (n) ctx.fill();
 
     n = 0;
-    ctx.fillStyle = ROOF;
+    ctx.fillStyle = P.roof;
     ctx.beginPath();
     for (const bl of b) {
       if (bl.h >= TALL) continue;
@@ -534,19 +669,68 @@
         ctx.lineTo(bx + dx, by + dy); ctx.lineTo(ax + dx, ay + dy);
         ctx.closePath();
       }
-      ctx.fillStyle = WALL_LIT; ctx.fill();
+      ctx.fillStyle = P.wallLit; ctx.fill();
       ctx.beginPath();
       ctx.moveTo(p[0] + dx, p[1] + dy);
       for (let i = 2; i < m; i += 2) ctx.lineTo(p[i] + dx, p[i + 1] + dy);
       ctx.closePath();
-      ctx.fillStyle = ROOF_HI; ctx.fill();
-      ctx.strokeStyle = 'rgba(10,14,22,.55)'; ctx.lineWidth = 0.6; ctx.stroke();
+      ctx.fillStyle = P.roofHi; ctx.fill();
+      ctx.strokeStyle = 'rgba(10,14,22,' + (0.55 - 0.3 * sky.day).toFixed(2) + ')';
+      ctx.lineWidth = 0.6; ctx.stroke();
+    }
+
+    /* Lit windows, after dark, on the towers only.
+
+       Downtown holds about a hundred buildings tall enough to count as
+       towers in a given view, and they are the ones whose walls are
+       big enough on screen to put windows on. Doing it for all 2,500
+       would cost thousands of subpaths for marks a pixel across.
+
+       Which windows are lit is decided by a hash of the building's
+       position, not by Math.random, so they stay lit between frames
+       instead of flickering. How many are lit follows the hour: most
+       of a tower is on at eight in the evening and little of it is at
+       four in the morning. */
+    if (sky.day < 0.5) {
+      const st = C.clock || (C._cars && C._cars.clockState()) || { t: 20 };
+      const occ = lightsOn(st.t) * (1 - sky.day * 2);
+      if (occ > 0.02) {
+        ctx.fillStyle = 'rgba(255,214,140,' + (0.75 * (1 - sky.day * 2)).toFixed(2) + ')';
+        let wn = 0;
+        ctx.beginPath();
+        for (const bl of b) {
+          if (bl.h < TALL) continue;
+          const dx = (bl.cx - ox) / hx * k * bl.h;
+          const dy = (bl.cy - oy) / hy * k * bl.h - bl.h;
+          const p = bl.pts, m = p.length;
+          let seed = (bl.cx * 73856093 ^ bl.cy * 19349663) >>> 0;
+          const rnd = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296);
+          for (let i = 0; i < m; i += 2) {
+            const j = (i + 2) % m;
+            const ax = p[i], ay = p[i + 1], bx = p[j], by = p[j + 1];
+            if ((bx - ax) * dy - (by - ay) * dx <= 0) continue;
+            const wide = Math.hypot(bx - ax, by - ay);
+            const cols = Math.min(6, Math.floor(wide / 5));
+            const rows = Math.min(9, Math.floor(bl.h / 7));
+            for (let cI = 0; cI < cols; cI++) for (let rI = 0; rI < rows; rI++) {
+              if (rnd() > occ) continue;
+              const u = (cI + 0.5) / cols, v = (rI + 0.5) / rows;
+              const px = ax + (bx - ax) * u + dx * v;
+              const py = ay + (by - ay) * u + dy * v;
+              ctx.rect(px - 0.7, py - 0.9, 1.4, 1.8);
+              if (++wn >= BATCH) { ctx.fill(); ctx.beginPath(); wn = 0; }
+            }
+          }
+        }
+        if (wn) ctx.fill();
+      }
     }
     ctx.restore();
     adapt(performance.now() - t0);
   }
 
-  global.CITY3D._draw = { ensurePanes, sizeCanvas, collect, draw };
+  global.CITY3D._draw = { ensurePanes, sizeCanvas, collect, draw,
+                          skyState, sunPosition, palette, lightsOn };
 })(window);
 
 /* ── Invented traffic ───────────────────────────────────────────────── */
@@ -1070,6 +1254,7 @@
     D.sizeCanvas(map, C.canvas);
     C.buildings = D.collect(map);
     C.clock = CAR.clockState();
+    C.sky = D.skyState(map);
     await CAR.loadTraffic();
     CAR.harvestRoads(map);
     D.draw(map, false);
