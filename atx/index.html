@@ -1209,7 +1209,19 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
      decodes the vector tiles and stands the buildings up. Both are inert
      until the layer is switched on. -->
 <script src="https://cdn.jsdelivr.net/npm/pmtiles@4.3.0/dist/pmtiles.js"></script>
-<script src="city3d.js"></script>
+<!-- Versioned deliberately.
+
+     GitHub Pages serves both this file and city3d.js with
+     cache-control: max-age=600, independently of each other. So a
+     reader who reloads can get today's HTML paired with a ten-minute-old
+     script — which is how a deploy can land, be confirmed on the server,
+     and still not be what the reader is running. Every call into CITY3D
+     from this page is already guarded against the function not existing,
+     so the mismatch fails quietly rather than loudly, which is worse: it
+     looks like the fix did not work.
+
+     Bump ?v= on any deploy that changes city3d.js. -->
+<script src="city3d.js?v=20260924"></script>
 <script>
 /* ══════════════════════════════════════════════════════════════════
    ATX Layers — no backend and no storage. Almost everything is a live
