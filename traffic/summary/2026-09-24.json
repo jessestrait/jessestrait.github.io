@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 33,
-  "tomtom": 1950,
-  "tomtom_only": 1914
+  "tomtom": 2018,
+  "tomtom_only": 1982
  },
  "date": "2026-09-24",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 31,
-   "n": 979,
-   "pct": 3.2
+   "n": 1013,
+   "pct": 3.1
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 971,
+   "n": 1005,
    "pct": 0.5
   }
  },
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 293,
-  "hotspot_buckets": 1751,
-  "hotspot_buckets_on_roadworks": 269,
+  "explained_by_roadworks": 296,
+  "hotspot_buckets": 1808,
+  "hotspot_buckets_on_roadworks": 272,
   "txdot_rows": 8,
-  "unreported_congestion": 1894
+  "unreported_congestion": 1962
  },
  "sampling": {
   "flow_spent_this_month": 1170,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 149,
+  "incidents_spent_this_month": 150,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -175,11 +175,18 @@
    "seg": "30.215,-97.699"
   },
   {
-   "from": "W Slaughter Ln (FM-1826)",
+   "from": "S Interstate 35",
    "hour_of_week": 93,
    "n": 3,
    "roadworks": false,
-   "seg": "30.194,-97.924"
+   "seg": "30.502,-97.682"
+  },
+  {
+   "from": "Westlake Dr (TX-360 Loop/N Capital of Texas Hwy)",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.290,-97.828"
   },
   {
    "from": "Mopac Expy S",
@@ -187,6 +194,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.301,-97.759"
+  },
+  {
+   "from": "W 15th St",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.281,-97.750"
   },
   {
    "from": "W Riverside Dr (Barton Springs Rd)",
@@ -201,20 +215,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.508,-97.697"
-  },
-  {
-   "from": "State Highway 130",
-   "hour_of_week": 71,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.418,-97.576"
-  },
-  {
-   "from": "N Pleasant Valley Rd (E Cesar Chavez St/E 1st St)",
-   "hour_of_week": 72,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.257,-97.724"
   }
  ],
  "unmatched_pct": {
