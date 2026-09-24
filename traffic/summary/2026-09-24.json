@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 64,
-  "dispatch_only": 44,
+  "dispatch": 66,
+  "dispatch_only": 45,
   "here": 0,
   "here_matched": 0,
-  "matched": 26,
-  "tomtom": 977,
-  "tomtom_only": 952
+  "matched": 27,
+  "tomtom": 1005,
+  "tomtom_only": 978
  },
  "date": "2026-09-24",
  "dispatch_life_capped": true,
@@ -32,23 +32,23 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 11,
-   "n": 19,
-   "pct": 57.9
+   "matched": 12,
+   "n": 20,
+   "pct": 60.0
   },
   "dispatch_surface": {
    "matched": 9,
-   "n": 45,
-   "pct": 20.0
+   "n": 46,
+   "pct": 19.6
   },
   "tomtom_highway": {
-   "matched": 21,
-   "n": 503,
-   "pct": 4.2
+   "matched": 23,
+   "n": 520,
+   "pct": 4.4
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 474,
+   "n": 485,
    "pct": 0.8
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.0,
-  "median": 3.5,
+  "median": 3.2,
   "min": -67.4,
-  "n": 26,
-  "q1": -18.0,
-  "q3": 45.8
+  "n": 27,
+  "q1": -17.7,
+  "q3": 43.6
  },
  "persistence_min": {
   "max": 134.9,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 152,
-  "hotspot_buckets": 898,
-  "hotspot_buckets_on_roadworks": 148,
+  "explained_by_roadworks": 159,
+  "hotspot_buckets": 917,
+  "hotspot_buckets_on_roadworks": 155,
   "txdot_rows": 8,
-  "unreported_congestion": 936
+  "unreported_congestion": 962
  },
  "sampling": {
   "flow_spent_this_month": 1062,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 134,
+  "incidents_spent_this_month": 135,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 68.8,
-  "tomtom": 97.4
+  "dispatch": 68.2,
+  "tomtom": 97.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 64,
-  "neither": 44,
-  "tomtom_only": 20
+  "n": 66,
+  "neither": 45,
+  "tomtom_only": 21
  }
 }
