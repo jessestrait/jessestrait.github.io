@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 21,
-  "dispatch_only": 16,
+  "dispatch": 28,
+  "dispatch_only": 21,
   "here": 0,
   "here_matched": 0,
-  "matched": 5,
+  "matched": 7,
   "tomtom": 315,
-  "tomtom_only": 310
+  "tomtom_only": 308
  },
  "date": "2026-09-24",
  "dispatch_life_capped": true,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 3,
-   "n": 5,
-   "pct": 60.0
+   "matched": 4,
+   "n": 6,
+   "pct": 66.7
   },
   "dispatch_surface": {
-   "matched": 2,
-   "n": 16,
-   "pct": 12.5
+   "matched": 3,
+   "n": 22,
+   "pct": 13.6
   },
   "tomtom_highway": {
-   "matched": 4,
+   "matched": 5,
    "n": 146,
-   "pct": 2.7
+   "pct": 3.4
   },
   "tomtom_surface": {
-   "matched": 1,
+   "matched": 2,
    "n": 169,
-   "pct": 0.6
+   "pct": 1.2
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 79.1,
-  "median": 52.3,
+  "median": 43.6,
   "min": -41.8,
-  "n": 5,
-  "q1": 0.9,
-  "q3": 68.9
+  "n": 7,
+  "q1": -11.5,
+  "q3": 58.7
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,14 +89,14 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 64,
-  "hotspot_buckets": 286,
-  "hotspot_buckets_on_roadworks": 64,
+  "explained_by_roadworks": 63,
+  "hotspot_buckets": 284,
+  "hotspot_buckets_on_roadworks": 63,
   "txdot_rows": 6,
-  "unreported_congestion": 294
+  "unreported_congestion": 292
  },
  "sampling": {
-  "flow_spent_this_month": 954,
+  "flow_spent_this_month": 963,
   "incident_budget": 2500,
   "incidents_spent_this_month": 112,
   "off_peak_min": 45,
@@ -140,6 +140,13 @@
    "seg": "30.245,-97.744"
   },
   {
+   "from": "Chicon St (E Cesar Chavez St/E 1st St)",
+   "hour_of_week": 72,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.257,-97.724"
+  },
+  {
    "from": "E Oltorf St",
    "hour_of_week": 68,
    "n": 2,
@@ -159,13 +166,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "Chicon St (E Cesar Chavez St/E 1st St)",
-   "hour_of_week": 72,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.257,-97.724"
   },
   {
    "from": "Cypress Creek Rd",
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.2,
-  "tomtom": 98.4
+  "dispatch": 75.0,
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 21,
-  "neither": 16,
-  "tomtom_only": 5
+  "n": 28,
+  "neither": 21,
+  "tomtom_only": 7
  }
 }
