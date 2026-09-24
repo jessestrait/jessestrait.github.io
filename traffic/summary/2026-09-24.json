@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 102,
-  "dispatch_only": 76,
+  "dispatch": 104,
+  "dispatch_only": 77,
   "here": 0,
   "here_matched": 0,
-  "matched": 33,
-  "tomtom": 2018,
-  "tomtom_only": 1982
+  "matched": 34,
+  "tomtom": 2084,
+  "tomtom_only": 2047
  },
  "date": "2026-09-24",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 55.6
   },
   "dispatch_surface": {
-   "matched": 11,
-   "n": 75,
-   "pct": 14.7
+   "matched": 12,
+   "n": 77,
+   "pct": 15.6
   },
   "tomtom_highway": {
    "matched": 31,
-   "n": 1013,
-   "pct": 3.1
+   "n": 1047,
+   "pct": 3.0
   },
   "tomtom_surface": {
-   "matched": 5,
-   "n": 1005,
-   "pct": 0.5
+   "matched": 6,
+   "n": 1037,
+   "pct": 0.6
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.0,
-  "median": 3.2,
+  "median": 0.4,
   "min": -67.4,
-  "n": 33,
-  "q1": -17.9,
-  "q3": 42.0
+  "n": 34,
+  "q1": -18.5,
+  "q3": 41.2
  },
  "persistence_min": {
   "max": 134.9,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 296,
-  "hotspot_buckets": 1808,
-  "hotspot_buckets_on_roadworks": 272,
+  "explained_by_roadworks": 305,
+  "hotspot_buckets": 1862,
+  "hotspot_buckets_on_roadworks": 281,
   "txdot_rows": 8,
-  "unreported_congestion": 1962
+  "unreported_congestion": 2027
  },
  "sampling": {
-  "flow_spent_this_month": 1170,
+  "flow_spent_this_month": 1179,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 150,
+  "incidents_spent_this_month": 151,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -182,6 +182,13 @@
    "seg": "30.502,-97.682"
   },
   {
+   "from": "W Slaughter Ln (FM-1826)",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.194,-97.924"
+  },
+  {
    "from": "Westlake Dr (TX-360 Loop/N Capital of Texas Hwy)",
    "hour_of_week": 93,
    "n": 3,
@@ -203,29 +210,22 @@
    "seg": "30.281,-97.750"
   },
   {
-   "from": "W Riverside Dr (Barton Springs Rd)",
+   "from": "W Martin Luther King Jr Blvd (Guadalupe St)",
    "hour_of_week": 93,
    "n": 3,
    "roadworks": false,
-   "seg": "30.259,-97.747"
-  },
-  {
-   "from": "Service Dr",
-   "hour_of_week": 71,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.508,-97.697"
+   "seg": "30.289,-97.742"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 74.5,
+  "dispatch": 74.0,
   "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 102,
-  "neither": 76,
-  "tomtom_only": 26
+  "n": 104,
+  "neither": 77,
+  "tomtom_only": 27
  }
 }
