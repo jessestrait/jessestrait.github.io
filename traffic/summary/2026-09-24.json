@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 37,
-  "tomtom": 2411,
-  "tomtom_only": 2368
+  "tomtom": 2479,
+  "tomtom_only": 2436
  },
  "date": "2026-09-24",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 36,
-   "n": 1209,
-   "pct": 3.0
+   "n": 1247,
+   "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 7,
-   "n": 1202,
+   "n": 1232,
    "pct": 0.6
   }
  },
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 342,
-  "hotspot_buckets": 2166,
-  "hotspot_buckets_on_roadworks": 315,
+  "explained_by_roadworks": 349,
+  "hotspot_buckets": 2220,
+  "hotspot_buckets_on_roadworks": 317,
   "txdot_rows": 8,
-  "unreported_congestion": 2348
+  "unreported_congestion": 2416
  },
  "sampling": {
   "flow_spent_this_month": 1188,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 154,
+  "incidents_spent_this_month": 155,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -175,11 +175,11 @@
    "seg": "30.215,-97.699"
   },
   {
-   "from": "Burnet Rd",
+   "from": "S Interstate 35",
    "hour_of_week": 93,
    "n": 3,
    "roadworks": false,
-   "seg": "30.373,-97.726"
+   "seg": "30.502,-97.682"
   },
   {
    "from": "Mopac Expy S",
@@ -203,11 +203,11 @@
    "seg": "30.259,-97.747"
   },
   {
-   "from": "Winsted Ln",
-   "hour_of_week": 93,
+   "from": "Gattis School Rd (A W Grimes Blvd)",
+   "hour_of_week": 94,
    "n": 3,
    "roadworks": false,
-   "seg": "30.278,-97.769"
+   "seg": "30.516,-97.655"
   },
   {
    "from": "Service Dr",
@@ -219,7 +219,7 @@
  ],
  "unmatched_pct": {
   "dispatch": 73.6,
-  "tomtom": 98.2
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
