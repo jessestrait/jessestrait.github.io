@@ -160,7 +160,7 @@
 
   const CITY = {
     on: false, pm: null, tiles: new Map(), busy: new Set(), proj: new Map(), roadCache: new Map(), roadTotal: 0, roadPx: 0, jamLift: 1, traffic: null,
-    quality: 1, drawMs: 0,
+    quality: 1, drawMs: 0, blackouts: [], boZoom: null, here: null,
     buildings: null, roads: null, cars: [], raf: null, last: 0,
     canvas: null, ctx: null, carCanvas: null, carCtx: null,
     lift: 0.55,          // how hard the city leans. 0 is a plan, 1 is a lot.
@@ -347,6 +347,56 @@
     return out;
   }
 
+  /* ── The lights that are actually off ───────────────────────────────
+
+     Austin Energy publishes outages by ZIP, not by building, and a ZIP
+     is rarely all out: the two open right now are 250 customers of
+     11,445 and 1 of 8,511. Blacking out the whole ZIP would be a much
+     bigger claim than the data makes. So the share out is applied to
+     the share of windows lit — two per cent out is two per cent fewer
+     lit windows, and a storm that takes out half a ZIP is unmistakable.
+
+     Nothing is fetched here. The page already holds these polygons and
+     already polls Austin Energy for the layer it draws on the ground;
+     this reads that same state through setBlackouts. */
+  function projectBlackouts(map) {
+    const z = map.getZoom();
+    if (C.boZoom === z) return;
+    C.boZoom = z;
+    for (const b of C.blackouts) {
+      b.pts = b.rings.map(r => {
+        const out = new Float64Array(r.length * 2);
+        for (let i = 0; i < r.length; i++) {
+          const pt = map.project(L.latLng(r[i][1], r[i][0]), z);
+          out[i * 2] = pt.x; out[i * 2 + 1] = pt.y;
+        }
+        return out;
+      });
+      const pt0 = map.project(L.latLng(b.bbox[1], b.bbox[0]), z);
+      const pt1 = map.project(L.latLng(b.bbox[3], b.bbox[2]), z);
+      b.x0 = Math.min(pt0.x, pt1.x); b.x1 = Math.max(pt0.x, pt1.x);
+      b.y0 = Math.min(pt0.y, pt1.y); b.y1 = Math.max(pt0.y, pt1.y);
+    }
+  }
+
+  function inRing(pts, x, y) {
+    let inside = false;
+    for (let i = 0, j = pts.length - 2; i < pts.length; j = i, i += 2) {
+      const xi = pts[i], yi = pts[i + 1], xj = pts[j], yj = pts[j + 1];
+      if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) inside = !inside;
+    }
+    return inside;
+  }
+
+  /* How much of this building's block has no power. */
+  function darkAt(x, y) {
+    for (const b of C.blackouts) {
+      if (x < b.x0 || x > b.x1 || y < b.y0 || y > b.y1) continue;
+      for (const r of b.pts) if (inRing(r, x, y)) return b.pct;
+    }
+    return 0;
+  }
+
   /* Only the tiles under the viewport. The first version walked the whole
      tile cache, so a settle got steadily slower the longer the map was
      used — 12.7 ms at six tiles cached, 33.7 ms at forty-five, and the
@@ -360,6 +410,9 @@
     const bx0 = origin.x + pxO.x - 40, by0 = origin.y + pxO.y - 40;
     const bx1 = bx0 + size.x + pad.x * 2 + 80, by1 = by0 + size.y + pad.y * 2 + 200;
 
+    const dark = C.blackouts.length > 0;
+    if (dark) projectBlackouts(map);
+
     const out = [];
     for (const [tz, tx, ty] of H.visibleTiles(map)) {
       const key = tz + '/' + tx + '/' + ty;
@@ -367,6 +420,7 @@
       if (!t || !t.buildings) continue;
       for (const b of projectTile(map, key, t)) {
         if (b.x1 < bx0 || b.y1 < by0 || b.x0 > bx1 || b.y0 > by1) continue;
+        b.dark = dark ? darkAt(b.cx, b.cy) : 0;
         out.push(b);
       }
     }
@@ -712,8 +766,9 @@
             const wide = Math.hypot(bx - ax, by - ay);
             const cols = Math.min(6, Math.floor(wide / 5));
             const rows = Math.min(9, Math.floor(bl.h / 7));
+            const lim = bl.dark ? occ * (1 - bl.dark) : occ;
             for (let cI = 0; cI < cols; cI++) for (let rI = 0; rI < rows; rI++) {
-              if (rnd() > occ) continue;
+              if (rnd() > lim) continue;
               const u = (cI + 0.5) / cols, v = (rI + 0.5) / rows;
               const px = ax + (bx - ax) * u + dx * v;
               const py = ay + (by - ay) * u + dy * v;
@@ -1022,7 +1077,10 @@
     C.readStamp = st.hour * 60 + st.min + ':'
                 + ((C.traffic && C.traffic.at) || 0);
     const out = [];
-    let total = 0, plain = 0;
+    // total: picking weight (includes the focus term)
+    // jamT:  congestion only, for jamLift
+    // plain: road supply only, for density
+    let total = 0, jamT = 0, plain = 0;
     for (const [tz, tx, ty] of H.visibleTiles(map)) {
       const key = tz + '/' + tx + '/' + ty;
       const t = C.tiles.get(key);
@@ -1080,8 +1138,25 @@
         // still — traffic moving at a third of free-flow has about three
         // times as many vehicles on the same tarmac.
         const jam = 100 / Math.max(15, l.pct);
-        l.w = l.len * l.cls.weight * jam * hitLoad;
+        /* Your own street gets a little more of everything.
+
+           Kept deliberately gentle — up to 1.8x within half a
+           kilometre, gone by about two. The bug this page had for
+           weeks was cars clustering where you had already been and
+           leaving the rest of Austin empty, so the whole city is
+           correct first and only then does your own block get the
+           benefit of the doubt. */
+        let near = 1;
+        if (C.here) {
+          const dy = (l.lat - C.here.lat) * 111320, dx = (l.lng - C.here.lng) * 96000;
+          near = 1 + 0.8 * Math.exp(-(dy * dy + dx * dx) / (700 * 700));
+        }
+        l.w = l.len * l.cls.weight * jam * hitLoad * near;
         total += l.w;
+        jamT += l.len * l.cls.weight * jam * hitLoad;
+        // Not `near`: that one redistributes cars, it does not add any.
+        // Folding it in here would raise the whole city's density
+        // instead of concentrating it, which is the opposite.
         plain += l.len * l.cls.weight * hitLoad;
         out.push(l);
       }
@@ -1107,7 +1182,7 @@
     C.roadPx = plain / mpp;
     // Congestion adds cars, but on a square root: a corridor at 15% of
     // free-flow is not six and a half times as full as an empty one.
-    C.jamLift = Math.sqrt(total / Math.max(plain, 1));
+    C.jamLift = Math.sqrt(jamT / Math.max(plain, 1));
   }
 
   /* Pick a road with probability proportional to its weight, so a
@@ -1324,6 +1399,21 @@
     else { C.buildings = []; C.cars.length = 0; D.draw(map); CAR.stepCars(map, 0); }
   };
 
+  /* The page owns the outage poll; this just receives the result.
+     `pct` is the share of that ZIP's customers who are out, 0-1. */
+  /* Where the reader is standing, when they have asked the page to
+     say. Used only to weight detail toward them; never sent anywhere. */
+  C.setHere = function (map, lat, lng) {
+    C.here = (lat == null) ? null : { lat: lat, lng: lng };
+    if (C.on && map) scheduleRefresh(map);
+  };
+
+  C.setBlackouts = function (map, list) {
+    C.blackouts = (list || []).filter(b => b && b.pct > 0 && b.rings && b.rings.length);
+    C.boZoom = null;
+    if (C.on && map) scheduleRefresh(map);
+  };
+
   C.status = function (map) {
     if (!C.on) return 'Off';
     if (map.getZoom() < H.MIN_Z) return 'Zoom past ' + H.MIN_Z + ' to raise the buildings';
@@ -1356,6 +1446,11 @@
     }
     const inc = C.traffic && C.traffic.incidents;
     if (inc) bits.push(inc + ' live incidents on the network');
+    if (C.blackouts.length) {
+      const worst = Math.round(100 * Math.max.apply(null, C.blackouts.map(b => b.pct)));
+      bits.push('lights out in ' + C.blackouts.length + ' ZIP'
+        + (C.blackouts.length === 1 ? '' : 's') + ', worst ' + worst + '% of customers');
+    }
     return bits.join(' · ');
   };
 

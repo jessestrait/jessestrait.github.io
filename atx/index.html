@@ -5070,6 +5070,33 @@ function drawOutages() {
   const week = OUTAGE.mode === 'week';
   const src = week ? PWR.byZip : OUTAGE.byZip;
   const hit = OUTAGE.geo.features.filter(f => src[(f.properties || {}).zip]);
+
+  /* Tell the 3D layer which blocks have no power, so the windows in
+     them stay dark. Live outages only — the week view is history, and
+     history should not switch tonight's lights off. This runs even
+     when `hit` is empty, because that is how the lights come back on. */
+  if (window.CITY3D && CITY3D.setBlackouts) {
+    CITY3D.setBlackouts(map, week ? [] : hit.map(f => {
+      const o = src[f.properties.zip] || {};
+      const served = o.served || 0;
+      // `pct` is Austin Energy's own share-out where they give one;
+      // otherwise customers out over customers served.
+      const share = o.pct != null ? o.pct / 100
+                  : served ? Math.min(1, (o.cust || 0) / served) : 0;
+      const g = f.geometry || {};
+      const rings = g.type === 'Polygon' ? g.coordinates
+                  : g.type === 'MultiPolygon' ? g.coordinates.flat() : [];
+      const flat = rings.flat();
+      if (!flat.length) return null;
+      let x0 = 180, y0 = 90, x1 = -180, y1 = -90;
+      for (const c of flat) {
+        if (c[0] < x0) x0 = c[0]; if (c[0] > x1) x1 = c[0];
+        if (c[1] < y0) y0 = c[1]; if (c[1] > y1) y1 = c[1];
+      }
+      return { pct: share, rings: rings, bbox: [x0, y0, x1, y1] };
+    }).filter(Boolean));
+  }
+
   if (!hit.length) return;
   groundLayers.outages = L.geoJSON({ type: 'FeatureCollection', features: hit }, {
     pane: 'groundPane',
@@ -6573,6 +6600,8 @@ async function onFix(pos) {
   const { latitude: lat, longitude: lng, accuracy } = pos.coords;
   const first = !ME.pos;
   ME.pos = { lat, lng, accuracy };
+  // The 3D layer puts a little more traffic on your own streets.
+  if (window.CITY3D && CITY3D.setHere) CITY3D.setHere(map, lat, lng);
   ME.busy = false;
   ME.btn.classList.remove('busy');
   ME.btn.classList.add('on');
