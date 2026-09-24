@@ -1717,6 +1717,17 @@ const LAYERS = [
         if (param === '00060') st.flow = last.v;
       });
 
+      /* Hand the discharge readings to the 3D layer, which drifts the
+         rivers and creeks at a speed set by them. Sites are filtered on
+         `flow` rather than `stage` here — the gauge markers below need a
+         stage to show, but plenty of sites publish discharge and no
+         stage, and those are perfectly good for setting a current. */
+      if (window.CITY3D && CITY3D.setFlow) {
+        CITY3D.setFlow(map, Object.values(sites)
+          .filter(x => x.flow != null && isFinite(x.flow))
+          .map(x => ({ lat: x.lat, lng: x.lng, cfs: x.flow })));
+      }
+
       let rising = 0, elevated = 0;
       const out = Object.values(sites).filter(x => x.stage != null).map(x => {
         // Above a hundred feet this is a reservoir elevation rather than a

@@ -161,6 +161,7 @@
   const CITY = {
     on: false, pm: null, tiles: new Map(), busy: new Set(), proj: new Map(), roadCache: new Map(), roadTotal: 0, roadPx: 0, jamLift: 1, traffic: null,
     quality: 1, drawMs: 0, blackouts: [], boZoom: null, here: null,
+    water: [], waterCache: new Map(), drops: [], gauges: null, waterLen: 0,
     buildings: null, roads: null, cars: [], raf: null, last: 0,
     canvas: null, ctx: null, carCanvas: null, carCtx: null,
     lift: 0.55,          // how hard the city leans. 0 is a plan, 1 is a lot.
@@ -188,7 +189,7 @@
     try {
       const a = await archive();
       const r = await a.getZxy(z, x, y);
-      let parsed = { buildings: null, roads: null };
+      let parsed = { buildings: null, roads: null, water: null };
       if (r && r.data) {
         let buf = new Uint8Array(r.data);
         // Tiles in this archive are gzipped; the browser will not do it
@@ -200,7 +201,8 @@
         }
         parsed = {
           buildings: global.MVT.decodeLayer(buf, 'buildings'),
-          roads: global.MVT.decodeLayer(buf, 'roads')
+          roads: global.MVT.decodeLayer(buf, 'roads'),
+          water: global.MVT.decodeLayer(buf, 'water')
         };
       }
       CITY.tiles.set(key, parsed);
@@ -208,7 +210,7 @@
       if (CITY.tiles.size > 220) CITY.tiles.delete(CITY.tiles.keys().next().value);
       return parsed;
     } catch (e) {
-      CITY.tiles.set(key, { buildings: null, roads: null });
+      CITY.tiles.set(key, { buildings: null, roads: null, water: null });
       return null;
     } finally { CITY.busy.delete(key); }
   }
@@ -1185,6 +1187,112 @@
     C.jamLift = Math.sqrt(jamT / Math.max(plain, 1));
   }
 
+  /* ── Moving water ───────────────────────────────────────────────────
+
+     The same tiles that carry the buildings carry a `water` layer, and
+     in it the rivers and creeks are LINES, not just the blue polygons
+     the basemap paints. OpenStreetMap draws a waterway in the direction
+     it flows, which is the one piece of information needed to make the
+     Colorado run east through town rather than in whichever direction
+     the vertices happened to be stored.
+
+     How fast it runs comes from USGS, which gauges discharge in cubic
+     feet per second every fifteen minutes at a few dozen sites around
+     Travis County. The page already fetches those for the creek-gauge
+     layer, so setFlow passes them through rather than asking twice.
+     After a storm Shoal Creek goes from a trickle to a torrent inside
+     an hour, and that is visible here.
+
+     If USGS is unreachable — which it genuinely is about one request in
+     five, and was completely down while this was written — the water
+     still moves, at the slow default below, and the readout does not
+     claim a measurement it does not have. */
+  const WATER_KIND = { river: 2.2, stream: 1.2, canal: 1.6, drain: 0.9 };
+  const DEFAULT_CFS = 120;
+
+  function harvestWater(map) {
+    const out = [];
+    let len = 0;
+    for (const [tz, tx, ty] of H.visibleTiles(map)) {
+      const key = tz + '/' + tx + '/' + ty;
+      const t = C.tiles.get(key);
+      if (!t || !t.water) continue;
+      let lines = C.waterCache.get(key);
+      if (!lines) {
+        lines = [];
+        const ext = t.water.extent || H.EXTENT_FALLBACK;
+        const n = Math.pow(2, tz);
+        for (const f of t.water.features) {
+          if (f.type !== 2) continue;                 // lines only
+          const wide = WATER_KIND[f.props.kind];
+          if (!wide) continue;
+          for (const ring of f.rings) {
+            if (ring.length < 4) continue;
+            const ll = [];
+            let m = 0;
+            for (let i = 0; i < ring.length; i += 2) {
+              const lon = (tx + ring[i] / ext) / n * 360 - 180;
+              const yy = (ty + ring[i + 1] / ext) / n;
+              const lat = Math.atan(Math.sinh(Math.PI * (1 - 2 * yy))) * 180 / Math.PI;
+              if (ll.length) {
+                const p = ll[ll.length - 1];
+                m += Math.hypot((lon - p[1]) * 96000, (lat - p[0]) * 111320);
+              }
+              ll.push([lat, lon]);
+            }
+            if (m < 40) continue;
+            const mid = ll[ll.length >> 1];
+            lines.push({ ll: ll, wide: wide, len: m,
+                         lat: mid[0], lng: mid[1],
+                         named: !!f.props.name });
+          }
+        }
+        C.waterCache.set(key, lines);
+        if (C.waterCache.size > 80) C.waterCache.delete(C.waterCache.keys().next().value);
+      }
+      for (const l of lines) { l.cfs = flowAt(l.lat, l.lng); len += l.len * l.wide; out.push(l); }
+    }
+    C.water = out;
+    C.waterLen = len;
+  }
+
+  /* Discharge at the nearest gauge. Nearest is crude on a river system —
+     a gauge on Barton Creek says nothing about Walnut Creek — so it is
+     capped at 12 km, beyond which the default stands in. */
+  function flowAt(lat, lng) {
+    const g = C.gauges;
+    if (!g || !g.length) return null;
+    let best = null, bd = Infinity;
+    for (const s of g) {
+      const dy = s.lat - lat, dx = (s.lng - lng) * 0.86;
+      const d = dy * dy + dx * dx;
+      if (d < bd) { bd = d; best = s; }
+    }
+    return (best && Math.sqrt(bd) * 111 < 12) ? best.cfs : null;
+  }
+
+  /* Discharge to a drift speed in metres per second. Real channel
+     velocity goes roughly as the cube root of discharge, which is why
+     a hundredfold flood is not a hundred times faster — about five
+     times. Clamped either end so a dry creek still creeps and a flood
+     does not turn into streaks. */
+  function dropSpeed(cfs) {
+    const q = Math.max(1, cfs == null ? DEFAULT_CFS : cfs);
+    return Math.max(0.25, Math.min(4.5, 0.22 * Math.pow(q, 1 / 3)));
+  }
+
+  function spawnDrop() {
+    const ws = C.water;
+    if (!ws || !ws.length) return null;
+    let r = Math.random() * C.waterLen;
+    let road = ws[ws.length - 1];
+    for (let i = 0; i < ws.length; i++) { r -= ws[i].len * ws[i].wide; if (r <= 0) { road = ws[i]; break; } }
+    const line = road.ll;
+    return { line: line, w: road, i: (Math.random() * Math.max(1, line.length - 2)) | 0,
+             t: Math.random(), v: dropSpeed(road.cfs) * (0.8 + Math.random() * 0.4),
+             wide: road.wide };
+  }
+
   /* Pick a road with probability proportional to its weight, so a
      motorway is chosen far more often than a side street without any
      per-road bookkeeping. */
@@ -1301,9 +1409,43 @@
       // A pixel of slack each way so antialiasing leaves nothing behind.
       rects.push(x - r - 1, y - r - 1, r * 2 + 2, r * 2 + 2);
     }
+
+    /* The water, on the same canvas and in the same frame, so it shares
+       one clear and one dirty-rect list with the cars. */
+    const wantDrops = Math.max(0, Math.min(260,
+                      Math.round((C.waterLen || 0) / 900 * C.quality)));
+    while (C.drops.length < wantDrops) { const d = spawnDrop(); if (!d) break; C.drops.push(d); }
+    if (C.drops.length > wantDrops) C.drops.length = wantDrops;
+
+    ctx.fillStyle = 'rgba(150,214,255,0.7)';
+    for (const d of C.drops) {
+      const a = d.line[d.i], b2 = d.line[d.i + 1];
+      if (!a || !b2) { const n = spawnDrop(); if (n) Object.assign(d, n); continue; }
+      const segM = Math.hypot((b2[1] - a[1]) * 96000, (b2[0] - a[0]) * 111320) || 1;
+      d.t += (d.v * dt) / segM;
+      while (d.t >= 1) {
+        d.t -= 1; d.i += 1;
+        // Downstream only: OSM draws a waterway the way it flows, so
+        // there is no direction to choose and no upstream drift.
+        if (d.i >= d.line.length - 1) { const n = spawnDrop(); if (n) Object.assign(d, n); break; }
+      }
+      const A = d.line[d.i], B = d.line[d.i + 1];
+      if (!A || !B) continue;
+      const p = map.latLngToLayerPoint([A[0] + (B[0] - A[0]) * d.t,
+                                        A[1] + (B[1] - A[1]) * d.t]);
+      const x = p.x - origin.x, y = p.y - origin.y;
+      if (x < -40 || y < -40 || x > w + 40 || y > h + 40) {
+        const n = spawnDrop(); if (n) Object.assign(d, n);
+        continue;
+      }
+      const s2 = d.wide * (map.getZoom() >= 17 ? 1.3 : 0.9);
+      ctx.fillRect(x - s2 / 2, y - s2 / 2, s2, s2);
+      rects.push(x - s2 / 2 - 1, y - s2 / 2 - 1, s2 + 2, s2 + 2);
+    }
   }
 
-  global.CITY3D._cars = { harvestRoads, stepCars, spawn, loadTraffic, trafficAt,
+  global.CITY3D._cars = { harvestRoads, harvestWater, stepCars, spawn, loadTraffic, trafficAt,
+                          flowAt, dropSpeed,
                           clockState, austinClock, CLASS, CONGEST_WD, VOLUME_WD };
 })(window);
 
@@ -1332,6 +1474,7 @@
     C.sky = D.skyState(map);
     await CAR.loadTraffic();
     CAR.harvestRoads(map);
+    CAR.harvestWater(map);
     D.draw(map, false);
     C.onNote && C.onNote();
   }
@@ -1403,6 +1546,14 @@
      `pct` is the share of that ZIP's customers who are out, 0-1. */
   /* Where the reader is standing, when they have asked the page to
      say. Used only to weight detail toward them; never sent anywhere. */
+  /* USGS discharge, handed over by the creek-gauge layer so the page
+     does not ask twice. `cfs` is cubic feet per second. */
+  C.setFlow = function (map, gauges) {
+    C.gauges = (gauges || []).filter(g => g && isFinite(g.cfs) && isFinite(g.lat));
+    for (const [, lines] of C.waterCache) for (const l of lines) l.cfs = undefined;
+    if (C.on && map) scheduleRefresh(map);
+  };
+
   C.setHere = function (map, lat, lng) {
     C.here = (lat == null) ? null : { lat: lat, lng: lng };
     if (C.on && map) scheduleRefresh(map);
