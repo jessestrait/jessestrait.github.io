@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 22,
-  "tomtom": 791,
-  "tomtom_only": 770
+  "tomtom": 846,
+  "tomtom_only": 825
  },
  "date": "2026-09-24",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 19,
-   "n": 405,
-   "pct": 4.7
+   "n": 433,
+   "pct": 4.4
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 386,
+   "n": 413,
    "pct": 0.5
   }
  },
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 132,
-  "hotspot_buckets": 722,
-  "hotspot_buckets_on_roadworks": 128,
+  "explained_by_roadworks": 140,
+  "hotspot_buckets": 770,
+  "hotspot_buckets_on_roadworks": 134,
   "txdot_rows": 8,
-  "unreported_congestion": 754
+  "unreported_congestion": 809
  },
  "sampling": {
   "flow_spent_this_month": 1053,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 130,
+  "incidents_spent_this_month": 131,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -168,11 +168,18 @@
    "seg": "30.425,-97.626"
   },
   {
-   "from": "Tur Weg Ln",
+   "from": "Manor Downs Rd / Hill Ln",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
-   "seg": "30.348,-97.562"
+   "seg": "30.349,-97.563"
+  },
+  {
+   "from": "Dove Haven Dr",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.434,-97.611"
   },
   {
    "from": "US Highway 290 W / W Ben White Blvd",
@@ -196,13 +203,6 @@
    "seg": "30.320,-97.660"
   },
   {
-   "from": "Turnersville Rd",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.102,-97.811"
-  },
-  {
    "from": "Goodnight Ranch Blvd",
    "hour_of_week": 84,
    "n": 2,
@@ -219,7 +219,7 @@
  ],
  "unmatched_pct": {
   "dispatch": 69.6,
-  "tomtom": 97.3
+  "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
