@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 95, q3 116 min over 39 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 95, q3 116 min over 40 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 49,
-  "dispatch_only": 38,
+  "dispatch": 51,
+  "dispatch_only": 40,
   "here": 0,
   "here_matched": 0,
   "matched": 13,
-  "tomtom": 478,
-  "tomtom_only": 465
+  "tomtom": 500,
+  "tomtom_only": 487
  },
  "date": "2026-09-24",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 103.4,
+  "median": 105.4,
   "min": 79.0,
-  "n": 39,
-  "q1": 94.6,
-  "q3": 115.5
+  "n": 40,
+  "q1": 95.3,
+  "q3": 115.6
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 5,
-   "n": 33,
-   "pct": 15.2
+   "n": 35,
+   "pct": 14.3
   },
   "tomtom_highway": {
    "matched": 11,
-   "n": 237,
-   "pct": 4.6
+   "n": 250,
+   "pct": 4.4
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 241,
+   "n": 250,
    "pct": 0.8
   }
  },
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 100,
-  "hotspot_buckets": 442,
-  "hotspot_buckets_on_roadworks": 100,
+  "explained_by_roadworks": 103,
+  "hotspot_buckets": 459,
+  "hotspot_buckets_on_roadworks": 103,
   "txdot_rows": 8,
-  "unreported_congestion": 450
+  "unreported_congestion": 471
  },
  "sampling": {
   "flow_spent_this_month": 1044,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 125,
+  "incidents_spent_this_month": 126,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -131,6 +131,34 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.257,-97.724"
+  },
+  {
+   "from": "Greensboro Dr",
+   "hour_of_week": 83,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.304,-97.662"
+  },
+  {
+   "from": "exit [451]",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.160,-97.653"
+  },
+  {
+   "from": "Elroy Rd (TX-130)",
+   "hour_of_week": 83,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.180,-97.632"
+  },
+  {
+   "from": "San Antonio Riverwalk",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.520,-97.559"
   },
   {
    "from": "Palm Way",
@@ -187,45 +215,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.454,-97.824"
-  },
-  {
-   "from": "FM-620 (W Parmer Ln/FM-734)",
-   "hour_of_week": 71,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.496,-97.775"
-  },
-  {
-   "from": "Millwright Pkwy",
-   "hour_of_week": 71,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.450,-97.798"
-  },
-  {
-   "from": "Timbercrest Ln",
-   "hour_of_week": 71,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.451,-97.803"
-  },
-  {
-   "from": "Woodland Village Dr",
-   "hour_of_week": 71,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.454,-97.797"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 77.6,
-  "tomtom": 97.3
+  "dispatch": 78.4,
+  "tomtom": 97.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 49,
-  "neither": 38,
+  "n": 51,
+  "neither": 40,
   "tomtom_only": 11
  }
 }
