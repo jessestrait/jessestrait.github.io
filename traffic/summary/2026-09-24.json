@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 94,
-  "dispatch_only": 70,
+  "dispatch": 95,
+  "dispatch_only": 71,
   "here": 0,
   "here_matched": 0,
   "matched": 31,
-  "tomtom": 1379,
-  "tomtom_only": 1348
+  "tomtom": 1432,
+  "tomtom_only": 1401
  },
  "date": "2026-09-24",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 10,
-   "n": 68,
-   "pct": 14.7
+   "n": 69,
+   "pct": 14.5
   },
   "tomtom_highway": {
    "matched": 27,
-   "n": 699,
-   "pct": 3.9
+   "n": 723,
+   "pct": 3.7
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 680,
+   "n": 709,
    "pct": 0.6
   }
  },
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 215,
-  "hotspot_buckets": 1263,
-  "hotspot_buckets_on_roadworks": 209,
+  "explained_by_roadworks": 221,
+  "hotspot_buckets": 1312,
+  "hotspot_buckets_on_roadworks": 213,
   "txdot_rows": 8,
-  "unreported_congestion": 1328
+  "unreported_congestion": 1381
  },
  "sampling": {
   "flow_spent_this_month": 1152,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 141,
+  "incidents_spent_this_month": 142,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -133,7 +133,7 @@
    "seg": "30.285,-97.763"
   },
   {
-   "from": "Wooldridge Dr",
+   "from": "Enfield Rd (Windsor Rd)",
    "hour_of_week": 92,
    "n": 3,
    "roadworks": false,
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 74.5,
+  "dispatch": 74.7,
   "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 94,
-  "neither": 70,
+  "n": 95,
+  "neither": 71,
   "tomtom_only": 24
  }
 }
