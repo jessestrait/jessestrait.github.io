@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 38,
-  "tomtom": 1141,
-  "tomtom_only": 1103
+  "tomtom": 1203,
+  "tomtom_only": 1165
  },
  "date": "2026-09-25",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 34,
-   "n": 627,
-   "pct": 5.4
+   "n": 652,
+   "pct": 5.2
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 514,
-   "pct": 0.8
+   "n": 551,
+   "pct": 0.7
   }
  },
  "matcher": {
@@ -68,9 +68,9 @@
  },
  "persistence_min": {
   "max": 454.1,
-  "median": -25.8,
+  "median": -5.1,
   "min": -165.9,
-  "n": 24,
+  "n": 25,
   "q1": -72.8,
   "q3": 0.0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 198,
-  "hotspot_buckets": 1051,
-  "hotspot_buckets_on_roadworks": 191,
+  "explained_by_roadworks": 203,
+  "hotspot_buckets": 1113,
+  "hotspot_buckets_on_roadworks": 197,
   "txdot_rows": 5,
-  "unreported_congestion": 1075
+  "unreported_congestion": 1137
  },
  "sampling": {
   "flow_spent_this_month": 1368,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 178,
+  "incidents_spent_this_month": 179,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -182,6 +182,13 @@
    "seg": "30.349,-97.546"
   },
   {
+   "from": "FM 685 / State Highway 130",
+   "hour_of_week": 117,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.465,-97.592"
+  },
+  {
    "from": "Nature Center Dr",
    "hour_of_week": 110,
    "n": 2,
@@ -208,18 +215,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.616"
   }
  ],
  "unmatched_pct": {
   "dispatch": 78.6,
-  "tomtom": 96.7
+  "tomtom": 96.8
  },
  "witnesses": {
   "both": 0,
