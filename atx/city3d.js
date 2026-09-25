@@ -996,11 +996,12 @@
   /* One interleaved buffer per tile: [x, y, cx, cy, top, h, shade].
      Built once, on the CPU, the first time the tile is drawn. */
   const STRIDE = 7;
+  const WSTRIDE = 9;     // x, y, cx, cy, ex, ey, h, v, r
 
   function buildTile(gl, t) {
     const lay = t.buildings;
     const ext = (lay && lay.extent) || H.EXTENT_FALLBACK;
-    const data = [];
+    const data = [], win = [];
     let nBuild = 0, nReal = 0;
     if (lay) {
       for (const f of lay.features) {
@@ -1030,6 +1031,30 @@
             push(ax, ay, 0, 0); push(bx, by, 0, 0); push(bx, by, 1, 0);
             push(ax, ay, 0, 0); push(bx, by, 1, 0); push(ax, ay, 1, 0);
           }
+          /* Windows, for anything that could plausibly show them.
+             15 m is about five storeys; below that the shader would
+             hide them at every zoom this layer draws at anyway. */
+          if (hM >= 15) {
+            let seed = ((cx * 73856093) ^ (cy * 19349663) ^ (ring.length * 83492791)) >>> 0;
+            const rnd = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296);
+            const rows = Math.max(2, Math.min(10, Math.round(hM / 4)));
+            for (let i = 0; i < ring.length; i += 2) {
+              const j = (i + 2) % ring.length;
+              const ax = ring[i], ay = ring[i + 1], bx = ring[j], by = ring[j + 1];
+              const ex = bx - ax, ey = by - ay;
+              // Tile units, so this is a length in tile space; the
+              // column count follows the wall's real proportions.
+              const cols = Math.max(1, Math.min(7,
+                Math.round(Math.hypot(ex, ey) / (ext / 420))));
+              for (let cI = 0; cI < cols; cI++) {
+                for (let rI = 0; rI < rows; rI++) {
+                  const u = (cI + 0.5) / cols, v = (rI + 0.5) / rows;
+                  win.push(ax + ex * u, ay + ey * u, cx, cy, ex, ey, hM, v, rnd());
+                }
+              }
+            }
+          }
+
           // Roof
           const flat = [];
           for (let i = 0; i < ring.length; i += 2) flat.push(ring[i], ring[i + 1]);
@@ -1041,11 +1066,69 @@
     const buf = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, buf);
     gl.bufferData(gl.ARRAY_BUFFER, arr, gl.STATIC_DRAW);
+
+    const warr = new Float32Array(win);
+    let wbuf = null;
+    if (warr.length) {
+      wbuf = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, wbuf);
+      gl.bufferData(gl.ARRAY_BUFFER, warr, gl.STATIC_DRAW);
+    }
     return { buf: buf, count: arr.length / STRIDE, extent: ext,
-             bytes: arr.byteLength, buildings: nBuild, real: nReal };
+             wbuf: wbuf, wcount: warr.length / WSTRIDE,
+             bytes: arr.byteLength + warr.byteLength,
+             buildings: nBuild, real: nReal };
   }
 
-  const G = { gl: null, prog: null, loc: {}, tiles: new Map(), bytes: 0, dead: false };
+  /* Lit windows, as GL points.
+
+     A separate buffer from the walls, because a window is one vertex
+     and a wall is six, and because only the buildings tall enough to
+     show them are worth generating at all. "Tall enough" has to be
+     decided in metres rather than pixels here — the geometry is built
+     once and never rebuilt, so it cannot know the zoom — and the
+     shader hides windows on anything that turns out to be small on
+     screen.
+
+     Which windows are lit is a per-window random number baked into the
+     buffer and compared against an occupancy uniform, so the pattern is
+     fixed for the life of the page (no flicker between frames) while
+     the number lit still follows the hour. */
+  const WVERT = `
+    attribute vec2 aPos;
+    attribute vec2 aCen;
+    attribute vec2 aEdge;
+    attribute float aH;
+    attribute float aV;
+    attribute float aR;
+    uniform vec2 uOff;
+    uniform float uTileScale, uLift, uMpp, uOcc, uDpr;
+    uniform vec2 uViewport, uCentre, uHalf;
+    void main() {
+      float hpx = aH / uMpp;
+      vec2 base = uOff + aPos * uTileScale;
+      vec2 cen  = uOff + aCen * uTileScale;
+      vec2 lean = (cen - uCentre) / uHalf * uLift * hpx + vec2(0.0, -hpx);
+      // Not lit, too short on screen to read, or on a wall facing away.
+      float side = (aEdge.x * lean.y) - (aEdge.y * lean.x);
+      if (aR > uOcc || hpx < 16.0 || side <= 0.0) {
+        gl_Position = vec4(2.0, 2.0, 2.0, 1.0); gl_PointSize = 1.0; return;
+      }
+      vec2 p = base + lean * aV;
+      float depth = 1.0 - clamp(cen.y / uViewport.y, 0.0, 1.0) - 0.0016;
+      gl_Position = vec4((p / uViewport) * 2.0 - 1.0, depth, 1.0);
+      gl_Position.y = -gl_Position.y;
+      gl_PointSize = max(1.0, 1.6 * uDpr);
+    }`;
+
+  const WFRAG = `
+    precision mediump float;
+    uniform vec3 uGlow;
+    uniform float uAlpha;
+    void main() { gl_FragColor = vec4(uGlow, uAlpha); }`;
+
+  const G = { gl: null, prog: null, wprog: null, wloc: {}, loc: {},
+              tiles: new Map(), bytes: 0, dead: false, err: null };
 
   function hex(c) {
     const v = parseInt(c.slice(1), 16);
@@ -1083,6 +1166,21 @@
       G.prog = p;
       for (const a of ['aPos', 'aCen', 'aTop', 'aH', 'aShade']) {
         G.loc[a] = gl.getAttribLocation(p, a);
+      }
+      const wp = gl.createProgram();
+      gl.attachShader(wp, compile(gl, gl.VERTEX_SHADER, WVERT));
+      gl.attachShader(wp, compile(gl, gl.FRAGMENT_SHADER, WFRAG));
+      gl.linkProgram(wp);
+      if (!gl.getProgramParameter(wp, gl.LINK_STATUS)) {
+        throw new Error('window link: ' + gl.getProgramInfoLog(wp));
+      }
+      G.wprog = wp;
+      for (const a of ['aPos', 'aCen', 'aEdge', 'aH', 'aV', 'aR']) {
+        G.wloc[a] = gl.getAttribLocation(wp, a);
+      }
+      for (const u of ['uOff', 'uTileScale', 'uLift', 'uMpp', 'uOcc', 'uDpr',
+                       'uViewport', 'uCentre', 'uHalf', 'uGlow', 'uAlpha']) {
+        G.wloc[u] = gl.getUniformLocation(wp, u);
       }
       for (const u of ['uOff', 'uTileScale', 'uViewport', 'uCentre', 'uHalf',
                        'uLift', 'uMpp', 'uWallDim', 'uWallLit', 'uRoof', 'uRoofHi',
@@ -1165,7 +1263,9 @@
            downtown tile is worth thirty of a rural one. */
         while (G.bytes > 48 * 1024 * 1024 && G.tiles.size > 8) {
           const k0 = G.tiles.keys().next().value, g0 = G.tiles.get(k0);
-          gl.deleteBuffer(g0.buf); G.bytes -= g0.bytes; G.tiles.delete(k0);
+          gl.deleteBuffer(g0.buf);
+          if (g0.wbuf) gl.deleteBuffer(g0.wbuf);
+          G.bytes -= g0.bytes; G.tiles.delete(k0);
         }
       }
       nb += 0;   // counted below, with the tiles that actually draw
@@ -1216,13 +1316,72 @@
     }
     gl.depthMask(true);
 
+    /* Windows last, over the walls they belong to, and only after dark.
+       They are additive rather than alpha-blended: a lit window is a
+       light source, and adding it to the wall behind reads far more
+       like one than painting over it does. */
+    let winDrawn = 0;
+    const occ = occFor(sky);
+    if (occ > 0.02) {
+      gl.useProgram(G.wprog);
+      gl.uniform2f(G.wloc.uViewport, w, h);
+      gl.uniform2f(G.wloc.uCentre, w / 2, h / 2);
+      gl.uniform2f(G.wloc.uHalf, Math.max(w / 2, 1), Math.max(h / 2, 1));
+      gl.uniform1f(G.wloc.uLift, C.lift);
+      gl.uniform1f(G.wloc.uMpp, mpp);
+      gl.uniform1f(G.wloc.uOcc, occ);
+      gl.uniform1f(G.wloc.uDpr, dpr);
+      gl.uniform3f(G.wloc.uGlow, 1.0, 0.84, 0.55);
+      gl.uniform1f(G.wloc.uAlpha, 0.85 * (1 - sky.day * 2 < 0 ? 0 : 1 - sky.day * 2));
+      gl.enable(gl.BLEND);
+      gl.blendFunc(gl.SRC_ALPHA, gl.ONE);
+      gl.depthMask(false);
+      for (const a of ['aPos', 'aCen', 'aEdge', 'aH', 'aV', 'aR']) {
+        if (G.wloc[a] >= 0) gl.enableVertexAttribArray(G.wloc[a]);
+      }
+      for (const g of bound) {
+        if (!g.wbuf || !g.wcount) continue;
+        gl.uniform2f(G.wloc.uOff, g._ox, g._oy);
+        gl.uniform1f(G.wloc.uTileScale, g._ts);
+        gl.bindBuffer(gl.ARRAY_BUFFER, g.wbuf);
+        const W = WSTRIDE * 4;
+        gl.vertexAttribPointer(G.wloc.aPos, 2, gl.FLOAT, false, W, 0);
+        gl.vertexAttribPointer(G.wloc.aCen, 2, gl.FLOAT, false, W, 8);
+        gl.vertexAttribPointer(G.wloc.aEdge, 2, gl.FLOAT, false, W, 16);
+        gl.vertexAttribPointer(G.wloc.aH, 1, gl.FLOAT, false, W, 24);
+        gl.vertexAttribPointer(G.wloc.aV, 1, gl.FLOAT, false, W, 28);
+        gl.vertexAttribPointer(G.wloc.aR, 1, gl.FLOAT, false, W, 32);
+        gl.drawArrays(gl.POINTS, 0, g.wcount);
+        winDrawn += g.wcount;
+      }
+      for (const a of ['aPos', 'aCen', 'aEdge', 'aH', 'aV', 'aR']) {
+        if (G.wloc[a] >= 0) gl.disableVertexAttribArray(G.wloc[a]);
+      }
+      gl.disable(gl.BLEND);
+      gl.depthMask(true);
+    }
+
     return { tiles: drawn, verts: verts, buildings: nb, real: nr,
-             shadows: !!sun, mb: +(G.bytes / 1048576).toFixed(1) };
+             shadows: !!sun, windows: winDrawn,
+             mb: +(G.bytes / 1048576).toFixed(1) };
+  }
+
+  /* How many windows are lit: the hour curve the 2D renderer uses,
+     faded off as the sky brightens so they do not linger into daylight. */
+  function occFor(sky) {
+    if (sky.day >= 0.5) return 0;
+    const st = C.clock || (C._cars && C._cars.clockState()) || { t: 20 };
+    const D2 = global.CITY3D._draw;
+    return D2.lightsOn(st.t) * (1 - sky.day * 2);
   }
 
   function drop(key) {
     const g = G.tiles.get(key);
-    if (g && G.gl) { G.gl.deleteBuffer(g.buf); G.bytes -= g.bytes; G.tiles.delete(key); }
+    if (g && G.gl) {
+      G.gl.deleteBuffer(g.buf);
+      if (g.wbuf) G.gl.deleteBuffer(g.wbuf);
+      G.bytes -= g.bytes; G.tiles.delete(key);
+    }
   }
 
   global.CITY3D._gl = { init, render, drop, earcut, state: G };
