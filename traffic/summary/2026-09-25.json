@@ -9,42 +9,42 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 101,
-  "dispatch_only": 85,
+  "dispatch": 108,
+  "dispatch_only": 91,
   "here": 0,
   "here_matched": 0,
-  "matched": 18,
+  "matched": 20,
   "tomtom": 728,
-  "tomtom_only": 710
+  "tomtom_only": 708
  },
  "date": "2026-09-25",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.5,
-  "median": 101.1,
+  "median": 101.9,
   "min": 3.4,
-  "n": 84,
-  "q1": 81.0,
-  "q3": 116.0
+  "n": 91,
+  "q1": 82.9,
+  "q3": 115.4
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 9,
-   "n": 29,
-   "pct": 31.0
+   "matched": 10,
+   "n": 31,
+   "pct": 32.3
   },
   "dispatch_surface": {
    "matched": 7,
-   "n": 72,
-   "pct": 9.7
+   "n": 77,
+   "pct": 9.1
   },
   "tomtom_highway": {
-   "matched": 16,
+   "matched": 18,
    "n": 393,
-   "pct": 4.1
+   "pct": 4.6
   },
   "tomtom_surface": {
    "matched": 2,
@@ -61,17 +61,17 @@
  "onset_offset_min": {
   "max": 76.3,
   "median": -16.3,
-  "min": -54.1,
-  "n": 18,
-  "q1": -29.9,
-  "q3": 4.0
+  "min": -66.0,
+  "n": 20,
+  "q1": -31.0,
+  "q3": 5.2
  },
  "persistence_min": {
   "max": 454.1,
-  "median": 0.0,
+  "median": -5.1,
   "min": -135.2,
-  "n": 11,
-  "q1": -92.5,
+  "n": 13,
+  "q1": -92.8,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -88,14 +88,14 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 153,
-  "hotspot_buckets": 665,
-  "hotspot_buckets_on_roadworks": 148,
+  "explained_by_roadworks": 151,
+  "hotspot_buckets": 663,
+  "hotspot_buckets_on_roadworks": 146,
   "txdot_rows": 6,
-  "unreported_congestion": 684
+  "unreported_congestion": 682
  },
  "sampling": {
-  "flow_spent_this_month": 1332,
+  "flow_spent_this_month": 1341,
   "incident_budget": 2500,
   "incidents_spent_this_month": 175,
   "off_peak_min": 45,
@@ -160,6 +160,13 @@
    "seg": "30.256,-97.702"
   },
   {
+   "from": "E 2nd St (San Jacinto Blvd)",
+   "hour_of_week": 114,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.263,-97.742"
+  },
+  {
    "from": "Nature Center Dr",
    "hour_of_week": 110,
    "n": 2,
@@ -195,13 +202,6 @@
    "seg": "30.179,-97.616"
   },
   {
-   "from": "E 2nd St (San Jacinto Blvd)",
-   "hour_of_week": 114,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.263,-97.742"
-  },
-  {
    "from": "New Hope Dr (Whitestone Blvd)",
    "hour_of_week": 94,
    "n": 1,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 84.2,
-  "tomtom": 97.5
+  "dispatch": 84.3,
+  "tomtom": 97.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 101,
-  "neither": 85,
-  "tomtom_only": 16
+  "n": 108,
+  "neither": 91,
+  "tomtom_only": 17
  }
 }
