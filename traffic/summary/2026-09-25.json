@@ -9,46 +9,46 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 76,
-  "dispatch_only": 67,
+  "dispatch": 89,
+  "dispatch_only": 77,
   "here": 0,
   "here_matched": 0,
-  "matched": 10,
-  "tomtom": 589,
-  "tomtom_only": 579
+  "matched": 13,
+  "tomtom": 655,
+  "tomtom_only": 642
  },
  "date": "2026-09-25",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.5,
-  "median": 107.6,
-  "min": 6.0,
-  "n": 68,
-  "q1": 86.7,
-  "q3": 116.7
+  "median": 102.7,
+  "min": 3.4,
+  "n": 76,
+  "q1": 74.7,
+  "q3": 116.4
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 4,
-   "n": 19,
-   "pct": 21.1
+   "matched": 6,
+   "n": 26,
+   "pct": 23.1
   },
   "dispatch_surface": {
-   "matched": 5,
-   "n": 57,
-   "pct": 8.8
+   "matched": 6,
+   "n": 63,
+   "pct": 9.5
   },
   "tomtom_highway": {
-   "matched": 8,
-   "n": 315,
-   "pct": 2.5
+   "matched": 11,
+   "n": 352,
+   "pct": 3.1
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 274,
+   "n": 303,
    "pct": 0.7
   }
  },
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 76.3,
-  "median": -23.0,
+  "median": -18.4,
   "min": -54.1,
-  "n": 10,
-  "q1": -34.7,
-  "q3": 19.5
+  "n": 13,
+  "q1": -35.0,
+  "q3": 4.6
  },
  "persistence_min": {
-  "max": 134.3,
+  "max": 454.1,
   "median": 0.0,
   "min": -135.2,
-  "n": 8,
-  "q1": -74.3,
-  "q3": 0.0
+  "n": 10,
+  "q1": -93.7,
+  "q3": 33.6
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 130,
-  "hotspot_buckets": 539,
-  "hotspot_buckets_on_roadworks": 125,
-  "txdot_rows": 8,
-  "unreported_congestion": 555
+  "explained_by_roadworks": 144,
+  "hotspot_buckets": 598,
+  "hotspot_buckets_on_roadworks": 139,
+  "txdot_rows": 6,
+  "unreported_congestion": 616
  },
  "sampling": {
-  "flow_spent_this_month": 1305,
+  "flow_spent_this_month": 1314,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 172,
+  "incidents_spent_this_month": 173,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -181,6 +181,20 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "Nature Center Dr",
+   "hour_of_week": 110,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.269,-97.770"
+  },
+  {
+   "from": "Newton St",
+   "hour_of_week": 113,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.249,-97.753"
+  },
+  {
    "from": "New Hope Dr (Whitestone Blvd)",
    "hour_of_week": 94,
    "n": 1,
@@ -200,31 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.466,-97.845"
-  },
-  {
-   "from": "Sunchase Blvd",
-   "hour_of_week": 94,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.480,-97.833"
-  },
-  {
-   "from": "Ridgeline Blvd (S Lakeline Blvd)",
-   "hour_of_week": 94,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.480,-97.823"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.2,
-  "tomtom": 98.3
+  "dispatch": 86.5,
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 76,
-  "neither": 67,
-  "tomtom_only": 9
+  "n": 89,
+  "neither": 77,
+  "tomtom_only": 12
  }
 }
