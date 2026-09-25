@@ -154,6 +154,16 @@
   // Buildings are only individually mapped at z15 in this archive; below
   // that it holds merged blocks, which extrude into mush. So the layer
   // simply does not draw until the map is deep enough to mean it.
+  /* Which build this is, shown in the layer's own readout.
+
+     Two rounds of "it looks broken" turned out to be a stale script:
+     the page and city3d.js are cached independently, so a reader can
+     hold a ten-minute-old renderer while the HTML is current. Rather
+     than ask anyone to trust that a deploy landed, the layer says what
+     it is running. If this does not match the newest deploy, the
+     answer is a cache and not the code. */
+  const BUILD = 'gl7';
+
   const MIN_Z = 15;
   const TILE_Z = 15;
   const EXTENT_FALLBACK = 4096;
@@ -258,6 +268,7 @@
   }
 
   global.CITY3D = CITY;
+  global.CITY3D.BUILD = BUILD;
   global.CITY3D._helpers = { lon2x, lat2y, tile, visibleTiles, guessHeight, TILE_Z, MIN_Z,
                              EXTENT_FALLBACK };
 })(window);
@@ -1035,8 +1046,23 @@
     return n >= 4 && r[0] === r[n - 2] && r[1] === r[n - 1];
   }
 
-  const CUTS = [30, 14, 0];
-  const CUT_ZOOM = { 15: 0, 16: 1 };      // anything else: 2, meaning all
+  /* One cut, at zoom 15 only.
+
+     The first version cut at 30 m for zoom 15 and 14 m for zoom 16,
+     which was far too much of the city to throw away. Checked against
+     an independent rasterisation of every footprint in view, the GPU
+     was drawing 18% of what existed at zoom 15 and 63% at zoom 16 —
+     a third of downtown simply missing at the zoom people spend most
+     of their time at, which is its own kind of "looks broken".
+
+     Zoom 16 and in now draw everything. Zoom 15 keeps a floor of 14 m,
+     which leaves about 2,700 buildings — almost exactly the 2,200 the
+     old CPU renderer capped at, and for the same reason: eleven
+     thousand shapes two pixels tall is noise, not a skyline. The GPU
+     could draw them all at 0.39 ms; legibility is the constraint
+     here, not speed. */
+  const CUTS = [14, 0];
+  const CUT_ZOOM = { 15: 0 };             // anything else: everything
 
   function buildTile(gl, t) {
     const lay = t.buildings;
@@ -2390,9 +2416,16 @@
       bits.push(n.toLocaleString() + ' buildings',
                 Math.round(100 * real / n) + '% at their real height');
       if (C.useGL && C.glStats) {
-        bits.push('drawn on the GPU, ' + (C.glStats.verts / 1000).toFixed(0)
+        bits.push('drawn on the GPU, ' + (C.glStats.verts / 3000).toFixed(0)
           + 'k triangles' + (C.glStats.mb ? ' \u00b7 ' + C.glStats.mb + ' MB cached' : ''));
+      } else {
+        bits.push('drawn on the CPU \u2014 this machine refused WebGL');
       }
+      // C.BUILD, not BUILD: this function lives in a different IIFE
+      // from the constant, so a bare `BUILD` resolves to the page's
+      // own global of that name — which is a deploy timestamp, and was
+      // duly printed here instead of the renderer's build.
+      bits.push('build ' + C.BUILD);
       if (C.blackouts.length) {
         const worst = Math.round(100 * Math.max.apply(null, C.blackouts.map(x => x.pct)));
         bits.push('lights out in ' + C.blackouts.length + ' ZIP'

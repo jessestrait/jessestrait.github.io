@@ -11,7 +11,10 @@
  * served from cache and refreshed in the background, so a rebuild lands on the
  * next load by itself. See fromCacheRefreshing.
  */
-const VERSION = 'atx-v6';
+/* Bumped to v7 on 2026-09-25 to drop every cache after the 3D layer
+   moved to WebGL. Two rounds of "it still looks broken" were a stale
+   script being held while the HTML was current. */
+const VERSION = 'atx-v7';
 const SHELL = VERSION + '-shell';
 const GEO = VERSION + '-geo';
 const FONTS = VERSION + '-fonts';
