@@ -6,6 +6,15 @@
 # them sends a CORS header a browser could use. GitHub's runners are not
 # blocked. The full measurement is in tools/capture_aircraft.py.
 #
+# WHY TWO MINUTES AND NOT FIVE. raw.githubusercontent serves the file
+# with max-age=300 and holds a version for up to five and a half
+# minutes — measured by polling every 35 seconds and watching the same
+# fetched_at come back at 259s, 294s and 329s old before rolling over.
+# A reader therefore sees data roughly 300s + this interval old at
+# worst. Polling every two minutes cannot beat the CDN but it does
+# narrow that window by three minutes, which is the difference between
+# an aircraft a few kilometres off and one tens of kilometres off.
+#
 # COMMIT VOLUME, stated plainly because it is the real cost here. Twenty
 # two polls two minutes apart per job, about 720 commits a day on the
 # orphan `data` branch, at roughly a kilobyte each. That branch never

@@ -162,7 +162,7 @@
      than ask anyone to trust that a deploy landed, the layer says what
      it is running. If this does not match the newest deploy, the
      answer is a cache and not the code. */
-  const BUILD = 'gl11';
+  const BUILD = 'gl12';
 
   const MIN_Z = 15;
   const TILE_Z = 15;
@@ -2188,17 +2188,32 @@
        Drawn above their own ground shadow, separated by altitude, so a
        departure climbing out of AUS visibly lifts away from the map
        while something on short final sits almost on it. */
-    /* Four minutes is where this stops being arithmetic.
+    /* Seven minutes, and the number is set by a CDN rather than by
+       aerodynamics.
 
-       At 250 knots a fix is already sixteen kilometres old after two
-       minutes, which is fine for something flying straight and wrong
-       for anything turning onto final. Past four the chain has
-       probably stopped, and a plane drawn from a ten-minute-old fix is
-       not a stale position, it is a fictional one. Better to draw
-       nothing and let the readout say the feed is old. */
+       raw.githubusercontent serves this file with max-age=300 and
+       holds a version for up to five and a half minutes — measured,
+       polling every 35 seconds: the same fetched_at came back three
+       times running at 259s, 294s and 329s old before it rolled over.
+       So the page's view of the data is capped by that cache no matter
+       how often the collector commits. The floor is roughly
+       300s + the commit interval, which is why the collector polls
+       every two minutes rather than every five: it measurably narrows
+       the window even though it cannot close it.
+
+       The cut-off therefore has to sit above that, or the layer blanks
+       for a large fraction of every cycle, which looks like breakage
+       rather than honesty. Past seven minutes the chain has genuinely
+       stopped and nothing is drawn.
+
+       What this costs in accuracy is real and the readout states it:
+       the position shown is the last fix carried forward, which is
+       close for something flying straight and progressively wrong for
+       anything turning onto final. It is an estimate of where a real
+       aircraft is, labelled as one. */
     const air = C.air;
     const airAge = air ? (Date.now() - air.fetchedAt) / 1000 : Infinity;
-    if (air && air.planes.length && airAge < 240 && map.getZoom() >= 9) {
+    if (air && air.planes.length && airAge < 420 && map.getZoom() >= 9) {
       const secs = Math.max(0, airAge);
       const zf = Math.pow(2, map.getZoom() - 15);
       for (const a of air.planes) {
@@ -2602,7 +2617,7 @@
       const up = C.air.planes.filter(a => !a.ground).length;
       const age = Math.round((Date.now() - C.air.fetchedAt) / 1000);
       const said = age < 90 ? age + 's' : Math.round(age / 60) + ' min';
-      bits.push(age < 240
+      bits.push(age < 420
         ? up + ' aircraft up, flown forward from a fix ' + said + ' old'
         : 'aircraft feed is ' + said + ' behind \u2014 not drawing them');
     }
