@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 139,
-  "dispatch_only": 106,
+  "dispatch_only": 105,
   "here": 0,
   "here_matched": 0,
-  "matched": 46,
-  "tomtom": 1327,
-  "tomtom_only": 1280
+  "matched": 49,
+  "tomtom": 1378,
+  "tomtom_only": 1327
  },
  "date": "2026-09-25",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 44.7
   },
   "dispatch_surface": {
-   "matched": 16,
+   "matched": 17,
    "n": 101,
-   "pct": 15.8
+   "pct": 16.8
   },
   "tomtom_highway": {
-   "matched": 41,
-   "n": 721,
-   "pct": 5.7
+   "matched": 46,
+   "n": 758,
+   "pct": 6.1
   },
   "tomtom_surface": {
-   "matched": 6,
-   "n": 606,
-   "pct": 1.0
+   "matched": 5,
+   "n": 620,
+   "pct": 0.8
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 76.3,
-  "median": -14.9,
+  "max": 84.9,
+  "median": -11.5,
   "min": -74.5,
-  "n": 46,
-  "q1": -31.9,
-  "q3": 7.5
+  "n": 49,
+  "q1": -30.6,
+  "q3": 18.0
  },
  "persistence_min": {
   "max": 454.1,
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 217,
-  "hotspot_buckets": 1225,
-  "hotspot_buckets_on_roadworks": 209,
+  "explained_by_roadworks": 220,
+  "hotspot_buckets": 1269,
+  "hotspot_buckets_on_roadworks": 212,
   "txdot_rows": 4,
-  "unreported_congestion": 1252
+  "unreported_congestion": 1299
  },
  "sampling": {
   "flow_spent_this_month": 1377,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 181,
+  "incidents_spent_this_month": 182,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -202,29 +202,29 @@
    "seg": "30.269,-97.770"
   },
   {
-   "from": "S 1st St",
-   "hour_of_week": 113,
+   "from": "W 5th St (N Lamar Blvd)",
+   "hour_of_week": 119,
    "n": 2,
    "roadworks": false,
-   "seg": "30.249,-97.753"
+   "seg": "30.264,-97.757"
   },
   {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
+   "from": "W Saint Elmo Rd (S Congress Ave)",
+   "hour_of_week": 118,
    "n": 2,
    "roadworks": false,
-   "seg": "30.245,-97.744"
+   "seg": "30.205,-97.775"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.3,
-  "tomtom": 96.5
+  "dispatch": 75.5,
+  "tomtom": 96.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 139,
-  "neither": 106,
-  "tomtom_only": 33
+  "neither": 105,
+  "tomtom_only": 34
  }
 }
