@@ -1,0 +1,230 @@
+{
+ "caveats": [
+  "Dispatch published_date is when APD published, not when it happened.",
+  "Dispatch record lifetimes look like real clearances this day, not a cap.",
+  "Clearance resolution equals the poll interval; shorter incidents are invisible.",
+  "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
+  "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
+  "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
+  "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
+ ],
+ "counts": {
+  "dispatch": 40,
+  "dispatch_only": 34,
+  "here": 0,
+  "here_matched": 0,
+  "matched": 6,
+  "tomtom": 451,
+  "tomtom_only": 445
+ },
+ "date": "2026-09-25",
+ "dispatch_life_capped": false,
+ "dispatch_record_life_min": {
+  "max": 111.7,
+  "median": 53.2,
+  "min": 6.0,
+  "n": 19,
+  "q1": 44.5,
+  "q3": 86.6
+ },
+ "here_onset_offset_min": {
+  "n": 0
+ },
+ "match_rate": {
+  "dispatch_highway": {
+   "matched": 2,
+   "n": 4,
+   "pct": 50.0
+  },
+  "dispatch_surface": {
+   "matched": 4,
+   "n": 36,
+   "pct": 11.1
+  },
+  "tomtom_highway": {
+   "matched": 4,
+   "n": 239,
+   "pct": 1.7
+  },
+  "tomtom_surface": {
+   "matched": 2,
+   "n": 212,
+   "pct": 0.9
+  }
+ },
+ "matcher": {
+  "buffer_m": 200.0,
+  "highway_buffer_m": 130.0,
+  "onset_window_min": 90.0,
+  "tolerance_min": 20.0
+ },
+ "onset_offset_min": {
+  "max": 76.3,
+  "median": -30.5,
+  "min": -54.1,
+  "n": 6,
+  "q1": -46.6,
+  "q3": 6.9
+ },
+ "persistence_min": {
+  "max": 0.0,
+  "median": 0.0,
+  "min": 0.0,
+  "n": 4,
+  "q1": 0.0,
+  "q3": 0.0
+ },
+ "poll_interval_min": 5.0,
+ "probe_agreement": {
+  "cover": {
+   "n": 0
+  },
+  "n": 0,
+  "onset_offset_min": {
+   "n": 0
+  },
+  "pct_of_here": 0.0,
+  "pct_of_tomtom": 0.0,
+  "type_agree": 0
+ },
+ "roadworks": {
+  "explained_by_roadworks": 80,
+  "hotspot_buckets": 417,
+  "hotspot_buckets_on_roadworks": 77,
+  "txdot_rows": 12,
+  "unreported_congestion": 428
+ },
+ "sampling": {
+  "flow_spent_this_month": 1206,
+  "incident_budget": 2500,
+  "incidents_spent_this_month": 159,
+  "off_peak_min": 45,
+  "rush_hours_local": [
+   7,
+   8,
+   16,
+   17,
+   18
+  ],
+  "rush_min": 5,
+  "this_poll": "off-peak"
+ },
+ "structural_hotspots": [
+  {
+   "from": "Far West Blvd (TX-1)",
+   "hour_of_week": 93,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.278,-97.769"
+  },
+  {
+   "from": "S Congress Ave (W Oltorf St)",
+   "hour_of_week": 93,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.232,-97.737"
+  },
+  {
+   "from": "TX-130 Toll (TX-290 Toll)",
+   "hour_of_week": 92,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.345,-97.575"
+  },
+  {
+   "from": "Nature Center Dr",
+   "hour_of_week": 86,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.269,-97.770"
+  },
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Lexington Meadow Ln",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.179,-97.616"
+  },
+  {
+   "from": "New Hope Dr (Whitestone Blvd)",
+   "hour_of_week": 94,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.514,-97.853"
+  },
+  {
+   "from": "Oasis Bluff Dr",
+   "hour_of_week": 94,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.434,-97.872"
+  },
+  {
+   "from": "Berardi Pl",
+   "hour_of_week": 94,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.466,-97.845"
+  },
+  {
+   "from": "Sunchase Blvd",
+   "hour_of_week": 94,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.480,-97.833"
+  },
+  {
+   "from": "Ridgeline Blvd (S Lakeline Blvd)",
+   "hour_of_week": 94,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.480,-97.823"
+  },
+  {
+   "from": "Little Elm Trl",
+   "hour_of_week": 94,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.481,-97.833"
+  },
+  {
+   "from": "Lakeline Blvd (S Bell Blvd/US-183)",
+   "hour_of_week": 94,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.496,-97.812"
+  }
+ ],
+ "unmatched_pct": {
+  "dispatch": 85.0,
+  "tomtom": 98.7
+ },
+ "witnesses": {
+  "both": 0,
+  "here_only": 0,
+  "n": 40,
+  "neither": 34,
+  "tomtom_only": 6
+ }
+}
