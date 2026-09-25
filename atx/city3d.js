@@ -162,7 +162,7 @@
      than ask anyone to trust that a deploy landed, the layer says what
      it is running. If this does not match the newest deploy, the
      answer is a cache and not the code. */
-  const BUILD = 'gl7';
+  const BUILD = 'gl8';
 
   const MIN_Z = 15;
   const TILE_Z = 15;
@@ -284,9 +284,25 @@
     // it sits under is the point of the page and must never be occluded.
     if (!map.getPane('cityPane')) { map.createPane('cityPane').style.zIndex = 265; }
     if (!map.getPane('carPane')) { map.createPane('carPane').style.zIndex = 268; }
+    /* `leaflet-zoom-animated` is not decoration.
+
+       During a zoom, Leaflet scales this canvas with a CSS transform
+       rather than redrawing it, and the offset it computes assumes the
+       element scales about its TOP-LEFT corner. That is what the class
+       carries: `transform-origin: 0 0`, from Leaflet's own stylesheet,
+       which its own canvas layers get in onAdd.
+
+       A bare canvas defaults to `transform-origin: 50% 50%`, so it
+       scaled about its middle instead — and on a zoom out the city
+       shrank away into one quadrant for the length of the animation,
+       then snapped back when the real redraw landed. The origin is
+       also set inline, so this still holds if the stylesheet is ever
+       served from somewhere that fails. */
     const mk = pane => {
       const cv = document.createElement('canvas');
-      cv.style.cssText = 'position:absolute;left:0;top:0;pointer-events:none';
+      cv.className = 'leaflet-zoom-animated';
+      cv.style.cssText = 'position:absolute;left:0;top:0;pointer-events:none;'
+                       + 'transform-origin:0 0;-webkit-transform-origin:0 0';
       map.getPane(pane).appendChild(cv);
       return cv;
     };
