@@ -162,7 +162,7 @@
      than ask anyone to trust that a deploy landed, the layer says what
      it is running. If this does not match the newest deploy, the
      answer is a cache and not the code. */
-  const BUILD = 'gl8';
+  const BUILD = 'gl9';
 
   const MIN_Z = 15;
   const TILE_Z = 15;
@@ -173,7 +173,7 @@
     carsOn: true, tileErr: null,
     quality: 1, drawMs: 0, blackouts: [], boZoom: null, here: null,
     water: [], waterCache: new Map(), drops: [], gauges: null, waterLen: 0,
-    alarms: [], t0: performance.now(),
+    alarms: [], t0: performance.now(), air: null,
     buildings: null, roads: null, cars: [], raf: null, last: 0,
     canvas: null, ctx: null, carCanvas: null, carCtx: null,
     lift: 0.55,          // how hard the city leans. 0 is a plan, 1 is a lot.
@@ -1940,6 +1940,65 @@
     C.jamLift = Math.sqrt(jamT / Math.max(plain, 1));
   }
 
+  /* ── Aircraft ───────────────────────────────────────────────────────
+
+     Real positions, carried forward.
+
+     The file is written by a scheduled Action, because no ADS-B feed
+     will answer a browser or a Cloudflare Worker — the measurements are
+     in tools/capture_aircraft.py. It lands about every two minutes,
+     which for anything else on this map would be uselessly stale.
+
+     Aircraft are the exception. An airliner at cruise is a straight
+     line at a known speed on a known heading, so carrying a two-minute
+     old fix forward is arithmetic rather than invention. The page does
+     that, and the readout says how old the underlying fix is so the
+     extrapolation is never mistaken for a live position. Anything
+     manoeuvring — on approach, in the pattern — drifts from the truth,
+     and that is the honest limit of it.
+
+     Altitude is drawn as separation: the marker sits above its own
+     shadow on the ground by an amount proportional to height, which is
+     the same trick the buildings use and reads immediately as "this one
+     is high and that one is landing". */
+  const AIR_URL = 'https://raw.githubusercontent.com/jessestrait/'
+                + 'jessestrait.github.io/data/aircraft/open.json';
+  const KT_MS = 0.514444;          // knots to metres per second
+  const FPM_MS = 0.00508;          // feet per minute to metres per second
+
+  async function loadAircraft() {
+    if (C.air && Date.now() - C.air.at < 45000) return C.air;
+    try {
+      const d = await fetch(AIR_URL, { cache: 'no-store' })
+        .then(r => { if (!r.ok) throw new Error('aircraft ' + r.status); return r.json(); });
+      const t0 = Date.parse(d.fetched_at || '') || Date.now();
+      C.air = {
+        at: Date.now(), fetchedAt: t0,
+        planes: (d.aircraft || []).filter(a => isFinite(a.lat) && isFinite(a.lng))
+      };
+    } catch (e) {
+      C.air = C.air || { at: Date.now(), fetchedAt: 0, planes: [] };
+      C.air.at = Date.now();       // do not hammer a feed that is down
+    }
+    return C.air;
+  }
+
+  /* Where an aircraft is now, given where it was and what it was doing.
+     Great-circle curvature over a couple of minutes at these speeds is
+     far below a pixel, so this is a straight line on the sphere. */
+  function deadReckon(a, secs) {
+    if (a.ground || !isFinite(a.gs_kt) || !isFinite(a.track)) {
+      return { lat: a.lat, lng: a.lng, alt: a.ground ? 0 : (a.alt_ft || 0) };
+    }
+    const d = a.gs_kt * KT_MS * secs;                 // metres along track
+    const th = a.track * Math.PI / 180;
+    const dLat = d * Math.cos(th) / 111320;
+    const dLng = d * Math.sin(th) / (111320 * Math.cos(a.lat * Math.PI / 180));
+    let alt = a.alt_ft || 0;
+    if (isFinite(a.vs_fpm)) alt = Math.max(0, alt + a.vs_fpm * (secs / 60));
+    return { lat: a.lat + dLat, lng: a.lng + dLng, alt: alt };
+  }
+
   /* ── Moving water ───────────────────────────────────────────────────
 
      The same tiles that carry the buildings carry a `water` layer, and
@@ -2198,6 +2257,52 @@
       }
     }
 
+    /* Aircraft, on the same canvas and in the same frame.
+
+       Drawn above their own ground shadow, separated by altitude, so a
+       departure climbing out of AUS visibly lifts away from the map
+       while something on short final sits almost on it. */
+    const air = C.air;
+    if (air && air.planes.length && map.getZoom() >= H.MIN_Z - 3) {
+      const secs = Math.max(0, (Date.now() - air.fetchedAt) / 1000);
+      const zf = Math.pow(2, map.getZoom() - 15);
+      for (const a of air.planes) {
+        const p = deadReckon(a, secs);
+        const g = map.latLngToLayerPoint([p.lat, p.lng]);
+        // 10,000 ft reads as ~26 px of lift at zoom 15, and scales with
+        // the map so the separation means the same thing at every zoom.
+        const lift = Math.min(90, (p.alt / 10000) * 26 * zf);
+        const gx = g.x - origin.x, gy = g.y - origin.y;
+        const ax = gx, ay = gy - lift;
+        if (ax < -40 || ay < -40 || ax > w + 40 || ay > h + 40) continue;
+
+        if (lift > 3) {
+          // the shadow it would cast, straight down
+          ctx.fillStyle = 'rgba(8,12,20,0.35)';
+          ctx.beginPath(); ctx.ellipse(gx, gy, 2.4, 1.1, 0, 0, 6.2832); ctx.fill();
+          rects.push(gx - 4, gy - 3, 8, 6);
+          ctx.strokeStyle = 'rgba(150,180,220,0.20)';
+          ctx.lineWidth = 0.6;
+          ctx.beginPath(); ctx.moveTo(gx, gy); ctx.lineTo(ax, ay); ctx.stroke();
+          rects.push(Math.min(gx, ax) - 2, Math.min(gy, ay) - 2,
+                     Math.abs(ax - gx) + 4, Math.abs(ay - gy) + 4);
+        }
+
+        // A chevron pointed along the track, so heading is readable.
+        const th = (isFinite(a.track) ? a.track : 0) * Math.PI / 180;
+        const co = Math.cos(th), si = Math.sin(th);
+        const R = a.ground ? 2.2 : 3.6;
+        ctx.fillStyle = a.ground ? 'rgba(150,170,200,0.75)' : '#e8f1ff';
+        ctx.beginPath();
+        ctx.moveTo(ax + si * R * 1.6, ay - co * R * 1.6);
+        ctx.lineTo(ax - si * R + co * R, ay + co * R + si * R);
+        ctx.lineTo(ax - si * R * 0.4, ay + co * R * 0.4);
+        ctx.lineTo(ax - si * R - co * R, ay + co * R - si * R);
+        ctx.closePath(); ctx.fill();
+        rects.push(ax - R * 2 - 1, ay - R * 2 - 1, R * 4 + 2, R * 4 + 2);
+      }
+    }
+
     /* The water, on the same canvas and in the same frame, so it shares
        one clear and one dirty-rect list with the cars. */
     const wantDrops = Math.max(0, Math.min(260,
@@ -2233,6 +2338,7 @@
   }
 
   global.CITY3D._cars = { harvestRoads, harvestWater, stepCars, spawn, loadTraffic, trafficAt,
+                          loadAircraft, deadReckon,
                           flowAt, dropSpeed,
                           clockState, austinClock, CLASS, CONGEST_WD, VOLUME_WD };
 })(window);
@@ -2286,6 +2392,7 @@
     C.buildings = (C.on && !C.useGL) ? D.collect(map) : [];
     if (C.carsOn) {
       await CAR.loadTraffic();
+      CAR.loadAircraft();   // never awaited: a slow feed must not hold the settle
       CAR.harvestRoads(map);
       CAR.harvestWater(map);
     }
@@ -2475,6 +2582,12 @@
     if (inc) bits.push(inc + ' live incidents on the network');
     if (C.alarms.length) bits.push(C.alarms.length + ' call'
       + (C.alarms.length === 1 ? '' : 's') + ' AFD is on right now');
+    if (C.air && C.air.planes.length) {
+      const up = C.air.planes.filter(a => !a.ground).length;
+      const age = Math.round((Date.now() - C.air.fetchedAt) / 1000);
+      bits.push(up + ' aircraft up, flown forward from a fix '
+        + (age < 90 ? age + 's' : Math.round(age / 60) + ' min') + ' old');
+    }
     if (!bits.length) return 'Nothing to drive on here';
     return bits.join(' · ');
   };

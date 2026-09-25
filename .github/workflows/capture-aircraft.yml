@@ -1,0 +1,135 @@
+# Aircraft over Austin.
+#
+# This exists as an Action rather than as a fetch from the page or a hop
+# through the Cloudflare relay because both of those doors are shut —
+# every ADS-B aggregator refuses datacenter address space, and none of
+# them sends a CORS header a browser could use. GitHub's runners are not
+# blocked. The full measurement is in tools/capture_aircraft.py.
+#
+# COMMIT VOLUME, stated plainly because it is the real cost here. Twenty
+# two polls two minutes apart per job, about 720 commits a day on the
+# orphan `data` branch, at roughly a kilobyte each. That branch never
+# rebuilds the Pages site and readers fetch the tip from
+# raw.githubusercontent, so none of it reaches anyone's download — it is
+# repository size and nothing else. If that turns out not to be worth a
+# decorative layer, deleting this file stops it and nothing else breaks.
+#
+# No key, no secret. The feeds are open to this address range.
+name: Capture aircraft
+
+on:
+  schedule:
+    # Backup only. Offset from the other three chains in this repo
+    # (outages 4,19,34,49 — news 11,41 — traffic 24,54) so four jobs
+    # never queue against each other.
+    - cron: "9,39 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: capture-aircraft
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    # Twenty-two polls two minutes apart, plus a trailing wait.
+    timeout-minutes: 60
+    steps:
+      # Path-scoped, for the reason written up at length in
+      # capture-traffic.yml: four workflows share the `data` branch, so
+      # "the branch is fresh" says nothing about whether THIS chain is
+      # alive, and the first version of that check killed the archive
+      # inside an hour.
+      - name: Stand down if the chain is already alive
+        id: check
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -uo pipefail
+          LAST=$(gh api \
+                   "repos/${{ github.repository }}/commits?sha=data&path=aircraft/open.json&per_page=1" \
+                   --jq '.[0].commit.committer.date' 2>/dev/null || echo "")
+          if [ -z "$LAST" ] || [ "$LAST" = "null" ]; then
+            echo "No aircraft file yet — the backup should run."
+            echo "alive=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          AGE=$(( $(date -u +%s) - $(date -u -d "$LAST" +%s 2>/dev/null \
+                 || python3 -c "import datetime,sys;print(int(datetime.datetime.fromisoformat(sys.argv[1].replace('Z','+00:00')).timestamp()))" "$LAST") ))
+          echo "Last aircraft commit was ${AGE}s ago."
+          # Ten minutes: well past the two-minute poll gap, well short of
+          # the ~45-minute chain cycle, so this says "a job is running"
+          # rather than "a job ran recently".
+          if [ "$AGE" -lt 600 ]; then
+            echo "Chain is alive. Standing down rather than racing it."
+            echo "alive=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning::No aircraft commit for ${AGE}s — taking over."
+            echo "alive=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Arm the next run
+        # First, so the chain survives even if everything below fails.
+        if: steps.check.outputs.alive != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run "Capture aircraft" \
+            --repo "${{ github.repository }}" --ref main \
+            || echo "Self-dispatch failed — the cron backup will have to catch it."
+
+      - uses: actions/checkout@v4
+        if: steps.check.outputs.alive != 'true'
+
+      - name: Stash the collector before leaving main
+        if: steps.check.outputs.alive != 'true'
+        run: cp tools/capture_aircraft.py "$RUNNER_TEMP/capture_aircraft.py"
+
+      - name: Switch to the archive branch, creating it the first time
+        if: steps.check.outputs.alive != 'true'
+        run: |
+          set -euo pipefail
+          git config user.name  "aircraft-archive[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin data >/dev/null 2>&1; then
+            git fetch --depth=1 origin data:refs/remotes/origin/data
+            git checkout -B data refs/remotes/origin/data
+          else
+            git checkout --orphan data
+            git rm -rfq . || true
+          fi
+
+      - name: Poll twenty-two times, two minutes apart
+        if: steps.check.outputs.alive != 'true'
+        run: |
+          set -uo pipefail
+          for i in $(seq 1 22); do
+            for attempt in 1 2 3; do
+              # Nothing here reads prior state — the file is overwritten
+              # whole — but the branch still has to be current or the
+              # push loses to whichever chain committed last.
+              git fetch --depth=1 --quiet origin data:refs/remotes/origin/data || true
+              git reset --hard --quiet refs/remotes/origin/data || true
+              python3 "$RUNNER_TEMP/capture_aircraft.py" --out aircraft || break
+              git add aircraft
+              if git diff --cached --quiet; then
+                echo "nothing changed"
+                break
+              fi
+              N=$(python3 -c 'import json;d=json.load(open("aircraft/open.json"));print("%d aircraft, %d airborne" % (d["count"], d["airborne"]))')
+              git commit -q -m "Aircraft: $N at $(date -u +%Y-%m-%dT%H:%MZ)"
+              if git push --quiet origin data; then
+                break
+              fi
+              echo "push lost a race (attempt $attempt/3), resyncing"
+            done
+            # After every poll, the last included: the successor is queued
+            # behind this job and starts the moment it ends, so without a
+            # trailing sleep the handoff polls twice within seconds.
+            sleep 120
+          done
