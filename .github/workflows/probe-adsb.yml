@@ -1,7 +1,10 @@
 # Throwaway probe: can a GitHub runner reach the ADS-B feeds that refuse
 # Cloudflare Workers? Delete once the answer is written down.
 name: Probe ADS-B reachability
-on: { workflow_dispatch: {} }
+
+on:
+  workflow_dispatch: {}
+
 jobs:
   probe:
     runs-on: ubuntu-latest
@@ -10,17 +13,14 @@ jobs:
         run: |
           set -uo pipefail
           UA='jessestrait.com/atx map (contact via jessestrait.com)'
-          probe () {
-            code=$(curl -s -m 25 -A "$UA" "$1" -o /tmp/r.json -w '%{http_code}')
-            n=$(python3 - <<'PY' 2>/dev/null || echo '?'
-import json
-d=json.load(open('/tmp/r.json'))
-print(len(d.get('ac') or d.get('aircraft') or d.get('states') or []))
-PY
-)
-            echo "$2  ->  HTTP $code   aircraft=$n   bytes=$(wc -c </tmp/r.json)"
-          }
-          probe 'https://api.airplanes.live/v2/point/30.27/-97.74/40'                      airplanes.live
-          probe 'https://api.adsb.lol/v2/lat/30.27/lon/-97.74/dist/40'                     adsb.lol
-          probe 'https://opendata.adsb.fi/api/v2/lat/30.27/lon/-97.74/dist/40'             adsb.fi
-          probe 'https://opensky-network.org/api/states/all?lamin=29.95&lomin=-98.20&lamax=30.60&lomax=-97.30' opensky
+          for spec in \
+            "airplanes.live|https://api.airplanes.live/v2/point/30.27/-97.74/40" \
+            "adsb.lol|https://api.adsb.lol/v2/lat/30.27/lon/-97.74/dist/40" \
+            "adsb.fi|https://opendata.adsb.fi/api/v2/lat/30.27/lon/-97.74/dist/40" \
+            "opensky|https://opensky-network.org/api/states/all?lamin=29.95&lomin=-98.20&lamax=30.60&lomax=-97.30" ; do
+            name="${spec%%|*}"
+            url="${spec#*|}"
+            code=$(curl -s -m 30 -A "$UA" "$url" -o /tmp/r.json -w '%{http_code}' || echo 000)
+            n=$(python3 -c 'import json,sys; d=json.load(open("/tmp/r.json")); print(len(d.get("ac") or d.get("aircraft") or d.get("states") or []))' 2>/dev/null || echo "-")
+            printf '%-16s HTTP %-5s aircraft=%-5s bytes=%s\n' "$name" "$code" "$n" "$(wc -c </tmp/r.json)"
+          done
