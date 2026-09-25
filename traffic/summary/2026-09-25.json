@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 100,
-  "dispatch_only": 86,
+  "dispatch": 101,
+  "dispatch_only": 85,
   "here": 0,
   "here_matched": 0,
-  "matched": 16,
-  "tomtom": 686,
-  "tomtom_only": 670
+  "matched": 18,
+  "tomtom": 728,
+  "tomtom_only": 710
  },
  "date": "2026-09-25",
  "dispatch_life_capped": false,
@@ -32,23 +32,23 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 8,
+   "matched": 9,
    "n": 29,
-   "pct": 27.6
+   "pct": 31.0
   },
   "dispatch_surface": {
-   "matched": 6,
-   "n": 71,
-   "pct": 8.5
+   "matched": 7,
+   "n": 72,
+   "pct": 9.7
   },
   "tomtom_highway": {
-   "matched": 14,
-   "n": 370,
-   "pct": 3.8
+   "matched": 16,
+   "n": 393,
+   "pct": 4.1
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 316,
+   "n": 335,
    "pct": 0.6
   }
  },
@@ -62,9 +62,9 @@
   "max": 76.3,
   "median": -16.3,
   "min": -54.1,
-  "n": 16,
-  "q1": -31.0,
-  "q3": 5.2
+  "n": 18,
+  "q1": -29.9,
+  "q3": 4.0
  },
  "persistence_min": {
   "max": 454.1,
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 149,
-  "hotspot_buckets": 626,
-  "hotspot_buckets_on_roadworks": 144,
+  "explained_by_roadworks": 153,
+  "hotspot_buckets": 665,
+  "hotspot_buckets_on_roadworks": 148,
   "txdot_rows": 6,
-  "unreported_congestion": 644
+  "unreported_congestion": 684
  },
  "sampling": {
   "flow_spent_this_month": 1332,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 174,
+  "incidents_spent_this_month": 175,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -188,11 +188,18 @@
    "seg": "30.148,-97.704"
   },
   {
-   "from": "Irvine Ln",
+   "from": "Lexington Meadow Ln",
    "hour_of_week": 44,
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
+  },
+  {
+   "from": "E 2nd St (San Jacinto Blvd)",
+   "hour_of_week": 114,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.263,-97.742"
   },
   {
    "from": "New Hope Dr (Whitestone Blvd)",
@@ -207,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.434,-97.872"
-  },
-  {
-   "from": "Berardi Pl",
-   "hour_of_week": 94,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.466,-97.845"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.0,
-  "tomtom": 97.7
+  "dispatch": 84.2,
+  "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 100,
-  "neither": 86,
-  "tomtom_only": 14
+  "n": 101,
+  "neither": 85,
+  "tomtom_only": 16
  }
 }
