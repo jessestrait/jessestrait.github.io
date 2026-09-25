@@ -160,6 +160,7 @@
 
   const CITY = {
     on: false, pm: null, tiles: new Map(), busy: new Set(), proj: new Map(), roadCache: new Map(), roadTotal: 0, roadPx: 0, jamLift: 1, traffic: null,
+    carsOn: true,
     quality: 1, drawMs: 0, blackouts: [], boZoom: null, here: null,
     water: [], waterCache: new Map(), drops: [], gauges: null, waterLen: 0,
     alarms: [], t0: performance.now(),
@@ -1370,7 +1371,7 @@
     C.carWipe = false;
     const rects = [];
     C.carRects = rects;
-    if (!C.on || !C.carsOn || map.getZoom() < H.MIN_Z - 1) return;
+    if (!C.carsOn || map.getZoom() < H.MIN_Z - 1) return;
 
     // Density follows the road network on screen rather than a flat
     // number, so a motorway junction is busy and a quiet grid is quiet —
@@ -1491,12 +1492,30 @@
   const C = global.CITY3D, H = C._helpers, D = C._draw, CAR = C._cars;
   let settle = null;
 
+  /* The buildings and the traffic are two separate switches over one
+     set of machinery.
+
+     They were one switch, and that was wrong in a way that only showed
+     up once the costs were measured. Drawing the buildings is the
+     expensive half — 10 to 25 ms a settle, and worse on an older
+     machine. The traffic is the cheap half: cars, water and emergency
+     lights together come to well under a millisecond a frame, because
+     they are a few hundred small rectangles on a canvas that clears
+     only what it drew last time.
+
+     Tying them together meant you could not have the living city
+     without paying for the skyline. Now you can. */
+  function live() { return C.on || C.carsOn; }
+
   async function refresh(map) {
     // Drop whatever transform the zoom animation left behind; sizeCanvas
     // is about to position this properly again.
     if (C.canvas) L.DomUtil.setTransform(C.canvas, L.point(0, 0), 1);
-    if (!C.on) { D.draw(map); return; }
-    if (map.getZoom() < H.MIN_Z) { C.buildings = []; D.draw(map); C.onNote && C.onNote(); return; }
+    if (!live()) { C.buildings = []; D.draw(map); return; }
+    if (map.getZoom() < H.MIN_Z) {
+      C.buildings = []; C.roads = []; C.water = [];
+      D.draw(map); C.onNote && C.onNote(); return;
+    }
     const want = H.visibleTiles(map);
     await Promise.all(want.map(([z, x, y]) => H.tile(z, x, y)));
     /* Position the canvas first. collect() projects against its origin,
@@ -1505,12 +1524,16 @@
        came out shifted until the next settle corrected it. Order matters
        here and it did not look like it did. */
     D.sizeCanvas(map, C.canvas);
-    C.buildings = D.collect(map);
     C.clock = CAR.clockState();
     C.sky = D.skyState(map);
-    await CAR.loadTraffic();
-    CAR.harvestRoads(map);
-    CAR.harvestWater(map);
+    // Only collect what is going to be drawn. With the buildings off
+    // this skips the whole expensive half — projection, culling, sort.
+    C.buildings = C.on ? D.collect(map) : [];
+    if (C.carsOn) {
+      await CAR.loadTraffic();
+      CAR.harvestRoads(map);
+      CAR.harvestWater(map);
+    }
     D.draw(map, false);
     C.onNote && C.onNote();
   }
@@ -1526,7 +1549,7 @@
     C.last = now;
     // Not while the map is animating: the frames are wanted by the zoom,
     // and two hundred squares drawn behind it help nobody.
-    if (!document.hidden && C.on && !C.zooming) CAR.stepCars(map, dt);
+    if (!document.hidden && C.carsOn && !C.zooming) CAR.stepCars(map, dt);
     C.raf = requestAnimationFrame(() => frame(map));
   }
 
@@ -1558,7 +1581,7 @@
     map.on('zoomend', () => { C.zooming = false; });
     map.on('zoomanim', e => {
       const cv = C.canvas;
-      if (!cv || !C.on) return;
+      if (!cv || !C.on) return;   // only the building canvas is scaled
       const scale = map.getZoomScale(e.zoom, map.getZoom());
       const offset = map._latLngToNewLayerPoint(
         map.layerPointToLatLng(cv._origin || L.point(0, 0)), e.zoom, e.center);
@@ -1572,10 +1595,24 @@
     if (!C.raf) frame(map);
   };
 
+  // The skyline.
   C.setOn = function (map, on) {
-    C.on = on;
-    if (on) { C.carsOn = C.carsOn !== false; refresh(map); }
-    else { C.buildings = []; C.cars.length = 0; D.draw(map); CAR.stepCars(map, 0); }
+    C.on = !!on;
+    if (!C.on) C.buildings = [];
+    if (live()) refresh(map);
+    else { C.cars.length = 0; C.drops.length = 0; C.carWipe = true;
+           D.draw(map); CAR.stepCars(map, 0); }
+  };
+
+  // The traffic, the water and the emergency lights.
+  C.setCars = function (map, on) {
+    C.carsOn = !!on;
+    if (!C.carsOn) {
+      C.cars.length = 0; C.drops.length = 0; C.roads = []; C.water = [];
+      C.carWipe = true; CAR.stepCars(map, 0);
+    }
+    if (live()) refresh(map);
+    else D.draw(map);
   };
 
   /* The page owns the outage poll; this just receives the result.
@@ -1610,14 +1647,33 @@
     if (C.on && map) scheduleRefresh(map);
   };
 
-  C.status = function (map) {
-    if (!C.on) return 'Off';
-    if (map.getZoom() < H.MIN_Z) return 'Zoom past ' + H.MIN_Z + ' to raise the buildings';
-    const b = C.buildings || [];
-    if (!b.length) return 'No buildings mapped here';
-    const real = b.filter(x => x.real).length;
-    const bits = [b.length.toLocaleString() + ' buildings',
-                  Math.round(100 * real / b.length) + '% at their real height'];
+  /* One readout per switch, so each row describes its own half. */
+  C.status = function (map, which) {
+    const buildings = which !== 'cars';
+    if (buildings && !C.on) return 'Off';
+    if (!buildings && !C.carsOn) return 'Off';
+    if (map.getZoom() < H.MIN_Z) {
+      return buildings ? 'Zoom past ' + H.MIN_Z + ' to raise the buildings'
+                       : 'Zoom past ' + H.MIN_Z + ' to put traffic on the streets';
+    }
+    const bits = [];
+
+    /* The skyline row says what it is and stops there. Blackouts belong
+       to it rather than to the traffic: what an outage changes on this
+       map is which windows are lit, and windows are buildings. */
+    if (buildings) {
+      const b = C.buildings || [];
+      if (!b.length) return 'No buildings mapped here';
+      const real = b.filter(x => x.real).length;
+      bits.push(b.length.toLocaleString() + ' buildings',
+                Math.round(100 * real / b.length) + '% at their real height');
+      if (C.blackouts.length) {
+        const worst = Math.round(100 * Math.max.apply(null, C.blackouts.map(x => x.pct)));
+        bits.push('lights out in ' + C.blackouts.length + ' ZIP'
+          + (C.blackouts.length === 1 ? '' : 's') + ', worst ' + worst + '% of customers');
+      }
+      return bits.join(' \u00b7 ');
+    }
 
     const roads = C.roads || [];
     if (roads.length) {
@@ -1644,11 +1700,7 @@
     if (inc) bits.push(inc + ' live incidents on the network');
     if (C.alarms.length) bits.push(C.alarms.length + ' call'
       + (C.alarms.length === 1 ? '' : 's') + ' AFD is on right now');
-    if (C.blackouts.length) {
-      const worst = Math.round(100 * Math.max.apply(null, C.blackouts.map(b => b.pct)));
-      bits.push('lights out in ' + C.blackouts.length + ' ZIP'
-        + (C.blackouts.length === 1 ? '' : 's') + ', worst ' + worst + '% of customers');
-    }
+    if (!bits.length) return 'Nothing to drive on here';
     return bits.join(' · ');
   };
 

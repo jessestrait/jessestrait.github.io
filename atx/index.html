@@ -1221,7 +1221,7 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
      looks like the fix did not work.
 
      Bump ?v= on any deploy that changes city3d.js. -->
-<script src="city3d.js?v=20260924"></script>
+<script src="city3d.js?v=20260924c"></script>
 <script>
 /* ══════════════════════════════════════════════════════════════════
    ATX Layers — no backend and no storage. Almost everything is a live
@@ -2913,7 +2913,10 @@ function rowFor(l) {
    checked first inside it. Easy to flip if it reads wrong in the hand. */
 const TIERS = [
   ['live', 'Live now', ['firelive', 'c311', 'traffic', 'transit', 'signals',
-                        'bikes', 'gauges', 'lwc', 'outages', 'txdot', 'ttinc', 'storms']],
+                        'bikes', 'gauges', 'lwc', 'outages', 'txdot', 'ttinc', 'storms',
+                        // The cars are invented but the conditions moving
+                        // them are live, and it sits with the live things.
+                        'life']],
   ['today', 'Lately', ['news', 'crashes', 'wildfire', 'permits']],
   ['standing', 'Standing', ['busroutes', 'busstops', 'workzones', 'schoolzones', 'city']]
 ];
@@ -4201,11 +4204,42 @@ const GROUND = [
        says what share is real. */
     id: 'city', color: '#53709f', name: 'Buildings, in 3D',
     note: 'Zoom past 15 \u2014 OpenStreetMap footprints and heights',
-    // On by default, and it costs nothing to be: the archive is not
-    // touched and nothing is drawn until the map is past zoom 15, which
-    // the opening view is not.
-    group: 'recent', on: true,
+    /* Off by default.
+
+       It was on, on the reasoning that it costs nothing until you zoom
+       past 15. That reasoning was about load, and load was never the
+       complaint: the redraw on zoom is still bad enough on an Intel
+       MacBook to be the thing you notice about the page, after several
+       rounds of making it measurably faster. A scenery layer is not
+       worth that as the first impression, so it is opt-in until the
+       zoom behaviour is actually fixed rather than merely improved. */
+    group: 'recent', on: false,
     load: g => loadCity(g)
+  },
+  {
+    /* The streets, with something on them.
+
+       Split out from the buildings because the two cost wildly
+       different amounts and were sharing one switch. Drawing the
+       skyline is 10 to 25 ms every time the view settles, and worse on
+       an older machine; the traffic is a few hundred small rectangles
+       redrawn on a canvas that clears only what it drew last frame,
+       which comes to well under a millisecond. There is no reason the
+       cheap half should be held hostage to the expensive one.
+
+       What moves: cars on OpenStreetMap's own road geometry, at a
+       density and speed from the traffic model (measured hour-of-week
+       congestion, road class, TomTom's nine corridor probes and its
+       live incidents); water down the rivers and creeks at a speed set
+       by USGS discharge; and red and blue over the blocks AFD is
+       working right now.
+
+       None of the vehicles is a real vehicle. The conditions they are
+       obeying are real, and the layer says which. */
+    id: 'life', color: '#ffd166', name: 'Simulated traffic',
+    note: 'Zoom past 15 \u2014 cars, water and sirens on live conditions',
+    group: 'recent', on: true,
+    load: g => loadLife(g)
   },
   {
     /* Fifteen minutes from where you are standing, right now.
@@ -4366,9 +4400,15 @@ function groundRow(g) {
     g.on = e.target.checked;
     // The city paints canvases rather than adding a Leaflet layer, so the
     // usual add/remove dance does not apply to it.
-    if (g.id === 'city') {
-      if (window.CITY3D) { CITY3D.attach(map, () => setNote(g, CITY3D.status(map)));
-                           CITY3D.setOn(map, g.on); }
+    /* Both of these paint canvases rather than adding a Leaflet layer,
+       so the usual add/remove dance does not apply to either. */
+    if (g.id === 'city' || g.id === 'life') {
+      if (window.CITY3D) {
+        CITY3D.attach(map, cityNote);
+        if (g.id === 'city') CITY3D.setOn(map, g.on);
+        else CITY3D.setCars(map, g.on);
+        cityNote();
+      }
       if (window.syncModes) syncModes();
       if (window.saveUrl) saveUrl();
       return;
@@ -4863,10 +4903,11 @@ function atxAudit(quiet) {
 
   GROUND.forEach(g => {
     const box = auditBox(g.id, true);
-    // The city owns canvases, not a Leaflet layer, so "is it on the map"
-    // is a different question for it than for everything else.
-    if (g.id === 'city') {
-      const on = !!(window.CITY3D && CITY3D.on);
+    // These two own canvases, not a Leaflet layer, so "is it on the map"
+    // is a different question for them than for everything else.
+    if (g.id === 'city' || g.id === 'life') {
+      const on = !!(window.CITY3D
+                    && (g.id === 'city' ? CITY3D.on : CITY3D.carsOn));
       rows.push({ id: g.id, kind: 'ground', checked: box, flag: !!g.on,
                   built: on, onMap: on, ok: box === !!g.on && on === !!g.on });
       return;
@@ -5094,20 +5135,45 @@ async function loadSchoolZones(g) {
    it paints two canvases of its own on panes below the marks. So it
    never calls adoptGround, and atxOrphans has nothing of its to claim —
    there is no L.Layer here to strand. */
-function loadCity(g) {
-  const badge = document.getElementById('ct-g-' + g.id);
+/* The buildings and the traffic are two rows over one engine, so one
+   callback updates both and each asks for its own half of the story. */
+function cityNote() {
+  const b = byGround.city, l = byGround.life;
+  if (b) {
+    setNote(b, CITY3D.status(map, 'buildings'));
+    const n = document.getElementById('ct-g-city');
+    if (n) n.textContent = b.on && (CITY3D.buildings || []).length
+      ? CITY3D.buildings.length.toLocaleString() : '\u2014';
+  }
+  if (l) {
+    setNote(l, CITY3D.status(map, 'cars'));
+    const n = document.getElementById('ct-g-life');
+    if (n) n.textContent = l.on && (CITY3D.cars || []).length
+      ? CITY3D.cars.length.toLocaleString() : '\u2014';
+  }
+}
+
+function cityReady(g) {
   if (!window.CITY3D || !window.pmtiles) {
+    const badge = document.getElementById('ct-g-' + g.id);
     if (badge) badge.textContent = '\u2014';
     setNote(g, 'The city library did not load', true);
-    return;
+    return false;
   }
-  CITY3D.attach(map, () => {
-    setNote(g, CITY3D.status(map));
-    if (badge) badge.textContent = (CITY3D.buildings || []).length
-      ? (CITY3D.buildings || []).length.toLocaleString() : '\u2014';
-  });
+  CITY3D.attach(map, cityNote);
+  return true;
+}
+
+function loadCity(g) {
+  if (!cityReady(g)) return;
   CITY3D.setOn(map, !!g.on);
-  setNote(g, CITY3D.status(map));
+  cityNote();
+}
+
+function loadLife(g) {
+  if (!cityReady(g)) return;
+  CITY3D.setCars(map, !!g.on);
+  cityNote();
 }
 
 async function loadGround(g) {
