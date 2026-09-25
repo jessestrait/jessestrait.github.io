@@ -162,7 +162,7 @@
      than ask anyone to trust that a deploy landed, the layer says what
      it is running. If this does not match the newest deploy, the
      answer is a cache and not the code. */
-  const BUILD = 'gl9';
+  const BUILD = 'gl11';
 
   const MIN_Z = 15;
   const TILE_Z = 15;
@@ -2181,7 +2181,69 @@
     C.carWipe = false;
     const rects = [];
     C.carRects = rects;
-    if (!C.carsOn || map.getZoom() < H.MIN_Z - 1) return;
+    if (!C.carsOn) return;
+
+    /* Aircraft, on the same canvas and in the same frame.
+
+       Drawn above their own ground shadow, separated by altitude, so a
+       departure climbing out of AUS visibly lifts away from the map
+       while something on short final sits almost on it. */
+    /* Four minutes is where this stops being arithmetic.
+
+       At 250 knots a fix is already sixteen kilometres old after two
+       minutes, which is fine for something flying straight and wrong
+       for anything turning onto final. Past four the chain has
+       probably stopped, and a plane drawn from a ten-minute-old fix is
+       not a stale position, it is a fictional one. Better to draw
+       nothing and let the readout say the feed is old. */
+    const air = C.air;
+    const airAge = air ? (Date.now() - air.fetchedAt) / 1000 : Infinity;
+    if (air && air.planes.length && airAge < 240 && map.getZoom() >= 9) {
+      const secs = Math.max(0, airAge);
+      const zf = Math.pow(2, map.getZoom() - 15);
+      for (const a of air.planes) {
+        const p = deadReckon(a, secs);
+        const g = map.latLngToLayerPoint([p.lat, p.lng]);
+        // 10,000 ft reads as ~26 px of lift at zoom 15, and scales with
+        // the map so the separation means the same thing at every zoom.
+        const lift = Math.min(90, (p.alt / 10000) * 26 * zf);
+        const gx = g.x - origin.x, gy = g.y - origin.y;
+        const ax = gx, ay = gy - lift;
+        if (ax < -40 || ay < -40 || ax > w + 40 || ay > h + 40) continue;
+
+        if (lift > 3) {
+          // the shadow it would cast, straight down
+          ctx.fillStyle = 'rgba(8,12,20,0.35)';
+          ctx.beginPath(); ctx.ellipse(gx, gy, 2.4, 1.1, 0, 0, 6.2832); ctx.fill();
+          rects.push(gx - 4, gy - 3, 8, 6);
+          ctx.strokeStyle = 'rgba(150,180,220,0.20)';
+          ctx.lineWidth = 0.6;
+          ctx.beginPath(); ctx.moveTo(gx, gy); ctx.lineTo(ax, ay); ctx.stroke();
+          rects.push(Math.min(gx, ax) - 2, Math.min(gy, ay) - 2,
+                     Math.abs(ax - gx) + 4, Math.abs(ay - gy) + 4);
+        }
+
+        // A chevron pointed along the track, so heading is readable.
+        const th = (isFinite(a.track) ? a.track : 0) * Math.PI / 180;
+        const co = Math.cos(th), si = Math.sin(th);
+        const R = a.ground ? 2.2 : 3.6;
+        ctx.fillStyle = a.ground ? 'rgba(150,170,200,0.75)' : '#e8f1ff';
+        ctx.beginPath();
+        ctx.moveTo(ax + si * R * 1.6, ay - co * R * 1.6);
+        ctx.lineTo(ax - si * R + co * R, ay + co * R + si * R);
+        ctx.lineTo(ax - si * R * 0.4, ay + co * R * 0.4);
+        ctx.lineTo(ax - si * R - co * R, ay + co * R - si * R);
+        ctx.closePath(); ctx.fill();
+        rects.push(ax - R * 2 - 1, ay - R * 2 - 1, R * 4 + 2, R * 4 + 2);
+      }
+    }
+
+
+    /* Cars and water need streets under them, so they stop where the
+       streets stop being legible. Aircraft do not — they are most of
+       the point of the layer when you are zoomed out far enough to see
+       the whole approach — so they are drawn above this line. */
+    if (map.getZoom() < H.MIN_Z - 1) return;
 
     // Density follows the road network on screen rather than a flat
     // number, so a motorway junction is busy and a quiet grid is quiet —
@@ -2254,52 +2316,6 @@
         ctx.fillStyle = g;
         ctx.fillRect(x - R, y - R, R * 2, R * 2);
         rects.push(x - R - 1, y - R - 1, R * 2 + 2, R * 2 + 2);
-      }
-    }
-
-    /* Aircraft, on the same canvas and in the same frame.
-
-       Drawn above their own ground shadow, separated by altitude, so a
-       departure climbing out of AUS visibly lifts away from the map
-       while something on short final sits almost on it. */
-    const air = C.air;
-    if (air && air.planes.length && map.getZoom() >= H.MIN_Z - 3) {
-      const secs = Math.max(0, (Date.now() - air.fetchedAt) / 1000);
-      const zf = Math.pow(2, map.getZoom() - 15);
-      for (const a of air.planes) {
-        const p = deadReckon(a, secs);
-        const g = map.latLngToLayerPoint([p.lat, p.lng]);
-        // 10,000 ft reads as ~26 px of lift at zoom 15, and scales with
-        // the map so the separation means the same thing at every zoom.
-        const lift = Math.min(90, (p.alt / 10000) * 26 * zf);
-        const gx = g.x - origin.x, gy = g.y - origin.y;
-        const ax = gx, ay = gy - lift;
-        if (ax < -40 || ay < -40 || ax > w + 40 || ay > h + 40) continue;
-
-        if (lift > 3) {
-          // the shadow it would cast, straight down
-          ctx.fillStyle = 'rgba(8,12,20,0.35)';
-          ctx.beginPath(); ctx.ellipse(gx, gy, 2.4, 1.1, 0, 0, 6.2832); ctx.fill();
-          rects.push(gx - 4, gy - 3, 8, 6);
-          ctx.strokeStyle = 'rgba(150,180,220,0.20)';
-          ctx.lineWidth = 0.6;
-          ctx.beginPath(); ctx.moveTo(gx, gy); ctx.lineTo(ax, ay); ctx.stroke();
-          rects.push(Math.min(gx, ax) - 2, Math.min(gy, ay) - 2,
-                     Math.abs(ax - gx) + 4, Math.abs(ay - gy) + 4);
-        }
-
-        // A chevron pointed along the track, so heading is readable.
-        const th = (isFinite(a.track) ? a.track : 0) * Math.PI / 180;
-        const co = Math.cos(th), si = Math.sin(th);
-        const R = a.ground ? 2.2 : 3.6;
-        ctx.fillStyle = a.ground ? 'rgba(150,170,200,0.75)' : '#e8f1ff';
-        ctx.beginPath();
-        ctx.moveTo(ax + si * R * 1.6, ay - co * R * 1.6);
-        ctx.lineTo(ax - si * R + co * R, ay + co * R + si * R);
-        ctx.lineTo(ax - si * R * 0.4, ay + co * R * 0.4);
-        ctx.lineTo(ax - si * R - co * R, ay + co * R - si * R);
-        ctx.closePath(); ctx.fill();
-        rects.push(ax - R * 2 - 1, ay - R * 2 - 1, R * 4 + 2, R * 4 + 2);
       }
     }
 
@@ -2585,8 +2601,10 @@
     if (C.air && C.air.planes.length) {
       const up = C.air.planes.filter(a => !a.ground).length;
       const age = Math.round((Date.now() - C.air.fetchedAt) / 1000);
-      bits.push(up + ' aircraft up, flown forward from a fix '
-        + (age < 90 ? age + 's' : Math.round(age / 60) + ' min') + ' old');
+      const said = age < 90 ? age + 's' : Math.round(age / 60) + ' min';
+      bits.push(age < 240
+        ? up + ' aircraft up, flown forward from a fix ' + said + ' old'
+        : 'aircraft feed is ' + said + ' behind \u2014 not drawing them');
     }
     if (!bits.length) return 'Nothing to drive on here';
     return bits.join(' · ');
