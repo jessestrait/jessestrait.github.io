@@ -14,18 +14,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 9,
-  "tomtom": 540,
-  "tomtom_only": 531
+  "tomtom": 544,
+  "tomtom_only": 535
  },
  "date": "2026-09-25",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.5,
-  "median": 107.6,
+  "median": 108.1,
   "min": 6.0,
-  "n": 62,
-  "q1": 84.8,
-  "q3": 116.6
+  "n": 63,
+  "q1": 85.5,
+  "q3": 116.8
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 7,
-   "n": 283,
+   "n": 285,
    "pct": 2.5
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 257,
+   "n": 259,
    "pct": 0.8
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 121,
-  "hotspot_buckets": 495,
+  "hotspot_buckets": 497,
   "hotspot_buckets_on_roadworks": 117,
   "txdot_rows": 16,
-  "unreported_congestion": 509
+  "unreported_congestion": 512
  },
  "sampling": {
   "flow_spent_this_month": 1260,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 167,
+  "incidents_spent_this_month": 168,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -144,6 +144,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
+  },
+  {
+   "from": "I-35/US-290 (E Cesar Chavez St/E 1st St/State Spur 343)",
+   "hour_of_week": 96,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.258,-97.727"
   },
   {
    "from": "E Oltorf St",
@@ -207,13 +214,6 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.481,-97.833"
-  },
-  {
-   "from": "Lakeline Blvd (S Bell Blvd/US-183)",
-   "hour_of_week": 94,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.496,-97.812"
   }
  ],
  "unmatched_pct": {
