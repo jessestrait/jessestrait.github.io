@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 141,
-  "dispatch_only": 102,
+  "dispatch": 142,
+  "dispatch_only": 103,
   "here": 0,
   "here_matched": 0,
-  "matched": 61,
-  "tomtom": 1633,
-  "tomtom_only": 1567
+  "matched": 63,
+  "tomtom": 1719,
+  "tomtom_only": 1652
  },
  "date": "2026-09-25",
  "dispatch_life_capped": false,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 22,
-   "n": 103,
-   "pct": 21.4
+   "n": 104,
+   "pct": 21.2
   },
   "tomtom_highway": {
    "matched": 56,
-   "n": 938,
-   "pct": 6.0
+   "n": 998,
+   "pct": 5.6
   },
   "tomtom_surface": {
-   "matched": 10,
-   "n": 695,
-   "pct": 1.4
+   "matched": 11,
+   "n": 721,
+   "pct": 1.5
   }
  },
  "matcher": {
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 89.0,
-  "median": -0.8,
+  "median": 3.2,
   "min": -74.5,
-  "n": 61,
-  "q1": -26.1,
-  "q3": 35.7
+  "n": 63,
+  "q1": -24.6,
+  "q3": 35.9
  },
  "persistence_min": {
   "max": 454.1,
   "median": -5.1,
   "min": -1456.8,
-  "n": 37,
-  "q1": -70.5,
+  "n": 38,
+  "q1": -69.4,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 247,
-  "hotspot_buckets": 1501,
-  "hotspot_buckets_on_roadworks": 237,
+  "explained_by_roadworks": 253,
+  "hotspot_buckets": 1580,
+  "hotspot_buckets_on_roadworks": 242,
   "txdot_rows": 4,
-  "unreported_congestion": 1539
+  "unreported_congestion": 1624
  },
  "sampling": {
   "flow_spent_this_month": 1386,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 183,
+  "incidents_spent_this_month": 184,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -202,29 +202,29 @@
    "seg": "30.269,-97.770"
   },
   {
+   "from": "Heatherwilde Blvd (W Pecan St/FM-1825)",
+   "hour_of_week": 119,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.444,-97.665"
+  },
+  {
    "from": "Morrow St (N Lamar Blvd)",
    "hour_of_week": 119,
    "n": 2,
    "roadworks": false,
    "seg": "30.339,-97.718"
-  },
-  {
-   "from": "W 5th St (N Lamar Blvd)",
-   "hour_of_week": 119,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.264,-97.757"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 72.3,
-  "tomtom": 96.0
+  "dispatch": 72.5,
+  "tomtom": 96.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 141,
-  "neither": 102,
+  "n": 142,
+  "neither": 103,
   "tomtom_only": 39
  }
 }
