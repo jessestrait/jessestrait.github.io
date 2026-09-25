@@ -882,6 +882,7 @@
     attribute float aTop;     // 0 at the footprint, 1 at the roof
     attribute float aH;       // height in metres
     attribute float aShade;   // 0 wall, 1 roof
+    attribute vec2 aEdge;     // wall direction; (0,0) on roof vertices
     uniform vec2 uOff;        // where this tile's origin sits, in screen px
     uniform float uTileScale; // tile units -> screen px
     uniform vec2 uViewport;   // css px
@@ -916,6 +917,16 @@
         return;
       }
 
+      /* Only the walls facing the way the building leans are visible.
+         The 2D renderer culled these on the CPU; the test has to live
+         here because which way a wall faces depends on where the tile
+         has landed on screen, which is not known when the buffer is
+         built. Half the triangles, and it stops a back wall showing
+         through a neighbour that shares its depth. */
+      if (aShade < 0.5 && (aEdge.x * lean.y - aEdge.y * lean.x) <= 0.0) {
+        gl_Position = vec4(2.0, 2.0, 2.0, 1.0); return;
+      }
+
       vec2 p = base + aTop * lean;
       // Lower on screen is nearer. Roofs sit a hair in front of their
       // own walls so the two never fight over the same pixel.
@@ -942,7 +953,10 @@
       if (uMode > 0.5) { gl_FragColor = vec4(0.03, 0.05, 0.08, uShadowA); return; }
       // Tall buildings get the lit treatment, short ones the flat one,
       // which is the same distinction the 2D renderer draws at 26 px.
-      float tall = smoothstep(18.0, 34.0, vH);
+      // Narrower than the old smoothstep: a wide blend left every
+      // mid-height building a muddy average of two palettes, where the
+      // 2D renderer had a clean cut at 26 px.
+      float tall = smoothstep(24.0, 28.0, vH);
       vec3 wall = mix(uWallDim, uWallLit, tall);
       vec3 roof = mix(uRoof, uRoofHi, tall);
       gl_FragColor = vec4(mix(wall, roof, vShade), 1.0);
@@ -1010,14 +1024,31 @@
 
   /* One interleaved buffer per tile: [x, y, cx, cy, top, h, shade].
      Built once, on the CPU, the first time the tile is drawn. */
-  const STRIDE = 7;
+  const STRIDE = 9;   // x, y, cx, cy, top, h, shade, ex, ey
   const WSTRIDE = 9;     // x, y, cx, cy, ex, ey, h, v, r
+
+  /* Height cut-offs, metres, tallest first — and the zoom at which
+     each becomes the floor. Zoom 15 shows only what would be a landmark
+     from a mile up; by 17 everything is drawn. */
+  const CUTS = [30, 14, 0];
+  const CUT_ZOOM = { 15: 0, 16: 1 };      // anything else: 2, meaning all
 
   function buildTile(gl, t) {
     const lay = t.buildings;
+    const tiers = [];
     const ext = (lay && lay.extent) || H.EXTENT_FALLBACK;
     const data = [], win = [];
     let nBuild = 0, nReal = 0;
+    /* Tallest first.
+
+       At zoom 15 a tile's worth of buildings is eleven thousand shapes
+       two or three pixels tall, which is not a skyline, it is noise —
+       and it was noise the old renderer never showed because it capped
+       at 2,200 and sorted by height. Emitting in descending height
+       means a PREFIX of this buffer is always "the buildings big
+       enough to be worth drawing", so the zoom can pick a cut-off with
+       a single draw-count and no per-frame sorting. */
+    const feats = [];
     if (lay) {
       for (const f of lay.features) {
         if (f.type !== 3) continue;
@@ -1025,6 +1056,11 @@
         if (kind !== 'building' && kind !== 'building_part') continue;
         const real = f.props.height != null;
         const hM = real ? +f.props.height : H.guessHeight(f.id || 1);
+        feats.push({ f: f, real: real, hM: hM });
+      }
+      feats.sort((a, b) => b.hM - a.hM);
+      const marks = [];
+      for (const { f, real, hM } of feats) {
         for (const ring of f.rings) {
           if (ring.length < 8) continue;
           nBuild++; if (real) nReal++;
@@ -1033,8 +1069,8 @@
           for (let i = 0; i < ring.length; i += 2) { cx += ring[i]; cy += ring[i + 1]; }
           cx /= n; cy /= n;
 
-          const push = (x, y, top, shade) =>
-            data.push(x, y, cx, cy, top, hM, shade);
+          const push = (x, y, top, shade, ex, ey) =>
+            data.push(x, y, cx, cy, top, hM, shade, ex || 0, ey || 0);
 
           // Walls: a quad per edge, as two triangles. Every edge, not
           // only the ones facing out — the depth buffer sorts it, and a
@@ -1043,8 +1079,9 @@
           for (let i = 0; i < ring.length; i += 2) {
             const j = (i + 2) % ring.length;
             const ax = ring[i], ay = ring[i + 1], bx = ring[j], by = ring[j + 1];
-            push(ax, ay, 0, 0); push(bx, by, 0, 0); push(bx, by, 1, 0);
-            push(ax, ay, 0, 0); push(bx, by, 1, 0); push(ax, ay, 1, 0);
+            const ex = bx - ax, ey = by - ay;
+            push(ax, ay, 0, 0, ex, ey); push(bx, by, 0, 0, ex, ey); push(bx, by, 1, 0, ex, ey);
+            push(ax, ay, 0, 0, ex, ey); push(bx, by, 1, 0, ex, ey); push(ax, ay, 1, 0, ex, ey);
           }
           /* Windows, for anything that could plausibly show them.
              15 m is about five storeys; below that the shader would
@@ -1073,8 +1110,15 @@
           // Roof
           const flat = [];
           for (let i = 0; i < ring.length; i += 2) flat.push(ring[i], ring[i + 1]);
-          for (const k of earcut(flat)) push(flat[k * 2], flat[k * 2 + 1], 1, 1);
+          for (const k of earcut(flat)) push(flat[k * 2], flat[k * 2 + 1], 1, 1, 0, 0);
+          marks.push({ h: hM, at: data.length / STRIDE });
         }
+      }
+      // Where the buffer crosses each height, so a zoom can stop there.
+      for (const cut of CUTS) {
+        let at = 0;
+        for (const m of marks) { if (m.h >= cut) at = m.at; else break; }
+        tiers.push(at);
       }
     }
     const arr = new Float32Array(data);
@@ -1089,10 +1133,17 @@
       gl.bindBuffer(gl.ARRAY_BUFFER, wbuf);
       gl.bufferData(gl.ARRAY_BUFFER, warr, gl.STATIC_DRAW);
     }
-    return { buf: buf, count: arr.length / STRIDE, extent: ext,
-             wbuf: wbuf, wcount: warr.length / WSTRIDE,
-             bytes: arr.byteLength + warr.byteLength,
-             buildings: nBuild, real: nReal };
+    const count = arr.length / STRIDE;
+    return {
+      buf: buf, count: count, extent: ext,
+      wbuf: wbuf, wcount: warr.length / WSTRIDE,
+      bytes: arr.byteLength + warr.byteLength,
+      buildings: nBuild, real: nReal, tiers: tiers,
+      drawCount: function (z) {
+        const i = CUT_ZOOM[z];
+        return i == null ? count : (this.tiers[i] || 0);
+      }
+    };
   }
 
   /* Lit windows, as GL points.
@@ -1160,8 +1211,17 @@
     if (G.gl) return G.gl;
     let gl = null;
     try {
-      const opts = { alpha: true, antialias: true, depth: true,
-                     premultipliedAlpha: true, powerPreference: 'low-power' };
+      /* No MSAA.
+
+         A 2700x1800 drawing buffer at 4x samples is a lot of memory to
+         resolve, and the browser resolves it whenever the layer is
+         composited — including every frame of a zoom, while the canvas
+         is being CSS-scaled and nothing has even been redrawn. At
+         device-pixel-ratio 2 the edges are already sampled twice per
+         CSS pixel and the difference is hard to see; the cost is not. */
+      const opts = { alpha: true, antialias: false, depth: true,
+                     premultipliedAlpha: true, powerPreference: 'low-power',
+                     desynchronized: true };
       gl = canvas.getContext('webgl', opts) || canvas.getContext('experimental-webgl', opts);
     } catch (e) { gl = null; }
     if (!gl) {
@@ -1179,7 +1239,7 @@
         throw new Error('link: ' + gl.getProgramInfoLog(p));
       }
       G.prog = p;
-      for (const a of ['aPos', 'aCen', 'aTop', 'aH', 'aShade']) {
+      for (const a of ['aPos', 'aCen', 'aTop', 'aH', 'aShade', 'aEdge']) {
         G.loc[a] = gl.getAttribLocation(p, a);
       }
       const wp = gl.createProgram();
@@ -1261,8 +1321,8 @@
 
     let drawn = 0, verts = 0, nb = 0, nr = 0;
     const bound = [];
-    for (const a of ['aPos', 'aCen', 'aTop', 'aH', 'aShade']) {
-      gl.enableVertexAttribArray(G.loc[a]);
+    for (const a of ['aPos', 'aCen', 'aTop', 'aH', 'aShade', 'aEdge']) {
+      if (G.loc[a] >= 0) gl.enableVertexAttribArray(G.loc[a]);
     }
     for (const [tz, tx, ty] of H.visibleTiles(map)) {
       const key = tz + '/' + tx + '/' + ty;
@@ -1299,9 +1359,15 @@
       g._ox = tx * tileScale - sx;
       g._oy = ty * tileScale - sy;
       g._ts = tileScale / g.extent;
+      g._dc = g.drawCount(z);
+      if (!g._dc) continue;
 
       bound.push(g);
-      drawn++; verts += g.count; nb += g.buildings; nr += g.real;
+      drawn++; verts += g._dc;
+      // Report what is drawn, not what is stored: the readout saying
+      // eleven thousand buildings while showing two was its own small lie.
+      nb += Math.round(g.buildings * (g._dc / Math.max(1, g.count)));
+      nr += Math.round(g.real * (g._dc / Math.max(1, g.count)));
     }
 
     /* Two passes over the same buffers.
@@ -1333,7 +1399,8 @@
         gl.vertexAttribPointer(G.loc.aTop, 1, gl.FLOAT, false, S, 16);
         gl.vertexAttribPointer(G.loc.aH, 1, gl.FLOAT, false, S, 20);
         gl.vertexAttribPointer(G.loc.aShade, 1, gl.FLOAT, false, S, 24);
-        gl.drawArrays(gl.TRIANGLES, 0, g.count);
+        gl.vertexAttribPointer(G.loc.aEdge, 2, gl.FLOAT, false, S, 28);
+        gl.drawArrays(gl.TRIANGLES, 0, g._dc);
       }
     }
     gl.depthMask(true);
