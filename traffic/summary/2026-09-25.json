@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 9,
-  "tomtom": 549,
-  "tomtom_only": 540
+  "tomtom": 555,
+  "tomtom_only": 546
  },
  "date": "2026-09-25",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 7,
-   "n": 288,
+   "n": 292,
    "pct": 2.4
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 261,
+   "n": 263,
    "pct": 0.8
   }
  },
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 122,
-  "hotspot_buckets": 501,
-  "hotspot_buckets_on_roadworks": 118,
+  "explained_by_roadworks": 126,
+  "hotspot_buckets": 506,
+  "hotspot_buckets_on_roadworks": 121,
   "txdot_rows": 15,
-  "unreported_congestion": 516
+  "unreported_congestion": 522
  },
  "sampling": {
   "flow_spent_this_month": 1269,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 169,
+  "incidents_spent_this_month": 170,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -139,18 +139,18 @@
    "seg": "30.337,-97.554"
   },
   {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.245,-97.744"
-  },
-  {
    "from": "I-35/US-290 (E Cesar Chavez St/E 1st St/State Spur 343)",
    "hour_of_week": 96,
    "n": 2,
    "roadworks": false,
    "seg": "30.258,-97.727"
+  },
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.245,-97.744"
   },
   {
    "from": "E Oltorf St",
