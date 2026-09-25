@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 86, q3 115 min over 100 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 87, q3 115 min over 108 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,47 +9,47 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 122,
-  "dispatch_only": 97,
+  "dispatch": 126,
+  "dispatch_only": 99,
   "here": 0,
   "here_matched": 0,
-  "matched": 33,
-  "tomtom": 989,
-  "tomtom_only": 957
+  "matched": 38,
+  "tomtom": 1141,
+  "tomtom_only": 1103
  },
  "date": "2026-09-25",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
-  "max": 119.5,
+  "max": 119.8,
   "median": 102.7,
   "min": 3.4,
-  "n": 100,
-  "q1": 86.0,
-  "q3": 115.3
+  "n": 108,
+  "q1": 87.3,
+  "q3": 115.1
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 14,
-   "n": 35,
-   "pct": 40.0
+   "matched": 16,
+   "n": 37,
+   "pct": 43.2
   },
   "dispatch_surface": {
    "matched": 11,
-   "n": 87,
-   "pct": 12.6
+   "n": 89,
+   "pct": 12.4
   },
   "tomtom_highway": {
-   "matched": 28,
-   "n": 540,
-   "pct": 5.2
+   "matched": 34,
+   "n": 627,
+   "pct": 5.4
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 449,
-   "pct": 0.9
+   "n": 514,
+   "pct": 0.8
   }
  },
  "matcher": {
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 76.3,
-  "median": -9.2,
-  "min": -66.0,
-  "n": 33,
-  "q1": -32.1,
-  "q3": 22.4
+  "median": -10.3,
+  "min": -74.5,
+  "n": 38,
+  "q1": -33.3,
+  "q3": 9.1
  },
  "persistence_min": {
   "max": 454.1,
-  "median": -46.4,
+  "median": -25.8,
   "min": -165.9,
-  "n": 17,
-  "q1": -92.8,
+  "n": 24,
+  "q1": -72.8,
   "q3": 0.0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 185,
-  "hotspot_buckets": 906,
-  "hotspot_buckets_on_roadworks": 177,
-  "txdot_rows": 6,
-  "unreported_congestion": 929
+  "explained_by_roadworks": 198,
+  "hotspot_buckets": 1051,
+  "hotspot_buckets_on_roadworks": 191,
+  "txdot_rows": 5,
+  "unreported_congestion": 1075
  },
  "sampling": {
-  "flow_spent_this_month": 1359,
+  "flow_spent_this_month": 1368,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 177,
+  "incidents_spent_this_month": 178,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -108,7 +108,7 @@
    18
   ],
   "rush_min": 5,
-  "this_poll": "off-peak"
+  "this_poll": "rush"
  },
  "structural_hotspots": [
   {
@@ -175,6 +175,13 @@
    "seg": "30.263,-97.742"
   },
   {
+   "from": "TX-212 Loop/Gregg Manor Rd/Murray Ave (US-290)",
+   "hour_of_week": 115,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.349,-97.546"
+  },
+  {
    "from": "Nature Center Dr",
    "hour_of_week": 110,
    "n": 2,
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "New Hope Dr (Whitestone Blvd)",
-   "hour_of_week": 94,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.514,-97.853"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 79.5,
-  "tomtom": 96.8
+  "dispatch": 78.6,
+  "tomtom": 96.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 122,
-  "neither": 97,
-  "tomtom_only": 25
+  "n": 126,
+  "neither": 99,
+  "tomtom_only": 27
  }
 }
