@@ -10,45 +10,45 @@
  ],
  "counts": {
   "dispatch": 108,
-  "dispatch_only": 91,
+  "dispatch_only": 89,
   "here": 0,
   "here_matched": 0,
-  "matched": 20,
-  "tomtom": 728,
-  "tomtom_only": 708
+  "matched": 23,
+  "tomtom": 793,
+  "tomtom_only": 770
  },
  "date": "2026-09-25",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.5,
-  "median": 101.9,
+  "median": 102.3,
   "min": 3.4,
-  "n": 91,
-  "q1": 82.9,
-  "q3": 115.4
+  "n": 92,
+  "q1": 83.5,
+  "q3": 115.5
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 10,
+   "matched": 11,
    "n": 31,
-   "pct": 32.3
+   "pct": 35.5
   },
   "dispatch_surface": {
-   "matched": 7,
+   "matched": 8,
    "n": 77,
-   "pct": 9.1
+   "pct": 10.4
   },
   "tomtom_highway": {
-   "matched": 18,
-   "n": 393,
-   "pct": 4.6
+   "matched": 21,
+   "n": 444,
+   "pct": 4.7
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 335,
+   "n": 349,
    "pct": 0.6
   }
  },
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 76.3,
-  "median": -16.3,
+  "median": -14.8,
   "min": -66.0,
-  "n": 20,
-  "q1": -31.0,
-  "q3": 5.2
+  "n": 23,
+  "q1": -29.3,
+  "q3": 19.2
  },
  "persistence_min": {
   "max": 454.1,
-  "median": -5.1,
+  "median": -2.5,
   "min": -135.2,
-  "n": 13,
-  "q1": -92.8,
+  "n": 14,
+  "q1": -92.6,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 151,
-  "hotspot_buckets": 663,
-  "hotspot_buckets_on_roadworks": 146,
+  "explained_by_roadworks": 166,
+  "hotspot_buckets": 722,
+  "hotspot_buckets_on_roadworks": 160,
   "txdot_rows": 6,
-  "unreported_congestion": 682
+  "unreported_congestion": 743
  },
  "sampling": {
   "flow_spent_this_month": 1341,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 175,
+  "incidents_spent_this_month": 176,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,6 +160,13 @@
    "seg": "30.256,-97.702"
   },
   {
+   "from": "E Koenig Ln",
+   "hour_of_week": 110,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.322,-97.710"
+  },
+  {
    "from": "E 2nd St (San Jacinto Blvd)",
    "hour_of_week": 114,
    "n": 2,
@@ -207,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.514,-97.853"
-  },
-  {
-   "from": "Oasis Bluff Dr",
-   "hour_of_week": 94,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.434,-97.872"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 84.3,
-  "tomtom": 97.3
+  "dispatch": 82.4,
+  "tomtom": 97.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 108,
-  "neither": 91,
-  "tomtom_only": 17
+  "neither": 89,
+  "tomtom_only": 19
  }
 }
