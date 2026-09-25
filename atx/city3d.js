@@ -1030,6 +1030,11 @@
   /* Height cut-offs, metres, tallest first — and the zoom at which
      each becomes the floor. Zoom 15 shows only what would be a landmark
      from a mile up; by 17 everything is drawn. */
+  function sameEnds(r) {
+    const n = r.length;
+    return n >= 4 && r[0] === r[n - 2] && r[1] === r[n - 1];
+  }
+
   const CUTS = [30, 14, 0];
   const CUT_ZOOM = { 15: 0, 16: 1 };      // anything else: 2, meaning all
 
@@ -1061,8 +1066,28 @@
       feats.sort((a, b) => b.hM - a.hM);
       const marks = [];
       for (const { f, real, hM } of feats) {
-        for (const ring of f.rings) {
-          if (ring.length < 8) continue;
+        for (const full of f.rings) {
+          /* Every ring in this archive is CLOSED — the last point
+             repeats the first, 813 of 813 in a downtown tile. That is
+             normal for polygon geometry and harmless to a canvas fill,
+             which is why the 2D renderer never noticed.
+
+             It is not harmless to an ear clipper. A duplicated vertex
+             is a zero-area corner that is never a valid ear, so the
+             clipper stalls and emits whatever it has: 80% of real
+             footprints came out with the wrong area, the worst of them
+             100% wrong, and a four-point ring — a triangle plus its
+             duplicate — failed outright. On screen that is a building
+             rendered as a shard.
+
+             So the closing point comes off before anything uses the
+             ring. The walls do not care either way, since they wrap
+             with a modulo, but the centroid was also being pulled
+             toward the repeated corner. */
+          const ring = !sameEnds(full) ? full
+                     : (full.subarray ? full.subarray(0, full.length - 2)
+                                      : full.slice(0, full.length - 2));
+          if (ring.length < 6) continue;      // fewer than three corners
           nBuild++; if (real) nReal++;
           let cx = 0, cy = 0;
           const n = ring.length / 2;
