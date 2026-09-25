@@ -264,7 +264,30 @@
       map.getPane(pane).appendChild(cv);
       return cv;
     };
-    C.canvas = mk('cityPane'); C.ctx = C.canvas.getContext('2d');
+    C.canvas = mk('cityPane');
+    /* WebGL if the machine has it, the 2D renderer if not.
+
+       This is the whole point of the GL module: the 2D path rebuilds
+       every wall on the CPU each settle, and no amount of tuning
+       changes that shape. It is kept because it is correct everywhere
+       and because a lost or refused context should degrade rather than
+       leave an empty pane — but on anything made this decade the GPU
+       path is the one that runs. */
+    const gl = global.CITY3D._gl && global.CITY3D._gl.init(C.canvas);
+    if (gl) {
+      C.useGL = true;
+    } else {
+      /* A canvas can only ever have one kind of context. Asking a
+         canvas that was offered to WebGL for a 2D one returns null, and
+         the 2D renderer then throws on its first setTransform — so a
+         refused GL context took the fallback down with it, which is
+         exactly the thing a fallback exists to prevent. Start over with
+         a clean element. */
+      C.useGL = false;
+      C.canvas.remove();
+      C.canvas = mk('cityPane');
+      C.ctx = C.canvas.getContext('2d');
+    }
     C.carCanvas = mk('carPane'); C.carCtx = C.carCanvas.getContext('2d');
   }
 
@@ -618,6 +641,14 @@
     const dpr = resize === false
       ? Math.min(window.devicePixelRatio || 1, 2)
       : sizeCanvas(map, C.canvas);
+
+    if (C.useGL) {
+      const sky = C.sky || (C.sky = skyState(map));
+      C.glStats = global.CITY3D._gl.render(map, C.canvas, sky, palette(sky));
+      adapt(performance.now() - t0);
+      return;
+    }
+
     const ctx = C.ctx;
     const w = C.canvas.width / dpr, h = C.canvas.height / dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -790,6 +821,411 @@
 
   global.CITY3D._draw = { ensurePanes, sizeCanvas, collect, draw,
                           skyState, sunPosition, palette, lightsOn };
+})(window);
+
+/* ── The buildings, on the GPU ───────────────────────────────────────
+
+   Why this exists, when there is a perfectly good 2D renderer below it.
+
+   The 2D one rebuilds every path on the CPU each time the view settles
+   and rasterises them into a canvas the size of the window. That work
+   is proportional to what is on screen, every single time, and no
+   amount of tuning changes the shape of it — it went from 5,267 ms to
+   21 ms across several rounds and still made zooming feel wrong on an
+   older machine.
+
+   Google Maps does not do that, which is the fair question to ask. It
+   uploads geometry to the GPU once and then a zoom is a matrix: the CPU
+   sends four numbers and the GPU redraws. That is what this does.
+
+   The geometry is stored per tile in TILE-LOCAL coordinates, so it never
+   changes — not when you pan, not when you zoom, not ever. It is
+   uploaded to a vertex buffer the first time a tile is seen and then
+   reused for the life of the page. A settle costs one uniform update
+   and one draw call per visible tile.
+
+   Two details that matter and are easy to get wrong:
+
+   - PRECISION. Web Mercator world pixels at zoom 16 run to about 3.8
+     million, and a float32 has ~24 bits of mantissa, so storing world
+     coordinates directly loses about a quarter-pixel. Everything here
+     is tile-local (0..4096) and the tile's own offset is computed in
+     JavaScript doubles and handed over as a small number.
+
+   - DEPTH. A 2.5D extrusion has no camera, so there is no free
+     occlusion. Each building gets a depth from where its centroid
+     lands on screen — lower on screen is nearer — which is the
+     painter's ordering the 2D version had to do by sorting, done by
+     the depth buffer instead, correctly and for nothing. */
+(function (global) {
+  'use strict';
+  const C = global.CITY3D, H = C._helpers;
+
+  const VERT = `
+    attribute vec2 aPos;      // tile-local, 0..extent
+    attribute vec2 aCen;      // building centroid, tile-local
+    attribute float aTop;     // 0 at the footprint, 1 at the roof
+    attribute float aH;       // height in metres
+    attribute float aShade;   // 0 wall, 1 roof
+    uniform vec2 uOff;        // where this tile's origin sits, in screen px
+    uniform float uTileScale; // tile units -> screen px
+    uniform vec2 uViewport;   // css px
+    uniform vec2 uCentre;     // screen centre, px
+    uniform vec2 uHalf;       // half the canvas, px
+    uniform float uLift;
+    uniform float uMpp;       // metres per pixel
+    uniform float uMode;      // 0 buildings, 1 shadows
+    uniform vec2 uSun;        // shadow direction, px per px of height
+    varying float vShade;
+    varying float vH;
+    void main() {
+      vec2 base = uOff + aPos * uTileScale;
+      vec2 cen  = uOff + aCen * uTileScale;
+      float hpx = aH / uMpp;
+      // The same lean the 2D renderer uses: away from the middle of the
+      // screen, proportional to height, plus straight up by the height.
+      vec2 lean = (cen - uCentre) / uHalf * uLift * hpx + vec2(0.0, -hpx);
+      vShade = aShade;
+      vH = hpx;
+
+      /* The shadow pass reuses this very buffer. Only the roof
+         triangles are wanted — they are the building's outline — so the
+         wall vertices are pushed outside the clip volume rather than
+         kept in a second buffer. A degenerate triangle costs nothing;
+         a duplicate copy of every building in Austin costs 7 MB. */
+      if (uMode > 0.5) {
+        if (aShade < 0.5) { gl_Position = vec4(2.0, 2.0, 2.0, 1.0); return; }
+        vec2 sp = base + uSun * hpx;
+        gl_Position = vec4((sp / uViewport) * 2.0 - 1.0, 0.999, 1.0);
+        gl_Position.y = -gl_Position.y;
+        return;
+      }
+
+      vec2 p = base + aTop * lean;
+      // Lower on screen is nearer. Roofs sit a hair in front of their
+      // own walls so the two never fight over the same pixel.
+      float depth = 1.0 - clamp(cen.y / uViewport.y, 0.0, 1.0)
+                  - aShade * 0.0008;
+      gl_Position = vec4((p / uViewport) * 2.0 - 1.0, depth, 1.0);
+      gl_Position.y = -gl_Position.y;
+    }`;
+
+  const FRAG = `
+    precision mediump float;
+    varying float vShade;
+    varying float vH;
+    uniform vec3 uWallDim, uWallLit, uRoof, uRoofHi;
+    /* highp, explicitly. A uniform shared between the two shaders must
+       agree on precision, and a float in the vertex shader is highp by
+       default while this file declares mediump down here — so leaving
+       it unqualified fails at link time with "Precisions of uniform
+       'uMode' differ", which is a link error and not a compile one, so
+       both shaders compile perfectly on their own first. */
+    uniform highp float uMode;
+    uniform float uShadowA;
+    void main() {
+      if (uMode > 0.5) { gl_FragColor = vec4(0.03, 0.05, 0.08, uShadowA); return; }
+      // Tall buildings get the lit treatment, short ones the flat one,
+      // which is the same distinction the 2D renderer draws at 26 px.
+      float tall = smoothstep(18.0, 34.0, vH);
+      vec3 wall = mix(uWallDim, uWallLit, tall);
+      vec3 roof = mix(uRoof, uRoofHi, tall);
+      gl_FragColor = vec4(mix(wall, roof, vShade), 1.0);
+    }`;
+
+  function compile(gl, type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src); gl.compileShader(s);
+    if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+      throw new Error('shader: ' + gl.getShaderInfoLog(s));
+    }
+    return s;
+  }
+
+  /* Ear clipping, because a roof is not always convex.
+
+     The 2D renderer got concave footprints right for free — canvas fill
+     uses the nonzero winding rule. A GPU wants triangles, and a fan from
+     the centroid quietly fills in the notch of every L-shaped building.
+     This is the small price of moving to the GPU, paid once per tile. */
+  function earcut(pts) {
+    const n = pts.length / 2;
+    if (n < 3) return [];
+    const idx = [];
+    for (let i = 0; i < n; i++) idx.push(i);
+    // Work in a consistent winding so the "is this ear convex" test has
+    // one answer rather than two.
+    let area = 0;
+    for (let i = 0, j = n - 1; i < n; j = i++) {
+      area += (pts[j * 2] - pts[i * 2]) * (pts[j * 2 + 1] + pts[i * 2 + 1]);
+    }
+    if (area < 0) idx.reverse();
+
+    const tri = [];
+    const cross = (a, b, c) =>
+      (pts[b * 2] - pts[a * 2]) * (pts[c * 2 + 1] - pts[a * 2 + 1])
+    - (pts[b * 2 + 1] - pts[a * 2 + 1]) * (pts[c * 2] - pts[a * 2]);
+    const inside = (a, b, c, p) =>
+      cross(a, b, p) >= 0 && cross(b, c, p) >= 0 && cross(c, a, p) >= 0;
+
+    let guard = idx.length * idx.length;
+    while (idx.length > 3 && guard-- > 0) {
+      let clipped = false;
+      for (let i = 0; i < idx.length; i++) {
+        const a = idx[(i + idx.length - 1) % idx.length];
+        const b = idx[i];
+        const c = idx[(i + 1) % idx.length];
+        if (cross(a, b, c) <= 0) continue;          // reflex, not an ear
+        let ok = true;
+        for (const p of idx) {
+          if (p === a || p === b || p === c) continue;
+          if (inside(a, b, c, p)) { ok = false; break; }
+        }
+        if (!ok) continue;
+        tri.push(a, b, c);
+        idx.splice(i, 1);
+        clipped = true;
+        break;
+      }
+      if (!clipped) break;      // degenerate ring; take what we have
+    }
+    if (idx.length === 3) tri.push(idx[0], idx[1], idx[2]);
+    return tri;
+  }
+
+  /* One interleaved buffer per tile: [x, y, cx, cy, top, h, shade].
+     Built once, on the CPU, the first time the tile is drawn. */
+  const STRIDE = 7;
+
+  function buildTile(gl, t) {
+    const lay = t.buildings;
+    const ext = (lay && lay.extent) || H.EXTENT_FALLBACK;
+    const data = [];
+    let nBuild = 0, nReal = 0;
+    if (lay) {
+      for (const f of lay.features) {
+        if (f.type !== 3) continue;
+        const kind = f.props.kind;
+        if (kind !== 'building' && kind !== 'building_part') continue;
+        const real = f.props.height != null;
+        const hM = real ? +f.props.height : H.guessHeight(f.id || 1);
+        for (const ring of f.rings) {
+          if (ring.length < 8) continue;
+          nBuild++; if (real) nReal++;
+          let cx = 0, cy = 0;
+          const n = ring.length / 2;
+          for (let i = 0; i < ring.length; i += 2) { cx += ring[i]; cy += ring[i + 1]; }
+          cx /= n; cy /= n;
+
+          const push = (x, y, top, shade) =>
+            data.push(x, y, cx, cy, top, hM, shade);
+
+          // Walls: a quad per edge, as two triangles. Every edge, not
+          // only the ones facing out — the depth buffer sorts it, and a
+          // facing test would have to move to the shader anyway since
+          // the lean direction depends on where the tile is on screen.
+          for (let i = 0; i < ring.length; i += 2) {
+            const j = (i + 2) % ring.length;
+            const ax = ring[i], ay = ring[i + 1], bx = ring[j], by = ring[j + 1];
+            push(ax, ay, 0, 0); push(bx, by, 0, 0); push(bx, by, 1, 0);
+            push(ax, ay, 0, 0); push(bx, by, 1, 0); push(ax, ay, 1, 0);
+          }
+          // Roof
+          const flat = [];
+          for (let i = 0; i < ring.length; i += 2) flat.push(ring[i], ring[i + 1]);
+          for (const k of earcut(flat)) push(flat[k * 2], flat[k * 2 + 1], 1, 1);
+        }
+      }
+    }
+    const arr = new Float32Array(data);
+    const buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, arr, gl.STATIC_DRAW);
+    return { buf: buf, count: arr.length / STRIDE, extent: ext,
+             bytes: arr.byteLength, buildings: nBuild, real: nReal };
+  }
+
+  const G = { gl: null, prog: null, loc: {}, tiles: new Map(), bytes: 0, dead: false };
+
+  function hex(c) {
+    const v = parseInt(c.slice(1), 16);
+    return [((v >> 16) & 255) / 255, ((v >> 8) & 255) / 255, (v & 255) / 255];
+  }
+  function rgbOf(s) {
+    if (s[0] === '#') return hex(s);
+    const m = s.match(/\d+/g).map(Number);
+    return [m[0] / 255, m[1] / 255, m[2] / 255];
+  }
+
+  function init(canvas) {
+    if (G.dead) return null;
+    if (G.gl) return G.gl;
+    let gl = null;
+    try {
+      const opts = { alpha: true, antialias: true, depth: true,
+                     premultipliedAlpha: true, powerPreference: 'low-power' };
+      gl = canvas.getContext('webgl', opts) || canvas.getContext('experimental-webgl', opts);
+    } catch (e) { gl = null; }
+    if (!gl) {
+      G.dead = true;
+      G.err = 'no webgl context (the browser refused one — often too many '
+            + 'live contexts on the page)';
+      return null;
+    }
+    try {
+      const p = gl.createProgram();
+      gl.attachShader(p, compile(gl, gl.VERTEX_SHADER, VERT));
+      gl.attachShader(p, compile(gl, gl.FRAGMENT_SHADER, FRAG));
+      gl.linkProgram(p);
+      if (!gl.getProgramParameter(p, gl.LINK_STATUS)) {
+        throw new Error('link: ' + gl.getProgramInfoLog(p));
+      }
+      G.prog = p;
+      for (const a of ['aPos', 'aCen', 'aTop', 'aH', 'aShade']) {
+        G.loc[a] = gl.getAttribLocation(p, a);
+      }
+      for (const u of ['uOff', 'uTileScale', 'uViewport', 'uCentre', 'uHalf',
+                       'uLift', 'uMpp', 'uWallDim', 'uWallLit', 'uRoof', 'uRoofHi',
+                       'uMode', 'uSun', 'uShadowA']) {
+        G.loc[u] = gl.getUniformLocation(p, u);
+      }
+    } catch (e) {
+      G.dead = true; G.gl = null;
+      G.err = String((e && e.message) || e);
+      try { gl.getExtension('WEBGL_lose_context') &&
+            gl.getExtension('WEBGL_lose_context').loseContext(); } catch (e2) {}
+      return null;
+    }
+    /* A lost context is a normal thing on a laptop that sleeps, and the
+       renderer has to come back from it rather than leaving a blank
+       pane. Every buffer is gone when it happens, so the cache goes too
+       and the tiles re-upload on the next draw. */
+    canvas.addEventListener('webglcontextlost', e => {
+      e.preventDefault(); G.tiles.clear(); G.bytes = 0; G.gl = null; G.prog = null;
+    });
+    canvas.addEventListener('webglcontextrestored', () => { init(canvas); });
+    G.gl = gl;
+    return gl;
+  }
+
+  /* One draw call per visible tile. No CPU geometry work at all: the
+     buffers were built when the tile arrived and the only thing that
+     changes between frames is the handful of uniforms below. */
+  function render(map, canvas, sky, palette) {
+    const gl = init(canvas);
+    if (!gl) return null;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const w = canvas.width / dpr, h = canvas.height / dpr;
+
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    gl.clearColor(0, 0, 0, 0);
+    gl.clearDepth(1.0);
+    gl.enable(gl.DEPTH_TEST);
+    gl.depthFunc(gl.LEQUAL);
+    gl.disable(gl.BLEND);
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+    const z = map.getZoom();
+    if (!C.on || z < H.MIN_Z) return { tiles: 0, verts: 0 };
+
+    gl.useProgram(G.prog);
+    gl.uniform2f(G.loc.uViewport, w, h);
+    gl.uniform2f(G.loc.uHalf, Math.max(w / 2, 1), Math.max(h / 2, 1));
+    gl.uniform1f(G.loc.uLift, C.lift);
+    gl.uniform3fv(G.loc.uWallDim, rgbOf(palette.wallDim));
+    gl.uniform3fv(G.loc.uWallLit, rgbOf(palette.wallLit));
+    gl.uniform3fv(G.loc.uRoof, rgbOf(palette.roof));
+    gl.uniform3fv(G.loc.uRoofHi, rgbOf(palette.roofHi));
+
+    const mpp = 40075016.686 * Math.cos(map.getCenter().lat * Math.PI / 180)
+              / Math.pow(2, z + 8);
+    gl.uniform1f(G.loc.uMpp, mpp);
+
+    // Everything below is in canvas pixels, with the canvas origin as 0,0.
+    const origin = canvas._origin, pxO = map.getPixelOrigin();
+    const sx = origin.x + pxO.x, sy = origin.y + pxO.y;
+    gl.uniform2f(G.loc.uCentre, w / 2, h / 2);
+
+    let drawn = 0, verts = 0, nb = 0, nr = 0;
+    const bound = [];
+    for (const a of ['aPos', 'aCen', 'aTop', 'aH', 'aShade']) {
+      gl.enableVertexAttribArray(G.loc[a]);
+    }
+    for (const [tz, tx, ty] of H.visibleTiles(map)) {
+      const key = tz + '/' + tx + '/' + ty;
+      const t = C.tiles.get(key);
+      if (!t) continue;
+      let g = G.tiles.get(key);
+      if (!g) {
+        g = buildTile(gl, t);
+        G.tiles.set(key, g);
+        G.bytes += g.bytes;
+        /* Geometry is zoom-independent, so a tile is uploaded once and
+           then kept. The budget is bytes rather than tiles because a
+           downtown tile is worth thirty of a rural one. */
+        while (G.bytes > 48 * 1024 * 1024 && G.tiles.size > 8) {
+          const k0 = G.tiles.keys().next().value, g0 = G.tiles.get(k0);
+          gl.deleteBuffer(g0.buf); G.bytes -= g0.bytes; G.tiles.delete(k0);
+        }
+      }
+      nb += 0;   // counted below, with the tiles that actually draw
+      if (!g.count) continue;
+
+      const tileScale = 256 * Math.pow(2, z - tz);
+      // Doubles here, a small number out: the tile's corner relative to
+      // the canvas, never a raw world coordinate.
+      g._ox = tx * tileScale - sx;
+      g._oy = ty * tileScale - sy;
+      g._ts = tileScale / g.extent;
+
+      bound.push(g);
+      drawn++; verts += g.count; nb += g.buildings; nr += g.real;
+    }
+
+    /* Two passes over the same buffers.
+
+       Shadows first, flat and translucent, with the depth buffer read
+       but not written — otherwise a shadow would occlude the building
+       standing in it. Then the buildings, opaque, writing depth. */
+    const sun = sky.shadow > 0
+      ? [-Math.sin(sky.az) * sky.shadow, Math.cos(sky.az) * sky.shadow] : null;
+    for (const pass of (sun ? [1, 0] : [0])) {
+      gl.uniform1f(G.loc.uMode, pass);
+      if (pass === 1) {
+        gl.uniform2f(G.loc.uSun, sun[0], sun[1]);
+        gl.uniform1f(G.loc.uShadowA, 0.10 + 0.22 * sky.day);
+        gl.enable(gl.BLEND);
+        gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+        gl.depthMask(false);
+      } else {
+        gl.disable(gl.BLEND);
+        gl.depthMask(true);
+      }
+      for (const g of bound) {
+        gl.uniform2f(G.loc.uOff, g._ox, g._oy);
+        gl.uniform1f(G.loc.uTileScale, g._ts);
+        gl.bindBuffer(gl.ARRAY_BUFFER, g.buf);
+        const S = STRIDE * 4;
+        gl.vertexAttribPointer(G.loc.aPos, 2, gl.FLOAT, false, S, 0);
+        gl.vertexAttribPointer(G.loc.aCen, 2, gl.FLOAT, false, S, 8);
+        gl.vertexAttribPointer(G.loc.aTop, 1, gl.FLOAT, false, S, 16);
+        gl.vertexAttribPointer(G.loc.aH, 1, gl.FLOAT, false, S, 20);
+        gl.vertexAttribPointer(G.loc.aShade, 1, gl.FLOAT, false, S, 24);
+        gl.drawArrays(gl.TRIANGLES, 0, g.count);
+      }
+    }
+    gl.depthMask(true);
+
+    return { tiles: drawn, verts: verts, buildings: nb, real: nr,
+             shadows: !!sun, mb: +(G.bytes / 1048576).toFixed(1) };
+  }
+
+  function drop(key) {
+    const g = G.tiles.get(key);
+    if (g && G.gl) { G.gl.deleteBuffer(g.buf); G.bytes -= g.bytes; G.tiles.delete(key); }
+  }
+
+  global.CITY3D._gl = { init, render, drop, earcut, state: G };
 })(window);
 
 /* ── Invented traffic ───────────────────────────────────────────────── */
@@ -1528,7 +1964,11 @@
     C.sky = D.skyState(map);
     // Only collect what is going to be drawn. With the buildings off
     // this skips the whole expensive half — projection, culling, sort.
-    C.buildings = C.on ? D.collect(map) : [];
+    /* The GPU keeps its geometry in vertex buffers that were built when
+       each tile arrived, so there is nothing to collect: a settle is a
+       handful of uniforms and one draw call per tile. This line was the
+       larger half of a 33 ms settle at zoom 15. */
+    C.buildings = (C.on && !C.useGL) ? D.collect(map) : [];
     if (C.carsOn) {
       await CAR.loadTraffic();
       CAR.harvestRoads(map);
@@ -1662,11 +2102,21 @@
        to it rather than to the traffic: what an outage changes on this
        map is which windows are lit, and windows are buildings. */
     if (buildings) {
-      const b = C.buildings || [];
-      if (!b.length) return 'No buildings mapped here';
-      const real = b.filter(x => x.real).length;
-      bits.push(b.length.toLocaleString() + ' buildings',
-                Math.round(100 * real / b.length) + '% at their real height');
+      let n, real;
+      if (C.useGL) {
+        const g = C.glStats || {};
+        n = g.buildings || 0; real = g.real || 0;
+      } else {
+        const b = C.buildings || [];
+        n = b.length; real = b.filter(x => x.real).length;
+      }
+      if (!n) return 'No buildings mapped here';
+      bits.push(n.toLocaleString() + ' buildings',
+                Math.round(100 * real / n) + '% at their real height');
+      if (C.useGL && C.glStats) {
+        bits.push('drawn on the GPU, ' + (C.glStats.verts / 1000).toFixed(0)
+          + 'k triangles' + (C.glStats.mb ? ' \u00b7 ' + C.glStats.mb + ' MB cached' : ''));
+      }
       if (C.blackouts.length) {
         const worst = Math.round(100 * Math.max.apply(null, C.blackouts.map(x => x.pct)));
         bits.push('lights out in ' + C.blackouts.length + ' ZIP'
