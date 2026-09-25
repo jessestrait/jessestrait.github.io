@@ -91,12 +91,31 @@ const FEEDS = {
      block is a policy and policies change, and because a chain of four
      costs nothing while it fails fast.
 
-     The route that would actually work is the one the traffic archive
-     already uses: a scheduled GitHub Action polling from a different
-     address range and committing to the `data` branch, with the page
-     reading the file. Not built — positions six minutes old are worth
-     much less than live ones, and it is worth checking first whether
-     Actions runners are blocked too.
+     GitHub's runners are NOT blocked — probed 2026-09-25 from a
+     workflow, same URLs, same minute:
+
+       api.airplanes.live      403
+       api.adsb.lol            200   13 aircraft
+       opendata.adsb.fi        200   13 aircraft
+       opensky-network.org     200    5 aircraft
+
+     Nor can the browser go direct: none of them sends an
+     access-control-allow-origin a page could use (OpenSky sends one,
+     for its own origin, which is worse than none).
+
+     So the only route left is a scheduled Action committing to the
+     `data` branch, and it carries a real cost. Aircraft move about
+     200 m/s, so a position five minutes old — the cadence the traffic
+     chain runs at — is sixty kilometres wrong. Useful positions need
+     roughly minute-level commits, which is about 1,440 a day on the
+     data branch against the 288 the traffic chain writes now.
+
+     The thing that makes it affordable, if it is ever built: aircraft
+     are the most predictable moving objects on this map. The feed
+     carries heading, ground speed and vertical rate, so the page can
+     dead-reckon forward from a minute-old fix and be close, in a way
+     that is hopeless for a bus in traffic. That trade — commit volume
+     against extrapolation — is the decision, and it has not been made.
 
      If it ever does answer: three payload shapes — `ac`, `aircraft`,
      and OpenSky's positional `states` arrays — so a reader has to
