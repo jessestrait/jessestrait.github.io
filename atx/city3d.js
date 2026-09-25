@@ -160,7 +160,7 @@
 
   const CITY = {
     on: false, pm: null, tiles: new Map(), busy: new Set(), proj: new Map(), roadCache: new Map(), roadTotal: 0, roadPx: 0, jamLift: 1, traffic: null,
-    carsOn: true,
+    carsOn: true, tileErr: null,
     quality: 1, drawMs: 0, blackouts: [], boZoom: null, here: null,
     water: [], waterCache: new Map(), drops: [], gauges: null, waterLen: 0,
     alarms: [], t0: performance.now(),
@@ -208,11 +208,26 @@
         };
       }
       CITY.tiles.set(key, parsed);
+      CITY.tileErr = null;
       // A few hundred tiles is plenty; central Austin is a handful.
       if (CITY.tiles.size > 220) CITY.tiles.delete(CITY.tiles.keys().next().value);
       return parsed;
     } catch (e) {
-      CITY.tiles.set(key, { buildings: null, roads: null, water: null });
+      /* Do NOT cache a failure.
+
+         This used to write an empty tile into the cache, which turned
+         one bad fetch into a permanently blank layer: the entry looked
+         like a tile with no buildings in it, so nothing ever asked
+         again. Seen live — a transient range-request failure during
+         service-worker activation left sixteen tiles cached as empty
+         and the skyline gone for the rest of the session, while the
+         very same request from the console came back 206 immediately.
+
+         A tile that genuinely holds nothing is still cached: that is
+         the `r && r.data` path above, where the archive answered and
+         had nothing to give. This is only for when the ask itself
+         failed. */
+      CITY.tileErr = String((e && e.message) || e);
       return null;
     } finally { CITY.busy.delete(key); }
   }
@@ -1256,6 +1271,16 @@
       let g = G.tiles.get(key);
       if (!g) {
         g = buildTile(gl, t);
+        /* An empty buffer is not worth keeping. A tile can be empty
+           because the archive has nothing there, or because the fetch
+           failed and left a hollow entry behind — and caching the
+           second kind is how a blank skyline becomes permanent. Empty
+           ones are cheap to rebuild, so they are simply not cached. */
+        if (!g.count) {
+          gl.deleteBuffer(g.buf);
+          if (g.wbuf) gl.deleteBuffer(g.wbuf);
+          continue;
+        }
         G.tiles.set(key, g);
         G.bytes += g.bytes;
         /* Geometry is zoom-independent, so a tile is uploaded once and
@@ -1268,9 +1293,6 @@
           G.bytes -= g0.bytes; G.tiles.delete(k0);
         }
       }
-      nb += 0;   // counted below, with the tiles that actually draw
-      if (!g.count) continue;
-
       const tileScale = 256 * Math.pow(2, z - tz);
       // Doubles here, a small number out: the tile's corner relative to
       // the canvas, never a raw world coordinate.
@@ -2269,7 +2291,10 @@
         const b = C.buildings || [];
         n = b.length; real = b.filter(x => x.real).length;
       }
-      if (!n) return 'No buildings mapped here';
+      if (!n) {
+        return C.tileErr ? 'The building archive did not answer \u2014 pan to retry'
+                         : 'No buildings mapped here';
+      }
       bits.push(n.toLocaleString() + ' buildings',
                 Math.round(100 * real / n) + '% at their real height');
       if (C.useGL && C.glStats) {
