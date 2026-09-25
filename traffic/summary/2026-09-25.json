@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 62,
-  "dispatch_only": 55,
+  "dispatch": 65,
+  "dispatch_only": 58,
   "here": 0,
   "here_matched": 0,
   "matched": 8,
@@ -33,13 +33,13 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 2,
-   "n": 12,
-   "pct": 16.7
+   "n": 13,
+   "pct": 15.4
   },
   "dispatch_surface": {
    "matched": 5,
-   "n": 50,
-   "pct": 10.0
+   "n": 52,
+   "pct": 9.6
   },
   "tomtom_highway": {
    "matched": 6,
@@ -88,10 +88,10 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 119,
+  "explained_by_roadworks": 121,
   "hotspot_buckets": 493,
-  "hotspot_buckets_on_roadworks": 115,
-  "txdot_rows": 14,
+  "hotspot_buckets_on_roadworks": 117,
+  "txdot_rows": 15,
   "unreported_congestion": 506
  },
  "sampling": {
@@ -123,13 +123,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.232,-97.737"
-  },
-  {
-   "from": "TX-130 Toll (TX-290 Toll)",
-   "hour_of_week": 92,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.345,-97.575"
   },
   {
    "from": "Nature Center Dr",
@@ -214,17 +207,24 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.481,-97.833"
+  },
+  {
+   "from": "Lakeline Blvd (S Bell Blvd/US-183)",
+   "hour_of_week": 94,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.496,-97.812"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.7,
+  "dispatch": 89.2,
   "tomtom": 98.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 62,
-  "neither": 55,
+  "n": 65,
+  "neither": 58,
   "tomtom_only": 7
  }
 }
