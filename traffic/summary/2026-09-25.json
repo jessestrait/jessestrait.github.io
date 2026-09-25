@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 55,
-  "dispatch_only": 48,
+  "dispatch": 56,
+  "dispatch_only": 49,
   "here": 0,
   "here_matched": 0,
   "matched": 8,
@@ -21,11 +21,11 @@
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.2,
-  "median": 96.8,
+  "median": 100.5,
   "min": 6.0,
-  "n": 43,
-  "q1": 71.3,
-  "q3": 115.1
+  "n": 45,
+  "q1": 72.3,
+  "q3": 115.3
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,8 +38,8 @@
   },
   "dispatch_surface": {
    "matched": 5,
-   "n": 47,
-   "pct": 10.6
+   "n": 48,
+   "pct": 10.4
   },
   "tomtom_highway": {
    "matched": 6,
@@ -153,6 +153,13 @@
    "seg": "30.234,-97.736"
   },
   {
+   "from": "S San Marcos St",
+   "hour_of_week": 99,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.337,-97.554"
+  },
+  {
    "from": "Ellas Inlet Dr / Felix Sparke Dr",
    "hour_of_week": 68,
    "n": 2,
@@ -165,13 +172,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "S San Marcos St",
-   "hour_of_week": 99,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.337,-97.554"
   },
   {
    "from": "New Hope Dr (Whitestone Blvd)",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.3,
+  "dispatch": 87.5,
   "tomtom": 98.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 55,
-  "neither": 48,
+  "n": 56,
+  "neither": 49,
   "tomtom_only": 7
  }
 }
