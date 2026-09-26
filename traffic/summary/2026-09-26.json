@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 8,
-  "tomtom": 242,
-  "tomtom_only": 234
+  "tomtom": 257,
+  "tomtom_only": 249
  },
  "date": "2026-09-26",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 106,
-   "pct": 5.7
+   "n": 113,
+   "pct": 5.3
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 136,
-   "pct": 1.5
+   "n": 144,
+   "pct": 1.4
   }
  },
  "matcher": {
@@ -67,10 +67,10 @@
   "q3": 56.2
  },
  "persistence_min": {
-  "max": -26.0,
+  "max": 0.0,
   "median": -26.0,
   "min": -81.8,
-  "n": 5,
+  "n": 7,
   "q1": -81.8,
   "q3": -26.0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 54,
-  "hotspot_buckets": 216,
-  "hotspot_buckets_on_roadworks": 54,
+  "explained_by_roadworks": 55,
+  "hotspot_buckets": 229,
+  "hotspot_buckets_on_roadworks": 55,
   "txdot_rows": 4,
-  "unreported_congestion": 220
+  "unreported_congestion": 234
  },
  "sampling": {
   "flow_spent_this_month": 1404,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 188,
+  "incidents_spent_this_month": 189,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -138,6 +138,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
+  },
+  {
+   "from": "S 1st St (Mary St W)",
+   "hour_of_week": 122,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.249,-97.764"
   },
   {
    "from": "Kasdan Pass",
@@ -208,18 +215,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.404,-97.722"
-  },
-  {
-   "from": "Burnet Rd / Rosalind Way",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.403,-97.720"
   }
  ],
  "unmatched_pct": {
   "dispatch": 81.8,
-  "tomtom": 96.7
+  "tomtom": 96.9
  },
  "witnesses": {
   "both": 0,
