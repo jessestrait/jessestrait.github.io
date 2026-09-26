@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 90, q3 116 min over 97 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 90, q3 116 min over 98 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -21,11 +21,11 @@
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 101.2,
+  "median": 101.6,
   "min": 14.9,
-  "n": 97,
-  "q1": 90.2,
-  "q3": 115.7
+  "n": 98,
+  "q1": 90.3,
+  "q3": 115.6
  },
  "here_onset_offset_min": {
   "n": 0
@@ -140,6 +140,13 @@
    "seg": "30.272,-97.773"
   },
   {
+   "from": "TX-343/S Lamar Blvd (W Mary St)",
+   "hour_of_week": 139,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.249,-97.764"
+  },
+  {
    "from": "W 2nd St (San Antonio St)",
    "hour_of_week": 131,
    "n": 2,
@@ -173,13 +180,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "S 1st St (Mary St W)",
-   "hour_of_week": 139,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.249,-97.764"
   },
   {
    "from": "Kasdan Pass",
