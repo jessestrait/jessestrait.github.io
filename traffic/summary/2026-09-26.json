@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 92, q3 115 min over 55 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 90, q3 113 min over 60 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 67,
-  "dispatch_only": 56,
+  "dispatch": 68,
+  "dispatch_only": 57,
   "here": 0,
   "here_matched": 0,
   "matched": 14,
@@ -21,11 +21,11 @@
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 98.0,
+  "median": 97.4,
   "min": 80.3,
-  "n": 55,
-  "q1": 91.5,
-  "q3": 114.8
+  "n": 60,
+  "q1": 90.1,
+  "q3": 113.0
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,8 +38,8 @@
   },
   "dispatch_surface": {
    "matched": 9,
-   "n": 58,
-   "pct": 15.5
+   "n": 59,
+   "pct": 15.3
   },
   "tomtom_highway": {
    "matched": 9,
@@ -133,6 +133,13 @@
    "seg": "30.249,-97.748"
   },
   {
+   "from": "TX-1 Loop/Mopac Expy (Barton Springs Rd)",
+   "hour_of_week": 128,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.266,-97.768"
+  },
+  {
    "from": "TX-343/S Lamar Blvd (W Mary St)",
    "hour_of_week": 122,
    "n": 2,
@@ -166,13 +173,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "TX-1 Loop/Mopac Expy (Barton Springs Rd)",
-   "hour_of_week": 128,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.266,-97.768"
   },
   {
    "from": "Kasdan Pass",
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 83.6,
+  "dispatch": 83.8,
   "tomtom": 96.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 67,
-  "neither": 56,
+  "n": 68,
+  "neither": 57,
   "tomtom_only": 11
  }
 }
