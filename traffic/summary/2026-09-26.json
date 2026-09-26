@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 92, q3 114 min over 30 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 92, q3 116 min over 31 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 38,
-  "dispatch_only": 29,
+  "dispatch": 39,
+  "dispatch_only": 30,
   "here": 0,
   "here_matched": 0,
   "matched": 11,
@@ -21,11 +21,11 @@
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.6,
-  "median": 100.1,
+  "median": 100.2,
   "min": 82.0,
-  "n": 30,
+  "n": 31,
   "q1": 91.8,
-  "q3": 114.2
+  "q3": 115.9
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,8 +38,8 @@
   },
   "dispatch_surface": {
    "matched": 7,
-   "n": 33,
-   "pct": 21.2
+   "n": 34,
+   "pct": 20.6
   },
   "tomtom_highway": {
    "matched": 8,
@@ -112,7 +112,7 @@
  },
  "structural_hotspots": [
   {
-   "from": "E 2nd St (San Jacinto Blvd)",
+   "from": "Congress Ave (1st St/State Spur 343/Cesar Chavez St)",
    "hour_of_week": 123,
    "n": 3,
    "roadworks": false,
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.3,
+  "dispatch": 76.9,
   "tomtom": 96.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 38,
-  "neither": 29,
+  "n": 39,
+  "neither": 30,
   "tomtom_only": 9
  }
 }
