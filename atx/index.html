@@ -1221,7 +1221,7 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
      looks like the fix did not work.
 
      Bump ?v= on any deploy that changes city3d.js. -->
-<script src="city3d.js?v=20260926gl14"></script>
+<script src="city3d.js?v=20260926gl15"></script>
 <script>
 /* ══════════════════════════════════════════════════════════════════
    ATX Layers — no backend and no storage. Almost everything is a live
@@ -4223,27 +4223,26 @@ const GROUND = [
     load: g => loadCity(g)
   },
   {
-    /* The streets, with something on them.
+    /* Things that are actually moving.
 
-       Split out from the buildings because the two cost wildly
-       different amounts and were sharing one switch. Drawing the
-       skyline is 10 to 25 ms every time the view settles, and worse on
-       an older machine; the traffic is a few hundred small rectangles
-       redrawn on a canvas that clears only what it drew last frame,
-       which comes to well under a millisecond. There is no reason the
-       cheap half should be held hostage to the expensive one.
+       This held simulated cars until they were cut. They were the only
+       invented thing on the page — every dot a vehicle that did not
+       exist — and however carefully they queued and kept right, a map
+       whose most eye-catching element is fiction is worse than one
+       without it. Everything left here is a real object in a real
+       place:
 
-       What moves: cars on OpenStreetMap's own road geometry, at a
-       density and speed from the traffic model (measured hour-of-week
-       congestion, road class, TomTom's nine corridor probes and its
-       live incidents); water down the rivers and creeks at a speed set
-       by USGS discharge; and red and blue over the blocks AFD is
-       working right now.
+         - rivers and creeks drifting at the speed USGS gauges say
+           they are running
+         - red and blue over the blocks AFD is working right now
+         - aircraft, from ADS-B, flown forward from their last fix
 
-       None of the vehicles is a real vehicle. The conditions they are
-       obeying are real, and the layer says which. */
-    id: 'life', color: '#ffd166', name: 'Simulated traffic',
-    note: 'Zoom past 15 \u2014 cars, water and sirens on live conditions',
+       The traffic model stays, because it was never only about the
+       cars: it is what turns TomTom's percentages into the congestion
+       reading in this row, and what dims the windows where the power
+       is out. It just no longer draws anything of its own. */
+    id: 'life', color: '#ffd166', name: 'Things in motion',
+    note: 'Rivers, sirens and aircraft \u2014 all of them real',
     group: 'recent', on: true,
     load: g => loadLife(g)
   },

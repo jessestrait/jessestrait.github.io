@@ -162,7 +162,7 @@
      than ask anyone to trust that a deploy landed, the layer says what
      it is running. If this does not match the newest deploy, the
      answer is a cache and not the code. */
-  const BUILD = 'gl14';
+  const BUILD = 'gl15';
 
   const MIN_Z = 15;
   const TILE_Z = 15;
@@ -173,9 +173,8 @@
     carsOn: true, tileErr: null,
     quality: 1, drawMs: 0, blackouts: [], boZoom: null, here: null,
     water: [], waterCache: new Map(), drops: [], gauges: null, waterLen: 0,
-    roadZoom: null,
     alarms: [], t0: performance.now(), air: null,
-    buildings: null, roads: null, cars: [], raf: null, last: 0,
+    buildings: null, roads: null, raf: null, last: 0,
     canvas: null, ctx: null, carCanvas: null, carCtx: null,
     lift: 0.55,          // how hard the city leans. 0 is a plan, 1 is a lot.
     note: ''
@@ -220,6 +219,15 @@
       }
       CITY.tiles.set(key, parsed);
       CITY.tileErr = null;
+      /* Hand it straight to the GPU builder, in idle time. This is the
+         difference between a city that fills in over half a second
+         after a zoom and one that is simply there. */
+      const gl3 = global.CITY3D._gl;
+      if (gl3 && gl3.warm) {
+        const go = () => { try { gl3.warm(key); } catch (e) { /* drawn later */ } };
+        if (window.requestIdleCallback) window.requestIdleCallback(go, { timeout: 500 });
+        else setTimeout(go, 0);
+      }
       // A few hundred tiles is plenty; central Austin is a handful.
       if (CITY.tiles.size > 220) CITY.tiles.delete(CITY.tiles.keys().next().value);
       return parsed;
@@ -1624,15 +1632,38 @@
     }
   }
 
-  global.CITY3D._gl = { init, render, drop, earcut, state: G };
+  /* Build a tile's buffers before anything asks to draw them.
+
+     Geometry building is the only expensive thing left in this layer
+     — about 40 ms a tile — and it used to happen inside the first
+     draw that needed the tile, which is precisely the frame after a
+     zoom, when twelve of them can come due at once. Doing it when the
+     tile ARRIVES instead spreads it across the network waits that
+     were going to happen anyway, and by the time the view settles the
+     work is already done.
+
+     Idle time, so it never competes with a frame. */
+  function warm(key) {
+    if (G.dead || !G.gl || G.tiles.has(key)) return;
+    const t = C.tiles.get(key);
+    if (!t) return;
+    const g = buildTile(G.gl, t);
+    if (!g.count) {
+      G.gl.deleteBuffer(g.buf);
+      if (g.wbuf) G.gl.deleteBuffer(g.wbuf);
+      return;
+    }
+    G.tiles.set(key, g);
+    G.bytes += g.bytes;
+  }
+
+  global.CITY3D._gl = { init, render, drop, warm, earcut, state: G };
 })(window);
 
 /* ── Invented traffic ───────────────────────────────────────────────── */
 (function (global) {
   'use strict';
   const C = global.CITY3D, H = C._helpers, D = C._draw;
-
-  const CAR_COLOURS = ['#c9d6ee', '#8ea3c6', '#ffd166', '#7e93b8'];
 
   /* How busy a road is, before any live data.
 
@@ -1641,6 +1672,14 @@
      residential street, and OSM's classification is exactly that
      judgement. Free-flow speeds are the posted-ish speeds for each class
      in metres per second. */
+  /* Road classes, kept for what they still answer: how fast a road of
+     this kind runs when it is clear, which is what turns TomTom's
+     percentage into a speed and feeds the congestion readout.
+
+     The drawn vehicles are gone — see the layer entry in index.html —
+     so `lanes` now only weights how much a road contributes to that
+     reading, which is right: a six-lane freeway crawling matters more
+     to "how is traffic here" than a crawling cul-de-sac. */
   const CLASS = {
     highway:      { lanes: 3, free: 31 },   // ~70 mph
     major_road:   { lanes: 2, free: 18 },   // ~40 mph
@@ -1648,19 +1687,14 @@
     minor_road:   { lanes: 1, free: 9 }
   };
 
-  /* The two numbers the whole traffic picture rests on.
-
-     7.5 m is a car plus the gap left when stopped — the standard jam
-     spacing, and it is why a blocked mile of freeway holds about seven
-     hundred vehicles a lane. Two seconds is the headway people
-     actually keep when moving, which is what makes spacing grow with
-     speed and density fall as a road clears. */
+  /* 7.5 m is a vehicle plus the gap left when stopped, and two seconds
+     is the headway people keep when moving. Together they say how many
+     vehicles a stretch of road is holding at the speed it is running —
+     which is the honest way to weight a congestion average, because a
+     jammed road holds four times the traffic it does when clear and
+     should count for four times as much. */
   const JAM_M = 7.5;
-  const DRAW_SHARE = 1 / 35;
   const HEADWAY_S = 2.0;
-
-  // Right-hand traffic: half a lane off the centreline, on the right.
-  const LANE_M = 2.2;
 
   /* ── The traffic model ──────────────────────────────────────────────
 
@@ -2047,8 +2081,6 @@
     }
     C.roads = out;
     C.roadTotal = total;
-    // New line objects every harvest; force a reprojection.
-    C.roadZoom = null;
 
     /* How many vehicles are really out there, on the roads in view,
        at the speeds they are really moving. Not a score — a count. */
@@ -2228,48 +2260,13 @@
      hundred projections a frame, each of them trigonometry, to answer
      a question whose answer had not changed since the last settle. The
      geometry is projected once here and the frame becomes arithmetic. */
-  function projectRoads(map) {
-    const z = map.getZoom();
-    for (const l of C.roads) {
-      if (l.pxZoom === z && l.pxs) continue;
-      const n = l.ll.length;
-      const a = new Float64Array(n * 2);
-      for (let i = 0; i < n; i++) {
-        const p = map.project(L.latLng(l.ll[i][0], l.ll[i][1]), z);
-        a[i * 2] = p.x; a[i * 2 + 1] = p.y;
-      }
-      l.pxs = a; l.pxZoom = z;
-    }
-  }
 
   /* Where a car is, given how far along its road it has got. Returns
      the point and the unit direction, both in layer pixels. */
-  function atDistance(l, s, out) {
-    const cum = l.cum, n = cum.length;
-    let lo = 0, hi = n - 1;
-    while (lo < hi - 1) { const mid = (lo + hi) >> 1; if (cum[mid] <= s) lo = mid; else hi = mid; }
-    const seg = cum[hi] - cum[lo] || 1;
-    const f = Math.max(0, Math.min(1, (s - cum[lo]) / seg));
-    const px = l.pxs;
-    const ax = px[lo * 2], ay = px[lo * 2 + 1];
-    const bx = px[hi * 2], by = px[hi * 2 + 1];
-    const dx = bx - ax, dy = by - ay;
-    const m = Math.hypot(dx, dy) || 1;
-    out.x = ax + dx * f; out.y = ay + dy * f;
-    out.ux = dx / m; out.uy = dy / m;
-    return out;
-  }
 
   /* Pick a road with probability proportional to its weight, so a
      motorway is chosen far more often than a side street without any
      per-road bookkeeping. */
-  function pickRoad() {
-    const rs = C.roads;
-    if (!rs || !rs.length) return null;
-    let r = Math.random() * C.roadTotal;
-    for (let i = 0; i < rs.length; i++) { r -= rs[i].w; if (r <= 0) return rs[i]; }
-    return rs[rs.length - 1];
-  }
 
   /* Which way a car is pointed.
 
@@ -2280,65 +2277,6 @@
      asymmetry itself is the honest part — an even split at rush hour is
      the thing that would be wrong. Off-peak and at weekends it is a
      coin toss, which is also what the streets look like. */
-  function chooseDir(line, i) {
-    const st = C.clock || (C.clock = clockState());
-    if (!st.flow) return Math.random() < 0.5 ? 1 : -1;
-    const a = line[i], b = line[Math.min(i + 1, line.length - 1)];
-    if (!a || !b) return Math.random() < 0.5 ? 1 : -1;
-    // Does travelling forward along this line get you closer to downtown?
-    const da = Math.hypot(a[0] - DOWNTOWN[0], (a[1] - DOWNTOWN[1]) * 0.86);
-    const db = Math.hypot(b[0] - DOWNTOWN[0], (b[1] - DOWNTOWN[1]) * 0.86);
-    const inbound = db < da ? 1 : -1;
-    // st.flow is +1 fully inbound, -1 fully outbound, 0 no preference;
-    // at its strongest this is a 75/25 split, not 100/0.
-    const p = 0.5 + 0.5 * st.flow * inbound * 0.5;
-    return Math.random() < p ? 1 : -1;
-  }
-
-  function spawn() {
-    const road = pickRoad();
-    if (!road || !road.len) return null;
-
-    /* Do not drop a car on top of one already there.
-
-       Following stops anyone CLOSING to less than a jam spacing, but
-       it cannot undo a violation that already exists — nobody
-       reverses. So a car spawned at a random distance could land
-       inside another one and stay there, which measured as one pair
-       at 1.6 m out of 58. A handful of tries is enough: if the road
-       is genuinely full, returning null simply leaves the count a
-       little lower, which is the honest outcome for a full road. */
-    for (let attempt = 0; attempt < 6; attempt++) {
-      const s = Math.random() * road.len;
-      const d = chooseDir2(road, s);
-      const q = d > 0 ? road._up : road._dn;
-      let ok = true;
-      if (q) {
-        for (let i = 0; i < q.length; i++) {
-          if (Math.abs(q[i].s - s) < JAM_M) { ok = false; break; }
-        }
-      }
-      if (!ok) continue;
-      return { road: road, s: s, dir: d,
-               want: road.cls.free * (road.pct / 100) * (0.8 + Math.random() * 0.4),
-               v: 0,
-               c: CAR_COLOURS[(Math.random() * CAR_COLOURS.length) | 0] };
-    }
-    return null;
-  }
-
-  /* Commute direction, on the distance-along-road model. */
-  function chooseDir2(road, s) {
-    const st = C.clock || (C.clock = clockState());
-    if (!st.flow) return Math.random() < 0.5 ? 1 : -1;
-    const n = road.ll.length;
-    const i = Math.max(0, Math.min(n - 2, Math.floor(s / road.len * (n - 1))));
-    const a = road.ll[i], b = road.ll[i + 1];
-    const da = Math.hypot(a[0] - DOWNTOWN[0], (a[1] - DOWNTOWN[1]) * 0.86);
-    const db = Math.hypot(b[0] - DOWNTOWN[0], (b[1] - DOWNTOWN[1]) * 0.86);
-    const inbound = db < da ? 1 : -1;
-    return Math.random() < 0.5 + 0.25 * st.flow * inbound ? 1 : -1;
-  }
 
   /* Car following.
 
@@ -2353,40 +2291,6 @@
      Everything else falls out of it, including stop-and-go waves,
      which appear on their own on a jammed corridor without anything
      modelling them. */
-  function follow(map) {
-    /* Clear only the roads that actually held a car last frame.
-
-       This used to walk every road in view to null two fields —
-       nearly three thousand of them at zoom 15, sixty times a second,
-       when at most a couple of hundred ever hold a car. Keeping the
-       list from last frame turns it into work proportional to the
-       cars rather than to the network. */
-    const prev = C._busyRoads || (C._busyRoads = []);
-    for (let i = 0; i < prev.length; i++) { prev[i]._up = null; prev[i]._dn = null; }
-    prev.length = 0;
-    for (const c of C.cars) {
-      const r = c.road;
-      if (!r._up && !r._dn) prev.push(r);
-      const k = c.dir > 0 ? '_up' : '_dn';
-      (r[k] || (r[k] = [])).push(c);
-    }
-    for (const r of prev) {
-      for (const k of ['_up', '_dn']) {
-        const q = r[k];
-        if (!q || q.length < 2) { if (q) q[0].gap = Infinity; continue; }
-        q.sort((a, b) => a.s - b.s);
-        if (k === '_up') {
-          for (let i = 0; i < q.length; i++) {
-            q[i].gap = i === q.length - 1 ? Infinity : q[i + 1].s - q[i].s;
-          }
-        } else {
-          for (let i = q.length - 1; i >= 0; i--) {
-            q[i].gap = i === 0 ? Infinity : q[i].s - q[i - 1].s;
-          }
-        }
-      }
-    }
-  }
 
   function stepCars(map, dt) {
     if (!C.carCanvas) return;
@@ -2501,96 +2405,6 @@
     // number, so a motorway junction is busy and a quiet grid is quiet —
     // and a given street looks the same at every zoom. See harvestRoads
     // for why this counts pixels and not metres.
-    /* Draw one car in thirty-five.
-
-       The network in view holds thousands of vehicles — nine thousand
-       across downtown at zoom 16 in the evening peak — and drawing
-       them all is neither possible nor legible. So a fixed share is
-       drawn, which keeps every RELATIVE density exactly right: a road
-       at a third of free-flow really does get three times the cars of
-       the same road running clear, because that is what `hold` says,
-       and the eye reads the difference without anything colouring it
-       in. The absolute number is a scale factor and nothing more.
-
-       No jam multiplier here. Congestion is already inside `hold` —
-       spacing shrinks as speed falls — and multiplying by it again
-       counted it twice. */
-    const st = C.clock || (C.clock = clockState());
-    const want = Math.max(6, Math.min(600,
-                 Math.round((C.holdSum || 0) * DRAW_SHARE * st.vol)));
-    while (C.cars.length < want) { const c = spawn(); if (!c) break; C.cars.push(c); }
-    if (C.cars.length > want) C.cars.length = want;
-
-    /* One projection per settle, not three hundred per frame. */
-    if (C.roadZoom !== map.getZoom()) { projectRoads(map); C.roadZoom = map.getZoom(); }
-    follow(map);
-
-    const mpp = 40075016.686 * Math.cos(map.getCenter().lat * Math.PI / 180)
-              / Math.pow(2, map.getZoom() + 8);
-    const laneP = LANE_M / mpp;                  // half a lane, in pixels
-    const zoomed = map.getZoom() >= 17;
-    const r = zoomed ? 2.2 : 1.5;
-    // Layer-point origin of the canvas, so positioning is a subtraction.
-    const ox = origin.x + map.getPixelOrigin().x;
-    const oy = origin.y + map.getPixelOrigin().y;
-    const at = { x: 0, y: 0, ux: 0, uy: 0 };
-
-    for (const c of C.cars) {
-      const road = c.road;
-      /* A car can outlive its road: harvest drops the lines of tiles
-         that left the view, and a car still holding one would be drawn
-         from a projection made at a different zoom. Recycle it. */
-      if (!road || !road.pxs || !road.len || road.pxZoom !== C.roadZoom) {
-        const n = spawn(); if (n) Object.assign(c, n);
-        continue;
-      }
-
-      /* Speed: what this driver wants, capped by the gap ahead. The
-         gap is measured to the car in front on the same road and the
-         same direction, so a queue forms behind anything slow and
-         clears from the front, which is what a queue does. */
-      const safe = c.gap === Infinity ? c.want
-                 : Math.max(0, (c.gap - JAM_M) / HEADWAY_S);
-      const target = Math.min(c.want, safe);
-      // Ease rather than snap, or a queue flickers between stopped and free.
-      c.v += (target - c.v) * Math.min(1, dt * 2.5);
-      c.s += c.dir * c.v * dt;
-
-      if (c.s <= 0 || c.s >= road.len) { const n = spawn(); if (n) Object.assign(c, n); continue; }
-
-      atDistance(road, c.s, at);
-      // Right-hand traffic: offset to the right of travel. Screen y is
-      // down, so the right of a heading (ux,uy) is (-uy,ux).
-      const hx = at.ux * c.dir, hy = at.uy * c.dir;
-      const x = at.x - ox - hy * laneP;
-      const y = at.y - oy + hx * laneP;
-      if (x < -60 || y < -60 || x > w + 60 || y > h + 60) {
-        const n = spawn(); if (n) Object.assign(c, n);
-        continue;
-      }
-      ctx.fillStyle = c.c;
-      if (zoomed) {
-        /* The oriented body, as four points rather than a transform.
-
-           save/translate/rotate/fillRect/restore is five canvas calls
-           per car, two of them context state, and at a hundred and
-           thirty cars that measured 1.4 ms a frame against 0.25 for
-           plain rectangles. The corners are two multiplies each. */
-        const lx = hx * 2.6, ly = hy * 2.6;     // half length, along travel
-        const wx = -hy * 1.3, wy = hx * 1.3;    // half width, across it
-        ctx.beginPath();
-        ctx.moveTo(x + lx + wx, y + ly + wy);
-        ctx.lineTo(x + lx - wx, y + ly - wy);
-        ctx.lineTo(x - lx - wx, y - ly - wy);
-        ctx.lineTo(x - lx + wx, y - ly + wy);
-        ctx.fill();
-        rects.push(x - 4, y - 4, 8, 8);
-      } else {
-        ctx.fillRect(x - r, y - r, r * 2, r * 2);
-        rects.push(x - r - 1, y - r - 1, r * 2 + 2, r * 2 + 2);
-      }
-    }
-
     /* Emergency lights, where AFD is actually working.
 
        The dispatch feed marks a call ACTIVE while crews are on it, and
@@ -2660,9 +2474,8 @@
     }
   }
 
-  global.CITY3D._cars = { harvestRoads, harvestWater, stepCars, spawn, loadTraffic, trafficAt,
-                          loadAircraft, deadReckon,
-                          flowAt, dropSpeed,
+  global.CITY3D._cars = { harvestRoads, harvestWater, stepCars, loadTraffic, trafficAt,
+                          loadAircraft, deadReckon, flowAt, dropSpeed,
                           clockState, austinClock, CLASS, CONGEST_WD, VOLUME_WD };
 })(window);
 
@@ -2793,7 +2606,7 @@
     C.on = !!on;
     if (!C.on) C.buildings = [];
     if (live()) refresh(map);
-    else { C.cars.length = 0; C.drops.length = 0; C.carWipe = true;
+    else { C.drops.length = 0; C.carWipe = true;
            D.draw(map); CAR.stepCars(map, 0); }
   };
 
@@ -2801,7 +2614,7 @@
   C.setCars = function (map, on) {
     C.carsOn = !!on;
     if (!C.carsOn) {
-      C.cars.length = 0; C.drops.length = 0; C.roads = []; C.water = [];
+      C.drops.length = 0; C.roads = []; C.water = [];
       C.carWipe = true; CAR.stepCars(map, 0);
     }
     if (live()) refresh(map);
@@ -2890,8 +2703,17 @@
 
     const roads = C.roads || [];
     if (roads.length) {
-      const pct = Math.round(roads.reduce((a, r) => a + r.pct, 0) / roads.length);
-      bits.push((C.cars || []).length + ' vehicles moving at ' + pct + '% of free-flow');
+      /* Weighted by how much traffic each stretch is actually holding,
+         not by how many line segments the tile happened to split it
+         into. A crawling freeway and a crawling cul-de-sac are not the
+         same fact about "how is traffic here", and a plain mean over
+         segments counts a thousand quiet residential stubs as loudly
+         as I-35. */
+      let num = 0, den = 0, km = 0;
+      for (const r of roads) { num += r.pct * r.hold; den += r.hold; km += r.len; }
+      const pct = Math.round(num / Math.max(den, 1e-9));
+      bits.push('traffic at ' + pct + '% of free-flow across '
+        + (km / 1000).toFixed(0) + ' km of road');
     }
 
     /* Say where the numbers come from. The hour is measured, the
