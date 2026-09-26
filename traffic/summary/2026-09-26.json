@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 92, q3 114 min over 78 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 92, q3 115 min over 79 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -10,22 +10,22 @@
  ],
  "counts": {
   "dispatch": 89,
-  "dispatch_only": 76,
+  "dispatch_only": 75,
   "here": 0,
   "here_matched": 0,
-  "matched": 16,
-  "tomtom": 373,
-  "tomtom_only": 360
+  "matched": 17,
+  "tomtom": 403,
+  "tomtom_only": 389
  },
  "date": "2026-09-26",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 100.7,
+  "median": 100.9,
   "min": 80.3,
-  "n": 78,
+  "n": 79,
   "q1": 91.5,
-  "q3": 113.9
+  "q3": 114.8
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,19 +37,19 @@
    "pct": 18.2
   },
   "dispatch_surface": {
-   "matched": 11,
+   "matched": 12,
    "n": 78,
-   "pct": 14.1
+   "pct": 15.4
   },
   "tomtom_highway": {
-   "matched": 10,
-   "n": 167,
+   "matched": 11,
+   "n": 182,
    "pct": 6.0
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 206,
-   "pct": 1.5
+   "n": 221,
+   "pct": 1.4
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 67.8,
-  "median": 15.5,
+  "max": 70.9,
+  "median": 16.7,
   "min": -87.1,
-  "n": 16,
-  "q1": -7.8,
-  "q3": 43.5
+  "n": 17,
+  "q1": -1.8,
+  "q3": 48.1
  },
  "persistence_min": {
   "max": 210.2,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 87,
-  "hotspot_buckets": 329,
-  "hotspot_buckets_on_roadworks": 84,
+  "explained_by_roadworks": 99,
+  "hotspot_buckets": 356,
+  "hotspot_buckets_on_roadworks": 95,
   "txdot_rows": 4,
-  "unreported_congestion": 342
+  "unreported_congestion": 371
  },
  "sampling": {
   "flow_spent_this_month": 1521,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 201,
+  "incidents_spent_this_month": 202,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -138,6 +138,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.272,-97.773"
+  },
+  {
+   "from": "N Mays St / E Liberty Ave",
+   "hour_of_week": 135,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.509,-97.680"
   },
   {
    "from": "W 2nd St (San Antonio St)",
@@ -208,24 +215,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.477,-97.765"
-  },
-  {
-   "from": "FM-1325/Exit 250 (I-35)",
-   "hour_of_week": 115,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.503,-97.683"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.4,
+  "dispatch": 84.3,
   "tomtom": 96.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 89,
-  "neither": 76,
-  "tomtom_only": 13
+  "neither": 75,
+  "tomtom_only": 14
  }
 }
