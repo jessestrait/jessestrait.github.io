@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 92, q3 115 min over 36 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 92, q3 113 min over 40 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 48,
-  "dispatch_only": 39,
+  "dispatch": 50,
+  "dispatch_only": 41,
   "here": 0,
   "here_matched": 0,
   "matched": 12,
@@ -21,11 +21,11 @@
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.6,
-  "median": 100.1,
+  "median": 99.0,
   "min": 80.3,
-  "n": 36,
-  "q1": 92.0,
-  "q3": 115.0
+  "n": 40,
+  "q1": 91.7,
+  "q3": 113.0
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,8 +38,8 @@
   },
   "dispatch_surface": {
    "matched": 7,
-   "n": 43,
-   "pct": 16.3
+   "n": 45,
+   "pct": 15.6
   },
   "tomtom_highway": {
    "matched": 9,
@@ -96,7 +96,7 @@
   "unreported_congestion": 271
  },
  "sampling": {
-  "flow_spent_this_month": 1422,
+  "flow_spent_this_month": 1431,
   "incident_budget": 2500,
   "incidents_spent_this_month": 191,
   "off_peak_min": 45,
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.2,
+  "dispatch": 82.0,
   "tomtom": 96.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 48,
-  "neither": 39,
+  "n": 50,
+  "neither": 41,
   "tomtom_only": 9
  }
 }
