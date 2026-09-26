@@ -57,7 +57,7 @@ jobs:
           git config user.name  "news-ticker[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if git ls-remote --exit-code --heads origin data >/dev/null 2>&1; then
-            git fetch --depth=1 origin data:refs/remotes/origin/data
+            git fetch --depth=1 origin +data:refs/remotes/origin/data
             git checkout -B data refs/remotes/origin/data
           else
             git checkout --orphan data
@@ -73,7 +73,15 @@ jobs:
               # news.json is regenerated whole every run, so there is nothing in
               # it worth merging — take the remote tip and rewrite on top rather
               # than trying to rebase two independently generated files.
-              git fetch --depth=1 --quiet origin data:refs/remotes/origin/data || true
+              # The leading + matters. Without it a non-fast-forward
+              # update of the remote-tracking ref is REJECTED, which in a
+              # shallow clone is every update after another chain pushes —
+              # each fetch starts a disjoint history. `|| true` then
+              # swallowed the failure, reset --hard landed on a stale
+              # commit, and every push after that was "behind". Measured
+              # on the aircraft chain: 58 consecutive push rejections
+              # while the feed itself answered perfectly every time.
+              git fetch --depth=1 --quiet origin +data:refs/remotes/origin/data || true
               git reset --hard --quiet refs/remotes/origin/data || true
               mkdir -p news
               python3 "$RUNNER_TEMP/fetch_news.py" \
