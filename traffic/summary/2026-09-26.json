@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 92, q3 116 min over 110 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 92, q3 116 min over 111 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 122,
-  "dispatch_only": 104,
+  "dispatch": 123,
+  "dispatch_only": 105,
   "here": 0,
   "here_matched": 0,
   "matched": 21,
-  "tomtom": 527,
-  "tomtom_only": 509
+  "tomtom": 555,
+  "tomtom_only": 537
  },
  "date": "2026-09-26",
  "dispatch_life_capped": true,
@@ -23,9 +23,9 @@
   "max": 119.9,
   "median": 104.0,
   "min": 14.9,
-  "n": 110,
+  "n": 111,
   "q1": 91.5,
-  "q3": 116.3
+  "q3": 116.4
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 16,
-   "n": 104,
-   "pct": 15.4
+   "n": 105,
+   "pct": 15.2
   },
   "tomtom_highway": {
    "matched": 13,
-   "n": 248,
-   "pct": 5.2
+   "n": 261,
+   "pct": 5.0
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 279,
-   "pct": 1.8
+   "n": 294,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 124,
-  "hotspot_buckets": 473,
-  "hotspot_buckets_on_roadworks": 120,
+  "explained_by_roadworks": 130,
+  "hotspot_buckets": 499,
+  "hotspot_buckets_on_roadworks": 126,
   "txdot_rows": 4,
-  "unreported_congestion": 489
+  "unreported_congestion": 517
  },
  "sampling": {
   "flow_spent_this_month": 1593,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 205,
+  "incidents_spent_this_month": 206,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -189,6 +189,20 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "Clyde Littlefield Dr",
+   "hour_of_week": 141,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.281,-97.732"
+  },
+  {
+   "from": "Esperanza Xing",
+   "hour_of_week": 141,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.405,-97.723"
+  },
+  {
    "from": "Kasdan Pass",
    "hour_of_week": 119,
    "n": 1,
@@ -201,31 +215,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.482,-97.767"
-  },
-  {
-   "from": "FM-2222/Bullick Hollow Rd (FM-620)",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.453,-97.829"
-  },
-  {
-   "from": "Olive Hill Dr",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.488,-97.770"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.2,
-  "tomtom": 96.6
+  "dispatch": 85.4,
+  "tomtom": 96.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 122,
-  "neither": 104,
+  "n": 123,
+  "neither": 105,
   "tomtom_only": 18
  }
 }
