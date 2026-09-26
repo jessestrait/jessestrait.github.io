@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 92, q3 113 min over 75 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 92, q3 113 min over 76 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 80,
-  "dispatch_only": 69,
+  "dispatch": 87,
+  "dispatch_only": 74,
   "here": 0,
   "here_matched": 0,
-  "matched": 14,
-  "tomtom": 353,
-  "tomtom_only": 341
+  "matched": 16,
+  "tomtom": 373,
+  "tomtom_only": 360
  },
  "date": "2026-09-26",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 100.3,
+  "median": 100.4,
   "min": 80.3,
-  "n": 75,
+  "n": 76,
   "q1": 91.5,
-  "q3": 113.3
+  "q3": 112.7
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 2,
-   "n": 9,
-   "pct": 22.2
+   "n": 10,
+   "pct": 20.0
   },
   "dispatch_surface": {
-   "matched": 9,
-   "n": 71,
-   "pct": 12.7
+   "matched": 11,
+   "n": 77,
+   "pct": 14.3
   },
   "tomtom_highway": {
-   "matched": 9,
-   "n": 161,
-   "pct": 5.6
+   "matched": 10,
+   "n": 167,
+   "pct": 6.0
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 192,
-   "pct": 1.6
+   "n": 206,
+   "pct": 1.5
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 67.8,
-  "median": 19.2,
+  "median": 15.5,
   "min": -87.1,
-  "n": 14,
-  "q1": -17.7,
-  "q3": 47.8
+  "n": 16,
+  "q1": -7.8,
+  "q3": 43.5
  },
  "persistence_min": {
   "max": 210.2,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 84,
-  "hotspot_buckets": 313,
-  "hotspot_buckets_on_roadworks": 82,
+  "explained_by_roadworks": 87,
+  "hotspot_buckets": 329,
+  "hotspot_buckets_on_roadworks": 84,
   "txdot_rows": 4,
-  "unreported_congestion": 324
+  "unreported_congestion": 342
  },
  "sampling": {
-  "flow_spent_this_month": 1494,
+  "flow_spent_this_month": 1503,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 200,
+  "incidents_spent_this_month": 201,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -131,6 +131,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.249,-97.748"
+  },
+  {
+   "from": "Lou Neff Rd",
+   "hour_of_week": 132,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.272,-97.773"
   },
   {
    "from": "W 2nd St (San Antonio St)",
@@ -208,24 +215,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.503,-97.683"
-  },
-  {
-   "from": "US-79/W Palm Valley Blvd/Sam Bass Rd (I-35)",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.512,-97.687"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.2,
-  "tomtom": 96.6
+  "dispatch": 85.1,
+  "tomtom": 96.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 80,
-  "neither": 69,
-  "tomtom_only": 11
+  "n": 87,
+  "neither": 74,
+  "tomtom_only": 13
  }
 }
