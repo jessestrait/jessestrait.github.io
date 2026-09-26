@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 131,
-  "dispatch_only": 111,
+  "dispatch": 132,
+  "dispatch_only": 112,
   "here": 0,
   "here_matched": 0,
   "matched": 23,
-  "tomtom": 555,
-  "tomtom_only": 535
+  "tomtom": 590,
+  "tomtom_only": 570
  },
  "date": "2026-09-26",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 17,
-   "n": 109,
-   "pct": 15.6
+   "n": 110,
+   "pct": 15.5
   },
   "tomtom_highway": {
    "matched": 15,
-   "n": 261,
-   "pct": 5.7
+   "n": 275,
+   "pct": 5.5
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 294,
-   "pct": 1.7
+   "n": 315,
+   "pct": 1.6
   }
  },
  "matcher": {
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 130,
-  "hotspot_buckets": 497,
-  "hotspot_buckets_on_roadworks": 126,
+  "explained_by_roadworks": 137,
+  "hotspot_buckets": 529,
+  "hotspot_buckets_on_roadworks": 133,
   "txdot_rows": 4,
-  "unreported_congestion": 515
+  "unreported_congestion": 550
  },
  "sampling": {
   "flow_spent_this_month": 1611,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 206,
+  "incidents_spent_this_month": 207,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,6 +117,20 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.263,-97.742"
+  },
+  {
+   "from": "Esperanza Xing",
+   "hour_of_week": 141,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.405,-97.723"
+  },
+  {
+   "from": "E Martin Luther King Jr Blvd / Red River St",
+   "hour_of_week": 141,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.281,-97.732"
   },
   {
    "from": "US-183 (FM-812)",
@@ -161,20 +175,6 @@
    "seg": "30.249,-97.764"
   },
   {
-   "from": "Esperanza Xing",
-   "hour_of_week": 141,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.405,-97.723"
-  },
-  {
-   "from": "E Martin Luther King Jr Blvd / Red River St",
-   "hour_of_week": 141,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.281,-97.732"
-  },
-  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
@@ -203,29 +203,29 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "Domain Blvd",
+   "hour_of_week": 142,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.404,-97.722"
+  },
+  {
    "from": "Kasdan Pass",
    "hour_of_week": 119,
    "n": 1,
    "roadworks": false,
    "seg": "30.518,-97.790"
-  },
-  {
-   "from": "Anderson Mill Rd (W Parmer Ln/FM-734)",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.482,-97.767"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 84.7,
-  "tomtom": 96.4
+  "dispatch": 84.8,
+  "tomtom": 96.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 131,
-  "neither": 111,
+  "n": 132,
+  "neither": 112,
   "tomtom_only": 20
  }
 }
