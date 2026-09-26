@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 14,
-  "tomtom": 323,
-  "tomtom_only": 311
+  "tomtom": 328,
+  "tomtom_only": 316
  },
  "date": "2026-09-26",
  "dispatch_life_capped": true,
@@ -48,8 +48,8 @@
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 171,
-   "pct": 1.8
+   "n": 176,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -67,12 +67,12 @@
   "q3": 47.8
  },
  "persistence_min": {
-  "max": 164.1,
+  "max": 210.2,
   "median": -26.0,
   "min": -86.7,
-  "n": 13,
-  "q1": -79.2,
-  "q3": -5.0,
+  "n": 14,
+  "q1": -78.0,
+  "q3": -3.8,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 80,
-  "hotspot_buckets": 283,
+  "hotspot_buckets": 288,
   "hotspot_buckets_on_roadworks": 79,
   "txdot_rows": 4,
-  "unreported_congestion": 294
+  "unreported_congestion": 299
  },
  "sampling": {
   "flow_spent_this_month": 1449,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 195,
+  "incidents_spent_this_month": 196,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
