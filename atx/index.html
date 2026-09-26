@@ -1221,7 +1221,7 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
      looks like the fix did not work.
 
      Bump ?v= on any deploy that changes city3d.js. -->
-<script src="city3d.js?v=20260926gl15"></script>
+<script src="city3d.js?v=20260926m1"></script>
 <script>
 /* ══════════════════════════════════════════════════════════════════
    ATX Layers — no backend and no storage. Almost everything is a live
@@ -2918,7 +2918,7 @@ const TIERS = [
                         // them are live, and it sits with the live things.
                         'life']],
   ['today', 'Lately', ['news', 'crashes', 'wildfire', 'permits']],
-  ['standing', 'Standing', ['busroutes', 'busstops', 'workzones', 'schoolzones', 'city']]
+  ['standing', 'Standing', ['busroutes', 'busstops', 'workzones', 'schoolzones']]
 ];
 
 function tierOf(id) {
@@ -4184,45 +4184,6 @@ const GROUND = [
     load: g => loadSchoolZones(g)
   },
   {
-    /* The city, standing up.
-
-       Leaflet has no camera — it is a plan view and always will be — so
-       this is the old trick: footprints drawn with their walls leaning
-       away from the centre of the screen and their roofs offset to match.
-       Straight up in the middle, leaning out at the edges, which is what
-       looking down at a model actually does.
-
-       It sits below every mark on purpose. The buildings are scenery; the
-       fire call on top of them is the point of the page.
-
-       Footprints and heights are OpenStreetMap's, read from the same
-       PMTiles archive the tilted view at /atx/3d/ uses — one file, byte
-       ranges, only the tiles under the viewport. Where OSM has no height
-       — about 57% of buildings in central Austin, counted rather than
-       guessed at — one is invented from the building's own id, so the
-       skyline has texture and stays the same between visits. The layer
-       says what share is real. */
-    id: 'city', color: '#53709f', name: 'Buildings, in 3D',
-    note: 'Zoom past 15 \u2014 OpenStreetMap footprints and heights',
-    /* Back on by default, because the renderer underneath is WebGL now.
-
-       It was on, then off because the redraw on zoom was the thing you
-       noticed about the page. The 2D canvas rebuilt every wall on the
-       CPU each settle and re-rasterised the whole window; that is the
-       honest answer to why Google Maps can do this and that could not.
-       Geometry now goes to the GPU once per tile and a settle is a
-       uniform update:
-
-           draw, zoom 15    21-55 ms  ->  0.1 ms
-           full settle      33.3 ms   ->  4.8 ms
-           buildings drawn  2,200 cap ->  11,675
-
-       Measured on Intel Iris Pro — the integrated GPU in the machine
-       that was struggling — not on something fast. */
-    group: 'recent', on: true,
-    load: g => loadCity(g)
-  },
-  {
     /* Things that are actually moving.
 
        This held simulated cars until they were cut. They were the only
@@ -4405,13 +4366,12 @@ function groundRow(g) {
     g.on = e.target.checked;
     // The city paints canvases rather than adding a Leaflet layer, so the
     // usual add/remove dance does not apply to it.
-    /* Both of these paint canvases rather than adding a Leaflet layer,
-       so the usual add/remove dance does not apply to either. */
-    if (g.id === 'city' || g.id === 'life') {
+    /* This paints canvases rather than adding a Leaflet layer, so the
+       usual add/remove dance does not apply to it. */
+    if (g.id === 'life') {
       if (window.CITY3D) {
         CITY3D.attach(map, cityNote);
-        if (g.id === 'city') CITY3D.setOn(map, g.on);
-        else CITY3D.setCars(map, g.on);
+        CITY3D.setCars(map, g.on);
         cityNote();
       }
       if (window.syncModes) syncModes();
@@ -4908,13 +4868,21 @@ function atxAudit(quiet) {
 
   GROUND.forEach(g => {
     const box = auditBox(g.id, true);
-    // These two own canvases, not a Leaflet layer, so "is it on the map"
-    // is a different question for them than for everything else.
-    if (g.id === 'city' || g.id === 'life') {
-      const on = !!(window.CITY3D
-                    && (g.id === 'city' ? CITY3D.on : CITY3D.carsOn));
-      rows.push({ id: g.id, kind: 'ground', checked: box, flag: !!g.on,
-                  built: on, onMap: on, ok: box === !!g.on && on === !!g.on });
+    /* This one owns a canvas rather than a Leaflet layer, so "is it on
+       the map" is a different question for it than for everything else.
+
+       auditBox returns the checkbox ELEMENT, not its state — which the
+       branch below knows (`box.checked`) and this one did not, so it
+       compared an element against a boolean and reported a perfectly
+       healthy layer as broken every time. It read `checked: {}` in the
+       output, which is what a DOM node looks like through JSON and is
+       the only reason it was ever noticed. */
+    if (g.id === 'life') {
+      const on = !!(window.CITY3D && CITY3D.carsOn);
+      const ticked = box ? box.checked : !!g.on;
+      rows.push({ id: g.id, kind: 'ground', checked: ticked, flag: !!g.on,
+                  built: on, onMap: on,
+                  ok: ticked === !!g.on && on === !!g.on });
       return;
     }
     const onMap = auditOnMap(g);
@@ -5140,39 +5108,27 @@ async function loadSchoolZones(g) {
    it paints two canvases of its own on panes below the marks. So it
    never calls adoptGround, and atxOrphans has nothing of its to claim —
    there is no L.Layer here to strand. */
-/* The buildings and the traffic are two rows over one engine, so one
-   callback updates both and each asks for its own half of the story. */
+/* One row now, and one readout. The buildings are gone — see the
+   commit that removed them; the geometry and the WebGL renderer are in
+   the history if they are ever wanted back. */
 function cityNote() {
-  const b = byGround.city, l = byGround.life;
-  if (b) {
-    setNote(b, CITY3D.status(map, 'buildings'));
-    const n = document.getElementById('ct-g-city');
-    if (n) n.textContent = b.on && (CITY3D.buildings || []).length
-      ? CITY3D.buildings.length.toLocaleString() : '\u2014';
-  }
-  if (l) {
-    setNote(l, CITY3D.status(map, 'cars'));
-    const n = document.getElementById('ct-g-life');
-    if (n) n.textContent = l.on && (CITY3D.cars || []).length
-      ? CITY3D.cars.length.toLocaleString() : '\u2014';
-  }
+  const l = byGround.life;
+  if (!l) return;
+  setNote(l, CITY3D.status(map, 'cars'));
+  const n = document.getElementById('ct-g-life');
+  if (n) n.textContent = l.on && CITY3D.roads && CITY3D.roads.length
+    ? String(CITY3D.roads.length) : '\u2014';
 }
 
 function cityReady(g) {
   if (!window.CITY3D || !window.pmtiles) {
     const badge = document.getElementById('ct-g-' + g.id);
     if (badge) badge.textContent = '\u2014';
-    setNote(g, 'The city library did not load', true);
+    setNote(g, 'The motion library did not load', true);
     return false;
   }
   CITY3D.attach(map, cityNote);
   return true;
-}
-
-function loadCity(g) {
-  if (!cityReady(g)) return;
-  CITY3D.setOn(map, !!g.on);
-  cityNote();
 }
 
 function loadLife(g) {
@@ -5290,32 +5246,6 @@ function drawOutages() {
   const week = OUTAGE.mode === 'week';
   const src = week ? PWR.byZip : OUTAGE.byZip;
   const hit = OUTAGE.geo.features.filter(f => src[(f.properties || {}).zip]);
-
-  /* Tell the 3D layer which blocks have no power, so the windows in
-     them stay dark. Live outages only — the week view is history, and
-     history should not switch tonight's lights off. This runs even
-     when `hit` is empty, because that is how the lights come back on. */
-  if (window.CITY3D && CITY3D.setBlackouts) {
-    CITY3D.setBlackouts(map, week ? [] : hit.map(f => {
-      const o = src[f.properties.zip] || {};
-      const served = o.served || 0;
-      // `pct` is Austin Energy's own share-out where they give one;
-      // otherwise customers out over customers served.
-      const share = o.pct != null ? o.pct / 100
-                  : served ? Math.min(1, (o.cust || 0) / served) : 0;
-      const g = f.geometry || {};
-      const rings = g.type === 'Polygon' ? g.coordinates
-                  : g.type === 'MultiPolygon' ? g.coordinates.flat() : [];
-      const flat = rings.flat();
-      if (!flat.length) return null;
-      let x0 = 180, y0 = 90, x1 = -180, y1 = -90;
-      for (const c of flat) {
-        if (c[0] < x0) x0 = c[0]; if (c[0] > x1) x1 = c[0];
-        if (c[1] < y0) y0 = c[1]; if (c[1] > y1) y1 = c[1];
-      }
-      return { pct: share, rings: rings, bbox: [x0, y0, x1, y1] };
-    }).filter(Boolean));
-  }
 
   if (!hit.length) return;
   groundLayers.outages = L.geoJSON({ type: 'FeatureCollection', features: hit }, {
