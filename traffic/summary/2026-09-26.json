@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 92, q3 112 min over 21 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 92, q3 113 min over 24 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 33,
-  "dispatch_only": 27,
+  "dispatch": 34,
+  "dispatch_only": 28,
   "here": 0,
   "here_matched": 0,
   "matched": 8,
@@ -21,11 +21,11 @@
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.6,
-  "median": 101.2,
+  "median": 100.6,
   "min": 82.0,
-  "n": 21,
-  "q1": 92.0,
-  "q3": 112.2
+  "n": 24,
+  "q1": 92.1,
+  "q3": 113.0
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,8 +38,8 @@
   },
   "dispatch_surface": {
    "matched": 5,
-   "n": 29,
-   "pct": 17.2
+   "n": 30,
+   "pct": 16.7
   },
   "tomtom_highway": {
    "matched": 6,
@@ -96,7 +96,7 @@
   "unreported_congestion": 234
  },
  "sampling": {
-  "flow_spent_this_month": 1404,
+  "flow_spent_this_month": 1413,
   "incident_budget": 2500,
   "incidents_spent_this_month": 189,
   "off_peak_min": 45,
@@ -111,6 +111,13 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
+  {
+   "from": "TX-343/S Lamar Blvd (W Mary St)",
+   "hour_of_week": 122,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.249,-97.764"
+  },
   {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
@@ -138,13 +145,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "S 1st St (Mary St W)",
-   "hour_of_week": 122,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.249,-97.764"
   },
   {
    "from": "Kasdan Pass",
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.8,
+  "dispatch": 82.4,
   "tomtom": 96.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 33,
-  "neither": 27,
+  "n": 34,
+  "neither": 28,
   "tomtom_only": 6
  }
 }
