@@ -1221,7 +1221,7 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
      looks like the fix did not work.
 
      Bump ?v= on any deploy that changes city3d.js. -->
-<script src="city3d.js?v=20260926m3"></script>
+<script src="city3d.js?v=20260926w2"></script>
 <script>
 /* ══════════════════════════════════════════════════════════════════
    ATX Layers — no backend and no storage. Almost everything is a live
@@ -4173,6 +4173,47 @@ const GROUND = [
     load: g => loadSchoolZones(g)
   },
   {
+    /* The buildings, as outlines.
+
+       The solid version was removed on 2026-09-26 after days of "it
+       looks wrong" that were not really bugs. The footprints were
+       exact; what lied was the extrusion, which leaned away from the
+       centre of the SCREEN and so slid against the roads on every pan
+       and jumped on every zoom.
+
+       This leans every building the same way instead — an axonometric
+       projection rather than a fake camera. Nothing depends on where a
+       building sits in the window, so nothing slides when you pan, and
+       the footprints scale exactly under a zoom (0.25 px, measured).
+       The roofs drift a few pixels during the animation because their
+       lean goes as the square root of height; the old version moved by
+       338.
+
+       Lines rather than solids because canvas fill is quadratic in
+       closed subpaths (8,000 of them: 273 ms) while open stroked ones
+       are linear (50,000: 7.5 ms). So it needs no GPU, antialiases
+       itself, cannot occlude anything, and reads as an overlay on a
+       map rather than an object pretending to sit in the world.
+
+       The faint lower outline is each building's actual footprint,
+       drawn separately on purpose: the base is the truth and the lean
+       is a convention, and you should be able to see both.
+
+       How hard it leans is tunable live, because thin lines on a dark
+       map are a matter of taste:
+
+           CITY3D.wireLean = 0;   CITY3D._wire.refresh(map)
+
+       0 is a flat plan of exact footprints, which looks clean on its
+       own; 4.6 makes downtown a tall cage. Off by default — turn it on
+       and set it to whatever reads best. */
+    id: 'city', color: '#96b2dc', name: 'Buildings, in outline',
+    note: 'Zoom past 15 \u2014 outlines, height as a lean',
+    group: 'recent', on: false,
+    load: g => loadCity(g),
+    popup: () => ''
+  },
+  {
     /* Things that are actually moving.
 
        This held simulated cars until they were cut. They were the only
@@ -4362,10 +4403,11 @@ function groundRow(g) {
     // usual add/remove dance does not apply to it.
     /* This paints canvases rather than adding a Leaflet layer, so the
        usual add/remove dance does not apply to it. */
-    if (g.id === 'life') {
+    if (g.id === 'life' || g.id === 'city') {
       if (window.CITY3D) {
         CITY3D.attach(map, cityNote);
-        CITY3D.setCars(map, g.on);
+        if (g.id === 'life') CITY3D.setCars(map, g.on);
+        else CITY3D.setOn(map, g.on);
         cityNote();
       }
       if (window.syncModes) syncModes();
@@ -4871,8 +4913,9 @@ function atxAudit(quiet) {
        healthy layer as broken every time. It read `checked: {}` in the
        output, which is what a DOM node looks like through JSON and is
        the only reason it was ever noticed. */
-    if (g.id === 'life') {
-      const on = !!(window.CITY3D && CITY3D.carsOn);
+    if (g.id === 'life' || g.id === 'city') {
+      const on = !!(window.CITY3D && (g.id === 'life'
+        ? CITY3D.carsOn : CITY3D._wire.state.on));
       const ticked = box ? box.checked : !!g.on;
       rows.push({ id: g.id, kind: 'ground', checked: ticked, flag: !!g.on,
                   built: on, onMap: on,
@@ -5107,11 +5150,19 @@ async function loadSchoolZones(g) {
    the history if they are ever wanted back. */
 function cityNote() {
   const l = byGround.life;
-  if (!l) return;
-  setNote(l, CITY3D.status(map, 'cars'));
-  const n = document.getElementById('ct-g-life');
-  if (n) n.textContent = l.on && CITY3D.roads && CITY3D.roads.length
-    ? String(CITY3D.roads.length) : '\u2014';
+  if (l) {
+    setNote(l, CITY3D.status(map));
+    const n = document.getElementById('ct-g-life');
+    if (n) n.textContent = l.on && CITY3D.roads && CITY3D.roads.length
+      ? String(CITY3D.roads.length) : '\u2014';
+  }
+  const b = byGround.city;
+  if (b) {
+    setNote(b, CITY3D.wireStatus(map));
+    const n = document.getElementById('ct-g-city');
+    const w = CITY3D._wire.state.shapes;
+    if (n) n.textContent = b.on && w && w.length ? w.length.toLocaleString() : '\u2014';
+  }
 }
 
 function cityReady(g) {
@@ -5128,6 +5179,12 @@ function cityReady(g) {
 function loadLife(g) {
   if (!cityReady(g)) return;
   CITY3D.setCars(map, !!g.on);
+  cityNote();
+}
+
+function loadCity(g) {
+  if (!cityReady(g)) return;
+  CITY3D.setOn(map, !!g.on);
   cityNote();
 }
 

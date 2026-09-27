@@ -164,7 +164,7 @@
      than ask anyone to trust that a deploy landed, the layer says what
      it is running. If this does not match the newest deploy, the
      answer is a cache and not the code. */
-  const BUILD = 'm3';
+  const BUILD = 'w2';
 
   const MIN_Z = 15;
   const TILE_Z = 15;
@@ -202,7 +202,7 @@
     try {
       const a = await archive();
       const r = await a.getZxy(z, x, y);
-      let parsed = { roads: null };
+      let parsed = { roads: null, buildings: null };
       if (r && r.data) {
         let buf = new Uint8Array(r.data);
         // Tiles in this archive are gzipped; the browser will not do it
@@ -212,9 +212,10 @@
             new Blob([buf]).stream().pipeThrough(new DecompressionStream('gzip'))
           ).arrayBuffer());
         }
-        // Only the roads are read now: the buildings went with the 3D
-        // layer and the water went with the drifting particles.
-        parsed = { roads: global.MVT.decodeLayer(buf, 'roads') };
+        parsed = {
+          roads: global.MVT.decodeLayer(buf, 'roads'),
+          buildings: global.MVT.decodeLayer(buf, 'buildings')
+        };
       }
       CITY.tiles.set(key, parsed);
       CITY.tileErr = null;
@@ -1008,6 +1009,293 @@
                           clockState, austinClock, CLASS, CONGEST_WD, VOLUME_WD };
 })(window);
 
+/* ── The buildings, in outline ────────────────────────────────────────
+
+   The solid 3D layer was removed on 2026-09-26 and this is what took
+   its place. The difference is not the shading, it is the projection.
+
+   WHAT WENT WRONG BEFORE. Buildings leaned away from the centre of the
+   SCREEN, imitating a camera. Leaflet has no camera — it is a plan view
+   — so that made a building's shape depend on where it happened to sit
+   in the window: it slid against the roads on every pan, and a zoom
+   could not be a uniform scale because the lean did not scale with it.
+   Hence the jump. The footprints were always exact (0.71 px against
+   Leaflet's own projection over 240 vertices); it was the extrusion
+   that lied.
+
+   WHAT IS DIFFERENT. Every building now leans the same way, by a
+   fixed vector — an axonometric projection rather than a fake
+   perspective. Nothing depends on where a building sits in the
+   window, so nothing slides when you pan.
+
+   ON ZOOM, honestly: the FOOTPRINTS scale exactly, measured at 0.25 px
+   against Leaflet's own answer for the target zoom, so the part that
+   has to be right is right. The roofs do not quite: the lean goes as
+   the square root of height (see leanOf), so it scales by 0.707 per
+   level where a CSS scale applies 0.5, and a roof drifts by about
+   thirty per cent of its own lean during the animation before the
+   redraw corrects it. At these lean lengths that is a few pixels. The
+   old screen-relative lean moved by 338. I am not claiming exact; I
+   am claiming small, and bounded, and only on the roofs.
+
+   WHY LINES. Measured, because it decided the architecture: canvas
+   fill is quadratic in closed subpaths — 8,000 of them took 273 ms —
+   which is what made the old renderer need a GPU. Open stroked
+   subpaths are linear: 500 in 0.3 ms, 50,000 in 7.5 ms. A wireframe is
+   nothing but open subpaths, so it needs no WebGL, gets antialiasing
+   for free, and cannot z-fight or occlude anything. It also reads as
+   what it is — an overlay on a map, rather than a solid object
+   pretending to sit in the world. */
+(function (global) {
+  'use strict';
+  const C = global.CITY3D, H = C._helpers;
+
+  /* Up, and a little to the right. The exact angle is taste; that it
+     is CONSTANT is the whole point — a constant lean scales with the
+     zoom, so the zoom animation is exact and nothing jumps. */
+  const DIR_X = 0.323, DIR_Y = -0.946;        // unit vector
+
+  /* Height is drawn on a square root, not straight.
+
+     Downtown Austin at zoom 17 runs from 6 px of building to 305 —
+     the Independent is 315 m and that is 1 m per pixel here. Drawn
+     linearly as lines, the towers become three-hundred-pixel cages
+     that span the screen while the median eleven-pixel building has
+     nothing to see at all. Filled, that range works, because mass
+     reads as mass; as wireframe it is unusable at both ends.
+
+     So: 4.6 * sqrt(height in pixels). Eleven pixels becomes fifteen,
+     forty-six becomes thirty-one, three hundred and five becomes
+     eighty. Taller is still reliably taller — the order is never
+     wrong — but the range is compressed from fifty to one down to
+     five to one. It is a log-ish axis on a chart, and like one it is
+     a deliberate distortion for legibility rather than a measurement.
+     The footprint underneath is always exact. */
+  function leanOf(hpx) { return C.wireLean * Math.sqrt(Math.max(0, hpx)); }
+
+  const W = { on: false, canvas: null, ctx: null, proj: new Map(), shapes: [] };
+  /* How hard it leans. Tunable live from the console, because thin
+     lines on a dark map are a matter of taste and a screenshot is a
+     bad way to judge them:
+
+         CITY3D.wireLean = 0;    CITY3D._wire.refresh(map)
+
+     0 is a flat plan — just footprint outlines, which are exact and
+     look clean on their own. 2.5 is a gentle pop. 4.6 makes downtown
+     a tall cage. */
+  C.wireLean = 2.4;
+
+  function ensure(map) {
+    if (W.canvas) return;
+    if (!map.getPane('wirePane')) map.createPane('wirePane').style.zIndex = 264;
+    const cv = document.createElement('canvas');
+    // leaflet-zoom-animated carries transform-origin: 0 0, without which
+    // a CSS-scaled canvas pivots about its middle and leaps a third of
+    // the screen on every zoom. This cost days the first time round.
+    cv.className = 'leaflet-zoom-animated';
+    cv.style.cssText = 'position:absolute;left:0;top:0;pointer-events:none;'
+                     + 'transform-origin:0 0;-webkit-transform-origin:0 0';
+    map.getPane('wirePane').appendChild(cv);
+    W.canvas = cv; W.ctx = cv.getContext('2d');
+  }
+
+  /* Footprints in absolute layer coordinates, cached per tile and zoom.
+     Panning never invalidates this; only a zoom does. */
+  function projectTile(map, key, t) {
+    const z = map.getZoom(), ck = key + '@' + z;
+    const hit = W.proj.get(ck);
+    if (hit) return hit;
+
+    const [tz, tx, ty] = key.split('/').map(Number);
+    const lay = t.buildings;
+    const ext = (lay && lay.extent) || H.EXTENT_FALLBACK;
+    const tileScale = 256 * Math.pow(2, z - tz);
+    const k = tileScale / ext;
+    const ax = tx * tileScale, ay = ty * tileScale;
+    const c = map.getCenter();
+    const mpp = 40075016.686 * Math.cos(c.lat * Math.PI / 180) / Math.pow(2, z + 8);
+
+    const out = [];
+    for (const f of (lay ? lay.features : [])) {
+      if (f.type !== 3) continue;             // address POINTS share this layer
+      const kind = f.props.kind;
+      if (kind !== 'building' && kind !== 'building_part') continue;
+      const real = f.props.height != null;
+      const hpx = (real ? +f.props.height : H.guessHeight(f.id || 1)) / mpp;
+      for (const full of f.rings) {
+        // Every ring in this archive closes itself; the repeated point
+        // is harmless to a stroke but skews the bounds, so it goes.
+        const n0 = full.length;
+        const closed = n0 >= 4 && full[0] === full[n0 - 2] && full[1] === full[n0 - 1];
+        // subarray only exists on typed arrays, and the decoder hands
+        // back plain ones; do not assume which.
+        const ring = !closed ? full
+                   : (full.subarray ? full.subarray(0, n0 - 2)
+                                    : full.slice(0, n0 - 2));
+        if (ring.length < 6) continue;
+        const pts = new Float32Array(ring.length);
+        let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9;
+        for (let i = 0; i < ring.length; i += 2) {
+          const x = ax + ring[i] * k, y = ay + ring[i + 1] * k;
+          pts[i] = x; pts[i + 1] = y;
+          if (x < x0) x0 = x; if (y < y0) y0 = y;
+          if (x > x1) x1 = x; if (y > y1) y1 = y;
+        }
+        if ((x1 - x0) < 3 && (y1 - y0) < 3) continue;   // too small to read
+        out.push({ pts: pts, h: hpx, real: real, x0: x0, y0: y0, x1: x1, y1: y1 });
+      }
+    }
+    W.proj.set(ck, out);
+    if (W.proj.size > 120) W.proj.delete(W.proj.keys().next().value);
+    return out;
+  }
+
+  function collect(map) {
+    const cv = W.canvas;
+    const origin = cv._origin, pxO = map.getPixelOrigin();
+    const size = map.getSize(), pad = cv._pad || L.point(0, 0);
+    const bx0 = origin.x + pxO.x - 40, by0 = origin.y + pxO.y - 40;
+    const bx1 = bx0 + size.x + pad.x * 2 + 80;
+    const by1 = by0 + size.y + pad.y * 2 + 200;
+
+    const out = [];
+    for (const [tz, tx, ty] of H.visibleTiles(map)) {
+      const t = C.tiles.get(tz + '/' + tx + '/' + ty);
+      if (!t || !t.buildings) continue;
+      for (const b of projectTile(map, tz + '/' + tx + '/' + ty, t)) {
+        if (b.x1 < bx0 || b.y1 < by0 || b.x0 > bx1 || b.y0 > by1) continue;
+        out.push(b);
+      }
+    }
+    /* Zoom 15 holds eleven thousand shapes two pixels tall, which is
+       not a skyline, it is hatching. Tallest first, then cut. */
+    const lim = map.getZoom() <= 15 ? 2500 : map.getZoom() === 16 ? 5000 : 9000;
+    if (out.length > lim) { out.sort((p, q) => q.h - p.h); out.length = lim; }
+    return out;
+  }
+
+  function draw(map, resize) {
+    if (!W.canvas) return;
+    const dpr = resize === false
+      ? Math.min(window.devicePixelRatio || 1, 2)
+      : C._draw.sizeCanvas(map, W.canvas);
+    const ctx = W.ctx;
+    const w = W.canvas.width / dpr, h = W.canvas.height / dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+    if (!W.on || map.getZoom() < H.MIN_Z) return;
+
+    const b = W.shapes;
+    if (!b.length) return;
+
+    const origin = W.canvas._origin, pxO = map.getPixelOrigin();
+    ctx.save();
+    ctx.translate(-(origin.x + pxO.x), -(origin.y + pxO.y));
+
+    /* One path, one stroke. Open subpaths, so this is linear in edges
+       — the whole reason the layer can live on a 2D canvas again. */
+    let edges = 0;
+    ctx.lineJoin = 'round';
+
+    /* Corner posts first, and only where they carry information.
+
+       The first cut drew a post at every vertex of every building
+       above three pixels. The median building here leans eleven
+       pixels, so that was seven thousand short parallel strokes — not
+       a city, a hatch pattern. Anything under fourteen pixels now
+       gets no posts at all: its roof outline, offset from its
+       footprint outline, already says everything a post would. Only
+       buildings with real height get the cage, and at most six posts
+       each so a complex footprint does not turn back into hatching. */
+    ctx.lineWidth = 0.6;
+    ctx.strokeStyle = 'rgba(150,180,225,0.45)';
+    ctx.beginPath();
+    for (const bl of b) {
+      if (leanOf(bl.h) < 9) continue;
+      const p = bl.pts, m = p.length;
+      const L = leanOf(bl.h), dx = L * DIR_X, dy = L * DIR_Y;
+      const step = Math.max(2, 2 * Math.ceil((m / 2) / 6));
+      for (let i = 0; i < m; i += step) {
+        ctx.moveTo(p[i], p[i + 1]);
+        ctx.lineTo(p[i] + dx, p[i + 1] + dy);
+        edges++;
+      }
+    }
+    ctx.stroke();
+
+    /* The footprint: where the building actually stands. Faint, and
+       drawn under everything, because the base is the truth and the
+       lean is only a convention. */
+    ctx.strokeStyle = 'rgba(132,158,200,0.40)';
+    ctx.beginPath();
+    for (const bl of b) {
+      const p = bl.pts, m = p.length;
+      ctx.moveTo(p[0], p[1]);
+      for (let i = 2; i < m; i += 2) ctx.lineTo(p[i], p[i + 1]);
+      ctx.lineTo(p[0], p[1]);
+      edges += m / 2;
+    }
+    ctx.stroke();
+
+    // The roof, brightest, because it is the shape the eye should read.
+    ctx.lineWidth = 0.8;
+    ctx.strokeStyle = 'rgba(182,208,246,0.85)';
+    ctx.beginPath();
+    for (const bl of b) {
+      const p = bl.pts, m = p.length;
+      const L = leanOf(bl.h), dx = L * DIR_X, dy = L * DIR_Y;
+      ctx.moveTo(p[0] + dx, p[1] + dy);
+      for (let i = 2; i < m; i += 2) ctx.lineTo(p[i] + dx, p[i + 1] + dy);
+      ctx.lineTo(p[0] + dx, p[1] + dy);
+      edges += m / 2;
+    }
+    ctx.stroke();
+    ctx.restore();
+    W.edges = edges;
+  }
+
+  function refresh(map) {
+    if (!W.on) { if (W.canvas) draw(map); return; }
+    if (map.getZoom() < H.MIN_Z) { W.shapes = []; draw(map); return; }
+    C._draw.sizeCanvas(map, W.canvas);
+    W.shapes = collect(map);
+    draw(map, false);
+  }
+
+  global.CITY3D._wire = {
+    ensure: ensure,
+    refresh: refresh,
+    draw: draw,
+    state: W,
+    setOn: function (map, on) {
+      ensure(map);
+      W.on = !!on;
+      if (!W.on) W.shapes = [];
+      refresh(map);
+    },
+    /* Carried through the zoom by a CSS scale. Exact for the
+       footprints, a few pixels out on the roofs for the length of the
+       animation — see the note at the top of this module. */
+    onZoomAnim: function (map, e) {
+      const cv = W.canvas;
+      if (!cv || !W.on) return;
+      const scale = map.getZoomScale(e.zoom, map.getZoom());
+      const offset = map._latLngToNewLayerPoint(
+        map.layerPointToLatLng(cv._origin || L.point(0, 0)), e.zoom, e.center);
+      L.DomUtil.setTransform(cv, offset, scale);
+    },
+    status: function (map) {
+      if (!W.on) return 'Off';
+      if (map.getZoom() < H.MIN_Z) return 'Zoom past ' + H.MIN_Z + ' to raise the outlines';
+      if (!W.shapes.length) return 'No buildings mapped here';
+      const real = W.shapes.filter(s => s.real).length;
+      return W.shapes.length.toLocaleString() + ' buildings · '
+        + Math.round(100 * real / W.shapes.length) + '% at their real height · '
+        + (W.edges || 0).toLocaleString() + ' lines';
+    }
+  };
+})(window);
+
 /* ── Wiring it to the map ───────────────────────────────────────────── */
 (function (global) {
   'use strict';
@@ -1027,7 +1315,7 @@
 
      Tying them together meant you could not have the living city
      without paying for the skyline. Now you can. */
-  function live() { return C.carsOn; }
+  function live() { return C.carsOn || global.CITY3D._wire.state.on; }
 
   async function refresh(map) {
     // Drop whatever transform the zoom animation left behind; sizeCanvas
@@ -1040,6 +1328,7 @@
     const want = H.visibleTiles(map);
     await Promise.all(want.map(([z, x, y]) => H.tile(z, x, y)));
     C.clock = CAR.clockState();
+    global.CITY3D._wire.refresh(map);
     if (C.carsOn) {
       await CAR.loadTraffic();
       CAR.loadAircraft();   // never awaited: a slow feed must not hold the settle
@@ -1096,20 +1385,25 @@
      * what the other layers do. */
     map.on('zoomstart', () => { C.zooming = true; });
     map.on('zoomend', () => { C.zooming = false; });
-    /* Everything on the motion canvas is redrawn each frame from live
-       coordinates, so it needs no zoom transform — only to not be left
-       behind a stale one. */
-    map.on('zoomanim', () => {
+    /* The motion canvas is redrawn each frame from live coordinates,
+       so it needs no zoom transform — only to not be left behind a
+       stale one. The outline canvas is the opposite: it is drawn once
+       per settle and carried through the zoom by a CSS scale, which is
+       exact for it because every coordinate scales with the zoom. */
+    map.on('zoomanim', e => {
       if (C.carCanvas) L.DomUtil.setTransform(C.carCanvas, L.point(0, 0), 1);
+      global.CITY3D._wire.onZoomAnim(map, e);
     });
 
     map.on('moveend zoomend resize', () => scheduleRefresh(map));
     if (!C.raf) frame(map);
   };
 
-  /* A no-op, kept so an old saved link naming the buildings layer does
-     not throw. There is nothing to switch on any more. */
-  C.setOn = function () {};
+  // The building outlines.
+  C.setOn = function (map, on) {
+    global.CITY3D._wire.setOn(map, !!on);
+  };
+  C.wireStatus = function (map) { return global.CITY3D._wire.status(map); };
 
   // The emergency lights and the aircraft.
   C.setCars = function (map, on) {
