@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 97, q3 118 min over 80 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 98, q3 118 min over 82 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 90,
-  "dispatch_only": 83,
+  "dispatch": 91,
+  "dispatch_only": 84,
   "here": 0,
   "here_matched": 0,
   "matched": 9,
@@ -23,9 +23,9 @@
   "max": 120.0,
   "median": 116.1,
   "min": 7.8,
-  "n": 80,
-  "q1": 96.9,
-  "q3": 118.0
+  "n": 82,
+  "q1": 97.8,
+  "q3": 117.9
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,8 +38,8 @@
   },
   "dispatch_surface": {
    "matched": 7,
-   "n": 70,
-   "pct": 10.0
+   "n": 71,
+   "pct": 9.9
   },
   "tomtom_highway": {
    "matched": 2,
@@ -140,6 +140,13 @@
    "seg": "30.298,-97.705"
   },
   {
+   "from": "S US Highway 183 Highway South Bound",
+   "hour_of_week": 161,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.171,-97.691"
+  },
+  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
@@ -182,13 +189,6 @@
    "seg": "30.179,-97.616"
   },
   {
-   "from": "Austin",
-   "hour_of_week": 161,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.171,-97.691"
-  },
-  {
    "from": "US Highway 183",
    "hour_of_week": 143,
    "n": 1,
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 92.2,
+  "dispatch": 92.3,
   "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 90,
-  "neither": 83,
+  "n": 91,
+  "neither": 84,
   "tomtom_only": 7
  }
 }
