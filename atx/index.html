@@ -1221,7 +1221,7 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
      looks like the fix did not work.
 
      Bump ?v= on any deploy that changes city3d.js. -->
-<script src="city3d.js?v=20260926w2"></script>
+<script src="city3d.js?v=20260926w3"></script>
 <script>
 /* ══════════════════════════════════════════════════════════════════
    ATX Layers — no backend and no storage. Almost everything is a live
@@ -4199,16 +4199,20 @@ const GROUND = [
        drawn separately on purpose: the base is the truth and the lean
        is a convention, and you should be able to see both.
 
-       How hard it leans is tunable live, because thin lines on a dark
-       map are a matter of taste:
+       FLAT BY DEFAULT. With a lean, the bright line you read is the
+       ROOF, which by construction is not over the street — that is
+       what an axonometric does, and it reads as "the buildings do not
+       line up". With no lean there is only the footprint: exactly on
+       the street, and exactly scaled under a zoom, because nothing is
+       offset that could drift.
 
-           CITY3D.wireLean = 0;   CITY3D._wire.refresh(map)
+       Height is still there if it is wanted, live from the console:
 
-       0 is a flat plan of exact footprints, which looks clean on its
-       own; 4.6 makes downtown a tall cage. Off by default — turn it on
-       and set it to whatever reads best. */
-    id: 'city', color: '#96b2dc', name: 'Buildings, in outline',
-    note: 'Zoom past 15 \u2014 outlines, height as a lean',
+           CITY3D.wireLean = 2.4;   CITY3D._wire.refresh(map)
+
+       and 4.6 makes downtown a tall cage. */
+    id: 'city', color: '#96b2dc', name: 'Building outlines',
+    note: 'Zoom past 15 \u2014 OpenStreetMap building outlines',
     group: 'recent', on: false,
     load: g => loadCity(g),
     popup: () => ''

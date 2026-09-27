@@ -164,7 +164,7 @@
      than ask anyone to trust that a deploy landed, the layer says what
      it is running. If this does not match the newest deploy, the
      answer is a cache and not the code. */
-  const BUILD = 'w2';
+  const BUILD = 'w3';
 
   const MIN_Z = 15;
   const TILE_Z = 15;
@@ -235,6 +235,21 @@
          had nothing to give. This is only for when the ask itself
          failed. */
       CITY.tileErr = String((e && e.message) || e);
+      /* Throw the archive away, do not just record the error.
+
+         PMTiles memoises the promise for its header and directory —
+         including a REJECTED one. So a single failure, which on this
+         page happens when a range request races the service worker at
+         load, poisons the instance permanently: every later read
+         rethrows the same error with no network request at all.
+         Proved by intercepting fetch during a failing getZxy and
+         seeing zero requests, then building a fresh instance against
+         the same URL and getting 114,703 bytes back immediately.
+
+         That is why the buildings were sometimes simply absent, and
+         why the symptom looked like a dead CDN when the CDN was fine.
+         A new instance costs one header read. */
+      CITY.pm = null;
       return null;
     } finally { CITY.busy.delete(key); }
   }
@@ -1080,10 +1095,13 @@
 
          CITY3D.wireLean = 0;    CITY3D._wire.refresh(map)
 
-     0 is a flat plan — just footprint outlines, which are exact and
-     look clean on their own. 2.5 is a gentle pop. 4.6 makes downtown
-     a tall cage. */
-  C.wireLean = 2.4;
+     0 is the default and means flat: just the footprint outlines,
+     which sit exactly on the streets and scale exactly under a zoom,
+     because with no lean there is nothing that can drift. Raise it
+     for a pop of height and you trade that exactness back — see the
+     note at the top of this module. 2.4 is gentle, 4.6 is a tall
+     cage. */
+  C.wireLean = 0;
 
   function ensure(map) {
     if (W.canvas) return;
@@ -1196,6 +1214,29 @@
        — the whole reason the layer can live on a 2D canvas again. */
     let edges = 0;
     ctx.lineJoin = 'round';
+
+    /* Flat is a different drawing, not the same one with a zero
+       offset. With no lean the roof outline, the footprint outline
+       and the posts all collapse onto the same path, so drawing the
+       three passes would stroke the identical line three times —
+       triple the work and triple the alpha, which is why it would
+       look heavier rather than cleaner. One pass, and brighter. */
+    if (C.wireLean <= 0.01) {
+      ctx.lineWidth = 0.8;
+      ctx.strokeStyle = 'rgba(176,202,242,0.78)';
+      ctx.beginPath();
+      for (const bl of b) {
+        const p = bl.pts, m = p.length;
+        ctx.moveTo(p[0], p[1]);
+        for (let i = 2; i < m; i += 2) ctx.lineTo(p[i], p[i + 1]);
+        ctx.lineTo(p[0], p[1]);
+        edges += m / 2;
+      }
+      ctx.stroke();
+      ctx.restore();
+      W.edges = edges;
+      return;
+    }
 
     /* Corner posts first, and only where they carry information.
 
@@ -1334,6 +1375,7 @@
       CAR.loadAircraft();   // never awaited: a slow feed must not hold the settle
       CAR.harvestRoads(map);
     }
+    scheduleRetry(map);
     C.onNote && C.onNote();
   }
 
@@ -1345,6 +1387,17 @@
   function scheduleRefresh(map) {
     clearTimeout(settle);
     settle = setTimeout(() => refresh(map), 70);
+  }
+
+  /* If the archive failed, come back for it. Without this the layer
+     waits for the reader to pan before it will try again, which on a
+     page they are just looking at means for ever. */
+  function scheduleRetry(map) {
+    if (!C.tileErr || C.retry) return;
+    C.retry = setTimeout(() => {
+      C.retry = null;
+      if (C.tileErr) { C.tileErr = null; refresh(map); }
+    }, 4000);
   }
 
   function frame(map) {
