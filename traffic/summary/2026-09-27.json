@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 3,
-  "tomtom": 177,
-  "tomtom_only": 174
+  "tomtom": 192,
+  "tomtom_only": 189
  },
  "date": "2026-09-27",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 74,
-   "pct": 2.7
+   "n": 77,
+   "pct": 2.6
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 103,
-   "pct": 1.0
+   "n": 115,
+   "pct": 0.9
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 48,
-  "hotspot_buckets": 154,
+  "hotspot_buckets": 167,
   "hotspot_buckets_on_roadworks": 47,
   "txdot_rows": 4,
-  "unreported_congestion": 160
+  "unreported_congestion": 174
  },
  "sampling": {
   "flow_spent_this_month": 1647,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 209,
+  "incidents_spent_this_month": 210,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
+  {
+   "from": "Deloss Dodds Way",
+   "hour_of_week": 141,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.282,-97.732"
+  },
   {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
@@ -207,18 +214,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.328,-97.740"
-  },
-  {
-   "from": "Harris Ridge Blvd (E Howard Ln)",
-   "hour_of_week": 142,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.405,-97.641"
   }
  ],
  "unmatched_pct": {
   "dispatch": 93.0,
-  "tomtom": 98.3
+  "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
