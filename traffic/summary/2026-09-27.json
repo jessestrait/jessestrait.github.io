@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 12,
-  "tomtom": 419,
-  "tomtom_only": 407
+  "tomtom": 436,
+  "tomtom_only": 424
  },
  "date": "2026-09-27",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 176,
-   "pct": 2.3
+   "n": 181,
+   "pct": 2.2
   },
   "tomtom_surface": {
    "matched": 8,
-   "n": 243,
-   "pct": 3.3
+   "n": 255,
+   "pct": 3.1
   }
  },
  "matcher": {
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 97,
-  "hotspot_buckets": 373,
-  "hotspot_buckets_on_roadworks": 93,
+  "explained_by_roadworks": 100,
+  "hotspot_buckets": 388,
+  "hotspot_buckets_on_roadworks": 96,
   "txdot_rows": 4,
-  "unreported_congestion": 390
+  "unreported_congestion": 407
  },
  "sampling": {
   "flow_spent_this_month": 1881,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 226,
+  "incidents_spent_this_month": 227,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -131,6 +131,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.282,-97.732"
+  },
+  {
+   "from": "S 1st St (W Riverside Dr)",
+   "hour_of_week": 17,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.264,-97.756"
   },
   {
    "from": "Garcia St",
@@ -189,6 +196,13 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "Rogge Ln",
+   "hour_of_week": 167,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.305,-97.676"
+  },
+  {
    "from": "US Highway 183",
    "hour_of_week": 143,
    "n": 1,
@@ -201,25 +215,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.483,-97.676"
-  },
-  {
-   "from": "Domain Dr",
-   "hour_of_week": 142,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.403,-97.722"
-  },
-  {
-   "from": "N Mo Pac Expy",
-   "hour_of_week": 142,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.405,-97.721"
   }
  ],
  "unmatched_pct": {
   "dispatch": 91.7,
-  "tomtom": 97.1
+  "tomtom": 97.2
  },
  "witnesses": {
   "both": 0,
