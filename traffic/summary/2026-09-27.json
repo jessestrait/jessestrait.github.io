@@ -14,18 +14,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 3,
-  "tomtom": 192,
-  "tomtom_only": 189
+  "tomtom": 215,
+  "tomtom_only": 212
  },
  "date": "2026-09-27",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.6,
-  "median": 100.8,
+  "median": 103.4,
   "min": 11.3,
-  "n": 33,
-  "q1": 57.5,
-  "q3": 116.8
+  "n": 34,
+  "q1": 58.3,
+  "q3": 116.7
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 77,
-   "pct": 2.6
+   "n": 86,
+   "pct": 2.3
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 115,
-   "pct": 0.9
+   "n": 129,
+   "pct": 0.8
   }
  },
  "matcher": {
@@ -69,9 +69,9 @@
  "persistence_min": {
   "max": -15.2,
   "median": -15.2,
-  "min": -15.2,
-  "n": 2,
-  "q1": -15.2,
+  "min": -87.3,
+  "n": 3,
+  "q1": -87.3,
   "q3": -15.2
  },
  "poll_interval_min": 5.0,
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 48,
-  "hotspot_buckets": 167,
-  "hotspot_buckets_on_roadworks": 47,
+  "explained_by_roadworks": 49,
+  "hotspot_buckets": 189,
+  "hotspot_buckets_on_roadworks": 48,
   "txdot_rows": 4,
-  "unreported_congestion": 174
+  "unreported_congestion": 197
  },
  "sampling": {
   "flow_spent_this_month": 1656,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 210,
+  "incidents_spent_this_month": 211,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
+  {
+   "from": "Lavaca St/S 1st St/Guadalupe St (State Spur 343/W Cesar Chavez St/W 1st St)",
+   "hour_of_week": 146,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.263,-97.742"
+  },
   {
    "from": "E 20th St",
    "hour_of_week": 141,
@@ -207,18 +214,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.257,-97.799"
-  },
-  {
-   "from": "Burnet Rd",
-   "hour_of_week": 142,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.328,-97.740"
   }
  ],
  "unmatched_pct": {
   "dispatch": 93.8,
-  "tomtom": 98.4
+  "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
