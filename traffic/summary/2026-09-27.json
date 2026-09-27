@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 93, q3 118 min over 72 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 95, q3 118 min over 74 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 81,
-  "dispatch_only": 74,
+  "dispatch": 82,
+  "dispatch_only": 75,
   "here": 0,
   "here_matched": 0,
   "matched": 9,
@@ -23,8 +23,8 @@
   "max": 120.0,
   "median": 116.1,
   "min": 7.8,
-  "n": 72,
-  "q1": 93.1,
+  "n": 74,
+  "q1": 95.2,
   "q3": 118.0
  },
  "here_onset_offset_min": {
@@ -33,7 +33,7 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 0,
-   "n": 17,
+   "n": 18,
    "pct": 0.0
   },
   "dispatch_surface": {
@@ -68,10 +68,10 @@
  },
  "persistence_min": {
   "max": 20.2,
-  "median": -76.4,
+  "median": -81.5,
   "min": -117.2,
-  "n": 8,
-  "q1": -87.1,
+  "n": 9,
+  "q1": -89.3,
   "q3": -15.2,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 91.4,
+  "dispatch": 91.5,
   "tomtom": 97.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 81,
-  "neither": 74,
+  "n": 82,
+  "neither": 75,
   "tomtom_only": 7
  }
 }
