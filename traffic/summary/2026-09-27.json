@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 8,
-  "tomtom": 258,
-  "tomtom_only": 250
+  "tomtom": 264,
+  "tomtom_only": 256
  },
  "date": "2026-09-27",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 102,
-   "pct": 2.0
+   "n": 103,
+   "pct": 1.9
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 156,
-   "pct": 3.8
+   "n": 161,
+   "pct": 3.7
   }
  },
  "matcher": {
@@ -67,11 +67,11 @@
   "q3": 59.6
  },
  "persistence_min": {
-  "max": -15.2,
-  "median": -76.4,
+  "max": 20.2,
+  "median": -71.3,
   "min": -117.2,
-  "n": 6,
-  "q1": -94.8,
+  "n": 7,
+  "q1": -87.3,
   "q3": -15.2,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 60,
-  "hotspot_buckets": 223,
+  "hotspot_buckets": 230,
   "hotspot_buckets_on_roadworks": 58,
   "txdot_rows": 4,
-  "unreported_congestion": 235
+  "unreported_congestion": 241
  },
  "sampling": {
   "flow_spent_this_month": 1692,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 215,
+  "incidents_spent_this_month": 216,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -124,13 +124,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.263,-97.742"
-  },
-  {
-   "from": "I-35 (E 6th St)",
-   "hour_of_week": 147,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.263,-97.728"
   },
   {
    "from": "E 20th St",
@@ -215,11 +208,18 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.403,-97.720"
+  },
+  {
+   "from": "45th St (TX-1)",
+   "hour_of_week": 143,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.338,-97.755"
   }
  ],
  "unmatched_pct": {
   "dispatch": 90.6,
-  "tomtom": 96.9
+  "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
