@@ -13,9 +13,9 @@
   "dispatch_only": 50,
   "here": 0,
   "here_matched": 0,
-  "matched": 5,
-  "tomtom": 226,
-  "tomtom_only": 221
+  "matched": 6,
+  "tomtom": 240,
+  "tomtom_only": 234
  },
  "date": "2026-09-27",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 90,
-   "pct": 2.2
+   "n": 94,
+   "pct": 2.1
   },
   "tomtom_surface": {
-   "matched": 3,
-   "n": 136,
-   "pct": 2.2
+   "matched": 4,
+   "n": 146,
+   "pct": 2.7
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 68.5,
-  "median": 18.2,
+  "median": 22.9,
   "min": -5.8,
-  "n": 5,
-  "q1": 5.3,
-  "q3": 50.8
+  "n": 6,
+  "q1": 10.9,
+  "q3": 42.0
  },
  "persistence_min": {
   "max": -15.2,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 51,
-  "hotspot_buckets": 198,
-  "hotspot_buckets_on_roadworks": 50,
+  "explained_by_roadworks": 55,
+  "hotspot_buckets": 210,
+  "hotspot_buckets_on_roadworks": 54,
   "txdot_rows": 4,
-  "unreported_congestion": 206
+  "unreported_congestion": 219
  },
  "sampling": {
-  "flow_spent_this_month": 1665,
+  "flow_spent_this_month": 1674,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 212,
+  "incidents_spent_this_month": 213,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,6 +117,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.263,-97.742"
+  },
+  {
+   "from": "I-35 (E 5th St)",
+   "hour_of_week": 148,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.266,-97.738"
   },
   {
    "from": "E 20th St",
@@ -208,18 +215,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.338,-97.755"
-  },
-  {
-   "from": "TX-1 Loop/S Capital of Texas Hwy (TX-1)",
-   "hour_of_week": 143,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.257,-97.799"
   }
  ],
  "unmatched_pct": {
   "dispatch": 90.9,
-  "tomtom": 97.8
+  "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
