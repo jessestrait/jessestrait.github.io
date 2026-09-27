@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 60,
-  "dispatch_only": 55,
+  "dispatch": 61,
+  "dispatch_only": 56,
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 240,
-  "tomtom_only": 234
+  "tomtom": 251,
+  "tomtom_only": 245
  },
  "date": "2026-09-27",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 5,
-   "n": 50,
-   "pct": 10.0
+   "n": 51,
+   "pct": 9.8
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 94,
-   "pct": 2.1
+   "n": 100,
+   "pct": 2.0
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 146,
-   "pct": 2.7
+   "n": 151,
+   "pct": 2.6
   }
  },
  "matcher": {
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 55,
-  "hotspot_buckets": 210,
-  "hotspot_buckets_on_roadworks": 54,
+  "explained_by_roadworks": 60,
+  "hotspot_buckets": 218,
+  "hotspot_buckets_on_roadworks": 58,
   "txdot_rows": 4,
-  "unreported_congestion": 219
+  "unreported_congestion": 230
  },
  "sampling": {
   "flow_spent_this_month": 1674,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 213,
+  "incidents_spent_this_month": 214,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -112,6 +112,13 @@
  },
  "structural_hotspots": [
   {
+   "from": "E 7th St",
+   "hour_of_week": 148,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.266,-97.738"
+  },
+  {
    "from": "Lavaca St/S 1st St/Guadalupe St (State Spur 343/W Cesar Chavez St/W 1st St)",
    "hour_of_week": 146,
    "n": 2,
@@ -119,11 +126,11 @@
    "seg": "30.263,-97.742"
   },
   {
-   "from": "E 7th St",
+   "from": "I-35 (E 6th St)",
    "hour_of_week": 148,
    "n": 2,
    "roadworks": false,
-   "seg": "30.266,-97.738"
+   "seg": "30.263,-97.727"
   },
   {
    "from": "E 20th St",
@@ -208,24 +215,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.403,-97.720"
-  },
-  {
-   "from": "45th St (TX-1)",
-   "hour_of_week": 143,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.338,-97.755"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 91.7,
-  "tomtom": 97.5
+  "dispatch": 91.8,
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 60,
-  "neither": 55,
+  "n": 61,
+  "neither": 56,
   "tomtom_only": 5
  }
 }
