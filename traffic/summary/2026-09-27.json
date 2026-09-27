@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 78,
-  "dispatch_only": 71,
+  "dispatch": 79,
+  "dispatch_only": 72,
   "here": 0,
   "here_matched": 0,
   "matched": 9,
-  "tomtom": 288,
-  "tomtom_only": 279
+  "tomtom": 297,
+  "tomtom_only": 288
  },
  "date": "2026-09-27",
  "dispatch_life_capped": true,
@@ -33,7 +33,7 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 0,
-   "n": 16,
+   "n": 17,
    "pct": 0.0
   },
   "dispatch_surface": {
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 107,
-   "pct": 1.9
+   "n": 111,
+   "pct": 1.8
   },
   "tomtom_surface": {
    "matched": 7,
-   "n": 181,
-   "pct": 3.9
+   "n": 186,
+   "pct": 3.8
   }
  },
  "matcher": {
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 64,
-  "hotspot_buckets": 250,
-  "hotspot_buckets_on_roadworks": 60,
+  "explained_by_roadworks": 66,
+  "hotspot_buckets": 260,
+  "hotspot_buckets_on_roadworks": 62,
   "txdot_rows": 4,
-  "unreported_congestion": 264
+  "unreported_congestion": 273
  },
  "sampling": {
   "flow_spent_this_month": 1755,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 219,
+  "incidents_spent_this_month": 220,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -145,13 +145,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.300,-97.703"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.234,-97.736"
   },
   {
    "from": "Ellas Inlet Dr / Felix Sparke Dr",
@@ -215,17 +208,24 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.403,-97.720"
+  },
+  {
+   "from": "45th St (TX-1)",
+   "hour_of_week": 143,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.338,-97.755"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 91.0,
-  "tomtom": 96.9
+  "dispatch": 91.1,
+  "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 78,
-  "neither": 71,
+  "n": 79,
+  "neither": 72,
   "tomtom_only": 7
  }
 }
