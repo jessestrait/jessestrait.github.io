@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 87,
-  "dispatch_only": 80,
+  "dispatch": 90,
+  "dispatch_only": 83,
   "here": 0,
   "here_matched": 0,
   "matched": 9,
-  "tomtom": 331,
-  "tomtom_only": 322
+  "tomtom": 362,
+  "tomtom_only": 353
  },
  "date": "2026-09-27",
  "dispatch_life_capped": true,
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 0,
-   "n": 19,
+   "n": 20,
    "pct": 0.0
   },
   "dispatch_surface": {
    "matched": 7,
-   "n": 68,
-   "pct": 10.3
+   "n": 70,
+   "pct": 10.0
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 129,
-   "pct": 1.6
+   "n": 145,
+   "pct": 1.4
   },
   "tomtom_surface": {
    "matched": 7,
-   "n": 202,
-   "pct": 3.5
+   "n": 217,
+   "pct": 3.2
   }
  },
  "matcher": {
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 76,
-  "hotspot_buckets": 291,
-  "hotspot_buckets_on_roadworks": 71,
+  "explained_by_roadworks": 83,
+  "hotspot_buckets": 321,
+  "hotspot_buckets_on_roadworks": 79,
   "txdot_rows": 4,
-  "unreported_congestion": 307
+  "unreported_congestion": 338
  },
  "sampling": {
   "flow_spent_this_month": 1818,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 222,
+  "incidents_spent_this_month": 223,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -161,6 +161,13 @@
    "seg": "30.234,-97.736"
   },
   {
+   "from": "E Cesar Chavez St (Springdale Rd)",
+   "hour_of_week": 137,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.255,-97.702"
+  },
+  {
    "from": "Ellas Inlet Dr / Felix Sparke Dr",
    "hour_of_week": 68,
    "n": 2,
@@ -173,6 +180,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
+  },
+  {
+   "from": "Austin",
+   "hour_of_week": 161,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.171,-97.691"
   },
   {
    "from": "US Highway 183",
@@ -201,31 +215,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.405,-97.721"
-  },
-  {
-   "from": "Alterra Pkwy",
-   "hour_of_week": 142,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.404,-97.722"
-  },
-  {
-   "from": "Domain Blvd",
-   "hour_of_week": 142,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.405,-97.723"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 92.0,
-  "tomtom": 97.3
+  "dispatch": 92.2,
+  "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 87,
-  "neither": 80,
+  "n": 90,
+  "neither": 83,
   "tomtom_only": 7
  }
 }
