@@ -164,7 +164,7 @@
      than ask anyone to trust that a deploy landed, the layer says what
      it is running. If this does not match the newest deploy, the
      answer is a cache and not the code. */
-  const BUILD = 'm1';
+  const BUILD = 'm3';
 
   const MIN_Z = 15;
   const TILE_Z = 15;
@@ -175,7 +175,6 @@
     roadTotal: 0, holdSum: 0, jamLift: 1, traffic: null,
     carsOn: true, tileErr: null,
     here: null,
-    water: [], waterCache: new Map(), drops: [], gauges: null, waterLen: 0,
     alarms: [], t0: performance.now(), air: null,
     roads: null, raf: null, last: 0,
     carCanvas: null, carCtx: null,
@@ -203,7 +202,7 @@
     try {
       const a = await archive();
       const r = await a.getZxy(z, x, y);
-      let parsed = { buildings: null, roads: null, water: null };
+      let parsed = { roads: null };
       if (r && r.data) {
         let buf = new Uint8Array(r.data);
         // Tiles in this archive are gzipped; the browser will not do it
@@ -213,11 +212,9 @@
             new Blob([buf]).stream().pipeThrough(new DecompressionStream('gzip'))
           ).arrayBuffer());
         }
-        parsed = {
-          buildings: global.MVT.decodeLayer(buf, 'buildings'),
-          roads: global.MVT.decodeLayer(buf, 'roads'),
-          water: global.MVT.decodeLayer(buf, 'water')
-        };
+        // Only the roads are read now: the buildings went with the 3D
+        // layer and the water went with the drifting particles.
+        parsed = { roads: global.MVT.decodeLayer(buf, 'roads') };
       }
       CITY.tiles.set(key, parsed);
       CITY.tileErr = null;
@@ -856,150 +853,6 @@
     return { lat: a.lat + dLat, lng: a.lng + dLng, alt: alt };
   }
 
-  /* ── Moving water ───────────────────────────────────────────────────
-
-     The same tiles that carry the buildings carry a `water` layer, and
-     in it the rivers and creeks are LINES, not just the blue polygons
-     the basemap paints. OpenStreetMap draws a waterway in the direction
-     it flows, which is the one piece of information needed to make the
-     Colorado run east through town rather than in whichever direction
-     the vertices happened to be stored.
-
-     How fast it runs comes from USGS, which gauges discharge in cubic
-     feet per second every fifteen minutes at a few dozen sites around
-     Travis County. The page already fetches those for the creek-gauge
-     layer, so setFlow passes them through rather than asking twice.
-     After a storm Shoal Creek goes from a trickle to a torrent inside
-     an hour, and that is visible here.
-
-     If USGS is unreachable — which it genuinely is about one request in
-     five, and was completely down while this was written — the water
-     still moves, at the slow default below, and the readout does not
-     claim a measurement it does not have. */
-  const WATER_KIND = { river: 2.2, stream: 1.2, canal: 1.6, drain: 0.9 };
-  const DEFAULT_CFS = 120;
-
-  function harvestWater(map) {
-    const out = [];
-    let len = 0;
-    for (const [tz, tx, ty] of H.visibleTiles(map)) {
-      const key = tz + '/' + tx + '/' + ty;
-      const t = C.tiles.get(key);
-      if (!t || !t.water) continue;
-      let lines = C.waterCache.get(key);
-      if (!lines) {
-        lines = [];
-        const ext = t.water.extent || H.EXTENT_FALLBACK;
-        const n = Math.pow(2, tz);
-        for (const f of t.water.features) {
-          if (f.type !== 2) continue;                 // lines only
-          const wide = WATER_KIND[f.props.kind];
-          if (!wide) continue;
-          for (const ring of f.rings) {
-            if (ring.length < 4) continue;
-            const ll = [];
-            let m = 0;
-            for (let i = 0; i < ring.length; i += 2) {
-              const lon = (tx + ring[i] / ext) / n * 360 - 180;
-              const yy = (ty + ring[i + 1] / ext) / n;
-              const lat = Math.atan(Math.sinh(Math.PI * (1 - 2 * yy))) * 180 / Math.PI;
-              if (ll.length) {
-                const p = ll[ll.length - 1];
-                m += Math.hypot((lon - p[1]) * 96000, (lat - p[0]) * 111320);
-              }
-              ll.push([lat, lon]);
-            }
-            if (m < 40) continue;
-            const mid = ll[ll.length >> 1];
-            lines.push({ ll: ll, wide: wide, len: m,
-                         lat: mid[0], lng: mid[1],
-                         named: !!f.props.name });
-          }
-        }
-        C.waterCache.set(key, lines);
-        if (C.waterCache.size > 80) C.waterCache.delete(C.waterCache.keys().next().value);
-      }
-      for (const l of lines) { l.cfs = flowAt(l.lat, l.lng); len += l.len * l.wide; out.push(l); }
-    }
-    C.water = out;
-    C.waterLen = len;
-  }
-
-  /* Discharge at the nearest gauge. Nearest is crude on a river system —
-     a gauge on Barton Creek says nothing about Walnut Creek — so it is
-     capped at 12 km, beyond which the default stands in. */
-  function flowAt(lat, lng) {
-    const g = C.gauges;
-    if (!g || !g.length) return null;
-    let best = null, bd = Infinity;
-    for (const s of g) {
-      const dy = s.lat - lat, dx = (s.lng - lng) * 0.86;
-      const d = dy * dy + dx * dx;
-      if (d < bd) { bd = d; best = s; }
-    }
-    return (best && Math.sqrt(bd) * 111 < 12) ? best.cfs : null;
-  }
-
-  /* Discharge to a drift speed in metres per second. Real channel
-     velocity goes roughly as the cube root of discharge, which is why
-     a hundredfold flood is not a hundred times faster — about five
-     times. Clamped either end so a dry creek still creeps and a flood
-     does not turn into streaks. */
-  function dropSpeed(cfs) {
-    const q = Math.max(1, cfs == null ? DEFAULT_CFS : cfs);
-    return Math.max(0.25, Math.min(4.5, 0.22 * Math.pow(q, 1 / 3)));
-  }
-
-  function spawnDrop() {
-    const ws = C.water;
-    if (!ws || !ws.length) return null;
-    let r = Math.random() * C.waterLen;
-    let road = ws[ws.length - 1];
-    for (let i = 0; i < ws.length; i++) { r -= ws[i].len * ws[i].wide; if (r <= 0) { road = ws[i]; break; } }
-    const line = road.ll;
-    return { line: line, w: road, i: (Math.random() * Math.max(1, line.length - 2)) | 0,
-             t: Math.random(), v: dropSpeed(road.cfs) * (0.8 + Math.random() * 0.4),
-             wide: road.wide };
-  }
-
-  /* Roads in layer pixels, recomputed only when the zoom changes.
-
-     Every car used to call map.latLngToLayerPoint every frame — three
-     hundred projections a frame, each of them trigonometry, to answer
-     a question whose answer had not changed since the last settle. The
-     geometry is projected once here and the frame becomes arithmetic. */
-
-  /* Where a car is, given how far along its road it has got. Returns
-     the point and the unit direction, both in layer pixels. */
-
-  /* Pick a road with probability proportional to its weight, so a
-     motorway is chosen far more often than a side street without any
-     per-road bookkeeping. */
-
-  /* Which way a car is pointed.
-
-     Austin commutes, so the morning and the evening are not mirror
-     images of each other: at eight in the morning the heavy direction
-     is toward the centre and at half past five it is away from it. The
-     model only knows one centre and one radius, which is crude, but the
-     asymmetry itself is the honest part — an even split at rush hour is
-     the thing that would be wrong. Off-peak and at weekends it is a
-     coin toss, which is also what the streets look like. */
-
-  /* Car following.
-
-     Cars used to hold independent positions on a road and simply pass
-     through one another, which is the single most obviously wrong
-     thing about the old layer — a queue of traffic is the one shape
-     everybody recognises and it could never form.
-
-     This is the standard rule, kept deliberately small: nobody closes
-     to less than one jam spacing, and nobody drives faster than the
-     gap ahead divided by the headway they would keep at that speed.
-     Everything else falls out of it, including stop-and-go waves,
-     which appear on their own on a jammed corridor without anything
-     modelling them. */
-
   function stepCars(map, dt) {
     if (!C.carCanvas) return;
     const dpr = D.sizeCanvas(map, C.carCanvas, 0);
@@ -1103,8 +956,8 @@
     }
 
 
-    /* Cars and water need streets under them, so they stop where the
-       streets stop being legible. Aircraft do not — they are most of
+    /* The ground-level marks need streets under them, so they stop
+       where the streets stop being legible. Aircraft do not — they are most of
        the point of the layer when you are zoomed out far enough to see
        the whole approach — so they are drawn above this line. */
     if (map.getZoom() < H.MIN_Z - 1) return;
@@ -1148,42 +1001,10 @@
       }
     }
 
-    /* The water, on the same canvas and in the same frame, so it shares
-       one clear and one dirty-rect list with the cars. */
-    const wantDrops = Math.max(0, Math.min(260,
-                      Math.round((C.waterLen || 0) / 900)));
-    while (C.drops.length < wantDrops) { const d = spawnDrop(); if (!d) break; C.drops.push(d); }
-    if (C.drops.length > wantDrops) C.drops.length = wantDrops;
-
-    ctx.fillStyle = 'rgba(150,214,255,0.7)';
-    for (const d of C.drops) {
-      const a = d.line[d.i], b2 = d.line[d.i + 1];
-      if (!a || !b2) { const n = spawnDrop(); if (n) Object.assign(d, n); continue; }
-      const segM = Math.hypot((b2[1] - a[1]) * 96000, (b2[0] - a[0]) * 111320) || 1;
-      d.t += (d.v * dt) / segM;
-      while (d.t >= 1) {
-        d.t -= 1; d.i += 1;
-        // Downstream only: OSM draws a waterway the way it flows, so
-        // there is no direction to choose and no upstream drift.
-        if (d.i >= d.line.length - 1) { const n = spawnDrop(); if (n) Object.assign(d, n); break; }
-      }
-      const A = d.line[d.i], B = d.line[d.i + 1];
-      if (!A || !B) continue;
-      const p = map.latLngToLayerPoint([A[0] + (B[0] - A[0]) * d.t,
-                                        A[1] + (B[1] - A[1]) * d.t]);
-      const x = p.x - origin.x, y = p.y - origin.y;
-      if (x < -40 || y < -40 || x > w + 40 || y > h + 40) {
-        const n = spawnDrop(); if (n) Object.assign(d, n);
-        continue;
-      }
-      const s2 = d.wide * (map.getZoom() >= 17 ? 1.3 : 0.9);
-      ctx.fillRect(x - s2 / 2, y - s2 / 2, s2, s2);
-      rects.push(x - s2 / 2 - 1, y - s2 / 2 - 1, s2 + 2, s2 + 2);
-    }
   }
 
-  global.CITY3D._cars = { harvestRoads, harvestWater, stepCars, loadTraffic, trafficAt,
-                          loadAircraft, deadReckon, flowAt, dropSpeed,
+  global.CITY3D._cars = { harvestRoads, stepCars, loadTraffic, trafficAt,
+                          loadAircraft, deadReckon,
                           clockState, austinClock, CLASS, CONGEST_WD, VOLUME_WD };
 })(window);
 
@@ -1199,7 +1020,7 @@
      They were one switch, and that was wrong in a way that only showed
      up once the costs were measured. Drawing the buildings is the
      expensive half — 10 to 25 ms a settle, and worse on an older
-     machine. The traffic is the cheap half: cars, water and emergency
+     machine. The traffic was the cheap half: emergency
      lights together come to well under a millisecond a frame, because
      they are a few hundred small rectangles on a canvas that clears
      only what it drew last time.
@@ -1213,7 +1034,7 @@
     // is about to position this properly again.
     if (!live()) return;
     if (map.getZoom() < H.MIN_Z) {
-      C.roads = []; C.water = [];
+      C.roads = [];
       C.onNote && C.onNote(); return;
     }
     const want = H.visibleTiles(map);
@@ -1223,7 +1044,6 @@
       await CAR.loadTraffic();
       CAR.loadAircraft();   // never awaited: a slow feed must not hold the settle
       CAR.harvestRoads(map);
-      CAR.harvestWater(map);
     }
     C.onNote && C.onNote();
   }
@@ -1291,11 +1111,11 @@
      not throw. There is nothing to switch on any more. */
   C.setOn = function () {};
 
-  // The traffic, the water and the emergency lights.
+  // The emergency lights and the aircraft.
   C.setCars = function (map, on) {
     C.carsOn = !!on;
     if (!C.carsOn) {
-      C.drops.length = 0; C.roads = []; C.water = [];
+      C.roads = [];
       C.carWipe = true; CAR.stepCars(map, 0);
     }
     if (live()) refresh(map);
@@ -1303,10 +1123,13 @@
 
   C.status = function (map) {
     if (!C.carsOn) return 'Off';
-    if (map.getZoom() < H.MIN_Z) return 'Zoom past ' + H.MIN_Z + ' to read the streets';
     const bits = [];
+    /* Aircraft are visible from zoom 9, so the readout must not tell
+       you to zoom in while something is plainly being drawn. Only the
+       street-level half has a floor. */
+    const close = map.getZoom() >= H.MIN_Z;
 
-    const roads = C.roads || [];
+    const roads = close ? (C.roads || []) : [];
     if (roads.length) {
       /* Weighted by how much traffic each stretch is actually holding,
          not by how many segments a tile split it into. A crawling
@@ -1318,7 +1141,7 @@
         + '% of free-flow across ' + (km / 1000).toFixed(0) + ' km of road');
     }
     const st = C.clock;
-    if (st) {
+    if (st && close) {
       const hh = (st.hour < 10 ? '0' : '') + st.hour
                + ':' + (st.min < 10 ? '0' : '') + st.min;
       const peak = st.cong > 0.66 ? 'peak' : st.cong > 0.3 ? 'building'
@@ -1326,8 +1149,7 @@
       bits.push(hh + ' in Austin, ' + peak);
     }
     const inc = C.traffic && C.traffic.incidents;
-    if (inc) bits.push(inc + ' live incidents on the network');
-    if (C.water && C.water.length) bits.push(C.water.length + ' creeks and rivers running');
+    if (inc && close) bits.push(inc + ' live incidents on the network');
     if (C.alarms.length) bits.push(C.alarms.length + ' call'
       + (C.alarms.length === 1 ? '' : 's') + ' AFD is on right now');
     if (C.air && C.air.planes.length) {
@@ -1338,7 +1160,10 @@
         ? up + ' aircraft up, flown forward from a fix ' + said + ' old'
         : 'aircraft feed is ' + said + ' behind \u2014 not drawing them');
     }
-    if (!bits.length) return 'Nothing moving here';
+    if (!bits.length) {
+      return close ? 'Nothing moving here'
+                   : 'Zoom past ' + H.MIN_Z + ' to read the streets';
+    }
     return bits.join(' \u00b7 ');
 
   };

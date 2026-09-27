@@ -1221,7 +1221,7 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
      looks like the fix did not work.
 
      Bump ?v= on any deploy that changes city3d.js. -->
-<script src="city3d.js?v=20260926m1"></script>
+<script src="city3d.js?v=20260926m3"></script>
 <script>
 /* ══════════════════════════════════════════════════════════════════
    ATX Layers — no backend and no storage. Almost everything is a live
@@ -1736,17 +1736,6 @@ const LAYERS = [
         }
         if (param === '00060') st.flow = last.v;
       });
-
-      /* Hand the discharge readings to the 3D layer, which drifts the
-         rivers and creeks at a speed set by them. Sites are filtered on
-         `flow` rather than `stage` here — the gauge markers below need a
-         stage to show, but plenty of sites publish discharge and no
-         stage, and those are perfectly good for setting a current. */
-      if (window.CITY3D && CITY3D.setFlow) {
-        CITY3D.setFlow(map, Object.values(sites)
-          .filter(x => x.flow != null && isFinite(x.flow))
-          .map(x => ({ lat: x.lat, lng: x.lng, cfs: x.flow })));
-      }
 
       let rising = 0, elevated = 0;
       const out = Object.values(sites).filter(x => x.stage != null).map(x => {
@@ -4193,17 +4182,22 @@ const GROUND = [
        without it. Everything left here is a real object in a real
        place:
 
-         - rivers and creeks drifting at the speed USGS gauges say
-           they are running
          - red and blue over the blocks AFD is working right now
          - aircraft, from ADS-B, flown forward from their last fix
+
+       The drifting river particles went the same way as the cars, and
+       for the same reason: without the watercourse drawn under them
+       they were unexplained dots wandering across a dark map. The
+       discharge they were driven by is real, but a dot is not a
+       river, and the creek-gauge layer already says what the creeks
+       are doing in words.
 
        The traffic model stays, because it was never only about the
        cars: it is what turns TomTom's percentages into the congestion
        reading in this row, and what dims the windows where the power
        is out. It just no longer draws anything of its own. */
     id: 'life', color: '#ffd166', name: 'Things in motion',
-    note: 'Rivers, sirens and aircraft \u2014 all of them real',
+    note: 'Sirens and aircraft \u2014 both of them real',
     group: 'recent', on: true,
     load: g => loadLife(g)
   },
