@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 85,
+  "dispatch": 86,
   "dispatch_only": 64,
   "here": 0,
   "here_matched": 0,
-  "matched": 33,
-  "tomtom": 1448,
-  "tomtom_only": 1413
+  "matched": 35,
+  "tomtom": 1476,
+  "tomtom_only": 1437
  },
  "date": "2026-09-28",
  "dispatch_life_capped": true,
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 10,
-   "n": 18,
-   "pct": 55.6
+   "matched": 11,
+   "n": 19,
+   "pct": 57.9
   },
   "dispatch_surface": {
    "matched": 11,
@@ -42,14 +42,14 @@
    "pct": 16.4
   },
   "tomtom_highway": {
-   "matched": 22,
-   "n": 667,
-   "pct": 3.3
+   "matched": 24,
+   "n": 681,
+   "pct": 3.5
   },
   "tomtom_surface": {
-   "matched": 13,
-   "n": 781,
-   "pct": 1.7
+   "matched": 15,
+   "n": 795,
+   "pct": 1.9
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 88.1,
-  "median": 24.1,
+  "median": 18.6,
   "min": -86.6,
-  "n": 33,
-  "q1": 3.8,
-  "q3": 35.8
+  "n": 35,
+  "q1": 3.4,
+  "q3": 35.6
  },
  "persistence_min": {
   "max": 108.4,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 229,
-  "hotspot_buckets": 1148,
-  "hotspot_buckets_on_roadworks": 188,
+  "explained_by_roadworks": 236,
+  "hotspot_buckets": 1164,
+  "hotspot_buckets_on_roadworks": 193,
   "txdot_rows": 10,
-  "unreported_congestion": 1383
+  "unreported_congestion": 1407
  },
  "sampling": {
   "flow_spent_this_month": 2097,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 263,
+  "incidents_spent_this_month": 264,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -196,13 +196,6 @@
    "seg": "30.223,-97.764"
   },
   {
-   "from": "Barton Springs Rd (S Congress Ave)",
-   "hour_of_week": 21,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.263,-97.745"
-  },
-  {
    "from": "TX-130 Toll/TX-45 Toll (US-290)",
    "hour_of_week": 22,
    "n": 3,
@@ -215,17 +208,24 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.338,-97.719"
+  },
+  {
+   "from": "E Wells Branch Pkwy",
+   "hour_of_week": 22,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.394,-97.596"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 75.3,
-  "tomtom": 97.6
+  "dispatch": 74.4,
+  "tomtom": 97.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 85,
+  "n": 86,
   "neither": 64,
-  "tomtom_only": 21
+  "tomtom_only": 22
  }
 }
