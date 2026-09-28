@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 23,
-  "dispatch_only": 23,
+  "dispatch": 24,
+  "dispatch_only": 24,
   "here": 0,
   "here_matched": 0,
   "matched": 0,
-  "tomtom": 157,
-  "tomtom_only": 157
+  "tomtom": 159,
+  "tomtom_only": 159
  },
  "date": "2026-09-28",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 20,
+   "n": 21,
    "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 62,
+   "n": 63,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 95,
+   "n": 96,
    "pct": 0.0
   }
  },
@@ -78,16 +78,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 44,
-  "hotspot_buckets": 135,
-  "hotspot_buckets_on_roadworks": 43,
+  "explained_by_roadworks": 45,
+  "hotspot_buckets": 136,
+  "hotspot_buckets_on_roadworks": 44,
   "txdot_rows": 11,
-  "unreported_congestion": 142
+  "unreported_congestion": 144
  },
  "sampling": {
   "flow_spent_this_month": 1926,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 230,
+  "incidents_spent_this_month": 231,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -127,6 +127,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Thompson Ln",
+   "hour_of_week": 94,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.246,-97.673"
   },
   {
    "from": "Ellas Inlet Dr / Felix Sparke Dr",
@@ -197,13 +204,6 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.391,-97.746"
-  },
-  {
-   "from": "Austin-Bergstrom International Airport (Presidential Blvd)",
-   "hour_of_week": 3,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.212,-97.659"
   }
  ],
  "unmatched_pct": {
@@ -213,8 +213,8 @@
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 23,
-  "neither": 23,
+  "n": 24,
+  "neither": 24,
   "tomtom_only": 0
  }
 }
