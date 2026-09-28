@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 72,
-  "dispatch_only": 58,
+  "dispatch": 75,
+  "dispatch_only": 61,
   "here": 0,
   "here_matched": 0,
-  "matched": 16,
-  "tomtom": 893,
-  "tomtom_only": 879
+  "matched": 17,
+  "tomtom": 942,
+  "tomtom_only": 926
  },
  "date": "2026-09-28",
  "dispatch_life_capped": true,
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 8,
-   "n": 15,
-   "pct": 53.3
+   "n": 16,
+   "pct": 50.0
   },
   "dispatch_surface": {
    "matched": 6,
-   "n": 57,
-   "pct": 10.5
+   "n": 59,
+   "pct": 10.2
   },
   "tomtom_highway": {
-   "matched": 10,
-   "n": 386,
-   "pct": 2.6
+   "matched": 12,
+   "n": 404,
+   "pct": 3.0
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 507,
-   "pct": 0.8
+   "n": 538,
+   "pct": 0.7
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 88.0,
-  "median": 10.7,
+  "median": 10.8,
   "min": -86.6,
-  "n": 16,
-  "q1": -7.2,
-  "q3": 31.9
+  "n": 17,
+  "q1": -4.7,
+  "q3": 29.3
  },
  "persistence_min": {
   "max": 66.3,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 144,
-  "hotspot_buckets": 714,
-  "hotspot_buckets_on_roadworks": 123,
+  "explained_by_roadworks": 149,
+  "hotspot_buckets": 748,
+  "hotspot_buckets_on_roadworks": 127,
   "txdot_rows": 10,
-  "unreported_congestion": 849
+  "unreported_congestion": 896
  },
  "sampling": {
   "flow_spent_this_month": 2070,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 251,
+  "incidents_spent_this_month": 252,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -140,6 +140,13 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "E Anderson Ln",
+   "hour_of_week": 21,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.337,-97.696"
+  },
+  {
    "from": "Christina Garza Dr",
    "hour_of_week": 21,
    "n": 3,
@@ -152,6 +159,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.215,-97.699"
+  },
+  {
+   "from": "N Lamar Blvd",
+   "hour_of_week": 21,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.408,-97.678"
   },
   {
    "from": "Rogge Ln",
@@ -201,31 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.359,-97.793"
-  },
-  {
-   "from": "Waymaker Way",
-   "hour_of_week": 160,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.330,-97.810"
-  },
-  {
-   "from": "N Capital of Texas Highway South Bound / N Capital of Texas Hwy",
-   "hour_of_week": 116,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.383,-97.767"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.6,
-  "tomtom": 98.4
+  "dispatch": 81.3,
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 72,
-  "neither": 58,
+  "n": 75,
+  "neither": 61,
   "tomtom_only": 14
  }
 }
