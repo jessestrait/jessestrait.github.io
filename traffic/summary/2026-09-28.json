@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 98, q3 118 min over 27 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 99, q3 118 min over 28 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 28,
-  "dispatch_only": 28,
+  "dispatch": 38,
+  "dispatch_only": 37,
   "here": 0,
   "here_matched": 0,
-  "matched": 0,
-  "tomtom": 180,
-  "tomtom_only": 180
+  "matched": 1,
+  "tomtom": 322,
+  "tomtom_only": 321
  },
  "date": "2026-09-28",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 115.7,
+  "median": 115.5,
   "min": 16.6,
-  "n": 27,
-  "q1": 98.4,
+  "n": 28,
+  "q1": 99.3,
   "q3": 117.8
  },
  "here_onset_offset_min": {
@@ -33,22 +33,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 0,
-   "n": 3,
+   "n": 5,
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 0,
-   "n": 25,
-   "pct": 0.0
+   "matched": 1,
+   "n": 33,
+   "pct": 3.0
   },
   "tomtom_highway": {
-   "matched": 0,
-   "n": 79,
-   "pct": 0.0
+   "matched": 1,
+   "n": 130,
+   "pct": 0.8
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 101,
+   "n": 192,
    "pct": 0.0
   }
  },
@@ -59,7 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "n": 0
+  "max": -9.7,
+  "median": -9.7,
+  "min": -9.7,
+  "n": 1,
+  "q1": -9.7,
+  "q3": -9.7
  },
  "persistence_min": {
   "n": 0,
@@ -79,16 +84,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 59,
-  "hotspot_buckets": 153,
-  "hotspot_buckets_on_roadworks": 57,
-  "txdot_rows": 11,
-  "unreported_congestion": 162
+  "explained_by_roadworks": 84,
+  "hotspot_buckets": 202,
+  "hotspot_buckets_on_roadworks": 70,
+  "txdot_rows": 12,
+  "unreported_congestion": 291
  },
  "sampling": {
-  "flow_spent_this_month": 1971,
+  "flow_spent_this_month": 1980,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 237,
+  "incidents_spent_this_month": 238,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -101,6 +106,34 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Lexington Meadow Ln",
+   "hour_of_week": 44,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.179,-97.616"
+  },
   {
    "from": "Rogge Ln",
    "hour_of_week": 167,
@@ -116,106 +149,78 @@
    "seg": "30.282,-97.732"
   },
   {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
+   "from": "Westlake Dr (TX-360 Loop/N Capital of Texas Hwy)",
+   "hour_of_week": 6,
    "n": 2,
    "roadworks": false,
-   "seg": "30.245,-97.744"
+   "seg": "30.355,-97.793"
   },
   {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
+   "from": "Pond Springs Rd",
+   "hour_of_week": 46,
    "n": 2,
    "roadworks": false,
-   "seg": "30.234,-97.736"
+   "seg": "30.448,-97.780"
   },
   {
-   "from": "Thompson Ln",
-   "hour_of_week": 94,
+   "from": "Tree Line Dr",
+   "hour_of_week": 90,
    "n": 2,
    "roadworks": false,
-   "seg": "30.246,-97.673"
+   "seg": "30.448,-97.780"
   },
   {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
+   "from": "Sam Bass Rd",
+   "hour_of_week": 39,
    "n": 2,
    "roadworks": false,
-   "seg": "30.148,-97.704"
+   "seg": "30.516,-97.690"
   },
   {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
+   "from": "Ranch Road 2222",
+   "hour_of_week": 159,
    "n": 2,
    "roadworks": false,
-   "seg": "30.179,-97.616"
+   "seg": "30.359,-97.793"
   },
   {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 167,
-   "n": 1,
+   "from": "Waymaker Way",
+   "hour_of_week": 160,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.476,-97.794"
+   "seg": "30.330,-97.810"
   },
   {
-   "from": "John Henry Faulk Dr",
-   "hour_of_week": 167,
-   "n": 1,
+   "from": "N Capital of Texas Highway South Bound / N Capital of Texas Hwy",
+   "hour_of_week": 116,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.432,-97.653"
+   "seg": "30.383,-97.767"
   },
   {
-   "from": "The Circle",
-   "hour_of_week": 167,
-   "n": 1,
+   "from": "Spicewood Springs Rd / Adirondack Trl",
+   "hour_of_week": 114,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.251,-97.749"
+   "seg": "30.383,-97.767"
   },
   {
-   "from": "S Congress Ave (W Oltorf St)",
-   "hour_of_week": 167,
-   "n": 1,
+   "from": "Burnet Rd",
+   "hour_of_week": 70,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.232,-97.737"
-  },
-  {
-   "from": "Tesla Rd",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.228,-97.624"
-  },
-  {
-   "from": "S 1st St (W Riverside Dr)",
-   "hour_of_week": 17,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.264,-97.756"
-  },
-  {
-   "from": "Robert Dedman Dr",
-   "hour_of_week": 164,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.283,-97.729"
-  },
-  {
-   "from": "FM-1325/Burnet Rd (US-183)",
-   "hour_of_week": 1,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.391,-97.746"
+   "seg": "30.406,-97.718"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 100.0,
-  "tomtom": 100.0
+  "dispatch": 97.4,
+  "tomtom": 99.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 28,
-  "neither": 28,
-  "tomtom_only": 0
+  "n": 38,
+  "neither": 37,
+  "tomtom_only": 1
  }
 }
