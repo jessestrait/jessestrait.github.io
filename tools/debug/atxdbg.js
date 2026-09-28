@@ -190,25 +190,45 @@
     const rows = [];
     for (const z of list) {
       map.setZoom(z, { animate: false });
-      await settled(map);
+      const ok = await settled(map);
       const a = align(map);
+      const cv = W().canvas;
       rows.push(typeof a === 'string' ? { zoom: z, note: a }
         : { zoom: z, shapes: W().shapes.length,
-            projMax: a.projPx.max, screenMax: a.screenPx.max, verdict: a.verdict });
+            projMax: a.projPx.max, screenMax: a.screenPx.max,
+            origin: getComputedStyle(cv).transformOrigin,
+            verdict: ok ? a.verdict : a.verdict + ' (DID NOT SETTLE — distrust this row)' });
     }
     console.table(rows);
     return rows;
   }
 
-  /* The settle is a 70 ms timer plus however long the tiles take, and
-     the tiles are awaited inside it. Polling for a quiet cache is the
-     only honest way to know it finished. */
+  /* Waiting for the settle.
+
+     This used to be a sleep, and a sleep is how the sweep once reported
+     166 shapes at zoom 18 — exactly zoom 17's count, because the layer
+     had not re-collected yet and the probe read the previous zoom's
+     numbers as this one's. A stale measurement that looks like a bug is
+     worse than no measurement.
+
+     So it watches for the thing it is actually waiting for: a draw that
+     happened at the zoom we asked for, after we asked. The settle is a
+     70 ms timer wrapping an async tile fetch, so there is no promise to
+     await from outside — but there is always a draw at the end of it. */
   function settled(map, ms) {
-    const c = C(), deadline = Date.now() + (ms || 6000);
+    const m = theMap(map), wire = global.CITY3D._wire;
+    const want = m.getZoom(), limit = Date.now() + (ms || 8000);
+    let drawn = false;
+    const orig = wire.draw;
+    wire.draw = function (mp, resize) {
+      const r = orig.call(this, mp, resize);
+      if (m.getZoom() === want) drawn = true;
+      return r;
+    };
     return new Promise(res => (function poll() {
-      if (!c.busy.size && Date.now() > deadline - (ms || 6000) + 400) return res(true);
-      if (Date.now() > deadline) return res(false);
-      setTimeout(poll, 100);
+      if (drawn && !C().busy.size) { wire.draw = orig; return res(true); }
+      if (Date.now() > limit) { wire.draw = orig; return res(false); }
+      setTimeout(poll, 60);
     })());
   }
 

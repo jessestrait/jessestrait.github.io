@@ -26,6 +26,22 @@ ATXDBG.all()
 | a new page is live but untracked | `audit.py` | GoatCounter is required on every page. |
 | a fix is deployed but the reader still sees the bug | `audit.py` | An asset edited without bumping its `?v=`, or a shell change without an `sw.js` VERSION bump. |
 
+## Baseline, measured on the live page at 2026-09-28
+
+Downtown Austin, zoom 15, 1,032 footprints, 8,020 edges:
+
+| | |
+|---|---|
+| projection error vs Leaflet | **0.00 px** (exact) |
+| on-screen error vs Leaflet | **0.71 px** at every zoom, 15→18 and back |
+| draw submission | **0.5 ms** median, 0.06 µs/edge |
+| redraws on an untouched map | **0** |
+
+For contrast, the bug this layer replaced: 8,000 *closed* subpaths filled
+took **595 ms**. The same 8,020 edges stroked open cost 0.5 ms. That is the
+whole argument for the current renderer, and `drawTime`'s `perEdgeUs` is how
+you notice someone undoing it.
+
 ## Traps, each one measured rather than assumed
 
 - **`requestAnimationFrame` never fires in Claude's browser pane.** Any
@@ -58,5 +74,14 @@ ATXDBG.all()
   page against old JS for ten minutes presents as any bug you like.
 - **`raw.githubusercontent` serves `max-age=300`** and can hold a version
   for ~5.5 minutes, which caps how fresh any `data`-branch feed can be.
+- **`window.map` on this page is the `<div id="map">`, not the Leaflet map.**
+  Browsers expose element ids as window properties. `ATXDBG.map()` guards on
+  `.getZoom` and falls through to a global `eval`; anything else that reaches
+  for `window.map` gets a DIV.
+- **Do not settle with a sleep.** A sleep is how the sweep once reported 166
+  shapes at zoom 18 — exactly zoom 17's count, because the layer had not
+  re-collected and the probe read the previous zoom as this one. `settled()`
+  now watches for a draw at the zoom it asked for, and `sweep()` marks any
+  row that did not settle as untrustworthy.
 - **Never `npx wrangler deploy` from the repo root** — it publishes `.git/`.
   `cd workers/capmetro && npx wrangler deploy`.
