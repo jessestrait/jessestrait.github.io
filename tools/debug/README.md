@@ -36,6 +36,7 @@ Downtown Austin, zoom 15, 1,032 footprints, 8,020 edges:
 | on-screen error vs Leaflet | **0.71 px** at every zoom, 15→18 and back |
 | draw submission | **0.5 ms** median, 0.06 µs/edge |
 | redraws on an untouched map | **0** |
+| draws per zoom | **1**, about 1.5 s after the zoom with a cold tile |
 
 For contrast, the bug this layer replaced: 8,000 *closed* subpaths filled
 took **595 ms**. The same 8,020 edges stroked open cost 0.5 ms. That is the
@@ -78,6 +79,11 @@ you notice someone undoing it.
   Browsers expose element ids as window properties. `ATXDBG.map()` guards on
   `.getZoom` and falls through to a global `eval`; anything else that reaches
   for `window.map` gets a DIV.
+- **Do not intercept a draw at `CITY3D._wire.draw`.** The module's own
+  `refresh()` calls the module-local `draw` binding, which reassigning the
+  exported property does not touch. `redraws()` shipped in that state for one
+  run and reported 0 draws unconditionally — a probe that cannot fail. The
+  canvas context is the honest seam: every draw clears exactly once.
 - **Do not settle with a sleep.** A sleep is how the sweep once reported 166
   shapes at zoom 18 — exactly zoom 17's count, because the layer had not
   re-collected and the probe read the previous zoom as this one. `settled()`

@@ -203,6 +203,23 @@
     return rows;
   }
 
+  /* Where to intercept a draw.
+
+     NOT CITY3D._wire.draw. The module's own refresh() calls the
+     module-local `draw` binding, which a reassignment of the exported
+     property does not touch — so patching _wire.draw sees only external
+     callers, and redraws() spent its first outing reporting 0 draws
+     unconditionally. A probe that cannot fail is worse than no probe.
+
+     Every draw() clears its canvas exactly once, whatever else it does,
+     so the context is the honest seam. Verified live: one clear per
+     zoom, none on an untouched map. */
+  function onDraw(fn) {
+    const w = W(), real = w.ctx.clearRect;
+    w.ctx.clearRect = function () { fn(); return real.apply(this, arguments); };
+    return () => { w.ctx.clearRect = real; };
+  }
+
   /* Waiting for the settle.
 
      This used to be a sleep, and a sleep is how the sweep once reported
@@ -211,23 +228,18 @@
      numbers as this one's. A stale measurement that looks like a bug is
      worse than no measurement.
 
-     So it watches for the thing it is actually waiting for: a draw that
-     happened at the zoom we asked for, after we asked. The settle is a
-     70 ms timer wrapping an async tile fetch, so there is no promise to
-     await from outside — but there is always a draw at the end of it. */
+     So it watches for the thing it is actually waiting for: a draw at the
+     zoom we asked for. The settle is a 70 ms timer wrapping an async tile
+     fetch, so there is no promise to await from outside — measured live,
+     a zoom settles in about 1.5 s with a cold tile. */
   function settled(map, ms) {
-    const m = theMap(map), wire = global.CITY3D._wire;
+    const m = theMap(map);
     const want = m.getZoom(), limit = Date.now() + (ms || 8000);
     let drawn = false;
-    const orig = wire.draw;
-    wire.draw = function (mp, resize) {
-      const r = orig.call(this, mp, resize);
-      if (m.getZoom() === want) drawn = true;
-      return r;
-    };
+    const off = onDraw(() => { if (m.getZoom() === want) drawn = true; });
     return new Promise(res => (function poll() {
-      if (drawn && !C().busy.size) { wire.draw = orig; return res(true); }
-      if (Date.now() > limit) { wire.draw = orig; return res(false); }
+      if (drawn && !C().busy.size) { off(); return res(true); }
+      if (Date.now() > limit) { off(); return res(false); }
       setTimeout(poll, 60);
     })());
   }
@@ -299,12 +311,11 @@
      map should draw ZERO times. Anything above zero is the flashing
      bug — the layer has found a reason to keep rebuilding itself. */
   function redraws(ms) {
-    const wire = global.CITY3D._wire;
-    const orig = wire.draw;
+    if (!W().canvas) return Promise.resolve('No canvas yet — switch the outlines on.');
     let n = 0;
-    wire.draw = function () { n++; return orig.apply(this, arguments); };
+    const off = onDraw(() => { n++; });
     return new Promise(res => setTimeout(() => {
-      wire.draw = orig;
+      off();
       res({ window: (ms || 3000) + 'ms', draws: n,
             verdict: n === 0 ? 'IDLE — nothing redrawing'
                              : 'REDRAW LOOP — ' + n + ' draws on an untouched map' });
