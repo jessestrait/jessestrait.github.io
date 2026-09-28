@@ -126,7 +126,7 @@
     const z = map.getZoom();
     if (z < c._helpers.MIN_Z) return 'Zoom past ' + c._helpers.MIN_Z + ' first.';
 
-    const n = 2 ** z, ext0 = c._helpers.EXTENT_FALLBACK;
+    const ext0 = c._helpers.EXTENT_FALLBACK;
     const pxO = map.getPixelOrigin(), origin = w.canvas._origin;
     const cvR = w.canvas.getBoundingClientRect();
     const mpR = map.getContainer().getBoundingClientRect();
@@ -140,6 +140,10 @@
       if (tz !== c._helpers.TILE_Z) continue;
       const ext = t.buildings.extent || ext0;
       const tileScale = 256 * 2 ** (z - tz), k = tileScale / ext;
+      /* The tile index is at the ARCHIVE's zoom, not the map's. Dividing
+         it by 2**mapZoom is how this probe first claimed an 11.8-million
+         pixel error against a layer aligned to 0.7 px. */
+      const n = 2 ** tz;
 
       for (const f of t.buildings.features) {
         if (f.type !== 3) continue;
@@ -218,15 +222,19 @@
      working. A read that throws AFTER a request is a real network or
      archive problem — a different bug with a different fix. */
   async function pm(m) {
-    const c = C();
+    const map = theMap(m), c = C(), H = c._helpers;
+    if (!H.lon2x || !H.lat2y) return 'city3d.js no longer exports lon2x/lat2y.';
+    const z = H.TILE_Z, ctr = map.getCenter();
+    const tx = Math.floor(H.lon2x(ctr.lng, z)), ty = Math.floor(H.lat2y(ctr.lat, z));
     let calls = 0;
     const real = global.fetch;
     global.fetch = function () { calls++; return real.apply(this, arguments); };
-    const out = { instanceBefore: !!c.pm, fetches: 0, bytes: 0, error: null };
+    const out = { tile: z + '/' + tx + '/' + ty,
+                  instanceBefore: !!c.pm, fetches: 0, bytes: 0, error: null };
     try {
       const a = await (c.pm || new global.pmtiles.PMTiles(
         new URL('3d/atx.pmtiles', location.href).href));
-      const t = await a.getZxy(c._helpers.TILE_Z, 59558, 106828);
+      const t = await a.getZxy(z, tx, ty);
       out.bytes = t && t.data ? t.data.byteLength : 0;
     } catch (e) {
       out.error = String(e && e.message || e);
@@ -235,10 +243,13 @@
       global.fetch = real;
     }
     out.instanceAfter = !!c.pm;
-    out.verdict = out.error
-      ? (out.fetches === 0 ? 'POISONED — memoised rejection, no request made'
-                           : 'NETWORK/ARCHIVE — the request was made and failed')
-      : 'OK';
+    /* A bad ask is rejected locally with no request, which looks exactly
+       like a memoised rejection to a fetch counter. Read the message. */
+    const badAsk = out.error && /bounds|outside|invalid|NaN/i.test(out.error);
+    out.verdict = !out.error ? 'OK'
+      : badAsk ? 'BAD ASK — the probe asked for a tile the archive cannot hold'
+      : out.fetches === 0 ? 'POISONED — memoised rejection, no request made'
+      : 'NETWORK/ARCHIVE — the request was made and failed';
     return out;
   }
 
