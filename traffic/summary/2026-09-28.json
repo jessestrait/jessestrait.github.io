@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 52 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 53 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -13,9 +13,9 @@
   "dispatch_only": 58,
   "here": 0,
   "here_matched": 0,
-  "matched": 15,
-  "tomtom": 832,
-  "tomtom_only": 819
+  "matched": 16,
+  "tomtom": 893,
+  "tomtom_only": 879
  },
  "date": "2026-09-28",
  "dispatch_life_capped": true,
@@ -23,7 +23,7 @@
   "max": 119.9,
   "median": 116.9,
   "min": 16.6,
-  "n": 52,
+  "n": 53,
   "q1": 115.3,
   "q3": 119.0
  },
@@ -42,14 +42,14 @@
    "pct": 10.5
   },
   "tomtom_highway": {
-   "matched": 9,
-   "n": 363,
-   "pct": 2.5
+   "matched": 10,
+   "n": 386,
+   "pct": 2.6
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 469,
-   "pct": 0.9
+   "n": 507,
+   "pct": 0.8
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 88.0,
-  "median": 10.6,
+  "median": 10.7,
   "min": -86.6,
-  "n": 15,
-  "q1": -9.7,
-  "q3": 34.5
+  "n": 16,
+  "q1": -7.2,
+  "q3": 31.9
  },
  "persistence_min": {
   "max": 66.3,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 138,
-  "hotspot_buckets": 667,
-  "hotspot_buckets_on_roadworks": 119,
+  "explained_by_roadworks": 144,
+  "hotspot_buckets": 714,
+  "hotspot_buckets_on_roadworks": 123,
   "txdot_rows": 10,
-  "unreported_congestion": 789
+  "unreported_congestion": 849
  },
  "sampling": {
   "flow_spent_this_month": 2070,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 250,
+  "incidents_spent_this_month": 251,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -138,6 +138,20 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.179,-97.616"
+  },
+  {
+   "from": "Christina Garza Dr",
+   "hour_of_week": 21,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.350,-97.556"
+  },
+  {
+   "from": "E Ben White Blvd",
+   "hour_of_week": 21,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.215,-97.699"
   },
   {
    "from": "Rogge Ln",
@@ -201,20 +215,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.383,-97.767"
-  },
-  {
-   "from": "Spicewood Springs Rd / Adirondack Trl",
-   "hour_of_week": 114,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.383,-97.767"
-  },
-  {
-   "from": "Burnet Rd",
-   "hour_of_week": 70,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.406,-97.718"
   }
  ],
  "unmatched_pct": {
