@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 21,
-  "dispatch_only": 21,
+  "dispatch": 22,
+  "dispatch_only": 22,
   "here": 0,
   "here_matched": 0,
   "matched": 0,
@@ -33,7 +33,7 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 0,
-   "n": 1,
+   "n": 2,
    "pct": 0.0
   },
   "dispatch_surface": {
@@ -192,18 +192,18 @@
    "seg": "30.283,-97.729"
   },
   {
-   "from": "Pond Springs Rd",
-   "hour_of_week": 46,
+   "from": "FM-1325/Burnet Rd (US-183)",
+   "hour_of_week": 1,
    "n": 1,
    "roadworks": false,
-   "seg": "30.448,-97.780"
+   "seg": "30.391,-97.746"
   },
   {
-   "from": "Tree Line Dr",
-   "hour_of_week": 90,
+   "from": "Austin-Bergstrom International Airport (Presidential Blvd)",
+   "hour_of_week": 3,
    "n": 1,
    "roadworks": false,
-   "seg": "30.448,-97.780"
+   "seg": "30.212,-97.659"
   }
  ],
  "unmatched_pct": {
@@ -213,8 +213,8 @@
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 21,
-  "neither": 21,
+  "n": 22,
+  "neither": 22,
   "tomtom_only": 0
  }
 }
