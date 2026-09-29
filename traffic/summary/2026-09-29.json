@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 82,
+  "dispatch": 83,
   "dispatch_only": 70,
   "here": 0,
   "here_matched": 0,
-  "matched": 13,
-  "tomtom": 559,
-  "tomtom_only": 546
+  "matched": 15,
+  "tomtom": 597,
+  "tomtom_only": 583
  },
  "date": "2026-09-29",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 20.0
   },
   "dispatch_surface": {
-   "matched": 8,
-   "n": 62,
-   "pct": 12.9
+   "matched": 9,
+   "n": 63,
+   "pct": 14.3
   },
   "tomtom_highway": {
    "matched": 10,
-   "n": 264,
-   "pct": 3.8
+   "n": 275,
+   "pct": 3.6
   },
   "tomtom_surface": {
-   "matched": 3,
-   "n": 295,
-   "pct": 1.0
+   "matched": 4,
+   "n": 322,
+   "pct": 1.2
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 88.3,
   "median": 3.4,
   "min": -74.8,
-  "n": 13,
-  "q1": -18.8,
-  "q3": 12.2
+  "n": 15,
+  "q1": -16.2,
+  "q3": 16.3
  },
  "persistence_min": {
   "max": 0.0,
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 106,
-  "hotspot_buckets": 511,
-  "hotspot_buckets_on_roadworks": 104,
+  "explained_by_roadworks": 107,
+  "hotspot_buckets": 548,
+  "hotspot_buckets_on_roadworks": 105,
   "txdot_rows": 11,
-  "unreported_congestion": 529
+  "unreported_congestion": 566
  },
  "sampling": {
   "flow_spent_this_month": 2304,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 288,
+  "incidents_spent_this_month": 289,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,6 +160,20 @@
    "seg": "30.167,-97.790"
   },
   {
+   "from": "W 35th Street Cutoff (W 38th St)",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.305,-97.743"
+  },
+  {
+   "from": "Northeast Travis",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.430,-97.633"
+  },
+  {
    "from": "Nature Center Dr",
    "hour_of_week": 38,
    "n": 2,
@@ -200,31 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "E Riverside Dr",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.226,-97.700"
-  },
-  {
-   "from": "Northeast Travis",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.430,-97.633"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.4,
+  "dispatch": 84.3,
   "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 82,
+  "n": 83,
   "neither": 70,
-  "tomtom_only": 12
+  "tomtom_only": 13
  }
 }
