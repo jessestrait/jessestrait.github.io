@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 84,
+  "dispatch": 86,
   "dispatch_only": 71,
   "here": 0,
   "here_matched": 0,
-  "matched": 15,
-  "tomtom": 639,
-  "tomtom_only": 625
+  "matched": 17,
+  "tomtom": 709,
+  "tomtom_only": 694
  },
  "date": "2026-09-29",
  "dispatch_life_capped": true,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 4,
-   "n": 20,
-   "pct": 20.0
+   "matched": 5,
+   "n": 21,
+   "pct": 23.8
   },
   "dispatch_surface": {
-   "matched": 9,
-   "n": 64,
-   "pct": 14.1
+   "matched": 10,
+   "n": 65,
+   "pct": 15.4
   },
   "tomtom_highway": {
    "matched": 11,
-   "n": 293,
-   "pct": 3.8
+   "n": 333,
+   "pct": 3.3
   },
   "tomtom_surface": {
-   "matched": 3,
-   "n": 346,
-   "pct": 0.9
+   "matched": 4,
+   "n": 376,
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 88.3,
   "median": 3.4,
   "min": -74.8,
-  "n": 15,
-  "q1": -16.2,
-  "q3": 16.3
+  "n": 17,
+  "q1": -18.8,
+  "q3": 20.5
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 109,
-  "hotspot_buckets": 590,
-  "hotspot_buckets_on_roadworks": 107,
+  "explained_by_roadworks": 117,
+  "hotspot_buckets": 656,
+  "hotspot_buckets_on_roadworks": 114,
   "txdot_rows": 11,
-  "unreported_congestion": 608
+  "unreported_congestion": 677
  },
  "sampling": {
   "flow_spent_this_month": 2304,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 290,
+  "incidents_spent_this_month": 291,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -175,6 +175,13 @@
    "seg": "30.430,-97.633"
   },
   {
+   "from": "E Starling Dr",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.365,-97.688"
+  },
+  {
    "from": "Nature Center Dr",
    "hour_of_week": 38,
    "n": 2,
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.616"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 84.5,
-  "tomtom": 97.8
+  "dispatch": 82.6,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 84,
+  "n": 86,
   "neither": 71,
-  "tomtom_only": 13
+  "tomtom_only": 15
  }
 }
