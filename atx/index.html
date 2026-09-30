@@ -2257,7 +2257,7 @@ const LAYERS = [
        layer names private owners, so every line in the popup is a
        figure the city published rather than a characterisation of
        mine. The note says what the list actually is. */
-    id: 'rop', group: 'places', color: '#ff3b5c', on: false,
+    id: 'rop', group: 'places', color: '#ff3b5c', on: true,
     name: 'Repeat offender properties',
     note: 'Apartments the city put on its repeat-violation register',
     async load() {
@@ -8496,11 +8496,17 @@ document.addEventListener('click', e => {
   e.preventDefault();
   camOpen(img.dataset.cam, img.dataset.camname);
 });
-/* The city's image host (cctv.austinmobility.io) answers 403 for whole
-   stretches at a time — CloudFront's own block page, for every path
-   including the root, and the open-data record still publishes these URLs.
-   Nothing here can reach past that, so say so: a broken-image box reads as
-   a bug in this page, and a sentence reads as what it actually is.
+/* The city's image host (cctv.austinmobility.io) is a CloudFront
+   distribution that refuses traffic from outside the United States — the
+   403 is its block page, served for every path including the root, while
+   the open-data record still publishes these URLs.
+
+   Worth naming the VPN, because that is what it turns out to be almost
+   every time and it is invisible from inside the page: the same camera
+   that showed nothing on a laptop routed through Toronto was fine on a
+   phone on the same desk. The response carries the giveaway if you ever
+   need to check it again — X-Amz-Cf-Pop names the edge that answered, and
+   a Canadian or European POP on an Austin feed is the whole story.
 
    Capture phase, because `error` does not bubble. */
 document.addEventListener('error', e => {
@@ -8508,7 +8514,8 @@ document.addEventListener('error', e => {
   if (!img || img.tagName !== 'IMG' || !img.classList.contains('popcam')) return;
   const said = document.createElement('div');
   said.className = 'camdown';
-  said.textContent = 'The city\u2019s camera feed is not answering right now.';
+  said.textContent = 'No picture from this camera. The city serves its stills '
+    + 'to the US only, so a VPN will block them \u2014 otherwise the feed is down.';
   img.replaceWith(said);
 }, true);
 

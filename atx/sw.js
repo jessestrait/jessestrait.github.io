@@ -11,11 +11,11 @@
  * served from cache and refreshed in the background, so a rebuild lands on the
  * next load by itself. See fromCacheRefreshing.
  */
-/* Bumped to v9 on 2026-09-30: violation cases in the repeat-offender
-   popups, fire stations and traffic cameras on by default, the weather
-   banner pinned below the ticker, and the camera stills loading eagerly.
-   All of it lives in index.html, which the shell holds until this moves. */
-const VERSION = 'atx-v9';
+/* Bumped to v10 on 2026-09-30: the repeat-offender properties on by
+   default, and the camera-still failure message now names the likely
+   cause. Both live in index.html, which the shell holds until this
+   moves. */
+const VERSION = 'atx-v10';
 const SHELL = VERSION + '-shell';
 const GEO = VERSION + '-geo';
 const FONTS = VERSION + '-fonts';
