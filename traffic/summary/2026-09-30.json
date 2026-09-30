@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 154,
-  "dispatch_only": 118,
+  "dispatch": 155,
+  "dispatch_only": 119,
   "here": 0,
   "here_matched": 0,
-  "matched": 51,
-  "tomtom": 2206,
-  "tomtom_only": 2158
+  "matched": 53,
+  "tomtom": 2250,
+  "tomtom_only": 2199
  },
  "date": "2026-09-30",
  "dispatch_life_capped": false,
@@ -23,9 +23,9 @@
   "max": 119.8,
   "median": 116.2,
   "min": 8.3,
-  "n": 131,
-  "q1": 75.3,
-  "q3": 118.0
+  "n": 134,
+  "q1": 76.0,
+  "q3": 117.9
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 24,
-   "n": 122,
-   "pct": 19.7
+   "n": 123,
+   "pct": 19.5
   },
   "tomtom_highway": {
-   "matched": 34,
-   "n": 1144,
-   "pct": 3.0
+   "matched": 36,
+   "n": 1165,
+   "pct": 3.1
   },
   "tomtom_surface": {
-   "matched": 14,
-   "n": 1062,
-   "pct": 1.3
+   "matched": 15,
+   "n": 1085,
+   "pct": 1.4
   }
  },
  "matcher": {
@@ -62,16 +62,16 @@
   "max": 87.1,
   "median": 5.7,
   "min": -73.6,
-  "n": 51,
-  "q1": -19.4,
-  "q3": 36.1
+  "n": 53,
+  "q1": -20.4,
+  "q3": 36.4
  },
  "persistence_min": {
   "max": 36.1,
-  "median": 0.0,
+  "median": -5.4,
   "min": -1557.5,
-  "n": 32,
-  "q1": -36.4,
+  "n": 35,
+  "q1": -36.3,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 335,
-  "hotspot_buckets": 1958,
-  "hotspot_buckets_on_roadworks": 304,
+  "explained_by_roadworks": 339,
+  "hotspot_buckets": 1993,
+  "hotspot_buckets_on_roadworks": 307,
   "txdot_rows": 9,
-  "unreported_congestion": 2135
+  "unreported_congestion": 2176
  },
  "sampling": {
   "flow_spent_this_month": 2538,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 329,
+  "incidents_spent_this_month": 330,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -181,13 +181,6 @@
    "seg": "30.419,-97.586"
   },
   {
-   "from": "E Riverside Dr (S Pleasant Valley Rd)",
-   "hour_of_week": 70,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.243,-97.717"
-  },
-  {
    "from": "Westlake Dr",
    "hour_of_week": 70,
    "n": 3,
@@ -214,17 +207,24 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.083,-97.822"
+  },
+  {
+   "from": "San Antonio St (2nd St)",
+   "hour_of_week": 70,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.265,-97.745"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.6,
-  "tomtom": 97.8
+  "dispatch": 76.8,
+  "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 154,
-  "neither": 118,
+  "n": 155,
+  "neither": 119,
   "tomtom_only": 36
  }
 }
