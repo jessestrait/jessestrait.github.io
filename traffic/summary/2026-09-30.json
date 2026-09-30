@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 150,
+  "dispatch": 151,
   "dispatch_only": 115,
   "here": 0,
   "here_matched": 0,
-  "matched": 44,
-  "tomtom": 2010,
-  "tomtom_only": 1970
+  "matched": 46,
+  "tomtom": 2065,
+  "tomtom_only": 2023
  },
  "date": "2026-09-30",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.8,
   "median": 116.0,
   "min": 8.3,
-  "n": 122,
-  "q1": 71.6,
+  "n": 123,
+  "q1": 72.1,
   "q3": 117.7
  },
  "here_onset_offset_min": {
@@ -37,19 +37,19 @@
    "pct": 37.5
   },
   "dispatch_surface": {
-   "matched": 23,
-   "n": 118,
-   "pct": 19.5
+   "matched": 24,
+   "n": 119,
+   "pct": 20.2
   },
   "tomtom_highway": {
-   "matched": 29,
-   "n": 1042,
+   "matched": 30,
+   "n": 1065,
    "pct": 2.8
   },
   "tomtom_surface": {
-   "matched": 11,
-   "n": 968,
-   "pct": 1.1
+   "matched": 12,
+   "n": 1000,
+   "pct": 1.2
   }
  },
  "matcher": {
@@ -62,15 +62,15 @@
   "max": 65.2,
   "median": 8.2,
   "min": -73.6,
-  "n": 44,
-  "q1": -15.7,
-  "q3": 35.3
+  "n": 46,
+  "q1": -17.0,
+  "q3": 33.6
  },
  "persistence_min": {
   "max": 30.6,
   "median": 0.0,
   "min": -92.5,
-  "n": 22,
+  "n": 23,
   "q1": -46.3,
   "q3": 0.0
  },
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 307,
-  "hotspot_buckets": 1797,
-  "hotspot_buckets_on_roadworks": 282,
+  "explained_by_roadworks": 312,
+  "hotspot_buckets": 1836,
+  "hotspot_buckets_on_roadworks": 286,
   "txdot_rows": 9,
-  "unreported_congestion": 1947
+  "unreported_congestion": 2000
  },
  "sampling": {
   "flow_spent_this_month": 2529,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 324,
+  "incidents_spent_this_month": 325,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,6 +160,13 @@
    "seg": "30.293,-97.759"
   },
   {
+   "from": "Westlake Dr",
+   "hour_of_week": 70,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.292,-97.798"
+  },
+  {
    "from": "W 5th St",
    "hour_of_week": 70,
    "n": 3,
@@ -172,6 +179,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.266,-97.743"
+  },
+  {
+   "from": "Crestland Dr W",
+   "hour_of_week": 70,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.342,-97.716"
   },
   {
    "from": "E Pheasant Dr",
@@ -200,31 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.218,-97.894"
-  },
-  {
-   "from": "Gattis School Rd (Greenlawn Blvd)",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.480,-97.661"
-  },
-  {
-   "from": "Frate Barker Rd (Manchaca Rd/FM-2304)",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.171,-97.825"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.7,
+  "dispatch": 76.2,
   "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 150,
+  "n": 151,
   "neither": 115,
-  "tomtom_only": 35
+  "tomtom_only": 36
  }
 }
