@@ -11,11 +11,10 @@
  * served from cache and refreshed in the background, so a rebuild lands on the
  * next load by itself. See fromCacheRefreshing.
  */
-/* Bumped to v11 on 2026-09-30: the camera lightbox grew zoom, pan, a
-   live reload, a walk to the next camera down the road, full screen and
-   a jump back to the map — and stopped putting its own buttons off the
-   top of a landscape phone. All in index.html. */
-const VERSION = 'atx-v11';
+/* Bumped to v12 on 2026-09-30: pinch zoom on the camera stills for
+   Safari, and the weather banner now takes its offset from the ticker
+   element instead of a class that could disagree with it. */
+const VERSION = 'atx-v12';
 const SHELL = VERSION + '-shell';
 const GEO = VERSION + '-geo';
 const FONTS = VERSION + '-fonts';

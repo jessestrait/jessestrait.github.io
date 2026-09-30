@@ -184,7 +184,7 @@ label.mini{font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; col
 
 /* ── Weather alerts ──────────────────────────────────── */
 #wxbanner{
-  position:absolute; top:.6rem; left:50%; transform:translateX(-50%); z-index:1190;
+  position:absolute; top:.6rem; left:50%; transform:translateX(-50%); z-index:1170;
   width:min(560px, calc(100% - 2.5rem)); text-align:left; cursor:pointer;
   background:rgba(28,10,14,.94); border:1px solid #ff4d4d; border-left-width:4px;
   border-radius:10px; padding:.55rem .8rem; color:var(--text); font:inherit;
@@ -437,6 +437,10 @@ dl.mecard a{color:var(--accent-hi)}
   border-radius:10px; border:1px solid var(--border); background:#000;
   transform-origin:0 0; will-change:transform; cursor:grab;
   -webkit-user-select:none; user-select:none;
+  /* touch-action is not inherited and the fingers land on the picture, not
+     on the stage around it. Without this Safari keeps the pinch for itself
+     and zooms the page instead of the frame. */
+  touch-action:none; -webkit-touch-callout:none;
 }
 #camshot img.dragging{ cursor:grabbing }
 #camzoom{
@@ -599,13 +603,17 @@ dl.mecard a{color:var(--accent-hi)}
   -webkit-tap-highlight-color:transparent;
 }
 #ticker .tk-off:hover{ color:var(--text) }
-/* The weather banner floats at the top of the map, which is now where the
-   ticker is too. Both read the same height, so the banner cannot end up
-   underneath the ticker when that height changes — which is what a phone
-   was doing, and why the alert was the one thing on the page you could not
-   read. The banner also outranks the ticker now: a flood watch beats a
-   scrolling headline for the same eight pixels. */
-body.tk-on #wxbanner{ top:calc(.6rem + var(--tk-h)) }
+/* The weather banner floats at the top of the map, which is where the
+   ticker is too, so it has to start below it.
+
+   Keyed off the ticker's OWN hidden attribute rather than a class on
+   <body>. They are siblings inside #shell, so `~` reaches from one to the
+   other and the offset is a fact about the element actually on screen.
+   The body class was a second copy of that fact kept in step by hand, and
+   when the two disagreed the banner sat on top of the ticker — first
+   hiding under it, then, once it outranked it, covering it. Neither
+   happens if nothing has to agree about anything. */
+#ticker:not([hidden]) ~ #wxbanner{ top:calc(.6rem + var(--tk-h)) }
 @media (max-width:820px){
   :root{ --tk-h:40px }
   /* Taller and larger on a phone: at 30px and .68rem it was unreadable at arm's
@@ -620,7 +628,8 @@ body.tk-on #wxbanner{ top:calc(.6rem + var(--tk-h)) }
   #ticker .tk-go{ font-size:.66rem; padding:.18rem .45rem }
   #ticker .tk-tag{ font-size:.62rem; padding:0 .6rem; letter-spacing:.12em }
   #ticker .tk-off{ width:40px; font-size:1.25rem }
-  body.tk-on #wxbanner{ top:calc(.5rem + var(--tk-h)) }
+  #wxbanner{ top:.5rem }
+  #ticker:not([hidden]) ~ #wxbanner{ top:calc(.5rem + var(--tk-h)) }
 }
 @media (prefers-reduced-motion:reduce){
   /* Scrolling text is genuinely a problem for some people. Keep the
@@ -8734,6 +8743,29 @@ document.getElementById('camshot').addEventListener('click', e => {
     const p = local(e);
     camZoomAt(p.x, p.y, e.deltaY < 0 ? 1.18 : 1 / 1.18);
   }, { passive: false });
+
+  /* Safari does not give two-finger pointer events for a pinch — it keeps
+     the gesture and zooms the page, and the viewport meta cannot stop it
+     because iOS ignores user-scalable for accessibility. What it does give
+     is its own gesturestart/change/end with a cumulative `scale`.
+
+     Bound to the stage and nowhere else. Blocking these document-wide is
+     how you take pinch-zoom away from the whole page, which is a real
+     accessibility problem and a bug I have caused on this site before. */
+  let gz0 = 1, gcx = 0, gcy = 0;
+  stage.addEventListener('gesturestart', e => {
+    e.preventDefault();
+    gz0 = CAM.z;
+    const r = img.getBoundingClientRect();
+    gcx = (e.clientX != null ? e.clientX : r.left + r.width / 2) - r.left;
+    gcy = (e.clientY != null ? e.clientY : r.top + r.height / 2) - r.top;
+    CAM._dragged = true;
+  });
+  stage.addEventListener('gesturechange', e => {
+    e.preventDefault();
+    camZoomAt(gcx, gcy, (gz0 * e.scale) / CAM.z);
+  });
+  stage.addEventListener('gestureend', e => { e.preventDefault(); });
 
   /* Double click and double tap both snap between fit and 2.5x at the
      point you aimed at. dblclick does not fire reliably on iOS, so the
