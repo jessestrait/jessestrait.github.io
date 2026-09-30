@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 158,
-  "dispatch_only": 121,
+  "dispatch": 160,
+  "dispatch_only": 123,
   "here": 0,
   "here_matched": 0,
-  "matched": 57,
-  "tomtom": 2389,
-  "tomtom_only": 2327
+  "matched": 59,
+  "tomtom": 2405,
+  "tomtom_only": 2342
  },
  "date": "2026-09-30",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.3,
+  "median": 116.2,
   "min": 8.3,
-  "n": 138,
-  "q1": 76.5,
+  "n": 139,
+  "q1": 76.6,
   "q3": 117.9
  },
  "here_onset_offset_min": {
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 25,
-   "n": 125,
-   "pct": 20.0
+   "n": 127,
+   "pct": 19.7
   },
   "tomtom_highway": {
    "matched": 43,
-   "n": 1238,
+   "n": 1244,
    "pct": 3.5
   },
   "tomtom_surface": {
-   "matched": 19,
-   "n": 1151,
+   "matched": 20,
+   "n": 1161,
    "pct": 1.7
   }
  },
@@ -62,16 +62,16 @@
   "max": 87.1,
   "median": 10.6,
   "min": -89.6,
-  "n": 57,
-  "q1": -20.4,
-  "q3": 44.4
+  "n": 59,
+  "q1": -19.4,
+  "q3": 46.6
  },
  "persistence_min": {
   "max": 36.1,
-  "median": -7.8,
+  "median": -10.2,
   "min": -1557.5,
-  "n": 40,
-  "q1": -36.3,
+  "n": 41,
+  "q1": -36.4,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 366,
-  "hotspot_buckets": 2097,
-  "hotspot_buckets_on_roadworks": 326,
+  "hotspot_buckets": 2105,
+  "hotspot_buckets_on_roadworks": 324,
   "txdot_rows": 9,
-  "unreported_congestion": 2304
+  "unreported_congestion": 2319
  },
  "sampling": {
   "flow_spent_this_month": 2556,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 336,
+  "incidents_spent_this_month": 337,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -137,6 +137,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.267,-97.755"
+  },
+  {
+   "from": "S Pleasant Valley Rd (E William Cannon Dr)",
+   "hour_of_week": 71,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.164,-97.728"
   },
   {
    "from": "S Lamar Blvd / W Ben White Blvd",
@@ -207,24 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.266,-97.743"
-  },
-  {
-   "from": "Onion Creek Pkwy/Exit 225 (I-35)",
-   "hour_of_week": 68,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.083,-97.822"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.6,
+  "dispatch": 76.9,
   "tomtom": 97.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 158,
-  "neither": 121,
+  "n": 160,
+  "neither": 123,
   "tomtom_only": 37
  }
 }
