@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 89,
+  "dispatch": 90,
   "dispatch_only": 72,
   "here": 0,
   "here_matched": 0,
-  "matched": 20,
-  "tomtom": 952,
-  "tomtom_only": 937
+  "matched": 22,
+  "tomtom": 988,
+  "tomtom_only": 972
  },
  "date": "2026-09-30",
  "dispatch_life_capped": false,
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 7,
-   "n": 19,
-   "pct": 36.8
+   "matched": 8,
+   "n": 20,
+   "pct": 40.0
   },
   "dispatch_surface": {
    "matched": 10,
@@ -42,13 +42,13 @@
    "pct": 14.3
   },
   "tomtom_highway": {
-   "matched": 10,
-   "n": 506,
-   "pct": 2.0
+   "matched": 11,
+   "n": 526,
+   "pct": 2.1
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 446,
+   "n": 462,
    "pct": 1.1
   }
  },
@@ -62,9 +62,9 @@
   "max": 62.0,
   "median": -4.9,
   "min": -73.6,
-  "n": 20,
-  "q1": -32.8,
-  "q3": 23.3
+  "n": 22,
+  "q1": -39.8,
+  "q3": 24.5
  },
  "persistence_min": {
   "max": 0.0,
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 168,
-  "hotspot_buckets": 881,
-  "hotspot_buckets_on_roadworks": 161,
+  "explained_by_roadworks": 172,
+  "hotspot_buckets": 912,
+  "hotspot_buckets_on_roadworks": 162,
   "txdot_rows": 11,
-  "unreported_congestion": 917
+  "unreported_congestion": 952
  },
  "sampling": {
   "flow_spent_this_month": 2394,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 308,
+  "incidents_spent_this_month": 309,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,20 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "US-290/TX-290 Toll (Ed Bluestein Blvd)",
+   "hour_of_week": 60,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.332,-97.684"
+  },
+  {
+   "from": "US Highway 183",
+   "hour_of_week": 61,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.392,-97.747"
+  },
   {
    "from": "N Mo Pac Expy",
    "hour_of_week": 61,
@@ -195,36 +209,22 @@
    "seg": "30.349,-97.551"
   },
   {
-   "from": "US-290/TX-290 Toll (Ed Bluestein Blvd)",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.332,-97.684"
-  },
-  {
-   "from": "US Highway 183",
+   "from": "Muirfield Bend Dr",
    "hour_of_week": 61,
    "n": 2,
    "roadworks": false,
-   "seg": "30.392,-97.747"
-  },
-  {
-   "from": "Mesa Dr (FM-2222)",
-   "hour_of_week": 61,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.338,-97.759"
+   "seg": "30.497,-97.584"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.9,
+  "dispatch": 80.0,
   "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 89,
+  "n": 90,
   "neither": 72,
-  "tomtom_only": 17
+  "tomtom_only": 18
  }
 }
