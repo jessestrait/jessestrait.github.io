@@ -2151,7 +2151,7 @@ const LAYERS = [
     }
   },
   {
-    id: 'cameras', group: 'places', color: '#d0d6e0', on: false,
+    id: 'cameras', group: 'places', color: '#d0d6e0', on: true,
     name: 'Traffic cameras', note: 'Click one for a live still',
     async load() {
       const rows = await soda('b4k4-adkb', {
@@ -2174,6 +2174,77 @@ const LAYERS = [
           html: pop('#d0d6e0', 'Traffic camera', titleCase(r.location_name), '', [
             ['District', r.council_district], ['Camera', r.camera_id]
           ], shot)
+        };
+      }).filter(Boolean);
+    }
+  },
+  {
+    /* The city's Repeat Offender Program.
+
+       Austin puts a multifamily property on this list when it keeps
+       failing health-and-safety inspections: the owner then has to
+       register, pay a per-unit fee, and submit to extra inspection for
+       two years, or five for the worse tier. It is the closest thing
+       the city publishes to a list of apartments it considers unsafe
+       to live in — but "dangerous" is not the city's word, and this
+       layer names private owners, so every line in the popup is a
+       figure the city published rather than a characterisation of
+       mine. The note says what the list actually is. */
+    id: 'rop', group: 'places', color: '#ff3b5c', on: false,
+    name: 'Repeat offender properties',
+    note: 'Apartments the city put on its repeat-violation register',
+    async load() {
+      const rows = await soda('86z9-i27i', {
+        '$select': 'establishmentname,propertyname,owner,status,foldersubtype,issuedate,'
+                 + 'numberofunits,activeviolations,totalviolations,outstandingamount,foldername,'
+                 + 'councildistrict,location_1',
+        '$limit': 500
+      });
+      /* Sorted here rather than in the query. These are TEXT columns, so
+         Socrata orders them lexicographically — "99" above "171" — and
+         puts the rows missing the field first, which is how the property
+         with nothing open ended up at the top of the list. */
+      rows.sort((a, b) => (num(b.activeviolations) || -1) - (num(a.activeviolations) || -1));
+      return rows.map(r => {
+        const g = r.location_1 || {};
+        if (!g.latitude) return null;
+        /* The city omits these fields rather than writing a zero: no row
+           in the set has a literal 0, and twelve of the eighty have no
+           open-violation count at all. Reading absent as zero would put a
+           number the city never published next to a named owner, and
+           dropping the line entirely would let the reader guess. Say it
+           is not reported. */
+        const NR = 'Not reported';
+        const has = v => v !== undefined && v !== null && v !== '';
+        const active = has(r.activeviolations) ? num(r.activeviolations) : null;
+        const total = has(r.totalviolations) ? num(r.totalviolations) : null;
+        const units = num(r.numberofunits) || 0;
+        const owed = has(r.outstandingamount) ? num(r.outstandingamount) : null;
+        const t = r.issuedate ? new Date(r.issuedate) : null;
+        /* Five-year registration is the tier the city uses for the
+           properties that did not improve on the two-year one, so it
+           earns the bigger dot on its own, whatever this month's open
+           violation count happens to be. */
+        const five = /5 Year/i.test(r.foldersubtype || '');
+        const name = titleCase(r.establishmentname) || titleCase(r.propertyname)
+                   || titleCase(r.foldername) || 'Registered property';
+        const where = titleCase(r.propertyname);
+        return {
+          lat: +g.latitude, lng: +g.longitude, t: null, place: true,
+          big: five || (active !== null && active >= 25),
+          cat: five ? 'Five-year registration' : 'Two-year registration',
+          html: pop('#ff3b5c', 'Repeat offender', name,
+            where === name ? '' : (where || ''), [
+            ['Open violations', active === null ? NR : active],
+            ['Violations on record', total === null ? NR : total],
+            ['Homes affected', units || null],
+            ['Registration', r.foldersubtype],
+            ['Registered since', t ? t.toLocaleDateString() : null],
+            ['Status', r.status],
+            ['Owner', titleCase(r.owner)],
+            ['Fees outstanding', owed === null ? null : money(owed)],
+            ['Council district', r.councildistrict]
+          ])
         };
       }).filter(Boolean);
     }

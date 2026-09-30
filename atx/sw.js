@@ -11,10 +11,11 @@
  * served from cache and refreshed in the background, so a rebuild lands on the
  * next load by itself. See fromCacheRefreshing.
  */
-/* Bumped to v7 on 2026-09-25 to drop every cache after the 3D layer
-   moved to WebGL. Two rounds of "it still looks broken" were a stale
-   script being held while the HTML was current. */
-const VERSION = 'atx-v7';
+/* Bumped to v8 on 2026-09-30: new layer in the registry (the repeat
+   offender properties) and traffic cameras on by default, both of which
+   live in index.html and so are held by the shell cache until this
+   moves. */
+const VERSION = 'atx-v8';
 const SHELL = VERSION + '-shell';
 const GEO = VERSION + '-geo';
 const FONTS = VERSION + '-fonts';
