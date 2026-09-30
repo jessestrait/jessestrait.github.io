@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 149,
+  "dispatch": 150,
   "dispatch_only": 115,
   "here": 0,
   "here_matched": 0,
-  "matched": 42,
-  "tomtom": 1947,
-  "tomtom_only": 1910
+  "matched": 44,
+  "tomtom": 2010,
+  "tomtom_only": 1970
  },
  "date": "2026-09-30",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 37.5
   },
   "dispatch_surface": {
-   "matched": 22,
-   "n": 117,
-   "pct": 18.8
+   "matched": 23,
+   "n": 118,
+   "pct": 19.5
   },
   "tomtom_highway": {
-   "matched": 26,
-   "n": 1009,
-   "pct": 2.6
+   "matched": 29,
+   "n": 1042,
+   "pct": 2.8
   },
   "tomtom_surface": {
    "matched": 11,
-   "n": 938,
-   "pct": 1.2
+   "n": 968,
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 65.2,
   "median": 8.2,
   "min": -73.6,
-  "n": 42,
-  "q1": -17.0,
-  "q3": 36.2
+  "n": 44,
+  "q1": -15.7,
+  "q3": 35.3
  },
  "persistence_min": {
   "max": 30.6,
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 296,
-  "hotspot_buckets": 1754,
-  "hotspot_buckets_on_roadworks": 277,
+  "explained_by_roadworks": 307,
+  "hotspot_buckets": 1797,
+  "hotspot_buckets_on_roadworks": 282,
   "txdot_rows": 9,
-  "unreported_congestion": 1887
+  "unreported_congestion": 1947
  },
  "sampling": {
   "flow_spent_this_month": 2529,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 323,
+  "incidents_spent_this_month": 324,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,6 +160,20 @@
    "seg": "30.293,-97.759"
   },
   {
+   "from": "W 5th St",
+   "hour_of_week": 70,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.277,-97.768"
+  },
+  {
+   "from": "Lavaca St",
+   "hour_of_week": 70,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.266,-97.743"
+  },
+  {
    "from": "E Pheasant Dr",
    "hour_of_week": 45,
    "n": 2,
@@ -200,31 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.171,-97.825"
-  },
-  {
-   "from": "E Anderson Ln",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.337,-97.696"
-  },
-  {
-   "from": "E Slaughter Ln (Bluff Springs Rd/Old Lockhart Rd)",
-   "hour_of_week": 59,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.158,-97.769"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 77.2,
-  "tomtom": 98.1
+  "dispatch": 76.7,
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 149,
+  "n": 150,
   "neither": 115,
-  "tomtom_only": 34
+  "tomtom_only": 35
  }
 }
