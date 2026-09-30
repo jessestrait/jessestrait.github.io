@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 151,
-  "dispatch_only": 115,
+  "dispatch": 152,
+  "dispatch_only": 116,
   "here": 0,
   "here_matched": 0,
-  "matched": 46,
-  "tomtom": 2065,
-  "tomtom_only": 2023
+  "matched": 49,
+  "tomtom": 2100,
+  "tomtom_only": 2055
  },
  "date": "2026-09-30",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.8,
   "median": 116.0,
   "min": 8.3,
-  "n": 123,
-  "q1": 72.1,
+  "n": 124,
+  "q1": 72.6,
   "q3": 117.7
  },
  "here_onset_offset_min": {
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 24,
-   "n": 119,
-   "pct": 20.2
+   "n": 120,
+   "pct": 20.0
   },
   "tomtom_highway": {
-   "matched": 30,
-   "n": 1065,
-   "pct": 2.8
+   "matched": 32,
+   "n": 1085,
+   "pct": 2.9
   },
   "tomtom_surface": {
-   "matched": 12,
-   "n": 1000,
-   "pct": 1.2
+   "matched": 13,
+   "n": 1015,
+   "pct": 1.3
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 65.2,
-  "median": 8.2,
+  "max": 87.1,
+  "median": 5.7,
   "min": -73.6,
-  "n": 46,
-  "q1": -17.0,
-  "q3": 33.6
+  "n": 49,
+  "q1": -17.8,
+  "q3": 34.5
  },
  "persistence_min": {
   "max": 30.6,
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 312,
-  "hotspot_buckets": 1836,
-  "hotspot_buckets_on_roadworks": 286,
+  "explained_by_roadworks": 318,
+  "hotspot_buckets": 1858,
+  "hotspot_buckets_on_roadworks": 288,
   "txdot_rows": 9,
-  "unreported_congestion": 2000
+  "unreported_congestion": 2032
  },
  "sampling": {
   "flow_spent_this_month": 2529,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 325,
+  "incidents_spent_this_month": 326,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,11 +160,39 @@
    "seg": "30.293,-97.759"
   },
   {
+   "from": "Trinity St (2nd St)",
+   "hour_of_week": 70,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.264,-97.743"
+  },
+  {
+   "from": "Manor Rd (Chicon St)",
+   "hour_of_week": 70,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.280,-97.721"
+  },
+  {
+   "from": "exit [431]",
+   "hour_of_week": 70,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.419,-97.586"
+  },
+  {
    "from": "Westlake Dr",
    "hour_of_week": 70,
    "n": 3,
    "roadworks": false,
    "seg": "30.292,-97.798"
+  },
+  {
+   "from": "Steck Ave (Burnet Rd)",
+   "hour_of_week": 70,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.370,-97.727"
   },
   {
    "from": "W 5th St",
@@ -186,45 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.342,-97.716"
-  },
-  {
-   "from": "E Pheasant Dr",
-   "hour_of_week": 45,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.365,-97.688"
-  },
-  {
-   "from": "Nature Center Dr",
-   "hour_of_week": 38,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.269,-97.770"
-  },
-  {
-   "from": "FM-2304/Manchaca Rd (FM-1626)",
-   "hour_of_week": 45,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.141,-97.830"
-  },
-  {
-   "from": "W Slaughter Ln",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.218,-97.894"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.2,
-  "tomtom": 98.0
+  "dispatch": 76.3,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 151,
-  "neither": 115,
+  "n": 152,
+  "neither": 116,
   "tomtom_only": 36
  }
 }
