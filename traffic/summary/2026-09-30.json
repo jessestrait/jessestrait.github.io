@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 83,
-  "dispatch_only": 67,
+  "dispatch": 85,
+  "dispatch_only": 69,
   "here": 0,
   "here_matched": 0,
-  "matched": 16,
-  "tomtom": 662,
-  "tomtom_only": 650
+  "matched": 18,
+  "tomtom": 702,
+  "tomtom_only": 689
  },
  "date": "2026-09-30",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.8,
   "median": 115.8,
   "min": 10.8,
-  "n": 66,
-  "q1": 66.5,
+  "n": 67,
+  "q1": 67.3,
   "q3": 117.6
  },
  "here_onset_offset_min": {
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 9,
-   "n": 64,
-   "pct": 14.1
+   "n": 66,
+   "pct": 13.6
   },
   "tomtom_highway": {
-   "matched": 7,
-   "n": 355,
-   "pct": 2.0
+   "matched": 8,
+   "n": 376,
+   "pct": 2.1
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 307,
-   "pct": 1.6
+   "n": 326,
+   "pct": 1.5
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 62.0,
   "median": -4.9,
   "min": -73.6,
-  "n": 16,
-  "q1": -32.8,
-  "q3": 47.5
+  "n": 18,
+  "q1": -25.1,
+  "q3": 32.2
  },
  "persistence_min": {
   "max": 0.0,
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 133,
-  "hotspot_buckets": 617,
-  "hotspot_buckets_on_roadworks": 130,
+  "explained_by_roadworks": 141,
+  "hotspot_buckets": 657,
+  "hotspot_buckets_on_roadworks": 138,
   "txdot_rows": 10,
-  "unreported_congestion": 630
+  "unreported_congestion": 669
  },
  "sampling": {
   "flow_spent_this_month": 2376,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 300,
+  "incidents_spent_this_month": 301,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -130,6 +130,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.141,-97.830"
+  },
+  {
+   "from": "TX-275 Loop/S Congress Ave (Ben White Blvd)",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.226,-97.768"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -167,20 +174,6 @@
    "seg": "30.179,-97.616"
   },
   {
-   "from": "TX-275 Loop/S Congress Ave (Ben White Blvd)",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.226,-97.768"
-  },
-  {
-   "from": "Korman Dr",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.431,-97.673"
-  },
-  {
    "from": "New Hope Dr (Whitestone Blvd)",
    "hour_of_week": 45,
    "n": 1,
@@ -214,17 +207,24 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.500,-97.815"
+  },
+  {
+   "from": "FM-2222/Bullick Hollow Rd (FM-620)",
+   "hour_of_week": 44,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.446,-97.832"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.7,
-  "tomtom": 98.2
+  "dispatch": 81.2,
+  "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 83,
-  "neither": 67,
+  "n": 85,
+  "neither": 69,
   "tomtom_only": 16
  }
 }
