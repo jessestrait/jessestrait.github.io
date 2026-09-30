@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 53,
-  "tomtom": 2250,
-  "tomtom_only": 2199
+  "tomtom": 2283,
+  "tomtom_only": 2230
  },
  "date": "2026-09-30",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.8,
   "median": 116.2,
   "min": 8.3,
-  "n": 134,
-  "q1": 76.0,
+  "n": 135,
+  "q1": 76.3,
   "q3": 117.9
  },
  "here_onset_offset_min": {
@@ -42,14 +42,14 @@
    "pct": 19.5
   },
   "tomtom_highway": {
-   "matched": 36,
-   "n": 1165,
+   "matched": 37,
+   "n": 1185,
    "pct": 3.1
   },
   "tomtom_surface": {
-   "matched": 15,
-   "n": 1085,
-   "pct": 1.4
+   "matched": 16,
+   "n": 1098,
+   "pct": 1.5
   }
  },
  "matcher": {
@@ -68,10 +68,10 @@
  },
  "persistence_min": {
   "max": 36.1,
-  "median": -5.4,
+  "median": -10.2,
   "min": -1557.5,
-  "n": 35,
-  "q1": -36.3,
+  "n": 37,
+  "q1": -36.2,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 339,
-  "hotspot_buckets": 1993,
-  "hotspot_buckets_on_roadworks": 307,
+  "explained_by_roadworks": 344,
+  "hotspot_buckets": 2019,
+  "hotspot_buckets_on_roadworks": 310,
   "txdot_rows": 9,
-  "unreported_congestion": 2176
+  "unreported_congestion": 2207
  },
  "sampling": {
-  "flow_spent_this_month": 2538,
+  "flow_spent_this_month": 2547,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 330,
+  "incidents_spent_this_month": 331,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -202,18 +202,18 @@
    "seg": "30.266,-97.743"
   },
   {
-   "from": "Onion Creek Pkwy/Exit 225 (I-35)",
-   "hour_of_week": 68,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.083,-97.822"
-  },
-  {
    "from": "San Antonio St (2nd St)",
    "hour_of_week": 70,
    "n": 3,
    "roadworks": false,
    "seg": "30.265,-97.745"
+  },
+  {
+   "from": "Crestland Dr W",
+   "hour_of_week": 70,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.342,-97.716"
   }
  ],
  "unmatched_pct": {
