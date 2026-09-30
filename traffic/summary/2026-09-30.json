@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 88,
-  "dispatch_only": 71,
+  "dispatch": 89,
+  "dispatch_only": 72,
   "here": 0,
   "here_matched": 0,
   "matched": 20,
-  "tomtom": 923,
-  "tomtom_only": 908
+  "tomtom": 952,
+  "tomtom_only": 937
  },
  "date": "2026-09-30",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 115.8,
+  "median": 115.9,
   "min": 10.8,
-  "n": 70,
-  "q1": 69.2,
+  "n": 71,
+  "q1": 69.9,
   "q3": 117.6
  },
  "here_onset_offset_min": {
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 10,
-   "n": 69,
-   "pct": 14.5
+   "n": 70,
+   "pct": 14.3
   },
   "tomtom_highway": {
    "matched": 10,
-   "n": 490,
+   "n": 506,
    "pct": 2.0
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 433,
-   "pct": 1.2
+   "n": 446,
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 163,
-  "hotspot_buckets": 860,
-  "hotspot_buckets_on_roadworks": 160,
+  "explained_by_roadworks": 168,
+  "hotspot_buckets": 881,
+  "hotspot_buckets_on_roadworks": 161,
   "txdot_rows": 11,
-  "unreported_congestion": 888
+  "unreported_congestion": 917
  },
  "sampling": {
-  "flow_spent_this_month": 2385,
+  "flow_spent_this_month": 2394,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 307,
+  "incidents_spent_this_month": 308,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -116,6 +116,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.354,-97.748"
+  },
+  {
+   "from": "Hyridge Dr",
+   "hour_of_week": 61,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.371,-97.742"
   },
   {
    "from": "E Pheasant Dr",
@@ -174,13 +181,6 @@
    "seg": "30.158,-97.769"
   },
   {
-   "from": "TX-21 (TX-130)",
-   "hour_of_week": 59,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.102,-97.669"
-  },
-  {
    "from": "W Oltorf St (S Lamar Blvd)",
    "hour_of_week": 60,
    "n": 2,
@@ -202,29 +202,29 @@
    "seg": "30.332,-97.684"
   },
   {
-   "from": "Muirfield Bend Dr",
+   "from": "US Highway 183",
    "hour_of_week": 61,
    "n": 2,
    "roadworks": false,
-   "seg": "30.497,-97.584"
+   "seg": "30.392,-97.747"
   },
   {
-   "from": "Craybrough Cir",
+   "from": "Mesa Dr (FM-2222)",
    "hour_of_week": 61,
    "n": 2,
    "roadworks": false,
-   "seg": "30.301,-97.648"
+   "seg": "30.338,-97.759"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.7,
+  "dispatch": 80.9,
   "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 88,
-  "neither": 71,
+  "n": 89,
+  "neither": 72,
   "tomtom_only": 17
  }
 }
