@@ -11,11 +11,11 @@
  * served from cache and refreshed in the background, so a rebuild lands on the
  * next load by itself. See fromCacheRefreshing.
  */
-/* Bumped to v10 on 2026-09-30: the repeat-offender properties on by
-   default, and the camera-still failure message now names the likely
-   cause. Both live in index.html, which the shell holds until this
-   moves. */
-const VERSION = 'atx-v10';
+/* Bumped to v11 on 2026-09-30: the camera lightbox grew zoom, pan, a
+   live reload, a walk to the next camera down the road, full screen and
+   a jump back to the map — and stopped putting its own buttons off the
+   top of a landscape phone. All in index.html. */
+const VERSION = 'atx-v11';
 const SHELL = VERSION + '-shell';
 const GEO = VERSION + '-geo';
 const FONTS = VERSION + '-fonts';

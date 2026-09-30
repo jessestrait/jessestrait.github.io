@@ -411,16 +411,63 @@ dl.mecard a{color:var(--accent-hi)}
    showing one percent of the pixels the city is already sending. */
 #camshot[hidden]{display:none}
 #camshot{
-  position:fixed; inset:0; z-index:2000; display:flex; flex-direction:column;
-  align-items:center; justify-content:center; gap:.7rem; padding:1rem;
+  position:fixed; inset:0; z-index:2000; padding:1rem;
   background:rgba(4,7,12,.92); backdrop-filter:blur(6px);
+  /* Scrollable, and centred by margin rather than justify-content.
+
+     A centred flex column that overflows puts its first child ABOVE the
+     scroll origin, where no amount of scrolling reaches it — which on a
+     landscape iPhone meant the header, and so every button in it, sat off
+     the top of the screen and could not be tapped. Portrait had room and
+     looked fine. `margin:auto` centres the same way and keeps the whole
+     thing reachable when it does not fit. */
+  overflow:auto; -webkit-overflow-scrolling:touch; overscroll-behavior:contain;
+  display:flex;
+}
+#camshot .caminner{
+  margin:auto; display:flex; flex-direction:column; align-items:center; gap:.7rem;
+  max-width:min(100%,1600px); width:100%;
+}
+#camstage{
+  position:relative; width:100%; display:flex; justify-content:center;
+  overflow:hidden; border-radius:10px; touch-action:none;
 }
 #camshot img{
-  max-width:min(100%,1600px); max-height:calc(100vh - 8rem);
+  max-width:100%; max-height:calc(100dvh - 9rem);
   border-radius:10px; border:1px solid var(--border); background:#000;
+  transform-origin:0 0; will-change:transform; cursor:grab;
+  -webkit-user-select:none; user-select:none;
+}
+#camshot img.dragging{ cursor:grabbing }
+#camzoom{
+  position:absolute; right:.5rem; bottom:.5rem; pointer-events:none;
+  font:600 .68rem 'JetBrains Mono',monospace; color:var(--text);
+  background:rgba(4,7,12,.72); border:1px solid var(--border);
+  border-radius:6px; padding:.15rem .4rem;
+}
+#camshot button[aria-pressed="true"]{
+  border-color:var(--accent-hi); color:var(--accent-hi);
+  background:rgba(58,123,213,.16);
+}
+#camshot button[disabled]{ opacity:.4; cursor:default }
+/* Landscape on a phone is all width and no height: the standing note is the
+   first thing that can go, and the buttons are the last. */
+#camfull .lbl-short{ display:none }
+@media (max-height:480px){
+  #camshot{ padding:.5rem }
+  #camshot .camnote{ display:none }
+  #camshot img{ max-height:calc(100dvh - 4.5rem) }
+  /* Landscape is all width and no height, so the controls have to stay on
+     one line or they eat the picture they are there to operate. */
+  #camshot .camhead{ gap:.35rem }
+  #camshot button{ font-size:.68rem; padding:.3rem .5rem; border-radius:6px }
+  #camshot .camname{ font-size:.8rem }
+  #camshot .camwhen{ font-size:.62rem }
+  #camfull .lbl-long{ display:none }
+  #camfull .lbl-short{ display:inline }
 }
 #camshot .camhead{
-  display:flex; align-items:baseline; gap:.7rem; flex-wrap:wrap;
+  display:flex; align-items:baseline; gap:.5rem; flex-wrap:wrap;
   max-width:min(100%,1600px); width:100%;
 }
 #camshot .camname{font:700 .95rem 'DM Sans',sans-serif; color:var(--text)}
@@ -935,17 +982,29 @@ body.tk-on #wxbanner{ top:calc(.6rem + var(--tk-h)) }
 </div>
 
 <div id="camshot" hidden role="dialog" aria-modal="true" aria-label="Traffic camera">
+ <div class="caminner">
   <div class="camhead">
     <span class="camname" id="camname"></span>
     <span class="camwhen" id="camwhen"></span>
     <span class="camspacer"></span>
-    <button id="camrefresh">Refresh</button>
-    <button id="camclose" aria-label="Close">Close</button>
+    <button id="camprev" title="Nearest camera west (←)" aria-label="Previous camera">‹</button>
+    <button id="camnext" title="Nearest camera east (→)" aria-label="Next camera">›</button>
+    <button id="camlive" title="Reload every five seconds (L)" aria-pressed="false">Live</button>
+    <button id="camrefresh" title="Fetch a new frame (R)">Refresh</button>
+    <button id="camfit" title="Reset the zoom (0)" hidden>Fit</button>
+    <button id="camfull" title="Full screen (F)"><span class="lbl-long">Full screen</span><span class="lbl-short">Full</span></button>
+    <button id="cammap" title="Centre the map here">Map</button>
+    <button id="camclose" aria-label="Close" title="Close (Esc)">Close</button>
   </div>
-  <img id="camimg" alt="Live traffic camera still" />
+  <div id="camstage">
+    <img id="camimg" alt="Live traffic camera still" draggable="false" />
+    <span id="camzoom" hidden></span>
+  </div>
   <p class="camnote">The city serves these live and keeps nothing, and neither does this page.
+    Scroll or pinch to zoom, drag to pan, double-tap to snap back.
     A share of any grid will be dark, frozen, or pointed at a pole, and after sunset most of
     them tell you only whether headlights are moving.</p>
+ </div>
 </div>
 
 <div id="about">
@@ -2238,6 +2297,11 @@ const LAYERS = [
           : '';
         return {
           lat: c[1], lng: c[0], t: null, cat: 'Traffic camera', place: true,
+          /* Carried on the feature as well as in the popup markup, so the
+             lightbox can walk to the next camera down the road without
+             re-parsing its own HTML back out of the DOM. */
+          camUrl: r.screenshot_address || null,
+          camName: titleCase(r.location_name) || 'Traffic camera',
           html: pop('#d0d6e0', 'Traffic camera', titleCase(r.location_name), '', [
             ['District', r.council_district], ['Camera', r.camera_id]
           ], shot)
@@ -8439,13 +8503,24 @@ function dbgRender() {
    No canvas either — the images carry no CORS header, so drawing one into a
    canvas would taint it. An <img> does not need permission to be displayed,
    only to be read back, and nothing here reads it back. */
-const CAM = { url: null, name: '', n: 0 };
+const CAM = {
+  url: null, name: '', n: 0,
+  lat: null, lng: null,          // so the map button and the walk know where we are
+  live: null,                    // interval id while Live is on
+  z: 1, x: 0, y: 0,              // zoom and pan, applied as one transform
+  natW: 0, natH: 0
+};
+const CAM_LIVE_MS = 5000;
 
-function camOpen(url, name) {
+function camOpen(url, name, lat, lng) {
   CAM.url = url;
   CAM.name = name || 'Traffic camera';
+  CAM.lat = lat == null ? null : +lat;
+  CAM.lng = lng == null ? null : +lng;
   document.getElementById('camname').textContent = CAM.name;
   document.getElementById('camshot').hidden = false;
+  camZoomTo(1, 0, 0);
+  camWalkable();
   camLoad();
 }
 
@@ -8462,31 +8537,235 @@ function camLoad() {
   img.src = CAM.url + (CAM.url.includes('?') ? '&' : '?')
           + 't=' + Date.now() + '_' + (++CAM.n);
   img.onload = () => {
+    CAM.natW = img.naturalWidth; CAM.natH = img.naturalHeight;
     /* "fetched", not "captured" — the city publishes no capture time, and
        the gap between the two is exactly the thing someone looking at a
        wreck would want to be sure about. Saying only what is known. */
     when.textContent = 'fetched ' + new Date().toLocaleTimeString([], {
       hour: 'numeric', minute: '2-digit', second: '2-digit' })
-      + ' \u00b7 ' + img.naturalWidth + '\u00d7' + img.naturalHeight;
+      + ' \u00b7 ' + img.naturalWidth + '\u00d7' + img.naturalHeight
+      + (CAM.live ? ' \u00b7 live' : '');
   };
-  img.onerror = () => { when.textContent = 'that camera did not answer'; };
+  img.onerror = () => {
+    when.textContent = CAM.live
+      ? 'that camera did not answer \u2014 still trying'
+      : 'that camera did not answer';
+  };
+}
+
+/* ── Zoom and pan ──────────────────────────────────────────────────
+   One transform on the <img>, never a canvas: these stills carry no CORS
+   header, so drawing one into a canvas taints it and nothing can be read
+   back out. Displaying is free; reading is not, and nothing here reads. */
+function camZoomTo(z, x, y) {
+  CAM.z = Math.min(8, Math.max(1, z));
+  if (CAM.z === 1) { CAM.x = 0; CAM.y = 0; }
+  else { CAM.x = x; CAM.y = y; camClampPan(); }
+  const img = document.getElementById('camimg');
+  img.style.transform = 'translate(' + CAM.x + 'px,' + CAM.y + 'px) scale(' + CAM.z + ')';
+  const tag = document.getElementById('camzoom');
+  tag.hidden = CAM.z === 1;
+  tag.textContent = CAM.z.toFixed(1) + '\u00d7';
+  document.getElementById('camfit').hidden = CAM.z === 1;
+}
+
+/* Panning stops at the edges of the picture. Without this a hard drag
+   flings the frame off the stage and leaves you looking at the backdrop
+   with no way back but the Fit button. */
+function camClampPan() {
+  const img = document.getElementById('camimg');
+  const w = img.clientWidth, h = img.clientHeight;
+  const maxX = 0, minX = w - w * CAM.z;
+  const maxY = 0, minY = h - h * CAM.z;
+  CAM.x = Math.min(maxX, Math.max(minX, CAM.x));
+  CAM.y = Math.min(maxY, Math.max(minY, CAM.y));
+}
+
+/* Zoom about a point, so the pixel under the cursor or the pinch stays
+   under it. Zooming about the corner is what makes a viewer feel broken. */
+function camZoomAt(px, py, factor) {
+  const z0 = CAM.z, z1 = Math.min(8, Math.max(1, z0 * factor));
+  if (z1 === z0) return;
+  const k = z1 / z0;
+  camZoomTo(z1, px - (px - CAM.x) * k, py - (py - CAM.y) * k);
+}
+
+/* ── Walking to the next camera ────────────────────────────────────
+   The city has 819 of these and they sit along corridors, so the useful
+   move after looking at one is to look at the next one down the road.
+   Ordered west to east, which on a grid is the direction a road runs more
+   often than not, and the arrow keys then mean what they look like. */
+function camNeighbours() {
+  const all = (state.data['cameras'] || []).filter(f => f.camUrl);
+  all.sort((a, b) => a.lng - b.lng || a.lat - b.lat);
+  const i = all.findIndex(f => f.camUrl === CAM.url);
+  return { all: all, i: i };
+}
+function camWalk(step) {
+  const { all, i } = camNeighbours();
+  if (i < 0 || !all.length) return;
+  const n = all[Math.min(all.length - 1, Math.max(0, i + step))];
+  if (!n || n.camUrl === CAM.url) return;
+  CAM.url = n.camUrl; CAM.name = n.camName; CAM.lat = n.lat; CAM.lng = n.lng;
+  document.getElementById('camname').textContent = CAM.name;
+  camZoomTo(1, 0, 0);
+  camWalkable();
+  camLoad();
+}
+function camWalkable() {
+  const { all, i } = camNeighbours();
+  const off = i < 0 || all.length < 2;
+  document.getElementById('camprev').disabled = off || i <= 0;
+  document.getElementById('camnext').disabled = off || i >= all.length - 1;
+}
+
+/* ── Live ──────────────────────────────────────────────────────────
+   A refresh on a timer, not a recording: each frame replaces the last and
+   none of them is kept. See the note at the top of this section for why
+   that distinction is the whole design. */
+function camLiveSet(on) {
+  clearInterval(CAM.live);
+  CAM.live = on ? setInterval(camLoad, CAM_LIVE_MS) : null;
+  const b = document.getElementById('camlive');
+  b.setAttribute('aria-pressed', on ? 'true' : 'false');
+  b.textContent = on ? 'Live \u00b7 on' : 'Live';
+  if (on) camLoad();
 }
 
 function camClose() {
+  camLiveSet(false);
+  if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
   document.getElementById('camshot').hidden = true;
   // Dropped rather than left in the tag, so a closed lightbox is not quietly
   // holding a picture of a street.
   document.getElementById('camimg').removeAttribute('src');
   CAM.url = null;
+  camZoomTo(1, 0, 0);
 }
 
 document.getElementById('camrefresh').onclick = camLoad;
 document.getElementById('camclose').onclick = camClose;
+document.getElementById('camprev').onclick = () => camWalk(-1);
+document.getElementById('camnext').onclick = () => camWalk(1);
+document.getElementById('camfit').onclick = () => camZoomTo(1, 0, 0);
+document.getElementById('camlive').onclick = () => camLiveSet(!CAM.live);
+document.getElementById('camfull').onclick = () => {
+  const el = document.getElementById('camshot');
+  if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+  else if (el.requestFullscreen) el.requestFullscreen().catch(() => {});
+};
+document.getElementById('cammap').onclick = () => {
+  if (CAM.lat == null) return;
+  const to = [CAM.lat, CAM.lng];
+  camClose();
+  map.setView(to, Math.max(map.getZoom(), 16));
+};
+/* The backdrop closes it, but only the backdrop: a click that started as a
+   drag on the picture must not count, or every pan that ends past the edge
+   of the frame shuts the window. */
 document.getElementById('camshot').addEventListener('click', e => {
-  if (e.target.id === 'camshot') camClose();      // the backdrop closes it
+  if (e.target.id === 'camshot' && !CAM._dragged) camClose();
 });
+
+/* ── Gestures on the still ─────────────────────────────────────────
+   Pointer events rather than mouse+touch, so one code path covers a
+   trackpad, a mouse and two fingers on a phone. */
+(function camGestures() {
+  const stage = document.getElementById('camstage');
+  const img = document.getElementById('camimg');
+  const pts = new Map();
+  let last = null, pinch0 = 0, z0 = 1, tapAt = 0;
+
+  const local = e => {
+    const r = img.getBoundingClientRect();
+    return { x: e.clientX - r.left, y: e.clientY - r.top };
+  };
+
+  stage.addEventListener('pointerdown', e => {
+    if (e.target !== img) return;
+    pts.set(e.pointerId, e);
+    img.setPointerCapture(e.pointerId);
+    CAM._dragged = false;
+    if (pts.size === 2) {
+      const [a, b] = [...pts.values()];
+      pinch0 = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+      z0 = CAM.z;
+    } else {
+      last = { x: e.clientX, y: e.clientY };
+      img.classList.add('dragging');
+    }
+  });
+
+  stage.addEventListener('pointermove', e => {
+    if (!pts.has(e.pointerId)) return;
+    pts.set(e.pointerId, e);
+    if (pts.size === 2) {
+      const [a, b] = [...pts.values()];
+      const d = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+      if (pinch0 > 0) {
+        const r = img.getBoundingClientRect();
+        const mx = (a.clientX + b.clientX) / 2 - r.left;
+        const my = (a.clientY + b.clientY) / 2 - r.top;
+        camZoomAt(mx, my, (d / pinch0) * (z0 / CAM.z));
+      }
+      CAM._dragged = true;
+      return;
+    }
+    if (!last || CAM.z === 1) return;      // nothing to pan at 1x
+    const dx = e.clientX - last.x, dy = e.clientY - last.y;
+    if (Math.abs(dx) + Math.abs(dy) > 3) CAM._dragged = true;
+    last = { x: e.clientX, y: e.clientY };
+    camZoomTo(CAM.z, CAM.x + dx, CAM.y + dy);
+  });
+
+  const release = e => {
+    pts.delete(e.pointerId);
+    if (pts.size < 2) pinch0 = 0;
+    if (!pts.size) { last = null; img.classList.remove('dragging'); }
+  };
+  stage.addEventListener('pointerup', release);
+  stage.addEventListener('pointercancel', release);
+
+  /* Wheel zooms rather than scrolling the dialog behind it. Passive:false
+     because preventDefault is the whole point. */
+  stage.addEventListener('wheel', e => {
+    if (e.target !== img) return;
+    e.preventDefault();
+    const p = local(e);
+    camZoomAt(p.x, p.y, e.deltaY < 0 ? 1.18 : 1 / 1.18);
+  }, { passive: false });
+
+  /* Double click and double tap both snap between fit and 2.5x at the
+     point you aimed at. dblclick does not fire reliably on iOS, so the
+     tap interval is measured here too. */
+  const snap = (px, py) => {
+    if (CAM.z > 1) camZoomTo(1, 0, 0);
+    else camZoomAt(px, py, 2.5);
+  };
+  img.addEventListener('dblclick', e => { e.preventDefault(); const p = local(e); snap(p.x, p.y); });
+  img.addEventListener('pointerup', e => {
+    const now = Date.now();
+    if (now - tapAt < 300 && !CAM._dragged) { const p = local(e); snap(p.x, p.y); tapAt = 0; }
+    else tapAt = now;
+  });
+})();
+
 addEventListener('keydown', e => {
-  if (e.key === 'Escape' && !document.getElementById('camshot').hidden) camClose();
+  const box = document.getElementById('camshot');
+  if (box.hidden) return;
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const k = e.key;
+  if (k === 'Escape') return camClose();
+  if (k === 'ArrowLeft')  { e.preventDefault(); return camWalk(-1); }
+  if (k === 'ArrowRight') { e.preventDefault(); return camWalk(1); }
+  if (k === 'r' || k === 'R') return camLoad();
+  if (k === 'l' || k === 'L') return camLiveSet(!CAM.live);
+  if (k === '0') return camZoomTo(1, 0, 0);
+  if (k === 'f' || k === 'F') return document.getElementById('camfull').click();
+  const img = document.getElementById('camimg');
+  const cx = img.clientWidth / 2, cy = img.clientHeight / 2;
+  if (k === '+' || k === '=') { e.preventDefault(); return camZoomAt(cx, cy, 1.25); }
+  if (k === '-' || k === '_') { e.preventDefault(); return camZoomAt(cx, cy, 1 / 1.25); }
 });
 /* Delegated, because the popup that holds the thumbnail does not exist until
    Leaflet builds it and is thrown away when it closes. */
@@ -8494,7 +8773,12 @@ document.addEventListener('click', e => {
   const img = e.target.closest && e.target.closest('img.popcam');
   if (!img) return;
   e.preventDefault();
-  camOpen(img.dataset.cam, img.dataset.camname);
+  /* The thumbnail knows its URL and its name but not where it stands, and
+     the lightbox needs that for the Map button and for working out which
+     camera is next along the road. Looked up rather than added to the
+     markup: the feature is already loaded and holds the real coordinates. */
+  const f = (state.data['cameras'] || []).find(c => c.camUrl === img.dataset.cam);
+  camOpen(img.dataset.cam, img.dataset.camname, f && f.lat, f && f.lng);
 });
 /* The city's image host (cctv.austinmobility.io) is a CloudFront
    distribution that refuses traffic from outside the United States — the
