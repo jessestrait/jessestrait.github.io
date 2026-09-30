@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 85,
-  "dispatch_only": 69,
+  "dispatch": 86,
+  "dispatch_only": 70,
   "here": 0,
   "here_matched": 0,
   "matched": 18,
-  "tomtom": 742,
-  "tomtom_only": 729
+  "tomtom": 777,
+  "tomtom_only": 764
  },
  "date": "2026-09-30",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.8,
   "median": 115.8,
   "min": 10.8,
-  "n": 67,
-  "q1": 67.3,
+  "n": 68,
+  "q1": 68.0,
   "q3": 117.6
  },
  "here_onset_offset_min": {
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 9,
-   "n": 66,
-   "pct": 13.6
+   "n": 67,
+   "pct": 13.4
   },
   "tomtom_highway": {
    "matched": 8,
-   "n": 399,
-   "pct": 2.0
+   "n": 415,
+   "pct": 1.9
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 343,
-   "pct": 1.5
+   "n": 362,
+   "pct": 1.4
   }
  },
  "matcher": {
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 144,
-  "hotspot_buckets": 694,
-  "hotspot_buckets_on_roadworks": 142,
-  "txdot_rows": 10,
-  "unreported_congestion": 709
+  "explained_by_roadworks": 149,
+  "hotspot_buckets": 727,
+  "hotspot_buckets_on_roadworks": 147,
+  "txdot_rows": 11,
+  "unreported_congestion": 744
  },
  "sampling": {
   "flow_spent_this_month": 2376,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 302,
+  "incidents_spent_this_month": 303,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,6 +160,27 @@
    "seg": "30.337,-97.696"
   },
   {
+   "from": "E Slaughter Ln (Bluff Springs Rd/Old Lockhart Rd)",
+   "hour_of_week": 59,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.158,-97.769"
+  },
+  {
+   "from": "W Oltorf St (S Lamar Blvd)",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.257,-97.761"
+  },
+  {
+   "from": "TX-212 Loop (US-290)",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.349,-97.551"
+  },
+  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
@@ -193,38 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "New Hope Dr (Whitestone Blvd)",
-   "hour_of_week": 45,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.514,-97.853"
-  },
-  {
-   "from": "US-183/N Bell Blvd (Whitestone Blvd)",
-   "hour_of_week": 44,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.515,-97.848"
-  },
-  {
-   "from": "N Lakeline Blvd",
-   "hour_of_week": 44,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.504,-97.850"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.2,
-  "tomtom": 98.2
+  "dispatch": 81.4,
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 85,
-  "neither": 69,
+  "n": 86,
+  "neither": 70,
   "tomtom_only": 16
  }
 }
