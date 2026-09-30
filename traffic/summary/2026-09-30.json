@@ -14,18 +14,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 22,
-  "tomtom": 988,
-  "tomtom_only": 972
+  "tomtom": 1021,
+  "tomtom_only": 1005
  },
  "date": "2026-09-30",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 115.9,
+  "median": 116.0,
   "min": 10.8,
-  "n": 71,
-  "q1": 69.9,
-  "q3": 117.6
+  "n": 73,
+  "q1": 72.6,
+  "q3": 117.7
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 11,
-   "n": 526,
-   "pct": 2.1
+   "n": 541,
+   "pct": 2.0
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 462,
-   "pct": 1.1
+   "n": 480,
+   "pct": 1.0
   }
  },
  "matcher": {
@@ -69,8 +69,8 @@
  "persistence_min": {
   "max": 0.0,
   "median": 0.0,
-  "min": 0.0,
-  "n": 9,
+  "min": -10.5,
+  "n": 10,
   "q1": 0.0,
   "q3": 0.0
  },
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 172,
-  "hotspot_buckets": 912,
-  "hotspot_buckets_on_roadworks": 162,
+  "explained_by_roadworks": 174,
+  "hotspot_buckets": 938,
+  "hotspot_buckets_on_roadworks": 166,
   "txdot_rows": 11,
-  "unreported_congestion": 952
+  "unreported_congestion": 985
  },
  "sampling": {
   "flow_spent_this_month": 2394,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 309,
+  "incidents_spent_this_month": 310,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -209,11 +209,11 @@
    "seg": "30.349,-97.551"
   },
   {
-   "from": "Muirfield Bend Dr",
+   "from": "Mesa Dr (FM-2222)",
    "hour_of_week": 61,
    "n": 2,
    "roadworks": false,
-   "seg": "30.497,-97.584"
+   "seg": "30.338,-97.759"
   }
  ],
  "unmatched_pct": {
