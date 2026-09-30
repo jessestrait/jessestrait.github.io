@@ -13,9 +13,9 @@
   "dispatch_only": 119,
   "here": 0,
   "here_matched": 0,
-  "matched": 53,
-  "tomtom": 2283,
-  "tomtom_only": 2230
+  "matched": 54,
+  "tomtom": 2308,
+  "tomtom_only": 2252
  },
  "date": "2026-09-30",
  "dispatch_life_capped": false,
@@ -42,14 +42,14 @@
    "pct": 19.5
   },
   "tomtom_highway": {
-   "matched": 37,
-   "n": 1185,
-   "pct": 3.1
+   "matched": 38,
+   "n": 1198,
+   "pct": 3.2
   },
   "tomtom_surface": {
-   "matched": 16,
-   "n": 1098,
-   "pct": 1.5
+   "matched": 18,
+   "n": 1110,
+   "pct": 1.6
   }
  },
  "matcher": {
@@ -60,17 +60,17 @@
  },
  "onset_offset_min": {
   "max": 87.1,
-  "median": 5.7,
+  "median": 8.2,
   "min": -73.6,
-  "n": 53,
-  "q1": -20.4,
-  "q3": 36.4
+  "n": 54,
+  "q1": -19.9,
+  "q3": 38.0
  },
  "persistence_min": {
   "max": 36.1,
-  "median": -10.2,
+  "median": -7.8,
   "min": -1557.5,
-  "n": 37,
+  "n": 38,
   "q1": -36.2,
   "q3": 0.0
  },
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 344,
-  "hotspot_buckets": 2019,
-  "hotspot_buckets_on_roadworks": 310,
+  "explained_by_roadworks": 345,
+  "hotspot_buckets": 2038,
+  "hotspot_buckets_on_roadworks": 312,
   "txdot_rows": 9,
-  "unreported_congestion": 2207
+  "unreported_congestion": 2229
  },
  "sampling": {
   "flow_spent_this_month": 2547,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 331,
+  "incidents_spent_this_month": 332,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -202,23 +202,23 @@
    "seg": "30.266,-97.743"
   },
   {
+   "from": "Onion Creek Pkwy/Exit 225 (I-35)",
+   "hour_of_week": 68,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.083,-97.822"
+  },
+  {
    "from": "San Antonio St (2nd St)",
    "hour_of_week": 70,
    "n": 3,
    "roadworks": false,
    "seg": "30.265,-97.745"
-  },
-  {
-   "from": "Crestland Dr W",
-   "hour_of_week": 70,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.342,-97.716"
   }
  ],
  "unmatched_pct": {
   "dispatch": 76.8,
-  "tomtom": 97.7
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
