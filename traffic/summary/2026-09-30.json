@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 66,
-  "dispatch_only": 57,
+  "dispatch": 83,
+  "dispatch_only": 67,
   "here": 0,
   "here_matched": 0,
-  "matched": 9,
-  "tomtom": 407,
-  "tomtom_only": 400
+  "matched": 16,
+  "tomtom": 662,
+  "tomtom_only": 650
  },
  "date": "2026-09-30",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 115.9,
+  "median": 115.8,
   "min": 10.8,
-  "n": 62,
-  "q1": 69.2,
+  "n": 66,
+  "q1": 66.5,
   "q3": 117.6
  },
  "here_onset_offset_min": {
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 3,
-   "n": 12,
-   "pct": 25.0
+   "matched": 7,
+   "n": 19,
+   "pct": 36.8
   },
   "dispatch_surface": {
-   "matched": 6,
-   "n": 54,
-   "pct": 11.1
+   "matched": 9,
+   "n": 64,
+   "pct": 14.1
   },
   "tomtom_highway": {
-   "matched": 3,
-   "n": 210,
-   "pct": 1.4
+   "matched": 7,
+   "n": 355,
+   "pct": 2.0
   },
   "tomtom_surface": {
-   "matched": 4,
-   "n": 197,
-   "pct": 2.0
+   "matched": 5,
+   "n": 307,
+   "pct": 1.6
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 55.8,
-  "median": -16.2,
+  "max": 62.0,
+  "median": -4.9,
   "min": -73.6,
-  "n": 9,
-  "q1": -45.9,
-  "q3": 39.9
+  "n": 16,
+  "q1": -32.8,
+  "q3": 47.5
  },
  "persistence_min": {
   "max": 0.0,
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 104,
-  "hotspot_buckets": 373,
-  "hotspot_buckets_on_roadworks": 102,
-  "txdot_rows": 13,
-  "unreported_congestion": 383
+  "explained_by_roadworks": 133,
+  "hotspot_buckets": 617,
+  "hotspot_buckets_on_roadworks": 130,
+  "txdot_rows": 10,
+  "unreported_congestion": 630
  },
  "sampling": {
-  "flow_spent_this_month": 2367,
+  "flow_spent_this_month": 2376,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 299,
+  "incidents_spent_this_month": 300,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -107,7 +107,7 @@
    18
   ],
   "rush_min": 5,
-  "this_poll": "off-peak"
+  "this_poll": "rush"
  },
  "structural_hotspots": [
   {
@@ -167,6 +167,20 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "TX-275 Loop/S Congress Ave (Ben White Blvd)",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.226,-97.768"
+  },
+  {
+   "from": "Korman Dr",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.431,-97.673"
+  },
+  {
    "from": "New Hope Dr (Whitestone Blvd)",
    "hour_of_week": 45,
    "n": 1,
@@ -200,31 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.500,-97.815"
-  },
-  {
-   "from": "FM-2222/Bullick Hollow Rd (FM-620)",
-   "hour_of_week": 44,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.446,-97.832"
-  },
-  {
-   "from": "FM-3238/Hamilton Pool Rd (TX-71)",
-   "hour_of_week": 44,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.308,-97.952"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.4,
-  "tomtom": 98.3
+  "dispatch": 80.7,
+  "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 66,
-  "neither": 57,
-  "tomtom_only": 9
+  "n": 83,
+  "neither": 67,
+  "tomtom_only": 16
  }
 }
