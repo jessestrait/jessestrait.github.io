@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 155,
-  "dispatch_only": 119,
+  "dispatch": 157,
+  "dispatch_only": 120,
   "here": 0,
   "here_matched": 0,
-  "matched": 55,
-  "tomtom": 2346,
-  "tomtom_only": 2288
+  "matched": 56,
+  "tomtom": 2380,
+  "tomtom_only": 2319
  },
  "date": "2026-09-30",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.3,
+  "median": 116.4,
   "min": 8.3,
-  "n": 136,
-  "q1": 76.3,
+  "n": 137,
+  "q1": 76.4,
   "q3": 117.9
  },
  "here_onset_offset_min": {
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 12,
-   "n": 32,
-   "pct": 37.5
+   "n": 33,
+   "pct": 36.4
   },
   "dispatch_surface": {
-   "matched": 24,
-   "n": 123,
-   "pct": 19.5
+   "matched": 25,
+   "n": 124,
+   "pct": 20.2
   },
   "tomtom_highway": {
-   "matched": 40,
-   "n": 1219,
+   "matched": 41,
+   "n": 1233,
    "pct": 3.3
   },
   "tomtom_surface": {
-   "matched": 18,
-   "n": 1127,
-   "pct": 1.6
+   "matched": 20,
+   "n": 1147,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.1,
-  "median": 10.6,
-  "min": -73.6,
-  "n": 55,
-  "q1": -19.4,
-  "q3": 42.2
+  "median": 8.2,
+  "min": -89.6,
+  "n": 56,
+  "q1": -20.8,
+  "q3": 40.8
  },
  "persistence_min": {
   "max": 36.1,
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 360,
-  "hotspot_buckets": 2066,
-  "hotspot_buckets_on_roadworks": 323,
+  "explained_by_roadworks": 365,
+  "hotspot_buckets": 2089,
+  "hotspot_buckets_on_roadworks": 324,
   "txdot_rows": 9,
-  "unreported_congestion": 2265
+  "unreported_congestion": 2296
  },
  "sampling": {
-  "flow_spent_this_month": 2547,
+  "flow_spent_this_month": 2556,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 334,
+  "incidents_spent_this_month": 335,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -130,6 +130,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.354,-97.748"
+  },
+  {
+   "from": "Sandra Muraida Way",
+   "hour_of_week": 71,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.267,-97.755"
   },
   {
    "from": "S Lamar Blvd / W Ben White Blvd",
@@ -207,24 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.083,-97.822"
-  },
-  {
-   "from": "San Antonio St (2nd St)",
-   "hour_of_week": 70,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.265,-97.745"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.8,
-  "tomtom": 97.5
+  "dispatch": 76.4,
+  "tomtom": 97.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 155,
-  "neither": 119,
-  "tomtom_only": 36
+  "n": 157,
+  "neither": 120,
+  "tomtom_only": 37
  }
 }
