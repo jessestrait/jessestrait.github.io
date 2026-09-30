@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 22,
-  "tomtom": 1099,
-  "tomtom_only": 1083
+  "tomtom": 1130,
+  "tomtom_only": 1114
  },
  "date": "2026-09-30",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 11,
-   "n": 585,
-   "pct": 1.9
+   "n": 599,
+   "pct": 1.8
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 514,
-   "pct": 1.0
+   "n": 531,
+   "pct": 0.9
   }
  },
  "matcher": {
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 185,
-  "hotspot_buckets": 997,
+  "explained_by_roadworks": 184,
+  "hotspot_buckets": 1019,
   "hotspot_buckets_on_roadworks": 174,
   "txdot_rows": 11,
-  "unreported_congestion": 1063
+  "unreported_congestion": 1094
  },
  "sampling": {
   "flow_spent_this_month": 2403,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 312,
+  "incidents_spent_this_month": 313,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -113,7 +113,7 @@
   {
    "from": "Hyridge Dr",
    "hour_of_week": 61,
-   "n": 5,
+   "n": 6,
    "roadworks": false,
    "seg": "30.371,-97.742"
   },
@@ -123,6 +123,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.392,-97.747"
+  },
+  {
+   "from": "N Mo Pac Expy",
+   "hour_of_week": 61,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.354,-97.748"
   },
   {
    "from": "S Lamar Blvd / W Ben White Blvd",
@@ -136,7 +143,14 @@
    "hour_of_week": 61,
    "n": 3,
    "roadworks": false,
-   "seg": "30.354,-97.748"
+   "seg": "30.348,-97.750"
+  },
+  {
+   "from": "Newfield Ln",
+   "hour_of_week": 61,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.285,-97.763"
   },
   {
    "from": "E Pheasant Dr",
@@ -200,25 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.257,-97.761"
-  },
-  {
-   "from": "TX-212 Loop (US-290)",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.349,-97.551"
-  },
-  {
-   "from": "US-290/TX-290 Toll (Ed Bluestein Blvd)",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.332,-97.684"
   }
  ],
  "unmatched_pct": {
   "dispatch": 80.0,
-  "tomtom": 98.5
+  "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
