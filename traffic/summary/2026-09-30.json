@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 18,
-  "tomtom": 702,
-  "tomtom_only": 689
+  "tomtom": 742,
+  "tomtom_only": 729
  },
  "date": "2026-09-30",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 8,
-   "n": 376,
-   "pct": 2.1
+   "n": 399,
+   "pct": 2.0
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 326,
+   "n": 343,
    "pct": 1.5
   }
  },
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 141,
-  "hotspot_buckets": 657,
-  "hotspot_buckets_on_roadworks": 138,
+  "explained_by_roadworks": 144,
+  "hotspot_buckets": 694,
+  "hotspot_buckets_on_roadworks": 142,
   "txdot_rows": 10,
-  "unreported_congestion": 669
+  "unreported_congestion": 709
  },
  "sampling": {
   "flow_spent_this_month": 2376,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 301,
+  "incidents_spent_this_month": 302,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -132,11 +132,32 @@
    "seg": "30.141,-97.830"
   },
   {
-   "from": "TX-275 Loop/S Congress Ave (Ben White Blvd)",
+   "from": "W Slaughter Ln",
    "hour_of_week": 60,
    "n": 2,
    "roadworks": false,
-   "seg": "30.226,-97.768"
+   "seg": "30.218,-97.894"
+  },
+  {
+   "from": "Gattis School Rd (Greenlawn Blvd)",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.480,-97.661"
+  },
+  {
+   "from": "Frate Barker Rd (Manchaca Rd/FM-2304)",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.171,-97.825"
+  },
+  {
+   "from": "E Anderson Ln",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.337,-97.696"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -193,32 +214,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.504,-97.850"
-  },
-  {
-   "from": "Dies Ranch Rd",
-   "hour_of_week": 44,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.470,-97.845"
-  },
-  {
-   "from": "Lakeline Blvd (S Bell Blvd/US-183)",
-   "hour_of_week": 45,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.500,-97.815"
-  },
-  {
-   "from": "FM-2222/Bullick Hollow Rd (FM-620)",
-   "hour_of_week": 44,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.446,-97.832"
   }
  ],
  "unmatched_pct": {
   "dispatch": 81.2,
-  "tomtom": 98.1
+  "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
