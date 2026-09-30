@@ -24,6 +24,9 @@
   --bg:#080c14; --surface:#0f1623; --surface2:#131c2c; --border:#1e2a3a;
   --text:#e8eef8; --muted:#7a8fa8; --accent:#3a7bd5; --accent-hi:#5a9bf5;
   --panel-w:340px;
+  /* The ticker's height, read by the ticker itself and by anything that
+     has to sit clear of it. One number, one place. */
+  --tk-h:34px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
@@ -181,7 +184,7 @@ label.mini{font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; col
 
 /* ── Weather alerts ──────────────────────────────────── */
 #wxbanner{
-  position:absolute; top:.6rem; left:50%; transform:translateX(-50%); z-index:1150;
+  position:absolute; top:.6rem; left:50%; transform:translateX(-50%); z-index:1190;
   width:min(560px, calc(100% - 2.5rem)); text-align:left; cursor:pointer;
   background:rgba(28,10,14,.94); border:1px solid #ff4d4d; border-left-width:4px;
   border-radius:10px; padding:.55rem .8rem; color:var(--text); font:inherit;
@@ -355,7 +358,7 @@ dl.mecard a{color:var(--accent-hi)}
      phone it lands in the home-indicator strip, where it is both clipped and
      competing with the Layers button; up here it is the first thing under the
      wordmark and nothing else wants the space. */
-  position:fixed; left:var(--panel-w); right:0; top:56px; height:34px; z-index:1180;
+  position:fixed; left:var(--panel-w); right:0; top:56px; height:var(--tk-h); z-index:1180;
   display:flex; align-items:stretch;
   background:linear-gradient(90deg,rgba(8,12,20,.97),rgba(12,18,30,.94));
   border-bottom:1px solid #24405f;
@@ -434,6 +437,10 @@ dl.mecard a{color:var(--accent-hi)}
   color:var(--muted); text-align:left; width:100%;
 }
 .popcam{cursor:zoom-in; display:block}
+.camdown{
+  margin-top:.5rem; padding:.5rem .6rem; border-radius:7px; font-size:.72rem;
+  color:var(--muted); background:var(--surface2); border:1px solid var(--border);
+}
 
 /* Twelve hours as twelve columns. Bars rather than a line because the
    question is "which hour", not "what shape" — you read down to a column
@@ -545,12 +552,18 @@ dl.mecard a{color:var(--accent-hi)}
   -webkit-tap-highlight-color:transparent;
 }
 #ticker .tk-off:hover{ color:var(--text) }
-/* The weather banner floats at the top of the map, which is now where this is. */
-body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
+/* The weather banner floats at the top of the map, which is now where the
+   ticker is too. Both read the same height, so the banner cannot end up
+   underneath the ticker when that height changes — which is what a phone
+   was doing, and why the alert was the one thing on the page you could not
+   read. The banner also outranks the ticker now: a flood watch beats a
+   scrolling headline for the same eight pixels. */
+body.tk-on #wxbanner{ top:calc(.6rem + var(--tk-h)) }
 @media (max-width:820px){
+  :root{ --tk-h:40px }
   /* Taller and larger on a phone: at 30px and .68rem it was unreadable at arm's
      length, which on a phone is the only length. */
-  #ticker{ left:0; height:40px }
+  #ticker{ left:0 }
   /* On a narrow screen the wordmark and the temperature cannot both have the
      rail. The temperature is information; ATX WIRE is decoration. */
   #ticker .tk-tag{ display:none }
@@ -560,7 +573,7 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
   #ticker .tk-go{ font-size:.66rem; padding:.18rem .45rem }
   #ticker .tk-tag{ font-size:.62rem; padding:0 .6rem; letter-spacing:.12em }
   #ticker .tk-off{ width:40px; font-size:1.25rem }
-  body.tk-on #wxbanner{ top:calc(.5rem + 40px) }
+  body.tk-on #wxbanner{ top:calc(.5rem + var(--tk-h)) }
 }
 @media (prefers-reduced-motion:reduce){
   /* Scrolling text is genuinely a problem for some people. Keep the
@@ -583,6 +596,14 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
 }
 .leaflet-popup-tip{background:var(--surface); border:1px solid var(--border)}
 .leaflet-popup-content{margin:.85rem .95rem; font-size:.8rem; line-height:1.5; max-height:60vh; overflow:auto}
+/* On a phone 60vh is not a cap, it is a wish: a marker sits near the middle
+   of the screen and the popup opens upward from it, so anything over about
+   400 px has its top — the tag and the name of the thing you tapped — cut
+   off above the viewport, and Leaflet's autoPan cannot save it. Measured on
+   a 375x812 screen: at 60vh the repeat-offender popup was 471 px tall and
+   started 50 px off the top; at 42vh it is 372 px, starts at 49, and scrolls
+   the overflow like it was always supposed to. */
+@media (max-width:480px){ .leaflet-popup-content{ max-height:42vh } }
 .leaflet-popup-close-button{color:var(--muted)!important}
 .pop .tag{
   display:inline-block; font-size:.6rem; letter-spacing:.16em; text-transform:uppercase;
@@ -594,6 +615,16 @@ body.tk-on #wxbanner{ top:calc(.6rem + 34px) }
 .pop dd{font-size:.74rem; word-break:break-word}
 .pop img{width:100%; border-radius:7px; margin-top:.5rem; border:1px solid var(--border); display:block}
 .pop .when{color:var(--muted); font-size:.68rem; font-family:'JetBrains Mono',monospace}
+/* The violation cases behind a repeat-offender dot. The popup already
+   scrolls at 60vh, so a long list is allowed to be long. */
+.pop .cases{margin-top:.55rem; border-top:1px solid var(--border); padding-top:.45rem}
+.pop .cases b{font-size:.7rem; color:var(--muted); font-weight:600; letter-spacing:.04em}
+.pop .cases ol{list-style:none; margin:.35rem 0 0; padding:0; display:grid; gap:3px}
+.pop .cases li{display:flex; gap:.55rem; align-items:baseline; font-size:.72rem}
+.pop .cases time{color:var(--muted); font-family:'JetBrains Mono',monospace; font-size:.66rem; white-space:nowrap}
+.pop .cases a{color:var(--accent); text-decoration:none; border-bottom:1px solid transparent}
+.pop .cases a:hover, .pop .cases a:focus-visible{border-bottom-color:currentColor}
+.pop .cases .more{color:var(--muted); font-size:.66rem; margin-top:.3rem}
 .marker-cluster{background:rgba(58,123,213,.28)!important; border-radius:50%}
 .marker-cluster div{
   background:rgba(58,123,213,.85)!important; color:#fff!important;
@@ -1372,6 +1403,34 @@ function pop(color, tag, title, when, rows, extra) {
     + (extra || '') + '</div>';
 }
 
+/* The dated violation cases behind one repeat-offender property, newest
+   first, each linking to the city's own record of the notice. Shows six
+   and says how many more there are: the worst address has 215 and a
+   popup is not a case file. */
+function caseList(list) {
+  if (!list || !list.length) return '';
+  const SHOW = 6;
+  const li = list.slice(0, SHOW).map(c => {
+    const d = c.violation_case_date ? new Date(c.violation_case_date) : null;
+    const when = d && !isNaN(d)
+      ? d.toLocaleDateString([], { year: 'numeric', month: 'short', day: 'numeric' })
+      : '';
+    const url = c.violation_case_link && c.violation_case_link.url;
+    const num = c.violation_case_number || 'Case';
+    return '<li><time>' + esc(when) + '</time>'
+      + (url
+          ? '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(num) + '</a>'
+          : '<span>' + esc(num) + '</span>')
+      + '</li>';
+  }).join('');
+  const rest = list.length - SHOW;
+  return '<div class="cases"><b>' + list.length.toLocaleString()
+    + (list.length === 1 ? ' violation case' : ' violation cases') + '</b>'
+    + '<ol>' + li + '</ol>'
+    + (rest > 0 ? '<div class="more">and ' + rest.toLocaleString() + ' older</div>' : '')
+    + '</div>';
+}
+
 /* ══════════════════════════════════════════════════════════════════
    Layer definitions
    Each load() resolves to: {lat,lng,t,cat,live,html}
@@ -2083,7 +2142,7 @@ const LAYERS = [
     }
   },
   {
-    id: 'stations', group: 'places', color: '#ff6b3d', on: false,
+    id: 'stations', group: 'places', color: '#ff6b3d', on: true,
     name: 'Fire stations', note: '167 AFD and partner stations',
     async load() {
       const rows = await soda('i8r8-6nhk', {
@@ -2164,7 +2223,15 @@ const LAYERS = [
         // The thumbnail is the handle, not the picture: tapping it opens the
         // frame at something closer to the size it was sent at.
         const shot = r.screenshot_address
-          ? '<img class="popcam" loading="lazy" alt="Live still \u2014 tap to enlarge"'
+          /* Not loading="lazy". The element does not exist until the popup
+             is opened, so lazy buys nothing — and inside a popup the
+             browser never decides it is near enough the viewport to
+             start, so the request is never made: no picture, and no
+             error either, just a blank box that looks like a slow feed.
+             Measured: complete=false, naturalWidth=0, no error event,
+             for ever. Eager loads it, and fails loudly when the city's
+             host is refusing, which is what the handler below is for. */
+          ? '<img class="popcam" alt="Live still \u2014 tap to enlarge"'
             + ' data-cam="' + esc(r.screenshot_address) + '"'
             + ' data-camname="' + esc(titleCase(r.location_name) || 'Traffic camera') + '"'
             + ' src="' + esc(r.screenshot_address) + '?t=' + Date.now() + '">'
@@ -2197,9 +2264,34 @@ const LAYERS = [
       const rows = await soda('86z9-i27i', {
         '$select': 'establishmentname,propertyname,owner,status,foldersubtype,issuedate,'
                  + 'numberofunits,activeviolations,totalviolations,outstandingamount,foldername,'
-                 + 'councildistrict,location_1',
+                 + 'councildistrict,parcelid,location_1',
         '$limit': 500
       });
+      /* The violation cases behind each registration, joined on the parcel.
+
+         Deliberately folded into these popups rather than given a layer
+         of their own: all 3,026 cases sit on the same 80 coordinates as
+         the properties, so a second dot layer would stack 27 markers on
+         the median address and 215 on the worst — and on stacked panes
+         only the top canvas gets the click, which would leave one of the
+         two layers silently untappable. One dot, openable into the
+         notices, is the honest shape for this data.
+
+         parcelid joins 80 of 80 in both directions. A case list that
+         fails to load must not take the property layer down with it. */
+      let cases = new Map();
+      try {
+        const cs = await soda('cdze-ufp8', {
+          '$select': 'parcelid,violation_case_number,violation_case_date,violation_case_link',
+          '$order': 'violation_case_date DESC', '$limit': 5000
+        });
+        for (const c of cs) {
+          if (!c.parcelid) continue;
+          if (!cases.has(c.parcelid)) cases.set(c.parcelid, []);
+          cases.get(c.parcelid).push(c);
+        }
+      } catch (e) { cases = new Map(); }
+
       /* Sorted here rather than in the query. These are TEXT columns, so
          Socrata orders them lexicographically — "99" above "171" — and
          puts the rows missing the field first, which is how the property
@@ -2244,7 +2336,7 @@ const LAYERS = [
             ['Owner', titleCase(r.owner)],
             ['Fees outstanding', owed === null ? null : money(owed)],
             ['Council district', r.councildistrict]
-          ])
+          ], caseList(cases.get(r.parcelid)))
         };
       }).filter(Boolean);
     }
@@ -3222,7 +3314,14 @@ function markerFor(f, l, pane, renderer) {
         layerRef: l
       }, opts))
     : L.circleMarker([f.lat, f.lng], opts);
-  m.bindPopup(f.html, { maxWidth: 300, minWidth: 220 });
+  /* A camera still is the content of its popup, so it gets the wider box —
+     300 px made the picture smaller than the dead space around it. Capped
+     against the viewport so a phone does not get a popup wider than itself. */
+  const wide = typeof f.html === 'string' && f.html.indexOf('popcam') !== -1;
+  m.bindPopup(f.html, {
+    maxWidth: wide ? Math.max(300, Math.min(420, window.innerWidth - 44)) : 300,
+    minWidth: 220
+  });
   return m;
 }
 
@@ -8397,6 +8496,21 @@ document.addEventListener('click', e => {
   e.preventDefault();
   camOpen(img.dataset.cam, img.dataset.camname);
 });
+/* The city's image host (cctv.austinmobility.io) answers 403 for whole
+   stretches at a time — CloudFront's own block page, for every path
+   including the root, and the open-data record still publishes these URLs.
+   Nothing here can reach past that, so say so: a broken-image box reads as
+   a bug in this page, and a sentence reads as what it actually is.
+
+   Capture phase, because `error` does not bubble. */
+document.addEventListener('error', e => {
+  const img = e.target;
+  if (!img || img.tagName !== 'IMG' || !img.classList.contains('popcam')) return;
+  const said = document.createElement('div');
+  said.className = 'camdown';
+  said.textContent = 'The city\u2019s camera feed is not answering right now.';
+  img.replaceWith(said);
+}, true);
 
 document.getElementById('sharebtn').onclick = copyLink;
 map.on('moveend zoomend', saveUrl);
