@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 86,
-  "dispatch_only": 70,
+  "dispatch": 87,
+  "dispatch_only": 71,
   "here": 0,
   "here_matched": 0,
   "matched": 18,
-  "tomtom": 777,
-  "tomtom_only": 764
+  "tomtom": 815,
+  "tomtom_only": 802
  },
  "date": "2026-09-30",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.8,
   "median": 115.8,
   "min": 10.8,
-  "n": 68,
-  "q1": 68.0,
+  "n": 70,
+  "q1": 69.2,
   "q3": 117.6
  },
  "here_onset_offset_min": {
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 9,
-   "n": 67,
-   "pct": 13.4
+   "n": 68,
+   "pct": 13.2
   },
   "tomtom_highway": {
    "matched": 8,
-   "n": 415,
-   "pct": 1.9
+   "n": 435,
+   "pct": 1.8
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 362,
-   "pct": 1.4
+   "n": 380,
+   "pct": 1.3
   }
  },
  "matcher": {
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 149,
-  "hotspot_buckets": 727,
-  "hotspot_buckets_on_roadworks": 147,
+  "explained_by_roadworks": 151,
+  "hotspot_buckets": 764,
+  "hotspot_buckets_on_roadworks": 149,
   "txdot_rows": 11,
-  "unreported_congestion": 744
+  "unreported_congestion": 782
  },
  "sampling": {
-  "flow_spent_this_month": 2376,
+  "flow_spent_this_month": 2385,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 303,
+  "incidents_spent_this_month": 304,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,6 +160,13 @@
    "seg": "30.337,-97.696"
   },
   {
+   "from": "TX-275 Loop/S Congress Ave (Ben White Blvd)",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.226,-97.768"
+  },
+  {
    "from": "E Slaughter Ln (Bluff Springs Rd/Old Lockhart Rd)",
    "hour_of_week": 59,
    "n": 2,
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.616"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.4,
-  "tomtom": 98.3
+  "dispatch": 81.6,
+  "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 86,
-  "neither": 70,
+  "n": 87,
+  "neither": 71,
   "tomtom_only": 16
  }
 }
