@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 57,
-  "dispatch_only": 46,
+  "dispatch": 59,
+  "dispatch_only": 47,
   "here": 0,
   "here_matched": 0,
-  "matched": 12,
-  "tomtom": 698,
-  "tomtom_only": 687
+  "matched": 13,
+  "tomtom": 744,
+  "tomtom_only": 732
  },
  "date": "2026-10-01",
  "dispatch_life_capped": true,
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 0,
-   "n": 8,
+   "n": 9,
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 11,
-   "n": 49,
-   "pct": 22.4
+   "matched": 12,
+   "n": 50,
+   "pct": 24.0
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 303,
-   "pct": 1.7
+   "n": 324,
+   "pct": 1.5
   },
   "tomtom_surface": {
-   "matched": 6,
-   "n": 395,
-   "pct": 1.5
+   "matched": 7,
+   "n": 420,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 86.6,
-  "median": 14.3,
+  "median": 16.9,
   "min": -25.0,
-  "n": 12,
-  "q1": -15.7,
-  "q3": 54.9
+  "n": 13,
+  "q1": -13.9,
+  "q3": 67.2
  },
  "persistence_min": {
   "max": -35.7,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 99,
-  "hotspot_buckets": 622,
-  "hotspot_buckets_on_roadworks": 96,
+  "explained_by_roadworks": 105,
+  "hotspot_buckets": 662,
+  "hotspot_buckets_on_roadworks": 102,
   "txdot_rows": 8,
-  "unreported_congestion": 667
+  "unreported_congestion": 712
  },
  "sampling": {
-  "flow_spent_this_month": 108,
+  "flow_spent_this_month": 117,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 21,
+  "incidents_spent_this_month": 22,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -119,6 +119,13 @@
    "seg": "30.433,-97.653"
   },
   {
+   "from": "Buena Vista Ln",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.500,-97.624"
+  },
+  {
    "from": "Dessau Rd",
    "hour_of_week": 84,
    "n": 3,
@@ -131,6 +138,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.434,-97.611"
+  },
+  {
+   "from": "Braker Ln (US-183)",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.372,-97.724"
   },
   {
    "from": "Cross Park Dr (Cameron Rd)",
@@ -161,13 +175,6 @@
    "seg": "30.165,-97.729"
   },
   {
-   "from": "Heatherwilde Blvd (Red Bud Ln)",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.496,-97.613"
-  },
-  {
    "from": "Kenai Dr (W Parmer Ln/FM-734)",
    "hour_of_week": 84,
    "n": 2,
@@ -196,36 +203,29 @@
    "seg": "30.512,-97.774"
   },
   {
+   "from": "Springdale Rd (E Martin Luther King Jr Blvd)",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.283,-97.703"
+  },
+  {
    "from": "Spruce Gum Ln",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
    "seg": "30.183,-97.768"
-  },
-  {
-   "from": "Sandifer St",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.249,-97.597"
-  },
-  {
-   "from": "N Lakeline Blvd / S Lakeline Blvd",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.504,-97.850"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.7,
+  "dispatch": 79.7,
   "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 57,
-  "neither": 46,
-  "tomtom_only": 11
+  "n": 59,
+  "neither": 47,
+  "tomtom_only": 12
  }
 }
