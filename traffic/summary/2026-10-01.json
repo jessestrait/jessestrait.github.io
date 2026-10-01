@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 110, q3 118 min over 38 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 112, q3 118 min over 40 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 13,
-  "tomtom": 744,
-  "tomtom_only": 732
+  "tomtom": 767,
+  "tomtom_only": 755
  },
  "date": "2026-10-01",
  "dispatch_life_capped": true,
@@ -23,9 +23,9 @@
   "max": 120.0,
   "median": 116.6,
   "min": 13.2,
-  "n": 38,
-  "q1": 110.5,
-  "q3": 118.3
+  "n": 40,
+  "q1": 111.8,
+  "q3": 118.2
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 324,
+   "n": 335,
    "pct": 1.5
   },
   "tomtom_surface": {
    "matched": 7,
-   "n": 420,
-   "pct": 1.7
+   "n": 432,
+   "pct": 1.6
   }
  },
  "matcher": {
@@ -70,9 +70,9 @@
   "max": -35.7,
   "median": -96.8,
   "min": -101.9,
-  "n": 6,
-  "q1": -98.0,
-  "q3": -77.7,
+  "n": 7,
+  "q1": -96.8,
+  "q3": -61.5,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 105,
-  "hotspot_buckets": 662,
-  "hotspot_buckets_on_roadworks": 102,
+  "explained_by_roadworks": 107,
+  "hotspot_buckets": 686,
+  "hotspot_buckets_on_roadworks": 104,
   "txdot_rows": 8,
-  "unreported_congestion": 712
+  "unreported_congestion": 735
  },
  "sampling": {
   "flow_spent_this_month": 117,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 22,
+  "incidents_spent_this_month": 23,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -119,13 +119,6 @@
    "seg": "30.433,-97.653"
   },
   {
-   "from": "Buena Vista Ln",
-   "hour_of_week": 84,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.500,-97.624"
-  },
-  {
    "from": "Dessau Rd",
    "hour_of_week": 84,
    "n": 3,
@@ -140,11 +133,11 @@
    "seg": "30.434,-97.611"
   },
   {
-   "from": "Braker Ln (US-183)",
+   "from": "Pearce Ln (FM-973)",
    "hour_of_week": 84,
    "n": 3,
    "roadworks": false,
-   "seg": "30.372,-97.724"
+   "seg": "30.201,-97.640"
   },
   {
    "from": "Cross Park Dr (Cameron Rd)",
@@ -215,6 +208,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.183,-97.768"
+  },
+  {
+   "from": "TX-212 Loop (US-290)",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.349,-97.552"
   }
  ],
  "unmatched_pct": {
