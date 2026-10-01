@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 110,
-  "dispatch_only": 77,
+  "dispatch": 114,
+  "dispatch_only": 78,
   "here": 0,
   "here_matched": 0,
-  "matched": 41,
-  "tomtom": 1599,
-  "tomtom_only": 1557
+  "matched": 46,
+  "tomtom": 1653,
+  "tomtom_only": 1605
  },
  "date": "2026-10-01",
  "dispatch_life_capped": true,
@@ -32,23 +32,23 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 6,
-   "n": 18,
-   "pct": 33.3
+   "matched": 8,
+   "n": 20,
+   "pct": 40.0
   },
   "dispatch_surface": {
-   "matched": 27,
-   "n": 92,
-   "pct": 29.3
+   "matched": 28,
+   "n": 94,
+   "pct": 29.8
   },
   "tomtom_highway": {
-   "matched": 25,
-   "n": 704,
-   "pct": 3.6
+   "matched": 30,
+   "n": 729,
+   "pct": 4.1
   },
   "tomtom_surface": {
-   "matched": 17,
-   "n": 895,
+   "matched": 18,
+   "n": 924,
    "pct": 1.9
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 86.6,
-  "median": 2.3,
+  "median": 1.6,
   "min": -66.1,
-  "n": 41,
-  "q1": -21.6,
-  "q3": 22.1
+  "n": 46,
+  "q1": -21.5,
+  "q3": 19.8
  },
  "persistence_min": {
   "max": -15.2,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 183,
-  "hotspot_buckets": 1395,
-  "hotspot_buckets_on_roadworks": 171,
+  "explained_by_roadworks": 188,
+  "hotspot_buckets": 1434,
+  "hotspot_buckets_on_roadworks": 173,
   "txdot_rows": 8,
-  "unreported_congestion": 1499
+  "unreported_congestion": 1546
  },
  "sampling": {
-  "flow_spent_this_month": 225,
+  "flow_spent_this_month": 234,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 43,
+  "incidents_spent_this_month": 44,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -138,6 +138,20 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.201,-97.640"
+  },
+  {
+   "from": "Chicon St (E Cesar Chavez St/E 1st St)",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.253,-97.714"
+  },
+  {
+   "from": "W Ben White Blvd",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.223,-97.764"
   },
   {
    "from": "Cross Park Dr (Cameron Rd)",
@@ -201,31 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.512,-97.774"
-  },
-  {
-   "from": "Springdale Rd (E Martin Luther King Jr Blvd)",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.283,-97.703"
-  },
-  {
-   "from": "Spruce Gum Ln",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.183,-97.768"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 70.0,
-  "tomtom": 97.4
+  "dispatch": 68.4,
+  "tomtom": 97.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 110,
-  "neither": 77,
-  "tomtom_only": 33
+  "n": 114,
+  "neither": 78,
+  "tomtom_only": 36
  }
 }
