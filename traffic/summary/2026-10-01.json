@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 55,
-  "dispatch_only": 44,
+  "dispatch": 56,
+  "dispatch_only": 45,
   "here": 0,
   "here_matched": 0,
   "matched": 12,
-  "tomtom": 623,
-  "tomtom_only": 612
+  "tomtom": 661,
+  "tomtom_only": 650
  },
  "date": "2026-10-01",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 11,
-   "n": 47,
-   "pct": 23.4
+   "n": 48,
+   "pct": 22.9
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 270,
-   "pct": 1.9
+   "n": 290,
+   "pct": 1.7
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 353,
-   "pct": 1.7
+   "n": 371,
+   "pct": 1.6
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 96,
-  "hotspot_buckets": 560,
+  "hotspot_buckets": 590,
   "hotspot_buckets_on_roadworks": 92,
   "txdot_rows": 8,
-  "unreported_congestion": 592
+  "unreported_congestion": 630
  },
  "sampling": {
   "flow_spent_this_month": 108,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 19,
+  "incidents_spent_this_month": 20,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -114,7 +114,7 @@
   {
    "from": "Strathaven Pass",
    "hour_of_week": 84,
-   "n": 2,
+   "n": 3,
    "roadworks": false,
    "seg": "30.433,-97.653"
   },
@@ -133,18 +133,18 @@
    "seg": "30.520,-97.559"
   },
   {
-   "from": "US-183/E 7th St/Airport Blvd/Ed Bluestein Blvd (E 7th St)",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.255,-97.700"
-  },
-  {
    "from": "E William Cannon Dr / Springfield Dr",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
    "seg": "30.165,-97.729"
+  },
+  {
+   "from": "US-290/TX-212 Loop (FM-973)",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.341,-97.556"
   },
   {
    "from": "Kenai Dr (W Parmer Ln/FM-734)",
@@ -203,29 +203,29 @@
    "seg": "30.504,-97.850"
   },
   {
-   "from": "Buena Vista Ln",
+   "from": "Pearson Ranch Rd",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
-   "seg": "30.500,-97.624"
+   "seg": "30.495,-97.750"
   },
   {
-   "from": "Dessau Rd",
+   "from": "S A.W. Grimes Blvd",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
-   "seg": "30.422,-97.620"
+   "seg": "30.494,-97.657"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.0,
-  "tomtom": 98.2
+  "dispatch": 80.4,
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 55,
-  "neither": 44,
+  "n": 56,
+  "neither": 45,
   "tomtom_only": 11
  }
 }
