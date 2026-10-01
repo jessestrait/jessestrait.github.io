@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 49 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 51 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -14,17 +14,17 @@
   "here": 0,
   "here_matched": 0,
   "matched": 17,
-  "tomtom": 896,
-  "tomtom_only": 879
+  "tomtom": 922,
+  "tomtom_only": 905
  },
  "date": "2026-10-01",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 116.6,
+  "median": 116.7,
   "min": 13.2,
-  "n": 49,
-  "q1": 115.0,
+  "n": 51,
+  "q1": 115.1,
   "q3": 118.2
  },
  "here_onset_offset_min": {
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 10,
-   "n": 404,
-   "pct": 2.5
+   "n": 418,
+   "pct": 2.4
   },
   "tomtom_surface": {
    "matched": 7,
-   "n": 492,
+   "n": 504,
    "pct": 1.4
   }
  },
@@ -60,7 +60,7 @@
  },
  "onset_offset_min": {
   "max": 86.6,
-  "median": 10.2,
+  "median": 11.7,
   "min": -66.1,
   "n": 17,
   "q1": -20.3,
@@ -68,9 +68,9 @@
  },
  "persistence_min": {
   "max": -15.2,
-  "median": -76.6,
+  "median": -61.5,
   "min": -101.9,
-  "n": 10,
+  "n": 11,
   "q1": -96.8,
   "q3": -35.9,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 118,
-  "hotspot_buckets": 798,
+  "explained_by_roadworks": 119,
+  "hotspot_buckets": 819,
   "hotspot_buckets_on_roadworks": 111,
   "txdot_rows": 8,
-  "unreported_congestion": 859
+  "unreported_congestion": 885
  },
  "sampling": {
   "flow_spent_this_month": 135,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 30,
+  "incidents_spent_this_month": 31,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -140,6 +140,13 @@
    "seg": "30.201,-97.640"
   },
   {
+   "from": "Sandra Muraida Way",
+   "hour_of_week": 85,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.267,-97.755"
+  },
+  {
    "from": "Cross Park Dr (Cameron Rd)",
    "hour_of_week": 84,
    "n": 2,
@@ -152,6 +159,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.520,-97.559"
+  },
+  {
+   "from": "US-183/E 7th St/Airport Blvd/Ed Bluestein Blvd (E 7th St)",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.255,-97.700"
   },
   {
    "from": "E William Cannon Dr / Springfield Dr",
@@ -201,25 +215,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.283,-97.703"
-  },
-  {
-   "from": "Spruce Gum Ln",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.183,-97.768"
-  },
-  {
-   "from": "TX-212 Loop (US-290)",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.349,-97.552"
   }
  ],
  "unmatched_pct": {
   "dispatch": 77.3,
-  "tomtom": 98.1
+  "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
