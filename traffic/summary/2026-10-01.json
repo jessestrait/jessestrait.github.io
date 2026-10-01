@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 103 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 106 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -10,31 +10,31 @@
  ],
  "counts": {
   "dispatch": 130,
-  "dispatch_only": 84,
+  "dispatch_only": 83,
   "here": 0,
   "here_matched": 0,
-  "matched": 78,
-  "tomtom": 2470,
-  "tomtom_only": 2382
+  "matched": 79,
+  "tomtom": 2491,
+  "tomtom_only": 2400
  },
  "date": "2026-10-01",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 116.6,
+  "median": 116.7,
   "min": 9.1,
-  "n": 103,
+  "n": 106,
   "q1": 115.0,
-  "q3": 118.5
+  "q3": 118.4
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 8,
+   "matched": 9,
    "n": 21,
-   "pct": 38.1
+   "pct": 42.9
   },
   "dispatch_surface": {
    "matched": 38,
@@ -42,13 +42,13 @@
    "pct": 34.9
   },
   "tomtom_highway": {
-   "matched": 45,
-   "n": 1123,
-   "pct": 4.0
+   "matched": 48,
+   "n": 1133,
+   "pct": 4.2
   },
   "tomtom_surface": {
    "matched": 43,
-   "n": 1347,
+   "n": 1358,
    "pct": 3.2
   }
  },
@@ -60,17 +60,17 @@
  },
  "onset_offset_min": {
   "max": 86.6,
-  "median": 8.6,
+  "median": 9.3,
   "min": -66.1,
-  "n": 78,
-  "q1": -14.5,
-  "q3": 35.4
+  "n": 79,
+  "q1": -14.4,
+  "q3": 34.6
  },
  "persistence_min": {
   "max": 15.4,
-  "median": -62.4,
+  "median": -62.3,
   "min": -927.9,
-  "n": 46,
+  "n": 47,
   "q1": -96.8,
   "q3": -35.8,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 276,
-  "hotspot_buckets": 2012,
+  "explained_by_roadworks": 277,
+  "hotspot_buckets": 2028,
   "hotspot_buckets_on_roadworks": 245,
   "txdot_rows": 8,
-  "unreported_congestion": 2232
+  "unreported_congestion": 2247
  },
  "sampling": {
   "flow_spent_this_month": 270,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 62,
+  "incidents_spent_this_month": 63,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -124,13 +124,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.223,-97.764"
-  },
-  {
-   "from": "Christina Garza Dr",
-   "hour_of_week": 94,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.350,-97.556"
   },
   {
    "from": "Strathaven Pass",
@@ -215,17 +208,24 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.475,-97.794"
+  },
+  {
+   "from": "W 15th St (N Lamar Blvd)",
+   "hour_of_week": 92,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.273,-97.753"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 64.6,
-  "tomtom": 96.4
+  "dispatch": 63.8,
+  "tomtom": 96.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 130,
-  "neither": 84,
-  "tomtom_only": 46
+  "neither": 83,
+  "tomtom_only": 47
  }
 }
