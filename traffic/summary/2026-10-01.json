@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 51,
-  "dispatch_only": 45,
+  "dispatch": 53,
+  "dispatch_only": 47,
   "here": 0,
   "here_matched": 0,
   "matched": 7,
-  "tomtom": 321,
-  "tomtom_only": 314
+  "tomtom": 334,
+  "tomtom_only": 327
  },
  "date": "2026-10-01",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 6,
-   "n": 43,
-   "pct": 14.0
+   "n": 45,
+   "pct": 13.3
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 154,
+   "n": 157,
    "pct": 1.3
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 167,
-   "pct": 3.0
+   "n": 177,
+   "pct": 2.8
   }
  },
  "matcher": {
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 65,
-  "hotspot_buckets": 288,
-  "hotspot_buckets_on_roadworks": 63,
+  "explained_by_roadworks": 67,
+  "hotspot_buckets": 298,
+  "hotspot_buckets_on_roadworks": 65,
   "txdot_rows": 8,
-  "unreported_congestion": 295
+  "unreported_congestion": 307
  },
  "sampling": {
   "flow_spent_this_month": 90,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 11,
+  "incidents_spent_this_month": 12,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -145,6 +145,20 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
+  },
+  {
+   "from": "Austin",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.165,-97.729"
+  },
+  {
+   "from": "Creston St",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.520,-97.559"
   },
   {
    "from": "FM-2222/Bullick Hollow Rd (FM-620)",
@@ -201,31 +215,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.299,-97.749"
-  },
-  {
-   "from": "W Anderson Ln",
-   "hour_of_week": 71,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.348,-97.714"
-  },
-  {
-   "from": "Walnut St E",
-   "hour_of_week": 71,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.440,-97.620"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.2,
-  "tomtom": 97.8
+  "dispatch": 88.7,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 51,
-  "neither": 45,
+  "n": 53,
+  "neither": 47,
   "tomtom_only": 6
  }
 }
