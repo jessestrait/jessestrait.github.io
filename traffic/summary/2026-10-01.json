@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 7,
-  "tomtom": 359,
-  "tomtom_only": 352
+  "tomtom": 397,
+  "tomtom_only": 390
  },
  "date": "2026-10-01",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 170,
-   "pct": 1.2
+   "n": 185,
+   "pct": 1.1
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 189,
-   "pct": 2.6
+   "n": 212,
+   "pct": 2.4
   }
  },
  "matcher": {
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 70,
-  "hotspot_buckets": 321,
-  "hotspot_buckets_on_roadworks": 68,
+  "explained_by_roadworks": 75,
+  "hotspot_buckets": 356,
+  "hotspot_buckets_on_roadworks": 73,
   "txdot_rows": 8,
-  "unreported_congestion": 332
+  "unreported_congestion": 370
  },
  "sampling": {
-  "flow_spent_this_month": 90,
+  "flow_spent_this_month": 99,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 13,
+  "incidents_spent_this_month": 14,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Strathaven Pass",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.433,-97.653"
+  },
   {
    "from": "Cross Park Dr (Cameron Rd)",
    "hour_of_week": 84,
@@ -133,11 +140,25 @@
    "seg": "30.520,-97.559"
   },
   {
+   "from": "US-183/E 7th St/Airport Blvd/Ed Bluestein Blvd (E 7th St)",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.255,-97.700"
+  },
+  {
    "from": "E William Cannon Dr / Springfield Dr",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
    "seg": "30.165,-97.729"
+  },
+  {
+   "from": "Staked Plains Loop",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.496,-97.793"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -194,32 +215,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.502,-97.682"
-  },
-  {
-   "from": "Highway 45",
-   "hour_of_week": 71,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.488,-97.676"
-  },
-  {
-   "from": "Thermal Dr/Metric Blvd (E Howard Ln)",
-   "hour_of_week": 71,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.425,-97.673"
-  },
-  {
-   "from": "Harris Ridge Blvd (E Howard Ln)",
-   "hour_of_week": 71,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.424,-97.670"
   }
  ],
  "unmatched_pct": {
   "dispatch": 88.7,
-  "tomtom": 98.1
+  "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
