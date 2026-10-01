@@ -425,16 +425,22 @@ dl.mecard a{color:var(--accent-hi)}
   display:flex;
 }
 #camshot .caminner{
-  margin:auto; display:flex; flex-direction:column; align-items:center; gap:.7rem;
-  max-width:min(100%,1600px); width:100%;
+  margin:auto; display:flex; flex-direction:column; gap:.55rem;
+  /* The frame, and everything pinned to it, is ONE width. These cameras
+     hand back whatever resolution they feel like — 1280x720 mostly, 4:3 on
+     the older ones, the odd portrait — and when the picture set the width,
+     the toolbar above it changed size every time you walked to the next
+     camera. A fixed 16:9 frame with the picture letterboxed inside it
+     holds still, and the controls hold still with it. */
+  width:min(100%, 1600px, calc((100dvh - 8.5rem) * 16 / 9));
 }
 #camstage{
-  position:relative; width:100%; display:flex; justify-content:center;
-  overflow:hidden; border-radius:10px; touch-action:none;
+  position:relative; width:100%; aspect-ratio:16 / 9;
+  overflow:hidden; border-radius:10px; border:1px solid var(--border);
+  background:#05070b; touch-action:none;
 }
 #camshot img{
-  max-width:100%; max-height:calc(100dvh - 9rem);
-  border-radius:10px; border:1px solid var(--border); background:#000;
+  width:100%; height:100%; object-fit:contain; display:block;
   transform-origin:0 0; will-change:transform; cursor:grab;
   -webkit-user-select:none; user-select:none;
   /* touch-action is not inherited and the fingers land on the picture, not
@@ -442,6 +448,7 @@ dl.mecard a{color:var(--accent-hi)}
      and zooms the page instead of the frame. */
   touch-action:none; -webkit-touch-callout:none;
 }
+@supports not (aspect-ratio: 1){ #camstage{ height:calc(100dvh - 8.5rem) } }
 #camshot img.dragging{ cursor:grabbing }
 #camzoom{
   position:absolute; right:.5rem; bottom:.5rem; pointer-events:none;
@@ -454,28 +461,86 @@ dl.mecard a{color:var(--accent-hi)}
   background:rgba(58,123,213,.16);
 }
 #camshot button[disabled]{ opacity:.4; cursor:default }
+#camshot .camhead{
+  display:flex; align-items:center; gap:.4rem; flex-wrap:nowrap; width:100%;
+}
+/* The name takes what is left and gives it back on demand. Left to size
+   itself, a long cross-street pushed the buttons onto a second row and the
+   whole bar changed height between one camera and the next. */
+#camshot .camname{
+  flex:1 1 auto; min-width:0; overflow:hidden; text-overflow:ellipsis;
+  white-space:nowrap;
+}
+#camshot .camwhen{ flex:0 0 auto; white-space:nowrap }
+#camshot .camspacer{ display:none }
+#camshot .camtools{ display:flex; gap:.3rem; flex:0 0 auto; align-items:center }
+#camshot .camtools button{
+  flex:0 0 auto; height:30px; display:inline-flex; align-items:center;
+  justify-content:center; white-space:nowrap;
+}
+/* An explicit `display` beats the hidden attribute's own `display:none`, so
+   anything in here that sets one has to put it back. Fit spent a build
+   visible at 1x because of this, with the code sure it was hidden. */
+#camshot [hidden]{ display:none !important }
+/* Square for the glyph buttons, so the arrows and the close read as one set
+   rather than three different shapes. */
+#camshot .camtools button.sq{ width:30px; padding:0; font-size:.95rem; line-height:1 }
+/* Live is a toggle, so its width must not depend on its state — a label that
+   grows to "Live · on" shoves every button beside it sideways on each tap.
+   The dot carries the state instead. */
+#camlive{ min-width:62px; gap:.35rem }
+#camlive::before{
+  content:''; width:6px; height:6px; border-radius:50%;
+  background:var(--muted); flex:0 0 auto;
+}
+#camlive[aria-pressed="true"]::before{
+  background:#ff5c5c; box-shadow:0 0 0 3px rgba(255,92,92,.18);
+  animation:campulse 2s ease-in-out infinite;
+}
+@keyframes campulse{ 50%{ opacity:.35 } }
+@media (prefers-reduced-motion:reduce){ #camlive[aria-pressed="true"]::before{ animation:none } }
+/* On a narrow phone the fetched-at line is the first thing to give up its
+   space: the name tells you where you are, the buttons do the work, and the
+   timestamp is a detail you can get by tapping Refresh. */
 /* Landscape on a phone is all width and no height: the standing note is the
    first thing that can go, and the buttons are the last. */
-#camfull .lbl-short{ display:none }
+#camshot .camname{font:700 .95rem 'DM Sans',sans-serif; color:var(--text)}
+#camshot .camwhen{font:.7rem 'JetBrains Mono',monospace; color:var(--muted)}
 @media (max-height:480px){
   #camshot{ padding:.5rem }
   #camshot .camnote{ display:none }
-  #camshot img{ max-height:calc(100dvh - 4.5rem) }
+  /* With the note gone and the padding halved there is more height to give
+     the frame, and the frame is what sets every other width here. */
+  #camshot .caminner{ width:min(100%, 1600px, calc((100dvh - 4.2rem) * 16 / 9)) }
   /* Landscape is all width and no height, so the controls have to stay on
      one line or they eat the picture they are there to operate. */
-  #camshot .camhead{ gap:.35rem }
-  #camshot button{ font-size:.68rem; padding:.3rem .5rem; border-radius:6px }
+  #camshot .camhead{ gap:.3rem }
+  #camshot .camtools button{ height:27px; font-size:.68rem; padding:.25rem .45rem }
+  #camshot .camtools button.sq{ width:27px; padding:0 }
+  #camlive{ min-width:56px }
   #camshot .camname{ font-size:.8rem }
   #camshot .camwhen{ font-size:.62rem }
-  #camfull .lbl-long{ display:none }
-  #camfull .lbl-short{ display:inline }
 }
-#camshot .camhead{
-  display:flex; align-items:baseline; gap:.5rem; flex-wrap:wrap;
-  max-width:min(100%,1600px); width:100%;
+@media (max-width:560px){
+  /* The street name gets its own line here rather than 67 px of ellipsis
+     between the title and the buttons. Two rows, but two rows that never
+     change height — which is the thing that was wrong, not the row count. */
+  #camshot .camhead{ flex-wrap:wrap; row-gap:.4rem }
+  #camshot .camname{ flex:1 0 100%; order:-1 }
+  #camshot .camtools{ flex:1 1 auto; justify-content:flex-end }
+  #camshot .camwhen{ display:none }
+  #camshot .camtools button{ font-size:.7rem; padding:.3rem .5rem }
+  /* Written at the same weight as the rule that gives these buttons their
+     display, or it loses: `#camshot .camtools button` is a class and a type
+     above a bare `#camrefresh`, and the button stays on screen. Twice in one
+     file now — the display property is the one to watch here.
+
+     Refresh is the control to drop when the bar is this narrow: Live does
+     the same job on a timer, and the name of the street needs the room more
+     than a second way to fetch one frame. */
+  #camshot .camtools button#camrefresh{ display:none }
 }
-#camshot .camname{font:700 .95rem 'DM Sans',sans-serif; color:var(--text)}
-#camshot .camwhen{font:.7rem 'JetBrains Mono',monospace; color:var(--muted)}
+
 #camshot .camspacer{flex:1 1 auto}
 #camshot button{
   font:600 .74rem 'DM Sans',sans-serif; cursor:pointer; color:var(--text);
@@ -995,15 +1060,16 @@ dl.mecard a{color:var(--accent-hi)}
   <div class="camhead">
     <span class="camname" id="camname"></span>
     <span class="camwhen" id="camwhen"></span>
-    <span class="camspacer"></span>
-    <button id="camprev" title="Nearest camera west (←)" aria-label="Previous camera">‹</button>
-    <button id="camnext" title="Nearest camera east (→)" aria-label="Next camera">›</button>
-    <button id="camlive" title="Reload every five seconds (L)" aria-pressed="false">Live</button>
-    <button id="camrefresh" title="Fetch a new frame (R)">Refresh</button>
-    <button id="camfit" title="Reset the zoom (0)" hidden>Fit</button>
-    <button id="camfull" title="Full screen (F)"><span class="lbl-long">Full screen</span><span class="lbl-short">Full</span></button>
-    <button id="cammap" title="Centre the map here">Map</button>
-    <button id="camclose" aria-label="Close" title="Close (Esc)">Close</button>
+    <span class="camtools">
+      <button id="camprev" class="sq" title="Nearest camera west (←)" aria-label="Previous camera">‹</button>
+      <button id="camnext" class="sq" title="Nearest camera east (→)" aria-label="Next camera">›</button>
+      <button id="camlive" title="Reload every five seconds (L)" aria-pressed="false">Live</button>
+      <button id="camrefresh" title="Fetch a new frame (R)" aria-label="Refresh">Refresh</button>
+      <button id="camfit" title="Reset the zoom (0)" aria-label="Reset zoom" disabled>Fit</button>
+      <button id="camfull" class="sq" title="Full screen (F)" aria-label="Full screen">⤢</button>
+      <button id="cammap" title="Centre the map here" aria-label="Show on the map">Map</button>
+      <button id="camclose" class="sq" aria-label="Close" title="Close (Esc)">✕</button>
+    </span>
   </div>
   <div id="camstage">
     <img id="camimg" alt="Live traffic camera still" draggable="false" />
@@ -8552,8 +8618,7 @@ function camLoad() {
        wreck would want to be sure about. Saying only what is known. */
     when.textContent = 'fetched ' + new Date().toLocaleTimeString([], {
       hour: 'numeric', minute: '2-digit', second: '2-digit' })
-      + ' \u00b7 ' + img.naturalWidth + '\u00d7' + img.naturalHeight
-      + (CAM.live ? ' \u00b7 live' : '');
+      + ' \u00b7 ' + img.naturalWidth + '\u00d7' + img.naturalHeight;
   };
   img.onerror = () => {
     when.textContent = CAM.live
@@ -8568,26 +8633,45 @@ function camLoad() {
    back out. Displaying is free; reading is not, and nothing here reads. */
 function camZoomTo(z, x, y) {
   CAM.z = Math.min(8, Math.max(1, z));
-  if (CAM.z === 1) { CAM.x = 0; CAM.y = 0; }
+  if (CAM.z === 1) { CAM.x = 0; CAM.y = 0; }   // object-fit already centres it
   else { CAM.x = x; CAM.y = y; camClampPan(); }
   const img = document.getElementById('camimg');
   img.style.transform = 'translate(' + CAM.x + 'px,' + CAM.y + 'px) scale(' + CAM.z + ')';
   const tag = document.getElementById('camzoom');
   tag.hidden = CAM.z === 1;
   tag.textContent = CAM.z.toFixed(1) + '\u00d7';
-  document.getElementById('camfit').hidden = CAM.z === 1;
+  document.getElementById('camfit').disabled = CAM.z === 1;
+}
+
+/* Where the picture actually is inside the frame.
+
+   The frame is a fixed 16:9 box so the toolbar above it never moves, and
+   the still is letterboxed into it with object-fit. That means the element
+   and the picture are no longer the same rectangle: a 4:3 camera leaves
+   bars down both sides. Clamping against the element would let you drag
+   those bars into view and lose the picture off the edge. */
+function camContent() {
+  const img = document.getElementById('camimg');
+  const bw = img.clientWidth, bh = img.clientHeight;
+  const nw = CAM.natW || bw, nh = CAM.natH || bh;
+  if (!bw || !bh || !nw || !nh) return { w: bw, h: bh, ox: 0, oy: 0, bw: bw, bh: bh };
+  const s = Math.min(bw / nw, bh / nh);
+  const w = nw * s, h = nh * s;
+  return { w: w, h: h, ox: (bw - w) / 2, oy: (bh - h) / 2, bw: bw, bh: bh };
 }
 
 /* Panning stops at the edges of the picture. Without this a hard drag
    flings the frame off the stage and leaves you looking at the backdrop
    with no way back but the Fit button. */
 function camClampPan() {
-  const img = document.getElementById('camimg');
-  const w = img.clientWidth, h = img.clientHeight;
-  const maxX = 0, minX = w - w * CAM.z;
-  const maxY = 0, minY = h - h * CAM.z;
-  CAM.x = Math.min(maxX, Math.max(minX, CAM.x));
-  CAM.y = Math.min(maxY, Math.max(minY, CAM.y));
+  const c = camContent(), z = CAM.z;
+  /* Transform origin is the element's corner, so the picture's own edges
+     land at z*ox + x and z*(ox+w) + x. Keep those outside the frame while
+     it is bigger than the frame, and centred when it is not. */
+  if (z * c.w <= c.bw) CAM.x = (c.bw - z * (c.ox * 2 + c.w)) / 2;
+  else CAM.x = Math.min(-z * c.ox, Math.max(c.bw - z * (c.ox + c.w), CAM.x));
+  if (z * c.h <= c.bh) CAM.y = (c.bh - z * (c.oy * 2 + c.h)) / 2;
+  else CAM.y = Math.min(-z * c.oy, Math.max(c.bh - z * (c.oy + c.h), CAM.y));
 }
 
 /* Zoom about a point, so the pixel under the cursor or the pinch stays
@@ -8635,9 +8719,14 @@ function camWalkable() {
 function camLiveSet(on) {
   clearInterval(CAM.live);
   CAM.live = on ? setInterval(camLoad, CAM_LIVE_MS) : null;
+  /* The label stays "Live" in both states. Growing it to "Live · on" moved
+     every button beside it sideways on each tap, which is the single
+     clunkiest thing a toolbar can do; the dot in ::before carries the
+     state instead and costs no width. */
   const b = document.getElementById('camlive');
   b.setAttribute('aria-pressed', on ? 'true' : 'false');
-  b.textContent = on ? 'Live \u00b7 on' : 'Live';
+  b.title = on ? 'Reloading every five seconds \u2014 tap to stop (L)'
+               : 'Reload every five seconds (L)';
   if (on) camLoad();
 }
 

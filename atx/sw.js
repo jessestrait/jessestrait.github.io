@@ -11,10 +11,10 @@
  * served from cache and refreshed in the background, so a rebuild lands on the
  * next load by itself. See fromCacheRefreshing.
  */
-/* Bumped to v12 on 2026-09-30: pinch zoom on the camera stills for
-   Safari, and the weather banner now takes its offset from the ticker
-   element instead of a class that could disagree with it. */
-const VERSION = 'atx-v12';
+/* Bumped to v13 on 2026-09-30: the camera window's chrome holds still
+   now — a fixed frame, a toolbar that cannot reflow, and the phone rules
+   finally winning the cascade they were always meant to win. */
+const VERSION = 'atx-v13';
 const SHELL = VERSION + '-shell';
 const GEO = VERSION + '-geo';
 const FONTS = VERSION + '-fonts';
