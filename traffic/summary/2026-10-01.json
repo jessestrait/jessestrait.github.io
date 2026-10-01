@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 81,
-  "tomtom": 2555,
-  "tomtom_only": 2457
+  "tomtom": 2567,
+  "tomtom_only": 2468
  },
  "date": "2026-10-01",
  "dispatch_life_capped": true,
@@ -42,13 +42,13 @@
    "pct": 33.0
   },
   "tomtom_highway": {
-   "matched": 51,
-   "n": 1163,
-   "pct": 4.4
+   "matched": 52,
+   "n": 1166,
+   "pct": 4.5
   },
   "tomtom_surface": {
    "matched": 47,
-   "n": 1392,
+   "n": 1401,
    "pct": 3.4
   }
  },
@@ -64,15 +64,15 @@
   "min": -66.1,
   "n": 81,
   "q1": -14.4,
-  "q3": 36.2
+  "q3": 38.8
  },
  "persistence_min": {
   "max": 104.0,
-  "median": -77.8,
+  "median": -67.5,
   "min": -927.9,
-  "n": 70,
-  "q1": -99.4,
-  "q3": -36.0,
+  "n": 72,
+  "q1": -98.1,
+  "q3": -35.8,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 297,
-  "hotspot_buckets": 2075,
-  "hotspot_buckets_on_roadworks": 262,
+  "explained_by_roadworks": 298,
+  "hotspot_buckets": 2084,
+  "hotspot_buckets_on_roadworks": 263,
   "txdot_rows": 8,
-  "unreported_congestion": 2306
+  "unreported_congestion": 2317
  },
  "sampling": {
   "flow_spent_this_month": 288,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 69,
+  "incidents_spent_this_month": 70,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -124,6 +124,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.223,-97.764"
+  },
+  {
+   "from": "Congress Ave/Speedway (Martin Luther King Jr Blvd)",
+   "hour_of_week": 95,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.279,-97.733"
   },
   {
    "from": "Strathaven Pass",
@@ -208,18 +215,11 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.475,-97.794"
-  },
-  {
-   "from": "W 15th St (N Lamar Blvd)",
-   "hour_of_week": 92,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.273,-97.753"
   }
  ],
  "unmatched_pct": {
   "dispatch": 66.2,
-  "tomtom": 96.2
+  "tomtom": 96.1
  },
  "witnesses": {
   "both": 0,
