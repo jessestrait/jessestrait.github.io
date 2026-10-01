@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 121,
-  "dispatch_only": 80,
+  "dispatch_only": 78,
   "here": 0,
   "here_matched": 0,
-  "matched": 61,
-  "tomtom": 2022,
-  "tomtom_only": 1957
+  "matched": 65,
+  "tomtom": 2104,
+  "tomtom_only": 2034
  },
  "date": "2026-10-01",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 40.0
   },
   "dispatch_surface": {
-   "matched": 33,
+   "matched": 35,
    "n": 101,
-   "pct": 32.7
+   "pct": 34.7
   },
   "tomtom_highway": {
-   "matched": 38,
-   "n": 895,
-   "pct": 4.2
+   "matched": 39,
+   "n": 940,
+   "pct": 4.1
   },
   "tomtom_surface": {
-   "matched": 27,
-   "n": 1127,
-   "pct": 2.4
+   "matched": 31,
+   "n": 1164,
+   "pct": 2.7
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 86.6,
-  "median": 6.5,
+  "median": 7.8,
   "min": -66.1,
-  "n": 61,
-  "q1": -16.8,
-  "q3": 22.1
+  "n": 65,
+  "q1": -15.2,
+  "q3": 28.8
  },
  "persistence_min": {
   "max": 10.2,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 219,
-  "hotspot_buckets": 1708,
-  "hotspot_buckets_on_roadworks": 200,
+  "explained_by_roadworks": 228,
+  "hotspot_buckets": 1770,
+  "hotspot_buckets_on_roadworks": 207,
   "txdot_rows": 8,
-  "unreported_congestion": 1866
+  "unreported_congestion": 1936
  },
  "sampling": {
   "flow_spent_this_month": 243,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 50,
+  "incidents_spent_this_month": 51,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -203,29 +203,29 @@
    "seg": "30.238,-97.789"
   },
   {
-   "from": "Cross Park Dr (Cameron Rd)",
-   "hour_of_week": 84,
-   "n": 2,
+   "from": "W Ben White Blvd",
+   "hour_of_week": 94,
+   "n": 3,
    "roadworks": false,
-   "seg": "30.335,-97.685"
+   "seg": "30.223,-97.764"
   },
   {
-   "from": "Creston St",
-   "hour_of_week": 84,
-   "n": 2,
+   "from": "Christina Garza Dr",
+   "hour_of_week": 94,
+   "n": 3,
    "roadworks": false,
-   "seg": "30.520,-97.559"
+   "seg": "30.350,-97.556"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 66.1,
-  "tomtom": 96.8
+  "dispatch": 64.5,
+  "tomtom": 96.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 121,
-  "neither": 80,
-  "tomtom_only": 41
+  "neither": 78,
+  "tomtom_only": 43
  }
 }
