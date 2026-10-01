@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 114,
-  "dispatch_only": 78,
+  "dispatch": 115,
+  "dispatch_only": 79,
   "here": 0,
   "here_matched": 0,
-  "matched": 46,
-  "tomtom": 1653,
-  "tomtom_only": 1605
+  "matched": 47,
+  "tomtom": 1725,
+  "tomtom_only": 1675
  },
  "date": "2026-10-01",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 28,
-   "n": 94,
-   "pct": 29.8
+   "n": 95,
+   "pct": 29.5
   },
   "tomtom_highway": {
-   "matched": 30,
-   "n": 729,
+   "matched": 31,
+   "n": 756,
    "pct": 4.1
   },
   "tomtom_surface": {
-   "matched": 18,
-   "n": 924,
-   "pct": 1.9
+   "matched": 19,
+   "n": 969,
+   "pct": 2.0
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 86.6,
   "median": 1.6,
   "min": -66.1,
-  "n": 46,
-  "q1": -21.5,
-  "q3": 19.8
+  "n": 47,
+  "q1": -21.4,
+  "q3": 19.3
  },
  "persistence_min": {
   "max": -15.2,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 188,
-  "hotspot_buckets": 1434,
-  "hotspot_buckets_on_roadworks": 173,
+  "explained_by_roadworks": 190,
+  "hotspot_buckets": 1481,
+  "hotspot_buckets_on_roadworks": 174,
   "txdot_rows": 8,
-  "unreported_congestion": 1546
+  "unreported_congestion": 1605
  },
  "sampling": {
   "flow_spent_this_month": 234,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 44,
+  "incidents_spent_this_month": 45,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -140,11 +140,25 @@
    "seg": "30.201,-97.640"
   },
   {
-   "from": "Chicon St (E Cesar Chavez St/E 1st St)",
+   "from": "W Ben White Blvd",
    "hour_of_week": 93,
    "n": 3,
    "roadworks": false,
-   "seg": "30.253,-97.714"
+   "seg": "30.225,-97.767"
+  },
+  {
+   "from": "US Highway 183",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.470,-97.797"
+  },
+  {
+   "from": "FM-1825 (Wells Branch Pkwy)",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.434,-97.654"
   },
   {
    "from": "W Ben White Blvd",
@@ -201,31 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.427,-97.676"
-  },
-  {
-   "from": "Fuchs Grove Rd",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.417,-97.576"
-  },
-  {
-   "from": "Kenai Dr (W Parmer Ln/FM-734)",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.512,-97.774"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 68.4,
+  "dispatch": 68.7,
   "tomtom": 97.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 114,
-  "neither": 78,
+  "n": 115,
+  "neither": 79,
   "tomtom_only": 36
  }
 }
