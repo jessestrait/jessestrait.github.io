@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 56,
-  "dispatch_only": 45,
+  "dispatch": 57,
+  "dispatch_only": 46,
   "here": 0,
   "here_matched": 0,
   "matched": 12,
-  "tomtom": 661,
-  "tomtom_only": 650
+  "tomtom": 698,
+  "tomtom_only": 687
  },
  "date": "2026-10-01",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 11,
-   "n": 48,
-   "pct": 22.9
+   "n": 49,
+   "pct": 22.4
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 290,
+   "n": 303,
    "pct": 1.7
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 371,
-   "pct": 1.6
+   "n": 395,
+   "pct": 1.5
   }
  },
  "matcher": {
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 96,
-  "hotspot_buckets": 590,
-  "hotspot_buckets_on_roadworks": 92,
+  "explained_by_roadworks": 99,
+  "hotspot_buckets": 622,
+  "hotspot_buckets_on_roadworks": 96,
   "txdot_rows": 8,
-  "unreported_congestion": 630
+  "unreported_congestion": 667
  },
  "sampling": {
   "flow_spent_this_month": 108,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 20,
+  "incidents_spent_this_month": 21,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -119,6 +119,20 @@
    "seg": "30.433,-97.653"
   },
   {
+   "from": "Dessau Rd",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.422,-97.620"
+  },
+  {
+   "from": "Dove Haven Dr",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.434,-97.611"
+  },
+  {
    "from": "Cross Park Dr (Cameron Rd)",
    "hour_of_week": 84,
    "n": 2,
@@ -133,6 +147,13 @@
    "seg": "30.520,-97.559"
   },
   {
+   "from": "US-183/E 7th St/Airport Blvd/Ed Bluestein Blvd (E 7th St)",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.255,-97.700"
+  },
+  {
    "from": "E William Cannon Dr / Springfield Dr",
    "hour_of_week": 84,
    "n": 2,
@@ -140,11 +161,11 @@
    "seg": "30.165,-97.729"
   },
   {
-   "from": "US-290/TX-212 Loop (FM-973)",
+   "from": "Heatherwilde Blvd (Red Bud Ln)",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
-   "seg": "30.341,-97.556"
+   "seg": "30.496,-97.613"
   },
   {
    "from": "Kenai Dr (W Parmer Ln/FM-734)",
@@ -175,13 +196,6 @@
    "seg": "30.512,-97.774"
   },
   {
-   "from": "Springdale Rd (E Martin Luther King Jr Blvd)",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.283,-97.703"
-  },
-  {
    "from": "Spruce Gum Ln",
    "hour_of_week": 84,
    "n": 2,
@@ -201,31 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.504,-97.850"
-  },
-  {
-   "from": "Pearson Ranch Rd",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.495,-97.750"
-  },
-  {
-   "from": "S A.W. Grimes Blvd",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.494,-97.657"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.4,
-  "tomtom": 98.3
+  "dispatch": 80.7,
+  "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 56,
-  "neither": 45,
+  "n": 57,
+  "neither": 46,
   "tomtom_only": 11
  }
 }
