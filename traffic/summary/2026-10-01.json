@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 112, q3 118 min over 92 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 114, q3 118 min over 94 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 121,
+  "dispatch": 122,
   "dispatch_only": 78,
   "here": 0,
   "here_matched": 0,
-  "matched": 65,
-  "tomtom": 2104,
-  "tomtom_only": 2034
+  "matched": 68,
+  "tomtom": 2173,
+  "tomtom_only": 2101
  },
  "date": "2026-10-01",
  "dispatch_life_capped": true,
@@ -23,8 +23,8 @@
   "max": 120.0,
   "median": 116.4,
   "min": 9.1,
-  "n": 92,
-  "q1": 111.8,
+  "n": 94,
+  "q1": 113.9,
   "q3": 118.2
  },
  "here_onset_offset_min": {
@@ -37,18 +37,18 @@
    "pct": 40.0
   },
   "dispatch_surface": {
-   "matched": 35,
-   "n": 101,
-   "pct": 34.7
+   "matched": 36,
+   "n": 102,
+   "pct": 35.3
   },
   "tomtom_highway": {
-   "matched": 39,
-   "n": 940,
+   "matched": 40,
+   "n": 969,
    "pct": 4.1
   },
   "tomtom_surface": {
-   "matched": 31,
-   "n": 1164,
+   "matched": 32,
+   "n": 1204,
    "pct": 2.7
   }
  },
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 86.6,
-  "median": 7.8,
+  "median": 8.6,
   "min": -66.1,
-  "n": 65,
-  "q1": -15.2,
-  "q3": 28.8
+  "n": 68,
+  "q1": -14.5,
+  "q3": 30.7
  },
  "persistence_min": {
   "max": 10.2,
-  "median": -92.1,
+  "median": -91.7,
   "min": -927.9,
-  "n": 23,
-  "q1": -102.3,
-  "q3": -41.0,
+  "n": 25,
+  "q1": -102.1,
+  "q3": -38.5,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 228,
-  "hotspot_buckets": 1770,
-  "hotspot_buckets_on_roadworks": 207,
+  "explained_by_roadworks": 233,
+  "hotspot_buckets": 1818,
+  "hotspot_buckets_on_roadworks": 211,
   "txdot_rows": 8,
-  "unreported_congestion": 1936
+  "unreported_congestion": 1994
  },
  "sampling": {
-  "flow_spent_this_month": 243,
+  "flow_spent_this_month": 252,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 51,
+  "incidents_spent_this_month": 52,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -114,6 +114,13 @@
   {
    "from": "W Ben White Blvd",
    "hour_of_week": 93,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.223,-97.764"
+  },
+  {
+   "from": "W Ben White Blvd",
+   "hour_of_week": 94,
    "n": 4,
    "roadworks": false,
    "seg": "30.223,-97.764"
@@ -168,6 +175,13 @@
    "seg": "30.470,-97.797"
   },
   {
+   "from": "S Heatherwilde Blvd (Wells Branch Pkwy)",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.441,-97.664"
+  },
+  {
    "from": "FM-1825 (Wells Branch Pkwy)",
    "hour_of_week": 93,
    "n": 3,
@@ -201,31 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.238,-97.789"
-  },
-  {
-   "from": "W Ben White Blvd",
-   "hour_of_week": 94,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.223,-97.764"
-  },
-  {
-   "from": "Christina Garza Dr",
-   "hour_of_week": 94,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.350,-97.556"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 64.5,
+  "dispatch": 63.9,
   "tomtom": 96.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 121,
+  "n": 122,
   "neither": 78,
-  "tomtom_only": 43
+  "tomtom_only": 44
  }
 }
