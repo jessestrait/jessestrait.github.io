@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 97,
-  "dispatch_only": 75,
+  "dispatch": 99,
+  "dispatch_only": 76,
   "here": 0,
   "here_matched": 0,
-  "matched": 24,
-  "tomtom": 1103,
-  "tomtom_only": 1077
+  "matched": 26,
+  "tomtom": 1223,
+  "tomtom_only": 1193
  },
  "date": "2026-10-01",
  "dispatch_life_capped": false,
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 4,
-   "n": 16,
-   "pct": 25.0
+   "n": 17,
+   "pct": 23.5
   },
   "dispatch_surface": {
-   "matched": 18,
-   "n": 81,
-   "pct": 22.2
+   "matched": 19,
+   "n": 82,
+   "pct": 23.2
   },
   "tomtom_highway": {
-   "matched": 17,
-   "n": 490,
-   "pct": 3.5
+   "matched": 18,
+   "n": 534,
+   "pct": 3.4
   },
   "tomtom_surface": {
-   "matched": 9,
-   "n": 613,
-   "pct": 1.5
+   "matched": 12,
+   "n": 689,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 86.6,
-  "median": -3.1,
+  "median": -3.9,
   "min": -66.1,
-  "n": 24,
-  "q1": -24.7,
-  "q3": 43.2
+  "n": 26,
+  "q1": -24.2,
+  "q3": 42.8
  },
  "persistence_min": {
   "max": -15.2,
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 142,
-  "hotspot_buckets": 974,
-  "hotspot_buckets_on_roadworks": 133,
+  "explained_by_roadworks": 151,
+  "hotspot_buckets": 1082,
+  "hotspot_buckets_on_roadworks": 141,
   "txdot_rows": 8,
-  "unreported_congestion": 1050
+  "unreported_congestion": 1164
  },
  "sampling": {
-  "flow_spent_this_month": 207,
+  "flow_spent_this_month": 216,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 35,
+  "incidents_spent_this_month": 36,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -107,16 +107,9 @@
    18
   ],
   "rush_min": 5,
-  "this_poll": "off-peak"
+  "this_poll": "rush"
  },
  "structural_hotspots": [
-  {
-   "from": "Sandra Muraida Way",
-   "hour_of_week": 85,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.267,-97.755"
-  },
   {
    "from": "Strathaven Pass",
    "hour_of_week": 84,
@@ -214,17 +207,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.283,-97.703"
+  },
+  {
+   "from": "Spruce Gum Ln",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.183,-97.768"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 77.3,
-  "tomtom": 97.6
+  "dispatch": 76.8,
+  "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 97,
-  "neither": 75,
-  "tomtom_only": 22
+  "n": 99,
+  "neither": 76,
+  "tomtom_only": 23
  }
 }
