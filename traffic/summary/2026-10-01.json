@@ -1,0 +1,220 @@
+{
+ "caveats": [
+  "Dispatch published_date is when APD published, not when it happened.",
+  "Dispatch record lifetimes look like real clearances this day, not a cap.",
+  "Clearance resolution equals the poll interval; shorter incidents are invisible.",
+  "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
+  "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
+  "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
+  "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
+ ],
+ "counts": {
+  "dispatch": 23,
+  "dispatch_only": 21,
+  "here": 0,
+  "here_matched": 0,
+  "matched": 2,
+  "tomtom": 203,
+  "tomtom_only": 201
+ },
+ "date": "2026-10-01",
+ "dispatch_life_capped": false,
+ "dispatch_record_life_min": {
+  "n": 0
+ },
+ "here_onset_offset_min": {
+  "n": 0
+ },
+ "match_rate": {
+  "dispatch_highway": {
+   "matched": 0,
+   "n": 3,
+   "pct": 0.0
+  },
+  "dispatch_surface": {
+   "matched": 2,
+   "n": 20,
+   "pct": 10.0
+  },
+  "tomtom_highway": {
+   "matched": 1,
+   "n": 91,
+   "pct": 1.1
+  },
+  "tomtom_surface": {
+   "matched": 1,
+   "n": 112,
+   "pct": 0.9
+  }
+ },
+ "matcher": {
+  "buffer_m": 200.0,
+  "highway_buffer_m": 130.0,
+  "onset_window_min": 90.0,
+  "tolerance_min": 20.0
+ },
+ "onset_offset_min": {
+  "max": 81.6,
+  "median": 32.0,
+  "min": -17.6,
+  "n": 2,
+  "q1": -17.6,
+  "q3": 81.6
+ },
+ "persistence_min": {
+  "n": 0
+ },
+ "poll_interval_min": 5.0,
+ "probe_agreement": {
+  "cover": {
+   "n": 0
+  },
+  "n": 0,
+  "onset_offset_min": {
+   "n": 0
+  },
+  "pct_of_here": 0.0,
+  "pct_of_tomtom": 0.0,
+  "type_agree": 0
+ },
+ "roadworks": {
+  "explained_by_roadworks": 39,
+  "hotspot_buckets": 178,
+  "hotspot_buckets_on_roadworks": 37,
+  "txdot_rows": 9,
+  "unreported_congestion": 185
+ },
+ "sampling": {
+  "flow_spent_this_month": 0,
+  "incident_budget": 2500,
+  "incidents_spent_this_month": 0,
+  "off_peak_min": 45,
+  "rush_hours_local": [
+   7,
+   8,
+   16,
+   17,
+   18
+  ],
+  "rush_min": 5,
+  "this_poll": "off-peak"
+ },
+ "structural_hotspots": [
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Thompson Ln",
+   "hour_of_week": 94,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.240,-97.666"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Irvine Ln",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.179,-97.616"
+  },
+  {
+   "from": "FM-2222/Bullick Hollow Rd (FM-620)",
+   "hour_of_week": 68,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.452,-97.829"
+  },
+  {
+   "from": "Lakeline Mall Dr",
+   "hour_of_week": 71,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.475,-97.795"
+  },
+  {
+   "from": "Lakeline Mall Dr",
+   "hour_of_week": 71,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.476,-97.793"
+  },
+  {
+   "from": "N Lake Creek Pkwy",
+   "hour_of_week": 71,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.475,-97.794"
+  },
+  {
+   "from": "Talyne Chaise Cir",
+   "hour_of_week": 71,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.457,-97.767"
+  },
+  {
+   "from": "S Interstate 35",
+   "hour_of_week": 71,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.502,-97.682"
+  },
+  {
+   "from": "FM-1325/Exit 250 (I-35)",
+   "hour_of_week": 69,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.504,-97.684"
+  },
+  {
+   "from": "FM-2222 (TX-360 Loop/N Capital of Texas Hwy)",
+   "hour_of_week": 67,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.381,-97.774"
+  },
+  {
+   "from": "Highway 45",
+   "hour_of_week": 71,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.481,-97.675"
+  },
+  {
+   "from": "Highway 45",
+   "hour_of_week": 71,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.488,-97.676"
+  }
+ ],
+ "unmatched_pct": {
+  "dispatch": 91.3,
+  "tomtom": 99.0
+ },
+ "witnesses": {
+  "both": 0,
+  "here_only": 0,
+  "n": 23,
+  "neither": 21,
+  "tomtom_only": 2
+ }
+}
