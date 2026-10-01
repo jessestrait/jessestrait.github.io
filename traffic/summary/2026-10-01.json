@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 114, q3 118 min over 42 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 43 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -14,18 +14,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 16,
-  "tomtom": 861,
-  "tomtom_only": 846
+  "tomtom": 880,
+  "tomtom_only": 865
  },
  "date": "2026-10-01",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 116.6,
+  "median": 116.5,
   "min": 13.2,
-  "n": 42,
-  "q1": 113.9,
-  "q3": 118.3
+  "n": 43,
+  "q1": 115.0,
+  "q3": 118.2
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 8,
-   "n": 386,
-   "pct": 2.1
+   "n": 395,
+   "pct": 2.0
   },
   "tomtom_surface": {
    "matched": 7,
-   "n": 475,
-   "pct": 1.5
+   "n": 485,
+   "pct": 1.4
   }
  },
  "matcher": {
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 116,
-  "hotspot_buckets": 773,
-  "hotspot_buckets_on_roadworks": 109,
+  "explained_by_roadworks": 117,
+  "hotspot_buckets": 786,
+  "hotspot_buckets_on_roadworks": 110,
   "txdot_rows": 8,
-  "unreported_congestion": 826
+  "unreported_congestion": 845
  },
  "sampling": {
   "flow_spent_this_month": 126,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 28,
+  "incidents_spent_this_month": 29,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -154,11 +154,25 @@
    "seg": "30.520,-97.559"
   },
   {
+   "from": "US-183/E 7th St/Airport Blvd/Ed Bluestein Blvd (E 7th St)",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.255,-97.700"
+  },
+  {
    "from": "E William Cannon Dr / Springfield Dr",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
    "seg": "30.165,-97.729"
+  },
+  {
+   "from": "E Martin Luther King Junior Blvd / FM 969 Rd",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.302,-97.660"
   },
   {
    "from": "Kenai Dr (W Parmer Ln/FM-734)",
@@ -201,20 +215,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.183,-97.768"
-  },
-  {
-   "from": "TX-212 Loop (US-290)",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.349,-97.552"
-  },
-  {
-   "from": "Sandifer St",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.249,-97.597"
   }
  ],
  "unmatched_pct": {
