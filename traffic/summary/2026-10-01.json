@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 62,
-  "dispatch_only": 49,
+  "dispatch": 63,
+  "dispatch_only": 50,
   "here": 0,
   "here_matched": 0,
   "matched": 14,
-  "tomtom": 835,
-  "tomtom_only": 822
+  "tomtom": 845,
+  "tomtom_only": 832
  },
  "date": "2026-10-01",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 12,
-   "n": 52,
-   "pct": 23.1
+   "n": 53,
+   "pct": 22.6
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 370,
+   "n": 374,
    "pct": 1.6
   },
   "tomtom_surface": {
    "matched": 7,
-   "n": 465,
+   "n": 471,
    "pct": 1.5
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 115,
-  "hotspot_buckets": 749,
-  "hotspot_buckets_on_roadworks": 109,
+  "hotspot_buckets": 761,
+  "hotspot_buckets_on_roadworks": 110,
   "txdot_rows": 8,
-  "unreported_congestion": 802
+  "unreported_congestion": 812
  },
  "sampling": {
   "flow_spent_this_month": 126,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 26,
+  "incidents_spent_this_month": 27,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -152,13 +152,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.520,-97.559"
-  },
-  {
-   "from": "US-183/E 7th St/Airport Blvd/Ed Bluestein Blvd (E 7th St)",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.255,-97.700"
   },
   {
    "from": "E William Cannon Dr / Springfield Dr",
@@ -215,17 +208,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.349,-97.552"
+  },
+  {
+   "from": "Sandifer St",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.249,-97.597"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 79.0,
-  "tomtom": 98.4
+  "dispatch": 79.4,
+  "tomtom": 98.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 62,
-  "neither": 49,
+  "n": 63,
+  "neither": 50,
   "tomtom_only": 13
  }
 }
