@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 111, q3 118 min over 91 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 112, q3 118 min over 92 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -13,9 +13,9 @@
   "dispatch_only": 80,
   "here": 0,
   "here_matched": 0,
-  "matched": 55,
-  "tomtom": 1849,
-  "tomtom_only": 1791
+  "matched": 57,
+  "tomtom": 1904,
+  "tomtom_only": 1843
  },
  "date": "2026-10-01",
  "dispatch_life_capped": true,
@@ -23,8 +23,8 @@
   "max": 120.0,
   "median": 116.4,
   "min": 9.1,
-  "n": 91,
-  "q1": 110.7,
+  "n": 92,
+  "q1": 111.8,
   "q3": 118.2
  },
  "here_onset_offset_min": {
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 35,
-   "n": 806,
-   "pct": 4.3
+   "n": 833,
+   "pct": 4.2
   },
   "tomtom_surface": {
-   "matched": 23,
-   "n": 1043,
-   "pct": 2.2
+   "matched": 26,
+   "n": 1071,
+   "pct": 2.4
   }
  },
  "matcher": {
@@ -60,17 +60,17 @@
  },
  "onset_offset_min": {
   "max": 86.6,
-  "median": 3.9,
+  "median": 6.5,
   "min": -66.1,
-  "n": 55,
-  "q1": -18.3,
-  "q3": 20.9
+  "n": 57,
+  "q1": -18.0,
+  "q3": 21.1
  },
  "persistence_min": {
-  "max": -15.2,
+  "max": 10.2,
   "median": -92.1,
   "min": -927.9,
-  "n": 22,
+  "n": 23,
   "q1": -102.3,
   "q3": -41.0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 198,
-  "hotspot_buckets": 1564,
-  "hotspot_buckets_on_roadworks": 181,
+  "explained_by_roadworks": 207,
+  "hotspot_buckets": 1604,
+  "hotspot_buckets_on_roadworks": 189,
   "txdot_rows": 8,
-  "unreported_congestion": 1715
+  "unreported_congestion": 1760
  },
  "sampling": {
-  "flow_spent_this_month": 234,
+  "flow_spent_this_month": 243,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 47,
+  "incidents_spent_this_month": 48,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -168,13 +168,6 @@
    "seg": "30.470,-97.797"
   },
   {
-   "from": "Chicon St (E Cesar Chavez St/E 1st St)",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.253,-97.714"
-  },
-  {
    "from": "FM-1825 (Wells Branch Pkwy)",
    "hour_of_week": 93,
    "n": 3,
@@ -187,6 +180,20 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.306,-97.744"
+  },
+  {
+   "from": "Burnet Rd",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.373,-97.726"
+  },
+  {
+   "from": "N Lake Creek Pkwy",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.475,-97.794"
   },
   {
    "from": "Keats Dr",
@@ -208,18 +215,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.520,-97.559"
-  },
-  {
-   "from": "US-183/E 7th St/Airport Blvd/Ed Bluestein Blvd (E 7th St)",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.255,-97.700"
   }
  ],
  "unmatched_pct": {
   "dispatch": 67.2,
-  "tomtom": 96.9
+  "tomtom": 96.8
  },
  "witnesses": {
   "both": 0,
