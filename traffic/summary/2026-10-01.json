@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 17,
-  "tomtom": 922,
-  "tomtom_only": 905
+  "tomtom": 939,
+  "tomtom_only": 922
  },
  "date": "2026-10-01",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 10,
-   "n": 418,
-   "pct": 2.4
+   "n": 426,
+   "pct": 2.3
   },
   "tomtom_surface": {
    "matched": 7,
-   "n": 504,
+   "n": 513,
    "pct": 1.4
   }
  },
@@ -89,16 +89,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 119,
-  "hotspot_buckets": 819,
-  "hotspot_buckets_on_roadworks": 111,
+  "explained_by_roadworks": 122,
+  "hotspot_buckets": 829,
+  "hotspot_buckets_on_roadworks": 113,
   "txdot_rows": 8,
-  "unreported_congestion": 885
+  "unreported_congestion": 902
  },
  "sampling": {
   "flow_spent_this_month": 135,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 31,
+  "incidents_spent_this_month": 32,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Sandra Muraida Way",
+   "hour_of_week": 85,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.267,-97.755"
+  },
   {
    "from": "Strathaven Pass",
    "hour_of_week": 84,
@@ -138,13 +145,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.201,-97.640"
-  },
-  {
-   "from": "Sandra Muraida Way",
-   "hour_of_week": 85,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.267,-97.755"
   },
   {
    "from": "Cross Park Dr (Cameron Rd)",
