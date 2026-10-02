@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 56,
-  "dispatch_only": 52,
+  "dispatch_only": 51,
   "here": 0,
   "here_matched": 0,
-  "matched": 4,
-  "tomtom": 257,
-  "tomtom_only": 253
+  "matched": 5,
+  "tomtom": 272,
+  "tomtom_only": 267
  },
  "date": "2026-10-02",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 12.5
   },
   "dispatch_surface": {
-   "matched": 3,
+   "matched": 4,
    "n": 48,
-   "pct": 6.2
+   "pct": 8.3
   },
   "tomtom_highway": {
    "matched": 3,
-   "n": 100,
-   "pct": 3.0
+   "n": 104,
+   "pct": 2.9
   },
   "tomtom_surface": {
-   "matched": 1,
-   "n": 157,
-   "pct": 0.6
+   "matched": 2,
+   "n": 168,
+   "pct": 1.2
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 43.5,
-  "median": 35.4,
+  "max": 59.5,
+  "median": 42.6,
   "min": 9.2,
-  "n": 4,
-  "q1": 13.9,
-  "q3": 43.3
+  "n": 5,
+  "q1": 18.7,
+  "q3": 51.5
  },
  "persistence_min": {
   "max": -45.8,
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 46,
-  "hotspot_buckets": 220,
-  "hotspot_buckets_on_roadworks": 42,
+  "explained_by_roadworks": 49,
+  "hotspot_buckets": 233,
+  "hotspot_buckets_on_roadworks": 45,
   "txdot_rows": 6,
-  "unreported_congestion": 234
+  "unreported_congestion": 248
  },
  "sampling": {
   "flow_spent_this_month": 387,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 82,
+  "incidents_spent_this_month": 83,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -116,6 +116,20 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.279,-97.733"
+  },
+  {
+   "from": "Meadow Crst",
+   "hour_of_week": 92,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.192,-97.732"
+  },
+  {
+   "from": "Creston St",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.520,-97.559"
   },
   {
    "from": "Nature Center Dr",
@@ -174,13 +188,6 @@
    "seg": "30.179,-97.616"
   },
   {
-   "from": "Creston St",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.520,-97.559"
-  },
-  {
    "from": "W Whitestone Blvd",
    "hour_of_week": 95,
    "n": 1,
@@ -207,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.287,-97.745"
-  },
-  {
-   "from": "Fruth St",
-   "hour_of_week": 95,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.295,-97.742"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 92.9,
-  "tomtom": 98.4
+  "dispatch": 91.1,
+  "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 56,
-  "neither": 52,
-  "tomtom_only": 4
+  "neither": 51,
+  "tomtom_only": 5
  }
 }
