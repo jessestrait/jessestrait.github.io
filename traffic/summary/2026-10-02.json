@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch record lifetimes look like real clearances this day, not a cap.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 89, q3 118 min over 101 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 113,
-  "dispatch_only": 98,
+  "dispatch": 114,
+  "dispatch_only": 99,
   "here": 0,
   "here_matched": 0,
   "matched": 18,
@@ -18,13 +18,13 @@
   "tomtom_only": 806
  },
  "date": "2026-10-02",
- "dispatch_life_capped": false,
+ "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
   "median": 116.1,
   "min": 15.5,
-  "n": 98,
-  "q1": 87.5,
+  "n": 101,
+  "q1": 89.3,
   "q3": 117.8
  },
  "here_onset_offset_min": {
@@ -38,8 +38,8 @@
   },
   "dispatch_surface": {
    "matched": 12,
-   "n": 97,
-   "pct": 12.4
+   "n": 98,
+   "pct": 12.2
   },
   "tomtom_highway": {
    "matched": 11,
@@ -72,7 +72,8 @@
   "min": -81.6,
   "n": 15,
   "q1": -61.0,
-  "q3": -15.2
+  "q3": -15.2,
+  "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -217,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.7,
+  "dispatch": 86.8,
   "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 113,
-  "neither": 98,
+  "n": 114,
+  "neither": 99,
   "tomtom_only": 15
  }
 }
