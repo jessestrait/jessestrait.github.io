@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 130,
+  "dispatch": 131,
   "dispatch_only": 104,
   "here": 0,
   "here_matched": 0,
-  "matched": 36,
-  "tomtom": 1748,
-  "tomtom_only": 1709
+  "matched": 37,
+  "tomtom": 1790,
+  "tomtom_only": 1749
  },
  "date": "2026-10-02",
  "dispatch_life_capped": true,
@@ -37,18 +37,18 @@
    "pct": 31.6
   },
   "dispatch_surface": {
-   "matched": 20,
-   "n": 111,
-   "pct": 18.0
+   "matched": 21,
+   "n": 112,
+   "pct": 18.8
   },
   "tomtom_highway": {
-   "matched": 23,
-   "n": 739,
-   "pct": 3.1
+   "matched": 25,
+   "n": 762,
+   "pct": 3.3
   },
   "tomtom_surface": {
    "matched": 16,
-   "n": 1009,
+   "n": 1028,
    "pct": 1.6
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 89.2,
-  "median": 46.0,
+  "median": 44.5,
   "min": -4.9,
-  "n": 36,
-  "q1": 13.8,
-  "q3": 68.6
+  "n": 37,
+  "q1": 13.0,
+  "q3": 67.5
  },
  "persistence_min": {
   "max": 45.7,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1502,
+  "hotspot_buckets": 1531,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1665
+  "unreported_congestion": 1699
  },
  "sampling": {
   "flow_spent_this_month": 522,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 117,
+  "incidents_spent_this_month": 118,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "E 12th St",
+   "hour_of_week": 117,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.272,-97.733"
+  },
   {
    "from": "Comal St (E 11th St)",
    "hour_of_week": 117,
@@ -138,13 +145,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.195,-97.767"
-  },
-  {
-   "from": "E 12th St",
-   "hour_of_week": 117,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.272,-97.733"
   },
   {
    "from": "Lake Austin Blvd",
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.0,
-  "tomtom": 97.8
+  "dispatch": 79.4,
+  "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 130,
+  "n": 131,
   "neither": 104,
-  "tomtom_only": 26
+  "tomtom_only": 27
  }
 }
