@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 127,
-  "dispatch_only": 103,
+  "dispatch": 130,
+  "dispatch_only": 104,
   "here": 0,
   "here_matched": 0,
-  "matched": 32,
-  "tomtom": 1663,
-  "tomtom_only": 1628
+  "matched": 34,
+  "tomtom": 1703,
+  "tomtom_only": 1666
  },
  "date": "2026-10-02",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 31.6
   },
   "dispatch_surface": {
-   "matched": 18,
-   "n": 108,
-   "pct": 16.7
+   "matched": 20,
+   "n": 111,
+   "pct": 18.0
   },
   "tomtom_highway": {
-   "matched": 20,
-   "n": 699,
-   "pct": 2.9
+   "matched": 22,
+   "n": 710,
+   "pct": 3.1
   },
   "tomtom_surface": {
    "matched": 15,
-   "n": 964,
-   "pct": 1.6
+   "n": 993,
+   "pct": 1.5
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 89.2,
-  "median": 46.0,
+  "median": 44.0,
   "min": -4.9,
-  "n": 32,
-  "q1": 17.9,
-  "q3": 74.8
+  "n": 34,
+  "q1": 13.0,
+  "q3": 71.4
  },
  "persistence_min": {
   "max": 45.7,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1440,
+  "hotspot_buckets": 1470,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1592
+  "unreported_congestion": 1628
  },
  "sampling": {
   "flow_spent_this_month": 513,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 115,
+  "incidents_spent_this_month": 116,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -147,13 +147,6 @@
    "seg": "30.272,-97.733"
   },
   {
-   "from": "Lake Austin Blvd",
-   "hour_of_week": 117,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.276,-97.772"
-  },
-  {
    "from": "Barton Springs Rd",
    "hour_of_week": 117,
    "n": 4,
@@ -166,6 +159,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.288,-97.763"
+  },
+  {
+   "from": "Congress Ave / E 3rd St",
+   "hour_of_week": 118,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.266,-97.746"
   },
   {
    "from": "Creston St",
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.1,
-  "tomtom": 97.9
+  "dispatch": 80.0,
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 127,
-  "neither": 103,
-  "tomtom_only": 24
+  "n": 130,
+  "neither": 104,
+  "tomtom_only": 26
  }
 }
