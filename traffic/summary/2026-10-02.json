@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 2,
-  "tomtom": 208,
-  "tomtom_only": 206
+  "tomtom": 211,
+  "tomtom_only": 209
  },
  "date": "2026-10-02",
  "dispatch_life_capped": false,
@@ -48,7 +48,7 @@
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 126,
+   "n": 129,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 41,
-  "hotspot_buckets": 176,
+  "hotspot_buckets": 180,
   "hotspot_buckets_on_roadworks": 37,
   "txdot_rows": 9,
-  "unreported_congestion": 189
+  "unreported_congestion": 192
  },
  "sampling": {
-  "flow_spent_this_month": 333,
+  "flow_spent_this_month": 342,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 75,
+  "incidents_spent_this_month": 76,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -130,13 +130,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
-  },
-  {
-   "from": "Angelina St",
-   "hour_of_week": 103,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.274,-97.725"
   },
   {
    "from": "E Oltorf St",
@@ -214,11 +207,18 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.246,-97.769"
+  },
+  {
+   "from": "W 5th St",
+   "hour_of_week": 95,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.269,-97.749"
   }
  ],
  "unmatched_pct": {
   "dispatch": 95.0,
-  "tomtom": 99.0
+  "tomtom": 99.1
  },
  "witnesses": {
   "both": 0,
