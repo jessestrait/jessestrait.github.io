@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 58,
-  "dispatch_only": 51,
+  "dispatch": 61,
+  "dispatch_only": 53,
   "here": 0,
   "here_matched": 0,
-  "matched": 8,
-  "tomtom": 485,
-  "tomtom_only": 477
+  "matched": 9,
+  "tomtom": 518,
+  "tomtom_only": 509
  },
  "date": "2026-10-02",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 115.7,
+  "median": 115.8,
   "min": 15.9,
-  "n": 43,
-  "q1": 75.6,
-  "q3": 117.8
+  "n": 44,
+  "q1": 77.3,
+  "q3": 118.5
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,19 +37,19 @@
    "pct": 25.0
   },
   "dispatch_surface": {
-   "matched": 5,
-   "n": 50,
-   "pct": 10.0
+   "matched": 6,
+   "n": 53,
+   "pct": 11.3
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 160,
-   "pct": 2.5
+   "matched": 5,
+   "n": 170,
+   "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 325,
-   "pct": 1.2
+   "n": 348,
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 87.7,
-  "median": 47.7,
+  "median": 43.5,
   "min": 9.2,
-  "n": 8,
-  "q1": 31.8,
-  "q3": 78.0
+  "n": 9,
+  "q1": 19.8,
+  "q3": 71.8
  },
  "persistence_min": {
-  "max": -45.8,
-  "median": -61.0,
+  "max": -20.6,
+  "median": -45.8,
   "min": -76.2,
-  "n": 2,
+  "n": 3,
   "q1": -76.2,
-  "q3": -45.8
+  "q3": -20.6
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 62,
-  "hotspot_buckets": 427,
-  "hotspot_buckets_on_roadworks": 57,
+  "explained_by_roadworks": 65,
+  "hotspot_buckets": 456,
+  "hotspot_buckets_on_roadworks": 60,
   "txdot_rows": 6,
-  "unreported_congestion": 458
+  "unreported_congestion": 490
  },
  "sampling": {
   "flow_spent_this_month": 405,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 90,
+  "incidents_spent_this_month": 91,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -123,6 +123,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.241,-97.746"
+  },
+  {
+   "from": "Wolf Pack Dr",
+   "hour_of_week": 108,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.426,-97.569"
   },
   {
    "from": "E 18th St",
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.418,-97.576"
-  },
-  {
-   "from": "N Lakeline Blvd",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.503,-97.850"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.9,
-  "tomtom": 98.4
+  "dispatch": 86.9,
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 58,
-  "neither": 51,
-  "tomtom_only": 7
+  "n": 61,
+  "neither": 53,
+  "tomtom_only": 8
  }
 }
