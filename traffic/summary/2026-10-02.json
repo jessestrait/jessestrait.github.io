@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 8,
-  "tomtom": 360,
-  "tomtom_only": 352
+  "tomtom": 401,
+  "tomtom_only": 393
  },
  "date": "2026-10-02",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 127,
-   "pct": 3.1
+   "n": 137,
+   "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 233,
-   "pct": 1.7
+   "n": 264,
+   "pct": 1.5
   }
  },
  "matcher": {
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 55,
-  "hotspot_buckets": 312,
-  "hotspot_buckets_on_roadworks": 50,
+  "explained_by_roadworks": 59,
+  "hotspot_buckets": 352,
+  "hotspot_buckets_on_roadworks": 55,
   "txdot_rows": 6,
-  "unreported_congestion": 333
+  "unreported_congestion": 374
  },
  "sampling": {
   "flow_spent_this_month": 396,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 86,
+  "incidents_spent_this_month": 87,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -116,6 +116,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.520,-97.559"
+  },
+  {
+   "from": "Mariposa Dr",
+   "hour_of_week": 108,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.241,-97.746"
   },
   {
    "from": "E 18th St",
@@ -146,18 +153,25 @@
    "seg": "30.266,-97.746"
   },
   {
-   "from": "Mariposa Dr",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.241,-97.746"
-  },
-  {
-   "from": "N Lakeline Blvd",
+   "from": "N Lakeline Blvd / S Lakeline Blvd",
    "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
    "seg": "30.504,-97.850"
+  },
+  {
+   "from": "D.K. Ranch Rd",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.415,-97.781"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.431,-97.673"
   },
   {
    "from": "Nature Center Dr",
@@ -200,25 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.616"
-  },
-  {
-   "from": "Lipizzan Dr",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.364,-97.901"
   }
  ],
  "unmatched_pct": {
   "dispatch": 87.5,
-  "tomtom": 97.8
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
