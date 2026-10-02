@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 56,
-  "dispatch_only": 49,
+  "dispatch": 58,
+  "dispatch_only": 51,
   "here": 0,
   "here_matched": 0,
   "matched": 8,
-  "tomtom": 456,
-  "tomtom_only": 448
+  "tomtom": 485,
+  "tomtom_only": 477
  },
  "date": "2026-10-02",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 115.6,
+  "median": 115.7,
   "min": 15.9,
-  "n": 42,
-  "q1": 75.4,
+  "n": 43,
+  "q1": 75.6,
   "q3": 117.8
  },
  "here_onset_offset_min": {
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 5,
-   "n": 48,
-   "pct": 10.4
+   "n": 50,
+   "pct": 10.0
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 154,
-   "pct": 2.6
+   "n": 160,
+   "pct": 2.5
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 302,
-   "pct": 1.3
+   "n": 325,
+   "pct": 1.2
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 62,
-  "hotspot_buckets": 405,
-  "hotspot_buckets_on_roadworks": 58,
+  "hotspot_buckets": 427,
+  "hotspot_buckets_on_roadworks": 57,
   "txdot_rows": 6,
-  "unreported_congestion": 429
+  "unreported_congestion": 458
  },
  "sampling": {
   "flow_spent_this_month": 405,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 89,
+  "incidents_spent_this_month": 90,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,6 +160,20 @@
    "seg": "30.213,-97.659"
   },
   {
+   "from": "E Howard Ln (Dessau Rd)",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.389,-97.648"
+  },
+  {
+   "from": "Friendship Quilt Ln",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.429,-97.635"
+  },
+  {
    "from": "Yaupon Dr",
    "hour_of_week": 108,
    "n": 2,
@@ -174,57 +188,43 @@
    "seg": "30.498,-97.624"
   },
   {
+   "from": "Dessau Rd",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.422,-97.620"
+  },
+  {
+   "from": "Dove Haven Dr",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.434,-97.611"
+  },
+  {
+   "from": "Cameron Rd",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.418,-97.576"
+  },
+  {
    "from": "N Lakeline Blvd",
    "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
    "seg": "30.503,-97.850"
-  },
-  {
-   "from": "Korman Dr",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.431,-97.673"
-  },
-  {
-   "from": "Nature Center Dr",
-   "hour_of_week": 86,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.269,-97.770"
-  },
-  {
-   "from": "W Cesar Chavez St",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.266,-97.753"
-  },
-  {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.245,-97.744"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.234,-97.736"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.5,
-  "tomtom": 98.2
+  "dispatch": 87.9,
+  "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 56,
-  "neither": 49,
+  "n": 58,
+  "neither": 51,
   "tomtom_only": 7
  }
 }
