@@ -1,0 +1,225 @@
+{
+ "caveats": [
+  "Dispatch published_date is when APD published, not when it happened.",
+  "Dispatch record lifetimes look like real clearances this day, not a cap.",
+  "Clearance resolution equals the poll interval; shorter incidents are invisible.",
+  "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
+  "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
+  "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
+  "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
+ ],
+ "counts": {
+  "dispatch": 21,
+  "dispatch_only": 20,
+  "here": 0,
+  "here_matched": 0,
+  "matched": 1,
+  "tomtom": 149,
+  "tomtom_only": 148
+ },
+ "date": "2026-10-02",
+ "dispatch_life_capped": false,
+ "dispatch_record_life_min": {
+  "max": 116.7,
+  "median": 116.7,
+  "min": 116.7,
+  "n": 1,
+  "q1": 116.7,
+  "q3": 116.7
+ },
+ "here_onset_offset_min": {
+  "n": 0
+ },
+ "match_rate": {
+  "dispatch_highway": {
+   "matched": 1,
+   "n": 4,
+   "pct": 25.0
+  },
+  "dispatch_surface": {
+   "matched": 0,
+   "n": 17,
+   "pct": 0.0
+  },
+  "tomtom_highway": {
+   "matched": 1,
+   "n": 50,
+   "pct": 2.0
+  },
+  "tomtom_surface": {
+   "matched": 0,
+   "n": 99,
+   "pct": 0.0
+  }
+ },
+ "matcher": {
+  "buffer_m": 200.0,
+  "highway_buffer_m": 130.0,
+  "onset_window_min": 90.0,
+  "tolerance_min": 20.0
+ },
+ "onset_offset_min": {
+  "max": 42.6,
+  "median": 42.6,
+  "min": 42.6,
+  "n": 1,
+  "q1": 42.6,
+  "q3": 42.6
+ },
+ "persistence_min": {
+  "n": 0
+ },
+ "poll_interval_min": 5.0,
+ "probe_agreement": {
+  "cover": {
+   "n": 0
+  },
+  "n": 0,
+  "onset_offset_min": {
+   "n": 0
+  },
+  "pct_of_here": 0.0,
+  "pct_of_tomtom": 0.0,
+  "type_agree": 0
+ },
+ "roadworks": {
+  "explained_by_roadworks": 24,
+  "hotspot_buckets": 123,
+  "hotspot_buckets_on_roadworks": 23,
+  "txdot_rows": 8,
+  "unreported_congestion": 131
+ },
+ "sampling": {
+  "flow_spent_this_month": 288,
+  "incident_budget": 2500,
+  "incidents_spent_this_month": 70,
+  "off_peak_min": 45,
+  "rush_hours_local": [
+   7,
+   8,
+   16,
+   17,
+   18
+  ],
+  "rush_min": 5,
+  "this_poll": "off-peak"
+ },
+ "structural_hotspots": [
+  {
+   "from": "E 18th St",
+   "hour_of_week": 95,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.279,-97.733"
+  },
+  {
+   "from": "Nature Center Dr",
+   "hour_of_week": 86,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.269,-97.770"
+  },
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Thompson Ln",
+   "hour_of_week": 94,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.240,-97.666"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Lexington Meadow Ln",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.179,-97.616"
+  },
+  {
+   "from": "W Whitestone Blvd",
+   "hour_of_week": 95,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.519,-97.839"
+  },
+  {
+   "from": "Grand Avenue Pkwy (I-35)",
+   "hour_of_week": 95,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.503,-97.683"
+  },
+  {
+   "from": "Highway 45",
+   "hour_of_week": 95,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.488,-97.676"
+  },
+  {
+   "from": "W Martin Luther King Jr Blvd (Rio Grande St)",
+   "hour_of_week": 95,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.286,-97.745"
+  },
+  {
+   "from": "Pearl St",
+   "hour_of_week": 95,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.287,-97.745"
+  },
+  {
+   "from": "Fruth St",
+   "hour_of_week": 95,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.295,-97.742"
+  },
+  {
+   "from": "S 1st St (W Oltorf St)",
+   "hour_of_week": 95,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.246,-97.769"
+  },
+  {
+   "from": "W 5th St",
+   "hour_of_week": 95,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.269,-97.749"
+  }
+ ],
+ "unmatched_pct": {
+  "dispatch": 95.2,
+  "tomtom": 99.3
+ },
+ "witnesses": {
+  "both": 0,
+  "here_only": 0,
+  "n": 21,
+  "neither": 20,
+  "tomtom_only": 1
+ }
+}
