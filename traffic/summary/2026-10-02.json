@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 56,
-  "dispatch_only": 51,
+  "dispatch_only": 49,
   "here": 0,
   "here_matched": 0,
-  "matched": 5,
-  "tomtom": 272,
-  "tomtom_only": 267
+  "matched": 7,
+  "tomtom": 291,
+  "tomtom_only": 284
  },
  "date": "2026-10-02",
  "dispatch_life_capped": false,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
+   "matched": 2,
    "n": 8,
-   "pct": 12.5
+   "pct": 25.0
   },
   "dispatch_surface": {
-   "matched": 4,
+   "matched": 5,
    "n": 48,
-   "pct": 8.3
+   "pct": 10.4
   },
   "tomtom_highway": {
-   "matched": 3,
-   "n": 104,
-   "pct": 2.9
+   "matched": 4,
+   "n": 109,
+   "pct": 3.7
   },
   "tomtom_surface": {
-   "matched": 2,
-   "n": 168,
-   "pct": 1.2
+   "matched": 3,
+   "n": 182,
+   "pct": 1.6
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 59.5,
-  "median": 42.6,
+  "max": 84.2,
+  "median": 43.5,
   "min": 9.2,
-  "n": 5,
-  "q1": 18.7,
-  "q3": 51.5
+  "n": 7,
+  "q1": 28.2,
+  "q3": 59.5
  },
  "persistence_min": {
   "max": -45.8,
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 49,
-  "hotspot_buckets": 233,
-  "hotspot_buckets_on_roadworks": 45,
+  "explained_by_roadworks": 51,
+  "hotspot_buckets": 249,
+  "hotspot_buckets_on_roadworks": 47,
   "txdot_rows": 6,
-  "unreported_congestion": 248
+  "unreported_congestion": 265
  },
  "sampling": {
   "flow_spent_this_month": 387,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 83,
+  "incidents_spent_this_month": 84,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
  },
  "structural_hotspots": [
   {
+   "from": "Creston St",
+   "hour_of_week": 108,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.520,-97.559"
+  },
+  {
    "from": "E 18th St",
    "hour_of_week": 95,
    "n": 2,
@@ -123,13 +130,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.192,-97.732"
-  },
-  {
-   "from": "Creston St",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.520,-97.559"
   },
   {
    "from": "Nature Center Dr",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 91.1,
-  "tomtom": 98.2
+  "dispatch": 87.5,
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 56,
-  "neither": 51,
-  "tomtom_only": 5
+  "neither": 49,
+  "tomtom_only": 7
  }
 }
