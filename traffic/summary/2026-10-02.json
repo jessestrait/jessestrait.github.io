@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 92, q3 118 min over 107 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 93, q3 118 min over 108 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 125,
-  "dispatch_only": 103,
+  "dispatch_only": 102,
   "here": 0,
   "here_matched": 0,
-  "matched": 27,
-  "tomtom": 1513,
-  "tomtom_only": 1484
+  "matched": 29,
+  "tomtom": 1557,
+  "tomtom_only": 1526
  },
  "date": "2026-10-02",
  "dispatch_life_capped": true,
@@ -23,8 +23,8 @@
   "max": 119.9,
   "median": 116.5,
   "min": 15.5,
-  "n": 107,
-  "q1": 92.5,
+  "n": 108,
+  "q1": 92.8,
   "q3": 118.1
  },
  "here_onset_offset_min": {
@@ -37,19 +37,19 @@
    "pct": 33.3
   },
   "dispatch_surface": {
-   "matched": 16,
+   "matched": 17,
    "n": 107,
-   "pct": 15.0
+   "pct": 15.9
   },
   "tomtom_highway": {
-   "matched": 15,
-   "n": 628,
-   "pct": 2.4
+   "matched": 17,
+   "n": 650,
+   "pct": 2.6
   },
   "tomtom_surface": {
    "matched": 14,
-   "n": 885,
-   "pct": 1.6
+   "n": 907,
+   "pct": 1.5
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 89.2,
   "median": 44.5,
   "min": -4.9,
-  "n": 27,
-  "q1": 15.9,
-  "q3": 76.5
+  "n": 29,
+  "q1": 19.8,
+  "q3": 73.1
  },
  "persistence_min": {
   "max": 45.7,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1319,
+  "hotspot_buckets": 1341,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1452
+  "unreported_congestion": 1494
  },
  "sampling": {
   "flow_spent_this_month": 504,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 111,
+  "incidents_spent_this_month": 112,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -112,11 +112,32 @@
  },
  "structural_hotspots": [
   {
+   "from": "Lake Austin Blvd",
+   "hour_of_week": 117,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.276,-97.772"
+  },
+  {
+   "from": "Comal St (E 11th St)",
+   "hour_of_week": 117,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.270,-97.732"
+  },
+  {
    "from": "Christina Garza Dr",
    "hour_of_week": 117,
    "n": 4,
    "roadworks": false,
    "seg": "30.350,-97.556"
+  },
+  {
+   "from": "Lakeline Mall Dr",
+   "hour_of_week": 117,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.475,-97.795"
   },
   {
    "from": "S Interstate 35",
@@ -131,6 +152,27 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.272,-97.733"
+  },
+  {
+   "from": "I-35 Service Rd/E 51st St (Cameron Rd)",
+   "hour_of_week": 117,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.316,-97.701"
+  },
+  {
+   "from": "Barton Springs Rd",
+   "hour_of_week": 117,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.261,-97.758"
+  },
+  {
+   "from": "Mopac Expy S",
+   "hour_of_week": 117,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.288,-97.763"
   },
   {
    "from": "Creston St",
@@ -173,59 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.270,-97.751"
-  },
-  {
-   "from": "Comal St (E 11th St)",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.270,-97.732"
-  },
-  {
-   "from": "Lakeline Mall Dr",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.475,-97.795"
-  },
-  {
-   "from": "MLK & 15th St exit [235A]",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.278,-97.730"
-  },
-  {
-   "from": "Lake Austin Blvd",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.276,-97.772"
-  },
-  {
-   "from": "I-35 Service Rd/E 51st St (Cameron Rd)",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.316,-97.701"
-  },
-  {
-   "from": "Mopac Expy S",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.288,-97.763"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.4,
-  "tomtom": 98.1
+  "dispatch": 81.6,
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 125,
-  "neither": 103,
-  "tomtom_only": 22
+  "neither": 102,
+  "tomtom_only": 23
  }
 }
