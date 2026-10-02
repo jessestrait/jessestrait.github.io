@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 124,
-  "dispatch_only": 104,
+  "dispatch": 125,
+  "dispatch_only": 103,
   "here": 0,
   "here_matched": 0,
-  "matched": 25,
-  "tomtom": 1459,
-  "tomtom_only": 1433
+  "matched": 27,
+  "tomtom": 1513,
+  "tomtom_only": 1484
  },
  "date": "2026-10-02",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 33.3
   },
   "dispatch_surface": {
-   "matched": 14,
-   "n": 106,
-   "pct": 13.2
+   "matched": 16,
+   "n": 107,
+   "pct": 15.0
   },
   "tomtom_highway": {
-   "matched": 16,
-   "n": 608,
-   "pct": 2.6
+   "matched": 15,
+   "n": 628,
+   "pct": 2.4
   },
   "tomtom_surface": {
-   "matched": 10,
-   "n": 851,
-   "pct": 1.2
+   "matched": 14,
+   "n": 885,
+   "pct": 1.6
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 89.2,
-  "median": 49.3,
+  "median": 44.5,
   "min": -4.9,
-  "n": 25,
-  "q1": 31.1,
-  "q3": 76.8
+  "n": 27,
+  "q1": 15.9,
+  "q3": 76.5
  },
  "persistence_min": {
   "max": 45.7,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1280,
+  "hotspot_buckets": 1319,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1402
+  "unreported_congestion": 1452
  },
  "sampling": {
   "flow_spent_this_month": 504,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 110,
+  "incidents_spent_this_month": 111,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -112,11 +112,11 @@
  },
  "structural_hotspots": [
   {
-   "from": "Comal St (E 11th St)",
+   "from": "Christina Garza Dr",
    "hour_of_week": 117,
    "n": 4,
    "roadworks": false,
-   "seg": "30.270,-97.732"
+   "seg": "30.350,-97.556"
   },
   {
    "from": "S Interstate 35",
@@ -124,6 +124,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.195,-97.767"
+  },
+  {
+   "from": "E 12th St",
+   "hour_of_week": 117,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.272,-97.733"
   },
   {
    "from": "Creston St",
@@ -168,11 +175,11 @@
    "seg": "30.270,-97.751"
   },
   {
-   "from": "Christina Garza Dr",
+   "from": "Comal St (E 11th St)",
    "hour_of_week": 117,
    "n": 3,
    "roadworks": false,
-   "seg": "30.350,-97.556"
+   "seg": "30.270,-97.732"
   },
   {
    "from": "Lakeline Mall Dr",
@@ -180,13 +187,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.475,-97.795"
-  },
-  {
-   "from": "E 12th St",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.272,-97.733"
   },
   {
    "from": "MLK & 15th St exit [235A]",
@@ -210,22 +210,22 @@
    "seg": "30.316,-97.701"
   },
   {
-   "from": "E 18th St",
-   "hour_of_week": 95,
-   "n": 2,
+   "from": "Mopac Expy S",
+   "hour_of_week": 117,
+   "n": 3,
    "roadworks": false,
-   "seg": "30.279,-97.733"
+   "seg": "30.288,-97.763"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 83.9,
-  "tomtom": 98.2
+  "dispatch": 82.4,
+  "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 124,
-  "neither": 104,
-  "tomtom_only": 20
+  "n": 125,
+  "neither": 103,
+  "tomtom_only": 22
  }
 }
