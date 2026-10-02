@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 94, q3 118 min over 114 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 95, q3 118 min over 115 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 134,
+  "dispatch": 135,
   "dispatch_only": 107,
   "here": 0,
   "here_matched": 0,
-  "matched": 39,
-  "tomtom": 1819,
-  "tomtom_only": 1775
+  "matched": 40,
+  "tomtom": 1847,
+  "tomtom_only": 1800
  },
  "date": "2026-10-02",
  "dispatch_life_capped": true,
@@ -23,18 +23,18 @@
   "max": 119.9,
   "median": 116.6,
   "min": 15.5,
-  "n": 114,
-  "q1": 94.4,
-  "q3": 118.1
+  "n": 115,
+  "q1": 94.7,
+  "q3": 118.2
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 6,
-   "n": 20,
-   "pct": 30.0
+   "matched": 7,
+   "n": 21,
+   "pct": 33.3
   },
   "dispatch_surface": {
    "matched": 21,
@@ -42,14 +42,14 @@
    "pct": 18.4
   },
   "tomtom_highway": {
-   "matched": 27,
-   "n": 778,
-   "pct": 3.5
+   "matched": 29,
+   "n": 789,
+   "pct": 3.7
   },
   "tomtom_surface": {
-   "matched": 17,
-   "n": 1041,
-   "pct": 1.6
+   "matched": 18,
+   "n": 1058,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 89.2,
-  "median": 44.5,
-  "min": -4.9,
-  "n": 39,
-  "q1": 12.9,
+  "median": 46.0,
+  "min": -8.0,
+  "n": 40,
+  "q1": 13.0,
   "q3": 65.2
  },
  "persistence_min": {
   "max": 45.7,
   "median": -30.4,
   "min": -81.6,
-  "n": 19,
-  "q1": -56.0,
-  "q3": -5.1,
+  "n": 20,
+  "q1": -53.5,
+  "q3": -6.4,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1553,
+  "hotspot_buckets": 1571,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1721
+  "unreported_congestion": 1750
  },
  "sampling": {
   "flow_spent_this_month": 522,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 119,
+  "incidents_spent_this_month": 120,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "E 12th St",
+   "hour_of_week": 117,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.272,-97.733"
+  },
   {
    "from": "Congress Ave S (Barton Springs Rd)",
    "hour_of_week": 114,
@@ -145,13 +152,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.195,-97.767"
-  },
-  {
-   "from": "E 12th St",
-   "hour_of_week": 117,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.272,-97.733"
   },
   {
    "from": "Lake Austin Blvd",
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 79.9,
-  "tomtom": 97.6
+  "dispatch": 79.3,
+  "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 134,
+  "n": 135,
   "neither": 107,
-  "tomtom_only": 27
+  "tomtom_only": 28
  }
 }
