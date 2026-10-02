@@ -13,9 +13,9 @@
   "dispatch_only": 107,
   "here": 0,
   "here_matched": 0,
-  "matched": 43,
-  "tomtom": 1908,
-  "tomtom_only": 1854
+  "matched": 44,
+  "tomtom": 1936,
+  "tomtom_only": 1880
  },
  "date": "2026-10-02",
  "dispatch_life_capped": true,
@@ -42,14 +42,14 @@
    "pct": 19.1
   },
   "tomtom_highway": {
-   "matched": 31,
-   "n": 816,
-   "pct": 3.8
+   "matched": 32,
+   "n": 824,
+   "pct": 3.9
   },
   "tomtom_surface": {
-   "matched": 23,
-   "n": 1092,
-   "pct": 2.1
+   "matched": 24,
+   "n": 1112,
+   "pct": 2.2
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 89.2,
-  "median": 43.5,
+  "median": 44.0,
   "min": -8.0,
-  "n": 43,
-  "q1": 13.1,
-  "q3": 65.1
+  "n": 44,
+  "q1": 13.3,
+  "q3": 64.2
  },
  "persistence_min": {
   "max": 45.7,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1613,
+  "hotspot_buckets": 1625,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1802
+  "unreported_congestion": 1829
  },
  "sampling": {
   "flow_spent_this_month": 531,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 122,
+  "incidents_spent_this_month": 123,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -175,6 +175,20 @@
    "seg": "30.288,-97.763"
   },
   {
+   "from": "S Lamar Blvd / Butler Rd",
+   "hour_of_week": 118,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.261,-97.758"
+  },
+  {
+   "from": "Congress Ave / E 3rd St",
+   "hour_of_week": 118,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.266,-97.746"
+  },
+  {
    "from": "Creston St",
    "hour_of_week": 108,
    "n": 3,
@@ -201,25 +215,11 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.431,-97.673"
-  },
-  {
-   "from": "Wolf Pack Dr",
-   "hour_of_week": 108,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.426,-97.569"
-  },
-  {
-   "from": "W 5th St",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.270,-97.751"
   }
  ],
  "unmatched_pct": {
   "dispatch": 78.7,
-  "tomtom": 97.2
+  "tomtom": 97.1
  },
  "witnesses": {
   "both": 0,
