@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 8,
-  "tomtom": 318,
-  "tomtom_only": 310
+  "tomtom": 360,
+  "tomtom_only": 352
  },
  "date": "2026-10-02",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 118,
-   "pct": 3.4
+   "n": 127,
+   "pct": 3.1
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 200,
-   "pct": 2.0
+   "n": 233,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 53,
-  "hotspot_buckets": 275,
-  "hotspot_buckets_on_roadworks": 49,
+  "explained_by_roadworks": 55,
+  "hotspot_buckets": 312,
+  "hotspot_buckets_on_roadworks": 50,
   "txdot_rows": 6,
-  "unreported_congestion": 291
+  "unreported_congestion": 333
  },
  "sampling": {
   "flow_spent_this_month": 396,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 85,
+  "incidents_spent_this_month": 86,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -132,6 +132,34 @@
    "seg": "30.192,-97.732"
   },
   {
+   "from": "E Rector St",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.348,-97.556"
+  },
+  {
+   "from": "Congress Ave / E 3rd St",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.266,-97.746"
+  },
+  {
+   "from": "Mariposa Dr",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.241,-97.746"
+  },
+  {
+   "from": "N Lakeline Blvd",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.504,-97.850"
+  },
+  {
    "from": "Nature Center Dr",
    "hour_of_week": 86,
    "n": 2,
@@ -160,13 +188,6 @@
    "seg": "30.234,-97.736"
   },
   {
-   "from": "Hogan Ave",
-   "hour_of_week": 98,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.240,-97.700"
-  },
-  {
    "from": "Thompson Ln",
    "hour_of_week": 94,
    "n": 2,
@@ -188,37 +209,16 @@
    "seg": "30.179,-97.616"
   },
   {
-   "from": "W Whitestone Blvd",
-   "hour_of_week": 95,
-   "n": 1,
+   "from": "Lipizzan Dr",
+   "hour_of_week": 108,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.519,-97.839"
-  },
-  {
-   "from": "Grand Avenue Pkwy (I-35)",
-   "hour_of_week": 95,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.503,-97.683"
-  },
-  {
-   "from": "Highway 45",
-   "hour_of_week": 95,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.488,-97.676"
-  },
-  {
-   "from": "Pearl St",
-   "hour_of_week": 95,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.287,-97.745"
+   "seg": "30.364,-97.901"
   }
  ],
  "unmatched_pct": {
   "dispatch": 87.5,
-  "tomtom": 97.5
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
