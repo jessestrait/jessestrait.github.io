@@ -1,5 +1,5 @@
 {
- "captured_at": "2026-10-02T15:28:04Z",
+ "captured_at": "2026-10-02T15:43:06Z",
  "episodes": [
   {
    "customers_served": 14627,
@@ -8,10 +8,10 @@
    "first_seen": "2026-10-01T17:33:09Z",
    "id": "zip-78746-20261001T173309Z",
    "kind": "power_outage",
-   "last_seen": "2026-10-02T15:28:04Z",
+   "last_seen": "2026-10-02T15:43:06Z",
    "peak_customers_affected": 40,
    "peak_outages": 2,
-   "polls": 88,
+   "polls": 89,
    "scope": {
     "bbox": [
      -97.8661810003712,
@@ -27,14 +27,14 @@
   {
    "customers_served": 11446,
    "ended": false,
-   "etr_last": "2026-10-02T16:40:26Z",
+   "etr_last": "2026-10-02T18:27:46Z",
    "first_seen": "2026-10-02T10:25:42Z",
    "id": "zip-78703-20261002T102542Z",
    "kind": "power_outage",
-   "last_seen": "2026-10-02T15:28:04Z",
+   "last_seen": "2026-10-02T15:43:06Z",
    "peak_customers_affected": 125,
    "peak_outages": 2,
-   "polls": 21,
+   "polls": 22,
    "scope": {
     "bbox": [
      -97.78624200012251,
@@ -48,62 +48,16 @@
    "source": "austin-energy/kubra"
   },
   {
-   "customers_served": 4384,
-   "ended": false,
-   "etr_last": "2026-10-02T16:27:42Z",
-   "first_seen": "2026-10-02T14:27:25Z",
-   "id": "zip-78725-20261002T142725Z",
-   "kind": "power_outage",
-   "last_seen": "2026-10-02T15:28:04Z",
-   "peak_customers_affected": 1,
-   "peak_outages": 1,
-   "polls": 5,
-   "scope": {
-    "bbox": [
-     -97.67872599990034,
-     30.206063998743392,
-     -97.54131699976469,
-     30.285654299022923
-    ],
-    "id": "78725",
-    "type": "zip"
-   },
-   "source": "austin-energy/kubra"
-  },
-  {
-   "customers_served": 24696,
-   "ended": false,
-   "etr_last": "2026-10-02T17:02:29Z",
-   "first_seen": "2026-10-02T14:42:43Z",
-   "id": "zip-78759-20261002T144243Z",
-   "kind": "power_outage",
-   "last_seen": "2026-10-02T15:28:04Z",
-   "peak_customers_affected": 1,
-   "peak_outages": 1,
-   "polls": 4,
-   "scope": {
-    "bbox": [
-     -97.79529059993826,
-     30.361292998426297,
-     -97.70255300000878,
-     30.43453299964365
-    ],
-    "id": "78759",
-    "type": "zip"
-   },
-   "source": "austin-energy/kubra"
-  },
-  {
    "customers_served": 15259,
    "ended": false,
    "etr_last": "2026-10-02T17:38:02Z",
    "first_seen": "2026-10-02T14:42:43Z",
    "id": "zip-78754-20261002T144243Z",
    "kind": "power_outage",
-   "last_seen": "2026-10-02T15:28:04Z",
+   "last_seen": "2026-10-02T15:43:06Z",
    "peak_customers_affected": 37,
    "peak_outages": 1,
-   "polls": 4,
+   "polls": 5,
    "scope": {
     "bbox": [
      -97.68624920044316,
@@ -115,7 +69,30 @@
     "type": "zip"
    },
    "source": "austin-energy/kubra"
+  },
+  {
+   "customers_served": 12092,
+   "ended": false,
+   "etr_last": "2026-10-02T17:49:14Z",
+   "first_seen": "2026-10-02T15:43:06Z",
+   "id": "zip-78752-20261002T154306Z",
+   "kind": "power_outage",
+   "last_seen": "2026-10-02T15:43:06Z",
+   "peak_customers_affected": 8,
+   "peak_outages": 1,
+   "polls": 1,
+   "scope": {
+    "bbox": [
+     -97.72630599980099,
+     30.320334998424908,
+     -97.6735901001584,
+     30.347951998428158
+    ],
+    "id": "78752",
+    "type": "zip"
+   },
+   "source": "austin-energy/kubra"
   }
  ],
- "source_published": "2026-10-02T15:19:28Z"
+ "source_published": "2026-10-02T15:39:33Z"
 }
