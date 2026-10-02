@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 4,
-  "tomtom": 251,
-  "tomtom_only": 247
+  "tomtom": 257,
+  "tomtom_only": 253
  },
  "date": "2026-10-02",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 3,
-   "n": 97,
-   "pct": 3.1
+   "n": 100,
+   "pct": 3.0
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 154,
+   "n": 157,
    "pct": 0.6
   }
  },
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 45,
-  "hotspot_buckets": 215,
-  "hotspot_buckets_on_roadworks": 41,
+  "explained_by_roadworks": 46,
+  "hotspot_buckets": 220,
+  "hotspot_buckets_on_roadworks": 42,
   "txdot_rows": 6,
-  "unreported_congestion": 228
+  "unreported_congestion": 234
  },
  "sampling": {
   "flow_spent_this_month": 387,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 81,
+  "incidents_spent_this_month": 82,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -123,6 +123,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.269,-97.770"
+  },
+  {
+   "from": "W Cesar Chavez St",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.266,-97.753"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -167,11 +174,11 @@
    "seg": "30.179,-97.616"
   },
   {
-   "from": "W Cesar Chavez St",
+   "from": "Creston St",
    "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
-   "seg": "30.266,-97.753"
+   "seg": "30.520,-97.559"
   },
   {
    "from": "W Whitestone Blvd",
@@ -207,13 +214,6 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.295,-97.742"
-  },
-  {
-   "from": "S 1st St (W Oltorf St)",
-   "hour_of_week": 95,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.246,-97.769"
   }
  ],
  "unmatched_pct": {
