@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 122,
+  "dispatch": 124,
   "dispatch_only": 105,
   "here": 0,
   "here_matched": 0,
-  "matched": 21,
-  "tomtom": 1296,
-  "tomtom_only": 1274
+  "matched": 23,
+  "tomtom": 1364,
+  "tomtom_only": 1340
  },
  "date": "2026-10-02",
  "dispatch_life_capped": true,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 4,
+   "matched": 5,
    "n": 18,
-   "pct": 22.2
+   "pct": 27.8
   },
   "dispatch_surface": {
-   "matched": 13,
-   "n": 104,
-   "pct": 12.5
+   "matched": 14,
+   "n": 106,
+   "pct": 13.2
   },
   "tomtom_highway": {
-   "matched": 14,
-   "n": 530,
-   "pct": 2.6
+   "matched": 15,
+   "n": 565,
+   "pct": 2.7
   },
   "tomtom_surface": {
-   "matched": 8,
-   "n": 766,
-   "pct": 1.0
+   "matched": 9,
+   "n": 799,
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 87.7,
-  "median": 44.5,
+  "max": 88.1,
+  "median": 49.3,
   "min": -4.9,
-  "n": 21,
-  "q1": 20.6,
-  "q3": 70.8
+  "n": 23,
+  "q1": 28.2,
+  "q3": 76.5
  },
  "persistence_min": {
   "max": 45.7,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1161,
+  "hotspot_buckets": 1208,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1244
+  "unreported_congestion": 1309
  },
  "sampling": {
   "flow_spent_this_month": 495,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 107,
+  "incidents_spent_this_month": 108,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -147,6 +147,13 @@
    "seg": "30.426,-97.569"
   },
   {
+   "from": "Lakeline Mall Dr",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.475,-97.795"
+  },
+  {
    "from": "S Interstate 35",
    "hour_of_week": 117,
    "n": 3,
@@ -159,6 +166,20 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.272,-97.733"
+  },
+  {
+   "from": "Westwood Dr",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.510,-97.695"
+  },
+  {
+   "from": "Lake Austin Blvd",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.276,-97.772"
   },
   {
    "from": "E 18th St",
@@ -194,38 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.195,-97.767"
-  },
-  {
-   "from": "E Rector St",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.348,-97.556"
-  },
-  {
-   "from": "Congress Ave / E 3rd St",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.266,-97.746"
-  },
-  {
-   "from": "Spirit of Texas Dr",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.213,-97.659"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.1,
-  "tomtom": 98.3
+  "dispatch": 84.7,
+  "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 122,
+  "n": 124,
   "neither": 105,
-  "tomtom_only": 17
+  "tomtom_only": 19
  }
 }
