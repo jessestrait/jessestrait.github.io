@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 9,
-  "tomtom": 518,
-  "tomtom_only": 509
+  "tomtom": 538,
+  "tomtom_only": 529
  },
  "date": "2026-10-02",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 170,
+   "n": 174,
    "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 348,
+   "n": 364,
    "pct": 1.1
   }
  },
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 65,
-  "hotspot_buckets": 456,
-  "hotspot_buckets_on_roadworks": 60,
+  "explained_by_roadworks": 67,
+  "hotspot_buckets": 473,
+  "hotspot_buckets_on_roadworks": 62,
   "txdot_rows": 6,
-  "unreported_congestion": 490
+  "unreported_congestion": 510
  },
  "sampling": {
   "flow_spent_this_month": 405,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 91,
+  "incidents_spent_this_month": 92,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -123,6 +123,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.241,-97.746"
+  },
+  {
+   "from": "Dessau Rd",
+   "hour_of_week": 108,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.422,-97.620"
   },
   {
    "from": "Wolf Pack Dr",
@@ -174,6 +181,13 @@
    "seg": "30.389,-97.648"
   },
   {
+   "from": "N Lakeline Blvd / S Lakeline Blvd",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.504,-97.850"
+  },
+  {
    "from": "Friendship Quilt Ln",
    "hour_of_week": 108,
    "n": 2,
@@ -195,25 +209,11 @@
    "seg": "30.498,-97.624"
   },
   {
-   "from": "Dessau Rd",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.422,-97.620"
-  },
-  {
    "from": "Dove Haven Dr",
    "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
    "seg": "30.434,-97.611"
-  },
-  {
-   "from": "Cameron Rd",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.418,-97.576"
   }
  ],
  "unmatched_pct": {
