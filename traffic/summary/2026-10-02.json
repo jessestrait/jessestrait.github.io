@@ -13,9 +13,9 @@
   "dispatch_only": 104,
   "here": 0,
   "here_matched": 0,
-  "matched": 34,
-  "tomtom": 1703,
-  "tomtom_only": 1666
+  "matched": 36,
+  "tomtom": 1748,
+  "tomtom_only": 1709
  },
  "date": "2026-10-02",
  "dispatch_life_capped": true,
@@ -42,14 +42,14 @@
    "pct": 18.0
   },
   "tomtom_highway": {
-   "matched": 22,
-   "n": 710,
+   "matched": 23,
+   "n": 739,
    "pct": 3.1
   },
   "tomtom_surface": {
-   "matched": 15,
-   "n": 993,
-   "pct": 1.5
+   "matched": 16,
+   "n": 1009,
+   "pct": 1.6
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 89.2,
-  "median": 44.0,
+  "median": 46.0,
   "min": -4.9,
-  "n": 34,
-  "q1": 13.0,
-  "q3": 71.4
+  "n": 36,
+  "q1": 13.8,
+  "q3": 68.6
  },
  "persistence_min": {
   "max": 45.7,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1470,
+  "hotspot_buckets": 1502,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1628
+  "unreported_congestion": 1665
  },
  "sampling": {
-  "flow_spent_this_month": 513,
+  "flow_spent_this_month": 522,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 116,
+  "incidents_spent_this_month": 117,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -145,6 +145,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.272,-97.733"
+  },
+  {
+   "from": "Lake Austin Blvd",
+   "hour_of_week": 117,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.276,-97.772"
   },
   {
    "from": "Barton Springs Rd",
@@ -208,13 +215,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.258,-97.749"
-  },
-  {
-   "from": "W 5th St",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.270,-97.751"
   }
  ],
  "unmatched_pct": {
