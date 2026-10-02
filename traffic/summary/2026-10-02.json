@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 136,
-  "dispatch_only": 107,
+  "dispatch": 137,
+  "dispatch_only": 108,
   "here": 0,
   "here_matched": 0,
-  "matched": 44,
-  "tomtom": 1936,
-  "tomtom_only": 1880
+  "matched": 45,
+  "tomtom": 1962,
+  "tomtom_only": 1903
  },
  "date": "2026-10-02",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 22,
-   "n": 115,
-   "pct": 19.1
+   "n": 116,
+   "pct": 19.0
   },
   "tomtom_highway": {
-   "matched": 32,
-   "n": 824,
-   "pct": 3.9
+   "matched": 35,
+   "n": 837,
+   "pct": 4.2
   },
   "tomtom_surface": {
    "matched": 24,
-   "n": 1112,
-   "pct": 2.2
+   "n": 1125,
+   "pct": 2.1
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 89.2,
-  "median": 44.0,
+  "median": 44.5,
   "min": -8.0,
-  "n": 44,
-  "q1": 13.3,
-  "q3": 64.2
+  "n": 45,
+  "q1": 13.4,
+  "q3": 63.3
  },
  "persistence_min": {
   "max": 45.7,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1625,
+  "hotspot_buckets": 1640,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1829
+  "unreported_congestion": 1854
  },
  "sampling": {
   "flow_spent_this_month": 531,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 123,
+  "incidents_spent_this_month": 124,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -189,6 +189,13 @@
    "seg": "30.266,-97.746"
   },
   {
+   "from": "W Cesar Chavez St",
+   "hour_of_week": 118,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.267,-97.752"
+  },
+  {
    "from": "Creston St",
    "hour_of_week": 108,
    "n": 3,
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.422,-97.620"
-  },
-  {
-   "from": "Korman Dr",
-   "hour_of_week": 108,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.431,-97.673"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.7,
-  "tomtom": 97.1
+  "dispatch": 78.8,
+  "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 136,
-  "neither": 107,
+  "n": 137,
+  "neither": 108,
   "tomtom_only": 29
  }
 }
