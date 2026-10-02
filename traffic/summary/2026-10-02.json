@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 64,
-  "dispatch_only": 56,
+  "dispatch": 99,
+  "dispatch_only": 86,
   "here": 0,
   "here_matched": 0,
-  "matched": 9,
-  "tomtom": 596,
-  "tomtom_only": 587
+  "matched": 14,
+  "tomtom": 706,
+  "tomtom_only": 692
  },
  "date": "2026-10-02",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.0,
-  "min": 15.9,
-  "n": 48,
-  "q1": 82.8,
-  "q3": 118.6
+  "median": 115.0,
+  "min": 15.5,
+  "n": 64,
+  "q1": 72.5,
+  "q3": 117.8
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 2,
-   "n": 9,
-   "pct": 22.2
+   "n": 12,
+   "pct": 16.7
   },
   "dispatch_surface": {
-   "matched": 6,
-   "n": 55,
-   "pct": 10.9
+   "matched": 11,
+   "n": 87,
+   "pct": 12.6
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 197,
-   "pct": 2.0
+   "matched": 8,
+   "n": 264,
+   "pct": 3.0
   },
   "tomtom_surface": {
-   "matched": 5,
-   "n": 399,
-   "pct": 1.3
+   "matched": 6,
+   "n": 442,
+   "pct": 1.4
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 87.7,
-  "median": 43.5,
+  "median": 46.4,
   "min": 9.2,
-  "n": 9,
-  "q1": 19.8,
-  "q3": 71.8
+  "n": 14,
+  "q1": 32.6,
+  "q3": 60.9
  },
  "persistence_min": {
-  "max": 20.3,
-  "median": -45.8,
-  "min": -76.2,
-  "n": 5,
+  "max": 35.5,
+  "median": -30.4,
+  "min": -81.6,
+  "n": 9,
   "q1": -66.1,
-  "q3": -0.1
+  "q3": 7.6
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -88,16 +88,16 @@
   "type_agree": 0
  },
  "roadworks": {
-  "explained_by_roadworks": 72,
-  "hotspot_buckets": 527,
-  "hotspot_buckets_on_roadworks": 66,
-  "txdot_rows": 6,
-  "unreported_congestion": 567
+  "explained_by_roadworks": 0,
+  "hotspot_buckets": 627,
+  "hotspot_buckets_on_roadworks": 0,
+  "txdot_rows": 0,
+  "unreported_congestion": 667
  },
  "sampling": {
-  "flow_spent_this_month": 414,
+  "flow_spent_this_month": 423,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 96,
+  "incidents_spent_this_month": 97,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -107,7 +107,7 @@
    18
   ],
   "rush_min": 5,
-  "this_poll": "rush"
+  "this_poll": "off-peak"
  },
  "structural_hotspots": [
   {
@@ -153,11 +153,32 @@
    "seg": "30.279,-97.733"
   },
   {
+   "from": "8th St/Exit 234 (I-35)",
+   "hour_of_week": 96,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.262,-97.736"
+  },
+  {
+   "from": "Yager Ln (I-35)",
+   "hour_of_week": 11,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.386,-97.673"
+  },
+  {
    "from": "Meadow Crst",
    "hour_of_week": 92,
    "n": 2,
    "roadworks": false,
    "seg": "30.192,-97.732"
+  },
+  {
+   "from": "S Interstate 35",
+   "hour_of_week": 107,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.195,-97.767"
   },
   {
    "from": "E Rector St",
@@ -193,38 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.504,-97.850"
-  },
-  {
-   "from": "Friendship Quilt Ln",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.429,-97.635"
-  },
-  {
-   "from": "Yaupon Dr",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.415,-97.781"
-  },
-  {
-   "from": "Gattis School Rd",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.498,-97.624"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.5,
-  "tomtom": 98.5
+  "dispatch": 86.9,
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 64,
-  "neither": 56,
-  "tomtom_only": 8
+  "n": 99,
+  "neither": 86,
+  "tomtom_only": 13
  }
 }
