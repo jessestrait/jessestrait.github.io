@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 21,
-  "tomtom": 1243,
-  "tomtom_only": 1222
+  "tomtom": 1296,
+  "tomtom_only": 1274
  },
  "date": "2026-10-02",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 14,
-   "n": 506,
-   "pct": 2.8
+   "n": 530,
+   "pct": 2.6
   },
   "tomtom_surface": {
-   "matched": 7,
-   "n": 737,
-   "pct": 0.9
+   "matched": 8,
+   "n": 766,
+   "pct": 1.0
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1118,
+  "hotspot_buckets": 1161,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1193
+  "unreported_congestion": 1244
  },
  "sampling": {
   "flow_spent_this_month": 495,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 106,
+  "incidents_spent_this_month": 107,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -145,6 +145,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.426,-97.569"
+  },
+  {
+   "from": "S Interstate 35",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.195,-97.767"
   },
   {
    "from": "E 12th St",
@@ -208,13 +215,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.213,-97.659"
-  },
-  {
-   "from": "E Howard Ln (Dessau Rd)",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.389,-97.648"
   }
  ],
  "unmatched_pct": {
