@@ -14,18 +14,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 17,
-  "tomtom": 476,
-  "tomtom_only": 457
+  "tomtom": 510,
+  "tomtom_only": 491
  },
  "date": "2026-10-03",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 116.0,
+  "median": 116.2,
   "min": 6.5,
-  "n": 85,
-  "q1": 68.7,
-  "q3": 118.3
+  "n": 87,
+  "q1": 70.1,
+  "q3": 118.4
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 7,
-   "n": 199,
-   "pct": 3.5
+   "n": 215,
+   "pct": 3.3
   },
   "tomtom_surface": {
    "matched": 12,
-   "n": 277,
-   "pct": 4.3
+   "n": 295,
+   "pct": 4.1
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 408,
+  "hotspot_buckets": 438,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 428
+  "unreported_congestion": 461
  },
  "sampling": {
   "flow_spent_this_month": 747,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 143,
+  "incidents_spent_this_month": 144,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -202,23 +202,23 @@
    "seg": "30.385,-97.673"
   },
   {
-   "from": "N Interstate 35",
-   "hour_of_week": 64,
+   "from": "S 1st St (W Riverside Dr)",
+   "hour_of_week": 17,
    "n": 2,
    "roadworks": false,
-   "seg": "30.403,-97.674"
+   "seg": "30.262,-97.752"
   },
   {
-   "from": "W Cesar Chavez St",
-   "hour_of_week": 108,
+   "from": "Domain Blvd",
+   "hour_of_week": 139,
    "n": 2,
    "roadworks": false,
-   "seg": "30.266,-97.753"
+   "seg": "30.405,-97.723"
   }
  ],
  "unmatched_pct": {
   "dispatch": 87.6,
-  "tomtom": 96.0
+  "tomtom": 96.3
  },
  "witnesses": {
   "both": 0,
