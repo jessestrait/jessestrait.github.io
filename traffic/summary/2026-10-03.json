@@ -1,0 +1,230 @@
+{
+ "caveats": [
+  "Dispatch published_date is when APD published, not when it happened.",
+  "Dispatch record lifetimes look like real clearances this day, not a cap.",
+  "Clearance resolution equals the poll interval; shorter incidents are invisible.",
+  "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
+  "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
+  "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
+  "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
+ ],
+ "counts": {
+  "dispatch": 32,
+  "dispatch_only": 29,
+  "here": 0,
+  "here_matched": 0,
+  "matched": 3,
+  "tomtom": 227,
+  "tomtom_only": 224
+ },
+ "date": "2026-10-03",
+ "dispatch_life_capped": false,
+ "dispatch_record_life_min": {
+  "max": 112.3,
+  "median": 52.9,
+  "min": 6.5,
+  "n": 22,
+  "q1": 22.6,
+  "q3": 77.5
+ },
+ "here_onset_offset_min": {
+  "n": 0
+ },
+ "match_rate": {
+  "dispatch_highway": {
+   "matched": 1,
+   "n": 6,
+   "pct": 16.7
+  },
+  "dispatch_surface": {
+   "matched": 2,
+   "n": 26,
+   "pct": 7.7
+  },
+  "tomtom_highway": {
+   "matched": 0,
+   "n": 92,
+   "pct": 0.0
+  },
+  "tomtom_surface": {
+   "matched": 3,
+   "n": 135,
+   "pct": 2.2
+  }
+ },
+ "matcher": {
+  "buffer_m": 200.0,
+  "highway_buffer_m": 130.0,
+  "onset_window_min": 90.0,
+  "tolerance_min": 20.0
+ },
+ "onset_offset_min": {
+  "max": 13.8,
+  "median": 12.9,
+  "min": 5.8,
+  "n": 3,
+  "q1": 5.8,
+  "q3": 13.8
+ },
+ "persistence_min": {
+  "max": 0.0,
+  "median": 0.0,
+  "min": 0.0,
+  "n": 3,
+  "q1": 0.0,
+  "q3": 0.0
+ },
+ "poll_interval_min": 5.0,
+ "probe_agreement": {
+  "cover": {
+   "n": 0
+  },
+  "n": 0,
+  "onset_offset_min": {
+   "n": 0
+  },
+  "pct_of_here": 0.0,
+  "pct_of_tomtom": 0.0,
+  "type_agree": 0
+ },
+ "roadworks": {
+  "explained_by_roadworks": 0,
+  "hotspot_buckets": 196,
+  "hotspot_buckets_on_roadworks": 0,
+  "txdot_rows": 0,
+  "unreported_congestion": 204
+ },
+ "sampling": {
+  "flow_spent_this_month": 549,
+  "incident_budget": 2500,
+  "incidents_spent_this_month": 128,
+  "off_peak_min": 45,
+  "rush_hours_local": [
+   7,
+   8,
+   16,
+   17,
+   18
+  ],
+  "rush_min": 5,
+  "this_poll": "off-peak"
+ },
+ "structural_hotspots": [
+  {
+   "from": "Nature Center Dr",
+   "hour_of_week": 86,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.270,-97.771"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 64,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.403,-97.674"
+  },
+  {
+   "from": "W Cesar Chavez St",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.266,-97.753"
+  },
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Thompson Ln",
+   "hour_of_week": 94,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.240,-97.666"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Lexington Meadow Ln",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.179,-97.616"
+  },
+  {
+   "from": "N Lake Creek Pkwy",
+   "hour_of_week": 119,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.476,-97.794"
+  },
+  {
+   "from": "Lakeline Mall Dr",
+   "hour_of_week": 119,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.475,-97.795"
+  },
+  {
+   "from": "N Lake Creek Pkwy",
+   "hour_of_week": 119,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.475,-97.794"
+  },
+  {
+   "from": "Round Rock-Georgetown",
+   "hour_of_week": 119,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.487,-97.771"
+  },
+  {
+   "from": "Lakewood Ln / N Lake Creek Dr",
+   "hour_of_week": 119,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.506,-97.695"
+  },
+  {
+   "from": "FM-1431/Chandler St/Exit 256 (I-35)",
+   "hour_of_week": 119,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.529,-97.691"
+  },
+  {
+   "from": "I-35 Bus (I-35)",
+   "hour_of_week": 114,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.511,-97.686"
+  }
+ ],
+ "unmatched_pct": {
+  "dispatch": 90.6,
+  "tomtom": 98.7
+ },
+ "witnesses": {
+  "both": 0,
+  "here_only": 0,
+  "n": 32,
+  "neither": 29,
+  "tomtom_only": 3
+ }
+}
