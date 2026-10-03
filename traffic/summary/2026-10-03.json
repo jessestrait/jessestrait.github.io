@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 41,
-  "dispatch_only": 37,
+  "dispatch": 42,
+  "dispatch_only": 38,
   "here": 0,
   "here_matched": 0,
   "matched": 4,
@@ -33,8 +33,8 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 6,
-   "pct": 16.7
+   "n": 7,
+   "pct": 14.3
   },
   "dispatch_surface": {
    "matched": 3,
@@ -118,6 +118,13 @@
    "seg": "30.278,-97.773"
   },
   {
+   "from": "Barton Springs Rd / Jessie St",
+   "hour_of_week": 122,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.262,-97.758"
+  },
+  {
    "from": "N Interstate 35",
    "hour_of_week": 64,
    "n": 2,
@@ -167,13 +174,6 @@
    "seg": "30.179,-97.616"
   },
   {
-   "from": "Barton Springs Rd / Jessie St",
-   "hour_of_week": 122,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.262,-97.758"
-  },
-  {
    "from": "N Lake Creek Pkwy",
    "hour_of_week": 119,
    "n": 1,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 90.2,
+  "dispatch": 90.5,
   "tomtom": 98.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 41,
-  "neither": 37,
+  "n": 42,
+  "neither": 38,
   "tomtom_only": 4
  }
 }
