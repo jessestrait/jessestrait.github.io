@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 3,
-  "tomtom": 227,
-  "tomtom_only": 224
+  "tomtom": 243,
+  "tomtom_only": 240
  },
  "date": "2026-10-03",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 92,
+   "n": 97,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 135,
-   "pct": 2.2
+   "n": 146,
+   "pct": 2.1
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 196,
+  "hotspot_buckets": 211,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 204
+  "unreported_congestion": 220
  },
  "sampling": {
   "flow_spent_this_month": 549,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 128,
+  "incidents_spent_this_month": 129,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,13 +110,6 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
-  {
-   "from": "Nature Center Dr",
-   "hour_of_week": 86,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.270,-97.771"
-  },
   {
    "from": "N Interstate 35",
    "hour_of_week": 64,
@@ -167,6 +160,20 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "Atlanta St (Lake Austin Blvd)",
+   "hour_of_week": 122,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.278,-97.772"
+  },
+  {
+   "from": "Barton Springs Rd",
+   "hour_of_week": 122,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.261,-97.758"
+  },
+  {
    "from": "N Lake Creek Pkwy",
    "hour_of_week": 119,
    "n": 1,
@@ -207,18 +214,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.529,-97.691"
-  },
-  {
-   "from": "I-35 Bus (I-35)",
-   "hour_of_week": 114,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.511,-97.686"
   }
  ],
  "unmatched_pct": {
   "dispatch": 92.1,
-  "tomtom": 98.7
+  "tomtom": 98.8
  },
  "witnesses": {
   "both": 0,
