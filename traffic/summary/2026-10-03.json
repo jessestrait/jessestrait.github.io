@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 59,
-  "dispatch_only": 50,
+  "dispatch": 62,
+  "dispatch_only": 53,
   "here": 0,
   "here_matched": 0,
   "matched": 14,
-  "tomtom": 347,
-  "tomtom_only": 332
+  "tomtom": 354,
+  "tomtom_only": 339
  },
  "date": "2026-10-03",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 115.9,
+  "median": 115.7,
   "min": 6.5,
-  "n": 54,
-  "q1": 64.2,
-  "q3": 118.4
+  "n": 59,
+  "q1": 64.0,
+  "q3": 118.2
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 8,
-   "n": 49,
-   "pct": 16.3
+   "n": 52,
+   "pct": 15.4
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 135,
-   "pct": 3.0
+   "n": 138,
+   "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 11,
-   "n": 212,
-   "pct": 5.2
+   "n": 216,
+   "pct": 5.1
   }
  },
  "matcher": {
@@ -70,9 +70,9 @@
   "max": 0.0,
   "median": -83.6,
   "min": -131.7,
-  "n": 12,
-  "q1": -115.3,
-  "q3": -8.9
+  "n": 14,
+  "q1": -102.6,
+  "q3": -26.6
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 292,
+  "hotspot_buckets": 296,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 308
+  "unreported_congestion": 314
  },
  "sampling": {
-  "flow_spent_this_month": 594,
+  "flow_spent_this_month": 603,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 135,
+  "incidents_spent_this_month": 136,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -167,6 +167,13 @@
    "seg": "30.347,-97.564"
   },
   {
+   "from": "Yager Ln (I-35)",
+   "hour_of_week": 11,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.386,-97.673"
+  },
+  {
    "from": "N Interstate 35",
    "hour_of_week": 64,
    "n": 2,
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.240,-97.666"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.148,-97.704"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 84.7,
-  "tomtom": 95.7
+  "dispatch": 85.5,
+  "tomtom": 95.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 59,
-  "neither": 50,
+  "n": 62,
+  "neither": 53,
   "tomtom_only": 9
  }
 }
