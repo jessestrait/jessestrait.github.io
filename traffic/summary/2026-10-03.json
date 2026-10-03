@@ -10,22 +10,22 @@
  ],
  "counts": {
   "dispatch": 41,
-  "dispatch_only": 38,
+  "dispatch_only": 37,
   "here": 0,
   "here_matched": 0,
-  "matched": 3,
-  "tomtom": 243,
-  "tomtom_only": 240
+  "matched": 4,
+  "tomtom": 265,
+  "tomtom_only": 261
  },
  "date": "2026-10-03",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.3,
-  "median": 67.2,
+  "median": 68.7,
   "min": 6.5,
-  "n": 29,
-  "q1": 39.1,
-  "q3": 114.1
+  "n": 30,
+  "q1": 40.9,
+  "q3": 115.7
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,19 +37,19 @@
    "pct": 16.7
   },
   "dispatch_surface": {
-   "matched": 2,
+   "matched": 3,
    "n": 35,
-   "pct": 5.7
+   "pct": 8.6
   },
   "tomtom_highway": {
-   "matched": 0,
-   "n": 97,
-   "pct": 0.0
+   "matched": 1,
+   "n": 100,
+   "pct": 1.0
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 146,
-   "pct": 2.1
+   "n": 165,
+   "pct": 1.8
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 13.8,
-  "median": 12.9,
-  "min": 5.8,
-  "n": 3,
-  "q1": 5.8,
-  "q3": 13.8
+  "median": 9.3,
+  "min": -8.1,
+  "n": 4,
+  "q1": -4.6,
+  "q3": 13.6
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 211,
+  "hotspot_buckets": 232,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 220
+  "unreported_congestion": 241
  },
  "sampling": {
   "flow_spent_this_month": 558,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 129,
+  "incidents_spent_this_month": 130,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -115,14 +115,7 @@
    "hour_of_week": 122,
    "n": 2,
    "roadworks": false,
-   "seg": "30.278,-97.772"
-  },
-  {
-   "from": "W Oltorf St (S Lamar Blvd)",
-   "hour_of_week": 122,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.261,-97.758"
+   "seg": "30.278,-97.773"
   },
   {
    "from": "N Interstate 35",
@@ -174,6 +167,13 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "Barton Springs Rd / Jessie St",
+   "hour_of_week": 122,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.262,-97.758"
+  },
+  {
    "from": "N Lake Creek Pkwy",
    "hour_of_week": 119,
    "n": 1,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 92.7,
-  "tomtom": 98.8
+  "dispatch": 90.2,
+  "tomtom": 98.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 41,
-  "neither": 38,
-  "tomtom_only": 3
+  "neither": 37,
+  "tomtom_only": 4
  }
 }
