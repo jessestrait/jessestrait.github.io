@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 79,
+  "dispatch": 80,
   "dispatch_only": 70,
   "here": 0,
   "here_matched": 0,
-  "matched": 14,
-  "tomtom": 388,
-  "tomtom_only": 373
+  "matched": 15,
+  "tomtom": 413,
+  "tomtom_only": 397
  },
  "date": "2026-10-03",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.8,
   "median": 116.0,
   "min": 6.5,
-  "n": 72,
-  "q1": 71.0,
+  "n": 73,
+  "q1": 71.9,
   "q3": 118.3
  },
  "here_onset_offset_min": {
@@ -37,19 +37,19 @@
    "pct": 7.1
   },
   "dispatch_surface": {
-   "matched": 8,
-   "n": 65,
-   "pct": 12.3
+   "matched": 9,
+   "n": 66,
+   "pct": 13.6
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 152,
-   "pct": 2.6
+   "matched": 5,
+   "n": 169,
+   "pct": 3.0
   },
   "tomtom_surface": {
    "matched": 11,
-   "n": 236,
-   "pct": 4.7
+   "n": 244,
+   "pct": 4.5
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 77.1,
-  "median": 9.3,
+  "median": 12.9,
   "min": -57.3,
-  "n": 14,
-  "q1": -21.3,
-  "q3": 23.6
+  "n": 15,
+  "q1": -19.8,
+  "q3": 22.1
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 328,
+  "hotspot_buckets": 350,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 346
+  "unreported_congestion": 370
  },
  "sampling": {
   "flow_spent_this_month": 720,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 141,
+  "incidents_spent_this_month": 142,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
+  {
+   "from": "Nature Center Dr",
+   "hour_of_week": 86,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.270,-97.771"
+  },
   {
    "from": "Barton Springs Rd / Jessie St",
    "hour_of_week": 122,
@@ -167,6 +174,13 @@
    "seg": "30.347,-97.564"
   },
   {
+   "from": "Vale St",
+   "hour_of_week": 99,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.269,-97.779"
+  },
+  {
    "from": "Yager Ln (I-35)",
    "hour_of_week": 11,
    "n": 2,
@@ -200,31 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.234,-97.736"
-  },
-  {
-   "from": "E Cesar Chavez St (Springdale Rd)",
-   "hour_of_week": 137,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.255,-97.702"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.6,
+  "dispatch": 87.5,
   "tomtom": 96.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 79,
+  "n": 80,
   "neither": 70,
-  "tomtom_only": 9
+  "tomtom_only": 10
  }
 }
