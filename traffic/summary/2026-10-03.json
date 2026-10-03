@@ -13,9 +13,9 @@
   "dispatch_only": 44,
   "here": 0,
   "here_matched": 0,
-  "matched": 7,
-  "tomtom": 308,
-  "tomtom_only": 301
+  "matched": 8,
+  "tomtom": 327,
+  "tomtom_only": 319
  },
  "date": "2026-10-03",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 1,
-   "n": 114,
-   "pct": 0.9
+   "n": 124,
+   "pct": 0.8
   },
   "tomtom_surface": {
-   "matched": 6,
-   "n": 194,
-   "pct": 3.1
+   "matched": 7,
+   "n": 203,
+   "pct": 3.4
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 19.1,
-  "median": 5.8,
-  "min": -25.9,
-  "n": 7,
-  "q1": -19.8,
-  "q3": 13.8
+  "median": -1.1,
+  "min": -57.3,
+  "n": 8,
+  "q1": -24.4,
+  "q3": 13.6
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 266,
+  "hotspot_buckets": 280,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 280
+  "unreported_congestion": 297
  },
  "sampling": {
-  "flow_spent_this_month": 567,
+  "flow_spent_this_month": 576,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 131,
+  "incidents_spent_this_month": 132,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -132,6 +132,20 @@
    "seg": "30.278,-97.773"
   },
   {
+   "from": "S Lamar Blvd",
+   "hour_of_week": 123,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.264,-97.759"
+  },
+  {
+   "from": "W Cesar Chavez St",
+   "hour_of_week": 123,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.267,-97.752"
+  },
+  {
    "from": "West Ave",
    "hour_of_week": 123,
    "n": 2,
@@ -139,8 +153,15 @@
    "seg": "30.266,-97.750"
   },
   {
+   "from": "Lake Austin Blvd",
+   "hour_of_week": 122,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.275,-97.770"
+  },
+  {
    "from": "Eintrage Dr",
-   "hour_of_week": 123,
+   "hour_of_week": 124,
    "n": 2,
    "roadworks": false,
    "seg": "30.347,-97.564"
@@ -151,13 +172,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.403,-97.674"
-  },
-  {
-   "from": "Lake Austin Blvd",
-   "hour_of_week": 122,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.275,-97.770"
   },
   {
    "from": "W Cesar Chavez St",
@@ -200,25 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.616"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.476,-97.794"
   }
  ],
  "unmatched_pct": {
   "dispatch": 86.3,
-  "tomtom": 97.7
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
