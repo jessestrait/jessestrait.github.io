@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 47,
-  "dispatch_only": 43,
+  "dispatch_only": 42,
   "here": 0,
   "here_matched": 0,
-  "matched": 4,
-  "tomtom": 265,
-  "tomtom_only": 261
+  "matched": 5,
+  "tomtom": 308,
+  "tomtom_only": 303
  },
  "date": "2026-10-03",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 11.1
   },
   "dispatch_surface": {
-   "matched": 3,
+   "matched": 4,
    "n": 38,
-   "pct": 7.9
+   "pct": 10.5
   },
   "tomtom_highway": {
    "matched": 1,
-   "n": 100,
-   "pct": 1.0
+   "n": 114,
+   "pct": 0.9
   },
   "tomtom_surface": {
-   "matched": 3,
-   "n": 165,
-   "pct": 1.8
+   "matched": 4,
+   "n": 194,
+   "pct": 2.1
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 13.8,
-  "median": 9.3,
+  "max": 19.1,
+  "median": 12.9,
   "min": -8.1,
-  "n": 4,
-  "q1": -4.6,
-  "q3": 13.6
+  "n": 5,
+  "q1": -1.1,
+  "q3": 16.5
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 232,
+  "hotspot_buckets": 268,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 241
+  "unreported_congestion": 282
  },
  "sampling": {
   "flow_spent_this_month": 567,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 130,
+  "incidents_spent_this_month": 131,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,13 +111,6 @@
  },
  "structural_hotspots": [
   {
-   "from": "Exposition Blvd (Lake Austin Blvd)",
-   "hour_of_week": 122,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.278,-97.773"
-  },
-  {
    "from": "Barton Springs Rd / Jessie St",
    "hour_of_week": 122,
    "n": 2,
@@ -125,11 +118,25 @@
    "seg": "30.262,-97.758"
   },
   {
+   "from": "Exposition Blvd (Lake Austin Blvd)",
+   "hour_of_week": 122,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.278,-97.773"
+  },
+  {
    "from": "N Interstate 35",
    "hour_of_week": 64,
    "n": 2,
    "roadworks": false,
    "seg": "30.403,-97.674"
+  },
+  {
+   "from": "Lake Austin Blvd",
+   "hour_of_week": 122,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.275,-97.770"
   },
   {
    "from": "W Cesar Chavez St",
@@ -153,6 +160,13 @@
    "seg": "30.234,-97.736"
   },
   {
+   "from": "E Cesar Chavez St (Springdale Rd)",
+   "hour_of_week": 137,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.255,-97.702"
+  },
+  {
    "from": "Thompson Ln",
    "hour_of_week": 94,
    "n": 2,
@@ -174,57 +188,43 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "Lake Austin Blvd",
+   "hour_of_week": 123,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.279,-97.772"
+  },
+  {
+   "from": "West Ave",
+   "hour_of_week": 123,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.266,-97.750"
+  },
+  {
+   "from": "US Highway 290 E",
+   "hour_of_week": 123,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.347,-97.564"
+  },
+  {
    "from": "N Lake Creek Pkwy",
    "hour_of_week": 119,
    "n": 1,
    "roadworks": false,
    "seg": "30.476,-97.794"
-  },
-  {
-   "from": "Lakeline Mall Dr",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.475,-97.795"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.475,-97.794"
-  },
-  {
-   "from": "Round Rock-Georgetown",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.487,-97.771"
-  },
-  {
-   "from": "Lakewood Ln / N Lake Creek Dr",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.506,-97.695"
-  },
-  {
-   "from": "FM-1431/Chandler St/Exit 256 (I-35)",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.529,-97.691"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 91.5,
-  "tomtom": 98.5
+  "dispatch": 89.4,
+  "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 47,
-  "neither": 43,
-  "tomtom_only": 4
+  "neither": 42,
+  "tomtom_only": 5
  }
 }
