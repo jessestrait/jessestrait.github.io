@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 17,
-  "tomtom": 510,
-  "tomtom_only": 491
+  "tomtom": 540,
+  "tomtom_only": 521
  },
  "date": "2026-10-03",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 7,
-   "n": 215,
-   "pct": 3.3
+   "n": 226,
+   "pct": 3.1
   },
   "tomtom_surface": {
    "matched": 12,
-   "n": 295,
-   "pct": 4.1
+   "n": 314,
+   "pct": 3.8
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 438,
+  "hotspot_buckets": 468,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 461
+  "unreported_congestion": 491
  },
  "sampling": {
   "flow_spent_this_month": 765,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 144,
+  "incidents_spent_this_month": 145,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -116,13 +116,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.267,-97.748"
-  },
-  {
-   "from": "Nature Center Dr",
-   "hour_of_week": 86,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.270,-97.771"
   },
   {
    "from": "Barton Springs Rd / Jessie St",
@@ -202,6 +195,13 @@
    "seg": "30.385,-97.673"
   },
   {
+   "from": "Nature Center Dr",
+   "hour_of_week": 86,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.274,-97.774"
+  },
+  {
    "from": "S 1st St (W Riverside Dr)",
    "hour_of_week": 17,
    "n": 2,
@@ -209,16 +209,16 @@
    "seg": "30.262,-97.752"
   },
   {
-   "from": "Domain Blvd",
-   "hour_of_week": 139,
+   "from": "TX-1 Loop/Mopac Expy (Barton Springs Rd)",
+   "hour_of_week": 140,
    "n": 2,
    "roadworks": false,
-   "seg": "30.405,-97.723"
+   "seg": "30.262,-97.761"
   }
  ],
  "unmatched_pct": {
   "dispatch": 87.9,
-  "tomtom": 96.3
+  "tomtom": 96.5
  },
  "witnesses": {
   "both": 0,
