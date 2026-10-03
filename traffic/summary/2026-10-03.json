@@ -9,47 +9,47 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 80,
-  "dispatch_only": 70,
+  "dispatch": 97,
+  "dispatch_only": 85,
   "here": 0,
   "here_matched": 0,
-  "matched": 15,
-  "tomtom": 413,
-  "tomtom_only": 397
+  "matched": 17,
+  "tomtom": 476,
+  "tomtom_only": 457
  },
  "date": "2026-10-03",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 116.0,
+  "median": 115.9,
   "min": 6.5,
-  "n": 75,
-  "q1": 73.7,
-  "q3": 118.3
+  "n": 80,
+  "q1": 65.1,
+  "q3": 118.2
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
-   "n": 14,
-   "pct": 7.1
+   "matched": 3,
+   "n": 17,
+   "pct": 17.6
   },
   "dispatch_surface": {
    "matched": 9,
-   "n": 66,
-   "pct": 13.6
+   "n": 80,
+   "pct": 11.2
   },
   "tomtom_highway": {
-   "matched": 5,
-   "n": 169,
-   "pct": 3.0
+   "matched": 7,
+   "n": 199,
+   "pct": 3.5
   },
   "tomtom_surface": {
-   "matched": 11,
-   "n": 244,
-   "pct": 4.5
+   "matched": 12,
+   "n": 277,
+   "pct": 4.3
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 77.1,
-  "median": 12.9,
+  "median": 13.8,
   "min": -57.3,
-  "n": 15,
-  "q1": -19.8,
-  "q3": 22.1
+  "n": 17,
+  "q1": -13.9,
+  "q3": 26.6
  },
  "persistence_min": {
   "max": 0.0,
-  "median": -83.6,
+  "median": -81.0,
   "min": -131.7,
-  "n": 14,
-  "q1": -102.6,
-  "q3": -26.6
+  "n": 15,
+  "q1": -96.2,
+  "q3": -5.0
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 350,
+  "hotspot_buckets": 408,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 370
+  "unreported_congestion": 428
  },
  "sampling": {
-  "flow_spent_this_month": 720,
+  "flow_spent_this_month": 729,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 142,
+  "incidents_spent_this_month": 143,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
+  {
+   "from": "W 2nd St (San Antonio St)",
+   "hour_of_week": 131,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.267,-97.748"
+  },
   {
    "from": "Nature Center Dr",
    "hour_of_week": 86,
@@ -188,6 +195,13 @@
    "seg": "30.386,-97.673"
   },
   {
+   "from": "Berrywood Dr/Meadow Lark Ave (I-35)",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.385,-97.673"
+  },
+  {
    "from": "N Interstate 35",
    "hour_of_week": 64,
    "n": 2,
@@ -200,31 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.266,-97.753"
-  },
-  {
-   "from": "W 2nd St (San Antonio St)",
-   "hour_of_week": 131,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.267,-97.748"
-  },
-  {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.245,-97.744"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.5,
-  "tomtom": 96.1
+  "dispatch": 87.6,
+  "tomtom": 96.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 80,
-  "neither": 70,
-  "tomtom_only": 10
+  "n": 97,
+  "neither": 85,
+  "tomtom_only": 12
  }
 }
