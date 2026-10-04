@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 95, q3 118 min over 56 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 90, q3 118 min over 58 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 58,
-  "dispatch_only": 44,
+  "dispatch": 62,
+  "dispatch_only": 48,
   "here": 0,
   "here_matched": 0,
   "matched": 19,
-  "tomtom": 297,
-  "tomtom_only": 279
+  "tomtom": 307,
+  "tomtom_only": 289
  },
  "date": "2026-10-04",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.3,
+  "median": 116.1,
   "min": 28.4,
-  "n": 56,
-  "q1": 94.6,
-  "q3": 118.3
+  "n": 58,
+  "q1": 90.2,
+  "q3": 118.2
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 2,
-   "n": 5,
-   "pct": 40.0
+   "n": 6,
+   "pct": 33.3
   },
   "dispatch_surface": {
    "matched": 12,
-   "n": 53,
-   "pct": 22.6
+   "n": 56,
+   "pct": 21.4
   },
   "tomtom_highway": {
    "matched": 12,
-   "n": 114,
-   "pct": 10.5
+   "n": 115,
+   "pct": 10.4
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 183,
-   "pct": 3.3
+   "n": 192,
+   "pct": 3.1
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 245,
+  "hotspot_buckets": 252,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 259
+  "unreported_congestion": 269
  },
  "sampling": {
-  "flow_spent_this_month": 873,
+  "flow_spent_this_month": 882,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 156,
+  "incidents_spent_this_month": 157,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -140,6 +140,13 @@
    "seg": "30.267,-97.755"
   },
   {
+   "from": "RM-2244/Bee Cave Rd (S Mopac Expy Frontage)",
+   "hour_of_week": 96,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.268,-97.778"
+  },
+  {
    "from": "Lake Austin Blvd",
    "hour_of_week": 146,
    "n": 2,
@@ -175,6 +182,13 @@
    "seg": "30.267,-97.745"
   },
   {
+   "from": "Howard Ln/Exit 246 (I-35)",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.437,-97.669"
+  },
+  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
@@ -201,31 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.240,-97.666"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.148,-97.704"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 142,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.476,-97.794"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 75.9,
-  "tomtom": 93.9
+  "dispatch": 77.4,
+  "tomtom": 94.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 58,
-  "neither": 44,
+  "n": 62,
+  "neither": 48,
   "tomtom_only": 14
  }
 }
