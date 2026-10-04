@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 35,
-  "dispatch_only": 29,
+  "dispatch": 37,
+  "dispatch_only": 31,
   "here": 0,
   "here_matched": 0,
   "matched": 7,
@@ -21,11 +21,11 @@
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.2,
-  "median": 90.1,
+  "median": 90.2,
   "min": 28.4,
-  "n": 23,
-  "q1": 62.3,
-  "q3": 107.2
+  "n": 24,
+  "q1": 63.2,
+  "q3": 113.6
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,8 +38,8 @@
   },
   "dispatch_surface": {
    "matched": 4,
-   "n": 31,
-   "pct": 12.9
+   "n": 33,
+   "pct": 12.1
   },
   "tomtom_highway": {
    "matched": 5,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.9,
+  "dispatch": 83.8,
   "tomtom": 96.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 35,
-  "neither": 29,
+  "n": 37,
+  "neither": 31,
   "tomtom_only": 6
  }
 }
