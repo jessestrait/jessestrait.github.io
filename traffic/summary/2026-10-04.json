@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 56,
-  "dispatch_only": 44,
+  "dispatch_only": 42,
   "here": 0,
   "here_matched": 0,
-  "matched": 15,
-  "tomtom": 280,
-  "tomtom_only": 267
+  "matched": 17,
+  "tomtom": 289,
+  "tomtom_only": 273
  },
  "date": "2026-10-04",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 50.0
   },
   "dispatch_surface": {
-   "matched": 10,
+   "matched": 12,
    "n": 52,
-   "pct": 19.2
+   "pct": 23.1
   },
   "tomtom_highway": {
-   "matched": 9,
-   "n": 109,
-   "pct": 8.3
+   "matched": 10,
+   "n": 112,
+   "pct": 8.9
   },
   "tomtom_surface": {
-   "matched": 4,
-   "n": 171,
-   "pct": 2.3
+   "matched": 6,
+   "n": 177,
+   "pct": 3.4
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 53.1,
   "median": 0.6,
   "min": -58.2,
-  "n": 15,
-  "q1": -19.0,
-  "q3": 12.6
+  "n": 17,
+  "q1": -17.6,
+  "q3": 17.9
  },
  "persistence_min": {
   "max": 10.1,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 233,
+  "hotspot_buckets": 240,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 247
+  "unreported_congestion": 253
  },
  "sampling": {
   "flow_spent_this_month": 855,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 153,
+  "incidents_spent_this_month": 154,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -153,18 +153,11 @@
    "seg": "30.266,-97.738"
   },
   {
-   "from": "Lavaca St (W 6th St)",
-   "hour_of_week": 149,
+   "from": "W 10th St (Rio Grande St)",
+   "hour_of_week": 150,
    "n": 2,
    "roadworks": false,
-   "seg": "30.270,-97.748"
-  },
-  {
-   "from": "W 5th St",
-   "hour_of_week": 149,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.269,-97.749"
+   "seg": "30.270,-97.750"
   },
   {
    "from": "N Interstate 35",
@@ -214,17 +207,24 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.476,-97.794"
+  },
+  {
+   "from": "Cedar Park-Liberty Hill",
+   "hour_of_week": 142,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.468,-97.801"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.6,
-  "tomtom": 95.4
+  "dispatch": 75.0,
+  "tomtom": 94.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 56,
-  "neither": 44,
-  "tomtom_only": 12
+  "neither": 42,
+  "tomtom_only": 14
  }
 }
