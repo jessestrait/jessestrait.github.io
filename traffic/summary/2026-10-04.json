@@ -10,22 +10,22 @@
  ],
  "counts": {
   "dispatch": 38,
-  "dispatch_only": 32,
+  "dispatch_only": 31,
   "here": 0,
   "here_matched": 0,
-  "matched": 7,
-  "tomtom": 198,
-  "tomtom_only": 191
+  "matched": 9,
+  "tomtom": 233,
+  "tomtom_only": 225
  },
  "date": "2026-10-04",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.2,
-  "median": 90.2,
+  "median": 92.2,
   "min": 28.4,
-  "n": 25,
-  "q1": 64.1,
-  "q3": 116.4
+  "n": 26,
+  "q1": 65.0,
+  "q3": 117.2
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,19 +37,19 @@
    "pct": 50.0
   },
   "dispatch_surface": {
-   "matched": 4,
+   "matched": 5,
    "n": 34,
-   "pct": 11.8
+   "pct": 14.7
   },
   "tomtom_highway": {
-   "matched": 5,
-   "n": 78,
-   "pct": 6.4
+   "matched": 6,
+   "n": 89,
+   "pct": 6.7
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 120,
-   "pct": 1.7
+   "n": 144,
+   "pct": 1.4
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 32.9,
-  "median": 1.3,
-  "min": -19.0,
-  "n": 7,
-  "q1": -16.1,
-  "q3": 23.1
+  "median": 1.0,
+  "min": -51.4,
+  "n": 9,
+  "q1": -17.6,
+  "q3": 14.5
  },
  "persistence_min": {
   "max": -15.2,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 166,
+  "hotspot_buckets": 197,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 174
+  "unreported_congestion": 207
  },
  "sampling": {
   "flow_spent_this_month": 828,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 149,
+  "incidents_spent_this_month": 150,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -118,6 +118,13 @@
    "seg": "30.403,-97.721"
   },
   {
+   "from": "W 2nd St",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.266,-97.753"
+  },
+  {
    "from": "N Interstate 35",
    "hour_of_week": 64,
    "n": 2,
@@ -130,13 +137,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.275,-97.770"
-  },
-  {
-   "from": "W Cesar Chavez St",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.266,-97.753"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -165,6 +165,20 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Quarry Rd",
+   "hour_of_week": 147,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.287,-97.766"
+  },
+  {
+   "from": "Sandra Muraida Way",
+   "hour_of_week": 147,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.267,-97.755"
   },
   {
    "from": "N Lake Creek Pkwy",
@@ -200,31 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.405,-97.722"
-  },
-  {
-   "from": "Domain Blvd",
-   "hour_of_week": 141,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.404,-97.724"
-  },
-  {
-   "from": "TX-45 Toll/TX-45/Louis Henna Blvd (Greenlawn Blvd)",
-   "hour_of_week": 139,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.479,-97.663"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 84.2,
-  "tomtom": 96.5
+  "dispatch": 81.6,
+  "tomtom": 96.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 38,
-  "neither": 32,
-  "tomtom_only": 6
+  "neither": 31,
+  "tomtom_only": 7
  }
 }
