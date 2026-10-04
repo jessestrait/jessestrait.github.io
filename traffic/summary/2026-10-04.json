@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 83,
-  "dispatch_only": 67,
+  "dispatch": 85,
+  "dispatch_only": 68,
   "here": 0,
   "here_matched": 0,
-  "matched": 23,
-  "tomtom": 374,
-  "tomtom_only": 352
+  "matched": 24,
+  "tomtom": 403,
+  "tomtom_only": 380
  },
  "date": "2026-10-04",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 23.1
   },
   "dispatch_surface": {
-   "matched": 13,
-   "n": 70,
-   "pct": 18.6
+   "matched": 14,
+   "n": 72,
+   "pct": 19.4
   },
   "tomtom_highway": {
    "matched": 15,
-   "n": 148,
-   "pct": 10.1
+   "n": 159,
+   "pct": 9.4
   },
   "tomtom_surface": {
-   "matched": 7,
-   "n": 226,
-   "pct": 3.1
+   "matched": 8,
+   "n": 244,
+   "pct": 3.3
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 68.8,
-  "median": 1.3,
+  "median": 3.5,
   "min": -58.2,
-  "n": 23,
-  "q1": -13.4,
-  "q3": 31.1
+  "n": 24,
+  "q1": -12.4,
+  "q3": 30.5
  },
  "persistence_min": {
   "max": 10.1,
-  "median": -71.0,
+  "median": -63.5,
   "min": -223.3,
-  "n": 21,
-  "q1": -104.1,
-  "q3": -22.8,
+  "n": 22,
+  "q1": -102.9,
+  "q3": -26.6,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 312,
+  "hotspot_buckets": 340,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 332
+  "unreported_congestion": 360
  },
  "sampling": {
   "flow_spent_this_month": 981,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 161,
+  "incidents_spent_this_month": 162,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -203,29 +203,29 @@
    "seg": "30.437,-97.669"
   },
   {
+   "from": "San Antonio St (State Spur 343/W Cesar Chavez St/W 1st St)",
+   "hour_of_week": 161,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.266,-97.756"
+  },
+  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
-  },
-  {
-   "from": "Aldrich St",
-   "hour_of_week": 156,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.300,-97.703"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.7,
-  "tomtom": 94.1
+  "dispatch": 80.0,
+  "tomtom": 94.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 83,
-  "neither": 67,
-  "tomtom_only": 16
+  "n": 85,
+  "neither": 68,
+  "tomtom_only": 17
  }
 }
