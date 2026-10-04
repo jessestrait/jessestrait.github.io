@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 72,
-  "dispatch_only": 57,
+  "dispatch_only": 56,
   "here": 0,
   "here_matched": 0,
-  "matched": 20,
-  "tomtom": 327,
-  "tomtom_only": 308
+  "matched": 22,
+  "tomtom": 348,
+  "tomtom_only": 327
  },
  "date": "2026-10-04",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 30.0
   },
   "dispatch_surface": {
-   "matched": 12,
+   "matched": 13,
    "n": 62,
-   "pct": 19.4
+   "pct": 21.0
   },
   "tomtom_highway": {
-   "matched": 13,
-   "n": 122,
-   "pct": 10.7
+   "matched": 14,
+   "n": 134,
+   "pct": 10.4
   },
   "tomtom_surface": {
-   "matched": 6,
-   "n": 205,
-   "pct": 2.9
+   "matched": 7,
+   "n": 214,
+   "pct": 3.3
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 68.8,
-  "median": 0.8,
+  "median": 1.1,
   "min": -58.2,
-  "n": 20,
-  "q1": -15.4,
-  "q3": 26.5
+  "n": 22,
+  "q1": -14.1,
+  "q3": 29.4
  },
  "persistence_min": {
   "max": 10.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 271,
+  "hotspot_buckets": 287,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 288
+  "unreported_congestion": 307
  },
  "sampling": {
   "flow_spent_this_month": 936,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 159,
+  "incidents_spent_this_month": 160,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 64,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.403,-97.674"
+  },
   {
    "from": "Burnet Rd / Rosalind Way",
    "hour_of_week": 142,
@@ -140,6 +147,13 @@
    "seg": "30.267,-97.755"
   },
   {
+   "from": "Vale St",
+   "hour_of_week": 99,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.269,-97.779"
+  },
+  {
    "from": "RM-2244/Bee Cave Rd (S Mopac Expy Frontage)",
    "hour_of_week": 96,
    "n": 2,
@@ -161,18 +175,18 @@
    "seg": "30.266,-97.738"
   },
   {
+   "from": "Nature Center Dr",
+   "hour_of_week": 86,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.274,-97.774"
+  },
+  {
    "from": "W 10th St (Rio Grande St)",
    "hour_of_week": 150,
    "n": 2,
    "roadworks": false,
    "seg": "30.270,-97.750"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 64,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.403,-97.674"
   },
   {
    "from": "W 2nd St/W Willie Nelson Blvd (Colorado St)",
@@ -201,31 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.300,-97.703"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.234,-97.736"
-  },
-  {
-   "from": "E Cesar Chavez St (Springdale Rd)",
-   "hour_of_week": 137,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.255,-97.702"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 79.2,
-  "tomtom": 94.2
+  "dispatch": 77.8,
+  "tomtom": 94.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 72,
-  "neither": 57,
-  "tomtom_only": 15
+  "neither": 56,
+  "tomtom_only": 16
  }
 }
