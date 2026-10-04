@@ -14,18 +14,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 15,
-  "tomtom": 271,
-  "tomtom_only": 258
+  "tomtom": 280,
+  "tomtom_only": 267
  },
  "date": "2026-10-04",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 115.6,
+  "median": 115.7,
   "min": 28.4,
-  "n": 40,
-  "q1": 78.9,
-  "q3": 118.4
+  "n": 41,
+  "q1": 81.2,
+  "q3": 118.5
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 106,
-   "pct": 8.5
+   "n": 109,
+   "pct": 8.3
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 165,
-   "pct": 2.4
+   "n": 171,
+   "pct": 2.3
   }
  },
  "matcher": {
@@ -69,9 +69,9 @@
  "persistence_min": {
   "max": 10.1,
   "median": -50.7,
-  "min": -106.6,
-  "n": 10,
-  "q1": -86.5,
+  "min": -132.1,
+  "n": 11,
+  "q1": -101.7,
   "q3": -15.2
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 225,
+  "hotspot_buckets": 233,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 238
+  "unreported_congestion": 247
  },
  "sampling": {
   "flow_spent_this_month": 846,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 152,
+  "incidents_spent_this_month": 153,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -153,13 +153,6 @@
    "seg": "30.266,-97.738"
   },
   {
-   "from": "TX-343 Loop/E 1st St (Red River St)",
-   "hour_of_week": 148,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.267,-97.737"
-  },
-  {
    "from": "N Interstate 35",
    "hour_of_week": 64,
    "n": 2,
@@ -202,23 +195,30 @@
    "seg": "30.148,-97.704"
   },
   {
+   "from": "W 5th St",
+   "hour_of_week": 149,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.269,-97.749"
+  },
+  {
+   "from": "W 10th St (Nueces St)",
+   "hour_of_week": 149,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.270,-97.748"
+  },
+  {
    "from": "N Lake Creek Pkwy",
    "hour_of_week": 142,
    "n": 1,
    "roadworks": false,
    "seg": "30.476,-97.794"
-  },
-  {
-   "from": "Cedar Park-Liberty Hill",
-   "hour_of_week": 142,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.468,-97.801"
   }
  ],
  "unmatched_pct": {
   "dispatch": 76.5,
-  "tomtom": 95.2
+  "tomtom": 95.4
  },
  "witnesses": {
   "both": 0,
