@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 44,
-  "dispatch_only": 36,
+  "dispatch_only": 34,
   "here": 0,
   "here_matched": 0,
-  "matched": 10,
-  "tomtom": 233,
-  "tomtom_only": 224
+  "matched": 13,
+  "tomtom": 259,
+  "tomtom_only": 248
  },
  "date": "2026-10-04",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 50.0
   },
   "dispatch_surface": {
-   "matched": 6,
+   "matched": 8,
    "n": 40,
-   "pct": 15.0
+   "pct": 20.0
   },
   "tomtom_highway": {
-   "matched": 7,
-   "n": 89,
+   "matched": 8,
+   "n": 101,
    "pct": 7.9
   },
   "tomtom_surface": {
-   "matched": 2,
-   "n": 144,
-   "pct": 1.4
+   "matched": 3,
+   "n": 158,
+   "pct": 1.9
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 32.9,
-  "median": 0.8,
-  "min": -51.4,
-  "n": 10,
-  "q1": -21.6,
-  "q3": 10.1
+  "max": 53.1,
+  "median": 1.0,
+  "min": -58.2,
+  "n": 13,
+  "q1": -24.1,
+  "q3": 17.9
  },
  "persistence_min": {
   "max": -15.2,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 196,
+  "hotspot_buckets": 217,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 206
+  "unreported_congestion": 228
  },
  "sampling": {
   "flow_spent_this_month": 837,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 150,
+  "incidents_spent_this_month": 151,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -139,18 +139,18 @@
    "seg": "30.267,-97.755"
   },
   {
-   "from": "N Interstate 35",
-   "hour_of_week": 64,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.403,-97.674"
-  },
-  {
    "from": "Lake Austin Blvd",
    "hour_of_week": 146,
    "n": 2,
    "roadworks": false,
    "seg": "30.275,-97.770"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 64,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.403,-97.674"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -165,6 +165,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.234,-97.736"
+  },
+  {
+   "from": "E Cesar Chavez St (Springdale Rd)",
+   "hour_of_week": 137,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.255,-97.702"
   },
   {
    "from": "Thompson Ln",
@@ -207,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.483,-97.676"
-  },
-  {
-   "from": "N Mo Pac Expy",
-   "hour_of_week": 142,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.405,-97.722"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.8,
-  "tomtom": 96.1
+  "dispatch": 77.3,
+  "tomtom": 95.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 44,
-  "neither": 36,
-  "tomtom_only": 8
+  "neither": 34,
+  "tomtom_only": 10
  }
 }
