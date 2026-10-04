@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 49,
-  "dispatch_only": 38,
+  "dispatch_only": 37,
   "here": 0,
   "here_matched": 0,
-  "matched": 14,
-  "tomtom": 259,
-  "tomtom_only": 247
+  "matched": 15,
+  "tomtom": 271,
+  "tomtom_only": 258
  },
  "date": "2026-10-04",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 50.0
   },
   "dispatch_surface": {
-   "matched": 9,
+   "matched": 10,
    "n": 45,
-   "pct": 20.0
+   "pct": 22.2
   },
   "tomtom_highway": {
-   "matched": 8,
-   "n": 101,
-   "pct": 7.9
+   "matched": 9,
+   "n": 106,
+   "pct": 8.5
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 158,
-   "pct": 2.5
+   "n": 165,
+   "pct": 2.4
   }
  },
  "matcher": {
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 53.1,
-  "median": 0.8,
+  "median": 0.6,
   "min": -58.2,
-  "n": 14,
-  "q1": -21.6,
-  "q3": 15.2
+  "n": 15,
+  "q1": -19.0,
+  "q3": 12.6
  },
  "persistence_min": {
-  "max": -15.2,
-  "median": -50.7,
+  "max": 10.1,
+  "median": -32.9,
   "min": -106.6,
-  "n": 7,
-  "q1": -81.4,
+  "n": 8,
+  "q1": -73.7,
   "q3": -15.2
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 216,
+  "hotspot_buckets": 225,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 227
+  "unreported_congestion": 238
  },
  "sampling": {
-  "flow_spent_this_month": 837,
+  "flow_spent_this_month": 846,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 151,
+  "incidents_spent_this_month": 152,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -146,6 +146,13 @@
    "seg": "30.275,-97.770"
   },
   {
+   "from": "E 7th St",
+   "hour_of_week": 148,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.266,-97.738"
+  },
+  {
    "from": "N Interstate 35",
    "hour_of_week": 64,
    "n": 2,
@@ -188,6 +195,13 @@
    "seg": "30.148,-97.704"
   },
   {
+   "from": "E 11th St (Red River St)",
+   "hour_of_week": 148,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.267,-97.737"
+  },
+  {
    "from": "N Lake Creek Pkwy",
    "hour_of_week": 142,
    "n": 1,
@@ -200,31 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.468,-97.801"
-  },
-  {
-   "from": "US Highway 183",
-   "hour_of_week": 142,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.470,-97.797"
-  },
-  {
-   "from": "Parker Dr",
-   "hour_of_week": 142,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.483,-97.676"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 77.6,
-  "tomtom": 95.4
+  "dispatch": 75.5,
+  "tomtom": 95.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 49,
-  "neither": 38,
-  "tomtom_only": 11
+  "neither": 37,
+  "tomtom_only": 12
  }
 }
