@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 12,
-  "tomtom": 659,
-  "tomtom_only": 648
+  "tomtom": 681,
+  "tomtom_only": 670
  },
  "date": "2026-10-05",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 8,
-   "n": 286,
-   "pct": 2.8
+   "n": 300,
+   "pct": 2.7
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 373,
+   "n": 381,
    "pct": 0.8
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 490,
+  "hotspot_buckets": 514,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 609
+  "unreported_congestion": 629
  },
  "sampling": {
   "flow_spent_this_month": 1161,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 187,
+  "incidents_spent_this_month": 188,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -167,13 +167,6 @@
    "seg": "30.425,-97.626"
   },
   {
-   "from": "Onion Creek Pkwy",
-   "hour_of_week": 12,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.141,-97.800"
-  },
-  {
    "from": "Tara Dr",
    "hour_of_week": 12,
    "n": 3,
@@ -186,13 +179,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.446,-97.804"
-  },
-  {
-   "from": "US-290 E",
-   "hour_of_week": 12,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.236,-97.825"
   },
   {
    "from": "Howard Ln/Exit 246 (I-35)",
@@ -214,11 +200,25 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.448,-97.780"
+  },
+  {
+   "from": "Tree Line Dr",
+   "hour_of_week": 90,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.448,-97.780"
+  },
+  {
+   "from": "Sam Bass Rd",
+   "hour_of_week": 39,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.516,-97.690"
   }
  ],
  "unmatched_pct": {
   "dispatch": 80.9,
-  "tomtom": 98.3
+  "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
