@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 46,
-  "dispatch_only": 37,
+  "dispatch": 47,
+  "dispatch_only": 38,
   "here": 0,
   "here_matched": 0,
   "matched": 12,
-  "tomtom": 630,
-  "tomtom_only": 619
+  "tomtom": 659,
+  "tomtom_only": 648
  },
  "date": "2026-10-05",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 6,
-   "n": 37,
-   "pct": 16.2
+   "n": 38,
+   "pct": 15.8
   },
   "tomtom_highway": {
    "matched": 8,
-   "n": 270,
-   "pct": 3.0
+   "n": 286,
+   "pct": 2.8
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 360,
+   "n": 373,
    "pct": 0.8
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 464,
+  "hotspot_buckets": 490,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 580
+  "unreported_congestion": 609
  },
  "sampling": {
-  "flow_spent_this_month": 1152,
+  "flow_spent_this_month": 1161,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 186,
+  "incidents_spent_this_month": 187,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -167,6 +167,13 @@
    "seg": "30.425,-97.626"
   },
   {
+   "from": "Onion Creek Pkwy",
+   "hour_of_week": 12,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.141,-97.800"
+  },
+  {
    "from": "Tara Dr",
    "hour_of_week": 12,
    "n": 3,
@@ -179,6 +186,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.446,-97.804"
+  },
+  {
+   "from": "US-290 E",
+   "hour_of_week": 12,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.236,-97.825"
   },
   {
    "from": "Howard Ln/Exit 246 (I-35)",
@@ -200,31 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.448,-97.780"
-  },
-  {
-   "from": "Tree Line Dr",
-   "hour_of_week": 90,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.448,-97.780"
-  },
-  {
-   "from": "Sam Bass Rd",
-   "hour_of_week": 39,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.516,-97.690"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.4,
+  "dispatch": 80.9,
   "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 46,
-  "neither": 37,
+  "n": 47,
+  "neither": 38,
   "tomtom_only": 9
  }
 }
