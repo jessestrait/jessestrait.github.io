@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 15,
-  "tomtom": 751,
-  "tomtom_only": 737
+  "tomtom": 764,
+  "tomtom_only": 749
  },
  "date": "2026-10-05",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 10,
-   "n": 337,
-   "pct": 3.0
+   "n": 345,
+   "pct": 2.9
   },
   "tomtom_surface": {
-   "matched": 4,
-   "n": 414,
-   "pct": 1.0
+   "matched": 5,
+   "n": 419,
+   "pct": 1.2
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 577,
+  "hotspot_buckets": 587,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 696
+  "unreported_congestion": 708
  },
  "sampling": {
   "flow_spent_this_month": 1170,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 191,
+  "incidents_spent_this_month": 192,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -167,6 +167,13 @@
    "seg": "30.425,-97.626"
   },
   {
+   "from": "Onion Creek Pkwy",
+   "hour_of_week": 12,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.141,-97.800"
+  },
+  {
    "from": "Tara Dr",
    "hour_of_week": 12,
    "n": 3,
@@ -207,18 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.448,-97.780"
-  },
-  {
-   "from": "Sam Bass Rd",
-   "hour_of_week": 39,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.516,-97.690"
   }
  ],
  "unmatched_pct": {
   "dispatch": 79.6,
-  "tomtom": 98.1
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
