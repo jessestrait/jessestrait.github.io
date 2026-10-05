@@ -1,5 +1,5 @@
 {
- "captured_at": "2026-10-05T19:15:49Z",
+ "captured_at": "2026-10-05T19:30:51Z",
  "episodes": [
   {
    "customers_served": 32331,
@@ -8,10 +8,10 @@
    "first_seen": "2026-10-05T17:44:59Z",
    "id": "zip-78758-20261005T174459Z",
    "kind": "power_outage",
-   "last_seen": "2026-10-05T19:15:49Z",
+   "last_seen": "2026-10-05T19:30:51Z",
    "peak_customers_affected": 449,
    "peak_outages": 1,
-   "polls": 7,
+   "polls": 8,
    "scope": {
     "bbox": [
      -97.73644100024994,
@@ -25,28 +25,51 @@
    "source": "austin-energy/kubra"
   },
   {
-   "customers_served": 24694,
+   "customers_served": 36405,
    "ended": false,
-   "etr_last": "2026-10-05T21:17:41Z",
-   "first_seen": "2026-10-05T19:15:49Z",
-   "id": "zip-78759-20261005T191549Z",
+   "etr_last": "2026-10-05T21:34:54Z",
+   "first_seen": "2026-10-05T19:30:51Z",
+   "id": "zip-78745-20261005T193051Z",
    "kind": "power_outage",
-   "last_seen": "2026-10-05T19:15:49Z",
+   "last_seen": "2026-10-05T19:30:51Z",
    "peak_customers_affected": 1,
    "peak_outages": 1,
    "polls": 1,
    "scope": {
     "bbox": [
-     -97.79529059993826,
-     30.361292998426297,
-     -97.70255300000878,
-     30.43453299964365
+     -97.84236599993895,
+     30.167125199292894,
+     -97.75198400028799,
+     30.236257999648334
     ],
-    "id": "78759",
+    "id": "78745",
+    "type": "zip"
+   },
+   "source": "austin-energy/kubra"
+  },
+  {
+   "customers_served": 14624,
+   "ended": false,
+   "etr_last": "2026-10-05T21:28:16Z",
+   "first_seen": "2026-10-05T19:30:51Z",
+   "id": "zip-78746-20261005T193051Z",
+   "kind": "power_outage",
+   "last_seen": "2026-10-05T19:30:51Z",
+   "peak_customers_affected": 91,
+   "peak_outages": 1,
+   "polls": 1,
+   "scope": {
+    "bbox": [
+     -97.8661810003712,
+     30.239554998913455,
+     -97.7611649996853,
+     30.35175899911355
+    ],
+    "id": "78746",
     "type": "zip"
    },
    "source": "austin-energy/kubra"
   }
  ],
- "source_published": "2026-10-05T19:13:55Z"
+ "source_published": "2026-10-05T19:24:01Z"
 }
