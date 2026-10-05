@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 51,
-  "dispatch_only": 41,
+  "dispatch": 52,
+  "dispatch_only": 42,
   "here": 0,
   "here_matched": 0,
   "matched": 16,
-  "tomtom": 846,
-  "tomtom_only": 830
+  "tomtom": 863,
+  "tomtom_only": 847
  },
  "date": "2026-10-05",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.8,
   "median": 116.2,
   "min": 10.4,
-  "n": 31,
-  "q1": 66.2,
+  "n": 33,
+  "q1": 70.3,
   "q3": 117.1
  },
  "here_onset_offset_min": {
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 7,
-   "n": 41,
-   "pct": 17.1
+   "n": 42,
+   "pct": 16.7
   },
   "tomtom_highway": {
    "matched": 11,
-   "n": 395,
-   "pct": 2.8
+   "n": 402,
+   "pct": 2.7
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 451,
+   "n": 461,
    "pct": 1.1
   }
  },
@@ -68,10 +68,10 @@
  },
  "persistence_min": {
   "max": -10.1,
-  "median": -22.8,
-  "min": -35.5,
-  "n": 2,
-  "q1": -35.5,
+  "median": -35.5,
+  "min": -50.8,
+  "n": 3,
+  "q1": -50.8,
   "q3": -10.1
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 654,
+  "hotspot_buckets": 663,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 789
+  "unreported_congestion": 806
  },
  "sampling": {
   "flow_spent_this_month": 1179,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 196,
+  "incidents_spent_this_month": 197,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "E Martin Luther King Jr Blvd",
+   "hour_of_week": 13,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.279,-97.731"
+  },
   {
    "from": "N Interstate 35",
    "hour_of_week": 64,
@@ -144,13 +151,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "E Martin Luther King Jr Blvd",
-   "hour_of_week": 13,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.279,-97.731"
   },
   {
    "from": "Ross Rd",
@@ -195,36 +195,36 @@
    "seg": "30.446,-97.804"
   },
   {
+   "from": "Round Rock Ave",
+   "hour_of_week": 13,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.510,-97.698"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 13,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.305,-97.714"
+  },
+  {
    "from": "E Martin Luther King Junior Blvd / FM 969 Rd",
    "hour_of_week": 13,
    "n": 3,
    "roadworks": false,
    "seg": "30.302,-97.660"
-  },
-  {
-   "from": "Howard Ln/Exit 246 (I-35)",
-   "hour_of_week": 45,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.437,-97.669"
-  },
-  {
-   "from": "S Interstate 35",
-   "hour_of_week": 10,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.186,-97.773"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.4,
+  "dispatch": 80.8,
   "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 51,
-  "neither": 41,
+  "n": 52,
+  "neither": 42,
   "tomtom_only": 10
  }
 }
