@@ -10,17 +10,22 @@
  ],
  "counts": {
   "dispatch": 13,
-  "dispatch_only": 13,
+  "dispatch_only": 12,
   "here": 0,
   "here_matched": 0,
-  "matched": 0,
-  "tomtom": 131,
-  "tomtom_only": 131
+  "matched": 1,
+  "tomtom": 143,
+  "tomtom_only": 142
  },
  "date": "2026-10-05",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
-  "n": 0
+  "max": 116.5,
+  "median": 116.5,
+  "min": 116.5,
+  "n": 1,
+  "q1": 116.5,
+  "q3": 116.5
  },
  "here_onset_offset_min": {
   "n": 0
@@ -32,18 +37,18 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 0,
+   "matched": 1,
    "n": 10,
-   "pct": 0.0
+   "pct": 10.0
   },
   "tomtom_highway": {
-   "matched": 0,
-   "n": 49,
-   "pct": 0.0
+   "matched": 1,
+   "n": 53,
+   "pct": 1.9
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 82,
+   "n": 90,
    "pct": 0.0
   }
  },
@@ -54,7 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "n": 0
+  "max": 58.6,
+  "median": 58.6,
+  "min": 58.6,
+  "n": 1,
+  "q1": 58.6,
+  "q3": 58.6
  },
  "persistence_min": {
   "n": 0
@@ -74,15 +84,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 111,
+  "hotspot_buckets": 121,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 116
+  "unreported_congestion": 126
  },
  "sampling": {
   "flow_spent_this_month": 1044,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 165,
+  "incidents_spent_this_month": 166,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -173,13 +183,6 @@
    "seg": "30.355,-97.690"
   },
   {
-   "from": "S 1st St (Barton Springs Rd)",
-   "hour_of_week": 166,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.262,-97.761"
-  },
-  {
    "from": "San Antonio St (State Spur 343/W Cesar Chavez St/W 1st St)",
    "hour_of_week": 167,
    "n": 1,
@@ -199,17 +202,24 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.281,-97.728"
+  },
+  {
+   "from": "Manor Rd exit [235B]",
+   "hour_of_week": 167,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.282,-97.728"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 100.0,
-  "tomtom": 100.0
+  "dispatch": 92.3,
+  "tomtom": 99.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 13,
-  "neither": 13,
-  "tomtom_only": 0
+  "neither": 12,
+  "tomtom_only": 1
  }
 }
