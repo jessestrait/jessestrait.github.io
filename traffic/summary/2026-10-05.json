@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 50,
-  "dispatch_only": 40,
+  "dispatch": 51,
+  "dispatch_only": 41,
   "here": 0,
   "here_matched": 0,
   "matched": 15,
-  "tomtom": 805,
-  "tomtom_only": 790
+  "tomtom": 823,
+  "tomtom_only": 808
  },
  "date": "2026-10-05",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.8,
   "median": 116.2,
   "min": 10.4,
-  "n": 28,
-  "q1": 51.1,
+  "n": 29,
+  "q1": 56.1,
   "q3": 117.3
  },
  "here_onset_offset_min": {
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 7,
-   "n": 40,
-   "pct": 17.5
+   "n": 41,
+   "pct": 17.1
   },
   "tomtom_highway": {
    "matched": 10,
-   "n": 369,
-   "pct": 2.7
+   "n": 380,
+   "pct": 2.6
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 436,
+   "n": 443,
    "pct": 1.1
   }
  },
@@ -67,12 +67,12 @@
   "q3": 41.1
  },
  "persistence_min": {
-  "max": -35.5,
-  "median": -35.5,
+  "max": -10.1,
+  "median": -22.8,
   "min": -35.5,
-  "n": 1,
+  "n": 2,
   "q1": -35.5,
-  "q3": -35.5
+  "q3": -10.1
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 625,
+  "hotspot_buckets": 637,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 749
+  "unreported_congestion": 767
  },
  "sampling": {
-  "flow_spent_this_month": 1170,
+  "flow_spent_this_month": 1179,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 194,
+  "incidents_spent_this_month": 195,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -146,6 +146,13 @@
    "seg": "30.148,-97.704"
   },
   {
+   "from": "E Martin Luther King Jr Blvd",
+   "hour_of_week": 13,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.279,-97.731"
+  },
+  {
    "from": "Ross Rd",
    "hour_of_week": 44,
    "n": 3,
@@ -188,13 +195,6 @@
    "seg": "30.446,-97.804"
   },
   {
-   "from": "E Martin Luther King Jr Blvd",
-   "hour_of_week": 13,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.279,-97.731"
-  },
-  {
    "from": "Howard Ln/Exit 246 (I-35)",
    "hour_of_week": 45,
    "n": 2,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.0,
-  "tomtom": 98.1
+  "dispatch": 80.4,
+  "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 50,
-  "neither": 40,
+  "n": 51,
+  "neither": 41,
   "tomtom_only": 10
  }
 }
