@@ -1,0 +1,215 @@
+{
+ "caveats": [
+  "Dispatch published_date is when APD published, not when it happened.",
+  "Dispatch record lifetimes look like real clearances this day, not a cap.",
+  "Clearance resolution equals the poll interval; shorter incidents are invisible.",
+  "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
+  "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
+  "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
+  "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
+ ],
+ "counts": {
+  "dispatch": 11,
+  "dispatch_only": 11,
+  "here": 0,
+  "here_matched": 0,
+  "matched": 0,
+  "tomtom": 131,
+  "tomtom_only": 131
+ },
+ "date": "2026-10-05",
+ "dispatch_life_capped": false,
+ "dispatch_record_life_min": {
+  "n": 0
+ },
+ "here_onset_offset_min": {
+  "n": 0
+ },
+ "match_rate": {
+  "dispatch_highway": {
+   "matched": 0,
+   "n": 3,
+   "pct": 0.0
+  },
+  "dispatch_surface": {
+   "matched": 0,
+   "n": 8,
+   "pct": 0.0
+  },
+  "tomtom_highway": {
+   "matched": 0,
+   "n": 49,
+   "pct": 0.0
+  },
+  "tomtom_surface": {
+   "matched": 0,
+   "n": 82,
+   "pct": 0.0
+  }
+ },
+ "matcher": {
+  "buffer_m": 200.0,
+  "highway_buffer_m": 130.0,
+  "onset_window_min": 90.0,
+  "tolerance_min": 20.0
+ },
+ "onset_offset_min": {
+  "n": 0
+ },
+ "persistence_min": {
+  "n": 0
+ },
+ "poll_interval_min": 5.0,
+ "probe_agreement": {
+  "cover": {
+   "n": 0
+  },
+  "n": 0,
+  "onset_offset_min": {
+   "n": 0
+  },
+  "pct_of_here": 0.0,
+  "pct_of_tomtom": 0.0,
+  "type_agree": 0
+ },
+ "roadworks": {
+  "explained_by_roadworks": 0,
+  "hotspot_buckets": 111,
+  "hotspot_buckets_on_roadworks": 0,
+  "txdot_rows": 0,
+  "unreported_congestion": 116
+ },
+ "sampling": {
+  "flow_spent_this_month": 1035,
+  "incident_budget": 2500,
+  "incidents_spent_this_month": 165,
+  "off_peak_min": 45,
+  "rush_hours_local": [
+   7,
+   8,
+   16,
+   17,
+   18
+  ],
+  "rush_min": 5,
+  "this_poll": "off-peak"
+ },
+ "structural_hotspots": [
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 64,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.403,-97.674"
+  },
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Thompson Ln",
+   "hour_of_week": 94,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.240,-97.666"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Fiorellino Pl",
+   "hour_of_week": 167,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.454,-97.848"
+  },
+  {
+   "from": "Austin",
+   "hour_of_week": 167,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.405,-97.724"
+  },
+  {
+   "from": "TX-45 Toll/TX-45/Louis Henna Blvd (Greenlawn Blvd)",
+   "hour_of_week": 167,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.479,-97.663"
+  },
+  {
+   "from": "E Braker Ln (I-35)",
+   "hour_of_week": 165,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.423,-97.671"
+  },
+  {
+   "from": "Paige Dr",
+   "hour_of_week": 166,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.272,-97.773"
+  },
+  {
+   "from": "US-183/E Anderson Ln (I-35)",
+   "hour_of_week": 166,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.355,-97.690"
+  },
+  {
+   "from": "S 1st St (Barton Springs Rd)",
+   "hour_of_week": 166,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.262,-97.761"
+  },
+  {
+   "from": "San Antonio St (State Spur 343/W Cesar Chavez St/W 1st St)",
+   "hour_of_week": 167,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.266,-97.756"
+  },
+  {
+   "from": "Woodward St (I-35)",
+   "hour_of_week": 167,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.258,-97.737"
+  },
+  {
+   "from": "26th St (Overpass) (I-35)",
+   "hour_of_week": 167,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.281,-97.728"
+  }
+ ],
+ "unmatched_pct": {
+  "dispatch": 100.0,
+  "tomtom": 100.0
+ },
+ "witnesses": {
+  "both": 0,
+  "here_only": 0,
+  "n": 11,
+  "neither": 11,
+  "tomtom_only": 0
+ }
+}
