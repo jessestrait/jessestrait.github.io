@@ -13,9 +13,9 @@
   "dispatch_only": 39,
   "here": 0,
   "here_matched": 0,
-  "matched": 7,
-  "tomtom": 546,
-  "tomtom_only": 540
+  "matched": 8,
+  "tomtom": 579,
+  "tomtom_only": 572
  },
  "date": "2026-10-05",
  "dispatch_life_capped": false,
@@ -42,13 +42,13 @@
    "pct": 10.8
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 231,
-   "pct": 1.7
+   "matched": 5,
+   "n": 250,
+   "pct": 2.0
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 315,
+   "n": 329,
    "pct": 0.6
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 58.6,
-  "median": -1.4,
+  "median": 3.7,
   "min": -82.6,
-  "n": 7,
-  "q1": -16.4,
-  "q3": 11.6
+  "n": 8,
+  "q1": -15.6,
+  "q3": 29.8
  },
  "persistence_min": {
   "max": -35.5,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 398,
+  "hotspot_buckets": 421,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 501
+  "unreported_congestion": 533
  },
  "sampling": {
   "flow_spent_this_month": 1152,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 183,
+  "incidents_spent_this_month": 184,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,6 +160,20 @@
    "seg": "30.520,-97.559"
   },
   {
+   "from": "Immanuel Rd",
+   "hour_of_week": 12,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.425,-97.626"
+  },
+  {
+   "from": "Tara Dr",
+   "hour_of_week": 12,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.168,-97.740"
+  },
+  {
    "from": "Tin Cup Dr",
    "hour_of_week": 12,
    "n": 3,
@@ -200,25 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.516,-97.690"
-  },
-  {
-   "from": "Ranch Road 2222",
-   "hour_of_week": 37,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.359,-97.793"
-  },
-  {
-   "from": "Waymaker Way",
-   "hour_of_week": 160,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.330,-97.810"
   }
  ],
  "unmatched_pct": {
   "dispatch": 84.8,
-  "tomtom": 98.9
+  "tomtom": 98.8
  },
  "witnesses": {
   "both": 0,
