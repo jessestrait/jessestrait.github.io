@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 33,
-  "dispatch_only": 32,
+  "dispatch": 34,
+  "dispatch_only": 33,
   "here": 0,
   "here_matched": 0,
   "matched": 1,
-  "tomtom": 309,
-  "tomtom_only": 308
+  "tomtom": 329,
+  "tomtom_only": 328
  },
  "date": "2026-10-05",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 28,
-   "pct": 3.6
+   "n": 29,
+   "pct": 3.4
   },
   "tomtom_highway": {
    "matched": 1,
-   "n": 128,
-   "pct": 0.8
+   "n": 139,
+   "pct": 0.7
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 181,
+   "n": 190,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 189,
+  "hotspot_buckets": 209,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 271
+  "unreported_congestion": 290
  },
  "sampling": {
   "flow_spent_this_month": 1134,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 175,
+  "incidents_spent_this_month": 176,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -167,13 +167,6 @@
    "seg": "30.186,-97.773"
   },
   {
-   "from": "Wolf Ln (Pearce Ln)",
-   "hour_of_week": 11,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.162,-97.608"
-  },
-  {
    "from": "Pond Springs Rd",
    "hour_of_week": 46,
    "n": 2,
@@ -214,17 +207,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.473,-97.672"
+  },
+  {
+   "from": "Burnet Rd",
+   "hour_of_week": 70,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.406,-97.718"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 97.0,
+  "dispatch": 97.1,
   "tomtom": 99.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 33,
-  "neither": 32,
+  "n": 34,
+  "neither": 33,
   "tomtom_only": 1
  }
 }
