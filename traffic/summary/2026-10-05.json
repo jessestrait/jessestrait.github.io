@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 26,
-  "dispatch_only": 25,
+  "dispatch": 27,
+  "dispatch_only": 26,
   "here": 0,
   "here_matched": 0,
   "matched": 1,
@@ -33,7 +33,7 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 0,
-   "n": 4,
+   "n": 5,
    "pct": 0.0
   },
   "dispatch_surface": {
@@ -95,7 +95,7 @@
   "unreported_congestion": 143
  },
  "sampling": {
-  "flow_spent_this_month": 1098,
+  "flow_spent_this_month": 1107,
   "incident_budget": 2500,
   "incidents_spent_this_month": 172,
   "off_peak_min": 45,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 96.2,
+  "dispatch": 96.3,
   "tomtom": 99.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 26,
-  "neither": 25,
+  "n": 27,
+  "neither": 26,
   "tomtom_only": 1
  }
 }
