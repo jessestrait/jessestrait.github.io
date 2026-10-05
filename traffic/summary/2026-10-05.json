@@ -13,9 +13,9 @@
   "dispatch_only": 41,
   "here": 0,
   "here_matched": 0,
-  "matched": 15,
-  "tomtom": 823,
-  "tomtom_only": 808
+  "matched": 16,
+  "tomtom": 846,
+  "tomtom_only": 830
  },
  "date": "2026-10-05",
  "dispatch_life_capped": false,
@@ -23,9 +23,9 @@
   "max": 119.8,
   "median": 116.2,
   "min": 10.4,
-  "n": 29,
-  "q1": 56.1,
-  "q3": 117.3
+  "n": 31,
+  "q1": 66.2,
+  "q3": 117.1
  },
  "here_onset_offset_min": {
   "n": 0
@@ -42,13 +42,13 @@
    "pct": 17.1
   },
   "tomtom_highway": {
-   "matched": 10,
-   "n": 380,
-   "pct": 2.6
+   "matched": 11,
+   "n": 395,
+   "pct": 2.8
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 443,
+   "n": 451,
    "pct": 1.1
   }
  },
@@ -62,9 +62,9 @@
   "max": 62.4,
   "median": 13.6,
   "min": -82.6,
-  "n": 15,
-  "q1": -1.4,
-  "q3": 41.1
+  "n": 16,
+  "q1": 1.2,
+  "q3": 41.0
  },
  "persistence_min": {
   "max": -10.1,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 637,
+  "hotspot_buckets": 654,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 767
+  "unreported_congestion": 789
  },
  "sampling": {
   "flow_spent_this_month": 1179,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 195,
+  "incidents_spent_this_month": 196,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -195,6 +195,13 @@
    "seg": "30.446,-97.804"
   },
   {
+   "from": "E Martin Luther King Junior Blvd / FM 969 Rd",
+   "hour_of_week": 13,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.302,-97.660"
+  },
+  {
    "from": "Howard Ln/Exit 246 (I-35)",
    "hour_of_week": 45,
    "n": 2,
@@ -207,18 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.186,-97.773"
-  },
-  {
-   "from": "Pond Springs Rd",
-   "hour_of_week": 46,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.448,-97.780"
   }
  ],
  "unmatched_pct": {
   "dispatch": 80.4,
-  "tomtom": 98.2
+  "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
