@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 28,
-  "dispatch_only": 27,
+  "dispatch": 30,
+  "dispatch_only": 29,
   "here": 0,
   "here_matched": 0,
   "matched": 1,
-  "tomtom": 171,
-  "tomtom_only": 170
+  "tomtom": 297,
+  "tomtom_only": 296
  },
  "date": "2026-10-05",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 23,
-   "pct": 4.3
+   "n": 25,
+   "pct": 4.0
   },
   "tomtom_highway": {
    "matched": 1,
-   "n": 70,
-   "pct": 1.4
+   "n": 123,
+   "pct": 0.8
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 101,
+   "n": 174,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 144,
+  "hotspot_buckets": 177,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 150
+  "unreported_congestion": 259
  },
  "sampling": {
   "flow_spent_this_month": 1125,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 173,
+  "incidents_spent_this_month": 174,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,48 @@
  },
  "structural_hotspots": [
   {
+   "from": "N Interstate 35",
+   "hour_of_week": 64,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.403,-97.674"
+  },
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Thompson Ln",
+   "hour_of_week": 94,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.240,-97.666"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Ross Rd",
+   "hour_of_week": 44,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.179,-97.616"
+  },
+  {
    "from": "Howard Ln/Exit 246 (I-35)",
    "hour_of_week": 45,
    "n": 2,
@@ -118,113 +160,71 @@
    "seg": "30.437,-97.669"
   },
   {
+   "from": "S Interstate 35",
+   "hour_of_week": 10,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.186,-97.773"
+  },
+  {
+   "from": "Pond Springs Rd",
+   "hour_of_week": 46,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.448,-97.780"
+  },
+  {
+   "from": "Tree Line Dr",
+   "hour_of_week": 90,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.448,-97.780"
+  },
+  {
+   "from": "Sam Bass Rd",
+   "hour_of_week": 39,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.516,-97.690"
+  },
+  {
+   "from": "Ranch Road 2222",
+   "hour_of_week": 37,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.359,-97.793"
+  },
+  {
+   "from": "Waymaker Way",
+   "hour_of_week": 160,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.330,-97.810"
+  },
+  {
    "from": "N Interstate 35",
-   "hour_of_week": 64,
+   "hour_of_week": 58,
    "n": 2,
    "roadworks": false,
-   "seg": "30.403,-97.674"
+   "seg": "30.473,-97.672"
   },
   {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
+   "from": "Burnet Rd",
+   "hour_of_week": 70,
    "n": 2,
    "roadworks": false,
-   "seg": "30.245,-97.744"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.234,-97.736"
-  },
-  {
-   "from": "Thompson Ln",
-   "hour_of_week": 94,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.240,-97.666"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Fiorellino Pl",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.454,-97.848"
-  },
-  {
-   "from": "Austin",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.405,-97.724"
-  },
-  {
-   "from": "TX-45 Toll/TX-45/Louis Henna Blvd (Greenlawn Blvd)",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.479,-97.663"
-  },
-  {
-   "from": "E Braker Ln (I-35)",
-   "hour_of_week": 165,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.423,-97.671"
-  },
-  {
-   "from": "Paige Dr",
-   "hour_of_week": 166,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.272,-97.773"
-  },
-  {
-   "from": "US-183/E Anderson Ln (I-35)",
-   "hour_of_week": 166,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.355,-97.690"
-  },
-  {
-   "from": "San Antonio St (State Spur 343/W Cesar Chavez St/W 1st St)",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.266,-97.756"
-  },
-  {
-   "from": "Woodward St (I-35)",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.258,-97.737"
-  },
-  {
-   "from": "26th St (Overpass) (I-35)",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.281,-97.728"
+   "seg": "30.406,-97.718"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 96.4,
-  "tomtom": 99.4
+  "dispatch": 96.7,
+  "tomtom": 99.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 28,
-  "neither": 27,
+  "n": 30,
+  "neither": 29,
   "tomtom_only": 1
  }
 }
