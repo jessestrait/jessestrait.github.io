@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 21,
-  "dispatch_only": 20,
+  "dispatch": 22,
+  "dispatch_only": 21,
   "here": 0,
   "here_matched": 0,
   "matched": 1,
-  "tomtom": 149,
-  "tomtom_only": 148
+  "tomtom": 155,
+  "tomtom_only": 154
  },
  "date": "2026-10-05",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.1,
-  "median": 117.0,
-  "min": 115.1,
-  "n": 11,
-  "q1": 116.2,
-  "q3": 117.1
+  "median": 115.1,
+  "min": 10.4,
+  "n": 21,
+  "q1": 35.5,
+  "q3": 117.0
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,7 +33,7 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 0,
-   "n": 3,
+   "n": 4,
    "pct": 0.0
   },
   "dispatch_surface": {
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 1,
-   "n": 56,
-   "pct": 1.8
+   "n": 61,
+   "pct": 1.6
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 93,
+   "n": 94,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 127,
+  "hotspot_buckets": 129,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 132
+  "unreported_congestion": 135
  },
  "sampling": {
-  "flow_spent_this_month": 1062,
+  "flow_spent_this_month": 1071,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 167,
+  "incidents_spent_this_month": 168,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
+  {
+   "from": "Howard Ln/Exit 246 (I-35)",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.437,-97.669"
+  },
   {
    "from": "N Interstate 35",
    "hour_of_week": 64,
@@ -207,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.281,-97.728"
-  },
-  {
-   "from": "Manor Rd exit [235B]",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.282,-97.728"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 95.2,
-  "tomtom": 99.3
+  "dispatch": 95.5,
+  "tomtom": 99.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 21,
-  "neither": 20,
+  "n": 22,
+  "neither": 21,
   "tomtom_only": 1
  }
 }
