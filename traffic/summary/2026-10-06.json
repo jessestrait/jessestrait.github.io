@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 55,
+  "dispatch": 56,
   "dispatch_only": 47,
   "here": 0,
   "here_matched": 0,
-  "matched": 12,
-  "tomtom": 885,
-  "tomtom_only": 874
+  "matched": 14,
+  "tomtom": 913,
+  "tomtom_only": 900
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 44.4
   },
   "dispatch_surface": {
-   "matched": 4,
-   "n": 46,
-   "pct": 8.7
+   "matched": 5,
+   "n": 47,
+   "pct": 10.6
   },
   "tomtom_highway": {
-   "matched": 9,
-   "n": 445,
-   "pct": 2.0
+   "matched": 11,
+   "n": 461,
+   "pct": 2.4
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 440,
-   "pct": 0.5
+   "n": 452,
+   "pct": 0.4
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 76.1,
   "median": 4.7,
   "min": -64.6,
-  "n": 12,
-  "q1": -22.2,
-  "q3": 21.8
+  "n": 14,
+  "q1": -22.1,
+  "q3": 27.1
  },
  "persistence_min": {
   "max": -15.4,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 790,
+  "hotspot_buckets": 811,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 851
+  "unreported_congestion": 877
  },
  "sampling": {
   "flow_spent_this_month": 1413,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 241,
+  "incidents_spent_this_month": 242,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -138,6 +138,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.227,-97.699"
+  },
+  {
+   "from": "N Mo Pac Expy",
+   "hour_of_week": 37,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.354,-97.748"
   },
   {
    "from": "I-35 Service Rd (E Koenig Ln/FM-2222)",
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.415,-97.781"
-  },
-  {
-   "from": "US Highway 290 W / W Ben White Blvd",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.235,-97.797"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.5,
-  "tomtom": 98.8
+  "dispatch": 83.9,
+  "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 55,
+  "n": 56,
   "neither": 47,
-  "tomtom_only": 8
+  "tomtom_only": 9
  }
 }
