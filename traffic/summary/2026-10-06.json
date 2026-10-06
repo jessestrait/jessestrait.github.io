@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 39 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 40 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 51,
+  "dispatch": 52,
   "dispatch_only": 46,
   "here": 0,
   "here_matched": 0,
-  "matched": 5,
-  "tomtom": 495,
-  "tomtom_only": 490
+  "matched": 6,
+  "tomtom": 547,
+  "tomtom_only": 541
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 117.2,
+  "median": 117.1,
   "min": 27.1,
-  "n": 39,
+  "n": 40,
   "q1": 115.8,
-  "q3": 118.7
+  "q3": 118.6
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,18 +37,18 @@
    "pct": 33.3
   },
   "dispatch_surface": {
-   "matched": 2,
-   "n": 42,
-   "pct": 4.8
+   "matched": 3,
+   "n": 43,
+   "pct": 7.0
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 237,
-   "pct": 1.7
+   "matched": 5,
+   "n": 263,
+   "pct": 1.9
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 258,
+   "n": 284,
    "pct": 0.4
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 76.1,
-  "median": 6.7,
+  "median": 4.7,
   "min": -39.6,
-  "n": 5,
-  "q1": -27.1,
-  "q3": 44.0
+  "n": 6,
+  "q1": -20.8,
+  "q3": 28.0
  },
  "persistence_min": {
   "max": -15.4,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 447,
+  "hotspot_buckets": 499,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 467
+  "unreported_congestion": 518
  },
  "sampling": {
-  "flow_spent_this_month": 1386,
+  "flow_spent_this_month": 1395,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 231,
+  "incidents_spent_this_month": 232,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -147,13 +147,6 @@
    "seg": "30.480,-97.674"
   },
   {
-   "from": "Marble Ridge Dr",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.165,-97.738"
-  },
-  {
    "from": "US-290/TX-290 Toll (Ed Bluestein Blvd)",
    "hour_of_week": 36,
    "n": 2,
@@ -189,6 +182,13 @@
    "seg": "30.189,-97.768"
   },
   {
+   "from": "Crystalbrook Dr",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.303,-97.656"
+  },
+  {
    "from": "Seeling Dr",
    "hour_of_week": 36,
    "n": 2,
@@ -196,11 +196,11 @@
    "seg": "30.205,-97.684"
   },
   {
-   "from": "Appaloosa Chase Dr",
+   "from": "N Interstate 35",
    "hour_of_week": 36,
    "n": 2,
    "roadworks": false,
-   "seg": "30.365,-97.901"
+   "seg": "30.305,-97.714"
   },
   {
    "from": "N Interstate 35",
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 90.2,
-  "tomtom": 99.0
+  "dispatch": 88.5,
+  "tomtom": 98.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 51,
+  "n": 52,
   "neither": 46,
-  "tomtom_only": 5
+  "tomtom_only": 6
  }
 }
