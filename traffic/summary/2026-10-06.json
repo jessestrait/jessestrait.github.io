@@ -13,9 +13,9 @@
   "dispatch_only": 84,
   "here": 0,
   "here_matched": 0,
-  "matched": 48,
-  "tomtom": 3060,
-  "tomtom_only": 3002
+  "matched": 49,
+  "tomtom": 3091,
+  "tomtom_only": 3032
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -42,13 +42,13 @@
    "pct": 23.9
   },
   "tomtom_highway": {
-   "matched": 27,
-   "n": 1505,
+   "matched": 28,
+   "n": 1524,
    "pct": 1.8
   },
   "tomtom_surface": {
    "matched": 31,
-   "n": 1555,
+   "n": 1567,
    "pct": 2.0
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 83.8,
-  "median": 5.5,
+  "median": 5.6,
   "min": -64.6,
-  "n": 48,
-  "q1": -17.2,
-  "q3": 37.1
+  "n": 49,
+  "q1": -16.7,
+  "q3": 37.0
  },
  "persistence_min": {
   "max": 97.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2540,
+  "hotspot_buckets": 2566,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2971
+  "unreported_congestion": 3001
  },
  "sampling": {
-  "flow_spent_this_month": 1548,
+  "flow_spent_this_month": 1557,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 277,
+  "incidents_spent_this_month": 278,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,6 +117,13 @@
    "n": 5,
    "roadworks": false,
    "seg": "30.290,-97.742"
+  },
+  {
+   "from": "Lakeline Blvd (S Bell Blvd/US-183)",
+   "hour_of_week": 45,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.500,-97.816"
   },
   {
    "from": "W Louis Henna Blvd",
@@ -208,13 +215,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.320,-97.714"
-  },
-  {
-   "from": "N Mo Pac Expy",
-   "hour_of_week": 37,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.348,-97.750"
   }
  ],
  "unmatched_pct": {
