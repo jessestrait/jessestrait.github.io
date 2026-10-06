@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 95,
+  "dispatch": 96,
   "dispatch_only": 74,
   "here": 0,
   "here_matched": 0,
-  "matched": 34,
-  "tomtom": 2332,
-  "tomtom_only": 2294
+  "matched": 35,
+  "tomtom": 2442,
+  "tomtom_only": 2403
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 26.7
   },
   "dispatch_surface": {
-   "matched": 17,
-   "n": 80,
-   "pct": 21.2
+   "matched": 18,
+   "n": 81,
+   "pct": 22.2
   },
   "tomtom_highway": {
-   "matched": 21,
-   "n": 1184,
+   "matched": 22,
+   "n": 1235,
    "pct": 1.8
   },
   "tomtom_surface": {
    "matched": 17,
-   "n": 1148,
-   "pct": 1.5
+   "n": 1207,
+   "pct": 1.4
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 83.8,
-  "median": 4.7,
+  "median": 4.3,
   "min": -64.6,
-  "n": 34,
-  "q1": -18.1,
-  "q3": 37.3
+  "n": 35,
+  "q1": -17.6,
+  "q3": 35.8
  },
  "persistence_min": {
   "max": 97.1,
   "median": -76.7,
   "min": -178.6,
-  "n": 24,
+  "n": 25,
   "q1": -102.3,
-  "q3": -15.2,
+  "q3": -10.1,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2011,
+  "hotspot_buckets": 2098,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2263
+  "unreported_congestion": 2372
  },
  "sampling": {
   "flow_spent_this_month": 1521,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 264,
+  "incidents_spent_this_month": 265,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -131,6 +131,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.284,-97.657"
+  },
+  {
+   "from": "Brodie Ln (W William Cannon Dr)",
+   "hour_of_week": 45,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.208,-97.817"
   },
   {
    "from": "Immanuel Rd",
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.167,-97.787"
-  },
-  {
-   "from": "W Stassney Ln (Manchaca Rd/FM-2304)",
-   "hour_of_week": 45,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.229,-97.789"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 77.9,
+  "dispatch": 77.1,
   "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 95,
+  "n": 96,
   "neither": 74,
-  "tomtom_only": 21
+  "tomtom_only": 22
  }
 }
