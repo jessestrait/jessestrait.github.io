@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 118 min over 42 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 118 min over 43 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 10,
-  "tomtom": 718,
-  "tomtom_only": 709
+  "tomtom": 752,
+  "tomtom_only": 743
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -23,9 +23,9 @@
   "max": 119.9,
   "median": 117.1,
   "min": 27.1,
-  "n": 42,
+  "n": 43,
   "q1": 115.8,
-  "q3": 118.4
+  "q3": 118.3
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 8,
-   "n": 357,
-   "pct": 2.2
+   "n": 373,
+   "pct": 2.1
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 361,
+   "n": 379,
    "pct": 0.3
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 640,
+  "hotspot_buckets": 676,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 686
+  "unreported_congestion": 720
  },
  "sampling": {
   "flow_spent_this_month": 1404,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 236,
+  "incidents_spent_this_month": 237,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -203,23 +203,23 @@
    "seg": "30.235,-97.797"
   },
   {
-   "from": "I-35 Service Rd (E Koenig Ln/FM-2222)",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.321,-97.713"
-  },
-  {
    "from": "Crystalbrook Dr",
    "hour_of_week": 36,
    "n": 2,
    "roadworks": false,
    "seg": "30.303,-97.656"
+  },
+  {
+   "from": "Seeling Dr",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.205,-97.684"
   }
  ],
  "unmatched_pct": {
   "dispatch": 84.9,
-  "tomtom": 98.7
+  "tomtom": 98.8
  },
  "witnesses": {
   "both": 0,
