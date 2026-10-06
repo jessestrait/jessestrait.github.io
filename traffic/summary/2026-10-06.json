@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 52,
+  "dispatch": 53,
   "dispatch_only": 45,
   "here": 0,
   "here_matched": 0,
-  "matched": 8,
-  "tomtom": 676,
-  "tomtom_only": 669
+  "matched": 10,
+  "tomtom": 718,
+  "tomtom_only": 709
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -37,18 +37,18 @@
    "pct": 44.4
   },
   "dispatch_surface": {
-   "matched": 3,
-   "n": 43,
-   "pct": 7.0
+   "matched": 4,
+   "n": 44,
+   "pct": 9.1
   },
   "tomtom_highway": {
-   "matched": 6,
-   "n": 337,
-   "pct": 1.8
+   "matched": 8,
+   "n": 357,
+   "pct": 2.2
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 339,
+   "n": 361,
    "pct": 0.3
   }
  },
@@ -62,9 +62,9 @@
   "max": 76.1,
   "median": 4.7,
   "min": -64.6,
-  "n": 8,
-  "q1": -33.3,
-  "q3": 14.1
+  "n": 10,
+  "q1": -26.5,
+  "q3": 17.2
  },
  "persistence_min": {
   "max": -15.4,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 602,
+  "hotspot_buckets": 640,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 646
+  "unreported_congestion": 686
  },
  "sampling": {
-  "flow_spent_this_month": 1395,
+  "flow_spent_this_month": 1404,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 235,
+  "incidents_spent_this_month": 236,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -124,6 +124,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.166,-97.742"
+  },
+  {
+   "from": "S Pleasant Valley Rd (E William Cannon Dr)",
+   "hour_of_week": 36,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.189,-97.768"
   },
   {
    "from": "E Riverside Dr",
@@ -161,13 +168,6 @@
    "seg": "30.480,-97.674"
   },
   {
-   "from": "N Main St (RM-967)",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.099,-97.873"
-  },
-  {
    "from": "Decker Ln (FM-969)",
    "hour_of_week": 36,
    "n": 2,
@@ -203,11 +203,11 @@
    "seg": "30.235,-97.797"
   },
   {
-   "from": "S Pleasant Valley Rd (E William Cannon Dr)",
+   "from": "I-35 Service Rd (E Koenig Ln/FM-2222)",
    "hour_of_week": 36,
    "n": 2,
    "roadworks": false,
-   "seg": "30.189,-97.768"
+   "seg": "30.321,-97.713"
   },
   {
    "from": "Crystalbrook Dr",
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.5,
-  "tomtom": 99.0
+  "dispatch": 84.9,
+  "tomtom": 98.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 52,
+  "n": 53,
   "neither": 45,
-  "tomtom_only": 7
+  "tomtom_only": 8
  }
 }
