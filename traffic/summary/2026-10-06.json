@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 88,
+  "dispatch": 89,
   "dispatch_only": 71,
   "here": 0,
   "here_matched": 0,
-  "matched": 26,
-  "tomtom": 1754,
-  "tomtom_only": 1726
+  "matched": 28,
+  "tomtom": 1850,
+  "tomtom_only": 1820
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -37,18 +37,18 @@
    "pct": 26.7
   },
   "dispatch_surface": {
-   "matched": 13,
-   "n": 73,
-   "pct": 17.8
+   "matched": 14,
+   "n": 74,
+   "pct": 18.9
   },
   "tomtom_highway": {
-   "matched": 18,
-   "n": 913,
+   "matched": 19,
+   "n": 954,
    "pct": 2.0
   },
   "tomtom_surface": {
-   "matched": 10,
-   "n": 841,
+   "matched": 11,
+   "n": 896,
    "pct": 1.2
   }
  },
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 76.1,
-  "median": -2.1,
+  "max": 83.8,
+  "median": 3.5,
   "min": -64.6,
-  "n": 26,
-  "q1": -20.3,
-  "q3": 41.3
+  "n": 28,
+  "q1": -18.7,
+  "q3": 52.2
  },
  "persistence_min": {
   "max": 97.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1530,
+  "hotspot_buckets": 1589,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1695
+  "unreported_congestion": 1789
  },
  "sampling": {
-  "flow_spent_this_month": 1503,
+  "flow_spent_this_month": 1512,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 257,
+  "incidents_spent_this_month": 258,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -189,6 +189,20 @@
    "seg": "30.167,-97.787"
   },
   {
+   "from": "E Dean Keeton St",
+   "hour_of_week": 45,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.286,-97.724"
+  },
+  {
+   "from": "Manor Rd (Berkman Dr)",
+   "hour_of_week": 45,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.303,-97.700"
+  },
+  {
    "from": "N Interstate 35",
    "hour_of_week": 45,
    "n": 3,
@@ -201,31 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.337,-97.559"
-  },
-  {
-   "from": "US Highway 183",
-   "hour_of_week": 45,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.470,-97.797"
-  },
-  {
-   "from": "MLK & 15th St exit [235A]",
-   "hour_of_week": 45,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.278,-97.730"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.7,
+  "dispatch": 79.8,
   "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 88,
+  "n": 89,
   "neither": 71,
-  "tomtom_only": 17
+  "tomtom_only": 18
  }
 }
