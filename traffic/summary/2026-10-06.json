@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 48,
-  "dispatch_only": 45,
+  "dispatch": 49,
+  "dispatch_only": 46,
   "here": 0,
   "here_matched": 0,
   "matched": 3,
-  "tomtom": 313,
-  "tomtom_only": 310
+  "tomtom": 336,
+  "tomtom_only": 333
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 40,
-   "pct": 2.5
+   "n": 41,
+   "pct": 2.4
   },
   "tomtom_highway": {
    "matched": 3,
-   "n": 159,
-   "pct": 1.9
+   "n": 174,
+   "pct": 1.7
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 154,
+   "n": 162,
    "pct": 0.0
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 280,
+  "hotspot_buckets": 302,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 287
+  "unreported_congestion": 310
  },
  "sampling": {
-  "flow_spent_this_month": 1377,
+  "flow_spent_this_month": 1386,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 227,
+  "incidents_spent_this_month": 228,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,6 +117,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.188,-97.772"
+  },
+  {
+   "from": "Immanuel Rd",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.425,-97.626"
   },
   {
    "from": "S Interstate 35",
@@ -208,24 +215,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.494,-97.674"
-  },
-  {
-   "from": "Greenlawn Blvd (Gattis School Rd)",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.495,-97.671"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 93.8,
-  "tomtom": 99.0
+  "dispatch": 93.9,
+  "tomtom": 99.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 48,
-  "neither": 45,
+  "n": 49,
+  "neither": 46,
   "tomtom_only": 3
  }
 }
