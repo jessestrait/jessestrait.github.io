@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 58,
-  "dispatch_only": 49,
+  "dispatch": 60,
+  "dispatch_only": 51,
   "here": 0,
   "here_matched": 0,
   "matched": 15,
-  "tomtom": 946,
-  "tomtom_only": 932
+  "tomtom": 982,
+  "tomtom_only": 968
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -33,22 +33,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 4,
-   "n": 10,
-   "pct": 40.0
+   "n": 11,
+   "pct": 36.4
   },
   "dispatch_surface": {
    "matched": 5,
-   "n": 48,
-   "pct": 10.4
+   "n": 49,
+   "pct": 10.2
   },
   "tomtom_highway": {
    "matched": 12,
-   "n": 490,
+   "n": 508,
    "pct": 2.4
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 456,
+   "n": 474,
    "pct": 0.4
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 837,
+  "hotspot_buckets": 865,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 908
+  "unreported_congestion": 944
  },
  "sampling": {
-  "flow_spent_this_month": 1413,
+  "flow_spent_this_month": 1422,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 243,
+  "incidents_spent_this_month": 244,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -147,18 +147,18 @@
    "seg": "30.354,-97.748"
   },
   {
-   "from": "I-35 Service Rd (E Koenig Ln/FM-2222)",
-   "hour_of_week": 37,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.320,-97.714"
-  },
-  {
    "from": "N Mo Pac Expy",
    "hour_of_week": 37,
    "n": 3,
    "roadworks": false,
    "seg": "30.348,-97.750"
+  },
+  {
+   "from": "S Lamar Blvd / W Ben White Blvd",
+   "hour_of_week": 37,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.240,-97.800"
   },
   {
    "from": "N Interstate 35",
@@ -180,13 +180,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.125,-97.865"
-  },
-  {
-   "from": "Highway 71 E",
-   "hour_of_week": 35,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.200,-97.633"
   },
   {
    "from": "S Interstate 35",
@@ -215,17 +208,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.506,-97.821"
+  },
+  {
+   "from": "W Parmer Ln",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.468,-97.761"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 84.5,
-  "tomtom": 98.5
+  "dispatch": 85.0,
+  "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 58,
-  "neither": 49,
+  "n": 60,
+  "neither": 51,
   "tomtom_only": 9
  }
 }
