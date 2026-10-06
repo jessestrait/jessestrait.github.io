@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 80 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 81 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 86,
-  "dispatch_only": 69,
+  "dispatch": 88,
+  "dispatch_only": 71,
   "here": 0,
   "here_matched": 0,
   "matched": 26,
-  "tomtom": 1685,
-  "tomtom_only": 1657
+  "tomtom": 1754,
+  "tomtom_only": 1726
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -23,7 +23,7 @@
   "max": 119.9,
   "median": 117.1,
   "min": 11.2,
-  "n": 80,
+  "n": 81,
   "q1": 115.4,
   "q3": 118.3
  },
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 13,
-   "n": 71,
-   "pct": 18.3
+   "n": 73,
+   "pct": 17.8
   },
   "tomtom_highway": {
    "matched": 18,
-   "n": 883,
+   "n": 913,
    "pct": 2.0
   },
   "tomtom_surface": {
    "matched": 10,
-   "n": 802,
+   "n": 841,
    "pct": 1.2
   }
  },
@@ -68,11 +68,11 @@
  },
  "persistence_min": {
   "max": 97.1,
-  "median": -86.9,
+  "median": -76.8,
   "min": -178.6,
-  "n": 21,
-  "q1": -107.4,
-  "q3": -25.6,
+  "n": 23,
+  "q1": -102.3,
+  "q3": -15.4,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1475,
+  "hotspot_buckets": 1530,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1627
+  "unreported_congestion": 1695
  },
  "sampling": {
   "flow_spent_this_month": 1503,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 256,
+  "incidents_spent_this_month": 257,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -189,11 +189,25 @@
    "seg": "30.167,-97.787"
   },
   {
-   "from": "Lakeline Blvd (S Bell Blvd/US-183)",
+   "from": "N Interstate 35",
    "hour_of_week": 45,
    "n": 3,
    "roadworks": false,
-   "seg": "30.500,-97.816"
+   "seg": "30.273,-97.732"
+  },
+  {
+   "from": "Bloor Rd (FM-973)",
+   "hour_of_week": 45,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.337,-97.559"
+  },
+  {
+   "from": "US Highway 183",
+   "hour_of_week": 45,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.470,-97.797"
   },
   {
    "from": "MLK & 15th St exit [235A]",
@@ -201,31 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.278,-97.730"
-  },
-  {
-   "from": "W Cesar Chavez St",
-   "hour_of_week": 45,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.284,-97.765"
-  },
-  {
-   "from": "W Slaughter Ln (I-35)",
-   "hour_of_week": 34,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.188,-97.772"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.2,
-  "tomtom": 98.3
+  "dispatch": 80.7,
+  "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 86,
-  "neither": 69,
+  "n": 88,
+  "neither": 71,
   "tomtom_only": 17
  }
 }
