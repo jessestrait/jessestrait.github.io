@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 106,
-  "dispatch_only": 80,
+  "dispatch": 109,
+  "dispatch_only": 82,
   "here": 0,
   "here_matched": 0,
-  "matched": 44,
-  "tomtom": 2958,
-  "tomtom_only": 2906
+  "matched": 45,
+  "tomtom": 2989,
+  "tomtom_only": 2936
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -33,22 +33,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 5,
-   "n": 18,
-   "pct": 27.8
+   "n": 19,
+   "pct": 26.3
   },
   "dispatch_surface": {
-   "matched": 21,
-   "n": 88,
-   "pct": 23.9
+   "matched": 22,
+   "n": 90,
+   "pct": 24.4
   },
   "tomtom_highway": {
    "matched": 24,
-   "n": 1450,
-   "pct": 1.7
+   "n": 1471,
+   "pct": 1.6
   },
   "tomtom_surface": {
-   "matched": 28,
-   "n": 1508,
+   "matched": 29,
+   "n": 1518,
    "pct": 1.9
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 83.8,
-  "median": 6.2,
+  "median": 5.6,
   "min": -64.6,
-  "n": 44,
-  "q1": -17.2,
-  "q3": 36.5
+  "n": 45,
+  "q1": -16.7,
+  "q3": 36.2
  },
  "persistence_min": {
   "max": 97.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2447,
+  "hotspot_buckets": 2477,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2875
+  "unreported_congestion": 2905
  },
  "sampling": {
   "flow_spent_this_month": 1548,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 274,
+  "incidents_spent_this_month": 275,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -124,6 +124,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.480,-97.674"
+  },
+  {
+   "from": "W Cesar Chavez St",
+   "hour_of_week": 45,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.284,-97.765"
   },
   {
    "from": "Ed Bluestein Blvd (FM-969)",
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.320,-97.714"
-  },
-  {
-   "from": "N Mo Pac Expy",
-   "hour_of_week": 37,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.348,-97.750"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 75.5,
+  "dispatch": 75.2,
   "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 106,
-  "neither": 80,
-  "tomtom_only": 26
+  "n": 109,
+  "neither": 82,
+  "tomtom_only": 27
  }
 }
