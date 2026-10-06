@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 96,
-  "dispatch_only": 74,
+  "dispatch": 98,
+  "dispatch_only": 76,
   "here": 0,
   "here_matched": 0,
-  "matched": 35,
-  "tomtom": 2442,
-  "tomtom_only": 2403
+  "matched": 37,
+  "tomtom": 2528,
+  "tomtom_only": 2486
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 18,
-   "n": 81,
-   "pct": 22.2
+   "n": 83,
+   "pct": 21.7
   },
   "tomtom_highway": {
    "matched": 22,
-   "n": 1235,
-   "pct": 1.8
+   "n": 1264,
+   "pct": 1.7
   },
   "tomtom_surface": {
-   "matched": 17,
-   "n": 1207,
-   "pct": 1.4
+   "matched": 20,
+   "n": 1264,
+   "pct": 1.6
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 83.8,
   "median": 4.3,
   "min": -64.6,
-  "n": 35,
-  "q1": -17.6,
-  "q3": 35.8
+  "n": 37,
+  "q1": -18.6,
+  "q3": 36.5
  },
  "persistence_min": {
   "max": 97.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2098,
+  "hotspot_buckets": 2156,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2372
+  "unreported_congestion": 2455
  },
  "sampling": {
-  "flow_spent_this_month": 1521,
+  "flow_spent_this_month": 1530,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 265,
+  "incidents_spent_this_month": 266,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -131,13 +131,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.284,-97.657"
-  },
-  {
-   "from": "Brodie Ln (W William Cannon Dr)",
-   "hour_of_week": 45,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.208,-97.817"
   },
   {
    "from": "Immanuel Rd",
@@ -215,17 +208,24 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.167,-97.787"
+  },
+  {
+   "from": "E Dean Keeton St",
+   "hour_of_week": 45,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.286,-97.724"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 77.1,
-  "tomtom": 98.4
+  "dispatch": 77.6,
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 96,
-  "neither": 74,
+  "n": 98,
+  "neither": 76,
   "tomtom_only": 22
  }
 }
