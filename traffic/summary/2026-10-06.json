@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 46,
-  "dispatch_only": 44,
+  "dispatch_only": 43,
   "here": 0,
   "here_matched": 0,
-  "matched": 2,
-  "tomtom": 184,
-  "tomtom_only": 182
+  "matched": 3,
+  "tomtom": 217,
+  "tomtom_only": 214
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
+   "matched": 2,
    "n": 8,
-   "pct": 12.5
+   "pct": 25.0
   },
   "dispatch_surface": {
    "matched": 1,
@@ -42,13 +42,13 @@
    "pct": 2.6
   },
   "tomtom_highway": {
-   "matched": 2,
-   "n": 89,
-   "pct": 2.2
+   "matched": 3,
+   "n": 107,
+   "pct": 2.8
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 95,
+   "n": 110,
    "pct": 0.0
   }
  },
@@ -60,10 +60,10 @@
  },
  "onset_offset_min": {
   "max": 76.1,
-  "median": 41.4,
-  "min": 6.7,
-  "n": 2,
-  "q1": 6.7,
+  "median": 6.7,
+  "min": -14.5,
+  "n": 3,
+  "q1": -14.5,
   "q3": 76.1
  },
  "persistence_min": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 153,
+  "hotspot_buckets": 185,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 160
+  "unreported_congestion": 191
  },
  "sampling": {
   "flow_spent_this_month": 1368,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 222,
+  "incidents_spent_this_month": 223,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -138,13 +138,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.234,-97.736"
-  },
-  {
-   "from": "Thompson Ln",
-   "hour_of_week": 94,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.240,-97.666"
   },
   {
    "from": "Ellas Inlet Dr / Felix Sparke Dr",
@@ -215,17 +208,24 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.495,-97.671"
+  },
+  {
+   "from": "Austin",
+   "hour_of_week": 23,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.201,-97.887"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 95.7,
-  "tomtom": 98.9
+  "dispatch": 93.5,
+  "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 46,
-  "neither": 44,
-  "tomtom_only": 2
+  "neither": 43,
+  "tomtom_only": 3
  }
 }
