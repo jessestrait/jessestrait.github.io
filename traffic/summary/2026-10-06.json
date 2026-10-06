@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 12,
-  "tomtom": 849,
-  "tomtom_only": 838
+  "tomtom": 885,
+  "tomtom_only": 874
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 421,
-   "pct": 2.1
+   "n": 445,
+   "pct": 2.0
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 428,
+   "n": 440,
    "pct": 0.5
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 761,
+  "hotspot_buckets": 790,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 815
+  "unreported_congestion": 851
  },
  "sampling": {
   "flow_spent_this_month": 1413,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 240,
+  "incidents_spent_this_month": 241,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -138,6 +138,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.227,-97.699"
+  },
+  {
+   "from": "I-35 Service Rd (E Koenig Ln/FM-2222)",
+   "hour_of_week": 37,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.320,-97.714"
   },
   {
    "from": "N Interstate 35",
@@ -208,18 +215,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.235,-97.797"
-  },
-  {
-   "from": "Crystalbrook Dr",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.303,-97.656"
   }
  ],
  "unmatched_pct": {
   "dispatch": 85.5,
-  "tomtom": 98.7
+  "tomtom": 98.8
  },
  "witnesses": {
   "both": 0,
