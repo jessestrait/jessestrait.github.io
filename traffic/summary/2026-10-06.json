@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 42,
-  "tomtom": 2782,
-  "tomtom_only": 2733
+  "tomtom": 2834,
+  "tomtom_only": 2784
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 23,
-   "n": 1379,
-   "pct": 1.7
+   "n": 1402,
+   "pct": 1.6
   },
   "tomtom_surface": {
-   "matched": 26,
-   "n": 1403,
+   "matched": 27,
+   "n": 1432,
    "pct": 1.9
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2327,
+  "hotspot_buckets": 2356,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2702
+  "unreported_congestion": 2753
  },
  "sampling": {
   "flow_spent_this_month": 1539,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 270,
+  "incidents_spent_this_month": 271,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "W 25th St",
+   "hour_of_week": 46,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.290,-97.742"
+  },
   {
    "from": "W Louis Henna Blvd",
    "hour_of_week": 45,
@@ -133,11 +140,11 @@
    "seg": "30.316,-97.708"
   },
   {
-   "from": "W 25th St",
+   "from": "Colorado St",
    "hour_of_week": 46,
    "n": 4,
    "roadworks": false,
-   "seg": "30.290,-97.742"
+   "seg": "30.280,-97.742"
   },
   {
    "from": "exit [446]",
@@ -208,13 +215,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.240,-97.800"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 37,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.310,-97.711"
   }
  ],
  "unmatched_pct": {
