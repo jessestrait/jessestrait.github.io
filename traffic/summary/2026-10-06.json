@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 50,
-  "dispatch_only": 47,
+  "dispatch": 51,
+  "dispatch_only": 46,
   "here": 0,
   "here_matched": 0,
-  "matched": 3,
-  "tomtom": 442,
-  "tomtom_only": 439
+  "matched": 5,
+  "tomtom": 495,
+  "tomtom_only": 490
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 2,
-   "n": 8,
-   "pct": 25.0
+   "matched": 3,
+   "n": 9,
+   "pct": 33.3
   },
   "dispatch_surface": {
-   "matched": 1,
+   "matched": 2,
    "n": 42,
-   "pct": 2.4
+   "pct": 4.8
   },
   "tomtom_highway": {
-   "matched": 3,
-   "n": 218,
-   "pct": 1.4
+   "matched": 4,
+   "n": 237,
+   "pct": 1.7
   },
   "tomtom_surface": {
-   "matched": 0,
-   "n": 224,
-   "pct": 0.0
+   "matched": 1,
+   "n": 258,
+   "pct": 0.4
   }
  },
  "matcher": {
@@ -61,10 +61,10 @@
  "onset_offset_min": {
   "max": 76.1,
   "median": 6.7,
-  "min": -14.5,
-  "n": 3,
-  "q1": -14.5,
-  "q3": 76.1
+  "min": -39.6,
+  "n": 5,
+  "q1": -27.1,
+  "q3": 44.0
  },
  "persistence_min": {
   "max": -15.4,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 402,
+  "hotspot_buckets": 447,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 416
+  "unreported_congestion": 467
  },
  "sampling": {
   "flow_spent_this_month": 1386,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 230,
+  "incidents_spent_this_month": 231,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -140,18 +140,32 @@
    "seg": "30.109,-97.808"
   },
   {
-   "from": "Breve Cv / Tiermo Dr",
+   "from": "S Interstate 35",
    "hour_of_week": 36,
    "n": 2,
    "roadworks": false,
-   "seg": "30.256,-97.593"
+   "seg": "30.480,-97.674"
   },
   {
-   "from": "TX-45 Toll/TX-130 Toll (E Parmer Ln/FM-734)",
+   "from": "Marble Ridge Dr",
    "hour_of_week": 36,
    "n": 2,
    "roadworks": false,
-   "seg": "30.368,-97.609"
+   "seg": "30.165,-97.738"
+  },
+  {
+   "from": "US-290/TX-290 Toll (Ed Bluestein Blvd)",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.332,-97.684"
+  },
+  {
+   "from": "FM-1431/Whitestone Blvd (N Bell Blvd/US-183)",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.506,-97.821"
   },
   {
    "from": "Yaupon Dr",
@@ -159,6 +173,27 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.415,-97.781"
+  },
+  {
+   "from": "US Highway 290 W / W Ben White Blvd",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.235,-97.797"
+  },
+  {
+   "from": "S Pleasant Valley Rd (E William Cannon Dr)",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.189,-97.768"
+  },
+  {
+   "from": "Seeling Dr",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.205,-97.684"
   },
   {
    "from": "Appaloosa Chase Dr",
@@ -180,52 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.234,-97.736"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.616"
-  },
-  {
-   "from": "Lakeline Mall Dr",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.476,-97.793"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.475,-97.794"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 94.0,
-  "tomtom": 99.3
+  "dispatch": 90.2,
+  "tomtom": 99.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 50,
-  "neither": 47,
-  "tomtom_only": 3
+  "n": 51,
+  "neither": 46,
+  "tomtom_only": 5
  }
 }
