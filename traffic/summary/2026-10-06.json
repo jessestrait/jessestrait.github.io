@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 118 min over 85 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 86 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 112,
-  "dispatch_only": 84,
+  "dispatch": 113,
+  "dispatch_only": 85,
   "here": 0,
   "here_matched": 0,
-  "matched": 49,
-  "tomtom": 3091,
-  "tomtom_only": 3032
+  "matched": 50,
+  "tomtom": 3122,
+  "tomtom_only": 3062
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -23,9 +23,9 @@
   "max": 119.9,
   "median": 117.1,
   "min": 11.2,
-  "n": 85,
+  "n": 86,
   "q1": 115.6,
-  "q3": 118.5
+  "q3": 118.7
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,8 +33,8 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 6,
-   "n": 20,
-   "pct": 30.0
+   "n": 21,
+   "pct": 28.6
   },
   "dispatch_surface": {
    "matched": 22,
@@ -42,13 +42,13 @@
    "pct": 23.9
   },
   "tomtom_highway": {
-   "matched": 28,
-   "n": 1524,
-   "pct": 1.8
+   "matched": 29,
+   "n": 1535,
+   "pct": 1.9
   },
   "tomtom_surface": {
    "matched": 31,
-   "n": 1567,
+   "n": 1587,
    "pct": 2.0
   }
  },
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 83.8,
-  "median": 5.6,
+  "median": 6.2,
   "min": -64.6,
-  "n": 49,
-  "q1": -16.7,
-  "q3": 37.0
+  "n": 50,
+  "q1": -16.2,
+  "q3": 38.0
  },
  "persistence_min": {
   "max": 97.1,
   "median": -76.7,
   "min": -178.6,
-  "n": 25,
-  "q1": -102.3,
-  "q3": -10.1,
+  "n": 28,
+  "q1": -105.9,
+  "q3": -7.6,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2566,
+  "hotspot_buckets": 2586,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 3001
+  "unreported_congestion": 3031
  },
  "sampling": {
   "flow_spent_this_month": 1557,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 278,
+  "incidents_spent_this_month": 279,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -131,6 +131,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.480,-97.674"
+  },
+  {
+   "from": "TX-343/N Lamar Blvd (W Cesar Chavez St/W 1st St)",
+   "hour_of_week": 45,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.265,-97.751"
   },
   {
    "from": "Ed Bluestein Blvd (FM-969)",
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.218,-97.838"
-  },
-  {
-   "from": "I-35 Service Rd (E Koenig Ln/FM-2222)",
-   "hour_of_week": 37,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.320,-97.714"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 75.0,
+  "dispatch": 75.2,
   "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 112,
-  "neither": 84,
+  "n": 113,
+  "neither": 85,
   "tomtom_only": 28
  }
 }
