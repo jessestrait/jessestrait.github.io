@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 8,
-  "tomtom": 589,
-  "tomtom_only": 582
+  "tomtom": 638,
+  "tomtom_only": 631
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 286,
-   "pct": 2.1
+   "n": 314,
+   "pct": 1.9
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 303,
+   "n": 324,
    "pct": 0.3
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 531,
+  "hotspot_buckets": 572,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 559
+  "unreported_congestion": 608
  },
  "sampling": {
   "flow_spent_this_month": 1395,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 233,
+  "incidents_spent_this_month": 234,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -112,6 +112,13 @@
  },
  "structural_hotspots": [
   {
+   "from": "Immanuel Rd",
+   "hour_of_week": 36,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.425,-97.626"
+  },
+  {
    "from": "Rhett Pl",
    "hour_of_week": 36,
    "n": 3,
@@ -119,25 +126,25 @@
    "seg": "30.166,-97.742"
   },
   {
+   "from": "S Pleasant Valley Rd (E William Cannon Dr)",
+   "hour_of_week": 36,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.189,-97.768"
+  },
+  {
+   "from": "E Riverside Dr",
+   "hour_of_week": 36,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.227,-97.699"
+  },
+  {
    "from": "W Slaughter Ln (I-35)",
    "hour_of_week": 34,
    "n": 2,
    "roadworks": false,
    "seg": "30.188,-97.772"
-  },
-  {
-   "from": "Eagle Nest Dr",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.125,-97.865"
-  },
-  {
-   "from": "Immanuel Rd",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.425,-97.626"
   },
   {
    "from": "S Interstate 35",
@@ -152,6 +159,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.480,-97.674"
+  },
+  {
+   "from": "Decker Ln (FM-969)",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.281,-97.649"
   },
   {
    "from": "FM-1431/Whitestone Blvd (N Bell Blvd/US-183)",
@@ -173,13 +187,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.235,-97.797"
-  },
-  {
-   "from": "S Pleasant Valley Rd (E William Cannon Dr)",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.189,-97.768"
   },
   {
    "from": "Crystalbrook Dr",
@@ -208,18 +215,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.305,-97.714"
-  },
-  {
-   "from": "Taft Ln (I-35)",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.166,-97.786"
   }
  ],
  "unmatched_pct": {
   "dispatch": 86.5,
-  "tomtom": 98.8
+  "tomtom": 98.9
  },
  "witnesses": {
   "both": 0,
