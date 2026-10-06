@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 98,
-  "dispatch_only": 76,
+  "dispatch": 99,
+  "dispatch_only": 77,
   "here": 0,
   "here_matched": 0,
-  "matched": 37,
-  "tomtom": 2528,
-  "tomtom_only": 2486
+  "matched": 38,
+  "tomtom": 2596,
+  "tomtom_only": 2553
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -33,8 +33,8 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 4,
-   "n": 15,
-   "pct": 26.7
+   "n": 16,
+   "pct": 25.0
   },
   "dispatch_surface": {
    "matched": 18,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 22,
-   "n": 1264,
+   "n": 1296,
    "pct": 1.7
   },
   "tomtom_surface": {
-   "matched": 20,
-   "n": 1264,
+   "matched": 21,
+   "n": 1300,
    "pct": 1.6
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 83.8,
-  "median": 4.3,
+  "median": 4.7,
   "min": -64.6,
-  "n": 37,
-  "q1": -18.6,
-  "q3": 36.5
+  "n": 38,
+  "q1": -18.1,
+  "q3": 36.2
  },
  "persistence_min": {
   "max": 97.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2156,
+  "hotspot_buckets": 2210,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2455
+  "unreported_congestion": 2522
  },
  "sampling": {
   "flow_spent_this_month": 1530,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 266,
+  "incidents_spent_this_month": 267,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -112,13 +112,6 @@
  },
  "structural_hotspots": [
   {
-   "from": "S Mo Pac Expy",
-   "hour_of_week": 45,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.265,-97.784"
-  },
-  {
    "from": "W Louis Henna Blvd",
    "hour_of_week": 45,
    "n": 4,
@@ -131,6 +124,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.284,-97.657"
+  },
+  {
+   "from": "Brodie Ln (W William Cannon Dr)",
+   "hour_of_week": 45,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.208,-97.817"
   },
   {
    "from": "Immanuel Rd",
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 77.6,
+  "dispatch": 77.8,
   "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 98,
-  "neither": 76,
+  "n": 99,
+  "neither": 77,
   "tomtom_only": 22
  }
 }
