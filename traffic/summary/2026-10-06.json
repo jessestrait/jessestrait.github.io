@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 113,
-  "dispatch_only": 85,
+  "dispatch": 114,
+  "dispatch_only": 86,
   "here": 0,
   "here_matched": 0,
   "matched": 51,
-  "tomtom": 3144,
-  "tomtom_only": 3082
+  "tomtom": 3175,
+  "tomtom_only": 3113
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 22,
-   "n": 92,
-   "pct": 23.9
+   "n": 93,
+   "pct": 23.7
   },
   "tomtom_highway": {
    "matched": 29,
-   "n": 1548,
+   "n": 1561,
    "pct": 1.9
   },
   "tomtom_surface": {
    "matched": 33,
-   "n": 1596,
-   "pct": 2.1
+   "n": 1614,
+   "pct": 2.0
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2600,
+  "hotspot_buckets": 2625,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 3051
+  "unreported_congestion": 3082
  },
  "sampling": {
   "flow_spent_this_month": 1557,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 280,
+  "incidents_spent_this_month": 281,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -175,6 +175,13 @@
    "seg": "30.232,-97.619"
   },
   {
+   "from": "Cesar Chavez St exit [234A]",
+   "hour_of_week": 47,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.262,-97.736"
+  },
+  {
    "from": "Immanuel Rd",
    "hour_of_week": 36,
    "n": 3,
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.354,-97.748"
-  },
-  {
-   "from": "W William Cannon Dr",
-   "hour_of_week": 37,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.218,-97.838"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 75.2,
+  "dispatch": 75.4,
   "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 113,
-  "neither": 85,
+  "n": 114,
+  "neither": 86,
   "tomtom_only": 28
  }
 }
