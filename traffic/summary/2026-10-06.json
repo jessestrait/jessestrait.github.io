@@ -13,9 +13,9 @@
   "dispatch_only": 82,
   "here": 0,
   "here_matched": 0,
-  "matched": 45,
-  "tomtom": 2989,
-  "tomtom_only": 2936
+  "matched": 46,
+  "tomtom": 3028,
+  "tomtom_only": 2972
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -42,13 +42,13 @@
    "pct": 24.4
   },
   "tomtom_highway": {
-   "matched": 24,
-   "n": 1471,
-   "pct": 1.6
+   "matched": 26,
+   "n": 1489,
+   "pct": 1.7
   },
   "tomtom_surface": {
-   "matched": 29,
-   "n": 1518,
+   "matched": 30,
+   "n": 1539,
    "pct": 1.9
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 83.8,
-  "median": 5.6,
+  "median": 5.5,
   "min": -64.6,
-  "n": 45,
-  "q1": -16.7,
-  "q3": 36.2
+  "n": 46,
+  "q1": -16.2,
+  "q3": 36.9
  },
  "persistence_min": {
   "max": 97.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2477,
+  "hotspot_buckets": 2503,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2905
+  "unreported_congestion": 2941
  },
  "sampling": {
   "flow_spent_this_month": 1548,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 275,
+  "incidents_spent_this_month": 276,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -124,13 +124,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.480,-97.674"
-  },
-  {
-   "from": "W Cesar Chavez St",
-   "hour_of_week": 45,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.284,-97.765"
   },
   {
    "from": "Ed Bluestein Blvd (FM-969)",
@@ -215,6 +208,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.320,-97.714"
+  },
+  {
+   "from": "N Mo Pac Expy",
+   "hour_of_week": 37,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.348,-97.750"
   }
  ],
  "unmatched_pct": {
