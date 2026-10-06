@@ -13,9 +13,9 @@
   "dispatch_only": 73,
   "here": 0,
   "here_matched": 0,
-  "matched": 30,
-  "tomtom": 2069,
-  "tomtom_only": 2035
+  "matched": 31,
+  "tomtom": 2132,
+  "tomtom_only": 2097
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 21,
-   "n": 1063,
-   "pct": 2.0
+   "n": 1091,
+   "pct": 1.9
   },
   "tomtom_surface": {
-   "matched": 13,
-   "n": 1006,
+   "matched": 14,
+   "n": 1041,
    "pct": 1.3
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 83.8,
-  "median": 4.7,
+  "median": 5.1,
   "min": -64.6,
-  "n": 30,
-  "q1": -16.8,
-  "q3": 41.3
+  "n": 31,
+  "q1": -15.8,
+  "q3": 35.8
  },
  "persistence_min": {
   "max": 97.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1769,
+  "hotspot_buckets": 1827,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2004
+  "unreported_congestion": 2066
  },
  "sampling": {
-  "flow_spent_this_month": 1512,
+  "flow_spent_this_month": 1521,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 261,
+  "incidents_spent_this_month": 262,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,13 +111,6 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
-  {
-   "from": "US Highway 183",
-   "hour_of_week": 45,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.470,-97.797"
-  },
   {
    "from": "W Louis Henna Blvd",
    "hour_of_week": 45,
@@ -215,6 +208,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.229,-97.789"
+  },
+  {
+   "from": "E Dean Keeton St",
+   "hour_of_week": 45,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.286,-97.724"
   }
  ],
  "unmatched_pct": {
