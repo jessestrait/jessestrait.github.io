@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 85,
+  "dispatch": 86,
   "dispatch_only": 69,
   "here": 0,
   "here_matched": 0,
-  "matched": 25,
-  "tomtom": 1614,
-  "tomtom_only": 1587
+  "matched": 26,
+  "tomtom": 1685,
+  "tomtom_only": 1657
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -37,18 +37,18 @@
    "pct": 26.7
   },
   "dispatch_surface": {
-   "matched": 12,
-   "n": 70,
-   "pct": 17.1
+   "matched": 13,
+   "n": 71,
+   "pct": 18.3
   },
   "tomtom_highway": {
    "matched": 18,
-   "n": 841,
-   "pct": 2.1
+   "n": 883,
+   "pct": 2.0
   },
   "tomtom_surface": {
-   "matched": 9,
-   "n": 773,
+   "matched": 10,
+   "n": 802,
    "pct": 1.2
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 76.1,
-  "median": -6.9,
+  "median": -2.1,
   "min": -64.6,
-  "n": 25,
-  "q1": -20.9,
-  "q3": 46.8
+  "n": 26,
+  "q1": -20.3,
+  "q3": 41.3
  },
  "persistence_min": {
   "max": 97.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1426,
+  "hotspot_buckets": 1475,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1557
+  "unreported_congestion": 1627
  },
  "sampling": {
   "flow_spent_this_month": 1503,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 255,
+  "incidents_spent_this_month": 256,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -189,43 +189,43 @@
    "seg": "30.167,-97.787"
   },
   {
+   "from": "Lakeline Blvd (S Bell Blvd/US-183)",
+   "hour_of_week": 45,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.500,-97.816"
+  },
+  {
+   "from": "MLK & 15th St exit [235A]",
+   "hour_of_week": 45,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.278,-97.730"
+  },
+  {
+   "from": "W Cesar Chavez St",
+   "hour_of_week": 45,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.284,-97.765"
+  },
+  {
    "from": "W Slaughter Ln (I-35)",
    "hour_of_week": 34,
    "n": 2,
    "roadworks": false,
    "seg": "30.188,-97.772"
-  },
-  {
-   "from": "Eagle Nest Dr",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.125,-97.865"
-  },
-  {
-   "from": "S Interstate 35",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.109,-97.808"
-  },
-  {
-   "from": "S Interstate 35",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.480,-97.674"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.2,
+  "dispatch": 80.2,
   "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 85,
+  "n": 86,
   "neither": 69,
-  "tomtom_only": 16
+  "tomtom_only": 17
  }
 }
