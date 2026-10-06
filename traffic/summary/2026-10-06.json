@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 46 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 47 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 60,
-  "dispatch_only": 51,
+  "dispatch": 61,
+  "dispatch_only": 52,
   "here": 0,
   "here_matched": 0,
-  "matched": 15,
-  "tomtom": 1020,
-  "tomtom_only": 1006
+  "matched": 16,
+  "tomtom": 1046,
+  "tomtom_only": 1030
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 117.1,
+  "median": 117.2,
   "min": 27.1,
-  "n": 46,
+  "n": 47,
   "q1": 115.9,
-  "q3": 118.8
+  "q3": 118.7
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 5,
-   "n": 49,
-   "pct": 10.2
+   "n": 50,
+   "pct": 10.0
   },
   "tomtom_highway": {
-   "matched": 12,
-   "n": 531,
-   "pct": 2.3
+   "matched": 13,
+   "n": 536,
+   "pct": 2.4
   },
   "tomtom_surface": {
-   "matched": 2,
-   "n": 489,
-   "pct": 0.4
+   "matched": 3,
+   "n": 510,
+   "pct": 0.6
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 76.1,
-  "median": 2.7,
+  "median": -2.1,
   "min": -64.6,
-  "n": 15,
-  "q1": -22.1,
-  "q3": 24.2
+  "n": 16,
+  "q1": -20.2,
+  "q3": 21.8
  },
  "persistence_min": {
   "max": -15.4,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 898,
+  "hotspot_buckets": 914,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 982
+  "unreported_congestion": 1006
  },
  "sampling": {
   "flow_spent_this_month": 1422,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 245,
+  "incidents_spent_this_month": 246,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -175,6 +175,13 @@
    "seg": "30.240,-97.800"
   },
   {
+   "from": "N Interstate 35",
+   "hour_of_week": 37,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.310,-97.711"
+  },
+  {
    "from": "S Interstate 35",
    "hour_of_week": 37,
    "n": 3,
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.480,-97.674"
-  },
-  {
-   "from": "Decker Ln (FM-969)",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.281,-97.649"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.0,
-  "tomtom": 98.6
+  "dispatch": 85.2,
+  "tomtom": 98.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 60,
-  "neither": 51,
+  "n": 61,
+  "neither": 52,
   "tomtom_only": 9
  }
 }
