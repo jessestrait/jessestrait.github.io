@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 53,
-  "dispatch_only": 45,
+  "dispatch": 55,
+  "dispatch_only": 47,
   "here": 0,
   "here_matched": 0,
   "matched": 12,
-  "tomtom": 817,
-  "tomtom_only": 806
+  "tomtom": 849,
+  "tomtom_only": 838
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 4,
-   "n": 44,
-   "pct": 9.1
+   "n": 46,
+   "pct": 8.7
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 403,
-   "pct": 2.2
+   "n": 421,
+   "pct": 2.1
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 414,
+   "n": 428,
    "pct": 0.5
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 732,
+  "hotspot_buckets": 761,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 783
+  "unreported_congestion": 815
  },
  "sampling": {
-  "flow_spent_this_month": 1404,
+  "flow_spent_this_month": 1413,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 239,
+  "incidents_spent_this_month": 240,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -140,6 +140,13 @@
    "seg": "30.227,-97.699"
   },
   {
+   "from": "N Interstate 35",
+   "hour_of_week": 37,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.310,-97.711"
+  },
+  {
    "from": "W Slaughter Ln (I-35)",
    "hour_of_week": 34,
    "n": 2,
@@ -152,13 +159,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.125,-97.865"
-  },
-  {
-   "from": "Highway 71 E",
-   "hour_of_week": 35,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.200,-97.633"
   },
   {
    "from": "S Interstate 35",
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 84.9,
+  "dispatch": 85.5,
   "tomtom": 98.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 53,
-  "neither": 45,
+  "n": 55,
+  "neither": 47,
   "tomtom_only": 8
  }
 }
