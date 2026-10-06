@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 118 min over 84 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 118 min over 85 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 102,
+  "dispatch": 103,
   "dispatch_only": 78,
   "here": 0,
   "here_matched": 0,
-  "matched": 42,
-  "tomtom": 2834,
-  "tomtom_only": 2784
+  "matched": 43,
+  "tomtom": 2895,
+  "tomtom_only": 2844
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -23,9 +23,9 @@
   "max": 119.9,
   "median": 117.1,
   "min": 11.2,
-  "n": 84,
+  "n": 85,
   "q1": 115.6,
-  "q3": 118.4
+  "q3": 118.5
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,18 +37,18 @@
    "pct": 31.2
   },
   "dispatch_surface": {
-   "matched": 19,
-   "n": 86,
-   "pct": 22.1
+   "matched": 20,
+   "n": 87,
+   "pct": 23.0
   },
   "tomtom_highway": {
    "matched": 23,
-   "n": 1402,
+   "n": 1429,
    "pct": 1.6
   },
   "tomtom_surface": {
-   "matched": 27,
-   "n": 1432,
+   "matched": 28,
+   "n": 1466,
    "pct": 1.9
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 83.8,
-  "median": 6.2,
+  "median": 5.6,
   "min": -64.6,
-  "n": 42,
-  "q1": -16.2,
-  "q3": 36.9
+  "n": 43,
+  "q1": -17.6,
+  "q3": 36.7
  },
  "persistence_min": {
   "max": 97.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2356,
+  "hotspot_buckets": 2390,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2753
+  "unreported_congestion": 2813
  },
  "sampling": {
   "flow_spent_this_month": 1539,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 271,
+  "incidents_spent_this_month": 272,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -138,6 +138,20 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.316,-97.708"
+  },
+  {
+   "from": "Brodie Ln (W William Cannon Dr)",
+   "hour_of_week": 45,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.208,-97.817"
+  },
+  {
+   "from": "Decker Ln (FM-969)",
+   "hour_of_week": 46,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.259,-97.614"
   },
   {
    "from": "Colorado St",
@@ -201,31 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.320,-97.714"
-  },
-  {
-   "from": "N Mo Pac Expy",
-   "hour_of_week": 37,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.348,-97.750"
-  },
-  {
-   "from": "S Lamar Blvd / W Ben White Blvd",
-   "hour_of_week": 37,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.240,-97.800"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.5,
+  "dispatch": 75.7,
   "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 102,
+  "n": 103,
   "neither": 78,
-  "tomtom_only": 24
+  "tomtom_only": 25
  }
 }
