@@ -1,29 +1,75 @@
 {
- "captured_at": "2026-10-06T11:34:15Z",
+ "captured_at": "2026-10-06T11:49:18Z",
  "episodes": [
   {
-   "customers_served": 18568,
+   "customers_served": 9059,
    "ended": false,
-   "etr_last": "2026-10-06T13:28:44Z",
-   "first_seen": "2026-10-06T11:03:56Z",
-   "id": "zip-78702-20261006T110356Z",
+   "etr_last": "2026-10-06T13:56:36Z",
+   "first_seen": "2026-10-06T11:49:18Z",
+   "id": "zip-78734-20261006T114918Z",
    "kind": "power_outage",
-   "last_seen": "2026-10-06T11:34:15Z",
-   "peak_customers_affected": 472,
-   "peak_outages": 4,
-   "polls": 3,
+   "last_seen": "2026-10-06T11:49:18Z",
+   "peak_customers_affected": 2,
+   "peak_outages": 1,
+   "polls": 1,
    "scope": {
     "bbox": [
-     -97.73705899996341,
-     30.245170998922372,
-     -97.69024100053731,
-     30.282570399513812
+     -98.0138749995519,
+     30.330550999155133,
+     -97.89890300036937,
+     30.437039998830475
     ],
-    "id": "78702",
+    "id": "78734",
+    "type": "zip"
+   },
+   "source": "austin-energy/kubra"
+  },
+  {
+   "customers_served": 11444,
+   "ended": false,
+   "etr_last": "2026-10-06T13:57:49Z",
+   "first_seen": "2026-10-06T11:49:18Z",
+   "id": "zip-78703-20261006T114918Z",
+   "kind": "power_outage",
+   "last_seen": "2026-10-06T11:49:18Z",
+   "peak_customers_affected": 1,
+   "peak_outages": 1,
+   "polls": 1,
+   "scope": {
+    "bbox": [
+     -97.78624200012251,
+     30.26489999921934,
+     -97.74700099962965,
+     30.314560999264415
+    ],
+    "id": "78703",
+    "type": "zip"
+   },
+   "source": "austin-energy/kubra"
+  },
+  {
+   "customers_served": 24694,
+   "ended": false,
+   "etr_last": "2026-10-06T13:58:37Z",
+   "first_seen": "2026-10-06T11:49:18Z",
+   "id": "zip-78759-20261006T114918Z",
+   "kind": "power_outage",
+   "last_seen": "2026-10-06T11:49:18Z",
+   "peak_customers_affected": 9,
+   "peak_outages": 2,
+   "polls": 1,
+   "scope": {
+    "bbox": [
+     -97.79529059993826,
+     30.361292998426297,
+     -97.70255300000878,
+     30.43453299964365
+    ],
+    "id": "78759",
     "type": "zip"
    },
    "source": "austin-energy/kubra"
   }
  ],
- "source_published": "2026-10-06T11:26:56Z"
+ "source_published": "2026-10-06T11:47:46Z"
 }
