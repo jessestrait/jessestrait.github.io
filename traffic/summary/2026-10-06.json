@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 118 min over 83 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 118 min over 84 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 101,
-  "dispatch_only": 78,
+  "dispatch_only": 77,
   "here": 0,
   "here_matched": 0,
-  "matched": 40,
-  "tomtom": 2660,
-  "tomtom_only": 2613
+  "matched": 41,
+  "tomtom": 2721,
+  "tomtom_only": 2673
  },
  "date": "2026-10-06",
  "dispatch_life_capped": true,
@@ -23,7 +23,7 @@
   "max": 119.9,
   "median": 117.1,
   "min": 11.2,
-  "n": 83,
+  "n": 84,
   "q1": 115.6,
   "q3": 118.4
  },
@@ -37,19 +37,19 @@
    "pct": 31.2
   },
   "dispatch_surface": {
-   "matched": 18,
+   "matched": 19,
    "n": 85,
-   "pct": 21.2
+   "pct": 22.4
   },
   "tomtom_highway": {
-   "matched": 22,
-   "n": 1323,
+   "matched": 23,
+   "n": 1353,
    "pct": 1.7
   },
   "tomtom_surface": {
    "matched": 25,
-   "n": 1337,
-   "pct": 1.9
+   "n": 1368,
+   "pct": 1.8
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 83.8,
-  "median": 5.3,
+  "median": 5.6,
   "min": -64.6,
-  "n": 40,
-  "q1": -17.2,
-  "q3": 36.9
+  "n": 41,
+  "q1": -16.7,
+  "q3": 36.5
  },
  "persistence_min": {
   "max": 97.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2246,
+  "hotspot_buckets": 2287,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2582
+  "unreported_congestion": 2642
  },
  "sampling": {
   "flow_spent_this_month": 1530,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 268,
+  "incidents_spent_this_month": 269,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -124,6 +124,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.284,-97.657"
+  },
+  {
+   "from": "W 25th St",
+   "hour_of_week": 46,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.290,-97.742"
   },
   {
    "from": "Immanuel Rd",
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.286,-97.724"
-  },
-  {
-   "from": "Manor Rd (Berkman Dr)",
-   "hour_of_week": 45,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.303,-97.700"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 77.2,
+  "dispatch": 76.2,
   "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 101,
-  "neither": 78,
-  "tomtom_only": 23
+  "neither": 77,
+  "tomtom_only": 24
  }
 }
