@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 135,
-  "dispatch_only": 84,
+  "dispatch": 139,
+  "dispatch_only": 88,
   "here": 0,
   "here_matched": 0,
-  "matched": 94,
-  "tomtom": 3215,
-  "tomtom_only": 3098
+  "matched": 95,
+  "tomtom": 3255,
+  "tomtom_only": 3137
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.8,
   "median": 115.7,
   "min": 13.3,
-  "n": 99,
-  "q1": 63.2,
+  "n": 100,
+  "q1": 63.3,
   "q3": 117.8
  },
  "here_onset_offset_min": {
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 32,
-   "n": 101,
-   "pct": 31.7
+   "n": 105,
+   "pct": 30.5
   },
   "tomtom_highway": {
-   "matched": 73,
-   "n": 1565,
+   "matched": 75,
+   "n": 1584,
    "pct": 4.7
   },
   "tomtom_surface": {
-   "matched": 44,
-   "n": 1650,
-   "pct": 2.7
+   "matched": 43,
+   "n": 1671,
+   "pct": 2.6
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 88.7,
-  "median": 5.2,
+  "median": 4.3,
   "min": -89.6,
-  "n": 94,
-  "q1": -11.3,
-  "q3": 28.5
+  "n": 95,
+  "q1": -10.7,
+  "q3": 28.0
  },
  "persistence_min": {
   "max": 66.4,
-  "median": -25.3,
-  "min": -1302.3,
-  "n": 33,
+  "median": -25.5,
+  "min": -1384.3,
+  "n": 36,
   "q1": -71.0,
-  "q3": -12.7
+  "q3": -11.4
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2632,
+  "hotspot_buckets": 2671,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 3069
+  "unreported_congestion": 3108
  },
  "sampling": {
-  "flow_spent_this_month": 1800,
+  "flow_spent_this_month": 1809,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 341,
+  "incidents_spent_this_month": 342,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -174,6 +174,13 @@
    "seg": "30.265,-97.735"
   },
   {
+   "from": "W 15th St",
+   "hour_of_week": 70,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.281,-97.750"
+  },
+  {
    "from": "Burr Ridge Dr",
    "hour_of_week": 90,
    "n": 3,
@@ -207,24 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.281,-97.649"
-  },
-  {
-   "from": "Fairfield Dr (Research Blvd)",
-   "hour_of_week": 60,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.348,-97.714"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 62.2,
+  "dispatch": 63.3,
   "tomtom": 96.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 135,
-  "neither": 84,
+  "n": 139,
+  "neither": 88,
   "tomtom_only": 51
  }
 }
