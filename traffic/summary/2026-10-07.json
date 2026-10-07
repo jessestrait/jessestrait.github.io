@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 45,
+  "dispatch": 46,
   "dispatch_only": 40,
   "here": 0,
   "here_matched": 0,
-  "matched": 5,
-  "tomtom": 278,
-  "tomtom_only": 274
+  "matched": 6,
+  "tomtom": 299,
+  "tomtom_only": 294
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 2,
-   "n": 11,
-   "pct": 18.2
+   "matched": 3,
+   "n": 12,
+   "pct": 25.0
   },
   "dispatch_surface": {
    "matched": 3,
@@ -42,13 +42,13 @@
    "pct": 8.8
   },
   "tomtom_highway": {
-   "matched": 2,
-   "n": 148,
-   "pct": 1.4
+   "matched": 3,
+   "n": 162,
+   "pct": 1.9
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 130,
+   "n": 137,
    "pct": 1.5
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 88.7,
-  "median": -20.6,
+  "median": -31.6,
   "min": -78.2,
-  "n": 5,
-  "q1": -67.8,
-  "q3": 37.4
+  "n": 6,
+  "q1": -62.7,
+  "q3": 11.8
  },
  "persistence_min": {
   "max": -10.1,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 230,
+  "hotspot_buckets": 244,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 246
+  "unreported_congestion": 266
  },
  "sampling": {
   "flow_spent_this_month": 1647,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 290,
+  "incidents_spent_this_month": 291,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -174,57 +174,57 @@
    "seg": "30.121,-97.812"
   },
   {
-   "from": "N Interstate 35",
-   "hour_of_week": 44,
+   "from": "Ranch Road 2222",
+   "hour_of_week": 56,
    "n": 2,
    "roadworks": false,
-   "seg": "30.460,-97.666"
+   "seg": "30.359,-97.793"
   },
   {
-   "from": "N Interstate 35",
-   "hour_of_week": 64,
+   "from": "S 1st St",
+   "hour_of_week": 55,
    "n": 2,
    "roadworks": false,
-   "seg": "30.403,-97.674"
+   "seg": "30.249,-97.755"
   },
   {
-   "from": "N Interstate 35",
-   "hour_of_week": 50,
+   "from": "Concho St",
+   "hour_of_week": 56,
    "n": 2,
    "roadworks": false,
-   "seg": "30.273,-97.732"
+   "seg": "30.261,-97.727"
   },
   {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
+   "from": "Birch Creek Rd",
+   "hour_of_week": 54,
    "n": 2,
    "roadworks": false,
-   "seg": "30.245,-97.744"
+   "seg": "30.195,-97.737"
   },
   {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
+   "from": "Burr Ridge Dr",
+   "hour_of_week": 90,
    "n": 2,
    "roadworks": false,
-   "seg": "30.234,-97.736"
+   "seg": "30.448,-97.780"
   },
   {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
+   "from": "E Dean Keeton St",
+   "hour_of_week": 47,
    "n": 2,
    "roadworks": false,
-   "seg": "30.148,-97.704"
+   "seg": "30.286,-97.727"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.9,
-  "tomtom": 98.6
+  "dispatch": 87.0,
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 45,
+  "n": 46,
   "neither": 40,
-  "tomtom_only": 5
+  "tomtom_only": 6
  }
 }
