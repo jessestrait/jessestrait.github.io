@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 123,
-  "dispatch_only": 80,
+  "dispatch": 125,
+  "dispatch_only": 81,
   "here": 0,
   "here_matched": 0,
-  "matched": 69,
-  "tomtom": 2833,
-  "tomtom_only": 2751
+  "matched": 71,
+  "tomtom": 2900,
+  "tomtom_only": 2815
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 53.3
   },
   "dispatch_surface": {
-   "matched": 27,
-   "n": 93,
-   "pct": 29.0
+   "matched": 28,
+   "n": 95,
+   "pct": 29.5
   },
   "tomtom_highway": {
-   "matched": 51,
-   "n": 1385,
+   "matched": 52,
+   "n": 1412,
    "pct": 3.7
   },
   "tomtom_surface": {
-   "matched": 31,
-   "n": 1448,
-   "pct": 2.1
+   "matched": 33,
+   "n": 1488,
+   "pct": 2.2
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 88.7,
   "median": 6.3,
   "min": -89.6,
-  "n": 69,
-  "q1": -10.1,
-  "q3": 34.8
+  "n": 71,
+  "q1": -10.5,
+  "q3": 34.1
  },
  "persistence_min": {
   "max": 45.7,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2388,
+  "hotspot_buckets": 2437,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2722
+  "unreported_congestion": 2786
  },
  "sampling": {
   "flow_spent_this_month": 1791,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 335,
+  "incidents_spent_this_month": 336,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -151,13 +151,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.113,-97.785"
-  },
-  {
-   "from": "Airport Blvd",
-   "hour_of_week": 70,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.301,-97.714"
   },
   {
    "from": "Burr Ridge Dr",
@@ -214,17 +207,24 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.371,-97.742"
+  },
+  {
+   "from": "S Lamar Blvd / W Ben White Blvd",
+   "hour_of_week": 61,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.240,-97.800"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 65.0,
+  "dispatch": 64.8,
   "tomtom": 97.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 123,
-  "neither": 80,
-  "tomtom_only": 43
+  "n": 125,
+  "neither": 81,
+  "tomtom_only": 44
  }
 }
