@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 7,
-  "tomtom": 299,
-  "tomtom_only": 293
+  "tomtom": 340,
+  "tomtom_only": 334
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 162,
-   "pct": 2.5
+   "n": 186,
+   "pct": 2.2
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 137,
-   "pct": 1.5
+   "n": 154,
+   "pct": 1.3
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 243,
+  "hotspot_buckets": 285,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 265
+  "unreported_congestion": 306
  },
  "sampling": {
   "flow_spent_this_month": 1665,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 291,
+  "incidents_spent_this_month": 292,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -107,7 +107,7 @@
    18
   ],
   "rush_min": 5,
-  "this_poll": "off-peak"
+  "this_poll": "rush"
  },
  "structural_hotspots": [
   {
@@ -181,13 +181,6 @@
    "seg": "30.359,-97.793"
   },
   {
-   "from": "S 1st St",
-   "hour_of_week": 55,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.249,-97.755"
-  },
-  {
    "from": "Concho St",
    "hour_of_week": 56,
    "n": 2,
@@ -195,11 +188,11 @@
    "seg": "30.261,-97.727"
   },
   {
-   "from": "Birch Creek Rd",
+   "from": "E Stassney Ln",
    "hour_of_week": 54,
    "n": 2,
    "roadworks": false,
-   "seg": "30.195,-97.737"
+   "seg": "30.192,-97.732"
   },
   {
    "from": "Burr Ridge Dr",
@@ -214,11 +207,18 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.286,-97.727"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 50,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.273,-97.732"
   }
  ],
  "unmatched_pct": {
   "dispatch": 85.4,
-  "tomtom": 98.0
+  "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
