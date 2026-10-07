@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 5,
-  "tomtom": 246,
-  "tomtom_only": 242
+  "tomtom": 268,
+  "tomtom_only": 264
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 125,
-   "pct": 1.6
+   "n": 139,
+   "pct": 1.4
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 121,
-   "pct": 1.7
+   "n": 129,
+   "pct": 1.6
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 210,
+  "hotspot_buckets": 230,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 217
+  "unreported_congestion": 237
  },
  "sampling": {
   "flow_spent_this_month": 1620,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 287,
+  "incidents_spent_this_month": 288,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -125,11 +125,11 @@
    "seg": "30.403,-97.674"
   },
   {
-   "from": "N Interstate 35",
-   "hour_of_week": 50,
+   "from": "E Dean Keeton St",
+   "hour_of_week": 47,
    "n": 2,
    "roadworks": false,
-   "seg": "30.273,-97.732"
+   "seg": "30.286,-97.727"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -218,7 +218,7 @@
  ],
  "unmatched_pct": {
   "dispatch": 87.8,
-  "tomtom": 98.4
+  "tomtom": 98.5
  },
  "witnesses": {
   "both": 0,
