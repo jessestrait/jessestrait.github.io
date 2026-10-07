@@ -14,17 +14,17 @@
   "here": 0,
   "here_matched": 0,
   "matched": 8,
-  "tomtom": 541,
-  "tomtom_only": 534
+  "tomtom": 598,
+  "tomtom_only": 591
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 108.5,
+  "median": 112.0,
   "min": 14.2,
-  "n": 43,
-  "q1": 62.1,
+  "n": 44,
+  "q1": 62.3,
   "q3": 116.9
  },
  "here_onset_offset_min": {
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 284,
-   "pct": 1.8
+   "n": 308,
+   "pct": 1.6
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 257,
-   "pct": 0.8
+   "n": 290,
+   "pct": 0.7
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 472,
+  "hotspot_buckets": 522,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 506
+  "unreported_congestion": 563
  },
  "sampling": {
-  "flow_spent_this_month": 1674,
+  "flow_spent_this_month": 1683,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 298,
+  "incidents_spent_this_month": 299,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Kenai Dr (W Parmer Ln/FM-734)",
+   "hour_of_week": 60,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.512,-97.774"
+  },
   {
    "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
    "hour_of_week": 52,
@@ -207,18 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.273,-97.732"
-  },
-  {
-   "from": "US Highway 183",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.345,-97.708"
   }
  ],
  "unmatched_pct": {
   "dispatch": 86.3,
-  "tomtom": 98.7
+  "tomtom": 98.8
  },
  "witnesses": {
   "both": 0,
