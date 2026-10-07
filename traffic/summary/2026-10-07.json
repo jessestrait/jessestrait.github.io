@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 55,
-  "dispatch_only": 46,
+  "dispatch": 58,
+  "dispatch_only": 49,
   "here": 0,
   "here_matched": 0,
   "matched": 13,
-  "tomtom": 912,
-  "tomtom_only": 899
+  "tomtom": 943,
+  "tomtom_only": 930
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 115.5,
+  "median": 115.6,
   "min": 14.2,
-  "n": 45,
-  "q1": 62.6,
+  "n": 46,
+  "q1": 62.9,
   "q3": 116.9
  },
  "here_onset_offset_min": {
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 5,
-   "n": 42,
-   "pct": 11.9
+   "n": 45,
+   "pct": 11.1
   },
   "tomtom_highway": {
    "matched": 10,
-   "n": 472,
-   "pct": 2.1
+   "n": 493,
+   "pct": 2.0
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 440,
+   "n": 450,
    "pct": 0.7
   }
  },
@@ -68,9 +68,9 @@
  },
  "persistence_min": {
   "max": -10.1,
-  "median": -71.0,
-  "min": -71.0,
-  "n": 5,
+  "median": -53.3,
+  "min": -795.9,
+  "n": 8,
   "q1": -71.0,
   "q3": -17.7
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 795,
+  "hotspot_buckets": 822,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 871
+  "unreported_congestion": 902
  },
  "sampling": {
-  "flow_spent_this_month": 1692,
+  "flow_spent_this_month": 1701,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 306,
+  "incidents_spent_this_month": 307,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -144,6 +144,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.348,-97.714"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 61,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.305,-97.714"
   },
   {
    "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.121,-97.812"
-  },
-  {
-   "from": "Ranch Road 2222",
-   "hour_of_week": 56,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.359,-97.793"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 83.6,
+  "dispatch": 84.5,
   "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 55,
-  "neither": 46,
+  "n": 58,
+  "neither": 49,
   "tomtom_only": 9
  }
 }
