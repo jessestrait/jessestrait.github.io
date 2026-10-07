@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 51,
+  "dispatch": 52,
   "dispatch_only": 44,
   "here": 0,
   "here_matched": 0,
-  "matched": 8,
-  "tomtom": 651,
-  "tomtom_only": 644
+  "matched": 10,
+  "tomtom": 698,
+  "tomtom_only": 688
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
@@ -37,18 +37,18 @@
    "pct": 30.8
   },
   "dispatch_surface": {
-   "matched": 3,
-   "n": 38,
-   "pct": 7.9
+   "matched": 4,
+   "n": 39,
+   "pct": 10.3
   },
   "tomtom_highway": {
-   "matched": 5,
-   "n": 329,
-   "pct": 1.5
+   "matched": 8,
+   "n": 356,
+   "pct": 2.2
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 322,
+   "n": 342,
    "pct": 0.6
   }
  },
@@ -62,9 +62,9 @@
   "max": 88.7,
   "median": -17.2,
   "min": -78.2,
-  "n": 8,
-  "q1": -53.8,
-  "q3": 25.6
+  "n": 10,
+  "q1": -46.3,
+  "q3": 50.0
  },
  "persistence_min": {
   "max": -10.1,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 564,
+  "hotspot_buckets": 604,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 616
+  "unreported_congestion": 660
  },
  "sampling": {
   "flow_spent_this_month": 1683,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 300,
+  "incidents_spent_this_month": 301,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
  },
  "structural_hotspots": [
   {
+   "from": "Eagle Nest Dr",
+   "hour_of_week": 60,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.125,-97.865"
+  },
+  {
    "from": "Kenai Dr (W Parmer Ln/FM-734)",
    "hour_of_week": 60,
    "n": 3,
@@ -118,11 +125,11 @@
    "seg": "30.512,-97.774"
   },
   {
-   "from": "Forest Creek Dr (Red Bud Ln)",
+   "from": "Muirfield Bend Dr",
    "hour_of_week": 60,
    "n": 3,
    "roadworks": false,
-   "seg": "30.498,-97.613"
+   "seg": "30.497,-97.584"
   },
   {
    "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.192,-97.732"
-  },
-  {
-   "from": "Burr Ridge Dr",
-   "hour_of_week": 90,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.448,-97.780"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.3,
-  "tomtom": 98.9
+  "dispatch": 84.6,
+  "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 51,
+  "n": 52,
   "neither": 44,
-  "tomtom_only": 7
+  "tomtom_only": 8
  }
 }
