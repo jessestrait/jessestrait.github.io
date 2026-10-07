@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 10,
-  "tomtom": 698,
-  "tomtom_only": 688
+  "tomtom": 741,
+  "tomtom_only": 731
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 8,
-   "n": 356,
-   "pct": 2.2
+   "n": 375,
+   "pct": 2.1
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 342,
-   "pct": 0.6
+   "n": 366,
+   "pct": 0.5
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 604,
+  "hotspot_buckets": 642,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 660
+  "unreported_congestion": 703
  },
  "sampling": {
   "flow_spent_this_month": 1683,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 301,
+  "incidents_spent_this_month": 302,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,13 +111,6 @@
  },
  "structural_hotspots": [
   {
-   "from": "Eagle Nest Dr",
-   "hour_of_week": 60,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.125,-97.865"
-  },
-  {
    "from": "Kenai Dr (W Parmer Ln/FM-734)",
    "hour_of_week": 60,
    "n": 3,
@@ -130,6 +123,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.497,-97.584"
+  },
+  {
+   "from": "Decker Ln (FM-969)",
+   "hour_of_week": 60,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.281,-97.649"
   },
   {
    "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
@@ -218,7 +218,7 @@
  ],
  "unmatched_pct": {
   "dispatch": 84.6,
-  "tomtom": 98.6
+  "tomtom": 98.7
  },
  "witnesses": {
   "both": 0,
