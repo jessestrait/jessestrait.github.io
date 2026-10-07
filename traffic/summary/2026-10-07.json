@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 147,
-  "dispatch_only": 94,
+  "dispatch": 150,
+  "dispatch_only": 96,
   "here": 0,
   "here_matched": 0,
-  "matched": 107,
-  "tomtom": 3558,
-  "tomtom_only": 3420
+  "matched": 108,
+  "tomtom": 3579,
+  "tomtom_only": 3440
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 115.8,
+  "median": 116.0,
   "min": 13.3,
-  "n": 111,
-  "q1": 68.1,
+  "n": 113,
+  "q1": 68.2,
   "q3": 117.8
  },
  "here_onset_offset_min": {
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 20,
-   "n": 37,
-   "pct": 54.1
+   "n": 38,
+   "pct": 52.6
   },
   "dispatch_surface": {
-   "matched": 33,
-   "n": 110,
-   "pct": 30.0
+   "matched": 34,
+   "n": 112,
+   "pct": 30.4
   },
   "tomtom_highway": {
-   "matched": 86,
-   "n": 1734,
+   "matched": 87,
+   "n": 1744,
    "pct": 5.0
   },
   "tomtom_surface": {
    "matched": 52,
-   "n": 1824,
-   "pct": 2.9
+   "n": 1835,
+   "pct": 2.8
   }
  },
  "matcher": {
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 88.7,
-  "median": 6.3,
+  "median": 6.9,
   "min": -89.6,
-  "n": 107,
-  "q1": -10.7,
+  "n": 108,
+  "q1": -10.6,
   "q3": 35.5
  },
  "persistence_min": {
   "max": 66.4,
-  "median": -40.8,
+  "median": -48.5,
   "min": -1384.3,
-  "n": 57,
-  "q1": -87.1,
+  "n": 62,
+  "q1": -98.5,
   "q3": -10.1
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2910,
+  "hotspot_buckets": 2925,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 3391
+  "unreported_congestion": 3411
  },
  "sampling": {
   "flow_spent_this_month": 1827,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 351,
+  "incidents_spent_this_month": 352,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -130,6 +130,13 @@
    "n": 5,
    "roadworks": false,
    "seg": "30.284,-97.657"
+  },
+  {
+   "from": "FM-620 (W Parmer Ln/FM-734)",
+   "hour_of_week": 70,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.496,-97.775"
   },
   {
    "from": "Kenai Dr (W Parmer Ln/FM-734)",
@@ -174,25 +181,11 @@
    "seg": "30.265,-97.735"
   },
   {
-   "from": "FM-620 (W Parmer Ln/FM-734)",
-   "hour_of_week": 70,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.496,-97.774"
-  },
-  {
    "from": "W 15th St",
    "hour_of_week": 70,
    "n": 4,
    "roadworks": false,
    "seg": "30.281,-97.750"
-  },
-  {
-   "from": "FM-620 (W Parmer Ln/FM-734)",
-   "hour_of_week": 70,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.496,-97.775"
   },
   {
    "from": "Burr Ridge Dr",
@@ -214,17 +207,24 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.497,-97.584"
+  },
+  {
+   "from": "FM-1431/Whitestone Blvd (N Bell Blvd/US-183)",
+   "hour_of_week": 60,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.506,-97.821"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 63.9,
+  "dispatch": 64.0,
   "tomtom": 96.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 147,
-  "neither": 94,
-  "tomtom_only": 53
+  "n": 150,
+  "neither": 96,
+  "tomtom_only": 54
  }
 }
