@@ -9,47 +9,47 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 139,
-  "dispatch_only": 88,
+  "dispatch": 142,
+  "dispatch_only": 89,
   "here": 0,
   "here_matched": 0,
-  "matched": 95,
-  "tomtom": 3255,
-  "tomtom_only": 3137
+  "matched": 100,
+  "tomtom": 3304,
+  "tomtom_only": 3178
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 115.7,
+  "median": 115.8,
   "min": 13.3,
-  "n": 100,
-  "q1": 63.3,
-  "q3": 117.8
+  "n": 102,
+  "q1": 63.4,
+  "q3": 117.9
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 19,
-   "n": 34,
-   "pct": 55.9
+   "matched": 20,
+   "n": 36,
+   "pct": 55.6
   },
   "dispatch_surface": {
-   "matched": 32,
-   "n": 105,
-   "pct": 30.5
+   "matched": 33,
+   "n": 106,
+   "pct": 31.1
   },
   "tomtom_highway": {
-   "matched": 75,
-   "n": 1584,
-   "pct": 4.7
+   "matched": 80,
+   "n": 1610,
+   "pct": 5.0
   },
   "tomtom_surface": {
-   "matched": 43,
-   "n": 1671,
-   "pct": 2.6
+   "matched": 46,
+   "n": 1694,
+   "pct": 2.7
   }
  },
  "matcher": {
@@ -60,17 +60,17 @@
  },
  "onset_offset_min": {
   "max": 88.7,
-  "median": 4.3,
+  "median": 5.2,
   "min": -89.6,
-  "n": 95,
-  "q1": -10.7,
-  "q3": 28.0
+  "n": 100,
+  "q1": -12.6,
+  "q3": 30.9
  },
  "persistence_min": {
   "max": 66.4,
-  "median": -25.5,
+  "median": -30.7,
   "min": -1384.3,
-  "n": 36,
+  "n": 40,
   "q1": -71.0,
   "q3": -11.4
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2671,
+  "hotspot_buckets": 2711,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 3108
+  "unreported_congestion": 3149
  },
  "sampling": {
   "flow_spent_this_month": 1809,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 342,
+  "incidents_spent_this_month": 343,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -181,6 +181,13 @@
    "seg": "30.281,-97.750"
   },
   {
+   "from": "FM-620 (W Parmer Ln/FM-734)",
+   "hour_of_week": 70,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.496,-97.775"
+  },
+  {
    "from": "Burr Ridge Dr",
    "hour_of_week": 90,
    "n": 3,
@@ -207,24 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.506,-97.821"
-  },
-  {
-   "from": "Decker Ln (FM-969)",
-   "hour_of_week": 60,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.281,-97.649"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 63.3,
-  "tomtom": 96.4
+  "dispatch": 62.7,
+  "tomtom": 96.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 139,
-  "neither": 88,
-  "tomtom_only": 51
+  "n": 142,
+  "neither": 89,
+  "tomtom_only": 53
  }
 }
