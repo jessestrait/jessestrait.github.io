@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 132,
-  "dispatch_only": 83,
+  "dispatch": 133,
+  "dispatch_only": 84,
   "here": 0,
   "here_matched": 0,
-  "matched": 82,
-  "tomtom": 3036,
-  "tomtom_only": 2939
+  "matched": 87,
+  "tomtom": 3109,
+  "tomtom_only": 3006
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
@@ -23,9 +23,9 @@
   "max": 119.8,
   "median": 115.6,
   "min": 13.3,
-  "n": 94,
-  "q1": 62.7,
-  "q3": 117.6
+  "n": 95,
+  "q1": 62.9,
+  "q3": 117.8
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 31,
-   "n": 98,
-   "pct": 31.6
+   "n": 99,
+   "pct": 31.3
   },
   "tomtom_highway": {
-   "matched": 61,
-   "n": 1482,
-   "pct": 4.1
+   "matched": 64,
+   "n": 1517,
+   "pct": 4.2
   },
   "tomtom_surface": {
-   "matched": 36,
-   "n": 1554,
-   "pct": 2.3
+   "matched": 39,
+   "n": 1592,
+   "pct": 2.4
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 88.7,
-  "median": 2.5,
+  "median": 4.3,
   "min": -89.6,
-  "n": 82,
-  "q1": -11.3,
-  "q3": 30.4
+  "n": 87,
+  "q1": -10.7,
+  "q3": 31.1
  },
  "persistence_min": {
   "max": 66.4,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2529,
+  "hotspot_buckets": 2570,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2910
+  "unreported_congestion": 2977
  },
  "sampling": {
   "flow_spent_this_month": 1800,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 338,
+  "incidents_spent_this_month": 339,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -153,6 +153,27 @@
    "seg": "30.113,-97.785"
   },
   {
+   "from": "Ed Bluestein Blvd (FM-969)",
+   "hour_of_week": 70,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.284,-97.657"
+  },
+  {
+   "from": "E Martin Luther King Jr Blvd (San Jacinto Blvd)",
+   "hour_of_week": 70,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.277,-97.737"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 70,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.265,-97.735"
+  },
+  {
    "from": "Burr Ridge Dr",
    "hour_of_week": 90,
    "n": 3,
@@ -193,38 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.348,-97.714"
-  },
-  {
-   "from": "Springdale Rd (US-290)",
-   "hour_of_week": 60,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.325,-97.674"
-  },
-  {
-   "from": "Mopac Expy S",
-   "hour_of_week": 61,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.371,-97.742"
-  },
-  {
-   "from": "S Lamar Blvd / W Ben White Blvd",
-   "hour_of_week": 61,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.240,-97.800"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 62.9,
-  "tomtom": 96.8
+  "dispatch": 63.2,
+  "tomtom": 96.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 132,
-  "neither": 83,
+  "n": 133,
+  "neither": 84,
   "tomtom_only": 49
  }
 }
