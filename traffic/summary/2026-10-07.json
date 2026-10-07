@@ -9,46 +9,46 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 69,
-  "dispatch_only": 57,
+  "dispatch": 85,
+  "dispatch_only": 70,
   "here": 0,
   "here_matched": 0,
-  "matched": 16,
-  "tomtom": 1237,
-  "tomtom_only": 1220
+  "matched": 19,
+  "tomtom": 1313,
+  "tomtom_only": 1293
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 115.6,
-  "min": 14.2,
-  "n": 50,
-  "q1": 66.2,
-  "q3": 116.9
+  "median": 87.8,
+  "min": 13.3,
+  "n": 69,
+  "q1": 55.0,
+  "q3": 116.7
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 6,
-   "n": 18,
-   "pct": 33.3
+   "matched": 8,
+   "n": 21,
+   "pct": 38.1
   },
   "dispatch_surface": {
-   "matched": 6,
-   "n": 51,
-   "pct": 11.8
+   "matched": 7,
+   "n": 64,
+   "pct": 10.9
   },
   "tomtom_highway": {
-   "matched": 14,
-   "n": 657,
-   "pct": 2.1
+   "matched": 17,
+   "n": 695,
+   "pct": 2.4
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 580,
+   "n": 618,
    "pct": 0.5
   }
  },
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 88.7,
-  "median": -2.2,
+  "median": -2.9,
   "min": -78.2,
-  "n": 16,
-  "q1": -33.7,
-  "q3": 26.5
+  "n": 19,
+  "q1": -22.2,
+  "q3": 15.5
  },
  "persistence_min": {
-  "max": -10.1,
-  "median": -71.0,
+  "max": 45.7,
+  "median": -30.5,
   "min": -795.9,
-  "n": 9,
-  "q1": -97.0,
-  "q3": -20.3
+  "n": 16,
+  "q1": -71.0,
+  "q3": -16.5
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1040,
+  "hotspot_buckets": 1109,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1192
+  "unreported_congestion": 1265
  },
  "sampling": {
-  "flow_spent_this_month": 1719,
+  "flow_spent_this_month": 1728,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 315,
+  "incidents_spent_this_month": 316,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -137,6 +137,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.354,-97.748"
+  },
+  {
+   "from": "Burr Ridge Dr",
+   "hour_of_week": 90,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.448,-97.780"
   },
   {
    "from": "Newton St",
@@ -207,24 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.379,-97.739"
-  },
-  {
-   "from": "N Mo Pac Expy",
-   "hour_of_week": 61,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.348,-97.750"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.6,
-  "tomtom": 98.6
+  "dispatch": 82.4,
+  "tomtom": 98.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 69,
-  "neither": 57,
-  "tomtom_only": 12
+  "n": 85,
+  "neither": 70,
+  "tomtom_only": 15
  }
 }
