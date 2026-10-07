@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 8,
-  "tomtom": 598,
-  "tomtom_only": 591
+  "tomtom": 651,
+  "tomtom_only": 644
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 308,
-   "pct": 1.6
+   "n": 329,
+   "pct": 1.5
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 290,
-   "pct": 0.7
+   "n": 322,
+   "pct": 0.6
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 522,
+  "hotspot_buckets": 564,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 563
+  "unreported_congestion": 616
  },
  "sampling": {
   "flow_spent_this_month": 1683,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 299,
+  "incidents_spent_this_month": 300,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -116,6 +116,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.512,-97.774"
+  },
+  {
+   "from": "Forest Creek Dr (Red Bud Ln)",
+   "hour_of_week": 60,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.498,-97.613"
   },
   {
    "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
@@ -195,30 +202,23 @@
    "seg": "30.261,-97.727"
   },
   {
+   "from": "E Stassney Ln",
+   "hour_of_week": 54,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.192,-97.732"
+  },
+  {
    "from": "Burr Ridge Dr",
    "hour_of_week": 90,
    "n": 2,
    "roadworks": false,
    "seg": "30.448,-97.780"
-  },
-  {
-   "from": "E Dean Keeton St",
-   "hour_of_week": 47,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.286,-97.727"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 50,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.273,-97.732"
   }
  ],
  "unmatched_pct": {
   "dispatch": 86.3,
-  "tomtom": 98.8
+  "tomtom": 98.9
  },
  "witnesses": {
   "both": 0,
