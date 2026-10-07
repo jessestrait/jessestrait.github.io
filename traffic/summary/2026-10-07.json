@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 111,
-  "dispatch_only": 80,
+  "dispatch": 113,
+  "dispatch_only": 82,
   "here": 0,
   "here_matched": 0,
-  "matched": 44,
-  "tomtom": 2280,
-  "tomtom_only": 2231
+  "matched": 46,
+  "tomtom": 2355,
+  "tomtom_only": 2305
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 17,
-   "n": 83,
-   "pct": 20.5
+   "n": 85,
+   "pct": 20.0
   },
   "tomtom_highway": {
-   "matched": 36,
-   "n": 1140,
+   "matched": 37,
+   "n": 1173,
    "pct": 3.2
   },
   "tomtom_surface": {
    "matched": 13,
-   "n": 1140,
+   "n": 1182,
    "pct": 1.1
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 88.7,
-  "median": 0.0,
+  "median": 1.0,
   "min": -89.6,
-  "n": 44,
-  "q1": -34.1,
-  "q3": 25.7
+  "n": 46,
+  "q1": -26.2,
+  "q3": 28.5
  },
  "persistence_min": {
   "max": 45.7,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1920,
+  "hotspot_buckets": 1998,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2203
+  "unreported_congestion": 2277
  },
  "sampling": {
-  "flow_spent_this_month": 1773,
+  "flow_spent_this_month": 1782,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 329,
+  "incidents_spent_this_month": 330,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -144,13 +144,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.354,-97.748"
-  },
-  {
-   "from": "Bella Fortuna Dr",
-   "hour_of_week": 69,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.113,-97.785"
   },
   {
    "from": "Burr Ridge Dr",
@@ -214,17 +207,24 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.240,-97.800"
+  },
+  {
+   "from": "E Anderson Ln",
+   "hour_of_week": 61,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.337,-97.696"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 72.1,
+  "dispatch": 72.6,
   "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 111,
-  "neither": 80,
+  "n": 113,
+  "neither": 82,
   "tomtom_only": 31
  }
 }
