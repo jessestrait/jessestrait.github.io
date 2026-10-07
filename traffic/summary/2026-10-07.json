@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 110,
-  "dispatch_only": 82,
+  "dispatch_only": 81,
   "here": 0,
   "here_matched": 0,
-  "matched": 38,
-  "tomtom": 2131,
-  "tomtom_only": 2089
+  "matched": 41,
+  "tomtom": 2229,
+  "tomtom_only": 2182
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 50.0
   },
   "dispatch_surface": {
-   "matched": 14,
+   "matched": 15,
    "n": 82,
-   "pct": 17.1
+   "pct": 18.3
   },
   "tomtom_highway": {
-   "matched": 31,
-   "n": 1076,
-   "pct": 2.9
+   "matched": 35,
+   "n": 1120,
+   "pct": 3.1
   },
   "tomtom_surface": {
-   "matched": 11,
-   "n": 1055,
-   "pct": 1.0
+   "matched": 12,
+   "n": 1109,
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 88.7,
-  "median": -1.6,
+  "median": -0.2,
   "min": -89.6,
-  "n": 38,
-  "q1": -43.3,
-  "q3": 13.6
+  "n": 41,
+  "q1": -40.4,
+  "q3": 21.8
  },
  "persistence_min": {
   "max": 45.7,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1807,
+  "hotspot_buckets": 1886,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2061
+  "unreported_congestion": 2154
  },
  "sampling": {
   "flow_spent_this_month": 1773,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 327,
+  "incidents_spent_this_month": 328,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -118,11 +118,11 @@
    "seg": "30.310,-97.711"
   },
   {
-   "from": "Bella Fortuna Dr",
+   "from": "W Pfennig Ln/Cactus Blossom Dr (Heatherwilde Blvd)",
    "hour_of_week": 69,
    "n": 5,
    "roadworks": false,
-   "seg": "30.113,-97.785"
+   "seg": "30.449,-97.639"
   },
   {
    "from": "Kenai Dr (W Parmer Ln/FM-734)",
@@ -146,11 +146,11 @@
    "seg": "30.354,-97.748"
   },
   {
-   "from": "W Pfennig Ln/Cactus Blossom Dr (Heatherwilde Blvd)",
+   "from": "Bella Fortuna Dr",
    "hour_of_week": 69,
    "n": 4,
    "roadworks": false,
-   "seg": "30.449,-97.639"
+   "seg": "30.113,-97.785"
   },
   {
    "from": "Burr Ridge Dr",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 74.5,
-  "tomtom": 98.0
+  "dispatch": 73.6,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 110,
-  "neither": 82,
-  "tomtom_only": 28
+  "neither": 81,
+  "tomtom_only": 29
  }
 }
