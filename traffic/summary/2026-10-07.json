@@ -14,17 +14,17 @@
   "here": 0,
   "here_matched": 0,
   "matched": 35,
-  "tomtom": 1887,
-  "tomtom_only": 1851
+  "tomtom": 1957,
+  "tomtom_only": 1921
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 112.1,
+  "median": 115.1,
   "min": 13.3,
-  "n": 82,
-  "q1": 59.6,
+  "n": 83,
+  "q1": 60.5,
   "q3": 117.0
  },
  "here_onset_offset_min": {
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 27,
-   "n": 972,
-   "pct": 2.8
+   "n": 1007,
+   "pct": 2.7
   },
   "tomtom_surface": {
    "matched": 9,
-   "n": 915,
-   "pct": 1.0
+   "n": 950,
+   "pct": 0.9
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1630,
+  "hotspot_buckets": 1684,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1823
+  "unreported_congestion": 1893
  },
  "sampling": {
   "flow_spent_this_month": 1764,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 324,
+  "incidents_spent_this_month": 325,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -137,6 +137,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.354,-97.748"
+  },
+  {
+   "from": "W Pfennig Ln/Cactus Blossom Dr (Heatherwilde Blvd)",
+   "hour_of_week": 69,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.449,-97.639"
   },
   {
    "from": "Burr Ridge Dr",
@@ -207,18 +214,11 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.337,-97.696"
-  },
-  {
-   "from": "US Highway 183",
-   "hour_of_week": 61,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.379,-97.739"
   }
  ],
  "unmatched_pct": {
   "dispatch": 75.7,
-  "tomtom": 98.1
+  "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
