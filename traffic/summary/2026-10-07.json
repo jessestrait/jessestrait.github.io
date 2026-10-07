@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 60,
-  "dispatch_only": 51,
+  "dispatch": 62,
+  "dispatch_only": 53,
   "here": 0,
   "here_matched": 0,
   "matched": 13,
-  "tomtom": 986,
-  "tomtom_only": 973
+  "tomtom": 1025,
+  "tomtom_only": 1012
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
@@ -33,22 +33,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 4,
-   "n": 14,
-   "pct": 28.6
+   "n": 15,
+   "pct": 26.7
   },
   "dispatch_surface": {
    "matched": 5,
-   "n": 46,
-   "pct": 10.9
+   "n": 47,
+   "pct": 10.6
   },
   "tomtom_highway": {
    "matched": 10,
-   "n": 515,
+   "n": 536,
    "pct": 1.9
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 471,
+   "n": 489,
    "pct": 0.6
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 861,
+  "hotspot_buckets": 893,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 945
+  "unreported_congestion": 984
  },
  "sampling": {
   "flow_spent_this_month": 1701,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 308,
+  "incidents_spent_this_month": 309,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -132,6 +132,13 @@
    "seg": "30.506,-97.821"
   },
   {
+   "from": "N Main St (RM-967)",
+   "hour_of_week": 60,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.100,-97.870"
+  },
+  {
    "from": "Decker Ln (FM-969)",
    "hour_of_week": 60,
    "n": 3,
@@ -151,6 +158,20 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.305,-97.714"
+  },
+  {
+   "from": "S Lamar Blvd / W Ben White Blvd",
+   "hour_of_week": 61,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.240,-97.800"
+  },
+  {
+   "from": "N Mo Pac Expy",
+   "hour_of_week": 61,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.354,-97.748"
   },
   {
    "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
@@ -193,38 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.277,-97.731"
-  },
-  {
-   "from": "MLK & 15th St exit [235A]",
-   "hour_of_week": 51,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.278,-97.730"
-  },
-  {
-   "from": "S Congress Ave (W William Cannon Dr)",
-   "hour_of_week": 52,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.190,-97.770"
-  },
-  {
-   "from": "Onion Creek Dr",
-   "hour_of_week": 26,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.121,-97.812"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.0,
+  "dispatch": 85.5,
   "tomtom": 98.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 60,
-  "neither": 51,
+  "n": 62,
+  "neither": 53,
   "tomtom_only": 9
  }
 }
