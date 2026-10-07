@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 146,
-  "dispatch_only": 93,
+  "dispatch": 147,
+  "dispatch_only": 94,
   "here": 0,
   "here_matched": 0,
-  "matched": 106,
-  "tomtom": 3521,
-  "tomtom_only": 3385
+  "matched": 107,
+  "tomtom": 3541,
+  "tomtom_only": 3404
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 33,
-   "n": 109,
-   "pct": 30.3
+   "n": 110,
+   "pct": 30.0
   },
   "tomtom_highway": {
    "matched": 86,
-   "n": 1718,
+   "n": 1727,
    "pct": 5.0
   },
   "tomtom_surface": {
-   "matched": 50,
-   "n": 1803,
+   "matched": 51,
+   "n": 1814,
    "pct": 2.8
   }
  },
@@ -62,8 +62,8 @@
   "max": 88.7,
   "median": 6.3,
   "min": -89.6,
-  "n": 106,
-  "q1": -11.3,
+  "n": 107,
+  "q1": -10.7,
   "q3": 35.5
  },
  "persistence_min": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2889,
+  "hotspot_buckets": 2900,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 3356
+  "unreported_congestion": 3375
  },
  "sampling": {
-  "flow_spent_this_month": 1818,
+  "flow_spent_this_month": 1827,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 349,
+  "incidents_spent_this_month": 350,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -130,6 +130,13 @@
    "n": 5,
    "roadworks": false,
    "seg": "30.284,-97.657"
+  },
+  {
+   "from": "FM-620 (W Parmer Ln/FM-734)",
+   "hour_of_week": 70,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.496,-97.775"
   },
   {
    "from": "Kenai Dr (W Parmer Ln/FM-734)",
@@ -181,13 +188,6 @@
    "seg": "30.281,-97.750"
   },
   {
-   "from": "FM-620 (W Parmer Ln/FM-734)",
-   "hour_of_week": 70,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.496,-97.775"
-  },
-  {
    "from": "Burr Ridge Dr",
    "hour_of_week": 90,
    "n": 3,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 63.7,
+  "dispatch": 63.9,
   "tomtom": 96.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 146,
-  "neither": 93,
+  "n": 147,
+  "neither": 94,
   "tomtom_only": 53
  }
 }
