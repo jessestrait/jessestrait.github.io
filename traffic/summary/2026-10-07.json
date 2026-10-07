@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 52,
-  "dispatch_only": 44,
+  "dispatch": 53,
+  "dispatch_only": 45,
   "here": 0,
   "here_matched": 0,
-  "matched": 10,
-  "tomtom": 741,
-  "tomtom_only": 731
+  "matched": 11,
+  "tomtom": 784,
+  "tomtom_only": 773
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 4,
-   "n": 39,
-   "pct": 10.3
+   "n": 40,
+   "pct": 10.0
   },
   "tomtom_highway": {
-   "matched": 8,
-   "n": 375,
-   "pct": 2.1
+   "matched": 9,
+   "n": 402,
+   "pct": 2.2
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 366,
+   "n": 382,
    "pct": 0.5
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 88.7,
-  "median": -17.2,
+  "median": -13.9,
   "min": -78.2,
-  "n": 10,
-  "q1": -46.3,
-  "q3": 50.0
+  "n": 11,
+  "q1": -42.6,
+  "q3": 37.4
  },
  "persistence_min": {
   "max": -10.1,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 642,
+  "hotspot_buckets": 676,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 703
+  "unreported_congestion": 745
  },
  "sampling": {
-  "flow_spent_this_month": 1683,
+  "flow_spent_this_month": 1692,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 302,
+  "incidents_spent_this_month": 303,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -113,9 +113,16 @@
   {
    "from": "Kenai Dr (W Parmer Ln/FM-734)",
    "hour_of_week": 60,
-   "n": 3,
+   "n": 4,
    "roadworks": false,
    "seg": "30.512,-97.774"
+  },
+  {
+   "from": "Eagle Nest Dr",
+   "hour_of_week": 60,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.125,-97.865"
   },
   {
    "from": "Muirfield Bend Dr",
@@ -125,11 +132,25 @@
    "seg": "30.497,-97.584"
   },
   {
+   "from": "FM-1431/Whitestone Blvd (N Bell Blvd/US-183)",
+   "hour_of_week": 60,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.506,-97.821"
+  },
+  {
    "from": "Decker Ln (FM-969)",
    "hour_of_week": 60,
    "n": 3,
    "roadworks": false,
    "seg": "30.281,-97.649"
+  },
+  {
+   "from": "I-35 Service Rd (E Koenig Ln/FM-2222)",
+   "hour_of_week": 60,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.320,-97.714"
   },
   {
    "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
@@ -193,38 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.121,-97.812"
-  },
-  {
-   "from": "Ranch Road 2222",
-   "hour_of_week": 56,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.359,-97.793"
-  },
-  {
-   "from": "Concho St",
-   "hour_of_week": 56,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.261,-97.727"
-  },
-  {
-   "from": "E Stassney Ln",
-   "hour_of_week": 54,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.192,-97.732"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 84.6,
-  "tomtom": 98.7
+  "dispatch": 84.9,
+  "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 52,
-  "neither": 44,
+  "n": 53,
+  "neither": 45,
   "tomtom_only": 8
  }
 }
