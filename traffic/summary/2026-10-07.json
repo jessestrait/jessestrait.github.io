@@ -14,18 +14,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 5,
-  "tomtom": 223,
-  "tomtom_only": 219
+  "tomtom": 246,
+  "tomtom_only": 242
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 116.8,
-  "min": 115.5,
-  "n": 14,
-  "q1": 116.3,
-  "q3": 118.9
+  "median": 104.4,
+  "min": 14.2,
+  "n": 40,
+  "q1": 60.9,
+  "q3": 116.8
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 106,
-   "pct": 1.9
+   "n": 125,
+   "pct": 1.6
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 117,
+   "n": 121,
    "pct": 1.7
   }
  },
@@ -68,11 +68,11 @@
  },
  "persistence_min": {
   "max": -10.1,
-  "median": -10.1,
-  "min": -10.1,
-  "n": 1,
-  "q1": -10.1,
-  "q3": -10.1
+  "median": -71.0,
+  "min": -71.0,
+  "n": 5,
+  "q1": -71.0,
+  "q3": -17.7
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 193,
+  "hotspot_buckets": 210,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 199
+  "unreported_congestion": 217
  },
  "sampling": {
-  "flow_spent_this_month": 1593,
+  "flow_spent_this_month": 1602,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 284,
+  "incidents_spent_this_month": 285,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -151,6 +151,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 50,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.273,-97.732"
   },
   {
    "from": "Cedar Park-Liberty Hill",
@@ -207,18 +214,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.458,-97.767"
-  },
-  {
-   "from": "FM-1325/Exit 250 (I-35)",
-   "hour_of_week": 44,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.499,-97.681"
   }
  ],
  "unmatched_pct": {
   "dispatch": 87.5,
-  "tomtom": 98.2
+  "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
