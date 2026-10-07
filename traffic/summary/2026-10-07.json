@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 62,
-  "dispatch_only": 53,
+  "dispatch": 65,
+  "dispatch_only": 56,
   "here": 0,
   "here_matched": 0,
   "matched": 13,
-  "tomtom": 1025,
-  "tomtom_only": 1012
+  "tomtom": 1052,
+  "tomtom_only": 1039
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.7,
   "median": 115.5,
   "min": 14.2,
-  "n": 47,
-  "q1": 63.2,
+  "n": 48,
+  "q1": 64.2,
   "q3": 116.9
  },
  "here_onset_offset_min": {
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 5,
-   "n": 47,
-   "pct": 10.6
+   "n": 50,
+   "pct": 10.0
   },
   "tomtom_highway": {
    "matched": 10,
-   "n": 536,
-   "pct": 1.9
+   "n": 555,
+   "pct": 1.8
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 489,
+   "n": 497,
    "pct": 0.6
   }
  },
@@ -68,11 +68,11 @@
  },
  "persistence_min": {
   "max": -10.1,
-  "median": -53.3,
+  "median": -71.0,
   "min": -795.9,
-  "n": 8,
-  "q1": -71.0,
-  "q3": -17.7
+  "n": 9,
+  "q1": -97.0,
+  "q3": -20.3
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 893,
+  "hotspot_buckets": 912,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 984
+  "unreported_congestion": 1011
  },
  "sampling": {
   "flow_spent_this_month": 1701,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 309,
+  "incidents_spent_this_month": 310,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -130,13 +130,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.506,-97.821"
-  },
-  {
-   "from": "N Main St (RM-967)",
-   "hour_of_week": 60,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.100,-97.870"
   },
   {
    "from": "Decker Ln (FM-969)",
@@ -214,17 +207,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.277,-97.731"
+  },
+  {
+   "from": "MLK & 15th St exit [235A]",
+   "hour_of_week": 51,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.278,-97.730"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.5,
-  "tomtom": 98.7
+  "dispatch": 86.2,
+  "tomtom": 98.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 62,
-  "neither": 53,
+  "n": 65,
+  "neither": 56,
   "tomtom_only": 9
  }
 }
