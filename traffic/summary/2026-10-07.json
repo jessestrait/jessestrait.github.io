@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 67,
+  "dispatch": 68,
   "dispatch_only": 56,
   "here": 0,
   "here_matched": 0,
-  "matched": 15,
-  "tomtom": 1165,
-  "tomtom_only": 1149
+  "matched": 16,
+  "tomtom": 1203,
+  "tomtom_only": 1186
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 5,
-   "n": 17,
-   "pct": 29.4
+   "matched": 6,
+   "n": 18,
+   "pct": 33.3
   },
   "dispatch_surface": {
    "matched": 6,
@@ -42,14 +42,14 @@
    "pct": 12.0
   },
   "tomtom_highway": {
-   "matched": 13,
-   "n": 625,
-   "pct": 2.1
+   "matched": 14,
+   "n": 642,
+   "pct": 2.2
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 540,
-   "pct": 0.6
+   "n": 561,
+   "pct": 0.5
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 88.7,
-  "median": -2.9,
+  "median": -2.2,
   "min": -78.2,
-  "n": 15,
-  "q1": -38.1,
-  "q3": 15.5
+  "n": 16,
+  "q1": -33.7,
+  "q3": 26.5
  },
  "persistence_min": {
   "max": -10.1,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 988,
+  "hotspot_buckets": 1014,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1121
+  "unreported_congestion": 1158
  },
  "sampling": {
   "flow_spent_this_month": 1710,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 313,
+  "incidents_spent_this_month": 314,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 61,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.310,-97.711"
+  },
   {
    "from": "Kenai Dr (W Parmer Ln/FM-734)",
    "hour_of_week": 60,
@@ -130,6 +137,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.354,-97.748"
+  },
+  {
+   "from": "Newton St",
+   "hour_of_week": 55,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.248,-97.752"
   },
   {
    "from": "Muirfield Bend Dr",
@@ -188,43 +202,29 @@
    "seg": "30.337,-97.696"
   },
   {
+   "from": "S Pleasant Valley Rd (E Oltorf St)",
+   "hour_of_week": 61,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.231,-97.736"
+  },
+  {
    "from": "US Highway 183",
    "hour_of_week": 61,
    "n": 3,
    "roadworks": false,
    "seg": "30.379,-97.739"
-  },
-  {
-   "from": "N Mo Pac Expy",
-   "hour_of_week": 61,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.348,-97.750"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 61,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.310,-97.711"
-  },
-  {
-   "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
-   "hour_of_week": 52,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.277,-97.731"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 83.6,
+  "dispatch": 82.4,
   "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 67,
+  "n": 68,
   "neither": 56,
-  "tomtom_only": 11
+  "tomtom_only": 12
  }
 }
