@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 107,
-  "tomtom": 3541,
-  "tomtom_only": 3404
+  "tomtom": 3558,
+  "tomtom_only": 3420
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.8,
   "median": 115.8,
   "min": 13.3,
-  "n": 110,
-  "q1": 67.9,
+  "n": 111,
+  "q1": 68.1,
   "q3": 117.8
  },
  "here_onset_offset_min": {
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 86,
-   "n": 1727,
+   "n": 1734,
    "pct": 5.0
   },
   "tomtom_surface": {
-   "matched": 51,
-   "n": 1814,
-   "pct": 2.8
+   "matched": 52,
+   "n": 1824,
+   "pct": 2.9
   }
  },
  "matcher": {
@@ -68,10 +68,10 @@
  },
  "persistence_min": {
   "max": 66.4,
-  "median": -40.6,
+  "median": -40.8,
   "min": -1384.3,
-  "n": 55,
-  "q1": -76.9,
+  "n": 57,
+  "q1": -87.1,
   "q3": -10.1
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2900,
+  "hotspot_buckets": 2910,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 3375
+  "unreported_congestion": 3391
  },
  "sampling": {
   "flow_spent_this_month": 1827,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 350,
+  "incidents_spent_this_month": 351,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -130,13 +130,6 @@
    "n": 5,
    "roadworks": false,
    "seg": "30.284,-97.657"
-  },
-  {
-   "from": "FM-620 (W Parmer Ln/FM-734)",
-   "hour_of_week": 70,
-   "n": 5,
-   "roadworks": false,
-   "seg": "30.496,-97.775"
   },
   {
    "from": "Kenai Dr (W Parmer Ln/FM-734)",
@@ -181,11 +174,25 @@
    "seg": "30.265,-97.735"
   },
   {
+   "from": "FM-620 (W Parmer Ln/FM-734)",
+   "hour_of_week": 70,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.496,-97.774"
+  },
+  {
    "from": "W 15th St",
    "hour_of_week": 70,
    "n": 4,
    "roadworks": false,
    "seg": "30.281,-97.750"
+  },
+  {
+   "from": "FM-620 (W Parmer Ln/FM-734)",
+   "hour_of_week": 70,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.496,-97.775"
   },
   {
    "from": "Burr Ridge Dr",
@@ -207,13 +214,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.497,-97.584"
-  },
-  {
-   "from": "FM-1431/Whitestone Blvd (N Bell Blvd/US-183)",
-   "hour_of_week": 60,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.506,-97.821"
   }
  ],
  "unmatched_pct": {
