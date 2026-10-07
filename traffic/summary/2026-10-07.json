@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 8,
-  "tomtom": 452,
-  "tomtom_only": 445
+  "tomtom": 495,
+  "tomtom_only": 488
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 250,
-   "pct": 2.0
+   "n": 264,
+   "pct": 1.9
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 202,
-   "pct": 1.0
+   "n": 231,
+   "pct": 0.9
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 388,
+  "hotspot_buckets": 433,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 417
+  "unreported_congestion": 460
  },
  "sampling": {
   "flow_spent_this_month": 1674,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 296,
+  "incidents_spent_this_month": 297,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -188,13 +188,6 @@
    "seg": "30.261,-97.727"
   },
   {
-   "from": "E Stassney Ln",
-   "hour_of_week": 54,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.192,-97.732"
-  },
-  {
    "from": "Burr Ridge Dr",
    "hour_of_week": 90,
    "n": 2,
@@ -214,11 +207,18 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.273,-97.732"
+  },
+  {
+   "from": "US Highway 183",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.345,-97.708"
   }
  ],
  "unmatched_pct": {
   "dispatch": 86.0,
-  "tomtom": 98.5
+  "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
