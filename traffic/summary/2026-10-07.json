@@ -13,19 +13,19 @@
   "dispatch_only": 80,
   "here": 0,
   "here_matched": 0,
-  "matched": 67,
-  "tomtom": 2747,
-  "tomtom_only": 2669
+  "matched": 69,
+  "tomtom": 2833,
+  "tomtom_only": 2751
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 115.5,
+  "median": 115.6,
   "min": 13.3,
-  "n": 91,
-  "q1": 62.1,
-  "q3": 117.5
+  "n": 92,
+  "q1": 62.3,
+  "q3": 117.8
  },
  "here_onset_offset_min": {
   "n": 0
@@ -42,14 +42,14 @@
    "pct": 29.0
   },
   "tomtom_highway": {
-   "matched": 47,
-   "n": 1348,
-   "pct": 3.5
+   "matched": 51,
+   "n": 1385,
+   "pct": 3.7
   },
   "tomtom_surface": {
    "matched": 31,
-   "n": 1399,
-   "pct": 2.2
+   "n": 1448,
+   "pct": 2.1
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 88.7,
-  "median": 4.3,
+  "median": 6.3,
   "min": -89.6,
-  "n": 67,
-  "q1": -10.5,
-  "q3": 31.1
+  "n": 69,
+  "q1": -10.1,
+  "q3": 34.8
  },
  "persistence_min": {
   "max": 45.7,
   "median": -25.3,
   "min": -1302.3,
-  "n": 23,
+  "n": 24,
   "q1": -71.0,
-  "q3": -15.2
+  "q3": -11.4
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2324,
+  "hotspot_buckets": 2388,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2640
+  "unreported_congestion": 2722
  },
  "sampling": {
   "flow_spent_this_month": 1791,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 334,
+  "incidents_spent_this_month": 335,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -151,6 +151,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.113,-97.785"
+  },
+  {
+   "from": "Airport Blvd",
+   "hour_of_week": 70,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.301,-97.714"
   },
   {
    "from": "Burr Ridge Dr",
@@ -207,18 +214,11 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.371,-97.742"
-  },
-  {
-   "from": "S Lamar Blvd / W Ben White Blvd",
-   "hour_of_week": 61,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.240,-97.800"
   }
  ],
  "unmatched_pct": {
   "dispatch": 65.0,
-  "tomtom": 97.2
+  "tomtom": 97.1
  },
  "witnesses": {
   "both": 0,
