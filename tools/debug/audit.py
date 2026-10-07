@@ -71,7 +71,12 @@ for p in html_files():
                          f'was not bumped — readers will get new HTML on old JS')
 
 # ── swversion ────────────────────────────────────────────────────────
-SHELL_FILES = ('atx/index.html', 'atx/city3d.js', 'atx/manifest.json')
+# Only what VERSION actually gates. This used to list index.html and
+# city3d.js and warn that readers would "hold the old shell" — neither is
+# true: the worker fetches the HTML network-first with cache:'reload', and
+# it has no rule for city3d.js at all, so that one is covered by the
+# cachebust check above and nothing else.
+SHELL_FILES = ('atx/manifest.json',)
 sw = os.path.join(ROOT, 'atx', 'sw.js')
 if os.path.exists(sw):
     src = open(sw, encoding='utf-8').read()
@@ -79,8 +84,8 @@ if os.path.exists(sw):
     changed = [f for f in SHELL_FILES if f in dirty]
     if changed and 'atx/sw.js' not in dirty:
         warns.append(f'atx/sw.js: VERSION still {ver.group(1) if ver else "?"} while '
-                     f'{", ".join(changed)} changed — returning readers may hold '
-                     f'the old shell')
+                     f'{", ".join(changed)} changed — that file is precached, so '
+                     f'returning readers keep the old copy until VERSION moves')
 
 # ── deadrefs ─────────────────────────────────────────────────────────
 for p in html_files():
