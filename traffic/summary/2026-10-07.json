@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 42,
-  "dispatch_only": 37,
+  "dispatch": 43,
+  "dispatch_only": 38,
   "here": 0,
   "here_matched": 0,
   "matched": 5,
-  "tomtom": 268,
-  "tomtom_only": 264
+  "tomtom": 278,
+  "tomtom_only": 274
  },
  "date": "2026-10-07",
  "dispatch_life_capped": false,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 3,
-   "n": 31,
-   "pct": 9.7
+   "n": 32,
+   "pct": 9.4
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 139,
+   "n": 148,
    "pct": 1.4
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 129,
-   "pct": 1.6
+   "n": 130,
+   "pct": 1.5
   }
  },
  "matcher": {
@@ -92,12 +92,12 @@
   "hotspot_buckets": 230,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 237
+  "unreported_congestion": 246
  },
  "sampling": {
-  "flow_spent_this_month": 1620,
+  "flow_spent_this_month": 1629,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 288,
+  "incidents_spent_this_month": 289,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,69 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
+  {
+   "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
+   "hour_of_week": 52,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.277,-97.731"
+  },
+  {
+   "from": "12th St exit [234C]",
+   "hour_of_week": 53,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.274,-97.732"
+  },
+  {
+   "from": "Airport Blvd/Exit 237 (I-35)",
+   "hour_of_week": 53,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.294,-97.720"
+  },
+  {
+   "from": "51st St/Cameron Rd/Exit 237 (I-35)",
+   "hour_of_week": 53,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.303,-97.714"
+  },
+  {
+   "from": "Woodward St (I-35)",
+   "hour_of_week": 53,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.245,-97.735"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 51,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.277,-97.731"
+  },
+  {
+   "from": "MLK & 15th St exit [235A]",
+   "hour_of_week": 51,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.278,-97.730"
+  },
+  {
+   "from": "S Congress Ave (W William Cannon Dr)",
+   "hour_of_week": 52,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.190,-97.770"
+  },
+  {
+   "from": "Onion Creek Dr",
+   "hour_of_week": 26,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.121,-97.812"
+  },
   {
    "from": "N Interstate 35",
    "hour_of_week": 44,
@@ -125,11 +188,11 @@
    "seg": "30.403,-97.674"
   },
   {
-   "from": "E Dean Keeton St",
-   "hour_of_week": 47,
+   "from": "N Interstate 35",
+   "hour_of_week": 50,
    "n": 2,
    "roadworks": false,
-   "seg": "30.286,-97.727"
+   "seg": "30.273,-97.732"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -151,80 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.616"
-  },
-  {
-   "from": "Cedar Park-Liberty Hill",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.501,-97.820"
-  },
-  {
-   "from": "FM-2222/Bullick Hollow Rd (FM-620)",
-   "hour_of_week": 44,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.452,-97.829"
-  },
-  {
-   "from": "Anderson Mill Rd (Research Blvd/US-183)",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.465,-97.795"
-  },
-  {
-   "from": "Lakeline Mall Dr",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.475,-97.795"
-  },
-  {
-   "from": "Lakeline Mall Dr",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.476,-97.793"
-  },
-  {
-   "from": "US Highway 183",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.470,-97.797"
-  },
-  {
-   "from": "FM-620 (W Parmer Ln/FM-734)",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.496,-97.774"
-  },
-  {
-   "from": "Water Oak Ln",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.458,-97.767"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.1,
-  "tomtom": 98.5
+  "dispatch": 88.4,
+  "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 42,
-  "neither": 37,
+  "n": 43,
+  "neither": 38,
   "tomtom_only": 5
  }
 }
