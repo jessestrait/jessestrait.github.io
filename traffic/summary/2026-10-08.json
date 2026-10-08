@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 111,
+  "dispatch": 112,
   "dispatch_only": 85,
   "here": 0,
   "here_matched": 0,
-  "matched": 40,
-  "tomtom": 1714,
-  "tomtom_only": 1674
+  "matched": 43,
+  "tomtom": 1785,
+  "tomtom_only": 1739
  },
  "date": "2026-10-08",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.8,
   "median": 115.8,
   "min": 7.8,
-  "n": 90,
-  "q1": 71.9,
+  "n": 91,
+  "q1": 73.5,
   "q3": 117.4
  },
  "here_onset_offset_min": {
@@ -37,19 +37,19 @@
    "pct": 28.0
   },
   "dispatch_surface": {
-   "matched": 19,
-   "n": 86,
-   "pct": 22.1
+   "matched": 20,
+   "n": 87,
+   "pct": 23.0
   },
   "tomtom_highway": {
-   "matched": 26,
-   "n": 910,
+   "matched": 28,
+   "n": 950,
    "pct": 2.9
   },
   "tomtom_surface": {
-   "matched": 14,
-   "n": 804,
-   "pct": 1.7
+   "matched": 18,
+   "n": 835,
+   "pct": 2.2
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 87.5,
-  "median": 19.1,
+  "median": 18.2,
   "min": -80.6,
-  "n": 40,
+  "n": 43,
   "q1": -3.7,
-  "q3": 42.4
+  "q3": 42.0
  },
  "persistence_min": {
   "max": 40.8,
-  "median": -50.7,
+  "median": -45.7,
   "min": -102.0,
-  "n": 24,
+  "n": 25,
   "q1": -76.7,
-  "q3": -26.6
+  "q3": -25.3
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1524,
+  "hotspot_buckets": 1578,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1643
+  "unreported_congestion": 1708
  },
  "sampling": {
-  "flow_spent_this_month": 2043,
+  "flow_spent_this_month": 2052,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 394,
+  "incidents_spent_this_month": 395,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -181,6 +181,27 @@
    "seg": "30.141,-97.800"
   },
   {
+   "from": "N Lamar Blvd",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.267,-97.755"
+  },
+  {
+   "from": "E 7th St",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.267,-97.734"
+  },
+  {
+   "from": "E 11th St (I-35)",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.268,-97.734"
+  },
+  {
    "from": "Geode Dr",
    "hour_of_week": 67,
    "n": 2,
@@ -193,38 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.235,-97.900"
-  },
-  {
-   "from": "Berrywood Dr/Meadow Lark Ave (I-35)",
-   "hour_of_week": 45,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.385,-97.673"
-  },
-  {
-   "from": "E Stassney Ln",
-   "hour_of_week": 79,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.192,-97.732"
-  },
-  {
-   "from": "E Rector St",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.348,-97.556"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.6,
-  "tomtom": 97.7
+  "dispatch": 75.9,
+  "tomtom": 97.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 111,
+  "n": 112,
   "neither": 85,
-  "tomtom_only": 26
+  "tomtom_only": 27
  }
 }
