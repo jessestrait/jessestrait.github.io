@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 94, q3 118 min over 63 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch record lifetimes look like real clearances this day, not a cap.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 77,
-  "dispatch_only": 62,
+  "dispatch": 90,
+  "dispatch_only": 73,
   "here": 0,
   "here_matched": 0,
-  "matched": 22,
-  "tomtom": 1064,
-  "tomtom_only": 1044
+  "matched": 24,
+  "tomtom": 1141,
+  "tomtom_only": 1119
  },
  "date": "2026-10-08",
- "dispatch_life_capped": true,
+ "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 116.1,
+  "median": 115.0,
   "min": 7.8,
-  "n": 63,
-  "q1": 94.5,
-  "q3": 117.5
+  "n": 77,
+  "q1": 63.0,
+  "q3": 117.3
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 5,
-   "n": 18,
-   "pct": 27.8
+   "n": 23,
+   "pct": 21.7
   },
   "dispatch_surface": {
-   "matched": 10,
-   "n": 59,
-   "pct": 16.9
+   "matched": 12,
+   "n": 67,
+   "pct": 17.9
   },
   "tomtom_highway": {
-   "matched": 10,
-   "n": 565,
-   "pct": 1.8
+   "matched": 12,
+   "n": 619,
+   "pct": 1.9
   },
   "tomtom_surface": {
    "matched": 10,
-   "n": 499,
-   "pct": 2.0
+   "n": 522,
+   "pct": 1.9
   }
  },
  "matcher": {
@@ -62,18 +62,17 @@
   "max": 87.5,
   "median": 26.1,
   "min": -80.6,
-  "n": 22,
-  "q1": -13.4,
-  "q3": 51.7
+  "n": 24,
+  "q1": -6.9,
+  "q3": 47.9
  },
  "persistence_min": {
-  "max": 0.0,
-  "median": -55.7,
-  "min": -81.7,
-  "n": 13,
-  "q1": -74.1,
-  "q3": -27.9,
-  "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
+  "max": 40.8,
+  "median": -43.2,
+  "min": -102.0,
+  "n": 22,
+  "q1": -72.9,
+  "q3": -25.3
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -90,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 931,
+  "hotspot_buckets": 1000,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1018
+  "unreported_congestion": 1090
  },
  "sampling": {
-  "flow_spent_this_month": 1989,
+  "flow_spent_this_month": 1998,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 384,
+  "incidents_spent_this_month": 385,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -196,6 +195,13 @@
    "seg": "30.235,-97.900"
   },
   {
+   "from": "Berrywood Dr/Meadow Lark Ave (I-35)",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.385,-97.673"
+  },
+  {
    "from": "E Stassney Ln",
    "hour_of_week": 79,
    "n": 2,
@@ -208,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.348,-97.556"
-  },
-  {
-   "from": "Hunters Bend Rd (FM-969)",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.251,-97.598"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.5,
+  "dispatch": 81.1,
   "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 77,
-  "neither": 62,
-  "tomtom_only": 15
+  "n": 90,
+  "neither": 73,
+  "tomtom_only": 17
  }
 }
