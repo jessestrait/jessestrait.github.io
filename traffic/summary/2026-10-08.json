@@ -13,9 +13,9 @@
   "dispatch_only": 87,
   "here": 0,
   "here_matched": 0,
-  "matched": 50,
-  "tomtom": 1970,
-  "tomtom_only": 1916
+  "matched": 52,
+  "tomtom": 2023,
+  "tomtom_only": 1967
  },
  "date": "2026-10-08",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.8,
   "median": 115.8,
   "min": 7.8,
-  "n": 96,
-  "q1": 76.0,
+  "n": 98,
+  "q1": 79.6,
   "q3": 117.5
  },
  "here_onset_offset_min": {
@@ -42,13 +42,13 @@
    "pct": 25.3
   },
   "tomtom_highway": {
-   "matched": 33,
-   "n": 1042,
+   "matched": 34,
+   "n": 1071,
    "pct": 3.2
   },
   "tomtom_surface": {
-   "matched": 21,
-   "n": 928,
+   "matched": 22,
+   "n": 952,
    "pct": 2.3
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.5,
-  "median": 17.6,
+  "median": 18.2,
   "min": -80.6,
-  "n": 50,
-  "q1": -3.7,
-  "q3": 38.4
+  "n": 52,
+  "q1": -3.3,
+  "q3": 40.8
  },
  "persistence_min": {
   "max": 40.9,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1723,
+  "hotspot_buckets": 1763,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1885
+  "unreported_congestion": 1936
  },
  "sampling": {
-  "flow_spent_this_month": 2052,
+  "flow_spent_this_month": 2061,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 398,
+  "incidents_spent_this_month": 399,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -195,18 +195,18 @@
    "seg": "30.267,-97.755"
   },
   {
+   "from": "W Anderson Ln",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.348,-97.714"
+  },
+  {
    "from": "E Ben White Blvd",
    "hour_of_week": 93,
    "n": 3,
    "roadworks": false,
    "seg": "30.215,-97.699"
-  },
-  {
-   "from": "Austin",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.212,-97.657"
   },
   {
    "from": "Mopac Expy S",
@@ -218,7 +218,7 @@
  ],
  "unmatched_pct": {
   "dispatch": 74.4,
-  "tomtom": 97.3
+  "tomtom": 97.2
  },
  "witnesses": {
   "both": 0,
