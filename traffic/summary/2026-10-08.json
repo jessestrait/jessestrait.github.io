@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 73,
-  "tomtom": 2683,
-  "tomtom_only": 2598
+  "tomtom": 2714,
+  "tomtom_only": 2629
  },
  "date": "2026-10-08",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 48,
-   "n": 1420,
-   "pct": 3.4
+   "n": 1441,
+   "pct": 3.3
   },
   "tomtom_surface": {
    "matched": 37,
-   "n": 1263,
+   "n": 1273,
    "pct": 2.9
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2282,
+  "hotspot_buckets": 2310,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2567
+  "unreported_congestion": 2598
  },
  "sampling": {
-  "flow_spent_this_month": 2079,
+  "flow_spent_this_month": 2088,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 410,
+  "incidents_spent_this_month": 411,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -131,13 +131,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.284,-97.765"
-  },
-  {
-   "from": "Metric Blvd",
-   "hour_of_week": 94,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.372,-97.724"
   },
   {
    "from": "N Interstate 35",
@@ -215,11 +208,18 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.141,-97.800"
+  },
+  {
+   "from": "N Lamar Blvd",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.267,-97.755"
   }
  ],
  "unmatched_pct": {
   "dispatch": 71.5,
-  "tomtom": 96.8
+  "tomtom": 96.9
  },
  "witnesses": {
   "both": 0,
