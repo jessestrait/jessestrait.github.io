@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 120,
-  "dispatch_only": 89,
+  "dispatch": 125,
+  "dispatch_only": 92,
   "here": 0,
   "here_matched": 0,
-  "matched": 62,
-  "tomtom": 2496,
-  "tomtom_only": 2424
+  "matched": 66,
+  "tomtom": 2547,
+  "tomtom_only": 2471
  },
  "date": "2026-10-08",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 115.9,
+  "median": 116.0,
   "min": 7.8,
-  "n": 101,
-  "q1": 83.1,
+  "n": 102,
+  "q1": 84.0,
   "q3": 117.5
  },
  "here_onset_offset_min": {
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 7,
-   "n": 27,
-   "pct": 25.9
+   "matched": 9,
+   "n": 29,
+   "pct": 31.0
   },
   "dispatch_surface": {
    "matched": 24,
-   "n": 93,
-   "pct": 25.8
+   "n": 96,
+   "pct": 25.0
   },
   "tomtom_highway": {
-   "matched": 39,
-   "n": 1326,
-   "pct": 2.9
+   "matched": 41,
+   "n": 1353,
+   "pct": 3.0
   },
   "tomtom_surface": {
-   "matched": 33,
-   "n": 1170,
-   "pct": 2.8
+   "matched": 35,
+   "n": 1194,
+   "pct": 2.9
   }
  },
  "matcher": {
@@ -62,17 +62,17 @@
   "max": 87.5,
   "median": 21.5,
   "min": -80.6,
-  "n": 62,
-  "q1": -1.1,
-  "q3": 44.3
+  "n": 66,
+  "q1": -2.0,
+  "q3": 42.1
  },
  "persistence_min": {
   "max": 45.8,
   "median": -40.6,
   "min": -132.5,
-  "n": 33,
-  "q1": -74.1,
-  "q3": -12.7
+  "n": 34,
+  "q1": -76.6,
+  "q3": -13.9
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2172,
+  "hotspot_buckets": 2201,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2393
+  "unreported_congestion": 2440
  },
  "sampling": {
-  "flow_spent_this_month": 2070,
+  "flow_spent_this_month": 2079,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 406,
+  "incidents_spent_this_month": 407,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -123,6 +123,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.268,-97.734"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 94,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.265,-97.735"
   },
   {
    "from": "Immanuel Rd",
@@ -207,24 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.276,-97.730"
-  },
-  {
-   "from": "E Ben White Blvd",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.215,-97.699"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 74.2,
-  "tomtom": 97.1
+  "dispatch": 73.6,
+  "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 120,
-  "neither": 89,
-  "tomtom_only": 31
+  "n": 125,
+  "neither": 92,
+  "tomtom_only": 33
  }
 }
