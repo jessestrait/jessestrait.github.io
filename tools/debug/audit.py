@@ -61,14 +61,28 @@ for p in html_files():
 # ── cachebust ────────────────────────────────────────────────────────
 # Files the working tree has changed relative to HEAD.
 dirty = set(x for x in sh('git', 'diff', 'HEAD', '--name-only').split('\n') if x)
+VER_RE = r'(?:src|href)="([^"?#]+)\?v=([^"&]+)"'
+
+def versions_in(text, hrel):
+    """{asset path: version string} for every ?v= reference in one page."""
+    out = {}
+    for m in re.finditer(VER_RE, text):
+        out[os.path.normpath(os.path.join(os.path.dirname(hrel), m.group(1)))] = m.group(2)
+    return out
+
 for p in html_files():
-    src = open(p, encoding='utf-8', errors='replace').read()
     hrel = rel(p)
-    for m in re.finditer(r'(?:src|href)="([^"?#]+)\?v=([^"&]+)"', src):
-        asset = os.path.normpath(os.path.join(os.path.dirname(hrel), m.group(1)))
-        if asset in dirty and hrel not in dirty:
-            fails.append(f'{hrel}: {m.group(1)} is modified but its ?v={m.group(2)} '
-                         f'was not bumped — readers will get new HTML on old JS')
+    now = versions_in(open(p, encoding='utf-8', errors='replace').read(), hrel)
+    # Compare the version STRING against HEAD, not the mtime of the page.
+    # This used to ask whether the HTML was also modified, which meant any
+    # unrelated edit to index.html silenced the check for every asset on it
+    # — and it did, on the commit that added the arrest metrics.
+    head = versions_in(sh('git', 'show', 'HEAD:' + hrel), hrel)
+    for asset, ver in now.items():
+        if asset in dirty and head.get(asset) == ver:
+            fails.append(f'{hrel}: {os.path.basename(asset)} is modified but its '
+                         f'?v={ver} is unchanged since HEAD — readers will get '
+                         f'new HTML on old JS')
 
 # ── swversion ────────────────────────────────────────────────────────
 # Only what VERSION actually gates. This used to list index.html and

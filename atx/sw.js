@@ -11,10 +11,9 @@
  * served from cache and refreshed in the background, so a rebuild lands on the
  * next load by itself. See fromCacheRefreshing.
  */
-/* Bumped to v13 on 2026-09-30: the camera window's chrome holds still
-   now — a fixed frame, a toolbar that cannot reflow, and the phone rules
-   finally winning the cascade they were always meant to win. */
-const VERSION = 'atx-v13';
+/* Bumped to v14 on 2026-10-08: the congestion curve is measured now,
+   and the crime section grew arrest metrics and a hate-crime readout. */
+const VERSION = 'atx-v14';
 const SHELL = VERSION + '-shell';
 const GEO = VERSION + '-geo';
 const FONTS = VERSION + '-fonts';

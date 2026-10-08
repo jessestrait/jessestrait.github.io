@@ -552,6 +552,14 @@ dl.mecard a{color:var(--accent-hi)}
   max-width:min(100%,1600px); font:.68rem 'DM Sans',sans-serif;
   color:var(--muted); text-align:left; width:100%;
 }
+.hatebias{display:grid; gap:4px; margin-top:.4rem}
+.hatebias .hb{display:grid; grid-template-columns:1fr 52px 26px; gap:.5rem; align-items:center}
+.hatebias .hbl{font-size:.68rem; color:var(--muted); overflow:hidden;
+  text-overflow:ellipsis; white-space:nowrap}
+.hatebias .hbb{height:6px; background:var(--surface2); border-radius:3px; overflow:hidden}
+.hatebias .hbb i{display:block; height:100%; background:#ff5cc8; border-radius:3px}
+.hatebias .hbn{font:.66rem 'JetBrains Mono',monospace; color:var(--text); text-align:right;
+  font-variant-numeric:tabular-nums}
 .popcam{cursor:zoom-in; display:block}
 .camdown{
   margin-top:.5rem; padding:.5rem .6rem; border-radius:7px; font-size:.72rem;
@@ -921,6 +929,7 @@ dl.mecard a{color:var(--accent-hi)}
       <label class="mini" for="crimeyear" style="display:block;margin-top:.6rem">Year</label>
       <select id="crimeyear"></select>
       <div id="crimetrend"></div>
+      <div id="hatebox"></div>
       <label class="mini" style="display:block;margin-top:1rem">Top offenses</label>
       <div class="seg" id="crimescope">
         <button data-s="city">Citywide</button>
@@ -1386,7 +1395,7 @@ dl.mecard a{color:var(--accent-hi)}
      looks like the fix did not work.
 
      Bump ?v= on any deploy that changes city3d.js. -->
-<script src="city3d.js?v=20260926w3"></script>
+<script src="city3d.js?v=20261008a"></script>
 <script>
 /* ══════════════════════════════════════════════════════════════════
    ATX Layers — no backend and no storage. Almost everything is a live
@@ -4232,6 +4241,62 @@ const CRIME = { id: 'fdj4-gpfu', on: false, cat: '', year: CRIME_DEFAULT_YEAR,
                 byUnit: null, geo: null, byYear: null, total: 0, busy: false, autoGeo: false, prevMetric: null };
 const CRIME_FIRST_YEAR = 2003;
 
+/* APD arrests, 9tem-ywan.
+
+   Not a point layer, because the city does not publish one: every arrest
+   is released at census-block-group resolution with no coordinates, and
+   that is deliberate. It happens to be the same unit this map already
+   shades crime by, so arrests drop into the existing choropleth rather
+   than needing machinery of their own — 642 of the 644 block groups on
+   the map have arrests in them.
+
+   Block group only. Unlike the crime table there is no council_district
+   column, so these metrics are offered for `bg` and nowhere else.
+
+   Fetched for the SAME year as the crime table, because the two are
+   divided by one another. All-time arrests over one year of reports read
+   179 arrests per 100 reports, which is not a finding, it is two
+   different windows in a fraction. */
+const ARREST = { id: '9tem-ywan', byUnit: null, total: 0, busy: false, year: null };
+
+async function loadArrests() {
+  if (ARREST.busy) return;
+  if (ARREST.byUnit && ARREST.year === CRIME.year) return;   // already have this window
+  ARREST.busy = true;
+  pulse('counting arrests', 'loading');
+  const want = CRIME.year;
+  try {
+    const where = ['census_block_group IS NOT NULL'];
+    if (want !== 'all') {
+      where.push("occurred_date >= '" + want + "-01-01' AND occurred_date < '"
+                 + (+want + 1) + "-01-01'");
+    }
+    const rows = await soda(ARREST.id, {
+      '$select': 'census_block_group,count(*) as n',
+      '$where': where.join(' AND '),
+      '$group': 'census_block_group', '$limit': 5000
+    });
+    const byUnit = {}; let total = 0;
+    rows.forEach(r => {
+      const k = r.census_block_group;
+      /* The arrests table writes '-' where it has no block group, which
+         is not null and not '' and so survives the usual guards. */
+      if (!k || k === '-') return;
+      byUnit[k] = (byUnit[k] || 0) + (+r.n);
+      total += +r.n;
+    });
+    ARREST.byUnit = byUnit; ARREST.total = total; ARREST.year = want;
+    pulse('updated ' + new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }));
+  } catch (err) {
+    console.error(err);
+    ARREST.byUnit = null;
+    pulse('arrest query failed', 'err');
+  } finally {
+    ARREST.busy = false;
+    drawGeo();
+  }
+}
+
 // Where a locate lands. 14 is a neighborhood, too coarse to see which block
 // group you are in; 17 is past the last zoom the basemap has real tiles for.
 // 16 is the deepest level that still draws streets. Math.max, so someone
@@ -4257,6 +4322,7 @@ const ME_ZOOM = 16;
   row.querySelector('input').addEventListener('change', e => {
     CRIME.on = e.target.checked;
     loadCrimeTop(false);
+    hatePanel();
 
     if (!CRIME.on) {
       // Switching off has to undo exactly what switching on did, or the map
@@ -4371,6 +4437,70 @@ function crimeTrend() {
     + '</div>';
 }
 
+/* Hate crimes, t99n-5ib4 — a readout, deliberately not a layer.
+
+   318 incidents over nine years across 36 ZIPs is a median of four per
+   ZIP for the whole period, about one every two and a half years. Shaded
+   on a map that is noise rendered as precision: a ZIP with two next to a
+   ZIP with one reads as "twice the hate crime" when the difference is
+   indistinguishable from chance. The city publishes no finer geography
+   than the ZIP anyway, and for good reason at these counts.
+
+   What the data does support is a count by year and a breakdown by bias,
+   and both are clear enough to state plainly. */
+const HATE = { id: 't99n-5ib4', rows: null, busy: false };
+
+async function loadHate() {
+  if (HATE.busy || HATE.rows) return;
+  HATE.busy = true;
+  try {
+    HATE.rows = await soda(HATE.id, { '$select': 'date_of_incident,bias,offense_s', '$limit': 2000 });
+  } catch (err) { console.error(err); HATE.rows = null; }
+  finally { HATE.busy = false; hatePanel(); }
+}
+
+function hatePanel() {
+  const box = document.getElementById('hatebox');
+  if (!box) return;
+  if (!CRIME.on) { box.innerHTML = ''; return; }
+  if (!HATE.rows) { loadHate(); return; }
+
+  const byYear = {}, byBias = {};
+  for (const r of HATE.rows) {
+    const y = +String(r.date_of_incident || '').slice(0, 4);
+    if (y) byYear[y] = (byYear[y] || 0) + 1;
+    if (r.bias) byBias[r.bias] = (byBias[r.bias] || 0) + 1;
+  }
+  const years = Object.keys(byYear).map(Number).sort();
+  if (!years.length) { box.innerHTML = ''; return; }
+  const thisYear = new Date().getFullYear();
+  const max = Math.max(...years.map(y => byYear[y]));
+  const bias = Object.entries(byBias).sort((a, b) => b[1] - a[1]).slice(0, 5);
+  const topN = Math.max(...bias.map(b => b[1]));
+  const done = years.filter(y => y < thisYear);
+  const rise = done.length > 1
+    ? Math.round((byYear[done[done.length - 1]] - byYear[done[0]]) / byYear[done[0]] * 100) : null;
+
+  box.innerHTML = '<div style="margin-top:1.1rem">'
+    + '<label class="mini">Hate crimes reported per year</label>'
+    + '<div class="sparkbars" style="height:40px">'
+    + years.map(y => '<i style="height:' + Math.max(2, byYear[y] / max * 100) + '%;background:#ff5cc8'
+        /* The current year is a partial count and must not read as a fall. */
+        + (y === thisYear ? ';opacity:.45' : '') + '"'
+        + ' title="' + y + ' \u2014 ' + byYear[y] + (y === thisYear ? ' so far' : '') + '"></i>').join('')
+    + '</div><div class="axis"><span>' + years[0] + '</span><span>' + years[years.length - 1] + '</span></div>'
+    + (rise === null ? '' : '<p class="hint" style="margin:.5rem 0 .6rem">Reported hate crimes are '
+        + '<b style="color:var(--text)">' + (rise < 0 ? Math.abs(rise) + '% lower' : rise + '% higher')
+        + '</b> than in ' + done[0] + '. ' + HATE.rows.length.toLocaleString()
+        + ' incidents in all, which is too few to shade a map with \u2014 so this is a count, not a layer.</p>')
+    + '<label class="mini">Most common bias</label>'
+    + '<div class="hatebias">'
+    + bias.map(([k, n]) => '<div class="hb"><span class="hbl">' + esc(k) + '</span>'
+        + '<span class="hbb"><i style="width:' + (n / topN * 100) + '%"></i></span>'
+        + '<span class="hbn">' + n + '</span></div>').join('')
+    + '</div></div>';
+}
+
 document.getElementById('crimecat').addEventListener('change', e => {
   CRIME.cat = e.target.value;
   if (CRIME.on) loadCrime();
@@ -4378,6 +4508,9 @@ document.getElementById('crimecat').addEventListener('change', e => {
 });
 document.getElementById('crimeyear').addEventListener('change', e => {
   CRIME.year = e.target.value;
+  // The arrest window is pinned to the crime window; drop it so it refetches.
+  ARREST.byUnit = null; ARREST.year = null;
+  if (['__arrest', '__arrest10k', '__arrestper100'].includes(state.metric)) loadArrests();
   if (CRIME.on) loadCrime();
   if (document.getElementById('crimetop').innerHTML) loadCrimeTop(true);
 });
@@ -6625,6 +6758,10 @@ const GEOS = {
       ['Crime reports', [
         ['__crime10k', 'Crime reports per 10,000 residents'],
         ['__crime', 'Crime reports (raw count)']]],
+      ['Arrests', [
+        ['__arrest10k', 'Arrests per 10,000 residents'],
+        ['__arrest', 'Arrests (raw count)'],
+        ['__arrestper100', 'Arrests per 100 crime reports']]],
       ['Trees & heat', [
         ['canopy', 'Tree canopy cover'],
         ['gap', 'Tree canopy gap vs. target'],
@@ -6667,7 +6804,9 @@ function fmtMetric(k, v) {
   if (PCT_KEYS.has(k)) return v.toFixed(1) + '%';
   if (k === 'temp') return (v > 0 ? '+' : '') + v.toFixed(1) + '°F';
   if (k === 'street_iri') return Math.round(v) + ' IRI';
-  if (k === '__per10k' || k === '__crime10k') return v.toFixed(v < 100 ? 1 : 0);
+  if (k === '__per10k' || k === '__crime10k' || k === '__arrest10k')
+    return v.toFixed(v < 100 ? 1 : 0);
+  if (k === '__arrestper100') return v.toFixed(1);
   if (k === 'median_age' || k === 'avg_hh_size') return v.toFixed(1);
   return Math.round(v).toLocaleString();
 }
@@ -6807,18 +6946,40 @@ function drawGeo(vis) {
   let key = state.metric;
   // Asking for a crime shading with nothing loaded would blank the map.
   if ((key === '__crime' || key === '__crime10k') && !CRIME.byUnit) key = '__count';
+  const ARR_KEYS = ['__arrest', '__arrest10k', '__arrestper100'];
+  if (ARR_KEYS.includes(key) && !ARREST.byUnit) key = '__count';
+  /* Arrests per 100 reports needs both halves, from the same year, with no
+     category filter on the denominator — arrests are not categorised the
+     way reports are, so "arrests per 100 thefts" counts arrests for
+     everything against reports for one thing. Any of those unmet and the
+     metric steps aside rather than printing a number that means nothing. */
+  if (key === '__arrestper100' && !(CRIME.byUnit && CRIME.geo === 'bg'
+        && ARREST.year === CRIME.year && !CRIME.cat)) key = '__arrest10k';
   const dynamic = key === '__per10k' || key === '__count';
   const counts = dynamic ? unitCounts(g, vis || visibleFeatures()) : null;
   const crime = CRIME.byUnit && CRIME.geo === state.geo ? CRIME.byUnit : null;
+  const arrest = ARREST.byUnit && state.geo === 'bg' ? ARREST.byUnit : null;
 
   const valOf = p => {
     const k = g.key(p);
     if (key === '__count') return counts[k] || 0;
     if (key === '__crime') return crime ? (crime[k] || 0) : null;
-    if (key === '__per10k' || key === '__crime10k') {
+    if (key === '__arrest') return arrest ? (arrest[k] || 0) : null;
+    if (key === '__arrestper100') {
+      if (!arrest || !crime) return null;
+      const reports = crime[k] || 0;
+      /* Below about fifty reports the ratio is mostly noise — one arrest
+         either way swings it by percentage points — so those block groups
+         are left unshaded rather than shown as dramatic outliers. */
+      if (reports < 50) return null;
+      return (arrest[k] || 0) / reports * 100;
+    }
+    if (key === '__per10k' || key === '__crime10k' || key === '__arrest10k') {
       const pop = g.pop(p);
       if (!pop) return null;
-      const n = key === '__per10k' ? (counts[k] || 0) : (crime ? (crime[k] || 0) : 0);
+      const n = key === '__per10k' ? (counts[k] || 0)
+              : key === '__crime10k' ? (crime ? (crime[k] || 0) : 0)
+              : (arrest ? (arrest[k] || 0) : 0);
       return n / pop * 10000;
     }
     return p[key] == null ? null : p[key];
@@ -10270,6 +10431,14 @@ document.getElementById('metric').addEventListener('change', e => {
   // Crime is fetched per geography; ask for it if it isn't loaded yet.
   if ((state.metric === '__crime' || state.metric === '__crime10k')
       && CRIME.on && CRIME.geo !== state.geo) loadCrime();
+  else if (['__arrest', '__arrest10k', '__arrestper100'].includes(state.metric)) {
+    // Arrests are one query for the whole city and never change with the
+    // year picker, so they load once and are kept.
+    if (!ARREST.byUnit) loadArrests();
+    // The ratio needs crime loaded at block group as well.
+    if (state.metric === '__arrestper100' && !(CRIME.byUnit && CRIME.geo === 'bg')) loadCrime();
+    drawGeo();
+  }
   else drawGeo();
 });
 

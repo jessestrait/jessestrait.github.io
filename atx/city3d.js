@@ -458,15 +458,54 @@
      55/45 with a smooth commute prior; that fills holes like 15:00,
      where the chain simply missed a poll, without flattening the peaks.
 
-     There is no weekend in the sample at all — the three days are a
-     Monday, a Tuesday and a Wednesday — so CONGEST_WE below is prior
-     only, and is marked as such in the readout. */
-  const CONGEST_WD = [0.02, 0.01, 0.01, 0.01, 0.01, 0.03, 0.14, 0.42,
-                      0.50, 0.33, 0.18, 0.15, 0.18, 0.19, 0.19, 0.23,
-                      0.55, 1.00, 0.86, 0.35, 0.14, 0.10, 0.06, 0.04];
-  const CONGEST_WE = [0.06, 0.04, 0.02, 0.01, 0.01, 0.02, 0.04, 0.08,
-                      0.14, 0.22, 0.32, 0.42, 0.50, 0.54, 0.56, 0.58,
-                      0.56, 0.52, 0.46, 0.38, 0.30, 0.22, 0.14, 0.09];
+     That was the whole basis for these curves until 2026-10-08; see the
+     note directly below for what replaced the daytime hours and why. */
+  /* Revised 2026-10-08 against the city's own Bluetooth travel-time
+     archive (Socrata v7zg-5jg9): 61.8 million 15-minute records, 2013 to
+     2021, aggregated per sensor pair per hour and normalised to each
+     segment's own free-flow. 257 well-sampled segments on weekdays, 209
+     at weekends.
+
+     Hours 07-19 are those measurements. 00-06 are the previous prior,
+     and 20-23 are a taper between the two. The night is NOT measured
+     here and the distinction matters: these sensors sit on signalised
+     arterials, where the 5 a.m. reference speed reflects favourable
+     signal progression as much as an empty road, so `1 - speed/freeflow`
+     after about 20:00 is reading green waves rather than traffic.
+
+     Two things changed and both came out of the data rather than taste.
+
+     The morning peak was too low. Measured across 257 segments the
+     median morning peak is 0.77 of the evening one; this curve said
+     0.50. Austin's morning rush is about half again as heavy, relative
+     to its evening, as I had it.
+
+     Midday was much too low — 0.15 to 0.23 here against 0.44 to 0.83
+     measured. That gap has a cause worth remembering: the old numbers
+     came from counting TomTom JAM EPISODES, which only begin when flow
+     collapses. The steady delay of an arterial at one in the afternoon —
+     a light cycle at every intersection, all afternoon — never registers
+     as a jam and so was invisible to the old method, while a travel-time
+     sensor measures exactly that. The two sources were right about
+     different things; for a map that draws arterials, this is the one
+     that applies.
+
+     The weekend curve was previously prior only, with no weekend in the
+     sample at all. It is now measured through the middle of the day, and
+     it peaks at 18:00 rather than the 15:00 I had guessed.
+
+     What this archive cannot do: stand in for the whole network. Its 30
+     corridors are the ones ATD chose to instrument — Lamar alone is 22%
+     of the segments — with no residential streets and partial freeway
+     coverage. It is a good measurement of arterial Austin and is used
+     here only for the SHAPE of the day, with SWING below still deciding
+     how far each class of road actually falls. */
+  const CONGEST_WD = [0.02, 0.01, 0.01, 0.01, 0.01, 0.03, 0.12, 0.60,
+                      0.84, 0.66, 0.44, 0.44, 0.67, 0.83, 0.78, 0.72,
+                      0.83, 1.00, 0.87, 0.68, 0.34, 0.17, 0.08, 0.04];
+  const CONGEST_WE = [0.06, 0.04, 0.02, 0.01, 0.01, 0.02, 0.20, 0.31,
+                      0.37, 0.54, 0.76, 0.88, 0.97, 0.95, 0.89, 0.90,
+                      0.91, 0.96, 1.00, 0.96, 0.55, 0.32, 0.18, 0.10];
 
   /* How many vehicles are out, by local hour, peak hour = 1.
 
@@ -1491,8 +1530,14 @@
     if (st && close) {
       const hh = (st.hour < 10 ? '0' : '') + st.hour
                + ':' + (st.min < 10 ? '0' : '') + st.min;
-      const peak = st.cong > 0.66 ? 'peak' : st.cong > 0.3 ? 'building'
-                 : st.cong > 0.12 ? 'light' : 'quiet';
+      /* Recalibrated with the curve. These thresholds were set against a
+         curve whose midday sat at 0.18; the measured one puts it at 0.83,
+         so the old bands would have announced one in the afternoon as
+         "peak". The word has to keep meaning rush hour, and the measured
+         fact — that an arterial midday really does carry most of the
+         delay of a rush hour — is better said than mislabelled. */
+      const peak = st.cong > 0.92 ? 'peak' : st.cong > 0.72 ? 'heavy'
+                 : st.cong > 0.40 ? 'busy' : st.cong > 0.12 ? 'light' : 'quiet';
       bits.push(hh + ' in Austin, ' + peak);
     }
     const inc = C.traffic && C.traffic.incidents;
