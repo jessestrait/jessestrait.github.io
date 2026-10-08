@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 65,
-  "dispatch_only": 53,
+  "dispatch": 67,
+  "dispatch_only": 55,
   "here": 0,
   "here_matched": 0,
   "matched": 17,
-  "tomtom": 831,
-  "tomtom_only": 815
+  "tomtom": 852,
+  "tomtom_only": 836
  },
  "date": "2026-10-08",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 115.5,
+  "median": 115.8,
   "min": 7.8,
-  "n": 54,
-  "q1": 84.0,
+  "n": 55,
+  "q1": 84.9,
   "q3": 117.5
  },
  "here_onset_offset_min": {
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 7,
-   "n": 47,
-   "pct": 14.9
+   "n": 49,
+   "pct": 14.3
   },
   "tomtom_highway": {
    "matched": 8,
-   "n": 436,
+   "n": 449,
    "pct": 1.8
   },
   "tomtom_surface": {
    "matched": 8,
-   "n": 395,
+   "n": 403,
    "pct": 2.0
   }
  },
@@ -68,11 +68,11 @@
  },
  "persistence_min": {
   "max": 0.0,
-  "median": -27.9,
-  "min": -55.7,
-  "n": 6,
-  "q1": -48.2,
-  "q3": -3.8
+  "median": -40.6,
+  "min": -71.7,
+  "n": 7,
+  "q1": -55.7,
+  "q3": -5.1
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 742,
+  "hotspot_buckets": 757,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 789
+  "unreported_congestion": 810
  },
  "sampling": {
   "flow_spent_this_month": 1953,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 376,
+  "incidents_spent_this_month": 377,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -130,6 +130,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.520,-97.559"
+  },
+  {
+   "from": "Manor Rd (E 51st St)",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.310,-97.711"
   },
   {
    "from": "Geode Dr",
@@ -202,29 +209,22 @@
    "seg": "30.348,-97.562"
   },
   {
-   "from": "Muirfield Bend Dr",
+   "from": "CR-104 (TX-130)",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
-   "seg": "30.502,-97.581"
-  },
-  {
-   "from": "Manor Rd",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.304,-97.661"
+   "seg": "30.554,-97.577"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.5,
+  "dispatch": 82.1,
   "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 65,
-  "neither": 53,
+  "n": 67,
+  "neither": 55,
   "tomtom_only": 12
  }
 }
