@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 112,
-  "dispatch_only": 85,
+  "dispatch": 115,
+  "dispatch_only": 86,
   "here": 0,
   "here_matched": 0,
-  "matched": 43,
-  "tomtom": 1845,
-  "tomtom_only": 1799
+  "matched": 47,
+  "tomtom": 1920,
+  "tomtom_only": 1870
  },
  "date": "2026-10-08",
  "dispatch_life_capped": false,
@@ -23,9 +23,9 @@
   "max": 119.8,
   "median": 115.8,
   "min": 7.8,
-  "n": 92,
-  "q1": 73.6,
-  "q3": 117.4
+  "n": 93,
+  "q1": 73.8,
+  "q3": 117.5
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 7,
-   "n": 25,
-   "pct": 28.0
+   "n": 26,
+   "pct": 26.9
   },
   "dispatch_surface": {
-   "matched": 20,
-   "n": 87,
-   "pct": 23.0
+   "matched": 22,
+   "n": 89,
+   "pct": 24.7
   },
   "tomtom_highway": {
-   "matched": 27,
-   "n": 983,
-   "pct": 2.7
+   "matched": 28,
+   "n": 1013,
+   "pct": 2.8
   },
   "tomtom_surface": {
-   "matched": 19,
-   "n": 862,
-   "pct": 2.2
+   "matched": 22,
+   "n": 907,
+   "pct": 2.4
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 87.5,
   "median": 18.2,
   "min": -80.6,
-  "n": 43,
+  "n": 47,
   "q1": -3.7,
-  "q3": 42.0
+  "q3": 37.2
  },
  "persistence_min": {
   "max": 40.9,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1628,
+  "hotspot_buckets": 1684,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1768
+  "unreported_congestion": 1839
  },
  "sampling": {
   "flow_spent_this_month": 2052,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 396,
+  "incidents_spent_this_month": 397,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -188,6 +188,13 @@
    "seg": "30.267,-97.755"
   },
   {
+   "from": "E Ben White Blvd",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.215,-97.699"
+  },
+  {
    "from": "Austin",
    "hour_of_week": 93,
    "n": 3,
@@ -207,24 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.268,-97.734"
-  },
-  {
-   "from": "Geode Dr",
-   "hour_of_week": 67,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.455,-97.811"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 75.9,
-  "tomtom": 97.5
+  "dispatch": 74.8,
+  "tomtom": 97.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 112,
-  "neither": 85,
-  "tomtom_only": 27
+  "n": 115,
+  "neither": 86,
+  "tomtom_only": 29
  }
 }
