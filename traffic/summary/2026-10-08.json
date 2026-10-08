@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 62,
-  "dispatch_only": 54,
+  "dispatch_only": 53,
   "here": 0,
   "here_matched": 0,
-  "matched": 8,
-  "tomtom": 406,
-  "tomtom_only": 398
+  "matched": 9,
+  "tomtom": 433,
+  "tomtom_only": 424
  },
  "date": "2026-10-08",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.8,
   "median": 115.3,
   "min": 7.8,
-  "n": 52,
-  "q1": 82.2,
+  "n": 53,
+  "q1": 83.1,
   "q3": 117.5
  },
  "here_onset_offset_min": {
@@ -37,19 +37,19 @@
    "pct": 12.5
   },
   "dispatch_surface": {
-   "matched": 6,
+   "matched": 7,
    "n": 46,
-   "pct": 13.0
+   "pct": 15.2
   },
   "tomtom_highway": {
-   "matched": 2,
-   "n": 213,
-   "pct": 0.9
+   "matched": 3,
+   "n": 229,
+   "pct": 1.3
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 193,
-   "pct": 3.1
+   "n": 204,
+   "pct": 2.9
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 62.2,
-  "median": 33.9,
+  "median": 25.7,
   "min": -20.9,
-  "n": 8,
-  "q1": 14.2,
-  "q3": 53.8
+  "n": 9,
+  "q1": 14.7,
+  "q3": 50.0
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 360,
+  "hotspot_buckets": 385,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 372
+  "unreported_congestion": 398
  },
  "sampling": {
   "flow_spent_this_month": 1926,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 364,
+  "incidents_spent_this_month": 365,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -137,6 +137,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.192,-97.732"
+  },
+  {
+   "from": "TX-45 Toll/TX-130 Toll (Pearce Ln)",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.179,-97.644"
   },
   {
    "from": "Tree Fern Ln",
@@ -207,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.504,-97.777"
-  },
-  {
-   "from": "US Highway 183",
-   "hour_of_week": 71,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.470,-97.797"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.1,
-  "tomtom": 98.0
+  "dispatch": 85.5,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 62,
-  "neither": 54,
-  "tomtom_only": 8
+  "neither": 53,
+  "tomtom_only": 9
  }
 }
