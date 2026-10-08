@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 115,
-  "dispatch_only": 86,
+  "dispatch": 117,
+  "dispatch_only": 87,
   "here": 0,
   "here_matched": 0,
-  "matched": 47,
-  "tomtom": 1920,
-  "tomtom_only": 1870
+  "matched": 50,
+  "tomtom": 1970,
+  "tomtom_only": 1916
  },
  "date": "2026-10-08",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.8,
   "median": 115.8,
   "min": 7.8,
-  "n": 93,
-  "q1": 73.8,
+  "n": 96,
+  "q1": 76.0,
   "q3": 117.5
  },
  "here_onset_offset_min": {
@@ -37,19 +37,19 @@
    "pct": 26.9
   },
   "dispatch_surface": {
-   "matched": 22,
-   "n": 89,
-   "pct": 24.7
+   "matched": 23,
+   "n": 91,
+   "pct": 25.3
   },
   "tomtom_highway": {
-   "matched": 28,
-   "n": 1013,
-   "pct": 2.8
+   "matched": 33,
+   "n": 1042,
+   "pct": 3.2
   },
   "tomtom_surface": {
-   "matched": 22,
-   "n": 907,
-   "pct": 2.4
+   "matched": 21,
+   "n": 928,
+   "pct": 2.3
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 87.5,
-  "median": 18.2,
+  "median": 17.6,
   "min": -80.6,
-  "n": 47,
+  "n": 50,
   "q1": -3.7,
-  "q3": 37.2
+  "q3": 38.4
  },
  "persistence_min": {
   "max": 40.9,
-  "median": -43.2,
-  "min": -102.0,
-  "n": 26,
-  "q1": -76.6,
-  "q3": -22.8
+  "median": -45.7,
+  "min": -132.5,
+  "n": 27,
+  "q1": -76.7,
+  "q3": -25.3
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1684,
+  "hotspot_buckets": 1723,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1839
+  "unreported_congestion": 1885
  },
  "sampling": {
   "flow_spent_this_month": 2052,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 397,
+  "incidents_spent_this_month": 398,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -181,6 +181,13 @@
    "seg": "30.141,-97.800"
   },
   {
+   "from": "Guadalupe St (W 38th St)",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.305,-97.743"
+  },
+  {
    "from": "N Lamar Blvd",
    "hour_of_week": 93,
    "n": 3,
@@ -202,29 +209,22 @@
    "seg": "30.212,-97.657"
   },
   {
-   "from": "E 7th St",
+   "from": "Mopac Expy S",
    "hour_of_week": 93,
    "n": 3,
    "roadworks": false,
-   "seg": "30.267,-97.734"
-  },
-  {
-   "from": "E 11th St (I-35)",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.268,-97.734"
+   "seg": "30.301,-97.759"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 74.8,
-  "tomtom": 97.4
+  "dispatch": 74.4,
+  "tomtom": 97.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 115,
-  "neither": 86,
-  "tomtom_only": 29
+  "n": 117,
+  "neither": 87,
+  "tomtom_only": 30
  }
 }
