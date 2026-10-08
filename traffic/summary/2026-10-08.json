@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 119,
-  "dispatch_only": 88,
+  "dispatch": 120,
+  "dispatch_only": 89,
   "here": 0,
   "here_matched": 0,
-  "matched": 61,
-  "tomtom": 2441,
-  "tomtom_only": 2372
+  "matched": 62,
+  "tomtom": 2496,
+  "tomtom_only": 2424
  },
  "date": "2026-10-08",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.8,
   "median": 115.9,
   "min": 7.8,
-  "n": 100,
-  "q1": 82.2,
+  "n": 101,
+  "q1": 83.1,
   "q3": 117.5
  },
  "here_onset_offset_min": {
@@ -33,8 +33,8 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 7,
-   "n": 26,
-   "pct": 26.9
+   "n": 27,
+   "pct": 25.9
   },
   "dispatch_surface": {
    "matched": 24,
@@ -42,13 +42,13 @@
    "pct": 25.8
   },
   "tomtom_highway": {
-   "matched": 37,
-   "n": 1297,
+   "matched": 39,
+   "n": 1326,
    "pct": 2.9
   },
   "tomtom_surface": {
-   "matched": 32,
-   "n": 1144,
+   "matched": 33,
+   "n": 1170,
    "pct": 2.8
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.5,
-  "median": 22.9,
+  "median": 21.5,
   "min": -80.6,
-  "n": 61,
-  "q1": -1.4,
-  "q3": 46.1
+  "n": 62,
+  "q1": -1.1,
+  "q3": 44.3
  },
  "persistence_min": {
   "max": 45.8,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2136,
+  "hotspot_buckets": 2172,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2341
+  "unreported_congestion": 2393
  },
  "sampling": {
   "flow_spent_this_month": 2070,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 405,
+  "incidents_spent_this_month": 406,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -123,13 +123,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.268,-97.734"
-  },
-  {
-   "from": "W Cesar Chavez St",
-   "hour_of_week": 93,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.284,-97.765"
   },
   {
    "from": "Immanuel Rd",
@@ -214,17 +207,24 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.276,-97.730"
+  },
+  {
+   "from": "E Ben White Blvd",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.215,-97.699"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 73.9,
-  "tomtom": 97.2
+  "dispatch": 74.2,
+  "tomtom": 97.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 119,
-  "neither": 88,
+  "n": 120,
+  "neither": 89,
   "tomtom_only": 31
  }
 }
