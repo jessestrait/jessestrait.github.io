@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 8,
-  "tomtom": 390,
-  "tomtom_only": 382
+  "tomtom": 406,
+  "tomtom_only": 398
  },
  "date": "2026-10-08",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 206,
-   "pct": 1.0
+   "n": 213,
+   "pct": 0.9
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 184,
-   "pct": 3.3
+   "n": 193,
+   "pct": 3.1
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 346,
+  "hotspot_buckets": 360,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 356
+  "unreported_congestion": 372
  },
  "sampling": {
   "flow_spent_this_month": 1926,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 363,
+  "incidents_spent_this_month": 364,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "San Antonio Riverwalk",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.520,-97.559"
+  },
   {
    "from": "Geode Dr",
    "hour_of_week": 67,
@@ -207,18 +214,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.470,-97.797"
-  },
-  {
-   "from": "FM-620 (W Parmer Ln/FM-734)",
-   "hour_of_week": 70,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.496,-97.775"
   }
  ],
  "unmatched_pct": {
   "dispatch": 87.1,
-  "tomtom": 97.9
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
