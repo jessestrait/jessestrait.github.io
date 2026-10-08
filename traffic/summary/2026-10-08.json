@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 19,
-  "tomtom": 970,
-  "tomtom_only": 952
+  "tomtom": 1006,
+  "tomtom_only": 988
  },
  "date": "2026-10-08",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 521,
+   "n": 543,
    "pct": 1.7
   },
   "tomtom_surface": {
    "matched": 9,
-   "n": 449,
-   "pct": 2.0
+   "n": 463,
+   "pct": 1.9
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 858,
+  "hotspot_buckets": 887,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 926
+  "unreported_congestion": 962
  },
  "sampling": {
-  "flow_spent_this_month": 1962,
+  "flow_spent_this_month": 1971,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 381,
+  "incidents_spent_this_month": 382,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -145,6 +145,27 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.240,-97.800"
+  },
+  {
+   "from": "N Mo Pac Service Rd",
+   "hour_of_week": 85,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.371,-97.742"
+  },
+  {
+   "from": "Ranch Road 2222",
+   "hour_of_week": 85,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.357,-97.793"
+  },
+  {
+   "from": "Onion Creek Pkwy",
+   "hour_of_week": 85,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.141,-97.800"
   },
   {
    "from": "Geode Dr",
@@ -194,32 +215,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.500,-97.581"
-  },
-  {
-   "from": "Tinnapark Ln",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.161,-97.727"
-  },
-  {
-   "from": "Northeast Travis",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.427,-97.631"
-  },
-  {
-   "from": "Tur Weg Ln",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.348,-97.562"
   }
  ],
  "unmatched_pct": {
   "dispatch": 81.9,
-  "tomtom": 98.1
+  "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
