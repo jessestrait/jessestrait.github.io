@@ -13,9 +13,9 @@
   "dispatch_only": 87,
   "here": 0,
   "here_matched": 0,
-  "matched": 52,
-  "tomtom": 2023,
-  "tomtom_only": 1967
+  "matched": 53,
+  "tomtom": 2076,
+  "tomtom_only": 2018
  },
  "date": "2026-10-08",
  "dispatch_life_capped": false,
@@ -42,14 +42,14 @@
    "pct": 25.3
   },
   "tomtom_highway": {
-   "matched": 34,
-   "n": 1071,
-   "pct": 3.2
+   "matched": 33,
+   "n": 1097,
+   "pct": 3.0
   },
   "tomtom_surface": {
-   "matched": 22,
-   "n": 952,
-   "pct": 2.3
+   "matched": 25,
+   "n": 979,
+   "pct": 2.6
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 87.5,
   "median": 18.2,
   "min": -80.6,
-  "n": 52,
-  "q1": -3.3,
-  "q3": 40.8
+  "n": 53,
+  "q1": -2.9,
+  "q3": 42.0
  },
  "persistence_min": {
   "max": 40.9,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1763,
+  "hotspot_buckets": 1817,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1936
+  "unreported_congestion": 1987
  },
  "sampling": {
   "flow_spent_this_month": 2061,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 399,
+  "incidents_spent_this_month": 400,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -181,13 +181,6 @@
    "seg": "30.141,-97.800"
   },
   {
-   "from": "Guadalupe St (W 38th St)",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.305,-97.743"
-  },
-  {
    "from": "N Lamar Blvd",
    "hour_of_week": 93,
    "n": 3,
@@ -214,6 +207,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.301,-97.759"
+  },
+  {
+   "from": "E 11th St (I-35)",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.268,-97.734"
   }
  ],
  "unmatched_pct": {
