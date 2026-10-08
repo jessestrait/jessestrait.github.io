@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 44,
-  "dispatch_only": 40,
+  "dispatch": 47,
+  "dispatch_only": 43,
   "here": 0,
   "here_matched": 0,
   "matched": 4,
-  "tomtom": 251,
-  "tomtom_only": 247
+  "tomtom": 275,
+  "tomtom_only": 271
  },
  "date": "2026-10-08",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 117.3,
-  "min": 115.3,
-  "n": 18,
-  "q1": 116.5,
-  "q3": 118.9
+  "median": 103.4,
+  "min": 7.8,
+  "n": 44,
+  "q1": 62.0,
+  "q3": 117.1
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 10,
-   "pct": 10.0
+   "n": 11,
+   "pct": 9.1
   },
   "dispatch_surface": {
    "matched": 3,
-   "n": 34,
-   "pct": 8.8
+   "n": 36,
+   "pct": 8.3
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 120,
+   "n": 138,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 131,
-   "pct": 3.1
+   "n": 137,
+   "pct": 2.9
   }
  },
  "matcher": {
@@ -67,12 +67,12 @@
   "q3": 49.5
  },
  "persistence_min": {
-  "max": -5.1,
+  "max": 0.0,
   "median": -22.8,
-  "min": -40.6,
-  "n": 2,
-  "q1": -40.6,
-  "q3": -5.1
+  "min": -45.7,
+  "n": 4,
+  "q1": -44.4,
+  "q3": -1.3
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 218,
+  "hotspot_buckets": 240,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 226
+  "unreported_congestion": 248
  },
  "sampling": {
-  "flow_spent_this_month": 1845,
+  "flow_spent_this_month": 1854,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 353,
+  "incidents_spent_this_month": 354,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 90.9,
-  "tomtom": 98.4
+  "dispatch": 91.5,
+  "tomtom": 98.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 44,
-  "neither": 40,
+  "n": 47,
+  "neither": 43,
   "tomtom_only": 4
  }
 }
