@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 126,
+  "dispatch": 127,
   "dispatch_only": 92,
   "here": 0,
   "here_matched": 0,
-  "matched": 67,
-  "tomtom": 2592,
-  "tomtom_only": 2513
+  "matched": 70,
+  "tomtom": 2644,
+  "tomtom_only": 2562
  },
  "date": "2026-10-08",
  "dispatch_life_capped": false,
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 10,
-   "n": 29,
-   "pct": 34.5
+   "matched": 11,
+   "n": 30,
+   "pct": 36.7
   },
   "dispatch_surface": {
    "matched": 24,
@@ -42,13 +42,13 @@
    "pct": 24.7
   },
   "tomtom_highway": {
-   "matched": 43,
-   "n": 1377,
-   "pct": 3.1
+   "matched": 45,
+   "n": 1403,
+   "pct": 3.2
   },
   "tomtom_surface": {
-   "matched": 36,
-   "n": 1215,
+   "matched": 37,
+   "n": 1241,
    "pct": 3.0
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.5,
-  "median": 20.1,
+  "median": 19.1,
   "min": -80.6,
-  "n": 67,
+  "n": 70,
   "q1": -2.0,
-  "q3": 42.0
+  "q3": 41.9
  },
  "persistence_min": {
   "max": 45.8,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2227,
+  "hotspot_buckets": 2264,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2482
+  "unreported_congestion": 2531
  },
  "sampling": {
   "flow_spent_this_month": 2079,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 408,
+  "incidents_spent_this_month": 409,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -130,6 +130,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.265,-97.735"
+  },
+  {
+   "from": "Rental Car Ln",
+   "hour_of_week": 94,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.203,-97.669"
   },
   {
    "from": "Immanuel Rd",
@@ -207,24 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.348,-97.714"
-  },
-  {
-   "from": "E 15th St (I-35)",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.276,-97.730"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 73.0,
-  "tomtom": 97.0
+  "dispatch": 72.4,
+  "tomtom": 96.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 126,
+  "n": 127,
   "neither": 92,
-  "tomtom_only": 34
+  "tomtom_only": 35
  }
 }
