@@ -13,9 +13,9 @@
   "dispatch_only": 88,
   "here": 0,
   "here_matched": 0,
-  "matched": 59,
-  "tomtom": 2307,
-  "tomtom_only": 2241
+  "matched": 61,
+  "tomtom": 2386,
+  "tomtom_only": 2317
  },
  "date": "2026-10-08",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 37,
-   "n": 1222,
-   "pct": 3.0
+   "n": 1262,
+   "pct": 2.9
   },
   "tomtom_surface": {
-   "matched": 29,
-   "n": 1085,
-   "pct": 2.7
+   "matched": 32,
+   "n": 1124,
+   "pct": 2.8
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.5,
-  "median": 20.1,
+  "median": 22.9,
   "min": -80.6,
-  "n": 59,
-  "q1": -2.0,
-  "q3": 42.5
+  "n": 61,
+  "q1": -1.4,
+  "q3": 46.1
  },
  "persistence_min": {
   "max": 45.8,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2018,
+  "hotspot_buckets": 2089,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2210
+  "unreported_congestion": 2286
  },
  "sampling": {
   "flow_spent_this_month": 2070,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 403,
+  "incidents_spent_this_month": 404,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -123,13 +123,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.268,-97.734"
-  },
-  {
-   "from": "W Cesar Chavez St",
-   "hour_of_week": 93,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.284,-97.765"
   },
   {
    "from": "Immanuel Rd",
@@ -214,6 +207,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.276,-97.730"
+  },
+  {
+   "from": "E Ben White Blvd",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.215,-97.699"
   }
  ],
  "unmatched_pct": {
