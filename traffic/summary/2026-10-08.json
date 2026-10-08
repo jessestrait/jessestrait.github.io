@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 56,
-  "dispatch_only": 51,
+  "dispatch": 58,
+  "dispatch_only": 53,
   "here": 0,
   "here_matched": 0,
   "matched": 5,
-  "tomtom": 324,
-  "tomtom_only": 319
+  "tomtom": 348,
+  "tomtom_only": 343
  },
  "date": "2026-10-08",
  "dispatch_life_capped": false,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 4,
-   "n": 42,
-   "pct": 9.5
+   "n": 44,
+   "pct": 9.1
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 171,
+   "n": 185,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 153,
-   "pct": 3.3
+   "n": 163,
+   "pct": 3.1
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 285,
+  "hotspot_buckets": 308,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 293
+  "unreported_congestion": 317
  },
  "sampling": {
-  "flow_spent_this_month": 1908,
+  "flow_spent_this_month": 1917,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 360,
+  "incidents_spent_this_month": 361,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -167,6 +167,13 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "Lakewood Dr",
+   "hour_of_week": 83,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.377,-97.791"
+  },
+  {
    "from": "FM-2222/Bullick Hollow Rd (FM-620)",
    "hour_of_week": 71,
    "n": 1,
@@ -207,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.487,-97.771"
-  },
-  {
-   "from": "FM-1431/Chandler St/Exit 256 (I-35)",
-   "hour_of_week": 71,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.529,-97.691"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 91.1,
-  "tomtom": 98.5
+  "dispatch": 91.4,
+  "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 56,
-  "neither": 51,
+  "n": 58,
+  "neither": 53,
   "tomtom_only": 5
  }
 }
