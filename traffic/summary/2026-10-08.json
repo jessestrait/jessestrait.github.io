@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 63,
-  "dispatch_only": 54,
+  "dispatch_only": 53,
   "here": 0,
   "here_matched": 0,
-  "matched": 10,
-  "tomtom": 537,
-  "tomtom_only": 527
+  "matched": 12,
+  "tomtom": 577,
+  "tomtom_only": 566
  },
  "date": "2026-10-08",
  "dispatch_life_capped": false,
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 2,
+   "matched": 3,
    "n": 17,
-   "pct": 11.8
+   "pct": 17.6
   },
   "dispatch_surface": {
    "matched": 7,
@@ -42,14 +42,14 @@
    "pct": 15.2
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 278,
-   "pct": 1.4
+   "matched": 5,
+   "n": 301,
+   "pct": 1.7
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 259,
-   "pct": 2.3
+   "n": 276,
+   "pct": 2.2
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 62.2,
+  "max": 69.0,
   "median": 30.9,
   "min": -20.9,
-  "n": 10,
-  "q1": 15.9,
-  "q3": 46.2
+  "n": 12,
+  "q1": 13.4,
+  "q3": 53.8
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 481,
+  "hotspot_buckets": 514,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 501
+  "unreported_congestion": 540
  },
  "sampling": {
   "flow_spent_this_month": 1935,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 368,
+  "incidents_spent_this_month": 369,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -153,6 +153,20 @@
    "seg": "30.425,-97.626"
   },
   {
+   "from": "E Rector St",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.348,-97.556"
+  },
+  {
+   "from": "Hunters Bend Rd (FM-969)",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.251,-97.598"
+  },
+  {
    "from": "TX-45 Toll/TX-130 Toll (Pearce Ln)",
    "hour_of_week": 84,
    "n": 2,
@@ -165,13 +179,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.500,-97.581"
-  },
-  {
-   "from": "Tinnapark Ln",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.161,-97.727"
   },
   {
    "from": "Northeast Travis",
@@ -195,36 +202,29 @@
    "seg": "30.193,-97.624"
   },
   {
-   "from": "N Interstate 35",
-   "hour_of_week": 44,
+   "from": "US Highway 183",
+   "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
-   "seg": "30.460,-97.666"
+   "seg": "30.379,-97.739"
   },
   {
-   "from": "N Interstate 35",
-   "hour_of_week": 64,
+   "from": "Sauls Dr",
+   "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
-   "seg": "30.403,-97.674"
-  },
-  {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.245,-97.744"
+   "seg": "30.456,-97.682"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.7,
+  "dispatch": 84.1,
   "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 63,
-  "neither": 54,
-  "tomtom_only": 9
+  "neither": 53,
+  "tomtom_only": 10
  }
 }
