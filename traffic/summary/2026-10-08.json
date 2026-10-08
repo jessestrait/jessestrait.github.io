@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 43,
-  "tomtom": 1785,
-  "tomtom_only": 1739
+  "tomtom": 1845,
+  "tomtom_only": 1799
  },
  "date": "2026-10-08",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.8,
   "median": 115.8,
   "min": 7.8,
-  "n": 91,
-  "q1": 73.5,
+  "n": 92,
+  "q1": 73.6,
   "q3": 117.4
  },
  "here_onset_offset_min": {
@@ -42,13 +42,13 @@
    "pct": 23.0
   },
   "tomtom_highway": {
-   "matched": 28,
-   "n": 950,
-   "pct": 2.9
+   "matched": 27,
+   "n": 983,
+   "pct": 2.7
   },
   "tomtom_surface": {
-   "matched": 18,
-   "n": 835,
+   "matched": 19,
+   "n": 862,
    "pct": 2.2
   }
  },
@@ -67,12 +67,12 @@
   "q3": 42.0
  },
  "persistence_min": {
-  "max": 40.8,
-  "median": -45.7,
+  "max": 40.9,
+  "median": -43.2,
   "min": -102.0,
-  "n": 25,
-  "q1": -76.7,
-  "q3": -25.3
+  "n": 26,
+  "q1": -76.6,
+  "q3": -22.8
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1578,
+  "hotspot_buckets": 1628,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1708
+  "unreported_congestion": 1768
  },
  "sampling": {
   "flow_spent_this_month": 2052,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 395,
+  "incidents_spent_this_month": 396,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -188,6 +188,13 @@
    "seg": "30.267,-97.755"
   },
   {
+   "from": "Austin",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.212,-97.657"
+  },
+  {
    "from": "E 7th St",
    "hour_of_week": 93,
    "n": 3,
@@ -207,18 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.455,-97.811"
-  },
-  {
-   "from": "Thunderbird Rd",
-   "hour_of_week": 67,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.235,-97.900"
   }
  ],
  "unmatched_pct": {
   "dispatch": 75.9,
-  "tomtom": 97.4
+  "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
