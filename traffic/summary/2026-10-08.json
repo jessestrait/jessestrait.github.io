@@ -13,9 +13,9 @@
   "dispatch_only": 52,
   "here": 0,
   "here_matched": 0,
-  "matched": 14,
-  "tomtom": 666,
-  "tomtom_only": 653
+  "matched": 15,
+  "tomtom": 711,
+  "tomtom_only": 697
  },
  "date": "2026-10-08",
  "dispatch_life_capped": false,
@@ -42,14 +42,14 @@
    "pct": 15.2
   },
   "tomtom_highway": {
-   "matched": 6,
-   "n": 359,
-   "pct": 1.7
+   "matched": 7,
+   "n": 379,
+   "pct": 1.8
   },
   "tomtom_surface": {
    "matched": 7,
-   "n": 307,
-   "pct": 2.3
+   "n": 332,
+   "pct": 2.1
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 69.0,
-  "median": 30.9,
+  "median": 25.7,
   "min": -80.6,
-  "n": 14,
-  "q1": 10.4,
-  "q3": 51.7
+  "n": 15,
+  "q1": 5.0,
+  "q3": 49.7
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 590,
+  "hotspot_buckets": 629,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 627
+  "unreported_congestion": 671
  },
  "sampling": {
   "flow_spent_this_month": 1944,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 371,
+  "incidents_spent_this_month": 372,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -188,18 +188,18 @@
    "seg": "30.427,-97.631"
   },
   {
+   "from": "S Pleasant Valley Rd (E William Cannon Dr)",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.189,-97.768"
+  },
+  {
    "from": "Tur Weg Ln",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
    "seg": "30.348,-97.562"
-  },
-  {
-   "from": "Muirfield Bend Dr",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.502,-97.581"
   },
   {
    "from": "Manor Rd",
