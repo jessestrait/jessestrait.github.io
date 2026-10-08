@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 15,
-  "tomtom": 711,
-  "tomtom_only": 697
+  "tomtom": 743,
+  "tomtom_only": 729
  },
  "date": "2026-10-08",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 7,
-   "n": 379,
+   "n": 392,
    "pct": 1.8
   },
   "tomtom_surface": {
    "matched": 7,
-   "n": 332,
-   "pct": 2.1
+   "n": 351,
+   "pct": 2.0
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 629,
+  "hotspot_buckets": 656,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 671
+  "unreported_congestion": 703
  },
  "sampling": {
   "flow_spent_this_month": 1944,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 372,
+  "incidents_spent_this_month": 373,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -130,6 +130,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.520,-97.559"
+  },
+  {
+   "from": "Bergstrom Expy",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.238,-97.687"
   },
   {
    "from": "Geode Dr",
@@ -181,6 +188,13 @@
    "seg": "30.500,-97.581"
   },
   {
+   "from": "Tinnapark Ln",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.161,-97.727"
+  },
+  {
    "from": "Northeast Travis",
    "hour_of_week": 84,
    "n": 2,
@@ -200,25 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.348,-97.562"
-  },
-  {
-   "from": "Manor Rd",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.304,-97.661"
-  },
-  {
-   "from": "E Slaughter Ln",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.153,-97.753"
   }
  ],
  "unmatched_pct": {
   "dispatch": 81.2,
-  "tomtom": 98.0
+  "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
