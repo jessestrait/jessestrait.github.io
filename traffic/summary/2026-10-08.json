@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 43,
+  "dispatch": 44,
   "dispatch_only": 40,
   "here": 0,
   "here_matched": 0,
-  "matched": 3,
-  "tomtom": 230,
-  "tomtom_only": 227
+  "matched": 4,
+  "tomtom": 251,
+  "tomtom_only": 247
  },
  "date": "2026-10-08",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 117.0,
+  "median": 117.3,
   "min": 115.3,
-  "n": 16,
+  "n": 18,
   "q1": 116.5,
-  "q3": 119.0
+  "q3": 118.9
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,19 +37,19 @@
    "pct": 10.0
   },
   "dispatch_surface": {
-   "matched": 2,
-   "n": 33,
-   "pct": 6.1
+   "matched": 3,
+   "n": 34,
+   "pct": 8.8
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 116,
+   "n": 120,
    "pct": 0.0
   },
   "tomtom_surface": {
-   "matched": 3,
-   "n": 114,
-   "pct": 2.6
+   "matched": 4,
+   "n": 131,
+   "pct": 3.1
   }
  },
  "matcher": {
@@ -60,14 +60,19 @@
  },
  "onset_offset_min": {
   "max": 57.5,
-  "median": 12.2,
+  "median": 18.9,
   "min": -20.9,
-  "n": 3,
-  "q1": -20.9,
-  "q3": 57.5
+  "n": 4,
+  "q1": -12.6,
+  "q3": 49.5
  },
  "persistence_min": {
-  "n": 0
+  "max": -5.1,
+  "median": -22.8,
+  "min": -40.6,
+  "n": 2,
+  "q1": -40.6,
+  "q3": -5.1
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -84,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 199,
+  "hotspot_buckets": 218,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 206
+  "unreported_congestion": 226
  },
  "sampling": {
   "flow_spent_this_month": 1845,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 352,
+  "incidents_spent_this_month": 353,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +116,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.455,-97.811"
+  },
+  {
+   "from": "Thunderbird Rd",
+   "hour_of_week": 67,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.235,-97.900"
   },
   {
    "from": "N Interstate 35",
@@ -169,13 +181,6 @@
    "seg": "30.459,-97.822"
   },
   {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 71,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.476,-97.794"
-  },
-  {
    "from": "Avery Ranch Blvd (W Parmer Ln/FM-734)",
    "hour_of_week": 71,
    "n": 1,
@@ -212,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 93.0,
-  "tomtom": 98.7
+  "dispatch": 90.9,
+  "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 43,
+  "n": 44,
   "neither": 40,
-  "tomtom_only": 3
+  "tomtom_only": 4
  }
 }
