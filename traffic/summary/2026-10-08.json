@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 10,
-  "tomtom": 506,
-  "tomtom_only": 496
+  "tomtom": 537,
+  "tomtom_only": 527
  },
  "date": "2026-10-08",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 262,
-   "pct": 1.5
+   "n": 278,
+   "pct": 1.4
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 244,
-   "pct": 2.5
+   "n": 259,
+   "pct": 2.3
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 449,
+  "hotspot_buckets": 481,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 470
+  "unreported_congestion": 501
  },
  "sampling": {
   "flow_spent_this_month": 1935,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 367,
+  "incidents_spent_this_month": 368,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -181,25 +181,18 @@
    "seg": "30.427,-97.631"
   },
   {
+   "from": "E Slaughter Ln",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.153,-97.753"
+  },
+  {
    "from": "TX-71 exit [449]",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
    "seg": "30.193,-97.624"
-  },
-  {
-   "from": "Texel Ln",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.452,-97.574"
-  },
-  {
-   "from": "Tree Fern Ln",
-   "hour_of_week": 83,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.377,-97.791"
   },
   {
    "from": "N Interstate 35",
@@ -214,11 +207,18 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.403,-97.674"
+  },
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.245,-97.744"
   }
  ],
  "unmatched_pct": {
   "dispatch": 85.7,
-  "tomtom": 98.0
+  "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
