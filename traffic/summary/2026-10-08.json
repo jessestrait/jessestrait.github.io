@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 63,
-  "dispatch_only": 53,
+  "dispatch": 64,
+  "dispatch_only": 52,
   "here": 0,
   "here_matched": 0,
-  "matched": 12,
-  "tomtom": 577,
-  "tomtom_only": 566
+  "matched": 14,
+  "tomtom": 620,
+  "tomtom_only": 607
  },
  "date": "2026-10-08",
  "dispatch_life_capped": false,
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 3,
-   "n": 17,
-   "pct": 17.6
+   "matched": 5,
+   "n": 18,
+   "pct": 27.8
   },
   "dispatch_surface": {
    "matched": 7,
@@ -42,14 +42,14 @@
    "pct": 15.2
   },
   "tomtom_highway": {
-   "matched": 5,
-   "n": 301,
-   "pct": 1.7
+   "matched": 6,
+   "n": 323,
+   "pct": 1.9
   },
   "tomtom_surface": {
-   "matched": 6,
-   "n": 276,
-   "pct": 2.2
+   "matched": 7,
+   "n": 297,
+   "pct": 2.4
   }
  },
  "matcher": {
@@ -61,10 +61,10 @@
  "onset_offset_min": {
   "max": 69.0,
   "median": 30.9,
-  "min": -20.9,
-  "n": 12,
-  "q1": 13.4,
-  "q3": 53.8
+  "min": -80.6,
+  "n": 14,
+  "q1": 10.4,
+  "q3": 51.7
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 514,
+  "hotspot_buckets": 547,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 540
+  "unreported_congestion": 581
  },
  "sampling": {
-  "flow_spent_this_month": 1935,
+  "flow_spent_this_month": 1944,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 369,
+  "incidents_spent_this_month": 370,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Immanuel Rd",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.425,-97.626"
+  },
   {
    "from": "Highway 71 E",
    "hour_of_week": 84,
@@ -146,13 +153,6 @@
    "seg": "30.192,-97.732"
   },
   {
-   "from": "Immanuel Rd",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.425,-97.626"
-  },
-  {
    "from": "E Rector St",
    "hour_of_week": 84,
    "n": 2,
@@ -174,18 +174,25 @@
    "seg": "30.179,-97.644"
   },
   {
-   "from": "FM 685",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.500,-97.581"
-  },
-  {
    "from": "Northeast Travis",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
    "seg": "30.427,-97.631"
+  },
+  {
+   "from": "S Pleasant Valley Rd (E William Cannon Dr)",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.189,-97.768"
+  },
+  {
+   "from": "Tur Weg Ln",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.348,-97.562"
   },
   {
    "from": "E Slaughter Ln",
@@ -195,36 +202,29 @@
    "seg": "30.153,-97.753"
   },
   {
+   "from": "Pearce Ln (FM-973)",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.201,-97.640"
+  },
+  {
    "from": "TX-71 exit [449]",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
    "seg": "30.193,-97.624"
-  },
-  {
-   "from": "US Highway 183",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.379,-97.739"
-  },
-  {
-   "from": "Sauls Dr",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.456,-97.682"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 84.1,
-  "tomtom": 98.1
+  "dispatch": 81.2,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 63,
-  "neither": 53,
-  "tomtom_only": 10
+  "n": 64,
+  "neither": 52,
+  "tomtom_only": 12
  }
 }
