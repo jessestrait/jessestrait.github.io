@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 62,
-  "dispatch_only": 57,
+  "dispatch_only": 54,
   "here": 0,
   "here_matched": 0,
-  "matched": 5,
-  "tomtom": 348,
-  "tomtom_only": 343
+  "matched": 8,
+  "tomtom": 372,
+  "tomtom_only": 364
  },
  "date": "2026-10-08",
  "dispatch_life_capped": false,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
+   "matched": 2,
    "n": 16,
-   "pct": 6.2
+   "pct": 12.5
   },
   "dispatch_surface": {
-   "matched": 4,
+   "matched": 6,
    "n": 46,
-   "pct": 8.7
+   "pct": 13.0
   },
   "tomtom_highway": {
-   "matched": 0,
-   "n": 185,
-   "pct": 0.0
+   "matched": 2,
+   "n": 198,
+   "pct": 1.0
   },
   "tomtom_surface": {
-   "matched": 5,
-   "n": 163,
-   "pct": 3.1
+   "matched": 6,
+   "n": 174,
+   "pct": 3.4
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 57.5,
-  "median": 25.7,
+  "max": 62.2,
+  "median": 33.9,
   "min": -20.9,
-  "n": 5,
-  "q1": -4.3,
-  "q3": 50.0
+  "n": 8,
+  "q1": 14.2,
+  "q3": 53.8
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 308,
+  "hotspot_buckets": 329,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 317
+  "unreported_congestion": 338
  },
  "sampling": {
-  "flow_spent_this_month": 1917,
+  "flow_spent_this_month": 1926,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 361,
+  "incidents_spent_this_month": 362,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -107,7 +107,7 @@
    18
   ],
   "rush_min": 5,
-  "this_poll": "off-peak"
+  "this_poll": "rush"
  },
  "structural_hotspots": [
   {
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 91.9,
-  "tomtom": 98.6
+  "dispatch": 87.1,
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 62,
-  "neither": 57,
-  "tomtom_only": 5
+  "neither": 54,
+  "tomtom_only": 8
  }
 }
