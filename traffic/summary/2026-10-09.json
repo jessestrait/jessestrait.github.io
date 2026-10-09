@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 52,
-  "tomtom": 1426,
-  "tomtom_only": 1360
+  "tomtom": 1453,
+  "tomtom_only": 1387
  },
  "date": "2026-10-09",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 40,
-   "n": 785,
-   "pct": 5.1
+   "n": 799,
+   "pct": 5.0
   },
   "tomtom_surface": {
    "matched": 26,
-   "n": 641,
-   "pct": 4.1
+   "n": 654,
+   "pct": 4.0
   }
  },
  "matcher": {
@@ -68,11 +68,11 @@
  },
  "persistence_min": {
   "max": 57.5,
-  "median": -61.5,
+  "median": -56.4,
   "min": -1330.5,
-  "n": 25,
+  "n": 26,
   "q1": -124.7,
-  "q3": -30.3,
+  "q3": -29.4,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1206,
+  "hotspot_buckets": 1230,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1322
+  "unreported_congestion": 1349
  },
  "sampling": {
   "flow_spent_this_month": 2340,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 470,
+  "incidents_spent_this_month": 471,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -182,11 +182,11 @@
    "seg": "30.288,-97.665"
   },
   {
-   "from": "Manor Rd",
-   "hour_of_week": 118,
+   "from": "Nature Center Dr",
+   "hour_of_week": 86,
    "n": 3,
    "roadworks": false,
-   "seg": "30.306,-97.661"
+   "seg": "30.274,-97.774"
   },
   {
    "from": "Barton Springs Rd (S Lamar Blvd)",
@@ -194,6 +194,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.267,-97.756"
+  },
+  {
+   "from": "Highway 71 E",
+   "hour_of_week": 118,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.214,-97.662"
   },
   {
    "from": "I-35 Service Rd (E Rundberg Ln)",
@@ -208,18 +215,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.193,-97.735"
-  },
-  {
-   "from": "Creston St",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.520,-97.559"
   }
  ],
  "unmatched_pct": {
   "dispatch": 67.0,
-  "tomtom": 95.4
+  "tomtom": 95.5
  },
  "witnesses": {
   "both": 0,
