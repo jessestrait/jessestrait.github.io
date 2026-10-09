@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 340,
-  "tomtom_only": 334
+  "tomtom": 347,
+  "tomtom_only": 341
  },
  "date": "2026-10-09",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 181,
+   "n": 184,
    "pct": 3.3
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 159,
+   "n": 163,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 294,
+  "hotspot_buckets": 301,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 302
+  "unreported_congestion": 309
  },
  "sampling": {
   "flow_spent_this_month": 2187,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 428,
+  "incidents_spent_this_month": 429,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -107,15 +107,15 @@
    18
   ],
   "rush_min": 5,
-  "this_poll": "off-peak"
+  "this_poll": "rush"
  },
  "structural_hotspots": [
   {
-   "from": "Ribelin Ranch Dr",
+   "from": "S Interstate 35",
    "hour_of_week": 107,
    "n": 2,
    "roadworks": false,
-   "seg": "30.395,-97.832"
+   "seg": "30.195,-97.767"
   },
   {
    "from": "N Interstate 35",
@@ -218,7 +218,7 @@
  ],
  "unmatched_pct": {
   "dispatch": 88.0,
-  "tomtom": 98.2
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
