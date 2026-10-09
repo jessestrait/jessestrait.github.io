@@ -13,9 +13,9 @@
   "dispatch_only": 71,
   "here": 0,
   "here_matched": 0,
-  "matched": 53,
-  "tomtom": 1480,
-  "tomtom_only": 1412
+  "matched": 55,
+  "tomtom": 1515,
+  "tomtom_only": 1445
  },
  "date": "2026-10-09",
  "dispatch_life_capped": true,
@@ -42,14 +42,14 @@
    "pct": 34.5
   },
   "tomtom_highway": {
-   "matched": 42,
-   "n": 816,
-   "pct": 5.1
+   "matched": 44,
+   "n": 832,
+   "pct": 5.3
   },
   "tomtom_surface": {
    "matched": 26,
-   "n": 664,
-   "pct": 3.9
+   "n": 683,
+   "pct": 3.8
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 89.7,
-  "median": 8.2,
+  "median": 8.3,
   "min": -53.7,
-  "n": 53,
-  "q1": -13.6,
-  "q3": 38.4
+  "n": 55,
+  "q1": -11.6,
+  "q3": 38.9
  },
  "persistence_min": {
   "max": 57.5,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1248,
+  "hotspot_buckets": 1266,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1374
+  "unreported_congestion": 1407
  },
  "sampling": {
-  "flow_spent_this_month": 2340,
+  "flow_spent_this_month": 2349,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 472,
+  "incidents_spent_this_month": 473,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -189,6 +189,20 @@
    "seg": "30.274,-97.774"
   },
   {
+   "from": "S 1st St (Mary St W)",
+   "hour_of_week": 118,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.249,-97.765"
+  },
+  {
+   "from": "E Ben White Blvd",
+   "hour_of_week": 118,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.215,-97.699"
+  },
+  {
    "from": "Barton Springs Rd (S Lamar Blvd)",
    "hour_of_week": 118,
    "n": 3,
@@ -201,20 +215,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.214,-97.662"
-  },
-  {
-   "from": "US Highway 183",
-   "hour_of_week": 118,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.470,-97.797"
-  },
-  {
-   "from": "I-35 Service Rd (E Rundberg Ln)",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.351,-97.677"
   }
  ],
  "unmatched_pct": {
