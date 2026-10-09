@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 112,
+  "dispatch": 113,
   "dispatch_only": 76,
   "here": 0,
   "here_matched": 0,
-  "matched": 60,
-  "tomtom": 1620,
-  "tomtom_only": 1544
+  "matched": 63,
+  "tomtom": 1642,
+  "tomtom_only": 1560
  },
  "date": "2026-10-09",
  "dispatch_life_capped": true,
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 6,
-   "n": 22,
-   "pct": 27.3
+   "n": 23,
+   "pct": 26.1
   },
   "dispatch_surface": {
-   "matched": 30,
+   "matched": 31,
    "n": 90,
-   "pct": 33.3
+   "pct": 34.4
   },
   "tomtom_highway": {
-   "matched": 46,
-   "n": 881,
-   "pct": 5.2
+   "matched": 48,
+   "n": 895,
+   "pct": 5.4
   },
   "tomtom_surface": {
-   "matched": 30,
-   "n": 739,
-   "pct": 4.1
+   "matched": 34,
+   "n": 747,
+   "pct": 4.6
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 89.7,
-  "median": 8.2,
+  "median": 8.5,
   "min": -53.7,
-  "n": 60,
+  "n": 63,
   "q1": -11.6,
-  "q3": 38.6
+  "q3": 38.9
  },
  "persistence_min": {
   "max": 165.4,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1349,
+  "hotspot_buckets": 1364,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1506
+  "unreported_congestion": 1521
  },
  "sampling": {
   "flow_spent_this_month": 2358,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 478,
+  "incidents_spent_this_month": 479,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -203,29 +203,29 @@
    "seg": "30.274,-97.774"
   },
   {
+   "from": "TX-130 Toll (Gattis School Rd)",
+   "hour_of_week": 118,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.497,-97.611"
+  },
+  {
    "from": "S 1st St (Mary St W)",
    "hour_of_week": 118,
    "n": 3,
    "roadworks": false,
    "seg": "30.249,-97.765"
-  },
-  {
-   "from": "E Ben White Blvd",
-   "hour_of_week": 118,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.215,-97.699"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 67.9,
-  "tomtom": 95.3
+  "dispatch": 67.3,
+  "tomtom": 95.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 112,
+  "n": 113,
   "neither": 76,
-  "tomtom_only": 36
+  "tomtom_only": 37
  }
 }
