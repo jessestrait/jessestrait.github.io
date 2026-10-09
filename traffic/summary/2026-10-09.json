@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 101, q3 118 min over 90 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 103, q3 118 min over 91 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 110,
-  "dispatch_only": 74,
+  "dispatch": 112,
+  "dispatch_only": 76,
   "here": 0,
   "here_matched": 0,
-  "matched": 59,
-  "tomtom": 1574,
-  "tomtom_only": 1499
+  "matched": 60,
+  "tomtom": 1596,
+  "tomtom_only": 1520
  },
  "date": "2026-10-09",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 116.2,
+  "median": 116.3,
   "min": 21.3,
-  "n": 90,
-  "q1": 101.3,
+  "n": 91,
+  "q1": 103.1,
   "q3": 117.5
  },
  "here_onset_offset_min": {
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 30,
-   "n": 88,
-   "pct": 34.1
+   "n": 90,
+   "pct": 33.3
   },
   "tomtom_highway": {
-   "matched": 47,
-   "n": 864,
-   "pct": 5.4
+   "matched": 46,
+   "n": 872,
+   "pct": 5.3
   },
   "tomtom_surface": {
-   "matched": 28,
-   "n": 710,
-   "pct": 3.9
+   "matched": 30,
+   "n": 724,
+   "pct": 4.1
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 89.7,
-  "median": 8.3,
+  "median": 8.2,
   "min": -53.7,
-  "n": 59,
+  "n": 60,
   "q1": -11.6,
-  "q3": 38.9
+  "q3": 38.6
  },
  "persistence_min": {
   "max": 86.9,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1306,
+  "hotspot_buckets": 1326,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1461
+  "unreported_congestion": 1482
  },
  "sampling": {
-  "flow_spent_this_month": 2349,
+  "flow_spent_this_month": 2358,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 476,
+  "incidents_spent_this_month": 477,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Highway 71 E",
+   "hour_of_week": 118,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.214,-97.662"
+  },
   {
    "from": "US Highway 183",
    "hour_of_week": 118,
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.249,-97.765"
-  },
-  {
-   "from": "E Ben White Blvd",
-   "hour_of_week": 118,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.215,-97.699"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 67.3,
+  "dispatch": 67.9,
   "tomtom": 95.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 110,
-  "neither": 74,
+  "n": 112,
+  "neither": 76,
   "tomtom_only": 36
  }
 }
