@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 56,
-  "dispatch_only": 50,
+  "dispatch": 57,
+  "dispatch_only": 51,
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 446,
-  "tomtom_only": 440
+  "tomtom": 452,
+  "tomtom_only": 446
  },
  "date": "2026-10-09",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 3,
-   "n": 41,
-   "pct": 7.3
+   "n": 42,
+   "pct": 7.1
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 240,
+   "n": 243,
    "pct": 2.5
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 206,
+   "n": 209,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 394,
+  "hotspot_buckets": 398,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 408
+  "unreported_congestion": 414
  },
  "sampling": {
   "flow_spent_this_month": 2214,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 440,
+  "incidents_spent_this_month": 441,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,11 +160,25 @@
    "seg": "30.430,-97.633"
   },
   {
+   "from": "Airport Blvd/Exit 237 (I-35)",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.295,-97.720"
+  },
+  {
    "from": "McNeil Dr",
    "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
    "seg": "30.396,-97.829"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.461,-97.665"
   },
   {
    "from": "N Interstate 35",
@@ -200,31 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "Cypress Creek Rd",
-   "hour_of_week": 95,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.472,-97.842"
-  },
-  {
-   "from": "FM-2222/Bullick Hollow Rd (FM-620)",
-   "hour_of_week": 93,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.444,-97.833"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 89.3,
+  "dispatch": 89.5,
   "tomtom": 98.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 56,
-  "neither": 50,
+  "n": 57,
+  "neither": 51,
   "tomtom_only": 6
  }
 }
