@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 95, q3 118 min over 80 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 95, q3 118 min over 83 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 104,
-  "dispatch_only": 71,
+  "dispatch": 105,
+  "dispatch_only": 70,
   "here": 0,
   "here_matched": 0,
-  "matched": 45,
-  "tomtom": 1353,
-  "tomtom_only": 1299
+  "matched": 49,
+  "tomtom": 1395,
+  "tomtom_only": 1336
  },
  "date": "2026-10-09",
  "dispatch_life_capped": true,
@@ -23,8 +23,8 @@
   "max": 119.7,
   "median": 115.9,
   "min": 21.3,
-  "n": 80,
-  "q1": 95.2,
+  "n": 83,
+  "q1": 95.3,
   "q3": 117.5
  },
  "here_onset_offset_min": {
@@ -37,19 +37,19 @@
    "pct": 28.6
   },
   "dispatch_surface": {
-   "matched": 27,
-   "n": 83,
-   "pct": 32.5
+   "matched": 29,
+   "n": 84,
+   "pct": 34.5
   },
   "tomtom_highway": {
-   "matched": 31,
-   "n": 746,
-   "pct": 4.2
+   "matched": 34,
+   "n": 770,
+   "pct": 4.4
   },
   "tomtom_surface": {
-   "matched": 23,
-   "n": 607,
-   "pct": 3.8
+   "matched": 25,
+   "n": 625,
+   "pct": 4.0
   }
  },
  "matcher": {
@@ -62,17 +62,17 @@
   "max": 89.7,
   "median": 7.4,
   "min": -53.7,
-  "n": 45,
-  "q1": -21.1,
+  "n": 49,
+  "q1": -17.1,
   "q3": 39.0
  },
  "persistence_min": {
   "max": 57.5,
-  "median": -33.1,
+  "median": -51.3,
   "min": -1330.5,
-  "n": 14,
-  "q1": -73.4,
-  "q3": -29.4,
+  "n": 21,
+  "q1": -112.0,
+  "q3": -30.3,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1155,
+  "hotspot_buckets": 1185,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1261
+  "unreported_congestion": 1298
  },
  "sampling": {
-  "flow_spent_this_month": 2331,
+  "flow_spent_this_month": 2340,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 468,
+  "incidents_spent_this_month": 469,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -182,6 +182,13 @@
    "seg": "30.306,-97.661"
   },
   {
+   "from": "Barton Springs Rd (S Lamar Blvd)",
+   "hour_of_week": 118,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.267,-97.756"
+  },
+  {
    "from": "S Interstate 35",
    "hour_of_week": 107,
    "n": 2,
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.520,-97.559"
-  },
-  {
-   "from": "Tesla Rd",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.226,-97.616"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 68.3,
-  "tomtom": 96.0
+  "dispatch": 66.7,
+  "tomtom": 95.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 104,
-  "neither": 71,
-  "tomtom_only": 33
+  "n": 105,
+  "neither": 70,
+  "tomtom_only": 35
  }
 }
