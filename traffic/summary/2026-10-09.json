@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 93, q3 118 min over 73 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 93, q3 118 min over 74 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 97,
-  "dispatch_only": 72,
+  "dispatch": 99,
+  "dispatch_only": 71,
   "here": 0,
   "here_matched": 0,
-  "matched": 30,
-  "tomtom": 1083,
-  "tomtom_only": 1050
+  "matched": 34,
+  "tomtom": 1126,
+  "tomtom_only": 1089
  },
  "date": "2026-10-09",
  "dispatch_life_capped": true,
@@ -23,8 +23,8 @@
   "max": 119.7,
   "median": 115.7,
   "min": 21.3,
-  "n": 73,
-  "q1": 92.8,
+  "n": 74,
+  "q1": 93.2,
   "q3": 117.5
  },
  "here_onset_offset_min": {
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 4,
+   "matched": 6,
    "n": 21,
-   "pct": 19.0
+   "pct": 28.6
   },
   "dispatch_surface": {
-   "matched": 21,
-   "n": 76,
-   "pct": 27.6
+   "matched": 22,
+   "n": 78,
+   "pct": 28.2
   },
   "tomtom_highway": {
-   "matched": 19,
-   "n": 589,
-   "pct": 3.2
+   "matched": 22,
+   "n": 615,
+   "pct": 3.6
   },
   "tomtom_surface": {
-   "matched": 14,
-   "n": 494,
-   "pct": 2.8
+   "matched": 15,
+   "n": 511,
+   "pct": 2.9
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 86.4,
-  "median": 1.4,
+  "median": 4.7,
   "min": -53.7,
-  "n": 30,
+  "n": 34,
   "q1": -27.9,
-  "q3": 38.9
+  "q3": 39.1
  },
  "persistence_min": {
   "max": -25.3,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 947,
+  "hotspot_buckets": 972,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1013
+  "unreported_congestion": 1052
  },
  "sampling": {
   "flow_spent_this_month": 2322,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 461,
+  "incidents_spent_this_month": 462,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -126,6 +126,13 @@
    "seg": "30.266,-97.753"
   },
   {
+   "from": "Benning Dr",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.470,-97.590"
+  },
+  {
    "from": "TX-130 Toll/TX-45 Toll (US-290)",
    "hour_of_week": 116,
    "n": 3,
@@ -133,11 +140,11 @@
    "seg": "30.345,-97.575"
   },
   {
-   "from": "Cesar Chavez St exit [234A]",
+   "from": "E 51st St",
    "hour_of_week": 117,
    "n": 3,
    "roadworks": false,
-   "seg": "30.262,-97.736"
+   "seg": "30.288,-97.665"
   },
   {
    "from": "S Interstate 35",
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.470,-97.669"
-  },
-  {
-   "from": "S Interstate 35",
-   "hour_of_week": 109,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.186,-97.773"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 74.2,
-  "tomtom": 97.0
+  "dispatch": 71.7,
+  "tomtom": 96.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 97,
-  "neither": 72,
-  "tomtom_only": 25
+  "n": 99,
+  "neither": 71,
+  "tomtom_only": 28
  }
 }
