@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 418,
-  "tomtom_only": 412
+  "tomtom": 429,
+  "tomtom_only": 423
  },
  "date": "2026-10-09",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 222,
-   "pct": 2.7
+   "n": 229,
+   "pct": 2.6
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 196,
+   "n": 200,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 368,
+  "hotspot_buckets": 378,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 380
+  "unreported_congestion": 391
  },
  "sampling": {
-  "flow_spent_this_month": 2205,
+  "flow_spent_this_month": 2214,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 437,
+  "incidents_spent_this_month": 438,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -195,6 +195,13 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "McNeil Dr",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.396,-97.829"
+  },
+  {
    "from": "Cypress Creek Rd",
    "hour_of_week": 95,
    "n": 1,
@@ -207,13 +214,6 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.444,-97.833"
-  },
-  {
-   "from": "FM-2769 (Anderson Mill Rd)",
-   "hour_of_week": 95,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.456,-97.827"
   }
  ],
  "unmatched_pct": {
