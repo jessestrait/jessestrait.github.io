@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 101,
+  "dispatch": 102,
   "dispatch_only": 72,
   "here": 0,
   "here_matched": 0,
-  "matched": 38,
-  "tomtom": 1227,
-  "tomtom_only": 1185
+  "matched": 39,
+  "tomtom": 1268,
+  "tomtom_only": 1222
  },
  "date": "2026-10-09",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 28.6
   },
   "dispatch_surface": {
-   "matched": 23,
-   "n": 80,
-   "pct": 28.8
+   "matched": 24,
+   "n": 81,
+   "pct": 29.6
   },
   "tomtom_highway": {
-   "matched": 25,
-   "n": 669,
-   "pct": 3.7
+   "matched": 27,
+   "n": 693,
+   "pct": 3.9
   },
   "tomtom_surface": {
-   "matched": 17,
-   "n": 558,
-   "pct": 3.0
+   "matched": 19,
+   "n": 575,
+   "pct": 3.3
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 88.4,
-  "median": 6.3,
+  "median": 5.2,
   "min": -53.7,
-  "n": 38,
-  "q1": -26.6,
+  "n": 39,
+  "q1": -26.1,
   "q3": 39.1
  },
  "persistence_min": {
-  "max": -25.3,
-  "median": -33.1,
+  "max": 57.5,
+  "median": -30.3,
   "min": -1330.5,
-  "n": 12,
+  "n": 13,
   "q1": -73.4,
-  "q3": -30.3,
+  "q3": -28.5,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1055,
+  "hotspot_buckets": 1096,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1148
+  "unreported_congestion": 1185
  },
  "sampling": {
   "flow_spent_this_month": 2331,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 465,
+  "incidents_spent_this_month": 466,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -138,20 +138,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.470,-97.590"
-  },
-  {
-   "from": "Slaughter Ln/Exit 226 (I-35)",
-   "hour_of_week": 114,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.190,-97.771"
-  },
-  {
-   "from": "S 1st St/Conroy Ln (FM-1626)",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.141,-97.797"
   },
   {
    "from": "Christina Garza Dr",
@@ -215,17 +201,31 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.226,-97.616"
+  },
+  {
+   "from": "Northeast Travis",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.430,-97.633"
+  },
+  {
+   "from": "Airport Blvd/Exit 237 (I-35)",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.295,-97.720"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 71.3,
-  "tomtom": 96.6
+  "dispatch": 70.6,
+  "tomtom": 96.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 101,
+  "n": 102,
   "neither": 72,
-  "tomtom_only": 29
+  "tomtom_only": 30
  }
 }
