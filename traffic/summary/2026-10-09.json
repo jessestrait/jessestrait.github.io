@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 104, q3 118 min over 97 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 105, q3 118 min over 99 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -13,9 +13,9 @@
   "dispatch_only": 80,
   "here": 0,
   "here_matched": 0,
-  "matched": 67,
-  "tomtom": 1740,
-  "tomtom_only": 1652
+  "matched": 68,
+  "tomtom": 1764,
+  "tomtom_only": 1674
  },
  "date": "2026-10-09",
  "dispatch_life_capped": true,
@@ -23,8 +23,8 @@
   "max": 119.7,
   "median": 116.3,
   "min": 21.3,
-  "n": 97,
-  "q1": 104.0,
+  "n": 99,
+  "q1": 104.8,
   "q3": 117.9
  },
  "here_onset_offset_min": {
@@ -42,13 +42,13 @@
    "pct": 33.0
   },
   "tomtom_highway": {
-   "matched": 51,
-   "n": 946,
+   "matched": 52,
+   "n": 958,
    "pct": 5.4
   },
   "tomtom_surface": {
-   "matched": 37,
-   "n": 794,
+   "matched": 38,
+   "n": 806,
    "pct": 4.7
   }
  },
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 89.7,
-  "median": 12.0,
+  "median": 12.9,
   "min": -53.7,
-  "n": 67,
-  "q1": -9.1,
+  "n": 68,
+  "q1": -8.9,
   "q3": 39.1
  },
  "persistence_min": {
   "max": 165.4,
-  "median": -61.2,
+  "median": -61.5,
   "min": -1330.5,
-  "n": 42,
-  "q1": -102.9,
-  "q3": -26.3,
+  "n": 45,
+  "q1": -101.6,
+  "q3": -28.5,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1427,
+  "hotspot_buckets": 1445,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1613
+  "unreported_congestion": 1635
  },
  "sampling": {
-  "flow_spent_this_month": 2367,
+  "flow_spent_this_month": 2376,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 484,
+  "incidents_spent_this_month": 485,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -112,6 +112,13 @@
  },
  "structural_hotspots": [
   {
+   "from": "Austin",
+   "hour_of_week": 112,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.258,-97.739"
+  },
+  {
    "from": "Highway 71 E",
    "hour_of_week": 118,
    "n": 4,
@@ -124,6 +131,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.470,-97.797"
+  },
+  {
+   "from": "S Pleasant Valley Rd (E William Cannon Dr)",
+   "hour_of_week": 119,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.164,-97.728"
   },
   {
    "from": "McNeil Dr",
@@ -152,13 +166,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.346,-97.572"
-  },
-  {
-   "from": "Austin",
-   "hour_of_week": 112,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.258,-97.739"
   },
   {
    "from": "Benning Dr",
@@ -208,13 +215,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.249,-97.765"
-  },
-  {
-   "from": "E Ben White Blvd",
-   "hour_of_week": 118,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.215,-97.699"
   }
  ],
  "unmatched_pct": {
