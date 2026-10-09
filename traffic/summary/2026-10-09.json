@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 51,
-  "dispatch_only": 45,
+  "dispatch": 53,
+  "dispatch_only": 47,
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 356,
-  "tomtom_only": 350
+  "tomtom": 364,
+  "tomtom_only": 358
  },
  "date": "2026-10-09",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 3,
-   "n": 37,
-   "pct": 8.1
+   "n": 39,
+   "pct": 7.7
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 188,
-   "pct": 3.2
+   "n": 191,
+   "pct": 3.1
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 168,
+   "n": 173,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 309,
+  "hotspot_buckets": 317,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 318
+  "unreported_congestion": 326
  },
  "sampling": {
   "flow_spent_this_month": 2196,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 430,
+  "incidents_spent_this_month": 431,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -139,6 +139,13 @@
    "seg": "30.403,-97.674"
   },
   {
+   "from": "W Cesar Chavez St",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.266,-97.753"
+  },
+  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
@@ -165,13 +172,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "W Cesar Chavez St",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.266,-97.753"
   },
   {
    "from": "Cypress Creek Rd",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.2,
-  "tomtom": 98.3
+  "dispatch": 88.7,
+  "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 51,
-  "neither": 45,
+  "n": 53,
+  "neither": 47,
   "tomtom_only": 6
  }
 }
