@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 54,
-  "dispatch_only": 48,
+  "dispatch": 55,
+  "dispatch_only": 49,
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 394,
-  "tomtom_only": 388
+  "tomtom": 403,
+  "tomtom_only": 397
  },
  "date": "2026-10-09",
  "dispatch_life_capped": false,
@@ -33,8 +33,8 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 3,
-   "n": 14,
-   "pct": 21.4
+   "n": 15,
+   "pct": 20.0
   },
   "dispatch_surface": {
    "matched": 3,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 204,
-   "pct": 2.9
+   "n": 212,
+   "pct": 2.8
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 190,
+   "n": 191,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 343,
+  "hotspot_buckets": 352,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 356
+  "unreported_congestion": 365
  },
  "sampling": {
   "flow_spent_this_month": 2205,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 434,
+  "incidents_spent_this_month": 435,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -139,11 +139,18 @@
    "seg": "30.520,-97.559"
   },
   {
-   "from": "Ribelin Ranch Dr",
-   "hour_of_week": 107,
+   "from": "Bloor Rd (FM-973)",
+   "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
-   "seg": "30.394,-97.833"
+   "seg": "30.338,-97.558"
+  },
+  {
+   "from": "Northeast Travis",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.430,-97.633"
   },
   {
    "from": "N Interstate 35",
@@ -195,13 +202,6 @@
    "seg": "30.179,-97.616"
   },
   {
-   "from": "Northeast Travis",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.430,-97.633"
-  },
-  {
    "from": "Cypress Creek Rd",
    "hour_of_week": 95,
    "n": 1,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.9,
+  "dispatch": 89.1,
   "tomtom": 98.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 54,
-  "neither": 48,
+  "n": 55,
+  "neither": 49,
   "tomtom_only": 6
  }
 }
