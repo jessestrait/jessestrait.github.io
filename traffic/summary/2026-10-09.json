@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 117,
-  "dispatch_only": 80,
+  "dispatch": 118,
+  "dispatch_only": 81,
   "here": 0,
   "here_matched": 0,
-  "matched": 68,
-  "tomtom": 1764,
-  "tomtom_only": 1674
+  "matched": 69,
+  "tomtom": 1781,
+  "tomtom_only": 1689
  },
  "date": "2026-10-09",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 31,
-   "n": 94,
-   "pct": 33.0
+   "n": 95,
+   "pct": 32.6
   },
   "tomtom_highway": {
-   "matched": 52,
-   "n": 958,
-   "pct": 5.4
+   "matched": 54,
+   "n": 965,
+   "pct": 5.6
   },
   "tomtom_surface": {
    "matched": 38,
-   "n": 806,
+   "n": 816,
    "pct": 4.7
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 89.7,
-  "median": 12.9,
+  "median": 13.9,
   "min": -53.7,
-  "n": 68,
-  "q1": -8.9,
-  "q3": 39.1
+  "n": 69,
+  "q1": -8.8,
+  "q3": 43.0
  },
  "persistence_min": {
   "max": 165.4,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1445,
+  "hotspot_buckets": 1458,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1635
+  "unreported_congestion": 1650
  },
  "sampling": {
   "flow_spent_this_month": 2376,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 485,
+  "incidents_spent_this_month": 486,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -131,13 +131,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.470,-97.797"
-  },
-  {
-   "from": "S Pleasant Valley Rd (E William Cannon Dr)",
-   "hour_of_week": 119,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.164,-97.728"
   },
   {
    "from": "McNeil Dr",
@@ -210,6 +203,13 @@
    "seg": "30.274,-97.774"
   },
   {
+   "from": "Muirfield Bend Dr",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.502,-97.581"
+  },
+  {
    "from": "S 1st St (Mary St W)",
    "hour_of_week": 118,
    "n": 3,
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 68.4,
-  "tomtom": 94.9
+  "dispatch": 68.6,
+  "tomtom": 94.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 117,
-  "neither": 80,
+  "n": 118,
+  "neither": 81,
   "tomtom_only": 37
  }
 }
