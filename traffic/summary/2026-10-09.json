@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 90, q3 118 min over 67 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 91, q3 118 min over 70 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 92,
-  "dispatch_only": 69,
+  "dispatch": 95,
+  "dispatch_only": 71,
   "here": 0,
   "here_matched": 0,
-  "matched": 27,
-  "tomtom": 970,
-  "tomtom_only": 941
+  "matched": 28,
+  "tomtom": 1010,
+  "tomtom_only": 980
  },
  "date": "2026-10-09",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 115.6,
+  "median": 115.7,
   "min": 21.3,
-  "n": 67,
-  "q1": 89.9,
+  "n": 70,
+  "q1": 91.4,
   "q3": 117.5
  },
  "here_onset_offset_min": {
@@ -37,19 +37,19 @@
    "pct": 15.8
   },
   "dispatch_surface": {
-   "matched": 20,
-   "n": 73,
-   "pct": 27.4
+   "matched": 21,
+   "n": 76,
+   "pct": 27.6
   },
   "tomtom_highway": {
    "matched": 17,
-   "n": 527,
-   "pct": 3.2
+   "n": 554,
+   "pct": 3.1
   },
   "tomtom_surface": {
-   "matched": 12,
-   "n": 443,
-   "pct": 2.7
+   "matched": 13,
+   "n": 456,
+   "pct": 2.9
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 86.4,
-  "median": 4.2,
+  "median": 1.4,
   "min": -53.7,
-  "n": 27,
+  "n": 28,
   "q1": -27.9,
   "q3": 39.1
  },
  "persistence_min": {
   "max": -25.3,
   "median": -30.3,
-  "min": -71.2,
-  "n": 7,
-  "q1": -35.9,
-  "q3": -30.3,
+  "min": -73.4,
+  "n": 10,
+  "q1": -71.8,
+  "q3": -29.4,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 866,
+  "hotspot_buckets": 901,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 904
+  "unreported_congestion": 943
  },
  "sampling": {
   "flow_spent_this_month": 2313,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 458,
+  "incidents_spent_this_month": 459,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -124,6 +124,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.266,-97.753"
+  },
+  {
+   "from": "TX-130 Toll/TX-45 Toll (US-290)",
+   "hour_of_week": 116,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.345,-97.575"
   },
   {
    "from": "S Interstate 35",
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.469,-97.667"
-  },
-  {
-   "from": "McNeil Dr",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.396,-97.829"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 75.0,
+  "dispatch": 74.7,
   "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 92,
-  "neither": 69,
-  "tomtom_only": 23
+  "n": 95,
+  "neither": 71,
+  "tomtom_only": 24
  }
 }
