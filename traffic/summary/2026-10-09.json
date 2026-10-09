@@ -14,18 +14,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 480,
-  "tomtom_only": 474
+  "tomtom": 485,
+  "tomtom_only": 479
  },
  "date": "2026-10-09",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.6,
-  "median": 112.3,
+  "median": 115.0,
   "min": 21.3,
-  "n": 48,
-  "q1": 64.2,
-  "q3": 117.2
+  "n": 50,
+  "q1": 64.7,
+  "q3": 116.7
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 256,
+   "n": 259,
    "pct": 2.3
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 224,
+   "n": 226,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 422,
+  "hotspot_buckets": 426,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 441
+  "unreported_congestion": 446
  },
  "sampling": {
   "flow_spent_this_month": 2232,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 447,
+  "incidents_spent_this_month": 448,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -188,6 +188,13 @@
    "seg": "30.460,-97.666"
   },
   {
+   "from": "I-35 (Picadilly Dr)",
+   "hour_of_week": 103,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.469,-97.667"
+  },
+  {
    "from": "McNeil Dr",
    "hour_of_week": 108,
    "n": 2,
@@ -207,13 +214,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.234,-97.736"
   }
  ],
  "unmatched_pct": {
