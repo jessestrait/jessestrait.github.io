@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 60,
-  "tomtom": 1596,
-  "tomtom_only": 1520
+  "tomtom": 1620,
+  "tomtom_only": 1544
  },
  "date": "2026-10-09",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 46,
-   "n": 872,
-   "pct": 5.3
+   "n": 881,
+   "pct": 5.2
   },
   "tomtom_surface": {
    "matched": 30,
-   "n": 724,
+   "n": 739,
    "pct": 4.1
   }
  },
@@ -67,12 +67,12 @@
   "q3": 38.6
  },
  "persistence_min": {
-  "max": 86.9,
-  "median": -35.9,
+  "max": 165.4,
+  "median": -33.2,
   "min": -1330.5,
-  "n": 31,
-  "q1": -99.2,
-  "q3": -25.3,
+  "n": 32,
+  "q1": -92.8,
+  "q3": -21.7,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1326,
+  "hotspot_buckets": 1349,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1482
+  "unreported_congestion": 1506
  },
  "sampling": {
   "flow_spent_this_month": 2358,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 477,
+  "incidents_spent_this_month": 478,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -203,23 +203,23 @@
    "seg": "30.274,-97.774"
   },
   {
-   "from": "TX-130 Toll (Gattis School Rd)",
-   "hour_of_week": 118,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.497,-97.611"
-  },
-  {
    "from": "S 1st St (Mary St W)",
    "hour_of_week": 118,
    "n": 3,
    "roadworks": false,
    "seg": "30.249,-97.765"
+  },
+  {
+   "from": "E Ben White Blvd",
+   "hour_of_week": 118,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.215,-97.699"
   }
  ],
  "unmatched_pct": {
   "dispatch": 67.9,
-  "tomtom": 95.2
+  "tomtom": 95.3
  },
  "witnesses": {
   "both": 0,
