@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 55,
-  "dispatch_only": 49,
+  "dispatch": 56,
+  "dispatch_only": 50,
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 435,
-  "tomtom_only": 429
+  "tomtom": 446,
+  "tomtom_only": 440
  },
  "date": "2026-10-09",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.6,
-  "median": 104.8,
+  "median": 106.7,
   "min": 21.3,
-  "n": 43,
-  "q1": 44.6,
-  "q3": 116.4
+  "n": 45,
+  "q1": 54.3,
+  "q3": 116.5
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 3,
-   "n": 40,
-   "pct": 7.5
+   "n": 41,
+   "pct": 7.3
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 233,
-   "pct": 2.6
+   "n": 240,
+   "pct": 2.5
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 202,
+   "n": 206,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 382,
+  "hotspot_buckets": 394,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 397
+  "unreported_congestion": 408
  },
  "sampling": {
   "flow_spent_this_month": 2214,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 439,
+  "incidents_spent_this_month": 440,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,7 +111,7 @@
  },
  "structural_hotspots": [
   {
-   "from": "W Cesar Chavez St",
+   "from": "San Antonio St (State Spur 343/W Cesar Chavez St/W 1st St)",
    "hour_of_week": 108,
    "n": 3,
    "roadworks": false,
@@ -146,11 +146,11 @@
    "seg": "30.520,-97.559"
   },
   {
-   "from": "TX-275 Loop/W Howard Ln/N Lamar Blvd (I-35)",
+   "from": "Tesla Rd",
    "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
-   "seg": "30.378,-97.676"
+   "seg": "30.226,-97.616"
   },
   {
    "from": "Northeast Travis",
@@ -165,13 +165,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.396,-97.829"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.461,-97.665"
   },
   {
    "from": "N Interstate 35",
@@ -214,17 +207,24 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.472,-97.842"
+  },
+  {
+   "from": "FM-2222/Bullick Hollow Rd (FM-620)",
+   "hour_of_week": 93,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.444,-97.833"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 89.1,
-  "tomtom": 98.6
+  "dispatch": 89.3,
+  "tomtom": 98.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 55,
-  "neither": 49,
+  "n": 56,
+  "neither": 50,
   "tomtom_only": 6
  }
 }
