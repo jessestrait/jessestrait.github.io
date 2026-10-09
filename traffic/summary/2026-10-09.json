@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 103, q3 118 min over 92 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 103, q3 118 min over 95 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -13,9 +13,9 @@
   "dispatch_only": 79,
   "here": 0,
   "here_matched": 0,
-  "matched": 66,
-  "tomtom": 1689,
-  "tomtom_only": 1603
+  "matched": 67,
+  "tomtom": 1712,
+  "tomtom_only": 1625
  },
  "date": "2026-10-09",
  "dispatch_life_capped": true,
@@ -23,9 +23,9 @@
   "max": 119.7,
   "median": 116.3,
   "min": 21.3,
-  "n": 92,
-  "q1": 103.1,
-  "q3": 117.6
+  "n": 95,
+  "q1": 103.2,
+  "q3": 117.9
  },
  "here_onset_offset_min": {
   "n": 0
@@ -42,14 +42,14 @@
    "pct": 33.3
   },
   "tomtom_highway": {
-   "matched": 50,
-   "n": 918,
-   "pct": 5.4
+   "matched": 51,
+   "n": 931,
+   "pct": 5.5
   },
   "tomtom_surface": {
    "matched": 36,
-   "n": 771,
-   "pct": 4.7
+   "n": 781,
+   "pct": 4.6
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 89.7,
-  "median": 11.0,
+  "median": 12.0,
   "min": -53.7,
-  "n": 66,
-  "q1": -9.7,
+  "n": 67,
+  "q1": -9.1,
   "q3": 39.1
  },
  "persistence_min": {
   "max": 165.4,
-  "median": -43.6,
+  "median": -51.0,
   "min": -1330.5,
-  "n": 34,
-  "q1": -105.6,
-  "q3": -24.1,
+  "n": 38,
+  "q1": -101.1,
+  "q3": -25.3,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1398,
+  "hotspot_buckets": 1415,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1564
+  "unreported_congestion": 1586
  },
  "sampling": {
   "flow_spent_this_month": 2367,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 481,
+  "incidents_spent_this_month": 482,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -203,18 +203,18 @@
    "seg": "30.274,-97.774"
   },
   {
-   "from": "TX-130 Toll (Gattis School Rd)",
-   "hour_of_week": 118,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.497,-97.611"
-  },
-  {
    "from": "S 1st St (Mary St W)",
    "hour_of_week": 118,
    "n": 3,
    "roadworks": false,
    "seg": "30.249,-97.765"
+  },
+  {
+   "from": "E Ben White Blvd",
+   "hour_of_week": 118,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.215,-97.699"
   }
  ],
  "unmatched_pct": {
