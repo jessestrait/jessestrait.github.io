@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 95,
-  "dispatch_only": 71,
+  "dispatch": 97,
+  "dispatch_only": 72,
   "here": 0,
   "here_matched": 0,
-  "matched": 29,
-  "tomtom": 1042,
-  "tomtom_only": 1011
+  "matched": 30,
+  "tomtom": 1083,
+  "tomtom_only": 1050
  },
  "date": "2026-10-09",
  "dispatch_life_capped": true,
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 3,
-   "n": 19,
-   "pct": 15.8
+   "matched": 4,
+   "n": 21,
+   "pct": 19.0
   },
   "dispatch_surface": {
    "matched": 21,
@@ -42,14 +42,14 @@
    "pct": 27.6
   },
   "tomtom_highway": {
-   "matched": 18,
-   "n": 568,
+   "matched": 19,
+   "n": 589,
    "pct": 3.2
   },
   "tomtom_surface": {
-   "matched": 13,
-   "n": 474,
-   "pct": 2.7
+   "matched": 14,
+   "n": 494,
+   "pct": 2.8
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 86.4,
-  "median": -1.4,
+  "median": 1.4,
   "min": -53.7,
-  "n": 29,
+  "n": 30,
   "q1": -27.9,
-  "q3": 39.0
+  "q3": 38.9
  },
  "persistence_min": {
   "max": -25.3,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 924,
+  "hotspot_buckets": 947,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 974
+  "unreported_congestion": 1013
  },
  "sampling": {
-  "flow_spent_this_month": 2313,
+  "flow_spent_this_month": 2322,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 460,
+  "incidents_spent_this_month": 461,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -131,6 +131,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.345,-97.575"
+  },
+  {
+   "from": "Cesar Chavez St exit [234A]",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.262,-97.736"
   },
   {
    "from": "S Interstate 35",
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.186,-97.773"
-  },
-  {
-   "from": "I-35 (Picadilly Dr)",
-   "hour_of_week": 103,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.469,-97.667"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 74.7,
+  "dispatch": 74.2,
   "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 95,
-  "neither": 71,
-  "tomtom_only": 24
+  "n": 97,
+  "neither": 72,
+  "tomtom_only": 25
  }
 }
