@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 102,
+  "dispatch": 103,
   "dispatch_only": 72,
   "here": 0,
   "here_matched": 0,
-  "matched": 39,
-  "tomtom": 1268,
-  "tomtom_only": 1222
+  "matched": 43,
+  "tomtom": 1317,
+  "tomtom_only": 1265
  },
  "date": "2026-10-09",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 28.6
   },
   "dispatch_surface": {
-   "matched": 24,
-   "n": 81,
-   "pct": 29.6
+   "matched": 25,
+   "n": 82,
+   "pct": 30.5
   },
   "tomtom_highway": {
-   "matched": 27,
-   "n": 693,
-   "pct": 3.9
+   "matched": 30,
+   "n": 721,
+   "pct": 4.2
   },
   "tomtom_surface": {
-   "matched": 19,
-   "n": 575,
-   "pct": 3.3
+   "matched": 22,
+   "n": 596,
+   "pct": 3.7
   }
  },
  "matcher": {
@@ -59,11 +59,11 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 88.4,
-  "median": 5.2,
+  "max": 89.7,
+  "median": 8.2,
   "min": -53.7,
-  "n": 39,
-  "q1": -26.1,
+  "n": 43,
+  "q1": -23.3,
   "q3": 39.1
  },
  "persistence_min": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1096,
+  "hotspot_buckets": 1129,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1185
+  "unreported_congestion": 1228
  },
  "sampling": {
   "flow_spent_this_month": 2331,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 466,
+  "incidents_spent_this_month": 467,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -131,6 +131,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.346,-97.572"
+  },
+  {
+   "from": "Austin",
+   "hour_of_week": 112,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.258,-97.739"
   },
   {
    "from": "Benning Dr",
@@ -168,6 +175,13 @@
    "seg": "30.288,-97.665"
   },
   {
+   "from": "Manor Rd",
+   "hour_of_week": 118,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.306,-97.661"
+  },
+  {
    "from": "S Interstate 35",
    "hour_of_week": 107,
    "n": 2,
@@ -201,31 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.226,-97.616"
-  },
-  {
-   "from": "Northeast Travis",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.430,-97.633"
-  },
-  {
-   "from": "Airport Blvd/Exit 237 (I-35)",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.295,-97.720"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 70.6,
-  "tomtom": 96.4
+  "dispatch": 69.9,
+  "tomtom": 96.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 102,
+  "n": 103,
   "neither": 72,
-  "tomtom_only": 30
+  "tomtom_only": 31
  }
 }
