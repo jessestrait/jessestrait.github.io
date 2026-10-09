@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 496,
-  "tomtom_only": 490
+  "tomtom": 498,
+  "tomtom_only": 492
  },
  "date": "2026-10-09",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 262,
+   "n": 265,
    "pct": 2.3
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 234,
+   "n": 233,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 436,
+  "hotspot_buckets": 437,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 457
+  "unreported_congestion": 459
  },
  "sampling": {
   "flow_spent_this_month": 2241,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 450,
+  "incidents_spent_this_month": 451,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -195,6 +195,13 @@
    "seg": "30.470,-97.669"
   },
   {
+   "from": "S Interstate 35",
+   "hour_of_week": 109,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.186,-97.773"
+  },
+  {
    "from": "I-35 (Picadilly Dr)",
    "hour_of_week": 103,
    "n": 2,
@@ -207,13 +214,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.396,-97.829"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 64,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.403,-97.674"
   }
  ],
  "unmatched_pct": {
