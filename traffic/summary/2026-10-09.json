@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 452,
-  "tomtom_only": 446
+  "tomtom": 457,
+  "tomtom_only": 451
  },
  "date": "2026-10-09",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 243,
-   "pct": 2.5
+   "n": 247,
+   "pct": 2.4
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 209,
+   "n": 210,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 398,
+  "hotspot_buckets": 404,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 414
+  "unreported_congestion": 419
  },
  "sampling": {
-  "flow_spent_this_month": 2214,
+  "flow_spent_this_month": 2223,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 441,
+  "incidents_spent_this_month": 442,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,13 +110,6 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
-  {
-   "from": "San Antonio St (State Spur 343/W Cesar Chavez St/W 1st St)",
-   "hour_of_week": 108,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.266,-97.753"
-  },
   {
    "from": "S Interstate 35",
    "hour_of_week": 107,
@@ -174,11 +167,11 @@
    "seg": "30.396,-97.829"
   },
   {
-   "from": "N Interstate 35",
-   "hour_of_week": 44,
+   "from": "McNeil Dr",
+   "hour_of_week": 107,
    "n": 2,
    "roadworks": false,
-   "seg": "30.461,-97.665"
+   "seg": "30.395,-97.831"
   },
   {
    "from": "N Interstate 35",
@@ -186,6 +179,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.403,-97.674"
+  },
+  {
+   "from": "W Cesar Chavez St",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.266,-97.753"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
