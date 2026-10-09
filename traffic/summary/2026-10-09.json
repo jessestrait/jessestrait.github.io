@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 96, q3 118 min over 85 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 96, q3 118 min over 86 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -13,18 +13,18 @@
   "dispatch_only": 71,
   "here": 0,
   "here_matched": 0,
-  "matched": 52,
-  "tomtom": 1453,
-  "tomtom_only": 1387
+  "matched": 53,
+  "tomtom": 1480,
+  "tomtom_only": 1412
  },
  "date": "2026-10-09",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 115.9,
+  "median": 116.1,
   "min": 21.3,
-  "n": 85,
-  "q1": 95.6,
+  "n": 86,
+  "q1": 95.7,
   "q3": 117.5
  },
  "here_onset_offset_min": {
@@ -42,14 +42,14 @@
    "pct": 34.5
   },
   "tomtom_highway": {
-   "matched": 40,
-   "n": 799,
-   "pct": 5.0
+   "matched": 42,
+   "n": 816,
+   "pct": 5.1
   },
   "tomtom_surface": {
    "matched": 26,
-   "n": 654,
-   "pct": 4.0
+   "n": 664,
+   "pct": 3.9
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 89.7,
-  "median": 7.8,
+  "median": 8.2,
   "min": -53.7,
-  "n": 52,
-  "q1": -14.5,
-  "q3": 38.6
+  "n": 53,
+  "q1": -13.6,
+  "q3": 38.4
  },
  "persistence_min": {
   "max": 57.5,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1230,
+  "hotspot_buckets": 1248,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1349
+  "unreported_congestion": 1374
  },
  "sampling": {
   "flow_spent_this_month": 2340,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 471,
+  "incidents_spent_this_month": 472,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -203,23 +203,23 @@
    "seg": "30.214,-97.662"
   },
   {
+   "from": "US Highway 183",
+   "hour_of_week": 118,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.470,-97.797"
+  },
+  {
    "from": "I-35 Service Rd (E Rundberg Ln)",
    "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
    "seg": "30.351,-97.677"
-  },
-  {
-   "from": "Birch Creek Rd",
-   "hour_of_week": 102,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.193,-97.735"
   }
  ],
  "unmatched_pct": {
   "dispatch": 67.0,
-  "tomtom": 95.5
+  "tomtom": 95.4
  },
  "witnesses": {
   "both": 0,
