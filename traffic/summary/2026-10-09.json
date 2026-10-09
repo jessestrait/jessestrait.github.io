@@ -13,9 +13,9 @@
   "dispatch_only": 71,
   "here": 0,
   "here_matched": 0,
-  "matched": 55,
-  "tomtom": 1515,
-  "tomtom_only": 1445
+  "matched": 56,
+  "tomtom": 1538,
+  "tomtom_only": 1467
  },
  "date": "2026-10-09",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 44,
-   "n": 832,
-   "pct": 5.3
+   "n": 841,
+   "pct": 5.2
   },
   "tomtom_surface": {
-   "matched": 26,
-   "n": 683,
-   "pct": 3.8
+   "matched": 27,
+   "n": 697,
+   "pct": 3.9
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 89.7,
-  "median": 8.3,
+  "median": 9.2,
   "min": -53.7,
-  "n": 55,
+  "n": 56,
   "q1": -11.6,
-  "q3": 38.9
+  "q3": 39.1
  },
  "persistence_min": {
   "max": 57.5,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1266,
+  "hotspot_buckets": 1281,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1407
+  "unreported_congestion": 1429
  },
  "sampling": {
   "flow_spent_this_month": 2349,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 473,
+  "incidents_spent_this_month": 474,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "US Highway 183",
+   "hour_of_week": 118,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.470,-97.797"
+  },
   {
    "from": "McNeil Dr",
    "hour_of_week": 107,
@@ -208,13 +215,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.267,-97.756"
-  },
-  {
-   "from": "Highway 71 E",
-   "hour_of_week": 118,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.214,-97.662"
   }
  ],
  "unmatched_pct": {
