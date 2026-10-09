@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 53,
-  "dispatch_only": 47,
+  "dispatch": 54,
+  "dispatch_only": 48,
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 368,
-  "tomtom_only": 362
+  "tomtom": 375,
+  "tomtom_only": 369
  },
  "date": "2026-10-09",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 3,
-   "n": 39,
-   "pct": 7.7
+   "n": 40,
+   "pct": 7.5
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 193,
+   "n": 194,
    "pct": 3.1
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 175,
+   "n": 181,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 319,
+  "hotspot_buckets": 325,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 330
+  "unreported_congestion": 337
  },
  "sampling": {
   "flow_spent_this_month": 2196,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 432,
+  "incidents_spent_this_month": 433,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -118,6 +118,13 @@
    "seg": "30.195,-97.767"
   },
   {
+   "from": "I-35 Service Rd (E Rundberg Ln)",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.351,-97.677"
+  },
+  {
    "from": "Birch Creek Rd",
    "hour_of_week": 102,
    "n": 2,
@@ -125,7 +132,7 @@
    "seg": "30.193,-97.735"
   },
   {
-   "from": "San Antonio Riverwalk",
+   "from": "Creston St",
    "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
@@ -207,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.456,-97.827"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 95,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.475,-97.794"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.7,
+  "dispatch": 88.9,
   "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 53,
-  "neither": 47,
+  "n": 54,
+  "neither": 48,
   "tomtom_only": 6
  }
 }
