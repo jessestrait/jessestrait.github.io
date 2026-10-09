@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 93, q3 118 min over 74 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 94, q3 118 min over 76 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 99,
+  "dispatch": 100,
   "dispatch_only": 71,
   "here": 0,
   "here_matched": 0,
-  "matched": 37,
-  "tomtom": 1156,
-  "tomtom_only": 1115
+  "matched": 38,
+  "tomtom": 1191,
+  "tomtom_only": 1149
  },
  "date": "2026-10-09",
  "dispatch_life_capped": true,
@@ -23,8 +23,8 @@
   "max": 119.7,
   "median": 115.7,
   "min": 21.3,
-  "n": 74,
-  "q1": 93.2,
+  "n": 76,
+  "q1": 94.0,
   "q3": 117.5
  },
  "here_onset_offset_min": {
@@ -37,18 +37,18 @@
    "pct": 28.6
   },
   "dispatch_surface": {
-   "matched": 22,
-   "n": 78,
-   "pct": 28.2
+   "matched": 23,
+   "n": 79,
+   "pct": 29.1
   },
   "tomtom_highway": {
    "matched": 25,
-   "n": 632,
-   "pct": 4.0
+   "n": 648,
+   "pct": 3.9
   },
   "tomtom_surface": {
-   "matched": 16,
-   "n": 524,
+   "matched": 17,
+   "n": 543,
    "pct": 3.1
   }
  },
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 88.4,
-  "median": 7.4,
+  "median": 6.3,
   "min": -53.7,
-  "n": 37,
-  "q1": -27.0,
+  "n": 38,
+  "q1": -26.6,
   "q3": 39.1
  },
  "persistence_min": {
   "max": -25.3,
-  "median": -30.3,
-  "min": -73.4,
-  "n": 10,
-  "q1": -71.8,
-  "q3": -29.4,
+  "median": -33.1,
+  "min": -1330.5,
+  "n": 12,
+  "q1": -73.4,
+  "q3": -30.3,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 986,
+  "hotspot_buckets": 1020,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1078
+  "unreported_congestion": 1112
  },
  "sampling": {
   "flow_spent_this_month": 2322,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 463,
+  "incidents_spent_this_month": 464,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -168,25 +168,11 @@
    "seg": "30.265,-97.748"
   },
   {
-   "from": "S Lakeshore Blvd (S Pleasant Valley Rd)",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.250,-97.714"
-  },
-  {
    "from": "E 51st St",
    "hour_of_week": 117,
    "n": 3,
    "roadworks": false,
    "seg": "30.288,-97.665"
-  },
-  {
-   "from": "Cesar Chavez St exit [234A]",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.262,-97.736"
   },
   {
    "from": "S Interstate 35",
@@ -215,17 +201,31 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.520,-97.559"
+  },
+  {
+   "from": "Tesla Rd",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.226,-97.616"
+  },
+  {
+   "from": "Northeast Travis",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.430,-97.633"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 71.7,
+  "dispatch": 71.0,
   "tomtom": 96.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 99,
+  "n": 100,
   "neither": 71,
-  "tomtom_only": 28
+  "tomtom_only": 29
  }
 }
