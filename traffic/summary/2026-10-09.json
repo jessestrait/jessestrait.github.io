@@ -13,9 +13,9 @@
   "dispatch_only": 71,
   "here": 0,
   "here_matched": 0,
-  "matched": 34,
-  "tomtom": 1126,
-  "tomtom_only": 1089
+  "matched": 37,
+  "tomtom": 1156,
+  "tomtom_only": 1115
  },
  "date": "2026-10-09",
  "dispatch_life_capped": true,
@@ -42,14 +42,14 @@
    "pct": 28.2
   },
   "tomtom_highway": {
-   "matched": 22,
-   "n": 615,
-   "pct": 3.6
+   "matched": 25,
+   "n": 632,
+   "pct": 4.0
   },
   "tomtom_surface": {
-   "matched": 15,
-   "n": 511,
-   "pct": 2.9
+   "matched": 16,
+   "n": 524,
+   "pct": 3.1
   }
  },
  "matcher": {
@@ -59,11 +59,11 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 86.4,
-  "median": 4.7,
+  "max": 88.4,
+  "median": 7.4,
   "min": -53.7,
-  "n": 34,
-  "q1": -27.9,
+  "n": 37,
+  "q1": -27.0,
   "q3": 39.1
  },
  "persistence_min": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 972,
+  "hotspot_buckets": 986,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1052
+  "unreported_congestion": 1078
  },
  "sampling": {
   "flow_spent_this_month": 2322,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 462,
+  "incidents_spent_this_month": 463,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -126,11 +126,32 @@
    "seg": "30.266,-97.753"
   },
   {
+   "from": "Old TX-20 (US-290)",
+   "hour_of_week": 116,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.346,-97.572"
+  },
+  {
    "from": "Benning Dr",
    "hour_of_week": 117,
    "n": 3,
    "roadworks": false,
    "seg": "30.470,-97.590"
+  },
+  {
+   "from": "S 1st St/Conroy Ln (FM-1626)",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.141,-97.797"
+  },
+  {
+   "from": "Christina Garza Dr",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.350,-97.556"
   },
   {
    "from": "TX-130 Toll/TX-45 Toll (US-290)",
@@ -140,11 +161,32 @@
    "seg": "30.345,-97.575"
   },
   {
+   "from": "San Antonio St",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.265,-97.748"
+  },
+  {
+   "from": "S Lakeshore Blvd (S Pleasant Valley Rd)",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.250,-97.714"
+  },
+  {
    "from": "E 51st St",
    "hour_of_week": 117,
    "n": 3,
    "roadworks": false,
    "seg": "30.288,-97.665"
+  },
+  {
+   "from": "Cesar Chavez St exit [234A]",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.262,-97.736"
   },
   {
    "from": "S Interstate 35",
@@ -173,53 +215,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.520,-97.559"
-  },
-  {
-   "from": "Tesla Rd",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.226,-97.616"
-  },
-  {
-   "from": "Northeast Travis",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.430,-97.633"
-  },
-  {
-   "from": "Airport Blvd/Exit 237 (I-35)",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.295,-97.720"
-  },
-  {
-   "from": "Airport Blvd (E Koenig Ln/FM-2222)",
-   "hour_of_week": 109,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.325,-97.725"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.460,-97.666"
-  },
-  {
-   "from": "Central Commerce Dr (Picadilly Dr)",
-   "hour_of_week": 109,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.470,-97.669"
   }
  ],
  "unmatched_pct": {
   "dispatch": 71.7,
-  "tomtom": 96.7
+  "tomtom": 96.5
  },
  "witnesses": {
   "both": 0,
