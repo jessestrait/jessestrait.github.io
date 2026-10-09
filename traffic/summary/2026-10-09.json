@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 48,
-  "dispatch_only": 42,
+  "dispatch": 50,
+  "dispatch_only": 44,
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 321,
-  "tomtom_only": 315
+  "tomtom": 340,
+  "tomtom_only": 334
  },
  "date": "2026-10-09",
  "dispatch_life_capped": false,
@@ -33,22 +33,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 3,
-   "n": 12,
-   "pct": 25.0
+   "n": 13,
+   "pct": 23.1
   },
   "dispatch_surface": {
    "matched": 3,
-   "n": 36,
-   "pct": 8.3
+   "n": 37,
+   "pct": 8.1
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 169,
-   "pct": 3.6
+   "n": 181,
+   "pct": 3.3
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 152,
+   "n": 159,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 278,
+  "hotspot_buckets": 294,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 284
+  "unreported_congestion": 302
  },
  "sampling": {
-  "flow_spent_this_month": 2178,
+  "flow_spent_this_month": 2187,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 427,
+  "incidents_spent_this_month": 428,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.461,-97.665"
+  },
   {
    "from": "Nature Center Dr",
    "hour_of_week": 86,
@@ -151,6 +158,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
+  },
+  {
+   "from": "Ranch Road 2222",
+   "hour_of_week": 107,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.395,-97.832"
   },
   {
    "from": "Cypress Creek Rd",
@@ -200,31 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.477,-97.764"
-  },
-  {
-   "from": "FM-1325/Exit 250 (I-35)",
-   "hour_of_week": 93,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.505,-97.684"
-  },
-  {
-   "from": "FM-1431/Chandler St/Exit 256 (I-35)",
-   "hour_of_week": 91,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.527,-97.690"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.5,
-  "tomtom": 98.1
+  "dispatch": 88.0,
+  "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 48,
-  "neither": 42,
+  "n": 50,
+  "neither": 44,
   "tomtom_only": 6
  }
 }
