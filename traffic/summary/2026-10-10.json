@@ -9,47 +9,47 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 49,
-  "dispatch_only": 42,
+  "dispatch": 57,
+  "dispatch_only": 49,
   "here": 0,
   "here_matched": 0,
-  "matched": 11,
-  "tomtom": 336,
-  "tomtom_only": 324
+  "matched": 12,
+  "tomtom": 360,
+  "tomtom_only": 347
  },
  "date": "2026-10-10",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.6,
-  "median": 115.9,
+  "median": 115.7,
   "min": 6.5,
-  "n": 46,
-  "q1": 74.9,
-  "q3": 117.6
+  "n": 49,
+  "q1": 72.9,
+  "q3": 117.5
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
-   "n": 8,
-   "pct": 12.5
+   "matched": 2,
+   "n": 10,
+   "pct": 20.0
   },
   "dispatch_surface": {
    "matched": 6,
-   "n": 41,
-   "pct": 14.6
+   "n": 47,
+   "pct": 12.8
   },
   "tomtom_highway": {
-   "matched": 8,
-   "n": 133,
-   "pct": 6.0
+   "matched": 9,
+   "n": 148,
+   "pct": 6.1
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 203,
-   "pct": 2.0
+   "n": 212,
+   "pct": 1.9
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 88.5,
   "median": -3.8,
   "min": -49.5,
-  "n": 11,
-  "q1": -29.8,
-  "q3": 48.7
+  "n": 12,
+  "q1": -28.1,
+  "q3": 40.6
  },
  "persistence_min": {
   "max": 235.2,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 282,
+  "hotspot_buckets": 299,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 299
+  "unreported_congestion": 321
  },
  "sampling": {
-  "flow_spent_this_month": 2457,
+  "flow_spent_this_month": 2466,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 496,
+  "incidents_spent_this_month": 497,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -181,6 +181,20 @@
    "seg": "30.268,-97.778"
   },
   {
+   "from": "I-35 (Picadilly Dr)",
+   "hour_of_week": 103,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.470,-97.669"
+  },
+  {
+   "from": "Berrywood Dr/Meadow Lark Ave (I-35)",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.385,-97.673"
+  },
+  {
    "from": "TX-1 Loop/Mopac Expy (Barton Springs Rd)",
    "hour_of_week": 96,
    "n": 2,
@@ -200,31 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.234,-97.736"
-  },
-  {
-   "from": "E Cesar Chavez St (Springdale Rd)",
-   "hour_of_week": 137,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.255,-97.702"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.616"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.7,
+  "dispatch": 86.0,
   "tomtom": 96.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 49,
-  "neither": 42,
-  "tomtom_only": 7
+  "n": 57,
+  "neither": 49,
+  "tomtom_only": 8
  }
 }
