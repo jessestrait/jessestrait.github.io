@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 41,
-  "dispatch_only": 35,
+  "dispatch_only": 34,
   "here": 0,
   "here_matched": 0,
-  "matched": 9,
-  "tomtom": 304,
-  "tomtom_only": 295
+  "matched": 10,
+  "tomtom": 316,
+  "tomtom_only": 306
  },
  "date": "2026-10-10",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 12.5
   },
   "dispatch_surface": {
-   "matched": 5,
+   "matched": 6,
    "n": 33,
-   "pct": 15.2
+   "pct": 18.2
   },
   "tomtom_highway": {
-   "matched": 5,
-   "n": 118,
-   "pct": 4.2
+   "matched": 6,
+   "n": 123,
+   "pct": 4.9
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 186,
-   "pct": 2.2
+   "n": 193,
+   "pct": 2.1
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 88.5,
-  "median": -3.8,
+  "median": -11.8,
   "min": -49.5,
-  "n": 9,
-  "q1": -37.4,
-  "q3": 32.5
+  "n": 10,
+  "q1": -33.6,
+  "q3": 24.4
  },
  "persistence_min": {
   "max": 235.2,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 261,
+  "hotspot_buckets": 271,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 272
+  "unreported_congestion": 283
  },
  "sampling": {
   "flow_spent_this_month": 2412,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 489,
+  "incidents_spent_this_month": 490,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,6 +160,13 @@
    "seg": "30.264,-97.743"
   },
   {
+   "from": "Nature Center Dr",
+   "hour_of_week": 86,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.274,-97.774"
+  },
+  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
@@ -207,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.539,-97.692"
-  },
-  {
-   "from": "Highway 45",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.489,-97.676"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.4,
-  "tomtom": 97.0
+  "dispatch": 82.9,
+  "tomtom": 96.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 41,
-  "neither": 35,
-  "tomtom_only": 6
+  "neither": 34,
+  "tomtom_only": 7
  }
 }
