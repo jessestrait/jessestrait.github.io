@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 37,
-  "dispatch_only": 35,
+  "dispatch_only": 34,
   "here": 0,
   "here_matched": 0,
-  "matched": 2,
-  "tomtom": 254,
-  "tomtom_only": 252
+  "matched": 3,
+  "tomtom": 296,
+  "tomtom_only": 293
  },
  "date": "2026-10-10",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 2,
+   "matched": 3,
    "n": 30,
-   "pct": 6.7
+   "pct": 10.0
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 98,
+   "n": 113,
    "pct": 0.0
   },
   "tomtom_surface": {
-   "matched": 2,
-   "n": 156,
-   "pct": 1.3
+   "matched": 3,
+   "n": 183,
+   "pct": 1.6
   }
  },
  "matcher": {
@@ -60,9 +60,9 @@
  },
  "onset_offset_min": {
   "max": 88.5,
-  "median": 29.4,
+  "median": -22.8,
   "min": -29.8,
-  "n": 2,
+  "n": 3,
   "q1": -29.8,
   "q3": 88.5
  },
@@ -84,15 +84,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 223,
+  "hotspot_buckets": 258,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 229
+  "unreported_congestion": 270
  },
  "sampling": {
   "flow_spent_this_month": 2394,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 487,
+  "incidents_spent_this_month": 488,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -106,18 +106,18 @@
  },
  "structural_hotspots": [
   {
+   "from": "Sandra Muraida Way",
+   "hour_of_week": 123,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.267,-97.755"
+  },
+  {
    "from": "W 2nd St",
    "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
    "seg": "30.266,-97.753"
-  },
-  {
-   "from": "Atlanta St (Lake Austin Blvd)",
-   "hour_of_week": 122,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.278,-97.773"
   },
   {
    "from": "Lake Austin Blvd",
@@ -127,11 +127,32 @@
    "seg": "30.278,-97.772"
   },
   {
+   "from": "S Lamar Blvd",
+   "hour_of_week": 123,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.263,-97.759"
+  },
+  {
+   "from": "Congress Ave (W 5th St)",
+   "hour_of_week": 123,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.266,-97.738"
+  },
+  {
    "from": "Lake Austin Blvd",
    "hour_of_week": 122,
    "n": 2,
    "roadworks": false,
    "seg": "30.275,-97.770"
+  },
+  {
+   "from": "TX-343 Loop/S Lamar Blvd (Barton Springs Rd)",
+   "hour_of_week": 123,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.258,-97.750"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -146,6 +167,20 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.234,-97.736"
+  },
+  {
+   "from": "E 5th St (Brazos St)",
+   "hour_of_week": 124,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.264,-97.743"
+  },
+  {
+   "from": "E 5th St (San Jacinto Blvd)",
+   "hour_of_week": 123,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.263,-97.742"
   },
   {
    "from": "Brushy Creek Rd",
@@ -174,52 +209,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.539,-97.692"
-  },
-  {
-   "from": "Highway 45",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.489,-97.676"
-  },
-  {
-   "from": "E Palm Valley Blvd / Palm Valley Cv",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.517,-97.655"
-  },
-  {
-   "from": "N Mo Pac Expy",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.404,-97.721"
-  },
-  {
-   "from": "Alterra Pkwy",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.405,-97.720"
-  },
-  {
-   "from": "Burnet Rd / Rosalind Way",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.403,-97.721"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 94.6,
-  "tomtom": 99.2
+  "dispatch": 91.9,
+  "tomtom": 99.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 37,
-  "neither": 35,
-  "tomtom_only": 2
+  "neither": 34,
+  "tomtom_only": 3
  }
 }
