@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 41,
-  "dispatch_only": 34,
+  "dispatch": 42,
+  "dispatch_only": 35,
   "here": 0,
   "here_matched": 0,
   "matched": 10,
-  "tomtom": 316,
-  "tomtom_only": 306
+  "tomtom": 318,
+  "tomtom_only": 308
  },
  "date": "2026-10-10",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 6,
-   "n": 33,
-   "pct": 18.2
+   "n": 34,
+   "pct": 17.6
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 123,
-   "pct": 4.9
+   "n": 124,
+   "pct": 4.8
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 193,
+   "n": 194,
    "pct": 2.1
   }
  },
@@ -68,11 +68,11 @@
  },
  "persistence_min": {
   "max": 235.2,
-  "median": -103.8,
+  "median": -91.1,
   "min": -136.9,
-  "n": 6,
-  "q1": -125.4,
-  "q3": 13.3
+  "n": 7,
+  "q1": -121.6,
+  "q3": 0.0
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -92,12 +92,12 @@
   "hotspot_buckets": 271,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 283
+  "unreported_congestion": 285
  },
  "sampling": {
-  "flow_spent_this_month": 2412,
+  "flow_spent_this_month": 2421,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 490,
+  "incidents_spent_this_month": 491,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -167,6 +167,13 @@
    "seg": "30.274,-97.774"
   },
   {
+   "from": "TX-1 Loop/Mopac Expy (Barton Springs Rd)",
+   "hour_of_week": 96,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.266,-97.769"
+  },
+  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
@@ -179,6 +186,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.234,-97.736"
+  },
+  {
+   "from": "E Cesar Chavez St (Springdale Rd)",
+   "hour_of_week": 137,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.255,-97.702"
   },
   {
    "from": "Lexington Meadow Ln",
@@ -200,31 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.447,-97.788"
-  },
-  {
-   "from": "FM-1325/Exit 250 (I-35)",
-   "hour_of_week": 117,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.505,-97.684"
-  },
-  {
-   "from": "I-35/Exit 259 (I-35)",
-   "hour_of_week": 117,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.539,-97.692"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.9,
-  "tomtom": 96.8
+  "dispatch": 83.3,
+  "tomtom": 96.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 41,
-  "neither": 34,
+  "n": 42,
+  "neither": 35,
   "tomtom_only": 7
  }
 }
