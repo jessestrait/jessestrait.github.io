@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 22,
-  "dispatch_only": 21,
+  "dispatch": 32,
+  "dispatch_only": 31,
   "here": 0,
   "here_matched": 0,
   "matched": 1,
-  "tomtom": 190,
-  "tomtom_only": 189
+  "tomtom": 254,
+  "tomtom_only": 253
  },
  "date": "2026-10-10",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.6,
-  "median": 117.5,
-  "min": 114.9,
-  "n": 5,
-  "q1": 115.6,
-  "q3": 118.6
+  "median": 73.6,
+  "min": 6.5,
+  "n": 22,
+  "q1": 46.1,
+  "q3": 112.5
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 0,
-   "n": 2,
+   "n": 6,
    "pct": 0.0
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 20,
-   "pct": 5.0
+   "n": 26,
+   "pct": 3.8
   },
   "tomtom_highway": {
-   "matched": 1,
-   "n": 84,
-   "pct": 1.2
+   "matched": 0,
+   "n": 98,
+   "pct": 0.0
   },
   "tomtom_surface": {
-   "matched": 0,
-   "n": 106,
-   "pct": 0.0
+   "matched": 1,
+   "n": 156,
+   "pct": 0.6
   }
  },
  "matcher": {
@@ -84,15 +84,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 161,
+  "hotspot_buckets": 224,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 167
+  "unreported_congestion": 230
  },
  "sampling": {
-  "flow_spent_this_month": 2385,
+  "flow_spent_this_month": 2394,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 486,
+  "incidents_spent_this_month": 487,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -106,14 +106,7 @@
  },
  "structural_hotspots": [
   {
-   "from": "TX-1 Loop/Mopac Expy (Barton Springs Rd)",
-   "hour_of_week": 96,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.266,-97.769"
-  },
-  {
-   "from": "W Cesar Chavez St",
+   "from": "W 2nd St",
    "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
@@ -134,18 +127,25 @@
    "seg": "30.234,-97.736"
   },
   {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
+   "from": "Lake Austin Blvd",
+   "hour_of_week": 123,
    "n": 2,
    "roadworks": false,
-   "seg": "30.148,-97.704"
+   "seg": "30.278,-97.772"
   },
   {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
+   "from": "Atlanta St (Lake Austin Blvd)",
+   "hour_of_week": 122,
    "n": 2,
    "roadworks": false,
-   "seg": "30.179,-97.616"
+   "seg": "30.278,-97.773"
+  },
+  {
+   "from": "Lake Austin Blvd",
+   "hour_of_week": 122,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.275,-97.770"
   },
   {
    "from": "Brushy Creek Rd",
@@ -212,14 +212,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 95.5,
-  "tomtom": 99.5
+  "dispatch": 96.9,
+  "tomtom": 99.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 22,
-  "neither": 21,
+  "n": 32,
+  "neither": 31,
   "tomtom_only": 1
  }
 }
