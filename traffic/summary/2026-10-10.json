@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 37,
+  "dispatch": 38,
   "dispatch_only": 34,
   "here": 0,
   "here_matched": 0,
-  "matched": 3,
+  "matched": 5,
   "tomtom": 296,
-  "tomtom_only": 293
+  "tomtom_only": 291
  },
  "date": "2026-10-10",
  "dispatch_life_capped": false,
@@ -37,14 +37,14 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 3,
-   "n": 30,
-   "pct": 10.0
+   "matched": 4,
+   "n": 31,
+   "pct": 12.9
   },
   "tomtom_highway": {
-   "matched": 0,
+   "matched": 2,
    "n": 113,
-   "pct": 0.0
+   "pct": 1.8
   },
   "tomtom_surface": {
    "matched": 3,
@@ -61,10 +61,10 @@
  "onset_offset_min": {
   "max": 88.5,
   "median": -22.8,
-  "min": -29.8,
-  "n": 3,
-  "q1": -29.8,
-  "q3": 88.5
+  "min": -49.5,
+  "n": 5,
+  "q1": -39.6,
+  "q3": 42.4
  },
  "persistence_min": {
   "n": 0
@@ -84,10 +84,10 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 258,
+  "hotspot_buckets": 256,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 270
+  "unreported_congestion": 268
  },
  "sampling": {
   "flow_spent_this_month": 2394,
@@ -155,6 +155,20 @@
    "seg": "30.258,-97.750"
   },
   {
+   "from": "TX-343/N Lamar Blvd (W Cesar Chavez St/W 1st St)",
+   "hour_of_week": 123,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.263,-97.742"
+  },
+  {
+   "from": "E 5th St (Brazos St)",
+   "hour_of_week": 124,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.264,-97.743"
+  },
+  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
@@ -167,20 +181,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.234,-97.736"
-  },
-  {
-   "from": "E 5th St (Brazos St)",
-   "hour_of_week": 124,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.264,-97.743"
-  },
-  {
-   "from": "E 5th St (San Jacinto Blvd)",
-   "hour_of_week": 123,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.263,-97.742"
   },
   {
    "from": "Brushy Creek Rd",
@@ -212,14 +212,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 91.9,
-  "tomtom": 99.0
+  "dispatch": 89.5,
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 37,
+  "n": 38,
   "neither": 34,
-  "tomtom_only": 3
+  "tomtom_only": 4
  }
 }
