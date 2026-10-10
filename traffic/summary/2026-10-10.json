@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 12,
-  "tomtom": 387,
-  "tomtom_only": 374
+  "tomtom": 435,
+  "tomtom_only": 421
  },
  "date": "2026-10-10",
  "dispatch_life_capped": false,
@@ -42,14 +42,14 @@
    "pct": 10.2
   },
   "tomtom_highway": {
-   "matched": 9,
-   "n": 161,
-   "pct": 5.6
+   "matched": 10,
+   "n": 184,
+   "pct": 5.4
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 226,
-   "pct": 1.8
+   "n": 251,
+   "pct": 1.6
   }
  },
  "matcher": {
@@ -64,7 +64,7 @@
   "min": -49.5,
   "n": 12,
   "q1": -28.1,
-  "q3": 40.6
+  "q3": 67.6
  },
  "persistence_min": {
   "max": 235.2,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 324,
+  "hotspot_buckets": 371,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 348
+  "unreported_congestion": 394
  },
  "sampling": {
   "flow_spent_this_month": 2502,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 498,
+  "incidents_spent_this_month": 499,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -202,23 +202,23 @@
    "seg": "30.218,-97.827"
   },
   {
-   "from": "Stephen F Austin Dr/Reserve Rd (W Cesar Chavez St/W 1st St)",
-   "hour_of_week": 136,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.266,-97.756"
-  },
-  {
    "from": "TX-1 Loop/Mopac Expy (Barton Springs Rd)",
    "hour_of_week": 96,
    "n": 2,
    "roadworks": false,
    "seg": "30.266,-97.769"
+  },
+  {
+   "from": "W 2nd St (San Antonio St)",
+   "hour_of_week": 131,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.267,-97.748"
   }
  ],
  "unmatched_pct": {
   "dispatch": 88.9,
-  "tomtom": 96.6
+  "tomtom": 96.8
  },
  "witnesses": {
   "both": 0,
