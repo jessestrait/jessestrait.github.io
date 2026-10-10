@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 40,
-  "dispatch_only": 35,
+  "dispatch_only": 34,
   "here": 0,
   "here_matched": 0,
-  "matched": 6,
-  "tomtom": 296,
-  "tomtom_only": 290
+  "matched": 8,
+  "tomtom": 304,
+  "tomtom_only": 296
  },
  "date": "2026-10-10",
  "dispatch_life_capped": false,
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 0,
+   "matched": 1,
    "n": 8,
-   "pct": 0.0
+   "pct": 12.5
   },
   "dispatch_surface": {
    "matched": 5,
@@ -42,13 +42,13 @@
    "pct": 15.6
   },
   "tomtom_highway": {
-   "matched": 2,
-   "n": 113,
-   "pct": 1.8
+   "matched": 4,
+   "n": 118,
+   "pct": 3.4
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 183,
+   "n": 186,
    "pct": 2.2
   }
  },
@@ -60,14 +60,19 @@
  },
  "onset_offset_min": {
   "max": 88.5,
-  "median": -26.3,
+  "median": -13.3,
   "min": -49.5,
-  "n": 6,
-  "q1": -46.0,
-  "q3": 19.3
+  "n": 8,
+  "q1": -41.1,
+  "q3": 35.6
  },
  "persistence_min": {
-  "n": 0
+  "max": 235.2,
+  "median": 235.2,
+  "min": 235.2,
+  "n": 1,
+  "q1": 235.2,
+  "q3": 235.2
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -84,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 255,
+  "hotspot_buckets": 262,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 267
+  "unreported_congestion": 273
  },
  "sampling": {
   "flow_spent_this_month": 2403,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 488,
+  "incidents_spent_this_month": 489,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -134,13 +139,6 @@
    "seg": "30.263,-97.759"
   },
   {
-   "from": "Congress Ave (W 5th St)",
-   "hour_of_week": 123,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.266,-97.738"
-  },
-  {
    "from": "Lake Austin Blvd",
    "hour_of_week": 122,
    "n": 2,
@@ -153,13 +151,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.258,-97.750"
-  },
-  {
-   "from": "TX-343/N Lamar Blvd (W Cesar Chavez St/W 1st St)",
-   "hour_of_week": 123,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.263,-97.742"
   },
   {
    "from": "E 5th St (Brazos St)",
@@ -181,6 +172,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Lexington Meadow Ln",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.179,-97.616"
   },
   {
    "from": "Brushy Creek Rd",
@@ -209,17 +207,24 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.539,-97.692"
+  },
+  {
+   "from": "Highway 45",
+   "hour_of_week": 119,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.489,-97.676"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.5,
-  "tomtom": 98.0
+  "dispatch": 85.0,
+  "tomtom": 97.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 40,
-  "neither": 35,
-  "tomtom_only": 5
+  "neither": 34,
+  "tomtom_only": 6
  }
 }
