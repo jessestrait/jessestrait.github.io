@@ -1,0 +1,225 @@
+{
+ "caveats": [
+  "Dispatch published_date is when APD published, not when it happened.",
+  "Dispatch record lifetimes look like real clearances this day, not a cap.",
+  "Clearance resolution equals the poll interval; shorter incidents are invisible.",
+  "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
+  "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
+  "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
+  "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
+ ],
+ "counts": {
+  "dispatch": 20,
+  "dispatch_only": 19,
+  "here": 0,
+  "here_matched": 0,
+  "matched": 1,
+  "tomtom": 190,
+  "tomtom_only": 189
+ },
+ "date": "2026-10-10",
+ "dispatch_life_capped": false,
+ "dispatch_record_life_min": {
+  "max": 117.7,
+  "median": 117.7,
+  "min": 117.7,
+  "n": 1,
+  "q1": 117.7,
+  "q3": 117.7
+ },
+ "here_onset_offset_min": {
+  "n": 0
+ },
+ "match_rate": {
+  "dispatch_highway": {
+   "matched": 0,
+   "n": 2,
+   "pct": 0.0
+  },
+  "dispatch_surface": {
+   "matched": 1,
+   "n": 18,
+   "pct": 5.6
+  },
+  "tomtom_highway": {
+   "matched": 1,
+   "n": 84,
+   "pct": 1.2
+  },
+  "tomtom_surface": {
+   "matched": 0,
+   "n": 106,
+   "pct": 0.0
+  }
+ },
+ "matcher": {
+  "buffer_m": 200.0,
+  "highway_buffer_m": 130.0,
+  "onset_window_min": 90.0,
+  "tolerance_min": 20.0
+ },
+ "onset_offset_min": {
+  "max": 88.5,
+  "median": 88.5,
+  "min": 88.5,
+  "n": 1,
+  "q1": 88.5,
+  "q3": 88.5
+ },
+ "persistence_min": {
+  "n": 0
+ },
+ "poll_interval_min": 5.0,
+ "probe_agreement": {
+  "cover": {
+   "n": 0
+  },
+  "n": 0,
+  "onset_offset_min": {
+   "n": 0
+  },
+  "pct_of_here": 0.0,
+  "pct_of_tomtom": 0.0,
+  "type_agree": 0
+ },
+ "roadworks": {
+  "explained_by_roadworks": 0,
+  "hotspot_buckets": 161,
+  "hotspot_buckets_on_roadworks": 0,
+  "txdot_rows": 0,
+  "unreported_congestion": 167
+ },
+ "sampling": {
+  "flow_spent_this_month": 2376,
+  "incident_budget": 2500,
+  "incidents_spent_this_month": 486,
+  "off_peak_min": 45,
+  "rush_hours_local": [
+   7,
+   8,
+   16,
+   17,
+   18
+  ],
+  "rush_min": 5,
+  "this_poll": "off-peak"
+ },
+ "structural_hotspots": [
+  {
+   "from": "TX-1 Loop/Mopac Expy (Barton Springs Rd)",
+   "hour_of_week": 96,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.266,-97.769"
+  },
+  {
+   "from": "W Cesar Chavez St",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.266,-97.753"
+  },
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Lexington Meadow Ln",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.179,-97.616"
+  },
+  {
+   "from": "Brushy Creek Rd",
+   "hour_of_week": 119,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.513,-97.795"
+  },
+  {
+   "from": "N Highway 183",
+   "hour_of_week": 119,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.447,-97.788"
+  },
+  {
+   "from": "FM-1325/Exit 250 (I-35)",
+   "hour_of_week": 117,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.505,-97.684"
+  },
+  {
+   "from": "I-35/Exit 259 (I-35)",
+   "hour_of_week": 117,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.539,-97.692"
+  },
+  {
+   "from": "Highway 45",
+   "hour_of_week": 119,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.489,-97.676"
+  },
+  {
+   "from": "E Palm Valley Blvd / Palm Valley Cv",
+   "hour_of_week": 119,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.517,-97.655"
+  },
+  {
+   "from": "N Mo Pac Expy",
+   "hour_of_week": 119,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.404,-97.721"
+  },
+  {
+   "from": "Alterra Pkwy",
+   "hour_of_week": 119,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.405,-97.720"
+  },
+  {
+   "from": "Burnet Rd / Rosalind Way",
+   "hour_of_week": 119,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.403,-97.721"
+  }
+ ],
+ "unmatched_pct": {
+  "dispatch": 95.0,
+  "tomtom": 99.5
+ },
+ "witnesses": {
+  "both": 0,
+  "here_only": 0,
+  "n": 20,
+  "neither": 19,
+  "tomtom_only": 1
+ }
+}
