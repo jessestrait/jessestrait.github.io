@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 21,
-  "tomtom": 591,
-  "tomtom_only": 568
+  "tomtom": 626,
+  "tomtom_only": 602
  },
  "date": "2026-10-10",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 17,
-   "n": 258,
-   "pct": 6.6
+   "n": 270,
+   "pct": 6.3
   },
   "tomtom_surface": {
-   "matched": 6,
-   "n": 333,
-   "pct": 1.8
+   "matched": 7,
+   "n": 356,
+   "pct": 2.0
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 509,
+  "hotspot_buckets": 540,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 537
+  "unreported_congestion": 571
  },
  "sampling": {
   "flow_spent_this_month": 2583,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 502,
+  "incidents_spent_this_month": 503,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -210,16 +210,16 @@
    "seg": "30.218,-97.827"
   },
   {
-   "from": "I-35 (E Riverside Dr)",
-   "hour_of_week": 138,
+   "from": "Onion Creek Dr",
+   "hour_of_week": 26,
    "n": 2,
    "roadworks": false,
-   "seg": "30.256,-97.746"
+   "seg": "30.121,-97.812"
   }
  ],
  "unmatched_pct": {
   "dispatch": 84.8,
-  "tomtom": 96.1
+  "tomtom": 96.2
  },
  "witnesses": {
   "both": 0,
