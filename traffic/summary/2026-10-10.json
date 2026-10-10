@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 45,
-  "dispatch_only": 38,
+  "dispatch": 46,
+  "dispatch_only": 39,
   "here": 0,
   "here_matched": 0,
   "matched": 11,
-  "tomtom": 329,
-  "tomtom_only": 317
+  "tomtom": 333,
+  "tomtom_only": 321
  },
  "date": "2026-10-10",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 6,
-   "n": 37,
-   "pct": 16.2
+   "n": 38,
+   "pct": 15.8
   },
   "tomtom_highway": {
    "matched": 8,
-   "n": 131,
+   "n": 132,
    "pct": 6.1
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 198,
+   "n": 201,
    "pct": 2.0
   }
  },
@@ -70,9 +70,9 @@
   "max": 235.2,
   "median": -91.2,
   "min": -136.9,
-  "n": 10,
-  "q1": -117.8,
-  "q3": -45.5
+  "n": 11,
+  "q1": -116.5,
+  "q3": -5.0
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -92,12 +92,12 @@
   "hotspot_buckets": 280,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 294
+  "unreported_congestion": 296
  },
  "sampling": {
   "flow_spent_this_month": 2430,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 492,
+  "incidents_spent_this_month": 493,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -167,6 +167,20 @@
    "seg": "30.274,-97.774"
   },
   {
+   "from": "RM-2244/Bee Cave Rd (S Mopac Expy Frontage)",
+   "hour_of_week": 96,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.268,-97.778"
+  },
+  {
+   "from": "Vale St",
+   "hour_of_week": 112,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.270,-97.781"
+  },
+  {
    "from": "TX-1 Loop/Mopac Expy (Barton Springs Rd)",
    "hour_of_week": 96,
    "n": 2,
@@ -200,31 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "Brushy Creek Rd",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.513,-97.795"
-  },
-  {
-   "from": "N Highway 183",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.447,-97.788"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 84.4,
+  "dispatch": 84.8,
   "tomtom": 96.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 45,
-  "neither": 38,
+  "n": 46,
+  "neither": 39,
   "tomtom_only": 7
  }
 }
