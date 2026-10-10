@@ -10,22 +10,22 @@
  ],
  "counts": {
   "dispatch": 80,
-  "dispatch_only": 70,
+  "dispatch_only": 69,
   "here": 0,
   "here_matched": 0,
-  "matched": 14,
-  "tomtom": 470,
-  "tomtom_only": 454
+  "matched": 15,
+  "tomtom": 534,
+  "tomtom_only": 517
  },
  "date": "2026-10-10",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.3,
+  "median": 116.5,
   "min": 6.5,
-  "n": 66,
-  "q1": 77.6,
-  "q3": 118.6
+  "n": 68,
+  "q1": 82.0,
+  "q3": 118.7
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,19 +37,19 @@
    "pct": 20.0
   },
   "dispatch_surface": {
-   "matched": 7,
+   "matched": 8,
    "n": 65,
-   "pct": 10.8
+   "pct": 12.3
   },
   "tomtom_highway": {
    "matched": 12,
-   "n": 203,
-   "pct": 5.9
+   "n": 237,
+   "pct": 5.1
   },
   "tomtom_surface": {
-   "matched": 4,
-   "n": 267,
-   "pct": 1.5
+   "matched": 5,
+   "n": 297,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 88.5,
-  "median": -10.2,
+  "median": -3.8,
   "min": -64.7,
-  "n": 14,
-  "q1": -33.6,
-  "q3": 55.0
+  "n": 15,
+  "q1": -29.8,
+  "q3": 48.7
  },
  "persistence_min": {
   "max": 235.2,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 405,
+  "hotspot_buckets": 463,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 427
+  "unreported_congestion": 489
  },
  "sampling": {
-  "flow_spent_this_month": 2538,
+  "flow_spent_this_month": 2547,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 500,
+  "incidents_spent_this_month": 501,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -202,29 +202,29 @@
    "seg": "30.218,-97.827"
   },
   {
-   "from": "TX-1 Loop/Mopac Expy (Barton Springs Rd)",
-   "hour_of_week": 96,
+   "from": "Barton Springs Rd (S Congress Ave)",
+   "hour_of_week": 138,
    "n": 2,
    "roadworks": false,
-   "seg": "30.266,-97.769"
+   "seg": "30.262,-97.745"
   },
   {
-   "from": "W 2nd St (San Antonio St)",
-   "hour_of_week": 131,
+   "from": "N Interstate 35",
+   "hour_of_week": 138,
    "n": 2,
    "roadworks": false,
-   "seg": "30.267,-97.748"
+   "seg": "30.303,-97.715"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.5,
-  "tomtom": 96.6
+  "dispatch": 86.2,
+  "tomtom": 96.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 80,
-  "neither": 70,
-  "tomtom_only": 10
+  "neither": 69,
+  "tomtom_only": 11
  }
 }
