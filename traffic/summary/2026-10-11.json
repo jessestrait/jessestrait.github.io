@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 21,
+  "dispatch": 23,
   "dispatch_only": 20,
   "here": 0,
   "here_matched": 0,
-  "matched": 1,
-  "tomtom": 131,
-  "tomtom_only": 130
+  "matched": 3,
+  "tomtom": 169,
+  "tomtom_only": 166
  },
  "date": "2026-10-11",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.0,
   "median": 117.0,
-  "min": 115.1,
-  "n": 4,
-  "q1": 115.3,
+  "min": 115.0,
+  "n": 6,
+  "q1": 115.1,
   "q3": 118.8
  },
  "here_onset_offset_min": {
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 0,
-   "n": 1,
+   "n": 2,
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 1,
-   "n": 20,
-   "pct": 5.0
+   "matched": 3,
+   "n": 21,
+   "pct": 14.3
   },
   "tomtom_highway": {
-   "matched": 1,
-   "n": 52,
-   "pct": 1.9
+   "matched": 2,
+   "n": 70,
+   "pct": 2.9
   },
   "tomtom_surface": {
-   "matched": 0,
-   "n": 79,
-   "pct": 0.0
+   "matched": 1,
+   "n": 99,
+   "pct": 1.0
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": -8.7,
-  "median": -8.7,
+  "max": 38.5,
+  "median": -2.0,
   "min": -8.7,
-  "n": 1,
+  "n": 3,
   "q1": -8.7,
-  "q3": -8.7
+  "q3": 38.5
  },
  "persistence_min": {
   "n": 0
@@ -84,15 +84,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 107,
+  "hotspot_buckets": 139,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 111
+  "unreported_congestion": 146
  },
  "sampling": {
   "flow_spent_this_month": 2610,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 504,
+  "incidents_spent_this_month": 505,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -106,6 +106,13 @@
  },
  "structural_hotspots": [
   {
+   "from": "N Mo Pac Expy",
+   "hour_of_week": 144,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.405,-97.721"
+  },
+  {
    "from": "TX-1 Loop/Mopac Expy (Barton Springs Rd)",
    "hour_of_week": 96,
    "n": 2,
@@ -118,6 +125,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.234,-97.736"
   },
   {
    "from": "Ellas Inlet Dr / Felix Sparke Dr",
@@ -134,18 +148,18 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "26th St (I-35)",
+   "hour_of_week": 144,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.281,-97.728"
+  },
+  {
    "from": "N Lake Creek Pkwy",
    "hour_of_week": 143,
    "n": 1,
    "roadworks": false,
    "seg": "30.475,-97.794"
-  },
-  {
-   "from": "N Mo Pac Expy",
-   "hour_of_week": 143,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.406,-97.722"
   },
   {
    "from": "Domain Blvd",
@@ -169,13 +183,6 @@
    "seg": "30.322,-97.773"
   },
   {
-   "from": "E Braker Ln (I-35)",
-   "hour_of_week": 141,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.423,-97.671"
-  },
-  {
    "from": "McCallen Pass (E Parmer Ln/FM-734)",
    "hour_of_week": 143,
    "n": 1,
@@ -197,13 +204,6 @@
    "seg": "30.262,-97.761"
   },
   {
-   "from": "US-183/E Anderson Ln (I-35)",
-   "hour_of_week": 138,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.356,-97.689"
-  },
-  {
    "from": "Immanuel Rd",
    "hour_of_week": 143,
    "n": 1,
@@ -212,14 +212,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 95.2,
-  "tomtom": 99.2
+  "dispatch": 87.0,
+  "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 21,
+  "n": 23,
   "neither": 20,
-  "tomtom_only": 1
+  "tomtom_only": 3
  }
 }
