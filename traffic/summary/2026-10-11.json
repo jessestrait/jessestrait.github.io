@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 91,
-  "dispatch_only": 79,
+  "dispatch": 94,
+  "dispatch_only": 82,
   "here": 0,
   "here_matched": 0,
   "matched": 17,
@@ -33,13 +33,13 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 15,
-   "pct": 6.7
+   "n": 16,
+   "pct": 6.2
   },
   "dispatch_surface": {
    "matched": 11,
-   "n": 76,
-   "pct": 14.5
+   "n": 78,
+   "pct": 14.1
   },
   "tomtom_highway": {
    "matched": 8,
@@ -181,6 +181,13 @@
    "seg": "30.277,-97.771"
   },
   {
+   "from": "W 25th 1/2 St",
+   "hour_of_week": 165,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.291,-97.749"
+  },
+  {
    "from": "TX-1 Loop/Mopac Expy (Barton Springs Rd)",
    "hour_of_week": 96,
    "n": 2,
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.616"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.8,
+  "dispatch": 87.2,
   "tomtom": 95.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 91,
-  "neither": 79,
+  "n": 94,
+  "neither": 82,
   "tomtom_only": 12
  }
 }
