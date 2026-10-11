@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 14,
-  "tomtom": 234,
-  "tomtom_only": 221
+  "tomtom": 238,
+  "tomtom_only": 225
  },
  "date": "2026-10-11",
  "dispatch_life_capped": true,
@@ -48,8 +48,8 @@
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 139,
-   "pct": 4.3
+   "n": 143,
+   "pct": 4.2
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 184,
+  "hotspot_buckets": 186,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 194
+  "unreported_congestion": 198
  },
  "sampling": {
-  "flow_spent_this_month": 2745,
+  "flow_spent_this_month": 2754,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 514,
+  "incidents_spent_this_month": 515,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -140,6 +140,13 @@
    "seg": "30.188,-97.772"
   },
   {
+   "from": "RM-2244/Bee Cave Rd (S Mopac Expy Frontage)",
+   "hour_of_week": 96,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.268,-97.778"
+  },
+  {
    "from": "Berrywood Dr/Meadow Lark Ave (I-35)",
    "hour_of_week": 45,
    "n": 2,
@@ -166,6 +173,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.234,-97.736"
+  },
+  {
+   "from": "E Cesar Chavez St (Springdale Rd)",
+   "hour_of_week": 137,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.255,-97.702"
   },
   {
    "from": "Ellas Inlet Dr / Felix Sparke Dr",
@@ -201,25 +215,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.404,-97.717"
-  },
-  {
-   "from": "Mount Bonnell Dr",
-   "hour_of_week": 143,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.322,-97.773"
-  },
-  {
-   "from": "McCallen Pass (E Parmer Ln/FM-734)",
-   "hour_of_week": 143,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.408,-97.674"
   }
  ],
  "unmatched_pct": {
   "dispatch": 85.7,
-  "tomtom": 94.4
+  "tomtom": 94.5
  },
  "witnesses": {
   "both": 0,
