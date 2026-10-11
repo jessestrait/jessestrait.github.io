@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 18,
-  "tomtom": 367,
-  "tomtom_only": 350
+  "tomtom": 380,
+  "tomtom_only": 363
  },
  "date": "2026-10-11",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 145,
-   "pct": 6.2
+   "n": 152,
+   "pct": 5.9
   },
   "tomtom_surface": {
    "matched": 8,
-   "n": 222,
-   "pct": 3.6
+   "n": 228,
+   "pct": 3.5
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 304,
+  "hotspot_buckets": 317,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 321
+  "unreported_congestion": 334
  },
  "sampling": {
-  "flow_spent_this_month": 2889,
+  "flow_spent_this_month": 2898,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 521,
+  "incidents_spent_this_month": 522,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -189,13 +189,6 @@
    "seg": "30.291,-97.749"
   },
   {
-   "from": "S 1st St (Barton Springs Rd)",
-   "hour_of_week": 163,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.261,-97.759"
-  },
-  {
    "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
    "hour_of_week": 163,
    "n": 2,
@@ -215,11 +208,18 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.234,-97.736"
   }
  ],
  "unmatched_pct": {
   "dispatch": 87.1,
-  "tomtom": 95.4
+  "tomtom": 95.5
  },
  "witnesses": {
   "both": 0,
