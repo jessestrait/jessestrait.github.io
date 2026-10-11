@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 118 min over 27 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch record lifetimes look like real clearances this day, not a cap.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 44,
-  "dispatch_only": 35,
+  "dispatch": 50,
+  "dispatch_only": 41,
   "here": 0,
   "here_matched": 0,
   "matched": 14,
-  "tomtom": 216,
-  "tomtom_only": 203
+  "tomtom": 222,
+  "tomtom_only": 209
  },
  "date": "2026-10-11",
- "dispatch_life_capped": true,
+ "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.4,
-  "median": 117.4,
-  "min": 115.0,
-  "n": 27,
-  "q1": 115.8,
-  "q3": 118.5
+  "median": 115.8,
+  "min": 5.9,
+  "n": 44,
+  "q1": 72.6,
+  "q3": 117.8
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 9,
-   "n": 40,
-   "pct": 22.5
+   "n": 46,
+   "pct": 19.6
   },
   "tomtom_highway": {
    "matched": 7,
-   "n": 87,
-   "pct": 8.0
+   "n": 91,
+   "pct": 7.7
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 129,
-   "pct": 4.7
+   "n": 131,
+   "pct": 4.6
   }
  },
  "matcher": {
@@ -67,13 +67,12 @@
   "q3": 57.9
  },
  "persistence_min": {
-  "max": -20.2,
-  "median": -76.2,
+  "max": -15.2,
+  "median": -50.7,
   "min": -111.6,
-  "n": 7,
-  "q1": -86.3,
-  "q3": -40.6,
-  "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
+  "n": 14,
+  "q1": -78.7,
+  "q3": -15.2
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -90,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 173,
+  "hotspot_buckets": 177,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 182
+  "unreported_congestion": 185
  },
  "sampling": {
-  "flow_spent_this_month": 2637,
+  "flow_spent_this_month": 2646,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 508,
+  "incidents_spent_this_month": 509,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -138,13 +137,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.188,-97.772"
-  },
-  {
-   "from": "TX-1 Loop/Mopac Expy (Barton Springs Rd)",
-   "hour_of_week": 96,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.266,-97.767"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -215,17 +207,24 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.360,-97.694"
+  },
+  {
+   "from": "S 1st St (Barton Springs Rd)",
+   "hour_of_week": 137,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.262,-97.761"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 79.5,
-  "tomtom": 94.0
+  "dispatch": 82.0,
+  "tomtom": 94.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 44,
-  "neither": 35,
+  "n": 50,
+  "neither": 41,
   "tomtom_only": 9
  }
 }
