@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 33,
-  "dispatch_only": 27,
+  "dispatch": 34,
+  "dispatch_only": 28,
   "here": 0,
   "here_matched": 0,
-  "matched": 7,
-  "tomtom": 182,
-  "tomtom_only": 175
+  "matched": 8,
+  "tomtom": 194,
+  "tomtom_only": 186
  },
  "date": "2026-10-11",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.4,
-  "median": 116.9,
+  "median": 117.0,
   "min": 115.0,
-  "n": 18,
-  "q1": 115.6,
-  "q3": 118.6
+  "n": 19,
+  "q1": 115.7,
+  "q3": 118.5
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 6,
-   "n": 30,
-   "pct": 20.0
+   "n": 31,
+   "pct": 19.4
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 76,
-   "pct": 5.3
+   "n": 79,
+   "pct": 5.1
   },
   "tomtom_surface": {
-   "matched": 3,
-   "n": 106,
-   "pct": 2.8
+   "matched": 4,
+   "n": 115,
+   "pct": 3.5
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 73.0,
-  "median": -2.0,
+  "median": -2.4,
   "min": -83.8,
-  "n": 7,
-  "q1": -8.7,
-  "q3": 38.5
+  "n": 8,
+  "q1": -65.0,
+  "q3": 33.5
  },
  "persistence_min": {
-  "max": -65.9,
+  "max": -20.2,
   "median": -76.2,
   "min": -111.6,
-  "n": 3,
-  "q1": -111.6,
-  "q3": -65.9
+  "n": 5,
+  "q1": -98.9,
+  "q3": -43.0
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 146,
+  "hotspot_buckets": 156,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 155
+  "unreported_congestion": 166
  },
  "sampling": {
   "flow_spent_this_month": 2628,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 506,
+  "incidents_spent_this_month": 507,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -174,6 +174,13 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "S Lamar Blvd",
+   "hour_of_week": 145,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.262,-97.758"
+  },
+  {
    "from": "N Lake Creek Pkwy",
    "hour_of_week": 143,
    "n": 1,
@@ -207,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.408,-97.674"
-  },
-  {
-   "from": "E Fawnridge Dr / W Fawnridge Dr",
-   "hour_of_week": 143,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.360,-97.694"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.8,
-  "tomtom": 96.2
+  "dispatch": 82.4,
+  "tomtom": 95.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 33,
-  "neither": 27,
+  "n": 34,
+  "neither": 28,
   "tomtom_only": 6
  }
 }
