@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 24 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 26 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 40,
-  "dispatch_only": 34,
+  "dispatch": 42,
+  "dispatch_only": 35,
   "here": 0,
   "here_matched": 0,
-  "matched": 9,
-  "tomtom": 194,
-  "tomtom_only": 185
+  "matched": 11,
+  "tomtom": 216,
+  "tomtom_only": 205
  },
  "date": "2026-10-11",
  "dispatch_life_capped": true,
@@ -23,9 +23,9 @@
   "max": 119.4,
   "median": 117.2,
   "min": 115.0,
-  "n": 24,
-  "q1": 115.7,
-  "q3": 118.7
+  "n": 26,
+  "q1": 115.8,
+  "q3": 118.6
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,19 +37,19 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 6,
-   "n": 36,
-   "pct": 16.7
+   "matched": 7,
+   "n": 38,
+   "pct": 18.4
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 79,
-   "pct": 5.1
+   "matched": 6,
+   "n": 87,
+   "pct": 6.9
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 115,
-   "pct": 4.3
+   "n": 129,
+   "pct": 3.9
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 73.0,
-  "median": -2.0,
+  "median": 6.2,
   "min": -83.8,
-  "n": 9,
-  "q1": -46.2,
-  "q3": 55.4
+  "n": 11,
+  "q1": -8.7,
+  "q3": 54.5
  },
  "persistence_min": {
   "max": -20.2,
   "median": -76.2,
   "min": -111.6,
-  "n": 5,
-  "q1": -98.9,
-  "q3": -43.0,
+  "n": 7,
+  "q1": -86.3,
+  "q3": -40.6,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 155,
+  "hotspot_buckets": 175,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 165
+  "unreported_congestion": 184
  },
  "sampling": {
-  "flow_spent_this_month": 2628,
+  "flow_spent_this_month": 2637,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 507,
+  "incidents_spent_this_month": 508,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -140,18 +140,11 @@
    "seg": "30.188,-97.772"
   },
   {
-   "from": "W Cesar Chavez St (N Lamar Blvd)",
-   "hour_of_week": 145,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.262,-97.758"
-  },
-  {
    "from": "TX-1 Loop/Mopac Expy (Barton Springs Rd)",
    "hour_of_week": 96,
    "n": 2,
    "roadworks": false,
-   "seg": "30.266,-97.769"
+   "seg": "30.266,-97.767"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -215,17 +208,24 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.408,-97.674"
+  },
+  {
+   "from": "E Fawnridge Dr / W Fawnridge Dr",
+   "hour_of_week": 143,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.360,-97.694"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.0,
-  "tomtom": 95.4
+  "dispatch": 83.3,
+  "tomtom": 94.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 40,
-  "neither": 34,
-  "tomtom_only": 6
+  "n": 42,
+  "neither": 35,
+  "tomtom_only": 7
  }
 }
