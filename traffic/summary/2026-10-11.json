@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 14,
-  "tomtom": 246,
-  "tomtom_only": 233
+  "tomtom": 266,
+  "tomtom_only": 253
  },
  "date": "2026-10-11",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 7,
-   "n": 98,
-   "pct": 7.1
+   "n": 103,
+   "pct": 6.8
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 148,
-   "pct": 4.1
+   "n": 163,
+   "pct": 3.7
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 194,
+  "hotspot_buckets": 212,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 206
+  "unreported_congestion": 226
  },
  "sampling": {
   "flow_spent_this_month": 2790,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 516,
+  "incidents_spent_this_month": 517,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -154,6 +154,13 @@
    "seg": "30.385,-97.673"
   },
   {
+   "from": "S A.W. Grimes Blvd",
+   "hour_of_week": 159,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.494,-97.657"
+  },
+  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
@@ -196,30 +203,23 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "Philomena St",
+   "hour_of_week": 160,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.298,-97.705"
+  },
+  {
    "from": "N Lake Creek Pkwy",
    "hour_of_week": 143,
    "n": 1,
    "roadworks": false,
    "seg": "30.475,-97.794"
-  },
-  {
-   "from": "Domain Blvd",
-   "hour_of_week": 142,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.405,-97.723"
-  },
-  {
-   "from": "W Braker Ln (Burnet Rd)",
-   "hour_of_week": 143,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.404,-97.717"
   }
  ],
  "unmatched_pct": {
   "dispatch": 87.3,
-  "tomtom": 94.7
+  "tomtom": 95.1
  },
  "witnesses": {
   "both": 0,
