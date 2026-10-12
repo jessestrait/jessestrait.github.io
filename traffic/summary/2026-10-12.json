@@ -89,7 +89,7 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 123,
+  "hotspot_buckets": 122,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
   "unreported_congestion": 129
@@ -97,7 +97,7 @@
  "sampling": {
   "flow_spent_this_month": 2925,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 524,
+  "incidents_spent_this_month": 525,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -137,6 +137,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Thompson Ln",
+   "hour_of_week": 94,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.246,-97.673"
   },
   {
    "from": "Ellas Inlet Dr / Felix Sparke Dr",
@@ -207,13 +214,6 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.271,-97.772"
-  },
-  {
-   "from": "Harris Ridge Blvd (E Howard Ln)",
-   "hour_of_week": 166,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.405,-97.641"
   }
  ],
  "unmatched_pct": {
