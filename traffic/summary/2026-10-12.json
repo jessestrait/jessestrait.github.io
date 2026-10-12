@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 77,
-  "dispatch_only": 67,
+  "dispatch": 79,
+  "dispatch_only": 68,
   "here": 0,
   "here_matched": 0,
-  "matched": 11,
-  "tomtom": 760,
-  "tomtom_only": 749
+  "matched": 12,
+  "tomtom": 769,
+  "tomtom_only": 757
  },
  "date": "2026-10-12",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 116.1,
+  "median": 116.2,
   "min": 12.0,
-  "n": 56,
-  "q1": 67.3,
-  "q3": 117.7
+  "n": 57,
+  "q1": 69.7,
+  "q3": 117.8
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,18 +37,18 @@
    "pct": 25.0
   },
   "dispatch_surface": {
-   "matched": 6,
-   "n": 61,
-   "pct": 9.8
+   "matched": 7,
+   "n": 63,
+   "pct": 11.1
   },
   "tomtom_highway": {
-   "matched": 9,
-   "n": 410,
-   "pct": 2.2
+   "matched": 10,
+   "n": 412,
+   "pct": 2.4
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 350,
+   "n": 357,
    "pct": 0.6
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 60.5,
-  "median": -3.0,
+  "median": -1.6,
   "min": -24.9,
-  "n": 11,
+  "n": 12,
   "q1": -15.4,
-  "q3": 12.2
+  "q3": 14.2
  },
  "persistence_min": {
   "max": -10.1,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 599,
+  "hotspot_buckets": 605,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 704
+  "unreported_congestion": 712
  },
  "sampling": {
   "flow_spent_this_month": 3132,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 566,
+  "incidents_spent_this_month": 567,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.0,
-  "tomtom": 98.6
+  "dispatch": 86.1,
+  "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 77,
-  "neither": 67,
-  "tomtom_only": 10
+  "n": 79,
+  "neither": 68,
+  "tomtom_only": 11
  }
 }
