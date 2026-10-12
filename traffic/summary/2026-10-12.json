@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 30,
-  "dispatch_only": 26,
+  "dispatch": 32,
+  "dispatch_only": 28,
   "here": 0,
   "here_matched": 0,
   "matched": 5,
-  "tomtom": 339,
-  "tomtom_only": 335
+  "tomtom": 346,
+  "tomtom_only": 342
  },
  "date": "2026-10-12",
  "dispatch_life_capped": false,
@@ -23,9 +23,9 @@
   "max": 119.5,
   "median": 116.0,
   "min": 12.0,
-  "n": 24,
-  "q1": 54.0,
-  "q3": 117.7
+  "n": 25,
+  "q1": 55.0,
+  "q3": 117.6
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,22 +33,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 2,
-   "n": 6,
-   "pct": 33.3
+   "n": 7,
+   "pct": 28.6
   },
   "dispatch_surface": {
    "matched": 2,
-   "n": 24,
-   "pct": 8.3
+   "n": 25,
+   "pct": 8.0
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 151,
+   "n": 153,
    "pct": 2.6
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 188,
+   "n": 193,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 215,
+  "hotspot_buckets": 220,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 296
+  "unreported_congestion": 303
  },
  "sampling": {
-  "flow_spent_this_month": 3006,
+  "flow_spent_this_month": 3015,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 539,
+  "incidents_spent_this_month": 540,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -139,25 +139,18 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "Rental Car Ln",
+   "hour_of_week": 12,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.205,-97.671"
+  },
+  {
    "from": "Vale St",
    "hour_of_week": 112,
    "n": 3,
    "roadworks": false,
    "seg": "30.270,-97.781"
-  },
-  {
-   "from": "Rental Car Ln",
-   "hour_of_week": 12,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.205,-97.671"
-  },
-  {
-   "from": "State Highway 130",
-   "hour_of_week": 11,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.200,-97.632"
   },
   {
    "from": "Pond Springs Rd",
@@ -214,17 +207,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.406,-97.718"
+  },
+  {
+   "from": "Alterra Pkwy",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.406,-97.717"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.7,
+  "dispatch": 87.5,
   "tomtom": 98.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 30,
-  "neither": 26,
+  "n": 32,
+  "neither": 28,
   "tomtom_only": 4
  }
 }
