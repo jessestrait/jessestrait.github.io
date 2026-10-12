@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 28,
-  "dispatch_only": 25,
+  "dispatch_only": 24,
   "here": 0,
   "here_matched": 0,
-  "matched": 3,
-  "tomtom": 161,
-  "tomtom_only": 158
+  "matched": 5,
+  "tomtom": 271,
+  "tomtom_only": 267
  },
  "date": "2026-10-12",
  "dispatch_life_capped": false,
@@ -37,18 +37,18 @@
    "pct": 33.3
   },
   "dispatch_surface": {
-   "matched": 1,
+   "matched": 2,
    "n": 22,
-   "pct": 4.5
+   "pct": 9.1
   },
   "tomtom_highway": {
-   "matched": 3,
-   "n": 62,
-   "pct": 4.8
+   "matched": 4,
+   "n": 107,
+   "pct": 3.7
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 99,
+   "n": 164,
    "pct": 0.0
   }
  },
@@ -62,9 +62,9 @@
   "max": 30.3,
   "median": -8.2,
   "min": -15.4,
-  "n": 3,
+  "n": 5,
   "q1": -15.4,
-  "q3": 30.3
+  "q3": 13.7
  },
  "persistence_min": {
   "max": -10.1,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 133,
+  "hotspot_buckets": 152,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 139
+  "unreported_congestion": 228
  },
  "sampling": {
   "flow_spent_this_month": 2979,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 530,
+  "incidents_spent_this_month": 531,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,120 +111,120 @@
  },
  "structural_hotspots": [
   {
-   "from": "Vale St",
-   "hour_of_week": 112,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.270,-97.781"
-  },
-  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
-   "n": 2,
+   "n": 4,
    "roadworks": false,
    "seg": "30.245,-97.744"
   },
   {
    "from": "E Oltorf St",
    "hour_of_week": 68,
-   "n": 2,
+   "n": 4,
    "roadworks": false,
    "seg": "30.234,-97.736"
   },
   {
-   "from": "Thompson Ln",
-   "hour_of_week": 94,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.246,-97.673"
-  },
-  {
    "from": "Ellas Inlet Dr / Felix Sparke Dr",
    "hour_of_week": 68,
-   "n": 2,
+   "n": 4,
    "roadworks": false,
    "seg": "30.148,-97.704"
   },
   {
    "from": "Lexington Meadow Ln",
    "hour_of_week": 44,
-   "n": 2,
+   "n": 4,
    "roadworks": false,
    "seg": "30.179,-97.616"
   },
   {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 167,
-   "n": 1,
+   "from": "Vale St",
+   "hour_of_week": 112,
+   "n": 3,
    "roadworks": false,
-   "seg": "30.476,-97.794"
+   "seg": "30.270,-97.781"
   },
   {
-   "from": "Olive Hill Dr",
-   "hour_of_week": 167,
-   "n": 1,
+   "from": "Thompson Ln",
+   "hour_of_week": 94,
+   "n": 3,
    "roadworks": false,
-   "seg": "30.488,-97.770"
+   "seg": "30.246,-97.673"
   },
   {
-   "from": "FM-1431/Chandler St/Exit 256 (I-35)",
-   "hour_of_week": 167,
-   "n": 1,
+   "from": "Pond Springs Rd",
+   "hour_of_week": 46,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.535,-97.692"
+   "seg": "30.448,-97.780"
   },
   {
-   "from": "Rock Rose Ave",
-   "hour_of_week": 167,
-   "n": 1,
+   "from": "Tree Line Dr",
+   "hour_of_week": 90,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.404,-97.725"
+   "seg": "30.448,-97.780"
   },
   {
-   "from": "E Braker Ln (I-35)",
-   "hour_of_week": 166,
-   "n": 1,
+   "from": "Sam Bass Rd",
+   "hour_of_week": 39,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.423,-97.671"
+   "seg": "30.516,-97.690"
   },
   {
-   "from": "Wells Branch Pkwy (I-35)",
-   "hour_of_week": 167,
-   "n": 1,
+   "from": "Waymaker Way",
+   "hour_of_week": 160,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.427,-97.671"
+   "seg": "30.330,-97.810"
   },
   {
-   "from": "Spyglass Dr",
-   "hour_of_week": 167,
-   "n": 1,
+   "from": "N Capital of Texas Highway South Bound / N Capital of Texas Hwy",
+   "hour_of_week": 14,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.263,-97.789"
+   "seg": "30.383,-97.767"
   },
   {
-   "from": "Paige Dr",
-   "hour_of_week": 167,
-   "n": 1,
+   "from": "Spicewood Springs Rd / Adirondack Trl",
+   "hour_of_week": 12,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.271,-97.772"
+   "seg": "30.383,-97.767"
   },
   {
-   "from": "Harris Ridge Blvd (E Howard Ln)",
-   "hour_of_week": 166,
-   "n": 1,
+   "from": "W Slaughter Ln",
+   "hour_of_week": 114,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.405,-97.641"
+   "seg": "30.214,-97.892"
+  },
+  {
+   "from": "Burnet Rd",
+   "hour_of_week": 70,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.406,-97.718"
+  },
+  {
+   "from": "Alterra Pkwy",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.406,-97.717"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 89.3,
-  "tomtom": 98.1
+  "dispatch": 85.7,
+  "tomtom": 98.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 28,
-  "neither": 25,
-  "tomtom_only": 3
+  "neither": 24,
+  "tomtom_only": 4
  }
 }
