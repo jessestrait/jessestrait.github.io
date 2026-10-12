@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 5,
-  "tomtom": 327,
-  "tomtom_only": 323
+  "tomtom": 339,
+  "tomtom_only": 335
  },
  "date": "2026-10-12",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 145,
-   "pct": 2.8
+   "n": 151,
+   "pct": 2.6
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 182,
+   "n": 188,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 206,
+  "hotspot_buckets": 215,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 284
+  "unreported_congestion": 296
  },
  "sampling": {
   "flow_spent_this_month": 3006,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 538,
+  "incidents_spent_this_month": 539,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -151,6 +151,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.205,-97.671"
+  },
+  {
+   "from": "State Highway 130",
+   "hour_of_week": 11,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.200,-97.632"
   },
   {
    "from": "Pond Springs Rd",
@@ -207,13 +214,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.406,-97.718"
-  },
-  {
-   "from": "Alterra Pkwy",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.406,-97.717"
   }
  ],
  "unmatched_pct": {
