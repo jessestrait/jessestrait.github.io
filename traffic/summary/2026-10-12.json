@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 80,
-  "dispatch_only": 69,
+  "dispatch": 81,
+  "dispatch_only": 70,
   "here": 0,
   "here_matched": 0,
   "matched": 13,
-  "tomtom": 801,
-  "tomtom_only": 788
+  "tomtom": 807,
+  "tomtom_only": 794
  },
  "date": "2026-10-12",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 7,
-   "n": 63,
-   "pct": 11.1
+   "n": 64,
+   "pct": 10.9
   },
   "tomtom_highway": {
    "matched": 10,
-   "n": 428,
+   "n": 431,
    "pct": 2.3
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 373,
+   "n": 376,
    "pct": 0.8
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 634,
+  "hotspot_buckets": 638,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 743
+  "unreported_congestion": 749
  },
  "sampling": {
   "flow_spent_this_month": 3141,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 570,
+  "incidents_spent_this_month": 571,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,13 +160,6 @@
    "seg": "30.496,-97.775"
   },
   {
-   "from": "S Pleasant Valley Rd (E William Cannon Dr)",
-   "hour_of_week": 23,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.164,-97.728"
-  },
-  {
    "from": "Pond Springs Rd",
    "hour_of_week": 46,
    "n": 2,
@@ -214,17 +207,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.406,-97.718"
+  },
+  {
+   "from": "Alterra Pkwy",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.406,-97.717"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.2,
+  "dispatch": 86.4,
   "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 80,
-  "neither": 69,
+  "n": 81,
+  "neither": 70,
   "tomtom_only": 11
  }
 }
