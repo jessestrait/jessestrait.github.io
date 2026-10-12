@@ -10,22 +10,22 @@
  ],
  "counts": {
   "dispatch": 14,
-  "dispatch_only": 13,
+  "dispatch_only": 12,
   "here": 0,
   "here_matched": 0,
-  "matched": 1,
-  "tomtom": 128,
-  "tomtom_only": 127
+  "matched": 2,
+  "tomtom": 144,
+  "tomtom_only": 142
  },
  "date": "2026-10-12",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
-  "max": 116.5,
-  "median": 115.9,
+  "max": 117.6,
+  "median": 116.5,
   "min": 115.3,
-  "n": 2,
+  "n": 3,
   "q1": 115.3,
-  "q3": 116.5
+  "q3": 117.6
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,18 +37,18 @@
    "pct": 33.3
   },
   "dispatch_surface": {
-   "matched": 0,
+   "matched": 1,
    "n": 11,
-   "pct": 0.0
+   "pct": 9.1
   },
   "tomtom_highway": {
-   "matched": 1,
-   "n": 48,
-   "pct": 2.1
+   "matched": 2,
+   "n": 53,
+   "pct": 3.8
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 80,
+   "n": 91,
    "pct": 0.0
   }
  },
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": -8.2,
-  "median": -8.2,
+  "max": 30.3,
+  "median": 11.1,
   "min": -8.2,
-  "n": 1,
+  "n": 2,
   "q1": -8.2,
-  "q3": -8.2
+  "q3": 30.3
  },
  "persistence_min": {
   "n": 0
@@ -84,15 +84,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 105,
+  "hotspot_buckets": 120,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 110
+  "unreported_congestion": 125
  },
  "sampling": {
   "flow_spent_this_month": 2916,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 522,
+  "incidents_spent_this_month": 523,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -204,22 +204,22 @@
    "seg": "30.405,-97.641"
   },
   {
-   "from": "TX-343 Loop/S Lamar Blvd (Barton Springs Rd)",
-   "hour_of_week": 163,
+   "from": "San Antonio St (State Spur 343/W Cesar Chavez St/W 1st St)",
+   "hour_of_week": 161,
    "n": 1,
    "roadworks": false,
-   "seg": "30.262,-97.761"
+   "seg": "30.266,-97.756"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 92.9,
-  "tomtom": 99.2
+  "dispatch": 85.7,
+  "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 14,
-  "neither": 13,
-  "tomtom_only": 1
+  "neither": 12,
+  "tomtom_only": 2
  }
 }
