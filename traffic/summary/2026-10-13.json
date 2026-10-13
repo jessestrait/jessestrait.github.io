@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 123,
-  "dispatch_only": 95,
+  "dispatch_only": 94,
   "here": 0,
   "here_matched": 0,
-  "matched": 39,
-  "tomtom": 1520,
-  "tomtom_only": 1483
+  "matched": 40,
+  "tomtom": 1537,
+  "tomtom_only": 1499
  },
  "date": "2026-10-13",
  "dispatch_life_capped": true,
@@ -37,18 +37,18 @@
    "pct": 36.0
   },
   "dispatch_surface": {
-   "matched": 19,
+   "matched": 20,
    "n": 98,
-   "pct": 19.4
+   "pct": 20.4
   },
   "tomtom_highway": {
-   "matched": 27,
-   "n": 871,
-   "pct": 3.1
+   "matched": 28,
+   "n": 883,
+   "pct": 3.2
   },
   "tomtom_surface": {
    "matched": 10,
-   "n": 649,
+   "n": 654,
    "pct": 1.5
   }
  },
@@ -60,17 +60,17 @@
  },
  "onset_offset_min": {
   "max": 82.0,
-  "median": 23.4,
+  "median": 18.8,
   "min": -66.5,
-  "n": 39,
-  "q1": -3.9,
+  "n": 40,
+  "q1": -3.6,
   "q3": 51.5
  },
  "persistence_min": {
   "max": 265.2,
-  "median": -66.2,
+  "median": -61.0,
   "min": -727.2,
-  "n": 21,
+  "n": 23,
   "q1": -106.6,
   "q3": 5.1,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1320,
+  "hotspot_buckets": 1332,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1455
+  "unreported_congestion": 1471
  },
  "sampling": {
   "flow_spent_this_month": 3411,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 619,
+  "incidents_spent_this_month": 620,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -203,29 +203,29 @@
    "seg": "30.190,-97.857"
   },
   {
+   "from": "N Lamar Blvd",
+   "hour_of_week": 47,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.267,-97.755"
+  },
+  {
    "from": "E Riverside Dr (S Pleasant Valley Rd)",
    "hour_of_week": 46,
    "n": 3,
    "roadworks": false,
    "seg": "30.243,-97.717"
-  },
-  {
-   "from": "S 1st St (W Ben White Blvd)",
-   "hour_of_week": 47,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.223,-97.765"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 77.2,
-  "tomtom": 97.6
+  "dispatch": 76.4,
+  "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 123,
-  "neither": 95,
-  "tomtom_only": 28
+  "neither": 94,
+  "tomtom_only": 29
  }
 }
