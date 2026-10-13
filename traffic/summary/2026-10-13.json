@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 36 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 37 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -13,9 +13,9 @@
   "dispatch_only": 41,
   "here": 0,
   "here_matched": 0,
-  "matched": 12,
-  "tomtom": 502,
-  "tomtom_only": 489
+  "matched": 13,
+  "tomtom": 538,
+  "tomtom_only": 524
  },
  "date": "2026-10-13",
  "dispatch_life_capped": true,
@@ -23,9 +23,9 @@
   "max": 120.0,
   "median": 117.6,
   "min": 9.8,
-  "n": 36,
+  "n": 37,
   "q1": 116.1,
-  "q3": 118.9
+  "q3": 118.8
  },
  "here_onset_offset_min": {
   "n": 0
@@ -42,13 +42,13 @@
    "pct": 11.1
   },
   "tomtom_highway": {
-   "matched": 12,
-   "n": 270,
+   "matched": 13,
+   "n": 296,
    "pct": 4.4
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 232,
+   "n": 242,
    "pct": 0.4
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 82.0,
-  "median": 1.8,
+  "median": 1.9,
   "min": -66.5,
-  "n": 12,
+  "n": 13,
   "q1": -4.7,
-  "q3": 23.9
+  "q3": 40.5
  },
  "persistence_min": {
   "max": -30.6,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 433,
+  "hotspot_buckets": 462,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 467
+  "unreported_congestion": 502
  },
  "sampling": {
-  "flow_spent_this_month": 3240,
+  "flow_spent_this_month": 3249,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 589,
+  "incidents_spent_this_month": 590,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -112,6 +112,13 @@
  },
  "structural_hotspots": [
   {
+   "from": "Pearce Ln (FM-973)",
+   "hour_of_week": 36,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.201,-97.640"
+  },
+  {
    "from": "Immanuel Rd",
    "hour_of_week": 36,
    "n": 3,
@@ -119,11 +126,11 @@
    "seg": "30.403,-97.636"
   },
   {
-   "from": "W Louis Henna Blvd",
+   "from": "FM 685",
    "hour_of_week": 36,
    "n": 3,
    "roadworks": false,
-   "seg": "30.480,-97.674"
+   "seg": "30.500,-97.581"
   },
   {
    "from": "S Pleasant Valley Rd (E Riverside Dr)",
@@ -138,13 +145,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.338,-97.701"
-  },
-  {
-   "from": "Pearce Ln (FM-973)",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.201,-97.640"
   },
   {
    "from": "W Rundberg Ln (Metric Blvd)",
@@ -173,13 +173,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.254,-97.594"
-  },
-  {
-   "from": "FM 685",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.500,-97.581"
   },
   {
    "from": "Mariposa Dr",
@@ -215,6 +208,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.164,-97.728"
+  },
+  {
+   "from": "McKinney Falls Pkwy (E William Cannon Dr)",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.179,-97.746"
   }
  ],
  "unmatched_pct": {
