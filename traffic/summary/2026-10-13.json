@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 10,
-  "tomtom": 314,
-  "tomtom_only": 304
+  "tomtom": 346,
+  "tomtom_only": 336
  },
  "date": "2026-10-13",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 168,
-   "pct": 5.4
+   "n": 187,
+   "pct": 4.8
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 146,
-   "pct": 0.7
+   "n": 159,
+   "pct": 0.6
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 275,
+  "hotspot_buckets": 304,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 282
+  "unreported_congestion": 314
  },
  "sampling": {
   "flow_spent_this_month": 3231,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 584,
+  "incidents_spent_this_month": 585,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -124,6 +124,27 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.338,-97.701"
+  },
+  {
+   "from": "Pearce Ln (FM-973)",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.201,-97.640"
+  },
+  {
+   "from": "Slaughter Creek Dr",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.201,-97.709"
+  },
+  {
+   "from": "E Howard Ln (Dessau Rd)",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.389,-97.648"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -194,32 +215,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.379,-97.752"
-  },
-  {
-   "from": "Steck Ave",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.374,-97.756"
-  },
-  {
-   "from": "Austin Woods Dr",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.376,-97.754"
-  },
-  {
-   "from": "Palm Way",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.400,-97.723"
   }
  ],
  "unmatched_pct": {
   "dispatch": 82.6,
-  "tomtom": 96.8
+  "tomtom": 97.1
  },
  "witnesses": {
   "both": 0,
