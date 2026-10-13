@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 11,
-  "tomtom": 385,
-  "tomtom_only": 374
+  "tomtom": 422,
+  "tomtom_only": 411
  },
  "date": "2026-10-13",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 10,
-   "n": 208,
-   "pct": 4.8
+   "n": 225,
+   "pct": 4.4
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 177,
-   "pct": 0.6
+   "n": 197,
+   "pct": 0.5
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 337,
+  "hotspot_buckets": 371,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 352
+  "unreported_congestion": 389
  },
  "sampling": {
   "flow_spent_this_month": 3240,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 586,
+  "incidents_spent_this_month": 587,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -147,6 +147,13 @@
    "seg": "30.403,-97.636"
   },
   {
+   "from": "Barteny Cv",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.254,-97.594"
+  },
+  {
    "from": "FM 685",
    "hour_of_week": 36,
    "n": 2,
@@ -168,6 +175,13 @@
    "seg": "30.193,-97.766"
   },
   {
+   "from": "Highway 45",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.123,-97.802"
+  },
+  {
    "from": "Ranchito Dr",
    "hour_of_week": 36,
    "n": 2,
@@ -182,6 +196,13 @@
    "seg": "30.256,-97.593"
   },
   {
+   "from": "Parmer Ln (TX-1)",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.407,-97.722"
+  },
+  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
@@ -194,32 +215,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.234,-97.736"
-  },
-  {
-   "from": "Ramirez Ln",
-   "hour_of_week": 112,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.244,-97.663"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.616"
   }
  ],
  "unmatched_pct": {
   "dispatch": 81.6,
-  "tomtom": 97.1
+  "tomtom": 97.4
  },
  "witnesses": {
   "both": 0,
