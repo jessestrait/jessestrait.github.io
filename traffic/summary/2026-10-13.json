@@ -13,9 +13,9 @@
   "dispatch_only": 37,
   "here": 0,
   "here_matched": 0,
-  "matched": 7,
-  "tomtom": 236,
-  "tomtom_only": 229
+  "matched": 8,
+  "tomtom": 252,
+  "tomtom_only": 244
  },
  "date": "2026-10-13",
  "dispatch_life_capped": true,
@@ -42,13 +42,13 @@
    "pct": 3.4
   },
   "tomtom_highway": {
-   "matched": 7,
-   "n": 125,
-   "pct": 5.6
+   "matched": 8,
+   "n": 133,
+   "pct": 6.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 111,
+   "n": 119,
    "pct": 0.0
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 82.0,
-  "median": 1.7,
-  "min": -27.4,
-  "n": 7,
-  "q1": -4.7,
-  "q3": 30.0
+  "median": -1.1,
+  "min": -66.5,
+  "n": 8,
+  "q1": -21.7,
+  "q3": 23.9
  },
  "persistence_min": {
   "max": -96.7,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 200,
+  "hotspot_buckets": 214,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 207
+  "unreported_congestion": 222
  },
  "sampling": {
-  "flow_spent_this_month": 3222,
+  "flow_spent_this_month": 3231,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 581,
+  "incidents_spent_this_month": 582,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -161,6 +161,13 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "Slaughter Creek Dr",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.201,-97.709"
+  },
+  {
    "from": "N Lake Creek Pkwy",
    "hour_of_week": 23,
    "n": 1,
@@ -208,18 +215,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.376,-97.754"
-  },
-  {
-   "from": "Palm Way",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.400,-97.723"
   }
  ],
  "unmatched_pct": {
   "dispatch": 86.0,
-  "tomtom": 97.0
+  "tomtom": 96.8
  },
  "witnesses": {
   "both": 0,
