@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 45,
-  "dispatch_only": 37,
+  "dispatch": 46,
+  "dispatch_only": 38,
   "here": 0,
   "here_matched": 0,
   "matched": 10,
-  "tomtom": 283,
-  "tomtom_only": 273
+  "tomtom": 314,
+  "tomtom_only": 304
  },
  "date": "2026-10-13",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 3,
-   "n": 31,
-   "pct": 9.7
+   "n": 32,
+   "pct": 9.4
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 149,
-   "pct": 6.0
+   "n": 168,
+   "pct": 5.4
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 134,
+   "n": 146,
    "pct": 0.7
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 243,
+  "hotspot_buckets": 275,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 251
+  "unreported_congestion": 282
  },
  "sampling": {
   "flow_spent_this_month": 3231,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 583,
+  "incidents_spent_this_month": 584,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -124,13 +124,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.338,-97.701"
-  },
-  {
-   "from": "Slaughter Creek Dr",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.201,-97.709"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -215,17 +208,24 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.376,-97.754"
+  },
+  {
+   "from": "Palm Way",
+   "hour_of_week": 23,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.400,-97.723"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.2,
-  "tomtom": 96.5
+  "dispatch": 82.6,
+  "tomtom": 96.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 45,
-  "neither": 37,
+  "n": 46,
+  "neither": 38,
   "tomtom_only": 8
  }
 }
