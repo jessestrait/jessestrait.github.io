@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 51,
-  "dispatch_only": 42,
+  "dispatch": 53,
+  "dispatch_only": 44,
   "here": 0,
   "here_matched": 0,
   "matched": 14,
-  "tomtom": 607,
-  "tomtom_only": 593
+  "tomtom": 637,
+  "tomtom_only": 623
  },
  "date": "2026-10-13",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 4,
-   "n": 37,
-   "pct": 10.8
+   "n": 39,
+   "pct": 10.3
   },
   "tomtom_highway": {
    "matched": 13,
-   "n": 342,
-   "pct": 3.8
+   "n": 365,
+   "pct": 3.6
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 265,
+   "n": 272,
    "pct": 0.4
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 525,
+  "hotspot_buckets": 552,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 571
+  "unreported_congestion": 601
  },
  "sampling": {
   "flow_spent_this_month": 3249,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 592,
+  "incidents_spent_this_month": 593,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Pearce Ln (FM-973)",
+   "hour_of_week": 36,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.201,-97.640"
+  },
   {
    "from": "Immanuel Rd",
    "hour_of_week": 36,
@@ -138,13 +145,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.338,-97.701"
-  },
-  {
-   "from": "Pearce Ln (FM-973)",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.201,-97.640"
   },
   {
    "from": "W Rundberg Ln (Metric Blvd)",
@@ -189,13 +189,6 @@
    "seg": "30.329,-97.651"
   },
   {
-   "from": "Tinnapark Ln",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.161,-97.727"
-  },
-  {
    "from": "Barteny Cv",
    "hour_of_week": 36,
    "n": 2,
@@ -215,17 +208,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.193,-97.766"
+  },
+  {
+   "from": "S Interstate 35",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.109,-97.808"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.4,
-  "tomtom": 97.7
+  "dispatch": 83.0,
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 51,
-  "neither": 42,
+  "n": 53,
+  "neither": 44,
   "tomtom_only": 9
  }
 }
