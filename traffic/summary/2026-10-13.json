@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 50,
-  "dispatch_only": 41,
+  "dispatch": 51,
+  "dispatch_only": 42,
   "here": 0,
   "here_matched": 0,
   "matched": 13,
-  "tomtom": 538,
-  "tomtom_only": 524
+  "tomtom": 569,
+  "tomtom_only": 555
  },
  "date": "2026-10-13",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 4,
-   "n": 36,
-   "pct": 11.1
+   "n": 37,
+   "pct": 10.8
   },
   "tomtom_highway": {
    "matched": 13,
-   "n": 296,
-   "pct": 4.4
+   "n": 314,
+   "pct": 4.1
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 242,
+   "n": 255,
    "pct": 0.4
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 462,
+  "hotspot_buckets": 484,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 502
+  "unreported_congestion": 533
  },
  "sampling": {
   "flow_spent_this_month": 3249,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 590,
+  "incidents_spent_this_month": 591,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,6 +117,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.201,-97.640"
+  },
+  {
+   "from": "Slaughter Creek Dr",
+   "hour_of_week": 36,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.201,-97.709"
   },
   {
    "from": "Immanuel Rd",
@@ -154,18 +161,32 @@
    "seg": "30.372,-97.721"
   },
   {
-   "from": "Slaughter Creek Dr",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.201,-97.709"
-  },
-  {
    "from": "Gattis School Rd (Greenlawn Blvd)",
    "hour_of_week": 36,
    "n": 2,
    "roadworks": false,
    "seg": "30.481,-97.661"
+  },
+  {
+   "from": "W Wells Branch Pkwy",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.440,-97.670"
+  },
+  {
+   "from": "E Howard Ln (Dessau Rd)",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.389,-97.648"
+  },
+  {
+   "from": "Harris Branch Pkwy (US-290)",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.329,-97.651"
   },
   {
    "from": "Barteny Cv",
@@ -194,38 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.109,-97.808"
-  },
-  {
-   "from": "Highway 45",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.123,-97.802"
-  },
-  {
-   "from": "Ranchito Dr",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.164,-97.728"
-  },
-  {
-   "from": "McKinney Falls Pkwy (E William Cannon Dr)",
-   "hour_of_week": 36,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.746"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.0,
-  "tomtom": 97.4
+  "dispatch": 82.4,
+  "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 50,
-  "neither": 41,
+  "n": 51,
+  "neither": 42,
   "tomtom_only": 9
  }
 }
