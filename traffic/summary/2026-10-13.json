@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 46,
-  "dispatch_only": 38,
+  "dispatch": 49,
+  "dispatch_only": 40,
   "here": 0,
   "here_matched": 0,
-  "matched": 10,
-  "tomtom": 346,
-  "tomtom_only": 336
+  "matched": 11,
+  "tomtom": 385,
+  "tomtom_only": 374
  },
  "date": "2026-10-13",
  "dispatch_life_capped": true,
@@ -37,18 +37,18 @@
    "pct": 35.7
   },
   "dispatch_surface": {
-   "matched": 3,
-   "n": 32,
-   "pct": 9.4
+   "matched": 4,
+   "n": 35,
+   "pct": 11.4
   },
   "tomtom_highway": {
-   "matched": 9,
-   "n": 187,
+   "matched": 10,
+   "n": 208,
    "pct": 4.8
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 159,
+   "n": 177,
    "pct": 0.6
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 82.0,
-  "median": 1.8,
+  "median": 1.7,
   "min": -66.5,
-  "n": 10,
-  "q1": -10.4,
-  "q3": 11.6
+  "n": 11,
+  "q1": -4.7,
+  "q3": 5.5
  },
  "persistence_min": {
   "max": -96.7,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 304,
+  "hotspot_buckets": 337,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 314
+  "unreported_congestion": 352
  },
  "sampling": {
-  "flow_spent_this_month": 3231,
+  "flow_spent_this_month": 3240,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 585,
+  "incidents_spent_this_month": 586,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -133,18 +133,53 @@
    "seg": "30.201,-97.640"
   },
   {
-   "from": "Slaughter Creek Dr",
+   "from": "Gattis School Rd (Greenlawn Blvd)",
    "hour_of_week": 36,
    "n": 2,
    "roadworks": false,
-   "seg": "30.201,-97.709"
+   "seg": "30.481,-97.661"
   },
   {
-   "from": "E Howard Ln (Dessau Rd)",
+   "from": "Immanuel Rd",
    "hour_of_week": 36,
    "n": 2,
    "roadworks": false,
-   "seg": "30.389,-97.648"
+   "seg": "30.403,-97.636"
+  },
+  {
+   "from": "FM 685",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.500,-97.581"
+  },
+  {
+   "from": "Mariposa Dr",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.241,-97.746"
+  },
+  {
+   "from": "Bluff Springs Rd",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.193,-97.766"
+  },
+  {
+   "from": "Ranchito Dr",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.164,-97.728"
+  },
+  {
+   "from": "Barteny Cv",
+   "hour_of_week": 36,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.256,-97.593"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -180,52 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.476,-97.794"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.475,-97.794"
-  },
-  {
-   "from": "Yellow Oak St",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.457,-97.767"
-  },
-  {
-   "from": "Tallwood Dr",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.377,-97.752"
-  },
-  {
-   "from": "Steck Ave",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.379,-97.752"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.6,
+  "dispatch": 81.6,
   "tomtom": 97.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 46,
-  "neither": 38,
-  "tomtom_only": 8
+  "n": 49,
+  "neither": 40,
+  "tomtom_only": 9
  }
 }
