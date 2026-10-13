@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 87 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 88 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,21 +9,21 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 119,
-  "dispatch_only": 94,
+  "dispatch": 122,
+  "dispatch_only": 95,
   "here": 0,
   "here_matched": 0,
-  "matched": 34,
-  "tomtom": 1430,
-  "tomtom_only": 1397
+  "matched": 37,
+  "tomtom": 1462,
+  "tomtom_only": 1427
  },
  "date": "2026-10-13",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 117.2,
+  "median": 117.1,
   "min": 9.8,
-  "n": 87,
+  "n": 88,
   "q1": 115.6,
   "q3": 118.8
  },
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 8,
-   "n": 23,
-   "pct": 34.8
+   "matched": 9,
+   "n": 25,
+   "pct": 36.0
   },
   "dispatch_surface": {
-   "matched": 17,
-   "n": 96,
-   "pct": 17.7
+   "matched": 18,
+   "n": 97,
+   "pct": 18.6
   },
   "tomtom_highway": {
-   "matched": 26,
-   "n": 832,
-   "pct": 3.1
+   "matched": 27,
+   "n": 848,
+   "pct": 3.2
   },
   "tomtom_surface": {
-   "matched": 7,
-   "n": 598,
-   "pct": 1.2
+   "matched": 8,
+   "n": 614,
+   "pct": 1.3
   }
  },
  "matcher": {
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 82.0,
-  "median": 13.8,
+  "median": 14.1,
   "min": -66.5,
-  "n": 34,
-  "q1": -4.7,
+  "n": 37,
+  "q1": -4.3,
   "q3": 51.5
  },
  "persistence_min": {
   "max": 265.2,
-  "median": -66.2,
+  "median": -63.6,
   "min": -112.3,
-  "n": 19,
-  "q1": -106.6,
+  "n": 20,
+  "q1": -104.1,
   "q3": 5.1,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1252,
+  "hotspot_buckets": 1276,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1369
+  "unreported_congestion": 1399
  },
  "sampling": {
   "flow_spent_this_month": 3402,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 615,
+  "incidents_spent_this_month": 616,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "exit [432]",
+   "hour_of_week": 47,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.405,-97.584"
+  },
   {
    "from": "Pearce Ln (FM-973)",
    "hour_of_week": 36,
@@ -203,13 +210,6 @@
    "seg": "30.243,-97.717"
   },
   {
-   "from": "exit [432]",
-   "hour_of_week": 47,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.405,-97.584"
-  },
-  {
    "from": "S Pleasant Valley Rd (E Riverside Dr)",
    "hour_of_week": 25,
    "n": 2,
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 79.0,
-  "tomtom": 97.7
+  "dispatch": 77.9,
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 119,
-  "neither": 94,
-  "tomtom_only": 25
+  "n": 122,
+  "neither": 95,
+  "tomtom_only": 27
  }
 }
