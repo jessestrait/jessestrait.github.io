@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch record lifetimes look like real clearances this day, not a cap.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 90, q3 118 min over 108 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 124,
-  "dispatch_only": 79,
+  "dispatch": 130,
+  "dispatch_only": 84,
   "here": 0,
   "here_matched": 0,
-  "matched": 61,
-  "tomtom": 1833,
-  "tomtom_only": 1769
+  "matched": 63,
+  "tomtom": 1906,
+  "tomtom_only": 1840
  },
  "date": "2026-10-14",
- "dispatch_life_capped": false,
+ "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
   "median": 116.7,
   "min": 13.9,
-  "n": 107,
-  "q1": 86.1,
-  "q3": 118.2
+  "n": 108,
+  "q1": 89.6,
+  "q3": 118.1
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 18,
-   "n": 33,
-   "pct": 54.5
+   "n": 35,
+   "pct": 51.4
   },
   "dispatch_surface": {
-   "matched": 27,
-   "n": 91,
-   "pct": 29.7
+   "matched": 28,
+   "n": 95,
+   "pct": 29.5
   },
   "tomtom_highway": {
-   "matched": 48,
-   "n": 940,
-   "pct": 5.1
+   "matched": 47,
+   "n": 974,
+   "pct": 4.8
   },
   "tomtom_surface": {
-   "matched": 16,
-   "n": 893,
-   "pct": 1.8
+   "matched": 19,
+   "n": 932,
+   "pct": 2.0
   }
  },
  "matcher": {
@@ -60,19 +60,20 @@
  },
  "onset_offset_min": {
   "max": 89.3,
-  "median": 10.7,
+  "median": 8.2,
   "min": -88.3,
-  "n": 61,
-  "q1": -8.2,
-  "q3": 51.8
+  "n": 63,
+  "q1": -9.8,
+  "q3": 48.2
  },
  "persistence_min": {
   "max": 147.6,
-  "median": -10.2,
+  "median": -12.8,
   "min": -1243.7,
-  "n": 43,
-  "q1": -66.1,
-  "q3": 0.0
+  "n": 44,
+  "q1": -64.8,
+  "q3": 0.0,
+  "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1578,
+  "hotspot_buckets": 1654,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1742
+  "unreported_congestion": 1813
  },
  "sampling": {
   "flow_spent_this_month": 3644,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 660,
+  "incidents_spent_this_month": 661,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -130,13 +131,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.305,-97.661"
-  },
-  {
-   "from": "Ed Bluestein Blvd (FM-969)",
-   "hour_of_week": 69,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.284,-97.657"
   },
   {
    "from": "Old TX-20 (US-290)",
@@ -181,11 +175,11 @@
    "seg": "30.280,-97.750"
   },
   {
-   "from": "W Saint Elmo Rd (S Congress Ave)",
+   "from": "Ed Bluestein Blvd (FM-969)",
    "hour_of_week": 69,
    "n": 3,
    "roadworks": false,
-   "seg": "30.205,-97.775"
+   "seg": "30.284,-97.657"
   },
   {
    "from": "E 11th St",
@@ -202,6 +196,13 @@
    "seg": "30.372,-97.724"
   },
   {
+   "from": "Christina Garza Dr",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.350,-97.556"
+  },
+  {
    "from": "Manchaca Rd (Slaughter Ln)",
    "hour_of_week": 69,
    "n": 3,
@@ -209,22 +210,22 @@
    "seg": "30.183,-97.849"
   },
   {
-   "from": "26th St (Overpass) (I-35)",
-   "hour_of_week": 48,
-   "n": 2,
+   "from": "E Dean Keeton St",
+   "hour_of_week": 69,
+   "n": 3,
    "roadworks": false,
-   "seg": "30.281,-97.729"
+   "seg": "30.286,-97.724"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 63.7,
+  "dispatch": 64.6,
   "tomtom": 96.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 124,
-  "neither": 79,
-  "tomtom_only": 45
+  "n": 130,
+  "neither": 84,
+  "tomtom_only": 46
  }
 }
