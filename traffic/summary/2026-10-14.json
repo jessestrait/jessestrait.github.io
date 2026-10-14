@@ -10,21 +10,21 @@
  ],
  "counts": {
   "dispatch": 116,
-  "dispatch_only": 78,
+  "dispatch_only": 77,
   "here": 0,
   "here_matched": 0,
-  "matched": 48,
-  "tomtom": 1240,
-  "tomtom_only": 1193
+  "matched": 51,
+  "tomtom": 1311,
+  "tomtom_only": 1262
  },
  "date": "2026-10-14",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.5,
+  "median": 116.6,
   "min": 13.9,
-  "n": 98,
-  "q1": 77.4,
+  "n": 99,
+  "q1": 78.2,
   "q3": 118.0
  },
  "here_onset_offset_min": {
@@ -37,18 +37,18 @@
    "pct": 53.1
   },
   "dispatch_surface": {
-   "matched": 21,
+   "matched": 22,
    "n": 84,
-   "pct": 25.0
+   "pct": 26.2
   },
   "tomtom_highway": {
-   "matched": 36,
-   "n": 646,
-   "pct": 5.6
+   "matched": 37,
+   "n": 690,
+   "pct": 5.4
   },
   "tomtom_surface": {
-   "matched": 11,
-   "n": 594,
+   "matched": 12,
+   "n": 621,
    "pct": 1.9
   }
  },
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 86.1,
-  "median": 11.0,
+  "max": 89.3,
+  "median": 14.0,
   "min": -88.3,
-  "n": 48,
-  "q1": -9.0,
-  "q3": 47.8
+  "n": 51,
+  "q1": -6.7,
+  "q3": 55.4
  },
  "persistence_min": {
   "max": 147.6,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1106,
+  "hotspot_buckets": 1170,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1166
+  "unreported_congestion": 1235
  },
  "sampling": {
   "flow_spent_this_month": 3626,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 652,
+  "incidents_spent_this_month": 653,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -125,11 +125,11 @@
    "seg": "30.379,-97.739"
   },
   {
-   "from": "E 7th St (I-35)",
+   "from": "W 15th St",
    "hour_of_week": 69,
    "n": 3,
    "roadworks": false,
-   "seg": "30.273,-97.732"
+   "seg": "30.280,-97.750"
   },
   {
    "from": "26th St (Overpass) (I-35)",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 67.2,
-  "tomtom": 96.2
+  "dispatch": 66.4,
+  "tomtom": 96.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 116,
-  "neither": 78,
-  "tomtom_only": 38
+  "neither": 77,
+  "tomtom_only": 39
  }
 }
