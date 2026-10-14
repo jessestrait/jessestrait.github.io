@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 69,
+  "dispatch": 70,
   "dispatch_only": 51,
   "here": 0,
   "here_matched": 0,
-  "matched": 22,
-  "tomtom": 719,
-  "tomtom_only": 698
+  "matched": 25,
+  "tomtom": 761,
+  "tomtom_only": 737
  },
  "date": "2026-10-14",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 42.1
   },
   "dispatch_surface": {
-   "matched": 10,
-   "n": 50,
-   "pct": 20.0
+   "matched": 11,
+   "n": 51,
+   "pct": 21.6
   },
   "tomtom_highway": {
-   "matched": 14,
-   "n": 391,
-   "pct": 3.6
+   "matched": 16,
+   "n": 411,
+   "pct": 3.9
   },
   "tomtom_surface": {
-   "matched": 7,
-   "n": 328,
-   "pct": 2.1
+   "matched": 8,
+   "n": 350,
+   "pct": 2.3
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 60.9,
   "median": 5.5,
   "min": -42.0,
-  "n": 22,
-  "q1": -18.5,
-  "q3": 26.8
+  "n": 25,
+  "q1": -17.6,
+  "q3": 28.1
  },
  "persistence_min": {
   "max": -50.8,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 635,
+  "hotspot_buckets": 674,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 675
+  "unreported_congestion": 714
  },
  "sampling": {
   "flow_spent_this_month": 3537,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 642,
+  "incidents_spent_this_month": 643,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -154,6 +154,13 @@
    "seg": "30.154,-97.668"
   },
   {
+   "from": "Wells Branch Pkwy (I-35)",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.427,-97.671"
+  },
+  {
    "from": "FM 685",
    "hour_of_week": 60,
    "n": 2,
@@ -203,13 +210,6 @@
    "seg": "30.497,-97.793"
   },
   {
-   "from": "Airport Blvd/Exit 237 (I-35)",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.294,-97.721"
-  },
-  {
    "from": "Sky Harbor Dr",
    "hour_of_week": 60,
    "n": 2,
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 73.9,
-  "tomtom": 97.1
+  "dispatch": 72.9,
+  "tomtom": 96.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 69,
+  "n": 70,
   "neither": 51,
-  "tomtom_only": 18
+  "tomtom_only": 19
  }
 }
