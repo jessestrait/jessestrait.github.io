@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 51,
-  "tomtom": 1311,
-  "tomtom_only": 1262
+  "tomtom": 1370,
+  "tomtom_only": 1321
  },
  "date": "2026-10-14",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 37,
-   "n": 690,
-   "pct": 5.4
+   "n": 719,
+   "pct": 5.1
   },
   "tomtom_surface": {
    "matched": 12,
-   "n": 621,
-   "pct": 1.9
+   "n": 651,
+   "pct": 1.8
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1170,
+  "hotspot_buckets": 1224,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1235
+  "unreported_congestion": 1294
  },
  "sampling": {
-  "flow_spent_this_month": 3626,
+  "flow_spent_this_month": 3635,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 653,
+  "incidents_spent_this_month": 654,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -125,11 +125,18 @@
    "seg": "30.379,-97.739"
   },
   {
-   "from": "W 15th St",
+   "from": "Mopac Expy S",
    "hour_of_week": 69,
    "n": 3,
    "roadworks": false,
-   "seg": "30.280,-97.750"
+   "seg": "30.301,-97.759"
+  },
+  {
+   "from": "Atlanta St",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.276,-97.771"
   },
   {
    "from": "26th St (Overpass) (I-35)",
@@ -207,18 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.166,-97.658"
-  },
-  {
-   "from": "Staked Plains Loop",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.497,-97.793"
   }
  ],
  "unmatched_pct": {
   "dispatch": 66.4,
-  "tomtom": 96.3
+  "tomtom": 96.4
  },
  "witnesses": {
   "both": 0,
