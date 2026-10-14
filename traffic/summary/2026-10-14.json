@@ -13,19 +13,19 @@
   "dispatch_only": 77,
   "here": 0,
   "here_matched": 0,
-  "matched": 51,
-  "tomtom": 1370,
-  "tomtom_only": 1321
+  "matched": 52,
+  "tomtom": 1449,
+  "tomtom_only": 1399
  },
  "date": "2026-10-14",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.6,
+  "median": 116.7,
   "min": 13.9,
-  "n": 99,
-  "q1": 78.2,
-  "q3": 118.0
+  "n": 100,
+  "q1": 78.9,
+  "q3": 118.1
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 37,
-   "n": 719,
-   "pct": 5.1
+   "n": 758,
+   "pct": 4.9
   },
   "tomtom_surface": {
-   "matched": 12,
-   "n": 651,
-   "pct": 1.8
+   "matched": 13,
+   "n": 691,
+   "pct": 1.9
   }
  },
  "matcher": {
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 89.3,
-  "median": 14.0,
+  "median": 15.1,
   "min": -88.3,
-  "n": 51,
-  "q1": -6.7,
-  "q3": 55.4
+  "n": 52,
+  "q1": -5.9,
+  "q3": 53.6
  },
  "persistence_min": {
   "max": 147.6,
-  "median": 0.0,
-  "min": -1151.9,
-  "n": 34,
-  "q1": -62.4,
+  "median": -2.6,
+  "min": -1243.7,
+  "n": 36,
+  "q1": -64.8,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1224,
+  "hotspot_buckets": 1290,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1294
+  "unreported_congestion": 1372
  },
  "sampling": {
   "flow_spent_this_month": 3635,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 654,
+  "incidents_spent_this_month": 655,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -137,6 +137,34 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.276,-97.771"
+  },
+  {
+   "from": "Mopac Expy N",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.293,-97.759"
+  },
+  {
+   "from": "W 15th St",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.280,-97.750"
+  },
+  {
+   "from": "Old TX-20 (US-290)",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.346,-97.571"
+  },
+  {
+   "from": "E 11th St",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.270,-97.732"
   },
   {
    "from": "26th St (Overpass) (I-35)",
@@ -186,39 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.304,-97.661"
-  },
-  {
-   "from": "County Road 138 / Palo Brea Loop",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.501,-97.577"
-  },
-  {
-   "from": "Rosedale Ter",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.241,-97.746"
-  },
-  {
-   "from": "E Ben White Blvd",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.221,-97.684"
-  },
-  {
-   "from": "TX-45 Toll/TX-130 Toll (Elroy Rd)",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.166,-97.658"
   }
  ],
  "unmatched_pct": {
   "dispatch": 66.4,
-  "tomtom": 96.4
+  "tomtom": 96.5
  },
  "witnesses": {
   "both": 0,
