@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 122,
+  "dispatch": 124,
   "dispatch_only": 79,
   "here": 0,
   "here_matched": 0,
-  "matched": 59,
-  "tomtom": 1753,
-  "tomtom_only": 1692
+  "matched": 61,
+  "tomtom": 1833,
+  "tomtom_only": 1769
  },
  "date": "2026-10-14",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.9,
   "median": 116.7,
   "min": 13.9,
-  "n": 106,
-  "q1": 84.9,
+  "n": 107,
+  "q1": 86.1,
   "q3": 118.2
  },
  "here_onset_offset_min": {
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 17,
-   "n": 32,
-   "pct": 53.1
+   "matched": 18,
+   "n": 33,
+   "pct": 54.5
   },
   "dispatch_surface": {
-   "matched": 26,
-   "n": 90,
-   "pct": 28.9
+   "matched": 27,
+   "n": 91,
+   "pct": 29.7
   },
   "tomtom_highway": {
-   "matched": 45,
-   "n": 903,
-   "pct": 5.0
+   "matched": 48,
+   "n": 940,
+   "pct": 5.1
   },
   "tomtom_surface": {
    "matched": 16,
-   "n": 850,
-   "pct": 1.9
+   "n": 893,
+   "pct": 1.8
   }
  },
  "matcher": {
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 89.3,
-  "median": 11.3,
+  "median": 10.7,
   "min": -88.3,
-  "n": 59,
-  "q1": -6.7,
-  "q3": 55.4
+  "n": 61,
+  "q1": -8.2,
+  "q3": 51.8
  },
  "persistence_min": {
   "max": 147.6,
-  "median": -12.8,
+  "median": -10.2,
   "min": -1243.7,
-  "n": 42,
-  "q1": -69.8,
+  "n": 43,
+  "q1": -66.1,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1523,
+  "hotspot_buckets": 1578,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1665
+  "unreported_congestion": 1742
  },
  "sampling": {
   "flow_spent_this_month": 3644,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 659,
+  "incidents_spent_this_month": 660,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -188,13 +188,6 @@
    "seg": "30.205,-97.775"
   },
   {
-   "from": "Avery Ranch Blvd (W Parmer Ln/FM-734)",
-   "hour_of_week": 69,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.504,-97.777"
-  },
-  {
    "from": "E 11th St",
    "hour_of_week": 69,
    "n": 3,
@@ -209,22 +202,29 @@
    "seg": "30.372,-97.724"
   },
   {
-   "from": "TX-343 Loop/Cesar Chavez St E/E 1st St (I-35)",
+   "from": "Manchaca Rd (Slaughter Ln)",
    "hour_of_week": 69,
    "n": 3,
    "roadworks": false,
-   "seg": "30.268,-97.734"
+   "seg": "30.183,-97.849"
+  },
+  {
+   "from": "26th St (Overpass) (I-35)",
+   "hour_of_week": 48,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.281,-97.729"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 64.8,
+  "dispatch": 63.7,
   "tomtom": 96.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 122,
+  "n": 124,
   "neither": 79,
-  "tomtom_only": 43
+  "tomtom_only": 45
  }
 }
