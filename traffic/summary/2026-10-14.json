@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 67,
-  "dispatch_only": 51,
+  "dispatch": 69,
+  "dispatch_only": 52,
   "here": 0,
   "here_matched": 0,
-  "matched": 19,
-  "tomtom": 564,
-  "tomtom_only": 546
+  "matched": 20,
+  "tomtom": 632,
+  "tomtom_only": 613
  },
  "date": "2026-10-14",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 36.8
   },
   "dispatch_surface": {
-   "matched": 9,
-   "n": 48,
-   "pct": 18.8
+   "matched": 10,
+   "n": 50,
+   "pct": 20.0
   },
   "tomtom_highway": {
    "matched": 12,
-   "n": 304,
-   "pct": 3.9
+   "n": 341,
+   "pct": 3.5
   },
   "tomtom_surface": {
-   "matched": 6,
-   "n": 260,
-   "pct": 2.3
+   "matched": 7,
+   "n": 291,
+   "pct": 2.4
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 60.9,
-  "median": -0.7,
+  "median": 2.4,
   "min": -42.0,
-  "n": 19,
-  "q1": -21.0,
-  "q3": 25.4
+  "n": 20,
+  "q1": -20.2,
+  "q3": 23.1
  },
  "persistence_min": {
   "max": -50.8,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 508,
+  "hotspot_buckets": 567,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 523
+  "unreported_congestion": 590
  },
  "sampling": {
   "flow_spent_this_month": 3528,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 639,
+  "incidents_spent_this_month": 640,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -147,6 +147,13 @@
    "seg": "30.500,-97.581"
   },
   {
+   "from": "Manor Rd",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.304,-97.661"
+  },
+  {
    "from": "County Road 138 / Palo Brea Loop",
    "hour_of_week": 60,
    "n": 2,
@@ -182,50 +189,43 @@
    "seg": "30.497,-97.793"
   },
   {
-   "from": "FM-1100 (US-290)",
+   "from": "Saint Thomas Dr",
    "hour_of_week": 60,
    "n": 2,
    "roadworks": false,
-   "seg": "30.349,-97.546"
+   "seg": "30.185,-97.609"
   },
   {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
+   "from": "US Highway 183",
+   "hour_of_week": 60,
    "n": 2,
    "roadworks": false,
-   "seg": "30.245,-97.744"
+   "seg": "30.379,-97.739"
   },
   {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
+   "from": "Harris Ridge Blvd (E Howard Ln)",
+   "hour_of_week": 60,
    "n": 2,
    "roadworks": false,
-   "seg": "30.234,-97.736"
+   "seg": "30.424,-97.669"
   },
   {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
+   "from": "Alderman Dr",
+   "hour_of_week": 60,
    "n": 2,
    "roadworks": false,
-   "seg": "30.179,-97.616"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.476,-97.794"
+   "seg": "30.152,-97.764"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.1,
-  "tomtom": 96.8
+  "dispatch": 75.4,
+  "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 67,
-  "neither": 51,
-  "tomtom_only": 16
+  "n": 69,
+  "neither": 52,
+  "tomtom_only": 17
  }
 }
