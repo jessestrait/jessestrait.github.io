@@ -1,0 +1,225 @@
+{
+ "caveats": [
+  "Dispatch published_date is when APD published, not when it happened.",
+  "Dispatch record lifetimes look like real clearances this day, not a cap.",
+  "Clearance resolution equals the poll interval; shorter incidents are invisible.",
+  "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
+  "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
+  "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
+  "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
+ ],
+ "counts": {
+  "dispatch": 28,
+  "dispatch_only": 27,
+  "here": 0,
+  "here_matched": 0,
+  "matched": 1,
+  "tomtom": 159,
+  "tomtom_only": 158
+ },
+ "date": "2026-10-14",
+ "dispatch_life_capped": false,
+ "dispatch_record_life_min": {
+  "max": 118.0,
+  "median": 115.7,
+  "min": 115.3,
+  "n": 3,
+  "q1": 115.3,
+  "q3": 118.0
+ },
+ "here_onset_offset_min": {
+  "n": 0
+ },
+ "match_rate": {
+  "dispatch_highway": {
+   "matched": 1,
+   "n": 6,
+   "pct": 16.7
+  },
+  "dispatch_surface": {
+   "matched": 0,
+   "n": 22,
+   "pct": 0.0
+  },
+  "tomtom_highway": {
+   "matched": 1,
+   "n": 74,
+   "pct": 1.4
+  },
+  "tomtom_surface": {
+   "matched": 0,
+   "n": 85,
+   "pct": 0.0
+  }
+ },
+ "matcher": {
+  "buffer_m": 200.0,
+  "highway_buffer_m": 130.0,
+  "onset_window_min": 90.0,
+  "tolerance_min": 20.0
+ },
+ "onset_offset_min": {
+  "max": 30.9,
+  "median": 30.9,
+  "min": 30.9,
+  "n": 1,
+  "q1": 30.9,
+  "q3": 30.9
+ },
+ "persistence_min": {
+  "n": 0
+ },
+ "poll_interval_min": 5.0,
+ "probe_agreement": {
+  "cover": {
+   "n": 0
+  },
+  "n": 0,
+  "onset_offset_min": {
+   "n": 0
+  },
+  "pct_of_here": 0.0,
+  "pct_of_tomtom": 0.0,
+  "type_agree": 0
+ },
+ "roadworks": {
+  "explained_by_roadworks": 0,
+  "hotspot_buckets": 135,
+  "hotspot_buckets_on_roadworks": 0,
+  "txdot_rows": 0,
+  "unreported_congestion": 139
+ },
+ "sampling": {
+  "flow_spent_this_month": 3420,
+  "incident_budget": 2500,
+  "incidents_spent_this_month": 621,
+  "off_peak_min": 45,
+  "rush_hours_local": [
+   7,
+   8,
+   16,
+   17,
+   18
+  ],
+  "rush_min": 5,
+  "this_poll": "off-peak"
+ },
+ "structural_hotspots": [
+  {
+   "from": "Chestnut Ave (E Martin Luther King Jr Blvd)",
+   "hour_of_week": 47,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.279,-97.733"
+  },
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Lexington Meadow Ln",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.179,-97.616"
+  },
+  {
+   "from": "N Lake Creek Pkwy",
+   "hour_of_week": 47,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.476,-97.794"
+  },
+  {
+   "from": "Talyne Chaise Cir",
+   "hour_of_week": 47,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.457,-97.767"
+  },
+  {
+   "from": "I-35/FM-3406 (I-35)",
+   "hour_of_week": 47,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.499,-97.681"
+  },
+  {
+   "from": "Thermal Dr/Metric Blvd (E Howard Ln)",
+   "hour_of_week": 45,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.425,-97.673"
+  },
+  {
+   "from": "S Heatherwilde Blvd (Wells Branch Pkwy)",
+   "hour_of_week": 47,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.441,-97.664"
+  },
+  {
+   "from": "Forest Creek Dr (Red Bud Ln)",
+   "hour_of_week": 47,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.499,-97.613"
+  },
+  {
+   "from": "S Mo Pac Expy",
+   "hour_of_week": 47,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.247,-97.804"
+  },
+  {
+   "from": "TX-1 Loop/S Capital of Texas Hwy (TX-1)",
+   "hour_of_week": 47,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.278,-97.768"
+  },
+  {
+   "from": "45th St (TX-1)",
+   "hour_of_week": 45,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.277,-97.769"
+  },
+  {
+   "from": "W 35th Street Cutoff (W 38th St)",
+   "hour_of_week": 47,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.306,-97.745"
+  },
+  {
+   "from": "Secretariat Ridge Ln",
+   "hour_of_week": 47,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.501,-97.579"
+  }
+ ],
+ "unmatched_pct": {
+  "dispatch": 96.4,
+  "tomtom": 99.4
+ },
+ "witnesses": {
+  "both": 0,
+  "here_only": 0,
+  "n": 28,
+  "neither": 27,
+  "tomtom_only": 1
+ }
+}
