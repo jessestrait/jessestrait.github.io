@@ -13,9 +13,9 @@
   "dispatch_only": 52,
   "here": 0,
   "here_matched": 0,
-  "matched": 20,
-  "tomtom": 632,
-  "tomtom_only": 613
+  "matched": 21,
+  "tomtom": 672,
+  "tomtom_only": 652
  },
  "date": "2026-10-14",
  "dispatch_life_capped": true,
@@ -42,14 +42,14 @@
    "pct": 20.0
   },
   "tomtom_highway": {
-   "matched": 12,
-   "n": 341,
-   "pct": 3.5
+   "matched": 13,
+   "n": 362,
+   "pct": 3.6
   },
   "tomtom_surface": {
    "matched": 7,
-   "n": 291,
-   "pct": 2.4
+   "n": 310,
+   "pct": 2.3
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 60.9,
-  "median": 2.4,
+  "median": 5.5,
   "min": -42.0,
-  "n": 20,
-  "q1": -20.2,
-  "q3": 23.1
+  "n": 21,
+  "q1": -19.4,
+  "q3": 20.8
  },
  "persistence_min": {
   "max": -50.8,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 567,
+  "hotspot_buckets": 597,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 590
+  "unreported_congestion": 629
  },
  "sampling": {
-  "flow_spent_this_month": 3528,
+  "flow_spent_this_month": 3537,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 640,
+  "incidents_spent_this_month": 641,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -189,32 +189,32 @@
    "seg": "30.497,-97.793"
   },
   {
+   "from": "Braker Ln exit [243]",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.395,-97.672"
+  },
+  {
+   "from": "Airport Blvd/Exit 237 (I-35)",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.294,-97.721"
+  },
+  {
+   "from": "Sky Harbor Dr",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.171,-97.630"
+  },
+  {
    "from": "Saint Thomas Dr",
    "hour_of_week": 60,
    "n": 2,
    "roadworks": false,
    "seg": "30.185,-97.609"
-  },
-  {
-   "from": "US Highway 183",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.379,-97.739"
-  },
-  {
-   "from": "Harris Ridge Blvd (E Howard Ln)",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.424,-97.669"
-  },
-  {
-   "from": "Alderman Dr",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.152,-97.764"
   }
  ],
  "unmatched_pct": {
