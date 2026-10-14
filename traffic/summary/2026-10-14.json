@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 44 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 118 min over 45 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -13,9 +13,9 @@
   "dispatch_only": 47,
   "here": 0,
   "here_matched": 0,
-  "matched": 10,
-  "tomtom": 391,
-  "tomtom_only": 382
+  "matched": 11,
+  "tomtom": 426,
+  "tomtom_only": 416
  },
  "date": "2026-10-14",
  "dispatch_life_capped": true,
@@ -23,9 +23,9 @@
   "max": 119.6,
   "median": 116.8,
   "min": 26.2,
-  "n": 44,
-  "q1": 115.4,
-  "q3": 118.0
+  "n": 45,
+  "q1": 115.5,
+  "q3": 118.2
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 7,
-   "n": 217,
-   "pct": 3.2
+   "n": 233,
+   "pct": 3.0
   },
   "tomtom_surface": {
-   "matched": 2,
-   "n": 174,
-   "pct": 1.1
+   "matched": 3,
+   "n": 193,
+   "pct": 1.6
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 60.9,
-  "median": 13.4,
+  "median": 10.7,
   "min": -32.5,
-  "n": 10,
-  "q1": -5.1,
-  "q3": 37.0
+  "n": 11,
+  "q1": -9.8,
+  "q3": 30.9
  },
  "persistence_min": {
   "max": -50.8,
   "median": -81.2,
-  "min": -81.4,
-  "n": 4,
-  "q1": -81.3,
-  "q3": -58.4,
+  "min": -91.5,
+  "n": 5,
+  "q1": -86.4,
+  "q3": -66.0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 353,
+  "hotspot_buckets": 383,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 359
+  "unreported_congestion": 393
  },
  "sampling": {
   "flow_spent_this_month": 3519,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 635,
+  "incidents_spent_this_month": 636,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -126,11 +126,25 @@
    "seg": "30.277,-97.731"
   },
   {
-   "from": "Dee Gabriel Collins Rd (US-183)",
-   "hour_of_week": 58,
+   "from": "FM 685",
+   "hour_of_week": 60,
    "n": 2,
    "roadworks": false,
-   "seg": "30.177,-97.689"
+   "seg": "30.500,-97.581"
+  },
+  {
+   "from": "S Interstate 35",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.146,-97.794"
+  },
+  {
+   "from": "W Pflugerville Pkwy (Greenlawn Blvd)",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.480,-97.661"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -152,6 +166,20 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
+  },
+  {
+   "from": "Staked Plains Loop",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.497,-97.793"
+  },
+  {
+   "from": "Neenah Ave",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.495,-97.752"
   },
   {
    "from": "N Lake Creek Pkwy",
@@ -187,34 +215,6 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.247,-97.804"
-  },
-  {
-   "from": "TX-1 Loop/S Capital of Texas Hwy (TX-1)",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.278,-97.768"
-  },
-  {
-   "from": "W 35th Street Cutoff (W 38th St)",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.306,-97.745"
-  },
-  {
-   "from": "Secretariat Ridge Ln",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.501,-97.579"
-  },
-  {
-   "from": "Barton Springs Rd (S Lamar Blvd)",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.266,-97.757"
   }
  ],
  "unmatched_pct": {
