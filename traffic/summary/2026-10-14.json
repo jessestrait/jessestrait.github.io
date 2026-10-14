@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 116,
-  "dispatch_only": 81,
+  "dispatch_only": 78,
   "here": 0,
   "here_matched": 0,
-  "matched": 42,
-  "tomtom": 1161,
-  "tomtom_only": 1120
+  "matched": 48,
+  "tomtom": 1240,
+  "tomtom_only": 1193
  },
  "date": "2026-10-14",
  "dispatch_life_capped": false,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 16,
+   "matched": 17,
    "n": 32,
-   "pct": 50.0
+   "pct": 53.1
   },
   "dispatch_surface": {
-   "matched": 19,
+   "matched": 21,
    "n": 84,
-   "pct": 22.6
+   "pct": 25.0
   },
   "tomtom_highway": {
-   "matched": 31,
-   "n": 606,
-   "pct": 5.1
+   "matched": 36,
+   "n": 646,
+   "pct": 5.6
   },
   "tomtom_surface": {
-   "matched": 10,
-   "n": 555,
-   "pct": 1.8
+   "matched": 11,
+   "n": 594,
+   "pct": 1.9
   }
  },
  "matcher": {
@@ -59,19 +59,19 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 74.5,
-  "median": 5.5,
+  "max": 86.1,
+  "median": 11.0,
   "min": -88.3,
-  "n": 42,
-  "q1": -17.0,
-  "q3": 30.9
+  "n": 48,
+  "q1": -9.0,
+  "q3": 47.8
  },
  "persistence_min": {
-  "max": 112.2,
+  "max": 147.6,
   "median": 0.0,
   "min": -1151.9,
-  "n": 33,
-  "q1": -63.6,
+  "n": 34,
+  "q1": -62.4,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1041,
+  "hotspot_buckets": 1106,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1093
+  "unreported_congestion": 1166
  },
  "sampling": {
   "flow_spent_this_month": 3626,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 651,
+  "incidents_spent_this_month": 652,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -123,6 +123,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.379,-97.739"
+  },
+  {
+   "from": "E 7th St (I-35)",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.273,-97.732"
   },
   {
    "from": "26th St (Overpass) (I-35)",
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.497,-97.793"
-  },
-  {
-   "from": "Sky Harbor Dr",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.171,-97.630"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 69.8,
-  "tomtom": 96.5
+  "dispatch": 67.2,
+  "tomtom": 96.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 116,
-  "neither": 81,
-  "tomtom_only": 35
+  "neither": 78,
+  "tomtom_only": 38
  }
 }
