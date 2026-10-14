@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 118 min over 46 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 118 min over 47 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,32 +9,32 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 63,
+  "dispatch": 64,
   "dispatch_only": 50,
   "here": 0,
   "here_matched": 0,
-  "matched": 15,
-  "tomtom": 476,
-  "tomtom_only": 462
+  "matched": 16,
+  "tomtom": 524,
+  "tomtom_only": 509
  },
  "date": "2026-10-14",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
-  "max": 119.6,
-  "median": 116.8,
+  "max": 119.7,
+  "median": 116.9,
   "min": 26.2,
-  "n": 46,
-  "q1": 115.6,
-  "q3": 118.1
+  "n": 47,
+  "q1": 115.7,
+  "q3": 118.3
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 4,
-   "n": 17,
-   "pct": 23.5
+   "matched": 5,
+   "n": 18,
+   "pct": 27.8
   },
   "dispatch_surface": {
    "matched": 9,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 262,
-   "pct": 3.4
+   "n": 287,
+   "pct": 3.1
   },
   "tomtom_surface": {
-   "matched": 5,
-   "n": 214,
-   "pct": 2.3
+   "matched": 6,
+   "n": 237,
+   "pct": 2.5
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 60.9,
-  "median": -0.7,
+  "median": -2.1,
   "min": -42.0,
-  "n": 15,
+  "n": 16,
   "q1": -21.0,
-  "q3": 25.4
+  "q3": 23.1
  },
  "persistence_min": {
   "max": -50.8,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 424,
+  "hotspot_buckets": 471,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 439
+  "unreported_congestion": 486
  },
  "sampling": {
   "flow_spent_this_month": 3528,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 637,
+  "incidents_spent_this_month": 638,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -133,13 +133,6 @@
    "seg": "30.154,-97.668"
   },
   {
-   "from": "TX-71 (I-35)",
-   "hour_of_week": 59,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.200,-97.763"
-  },
-  {
    "from": "FM 685",
    "hour_of_week": 60,
    "n": 2,
@@ -168,13 +161,6 @@
    "seg": "30.221,-97.684"
   },
   {
-   "from": "Barteny Cv",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.256,-97.593"
-  },
-  {
    "from": "Staked Plains Loop",
    "hour_of_week": 60,
    "n": 2,
@@ -182,11 +168,32 @@
    "seg": "30.497,-97.793"
   },
   {
-   "from": "Highway 71 E",
-   "hour_of_week": 59,
+   "from": "Shoreline Dr (TX-1 Loop/Mo-Pac Expy/TX-1)",
+   "hour_of_week": 60,
    "n": 2,
    "roadworks": false,
-   "seg": "30.216,-97.663"
+   "seg": "30.432,-97.701"
+  },
+  {
+   "from": "Braker Ln exit [243]",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.395,-97.672"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.431,-97.673"
+  },
+  {
+   "from": "Grand Avenue Pkwy (I-35)",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.436,-97.670"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "Korman Dr",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.431,-97.673"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 79.4,
+  "dispatch": 78.1,
   "tomtom": 97.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 63,
+  "n": 64,
   "neither": 50,
-  "tomtom_only": 13
+  "tomtom_only": 14
  }
 }
