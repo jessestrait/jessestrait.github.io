@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 120,
+  "dispatch": 121,
   "dispatch_only": 79,
   "here": 0,
   "here_matched": 0,
-  "matched": 55,
-  "tomtom": 1581,
-  "tomtom_only": 1528
+  "matched": 56,
+  "tomtom": 1667,
+  "tomtom_only": 1611
  },
  "date": "2026-10-14",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.9,
   "median": 116.7,
   "min": 13.9,
-  "n": 102,
-  "q1": 80.4,
+  "n": 104,
+  "q1": 82.4,
   "q3": 118.1
  },
  "here_onset_offset_min": {
@@ -37,18 +37,18 @@
    "pct": 53.1
   },
   "dispatch_surface": {
-   "matched": 24,
-   "n": 88,
-   "pct": 27.3
+   "matched": 25,
+   "n": 89,
+   "pct": 28.1
   },
   "tomtom_highway": {
-   "matched": 40,
-   "n": 821,
+   "matched": 42,
+   "n": 865,
    "pct": 4.9
   },
   "tomtom_surface": {
-   "matched": 13,
-   "n": 760,
+   "matched": 14,
+   "n": 802,
    "pct": 1.7
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 89.3,
-  "median": 14.0,
+  "median": 12.7,
   "min": -88.3,
-  "n": 55,
-  "q1": -3.5,
-  "q3": 55.4
+  "n": 56,
+  "q1": -5.9,
+  "q3": 53.6
  },
  "persistence_min": {
   "max": 147.6,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1395,
+  "hotspot_buckets": 1464,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1501
+  "unreported_congestion": 1584
  },
  "sampling": {
-  "flow_spent_this_month": 3635,
+  "flow_spent_this_month": 3644,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 657,
+  "incidents_spent_this_month": 658,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -116,6 +116,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.301,-97.759"
+  },
+  {
+   "from": "Mopac Expy N",
+   "hour_of_week": 69,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.293,-97.759"
   },
   {
    "from": "W 15th St",
@@ -146,11 +153,18 @@
    "seg": "30.276,-97.771"
   },
   {
-   "from": "Mopac Expy N",
+   "from": "W Saint Elmo Rd (S Congress Ave)",
    "hour_of_week": 69,
    "n": 3,
    "roadworks": false,
-   "seg": "30.293,-97.759"
+   "seg": "30.205,-97.775"
+  },
+  {
+   "from": "Manor Rd",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.305,-97.661"
   },
   {
    "from": "Ed Bluestein Blvd (FM-969)",
@@ -167,6 +181,13 @@
    "seg": "30.346,-97.571"
   },
   {
+   "from": "Avery Ranch Blvd (W Parmer Ln/FM-734)",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.504,-97.777"
+  },
+  {
    "from": "E 11th St",
    "hour_of_week": 69,
    "n": 3,
@@ -174,57 +195,36 @@
    "seg": "30.270,-97.732"
   },
   {
+   "from": "Rio Grande St",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.290,-97.742"
+  },
+  {
+   "from": "TX-343 Loop/Cesar Chavez St E/E 1st St (I-35)",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.268,-97.734"
+  },
+  {
    "from": "26th St (Overpass) (I-35)",
    "hour_of_week": 48,
    "n": 2,
    "roadworks": false,
    "seg": "30.281,-97.729"
-  },
-  {
-   "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
-   "hour_of_week": 55,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.277,-97.731"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.475,-97.794"
-  },
-  {
-   "from": "Pearce Ln (FM-973)",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.154,-97.668"
-  },
-  {
-   "from": "Wells Branch Pkwy (I-35)",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.427,-97.671"
-  },
-  {
-   "from": "FM 685",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.500,-97.581"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 65.8,
+  "dispatch": 65.3,
   "tomtom": 96.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 120,
+  "n": 121,
   "neither": 79,
-  "tomtom_only": 41
+  "tomtom_only": 42
  }
 }
