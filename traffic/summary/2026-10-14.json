@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 118,
-  "dispatch_only": 78,
+  "dispatch": 120,
+  "dispatch_only": 79,
   "here": 0,
   "here_matched": 0,
-  "matched": 54,
-  "tomtom": 1506,
-  "tomtom_only": 1454
+  "matched": 55,
+  "tomtom": 1581,
+  "tomtom_only": 1528
  },
  "date": "2026-10-14",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.9,
   "median": 116.7,
   "min": 13.9,
-  "n": 100,
-  "q1": 78.9,
+  "n": 102,
+  "q1": 80.4,
   "q3": 118.1
  },
  "here_onset_offset_min": {
@@ -37,19 +37,19 @@
    "pct": 53.1
   },
   "dispatch_surface": {
-   "matched": 23,
-   "n": 86,
-   "pct": 26.7
+   "matched": 24,
+   "n": 88,
+   "pct": 27.3
   },
   "tomtom_highway": {
-   "matched": 38,
-   "n": 784,
-   "pct": 4.8
+   "matched": 40,
+   "n": 821,
+   "pct": 4.9
   },
   "tomtom_surface": {
-   "matched": 14,
-   "n": 722,
-   "pct": 1.9
+   "matched": 13,
+   "n": 760,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 89.3,
-  "median": 15.1,
+  "median": 14.0,
   "min": -88.3,
-  "n": 54,
-  "q1": -4.3,
-  "q3": 55.6
+  "n": 55,
+  "q1": -3.5,
+  "q3": 55.4
  },
  "persistence_min": {
   "max": 147.6,
-  "median": -2.6,
+  "median": -5.3,
   "min": -1243.7,
-  "n": 36,
-  "q1": -64.8,
+  "n": 39,
+  "q1": -66.1,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1335,
+  "hotspot_buckets": 1395,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1427
+  "unreported_congestion": 1501
  },
  "sampling": {
   "flow_spent_this_month": 3635,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 656,
+  "incidents_spent_this_month": 657,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -116,6 +116,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.301,-97.759"
+  },
+  {
+   "from": "W 15th St",
+   "hour_of_week": 69,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.280,-97.750"
   },
   {
    "from": "S Interstate 35",
@@ -146,11 +153,11 @@
    "seg": "30.293,-97.759"
   },
   {
-   "from": "W 15th St",
+   "from": "Ed Bluestein Blvd (FM-969)",
    "hour_of_week": 69,
    "n": 3,
    "roadworks": false,
-   "seg": "30.280,-97.750"
+   "seg": "30.284,-97.657"
   },
   {
    "from": "Old TX-20 (US-290)",
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.500,-97.581"
-  },
-  {
-   "from": "Manor Rd",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.304,-97.661"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 66.1,
-  "tomtom": 96.5
+  "dispatch": 65.8,
+  "tomtom": 96.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 118,
-  "neither": 78,
-  "tomtom_only": 40
+  "n": 120,
+  "neither": 79,
+  "tomtom_only": 41
  }
 }
