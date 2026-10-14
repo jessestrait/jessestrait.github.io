@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 116,
-  "dispatch_only": 77,
+  "dispatch": 118,
+  "dispatch_only": 78,
   "here": 0,
   "here_matched": 0,
-  "matched": 52,
-  "tomtom": 1449,
-  "tomtom_only": 1399
+  "matched": 54,
+  "tomtom": 1506,
+  "tomtom_only": 1454
  },
  "date": "2026-10-14",
  "dispatch_life_capped": false,
@@ -37,18 +37,18 @@
    "pct": 53.1
   },
   "dispatch_surface": {
-   "matched": 22,
-   "n": 84,
-   "pct": 26.2
+   "matched": 23,
+   "n": 86,
+   "pct": 26.7
   },
   "tomtom_highway": {
-   "matched": 37,
-   "n": 758,
-   "pct": 4.9
+   "matched": 38,
+   "n": 784,
+   "pct": 4.8
   },
   "tomtom_surface": {
-   "matched": 13,
-   "n": 691,
+   "matched": 14,
+   "n": 722,
    "pct": 1.9
   }
  },
@@ -62,9 +62,9 @@
   "max": 89.3,
   "median": 15.1,
   "min": -88.3,
-  "n": 52,
-  "q1": -5.9,
-  "q3": 53.6
+  "n": 54,
+  "q1": -4.3,
+  "q3": 55.6
  },
  "persistence_min": {
   "max": 147.6,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1290,
+  "hotspot_buckets": 1335,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1372
+  "unreported_congestion": 1427
  },
  "sampling": {
   "flow_spent_this_month": 3635,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 655,
+  "incidents_spent_this_month": 656,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
  },
  "structural_hotspots": [
   {
+   "from": "Mopac Expy S",
+   "hour_of_week": 69,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.301,-97.759"
+  },
+  {
    "from": "S Interstate 35",
    "hour_of_week": 60,
    "n": 3,
@@ -123,13 +130,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.379,-97.739"
-  },
-  {
-   "from": "Mopac Expy S",
-   "hour_of_week": 69,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.301,-97.759"
   },
   {
    "from": "Atlanta St",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 66.4,
+  "dispatch": 66.1,
   "tomtom": 96.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 116,
-  "neither": 77,
-  "tomtom_only": 39
+  "n": 118,
+  "neither": 78,
+  "tomtom_only": 40
  }
 }
