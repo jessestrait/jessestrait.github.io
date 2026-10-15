@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 95,
-  "dispatch_only": 80,
+  "dispatch": 96,
+  "dispatch_only": 81,
   "here": 0,
   "here_matched": 0,
   "matched": 22,
-  "tomtom": 1395,
-  "tomtom_only": 1371
+  "tomtom": 1415,
+  "tomtom_only": 1391
  },
  "date": "2026-10-15",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 10,
-   "n": 76,
-   "pct": 13.2
+   "n": 77,
+   "pct": 13.0
   },
   "tomtom_highway": {
    "matched": 20,
-   "n": 748,
-   "pct": 2.7
+   "n": 759,
+   "pct": 2.6
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 647,
+   "n": 656,
    "pct": 0.6
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1246,
+  "hotspot_buckets": 1262,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1344
+  "unreported_congestion": 1364
  },
  "sampling": {
   "flow_spent_this_month": 3788,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 694,
+  "incidents_spent_this_month": 695,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -144,6 +144,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.109,-97.808"
+  },
+  {
+   "from": "S Lamar Blvd / W Ben White Blvd",
+   "hour_of_week": 85,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.240,-97.800"
   },
   {
    "from": "Brandt Rd",
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.348,-97.714"
-  },
-  {
-   "from": "Chicon St (E Cesar Chavez St/E 1st St)",
-   "hour_of_week": 72,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.255,-97.717"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 84.2,
+  "dispatch": 84.4,
   "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 95,
-  "neither": 80,
+  "n": 96,
+  "neither": 81,
   "tomtom_only": 15
  }
 }
