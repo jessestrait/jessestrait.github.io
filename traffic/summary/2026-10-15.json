@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 64,
-  "dispatch_only": 54,
+  "dispatch": 65,
+  "dispatch_only": 55,
   "here": 0,
   "here_matched": 0,
   "matched": 10,
-  "tomtom": 524,
-  "tomtom_only": 515
+  "tomtom": 533,
+  "tomtom_only": 524
  },
  "date": "2026-10-15",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 7,
-   "n": 53,
-   "pct": 13.2
+   "n": 54,
+   "pct": 13.0
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 260,
+   "n": 265,
    "pct": 1.9
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 264,
+   "n": 268,
    "pct": 1.5
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 481,
+  "hotspot_buckets": 487,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 496
+  "unreported_congestion": 504
  },
  "sampling": {
   "flow_spent_this_month": 3671,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 663,
+  "incidents_spent_this_month": 664,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -132,6 +132,13 @@
    "seg": "30.216,-97.751"
   },
   {
+   "from": "I-35 (Greenlawn Blvd)",
+   "hour_of_week": 2,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.474,-97.666"
+  },
+  {
    "from": "Nature Center Dr",
    "hour_of_week": 62,
    "n": 2,
@@ -146,11 +153,25 @@
    "seg": "30.348,-97.714"
   },
   {
+   "from": "Chicon St (E Cesar Chavez St/E 1st St)",
+   "hour_of_week": 72,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.255,-97.717"
+  },
+  {
    "from": "Alpha Collier Dr",
    "hour_of_week": 71,
    "n": 2,
    "roadworks": false,
    "seg": "30.442,-97.680"
+  },
+  {
+   "from": "Burnet Rd",
+   "hour_of_week": 61,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.394,-97.717"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -188,43 +209,22 @@
    "seg": "30.234,-97.736"
   },
   {
-   "from": "Chicon St (E Cesar Chavez St/E 1st St)",
-   "hour_of_week": 72,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.254,-97.716"
-  },
-  {
    "from": "Dalton Ln",
    "hour_of_week": 94,
    "n": 2,
    "roadworks": false,
    "seg": "30.242,-97.667"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.616"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 84.4,
+  "dispatch": 84.6,
   "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 64,
-  "neither": 54,
+  "n": 65,
+  "neither": 55,
   "tomtom_only": 10
  }
 }
