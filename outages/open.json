@@ -1,29 +1,6 @@
 {
- "captured_at": "2026-10-15T18:36:52Z",
+ "captured_at": "2026-10-15T18:51:55Z",
  "episodes": [
-  {
-   "customers_served": 36410,
-   "ended": false,
-   "etr_last": "ETR-EXP",
-   "first_seen": "2026-10-15T14:04:32Z",
-   "id": "zip-78745-20261015T140432Z",
-   "kind": "power_outage",
-   "last_seen": "2026-10-15T18:36:52Z",
-   "peak_customers_affected": 41,
-   "peak_outages": 3,
-   "polls": 19,
-   "scope": {
-    "bbox": [
-     -97.84236599993895,
-     30.167125199292894,
-     -97.75198400028799,
-     30.236257999648334
-    ],
-    "id": "78745",
-    "type": "zip"
-   },
-   "source": "austin-energy/kubra"
-  },
   {
    "customers_served": 15368,
    "ended": false,
@@ -31,10 +8,10 @@
    "first_seen": "2026-10-15T17:21:10Z",
    "id": "zip-78731-20261015T172110Z",
    "kind": "power_outage",
-   "last_seen": "2026-10-15T18:36:52Z",
+   "last_seen": "2026-10-15T18:51:55Z",
    "peak_customers_affected": 1,
    "peak_outages": 1,
-   "polls": 6,
+   "polls": 7,
    "scope": {
     "bbox": [
      -97.79700000022555,
@@ -54,10 +31,10 @@
    "first_seen": "2026-10-15T18:36:52Z",
    "id": "zip-78724-20261015T183652Z",
    "kind": "power_outage",
-   "last_seen": "2026-10-15T18:36:52Z",
+   "last_seen": "2026-10-15T18:51:55Z",
    "peak_customers_affected": 1,
    "peak_outages": 1,
-   "polls": 1,
+   "polls": 2,
    "scope": {
     "bbox": [
      -97.67414810028494,
@@ -69,7 +46,30 @@
     "type": "zip"
    },
    "source": "austin-energy/kubra"
+  },
+  {
+   "customers_served": 30287,
+   "ended": false,
+   "etr_last": "2026-10-15T20:52:56Z",
+   "first_seen": "2026-10-15T18:51:55Z",
+   "id": "zip-78753-20261015T185155Z",
+   "kind": "power_outage",
+   "last_seen": "2026-10-15T18:51:55Z",
+   "peak_customers_affected": 3,
+   "peak_outages": 2,
+   "polls": 1,
+   "scope": {
+    "bbox": [
+     -97.71246600044464,
+     30.33285459976164,
+     -97.63785100035277,
+     30.42659959970959
+    ],
+    "id": "78753",
+    "type": "zip"
+   },
+   "source": "austin-energy/kubra"
   }
  ],
- "source_published": "2026-10-15T18:32:49Z"
+ "source_published": "2026-10-15T18:42:57Z"
 }
