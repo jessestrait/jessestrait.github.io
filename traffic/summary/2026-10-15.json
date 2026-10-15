@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 11,
-  "tomtom": 721,
-  "tomtom_only": 711
+  "tomtom": 748,
+  "tomtom_only": 738
  },
  "date": "2026-10-15",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 379,
-   "pct": 1.6
+   "n": 393,
+   "pct": 1.5
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 342,
-   "pct": 1.2
+   "n": 355,
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 665,
+  "hotspot_buckets": 689,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 685
+  "unreported_congestion": 712
  },
  "sampling": {
   "flow_spent_this_month": 3743,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 675,
+  "incidents_spent_this_month": 676,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -181,44 +181,44 @@
    "seg": "30.286,-97.727"
   },
   {
-   "from": "Slaughter Creek Dr",
+   "from": "N Interstate 35",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
-   "seg": "30.201,-97.709"
+   "seg": "30.305,-97.714"
   },
   {
-   "from": "Alpha Collier Dr",
+   "from": "Ben White Blvd exit [230]",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.203,-97.759"
+  },
+  {
+   "from": "TX-212 Loop (US-290)",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.349,-97.553"
+  },
+  {
+   "from": "Surrender Ave",
    "hour_of_week": 71,
    "n": 2,
    "roadworks": false,
    "seg": "30.442,-97.680"
   },
   {
-   "from": "Burnet Rd",
-   "hour_of_week": 61,
+   "from": "Raines Pass",
+   "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
-   "seg": "30.394,-97.717"
-  },
-  {
-   "from": "Adage Dr / Epiphany Ln",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.448,-97.631"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 18,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.320,-97.706"
+   "seg": "30.148,-97.767"
   }
  ],
  "unmatched_pct": {
   "dispatch": 86.9,
-  "tomtom": 98.6
+  "tomtom": 98.7
  },
  "witnesses": {
   "both": 0,
