@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 82,
-  "dispatch_only": 71,
+  "dispatch": 84,
+  "dispatch_only": 73,
   "here": 0,
   "here_matched": 0,
   "matched": 11,
-  "tomtom": 700,
-  "tomtom_only": 690
+  "tomtom": 721,
+  "tomtom_only": 711
  },
  "date": "2026-10-15",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 7,
-   "n": 69,
-   "pct": 10.1
+   "n": 71,
+   "pct": 9.9
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 366,
+   "n": 379,
    "pct": 1.6
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 334,
+   "n": 342,
    "pct": 1.2
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 644,
+  "hotspot_buckets": 665,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 664
+  "unreported_congestion": 685
  },
  "sampling": {
   "flow_spent_this_month": 3743,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 674,
+  "incidents_spent_this_month": 675,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -181,11 +181,11 @@
    "seg": "30.286,-97.727"
   },
   {
-   "from": "Dee Gabriel Collins Rd (US-183)",
+   "from": "Slaughter Creek Dr",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
-   "seg": "30.177,-97.689"
+   "seg": "30.201,-97.709"
   },
   {
    "from": "Alpha Collier Dr",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.6,
+  "dispatch": 86.9,
   "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 82,
-  "neither": 71,
+  "n": 84,
+  "neither": 73,
   "tomtom_only": 11
  }
 }
