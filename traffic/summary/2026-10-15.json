@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 136,
-  "dispatch_only": 107,
+  "dispatch": 138,
+  "dispatch_only": 108,
   "here": 0,
   "here_matched": 0,
-  "matched": 44,
-  "tomtom": 2659,
-  "tomtom_only": 2609
+  "matched": 46,
+  "tomtom": 2766,
+  "tomtom_only": 2712
  },
  "date": "2026-10-15",
  "dispatch_life_capped": false,
@@ -23,9 +23,9 @@
   "max": 119.7,
   "median": 116.5,
   "min": 6.0,
-  "n": 123,
-  "q1": 83.0,
-  "q3": 117.4
+  "n": 126,
+  "q1": 87.3,
+  "q3": 117.5
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,19 +37,19 @@
    "pct": 37.9
   },
   "dispatch_surface": {
-   "matched": 18,
-   "n": 107,
-   "pct": 16.8
+   "matched": 19,
+   "n": 109,
+   "pct": 17.4
   },
   "tomtom_highway": {
-   "matched": 40,
-   "n": 1372,
-   "pct": 2.9
+   "matched": 42,
+   "n": 1422,
+   "pct": 3.0
   },
   "tomtom_surface": {
-   "matched": 10,
-   "n": 1287,
-   "pct": 0.8
+   "matched": 12,
+   "n": 1344,
+   "pct": 0.9
   }
  },
  "matcher": {
@@ -62,16 +62,16 @@
   "max": 87.9,
   "median": 27.1,
   "min": -88.3,
-  "n": 44,
-  "q1": 0.3,
-  "q3": 70.5
+  "n": 46,
+  "q1": -0.6,
+  "q3": 70.1
  },
  "persistence_min": {
   "max": 101.8,
-  "median": -25.5,
+  "median": -25.7,
   "min": -989.6,
-  "n": 26,
-  "q1": -48.7,
+  "n": 32,
+  "q1": -49.8,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2342,
+  "hotspot_buckets": 2435,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2579
+  "unreported_congestion": 2682
  },
  "sampling": {
-  "flow_spent_this_month": 3914,
+  "flow_spent_this_month": 3923,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 715,
+  "incidents_spent_this_month": 716,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "E 11th St (I-35)",
+   "hour_of_week": 93,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.268,-97.734"
+  },
   {
    "from": "S 1st St (W Riverside Dr)",
    "hour_of_week": 142,
@@ -153,18 +160,18 @@
    "seg": "30.267,-97.755"
   },
   {
+   "from": "E 7th St",
+   "hour_of_week": 93,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.267,-97.734"
+  },
+  {
    "from": "E Anderson Ln",
    "hour_of_week": 93,
    "n": 4,
    "roadworks": false,
    "seg": "30.337,-97.696"
-  },
-  {
-   "from": "E 11th St (I-35)",
-   "hour_of_week": 93,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.268,-97.734"
   },
   {
    "from": "N Interstate 35",
@@ -207,24 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.167,-97.787"
-  },
-  {
-   "from": "Old Highway 20",
-   "hour_of_week": 84,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.343,-97.573"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.7,
-  "tomtom": 98.1
+  "dispatch": 78.3,
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 136,
-  "neither": 107,
-  "tomtom_only": 29
+  "n": 138,
+  "neither": 108,
+  "tomtom_only": 30
  }
 }
