@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 138,
+  "dispatch": 139,
   "dispatch_only": 108,
   "here": 0,
   "here_matched": 0,
-  "matched": 46,
-  "tomtom": 2766,
-  "tomtom_only": 2712
+  "matched": 47,
+  "tomtom": 2854,
+  "tomtom_only": 2798
  },
  "date": "2026-10-15",
  "dispatch_life_capped": false,
@@ -37,18 +37,18 @@
    "pct": 37.9
   },
   "dispatch_surface": {
-   "matched": 19,
-   "n": 109,
-   "pct": 17.4
+   "matched": 20,
+   "n": 110,
+   "pct": 18.2
   },
   "tomtom_highway": {
-   "matched": 42,
-   "n": 1422,
+   "matched": 44,
+   "n": 1458,
    "pct": 3.0
   },
   "tomtom_surface": {
    "matched": 12,
-   "n": 1344,
+   "n": 1396,
    "pct": 0.9
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.9,
-  "median": 27.1,
+  "median": 19.5,
   "min": -88.3,
-  "n": 46,
-  "q1": -0.6,
-  "q3": 70.1
+  "n": 47,
+  "q1": -1.4,
+  "q3": 69.9
  },
  "persistence_min": {
   "max": 101.8,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2435,
+  "hotspot_buckets": 2516,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2682
+  "unreported_congestion": 2768
  },
  "sampling": {
   "flow_spent_this_month": 3923,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 716,
+  "incidents_spent_this_month": 717,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -113,7 +113,7 @@
   {
    "from": "E 11th St (I-35)",
    "hour_of_week": 93,
-   "n": 5,
+   "n": 6,
    "roadworks": false,
    "seg": "30.268,-97.734"
   },
@@ -158,13 +158,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.267,-97.755"
-  },
-  {
-   "from": "E 7th St",
-   "hour_of_week": 93,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.267,-97.734"
   },
   {
    "from": "E Anderson Ln",
@@ -214,17 +207,24 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.167,-97.787"
+  },
+  {
+   "from": "Old Highway 20",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.343,-97.573"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.3,
+  "dispatch": 77.7,
   "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 138,
+  "n": 139,
   "neither": 108,
-  "tomtom_only": 30
+  "tomtom_only": 31
  }
 }
