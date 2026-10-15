@@ -10,21 +10,21 @@
  ],
  "counts": {
   "dispatch": 133,
-  "dispatch_only": 108,
+  "dispatch_only": 107,
   "here": 0,
   "here_matched": 0,
-  "matched": 37,
-  "tomtom": 2298,
-  "tomtom_only": 2255
+  "matched": 39,
+  "tomtom": 2384,
+  "tomtom_only": 2339
  },
  "date": "2026-10-15",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 116.3,
+  "median": 116.4,
   "min": 6.0,
-  "n": 119,
-  "q1": 82.2,
+  "n": 120,
+  "q1": 82.4,
   "q3": 117.4
  },
  "here_onset_offset_min": {
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 9,
+   "matched": 10,
    "n": 28,
-   "pct": 32.1
+   "pct": 35.7
   },
   "dispatch_surface": {
    "matched": 16,
@@ -42,13 +42,13 @@
    "pct": 15.2
   },
   "tomtom_highway": {
-   "matched": 34,
-   "n": 1209,
-   "pct": 2.8
+   "matched": 36,
+   "n": 1245,
+   "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 9,
-   "n": 1089,
+   "n": 1139,
    "pct": 0.8
   }
  },
@@ -62,16 +62,16 @@
   "max": 87.9,
   "median": 38.0,
   "min": -88.3,
-  "n": 37,
-  "q1": 2.3,
-  "q3": 70.3
+  "n": 39,
+  "q1": 2.5,
+  "q3": 70.7
  },
  "persistence_min": {
   "max": 101.8,
-  "median": -25.5,
+  "median": -25.7,
   "min": -989.6,
-  "n": 24,
-  "q1": -46.0,
+  "n": 25,
+  "q1": -51.3,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2039,
+  "hotspot_buckets": 2094,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2225
+  "unreported_congestion": 2309
  },
  "sampling": {
   "flow_spent_this_month": 3905,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 710,
+  "incidents_spent_this_month": 711,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -123,6 +123,20 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.146,-97.794"
+  },
+  {
+   "from": "Metric Blvd",
+   "hour_of_week": 93,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.372,-97.724"
+  },
+  {
+   "from": "N Lamar Blvd",
+   "hour_of_week": 93,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.267,-97.755"
   },
   {
    "from": "S 1st St (W Riverside Dr)",
@@ -188,11 +202,11 @@
    "seg": "30.470,-97.797"
   },
   {
-   "from": "S Interstate 35",
+   "from": "N Interstate 35",
    "hour_of_week": 93,
    "n": 3,
    "roadworks": false,
-   "seg": "30.489,-97.676"
+   "seg": "30.353,-97.691"
   },
   {
    "from": "E 15th St (Trinity St)",
@@ -200,31 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.279,-97.735"
-  },
-  {
-   "from": "E 6th St (I-35)",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.262,-97.736"
-  },
-  {
-   "from": "S 1st St/Conroy Ln (FM-1626)",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.141,-97.797"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.2,
+  "dispatch": 80.5,
   "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 133,
-  "neither": 108,
-  "tomtom_only": 25
+  "neither": 107,
+  "tomtom_only": 26
  }
 }
