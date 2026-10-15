@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 56,
-  "dispatch_only": 46,
+  "dispatch": 58,
+  "dispatch_only": 48,
   "here": 0,
   "here_matched": 0,
   "matched": 10,
@@ -21,10 +21,10 @@
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 106.5,
+  "median": 113.0,
   "min": 6.0,
-  "n": 39,
-  "q1": 25.9,
+  "n": 41,
+  "q1": 26.3,
   "q3": 117.2
  },
  "here_onset_offset_min": {
@@ -38,8 +38,8 @@
   },
   "dispatch_surface": {
    "matched": 7,
-   "n": 45,
-   "pct": 15.6
+   "n": 47,
+   "pct": 14.9
   },
   "tomtom_highway": {
    "matched": 5,
@@ -188,6 +188,13 @@
    "seg": "30.234,-97.736"
   },
   {
+   "from": "Chicon St (E Cesar Chavez St/E 1st St)",
+   "hour_of_week": 72,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.254,-97.716"
+  },
+  {
    "from": "Dalton Ln",
    "hour_of_week": 94,
    "n": 2,
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "N Pleasant Valley Rd (E Cesar Chavez St/E 1st St)",
-   "hour_of_week": 72,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.254,-97.716"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.1,
+  "dispatch": 82.8,
   "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 56,
-  "neither": 46,
+  "n": 58,
+  "neither": 48,
   "tomtom_only": 10
  }
 }
