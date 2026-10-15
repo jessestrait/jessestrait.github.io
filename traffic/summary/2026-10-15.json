@@ -14,18 +14,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 40,
-  "tomtom": 2445,
-  "tomtom_only": 2399
+  "tomtom": 2498,
+  "tomtom_only": 2452
  },
  "date": "2026-10-15",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 116.4,
+  "median": 116.5,
   "min": 6.0,
-  "n": 120,
-  "q1": 82.4,
-  "q3": 117.4
+  "n": 122,
+  "q1": 82.8,
+  "q3": 117.5
  },
  "here_onset_offset_min": {
   "n": 0
@@ -42,13 +42,13 @@
    "pct": 16.0
   },
   "tomtom_highway": {
-   "matched": 37,
-   "n": 1276,
-   "pct": 2.9
+   "matched": 36,
+   "n": 1297,
+   "pct": 2.8
   },
   "tomtom_surface": {
-   "matched": 9,
-   "n": 1169,
+   "matched": 10,
+   "n": 1201,
    "pct": 0.8
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2139,
+  "hotspot_buckets": 2186,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2369
+  "unreported_congestion": 2422
  },
  "sampling": {
   "flow_spent_this_month": 3914,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 712,
+  "incidents_spent_this_month": 713,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,6 +160,13 @@
    "seg": "30.337,-97.696"
   },
   {
+   "from": "E 11th St (I-35)",
+   "hour_of_week": 93,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.268,-97.734"
+  },
+  {
    "from": "S 1st St (W Riverside Dr)",
    "hour_of_week": 142,
    "n": 3,
@@ -207,18 +214,11 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.167,-97.787"
-  },
-  {
-   "from": "Old Highway 20",
-   "hour_of_week": 84,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.343,-97.573"
   }
  ],
  "unmatched_pct": {
   "dispatch": 79.9,
-  "tomtom": 98.1
+  "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
