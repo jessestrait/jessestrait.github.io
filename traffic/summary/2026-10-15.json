@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 134,
+  "dispatch": 136,
   "dispatch_only": 107,
   "here": 0,
   "here_matched": 0,
-  "matched": 42,
-  "tomtom": 2568,
-  "tomtom_only": 2520
+  "matched": 44,
+  "tomtom": 2659,
+  "tomtom_only": 2609
  },
  "date": "2026-10-15",
  "dispatch_life_capped": false,
@@ -32,23 +32,23 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 10,
-   "n": 28,
-   "pct": 35.7
+   "matched": 11,
+   "n": 29,
+   "pct": 37.9
   },
   "dispatch_surface": {
-   "matched": 17,
-   "n": 106,
-   "pct": 16.0
+   "matched": 18,
+   "n": 107,
+   "pct": 16.8
   },
   "tomtom_highway": {
-   "matched": 38,
-   "n": 1326,
+   "matched": 40,
+   "n": 1372,
    "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 10,
-   "n": 1242,
+   "n": 1287,
    "pct": 0.8
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.9,
-  "median": 36.4,
+  "median": 27.1,
   "min": -88.3,
-  "n": 42,
-  "q1": 2.4,
-  "q3": 70.7
+  "n": 44,
+  "q1": 0.3,
+  "q3": 70.5
  },
  "persistence_min": {
   "max": 101.8,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2254,
+  "hotspot_buckets": 2342,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2490
+  "unreported_congestion": 2579
  },
  "sampling": {
   "flow_spent_this_month": 3914,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 714,
+  "incidents_spent_this_month": 715,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,13 +110,6 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
-  {
-   "from": "E 11th St (I-35)",
-   "hour_of_week": 93,
-   "n": 5,
-   "roadworks": false,
-   "seg": "30.268,-97.734"
-  },
   {
    "from": "S 1st St (W Riverside Dr)",
    "hour_of_week": 142,
@@ -146,13 +139,6 @@
    "seg": "30.279,-97.735"
   },
   {
-   "from": "W Louis Henna Blvd",
-   "hour_of_week": 93,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.480,-97.674"
-  },
-  {
    "from": "Metric Blvd",
    "hour_of_week": 93,
    "n": 4,
@@ -172,6 +158,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.337,-97.696"
+  },
+  {
+   "from": "E 11th St (I-35)",
+   "hour_of_week": 93,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.268,-97.734"
   },
   {
    "from": "N Interstate 35",
@@ -214,17 +207,24 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.167,-97.787"
+  },
+  {
+   "from": "Old Highway 20",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.343,-97.573"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 79.9,
+  "dispatch": 78.7,
   "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 134,
+  "n": 136,
   "neither": 107,
-  "tomtom_only": 27
+  "tomtom_only": 29
  }
 }
