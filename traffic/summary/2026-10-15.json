@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 132,
-  "dispatch_only": 108,
+  "dispatch_only": 107,
   "here": 0,
   "here_matched": 0,
-  "matched": 34,
-  "tomtom": 2087,
-  "tomtom_only": 2048
+  "matched": 36,
+  "tomtom": 2148,
+  "tomtom_only": 2106
  },
  "date": "2026-10-15",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 33.3
   },
   "dispatch_surface": {
-   "matched": 15,
+   "matched": 16,
    "n": 105,
-   "pct": 14.3
+   "pct": 15.2
   },
   "tomtom_highway": {
-   "matched": 32,
-   "n": 1107,
-   "pct": 2.9
+   "matched": 34,
+   "n": 1141,
+   "pct": 3.0
   },
   "tomtom_surface": {
-   "matched": 7,
-   "n": 980,
-   "pct": 0.7
+   "matched": 8,
+   "n": 1007,
+   "pct": 0.8
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.7,
-  "median": 27.1,
+  "median": 36.4,
   "min": -88.3,
-  "n": 34,
-  "q1": 1.2,
-  "q3": 66.9
+  "n": 36,
+  "q1": 2.2,
+  "q3": 69.7
  },
  "persistence_min": {
   "max": 101.8,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1875,
+  "hotspot_buckets": 1919,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2018
+  "unreported_congestion": 2076
  },
  "sampling": {
-  "flow_spent_this_month": 3896,
+  "flow_spent_this_month": 3905,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 707,
+  "incidents_spent_this_month": 708,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -181,6 +181,20 @@
    "seg": "30.343,-97.573"
   },
   {
+   "from": "E 15th St (Trinity St)",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.279,-97.735"
+  },
+  {
+   "from": "Wilcab Rd",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.274,-97.673"
+  },
+  {
    "from": "W Louis Henna Blvd",
    "hour_of_week": 93,
    "n": 3,
@@ -195,36 +209,22 @@
    "seg": "30.372,-97.724"
   },
   {
-   "from": "Simbrah Dr",
+   "from": "Cypress Creek Rd",
    "hour_of_week": 93,
    "n": 3,
    "roadworks": false,
    "seg": "30.476,-97.838"
-  },
-  {
-   "from": "E 5th St (San Jacinto Blvd)",
-   "hour_of_week": 69,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.263,-97.742"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 69,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.273,-97.732"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.8,
-  "tomtom": 98.1
+  "dispatch": 81.1,
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 132,
-  "neither": 108,
-  "tomtom_only": 24
+  "neither": 107,
+  "tomtom_only": 25
  }
 }
