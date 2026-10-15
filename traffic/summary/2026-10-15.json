@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 133,
+  "dispatch": 134,
   "dispatch_only": 107,
   "here": 0,
   "here_matched": 0,
-  "matched": 39,
-  "tomtom": 2384,
-  "tomtom_only": 2339
+  "matched": 40,
+  "tomtom": 2445,
+  "tomtom_only": 2399
  },
  "date": "2026-10-15",
  "dispatch_life_capped": false,
@@ -37,18 +37,18 @@
    "pct": 35.7
   },
   "dispatch_surface": {
-   "matched": 16,
-   "n": 105,
-   "pct": 15.2
+   "matched": 17,
+   "n": 106,
+   "pct": 16.0
   },
   "tomtom_highway": {
-   "matched": 36,
-   "n": 1245,
+   "matched": 37,
+   "n": 1276,
    "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 9,
-   "n": 1139,
+   "n": 1169,
    "pct": 0.8
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.9,
-  "median": 38.0,
+  "median": 36.4,
   "min": -88.3,
-  "n": 39,
-  "q1": 2.5,
-  "q3": 70.7
+  "n": 40,
+  "q1": 2.2,
+  "q3": 70.5
  },
  "persistence_min": {
   "max": 101.8,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2094,
+  "hotspot_buckets": 2139,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2309
+  "unreported_congestion": 2369
  },
  "sampling": {
-  "flow_spent_this_month": 3905,
+  "flow_spent_this_month": 3914,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 711,
+  "incidents_spent_this_month": 712,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -125,6 +125,13 @@
    "seg": "30.146,-97.794"
   },
   {
+   "from": "E 15th St (Trinity St)",
+   "hour_of_week": 93,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.279,-97.735"
+  },
+  {
    "from": "Metric Blvd",
    "hour_of_week": 93,
    "n": 4,
@@ -137,6 +144,20 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.267,-97.755"
+  },
+  {
+   "from": "S Mo Pac Expy",
+   "hour_of_week": 93,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.265,-97.784"
+  },
+  {
+   "from": "E Anderson Ln",
+   "hour_of_week": 93,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.337,-97.696"
   },
   {
    "from": "S 1st St (W Riverside Dr)",
@@ -193,38 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.343,-97.573"
-  },
-  {
-   "from": "US Highway 183",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.470,-97.797"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.353,-97.691"
-  },
-  {
-   "from": "E 15th St (Trinity St)",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.279,-97.735"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.5,
+  "dispatch": 79.9,
   "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 133,
+  "n": 134,
   "neither": 107,
-  "tomtom_only": 26
+  "tomtom_only": 27
  }
 }
