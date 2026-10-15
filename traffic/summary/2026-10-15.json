@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 14,
-  "tomtom": 1061,
-  "tomtom_only": 1048
+  "tomtom": 1099,
+  "tomtom_only": 1086
  },
  "date": "2026-10-15",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 559,
-   "pct": 1.6
+   "n": 581,
+   "pct": 1.5
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 502,
+   "n": 518,
    "pct": 0.8
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 960,
+  "hotspot_buckets": 1001,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1022
+  "unreported_congestion": 1060
  },
  "sampling": {
   "flow_spent_this_month": 3761,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 683,
+  "incidents_spent_this_month": 684,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -116,13 +116,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.305,-97.714"
-  },
-  {
-   "from": "Ben White Blvd exit [230]",
-   "hour_of_week": 84,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.203,-97.759"
   },
   {
    "from": "S Interstate 35",
@@ -207,6 +200,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.425,-97.626"
+  },
+  {
+   "from": "Ben White Blvd exit [230]",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.203,-97.759"
   },
   {
    "from": "Onion Creek Dr",
