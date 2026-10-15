@@ -13,9 +13,9 @@
   "dispatch_only": 109,
   "here": 0,
   "here_matched": 0,
-  "matched": 32,
-  "tomtom": 1969,
-  "tomtom_only": 1932
+  "matched": 33,
+  "tomtom": 2020,
+  "tomtom_only": 1982
  },
  "date": "2026-10-15",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 31,
-   "n": 1057,
+   "n": 1075,
    "pct": 2.9
   },
   "tomtom_surface": {
-   "matched": 6,
-   "n": 912,
+   "matched": 7,
+   "n": 945,
    "pct": 0.7
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.7,
-  "median": 18.8,
+  "median": 19.5,
   "min": -88.3,
-  "n": 32,
-  "q1": -0.5,
-  "q3": 64.2
+  "n": 33,
+  "q1": 0.4,
+  "q3": 62.2
  },
  "persistence_min": {
   "max": 101.8,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1779,
+  "hotspot_buckets": 1820,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1902
+  "unreported_congestion": 1952
  },
  "sampling": {
   "flow_spent_this_month": 3896,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 705,
+  "incidents_spent_this_month": 706,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -181,6 +181,13 @@
    "seg": "30.343,-97.573"
   },
   {
+   "from": "W Louis Henna Blvd",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.480,-97.674"
+  },
+  {
    "from": "Metric Blvd",
    "hour_of_week": 93,
    "n": 3,
@@ -207,13 +214,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.216,-97.751"
-  },
-  {
-   "from": "I-35 (Greenlawn Blvd)",
-   "hour_of_week": 2,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.474,-97.666"
   }
  ],
  "unmatched_pct": {
