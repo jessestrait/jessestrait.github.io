@@ -13,9 +13,9 @@
   "dispatch_only": 107,
   "here": 0,
   "here_matched": 0,
-  "matched": 40,
-  "tomtom": 2498,
-  "tomtom_only": 2452
+  "matched": 42,
+  "tomtom": 2568,
+  "tomtom_only": 2520
  },
  "date": "2026-10-15",
  "dispatch_life_capped": false,
@@ -23,9 +23,9 @@
   "max": 119.7,
   "median": 116.5,
   "min": 6.0,
-  "n": 122,
-  "q1": 82.8,
-  "q3": 117.5
+  "n": 123,
+  "q1": 83.0,
+  "q3": 117.4
  },
  "here_onset_offset_min": {
   "n": 0
@@ -42,13 +42,13 @@
    "pct": 16.0
   },
   "tomtom_highway": {
-   "matched": 36,
-   "n": 1297,
-   "pct": 2.8
+   "matched": 38,
+   "n": 1326,
+   "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 10,
-   "n": 1201,
+   "n": 1242,
    "pct": 0.8
   }
  },
@@ -62,16 +62,16 @@
   "max": 87.9,
   "median": 36.4,
   "min": -88.3,
-  "n": 40,
-  "q1": 2.2,
-  "q3": 70.5
+  "n": 42,
+  "q1": 2.4,
+  "q3": 70.7
  },
  "persistence_min": {
   "max": 101.8,
-  "median": -25.7,
+  "median": -25.5,
   "min": -989.6,
-  "n": 25,
-  "q1": -51.3,
+  "n": 26,
+  "q1": -48.7,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2186,
+  "hotspot_buckets": 2254,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2422
+  "unreported_congestion": 2490
  },
  "sampling": {
   "flow_spent_this_month": 3914,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 713,
+  "incidents_spent_this_month": 714,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,20 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "E 11th St (I-35)",
+   "hour_of_week": 93,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.268,-97.734"
+  },
+  {
+   "from": "S 1st St (W Riverside Dr)",
+   "hour_of_week": 142,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.264,-97.756"
+  },
   {
    "from": "Hyridge Dr",
    "hour_of_week": 85,
@@ -132,6 +146,13 @@
    "seg": "30.279,-97.735"
   },
   {
+   "from": "W Louis Henna Blvd",
+   "hour_of_week": 93,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.480,-97.674"
+  },
+  {
    "from": "Metric Blvd",
    "hour_of_week": 93,
    "n": 4,
@@ -146,32 +167,11 @@
    "seg": "30.267,-97.755"
   },
   {
-   "from": "S Mo Pac Expy",
-   "hour_of_week": 93,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.265,-97.784"
-  },
-  {
    "from": "E Anderson Ln",
    "hour_of_week": 93,
    "n": 4,
    "roadworks": false,
    "seg": "30.337,-97.696"
-  },
-  {
-   "from": "E 11th St (I-35)",
-   "hour_of_week": 93,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.268,-97.734"
-  },
-  {
-   "from": "S 1st St (W Riverside Dr)",
-   "hour_of_week": 142,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.264,-97.756"
   },
   {
    "from": "N Interstate 35",
@@ -218,7 +218,7 @@
  ],
  "unmatched_pct": {
   "dispatch": 79.9,
-  "tomtom": 98.2
+  "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
