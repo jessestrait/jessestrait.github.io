@@ -13,9 +13,9 @@
   "dispatch_only": 78,
   "here": 0,
   "here_matched": 0,
-  "matched": 14,
-  "tomtom": 1192,
-  "tomtom_only": 1179
+  "matched": 15,
+  "tomtom": 1225,
+  "tomtom_only": 1211
  },
  "date": "2026-10-15",
  "dispatch_life_capped": false,
@@ -42,13 +42,13 @@
    "pct": 10.7
   },
   "tomtom_highway": {
-   "matched": 9,
-   "n": 618,
-   "pct": 1.5
+   "matched": 10,
+   "n": 637,
+   "pct": 1.6
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 574,
+   "n": 588,
    "pct": 0.7
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.7,
-  "median": 3.7,
+  "median": 5.2,
   "min": -88.3,
-  "n": 14,
-  "q1": -55.1,
-  "q3": 54.1
+  "n": 15,
+  "q1": -52.7,
+  "q3": 56.1
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1083,
+  "hotspot_buckets": 1113,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1152
+  "unreported_congestion": 1184
  },
  "sampling": {
   "flow_spent_this_month": 3770,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 687,
+  "incidents_spent_this_month": 688,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "S 1st St (W Riverside Dr)",
+   "hour_of_week": 142,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.264,-97.756"
+  },
   {
    "from": "N Interstate 35",
    "hour_of_week": 84,
@@ -172,13 +179,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.255,-97.717"
-  },
-  {
-   "from": "S 1st St (W Riverside Dr)",
-   "hour_of_week": 142,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.264,-97.756"
   },
   {
    "from": "N Interstate 35",
