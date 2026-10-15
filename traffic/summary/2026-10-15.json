@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 81,
-  "dispatch_only": 70,
+  "dispatch": 82,
+  "dispatch_only": 71,
   "here": 0,
   "here_matched": 0,
   "matched": 11,
-  "tomtom": 677,
-  "tomtom_only": 667
+  "tomtom": 700,
+  "tomtom_only": 690
  },
  "date": "2026-10-15",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 7,
-   "n": 68,
-   "pct": 10.3
+   "n": 69,
+   "pct": 10.1
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 355,
-   "pct": 1.7
+   "n": 366,
+   "pct": 1.6
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 322,
+   "n": 334,
    "pct": 1.2
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 622,
+  "hotspot_buckets": 644,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 642
+  "unreported_congestion": 664
  },
  "sampling": {
   "flow_spent_this_month": 3743,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 673,
+  "incidents_spent_this_month": 674,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -181,11 +181,11 @@
    "seg": "30.286,-97.727"
   },
   {
-   "from": "Anacua Loop",
-   "hour_of_week": 83,
+   "from": "Dee Gabriel Collins Rd (US-183)",
+   "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
-   "seg": "30.143,-97.802"
+   "seg": "30.177,-97.689"
   },
   {
    "from": "Alpha Collier Dr",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.4,
-  "tomtom": 98.5
+  "dispatch": 86.6,
+  "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 81,
-  "neither": 70,
+  "n": 82,
+  "neither": 71,
   "tomtom_only": 11
  }
 }
