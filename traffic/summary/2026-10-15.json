@@ -14,18 +14,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 10,
-  "tomtom": 504,
-  "tomtom_only": 495
+  "tomtom": 524,
+  "tomtom_only": 515
  },
  "date": "2026-10-15",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 104.7,
+  "median": 106.5,
   "min": 6.0,
-  "n": 38,
-  "q1": 25.3,
-  "q3": 117.3
+  "n": 39,
+  "q1": 25.9,
+  "q3": 117.2
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 252,
-   "pct": 2.0
+   "n": 260,
+   "pct": 1.9
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 252,
-   "pct": 1.6
+   "n": 264,
+   "pct": 1.5
   }
  },
  "matcher": {
@@ -69,9 +69,9 @@
  "persistence_min": {
   "max": 0.0,
   "median": 0.0,
-  "min": 0.0,
-  "n": 8,
-  "q1": 0.0,
+  "min": -30.4,
+  "n": 10,
+  "q1": -6.3,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 463,
+  "hotspot_buckets": 481,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 477
+  "unreported_congestion": 496
  },
  "sampling": {
   "flow_spent_this_month": 3671,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 662,
+  "incidents_spent_this_month": 663,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -153,13 +153,6 @@
    "seg": "30.442,-97.680"
   },
   {
-   "from": "Burnet Rd",
-   "hour_of_week": 61,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.394,-97.717"
-  },
-  {
    "from": "Adage Dr / Epiphany Ln",
    "hour_of_week": 60,
    "n": 2,
@@ -188,6 +181,13 @@
    "seg": "30.245,-97.744"
   },
   {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.234,-97.736"
+  },
+  {
    "from": "Dalton Ln",
    "hour_of_week": 94,
    "n": 2,
@@ -209,16 +209,16 @@
    "seg": "30.179,-97.616"
   },
   {
-   "from": "Murfin Rd (FM-620)",
-   "hour_of_week": 69,
-   "n": 1,
+   "from": "N Pleasant Valley Rd (E Cesar Chavez St/E 1st St)",
+   "hour_of_week": 72,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.323,-97.956"
+   "seg": "30.254,-97.716"
   }
  ],
  "unmatched_pct": {
   "dispatch": 82.1,
-  "tomtom": 98.2
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
