@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 49,
-  "tomtom": 2934,
-  "tomtom_only": 2876
+  "tomtom": 3006,
+  "tomtom_only": 2948
  },
  "date": "2026-10-15",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 44,
-   "n": 1488,
-   "pct": 3.0
+   "n": 1520,
+   "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 14,
-   "n": 1446,
-   "pct": 1.0
+   "n": 1486,
+   "pct": 0.9
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2571,
+  "hotspot_buckets": 2629,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2846
+  "unreported_congestion": 2918
  },
  "sampling": {
   "flow_spent_this_month": 3923,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 718,
+  "incidents_spent_this_month": 719,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -114,7 +114,7 @@
   {
    "from": "E 11th St (I-35)",
    "hour_of_week": 93,
-   "n": 6,
+   "n": 7,
    "roadworks": false,
    "seg": "30.268,-97.734"
   },
@@ -159,13 +159,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.267,-97.755"
-  },
-  {
-   "from": "S Mo Pac Expy",
-   "hour_of_week": 93,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.265,-97.784"
   },
   {
    "from": "E Anderson Ln",
@@ -215,11 +208,18 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.167,-97.787"
+  },
+  {
+   "from": "Old Highway 20",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.343,-97.573"
   }
  ],
  "unmatched_pct": {
   "dispatch": 76.6,
-  "tomtom": 98.0
+  "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
