@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 21,
-  "tomtom": 1344,
-  "tomtom_only": 1321
+  "tomtom": 1362,
+  "tomtom_only": 1339
  },
  "date": "2026-10-15",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 19,
-   "n": 716,
-   "pct": 2.7
+   "n": 729,
+   "pct": 2.6
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 628,
+   "n": 633,
    "pct": 0.6
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1204,
+  "hotspot_buckets": 1218,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1294
+  "unreported_congestion": 1312
  },
  "sampling": {
-  "flow_spent_this_month": 3779,
+  "flow_spent_this_month": 3788,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 692,
+  "incidents_spent_this_month": 693,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Hyridge Dr",
+   "hour_of_week": 85,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.371,-97.742"
+  },
   {
    "from": "S 1st St (W Riverside Dr)",
    "hour_of_week": 142,
@@ -132,25 +139,11 @@
    "seg": "30.109,-97.808"
   },
   {
-   "from": "Hyridge Dr",
-   "hour_of_week": 85,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.371,-97.742"
-  },
-  {
    "from": "Brandt Rd",
    "hour_of_week": 85,
    "n": 3,
    "roadworks": false,
    "seg": "30.160,-97.789"
-  },
-  {
-   "from": "Southwest Pkwy (TX-71)",
-   "hour_of_week": 85,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.263,-97.908"
   },
   {
    "from": "S Interstate 35",
@@ -214,6 +207,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.288,-97.724"
+  },
+  {
+   "from": "Congress Ave/Speedway (Martin Luther King Jr Blvd)",
+   "hour_of_week": 75,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.279,-97.730"
   }
  ],
  "unmatched_pct": {
