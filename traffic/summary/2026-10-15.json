@@ -13,9 +13,9 @@
   "dispatch_only": 73,
   "here": 0,
   "here_matched": 0,
-  "matched": 13,
-  "tomtom": 962,
-  "tomtom_only": 950
+  "matched": 14,
+  "tomtom": 1022,
+  "tomtom_only": 1009
  },
  "date": "2026-10-15",
  "dispatch_life_capped": false,
@@ -42,14 +42,14 @@
    "pct": 11.1
   },
   "tomtom_highway": {
-   "matched": 8,
-   "n": 500,
-   "pct": 1.6
+   "matched": 9,
+   "n": 538,
+   "pct": 1.7
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 462,
-   "pct": 0.9
+   "n": 484,
+   "pct": 0.8
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.7,
-  "median": 2.1,
+  "median": 3.7,
   "min": -88.3,
-  "n": 13,
-  "q1": -57.5,
-  "q3": 39.0
+  "n": 14,
+  "q1": -55.1,
+  "q3": 54.1
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 877,
+  "hotspot_buckets": 928,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 924
+  "unreported_congestion": 983
  },
  "sampling": {
   "flow_spent_this_month": 3761,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 681,
+  "incidents_spent_this_month": 682,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,27 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.305,-97.714"
+  },
+  {
+   "from": "Ben White Blvd exit [230]",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.203,-97.759"
+  },
+  {
+   "from": "S Interstate 35",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.109,-97.808"
+  },
   {
    "from": "E 5th St (San Jacinto Blvd)",
    "hour_of_week": 69,
@@ -160,6 +181,13 @@
    "seg": "30.255,-97.717"
   },
   {
+   "from": "S 1st St (W Riverside Dr)",
+   "hour_of_week": 142,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.264,-97.756"
+  },
+  {
    "from": "N Interstate 35",
    "hour_of_week": 73,
    "n": 2,
@@ -174,13 +202,6 @@
    "seg": "30.279,-97.730"
   },
   {
-   "from": "E Dean Keeton St",
-   "hour_of_week": 71,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.286,-97.727"
-  },
-  {
    "from": "Immanuel Rd",
    "hour_of_week": 84,
    "n": 2,
@@ -188,37 +209,16 @@
    "seg": "30.425,-97.626"
   },
   {
-   "from": "N Interstate 35",
+   "from": "Onion Creek Dr",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
-   "seg": "30.305,-97.714"
-  },
-  {
-   "from": "Ben White Blvd exit [230]",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.203,-97.759"
-  },
-  {
-   "from": "TX-212 Loop (US-290)",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.349,-97.553"
-  },
-  {
-   "from": "W Rundberg Ln (Metric Blvd)",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.372,-97.721"
+   "seg": "30.179,-97.747"
   }
  ],
  "unmatched_pct": {
   "dispatch": 84.9,
-  "tomtom": 98.8
+  "tomtom": 98.7
  },
  "witnesses": {
   "both": 0,
