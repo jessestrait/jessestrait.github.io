@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 10,
-  "tomtom": 616,
-  "tomtom_only": 607
+  "tomtom": 635,
+  "tomtom_only": 626
  },
  "date": "2026-10-15",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 316,
-   "pct": 1.6
+   "n": 329,
+   "pct": 1.5
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 300,
+   "n": 306,
    "pct": 1.3
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 563,
+  "hotspot_buckets": 582,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 582
+  "unreported_congestion": 601
  },
  "sampling": {
   "flow_spent_this_month": 3725,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 670,
+  "incidents_spent_this_month": 671,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -174,6 +174,13 @@
    "seg": "30.279,-97.730"
   },
   {
+   "from": "E Dean Keeton St",
+   "hour_of_week": 71,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.286,-97.727"
+  },
+  {
    "from": "Alpha Collier Dr",
    "hour_of_week": 71,
    "n": 2,
@@ -202,13 +209,6 @@
    "seg": "30.320,-97.706"
   },
   {
-   "from": "Clyde Littlefield Dr",
-   "hour_of_week": 71,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.286,-97.727"
-  },
-  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
@@ -218,7 +218,7 @@
  ],
  "unmatched_pct": {
   "dispatch": 87.5,
-  "tomtom": 98.5
+  "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
