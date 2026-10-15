@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 11,
-  "tomtom": 819,
-  "tomtom_only": 809
+  "tomtom": 863,
+  "tomtom_only": 853
  },
  "date": "2026-10-15",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.7,
   "median": 116.1,
   "min": 6.0,
-  "n": 78,
-  "q1": 80.8,
+  "n": 80,
+  "q1": 84.4,
   "q3": 117.3
  },
  "here_onset_offset_min": {
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 430,
-   "pct": 1.4
+   "n": 447,
+   "pct": 1.3
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 389,
+   "n": 416,
    "pct": 1.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 752,
+  "hotspot_buckets": 791,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 783
+  "unreported_congestion": 827
  },
  "sampling": {
   "flow_spent_this_month": 3752,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 678,
+  "incidents_spent_this_month": 679,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -202,18 +202,18 @@
    "seg": "30.203,-97.759"
   },
   {
-   "from": "Slaughter Creek Dr",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.201,-97.709"
-  },
-  {
    "from": "TX-212 Loop (US-290)",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
    "seg": "30.349,-97.553"
+  },
+  {
+   "from": "Cameron Rd",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.418,-97.576"
   }
  ],
  "unmatched_pct": {
