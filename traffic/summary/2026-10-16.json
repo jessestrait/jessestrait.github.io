@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 130 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 132 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 150,
-  "dispatch_only": 118,
+  "dispatch": 152,
+  "dispatch_only": 119,
   "here": 0,
   "here_matched": 0,
-  "matched": 40,
-  "tomtom": 1559,
-  "tomtom_only": 1513
+  "matched": 41,
+  "tomtom": 1589,
+  "tomtom_only": 1542
  },
  "date": "2026-10-16",
  "dispatch_life_capped": true,
@@ -23,7 +23,7 @@
   "max": 119.9,
   "median": 116.8,
   "min": 6.1,
-  "n": 130,
+  "n": 132,
   "q1": 115.1,
   "q3": 118.4
  },
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 13,
-   "n": 40,
-   "pct": 32.5
+   "matched": 14,
+   "n": 41,
+   "pct": 34.1
   },
   "dispatch_surface": {
    "matched": 19,
-   "n": 110,
-   "pct": 17.3
+   "n": 111,
+   "pct": 17.1
   },
   "tomtom_highway": {
    "matched": 37,
-   "n": 773,
-   "pct": 4.8
+   "n": 787,
+   "pct": 4.7
   },
   "tomtom_surface": {
-   "matched": 9,
-   "n": 786,
-   "pct": 1.1
+   "matched": 10,
+   "n": 802,
+   "pct": 1.2
   }
  },
  "matcher": {
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 81.6,
-  "median": 5.1,
+  "median": 4.3,
   "min": -67.7,
-  "n": 40,
-  "q1": -16.3,
-  "q3": 30.8
+  "n": 41,
+  "q1": -16.2,
+  "q3": 28.6
  },
  "persistence_min": {
   "max": 40.7,
-  "median": -33.1,
+  "median": -35.5,
   "min": -137.4,
-  "n": 26,
-  "q1": -99.5,
+  "n": 27,
+  "q1": -97.1,
   "q3": 0.0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1410,
+  "hotspot_buckets": 1422,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1489
+  "unreported_congestion": 1516
  },
  "sampling": {
-  "flow_spent_this_month": 4157,
+  "flow_spent_this_month": 4166,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 760,
+  "incidents_spent_this_month": 761,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "US Highway 290 E",
+   "hour_of_week": 108,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.343,-97.573"
+  },
   {
    "from": "S Lamar Blvd (W Riverside Dr)",
    "hour_of_week": 20,
@@ -133,11 +140,18 @@
    "seg": "30.320,-97.714"
   },
   {
-   "from": "US Highway 290 E",
-   "hour_of_week": 108,
+   "from": "E 7th St (Springdale Rd)",
+   "hour_of_week": 111,
    "n": 3,
    "roadworks": false,
-   "seg": "30.343,-97.573"
+   "seg": "30.262,-97.698"
+  },
+  {
+   "from": "Payne Ave",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.339,-97.739"
   },
   {
    "from": "S Interstate 35",
@@ -201,31 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.261,-97.735"
-  },
-  {
-   "from": "Manor Rd/Clyde Littlefield Dr (I-35)",
-   "hour_of_week": 99,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.281,-97.729"
-  },
-  {
-   "from": "I-35 (E Martin Luther King Jr Blvd)",
-   "hour_of_week": 99,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.279,-97.733"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.7,
+  "dispatch": 78.3,
   "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 150,
-  "neither": 118,
-  "tomtom_only": 32
+  "n": 152,
+  "neither": 119,
+  "tomtom_only": 33
  }
 }
