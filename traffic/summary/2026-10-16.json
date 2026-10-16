@@ -14,17 +14,17 @@
   "here": 0,
   "here_matched": 0,
   "matched": 9,
-  "tomtom": 523,
-  "tomtom_only": 514
+  "tomtom": 538,
+  "tomtom_only": 529
  },
  "date": "2026-10-16",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.5,
-  "median": 115.0,
+  "median": 115.1,
   "min": 6.1,
-  "n": 27,
-  "q1": 28.6,
+  "n": 28,
+  "q1": 32.1,
   "q3": 117.1
  },
  "here_onset_offset_min": {
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 263,
-   "pct": 2.3
+   "n": 271,
+   "pct": 2.2
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 260,
-   "pct": 1.2
+   "n": 267,
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 482,
+  "hotspot_buckets": 497,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 495
+  "unreported_congestion": 510
  },
  "sampling": {
   "flow_spent_this_month": 3932,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 720,
+  "incidents_spent_this_month": 721,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -132,18 +132,18 @@
    "seg": "30.269,-97.770"
   },
   {
+   "from": "Chicon St (E Cesar Chavez St/E 1st St)",
+   "hour_of_week": 96,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.255,-97.720"
+  },
+  {
    "from": "Surrender Ave",
    "hour_of_week": 92,
    "n": 2,
    "roadworks": false,
    "seg": "30.442,-97.679"
-  },
-  {
-   "from": "Burnet Rd",
-   "hour_of_week": 61,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.394,-97.717"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -181,13 +181,6 @@
    "seg": "30.234,-97.736"
   },
   {
-   "from": "Chicon St (E Cesar Chavez St/E 1st St)",
-   "hour_of_week": 96,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.255,-97.720"
-  },
-  {
    "from": "Ellas Inlet Dr / Felix Sparke Dr",
    "hour_of_week": 68,
    "n": 2,
@@ -200,6 +193,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
+  },
+  {
+   "from": "N Pleasant Valley Rd (E Cesar Chavez St/E 1st St)",
+   "hour_of_week": 96,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.255,-97.719"
   },
   {
    "from": "Dies Ranch Rd",
