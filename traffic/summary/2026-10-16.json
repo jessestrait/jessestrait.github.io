@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 73,
-  "dispatch_only": 58,
+  "dispatch_only": 57,
   "here": 0,
   "here_matched": 0,
-  "matched": 16,
-  "tomtom": 676,
-  "tomtom_only": 660
+  "matched": 17,
+  "tomtom": 693,
+  "tomtom_only": 676
  },
  "date": "2026-10-16",
  "dispatch_life_capped": true,
@@ -37,18 +37,18 @@
    "pct": 31.6
   },
   "dispatch_surface": {
-   "matched": 9,
+   "matched": 10,
    "n": 54,
-   "pct": 16.7
+   "pct": 18.5
   },
   "tomtom_highway": {
-   "matched": 12,
-   "n": 353,
-   "pct": 3.4
+   "matched": 13,
+   "n": 361,
+   "pct": 3.6
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 323,
+   "n": 332,
    "pct": 1.2
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 54.2,
-  "median": -1.2,
+  "median": -0.3,
   "min": -67.7,
-  "n": 16,
-  "q1": -16.3,
-  "q3": 19.3
+  "n": 17,
+  "q1": -16.2,
+  "q3": 19.4
  },
  "persistence_min": {
   "max": 15.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 623,
+  "hotspot_buckets": 639,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 638
+  "unreported_congestion": 654
  },
  "sampling": {
   "flow_spent_this_month": 3995,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 731,
+  "incidents_spent_this_month": 732,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -168,11 +168,11 @@
    "seg": "30.305,-97.749"
   },
   {
-   "from": "Burnet Rd",
-   "hour_of_week": 61,
+   "from": "Decker Lake Rd (FM-973)",
+   "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
-   "seg": "30.394,-97.717"
+   "seg": "30.259,-97.611"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 79.5,
-  "tomtom": 97.6
+  "dispatch": 78.1,
+  "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 73,
-  "neither": 58,
-  "tomtom_only": 15
+  "neither": 57,
+  "tomtom_only": 16
  }
 }
