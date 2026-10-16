@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 139 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 141 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -10,20 +10,20 @@
  ],
  "counts": {
   "dispatch": 161,
-  "dispatch_only": 125,
+  "dispatch_only": 124,
   "here": 0,
   "here_matched": 0,
-  "matched": 49,
-  "tomtom": 2203,
-  "tomtom_only": 2135
+  "matched": 50,
+  "tomtom": 2271,
+  "tomtom_only": 2201
  },
  "date": "2026-10-16",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.8,
+  "median": 116.9,
   "min": 6.1,
-  "n": 139,
+  "n": 141,
   "q1": 115.2,
   "q3": 118.4
  },
@@ -37,18 +37,18 @@
    "pct": 34.1
   },
   "dispatch_surface": {
-   "matched": 22,
+   "matched": 23,
    "n": 120,
-   "pct": 18.3
+   "pct": 19.2
   },
   "tomtom_highway": {
-   "matched": 52,
-   "n": 1084,
+   "matched": 54,
+   "n": 1119,
    "pct": 4.8
   },
   "tomtom_surface": {
    "matched": 16,
-   "n": 1119,
+   "n": 1152,
    "pct": 1.4
   }
  },
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 84.0,
-  "median": 5.7,
+  "median": 5.8,
   "min": -67.7,
-  "n": 49,
-  "q1": -18.4,
-  "q3": 31.8
+  "n": 50,
+  "q1": -17.4,
+  "q3": 31.2
  },
  "persistence_min": {
   "max": 40.7,
-  "median": -43.2,
-  "min": -137.4,
-  "n": 30,
-  "q1": -98.2,
+  "median": -45.9,
+  "min": -1395.4,
+  "n": 35,
+  "q1": -97.1,
   "q3": 0.0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1880,
+  "hotspot_buckets": 1931,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2108
+  "unreported_congestion": 2174
  },
  "sampling": {
   "flow_spent_this_month": 4184,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 769,
+  "incidents_spent_this_month": 770,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -131,6 +131,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.495,-97.750"
+  },
+  {
+   "from": "TX-45 Toll (FM-620)",
+   "hour_of_week": 117,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.511,-97.689"
   },
   {
    "from": "Allandale Rd",
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.238,-97.663"
-  },
-  {
-   "from": "Stone Hill Dr",
-   "hour_of_week": 116,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.474,-97.596"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 77.6,
+  "dispatch": 77.0,
   "tomtom": 96.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 161,
-  "neither": 125,
-  "tomtom_only": 36
+  "neither": 124,
+  "tomtom_only": 37
  }
 }
