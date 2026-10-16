@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 20,
-  "tomtom": 893,
-  "tomtom_only": 872
+  "tomtom": 911,
+  "tomtom_only": 890
  },
  "date": "2026-10-16",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 17,
-   "n": 455,
+   "n": 460,
    "pct": 3.7
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 438,
+   "n": 451,
    "pct": 0.9
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 817,
+  "hotspot_buckets": 834,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 850
+  "unreported_congestion": 868
  },
  "sampling": {
   "flow_spent_this_month": 4013,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 739,
+  "incidents_spent_this_month": 740,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -203,23 +203,23 @@
    "seg": "30.201,-97.640"
   },
   {
+   "from": "Onion Creek Pkwy",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.141,-97.800"
+  },
+  {
    "from": "Highway 71 E",
    "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
    "seg": "30.200,-97.633"
-  },
-  {
-   "from": "Spirit of Texas Dr",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.213,-97.659"
   }
  ],
  "unmatched_pct": {
   "dispatch": 75.9,
-  "tomtom": 97.6
+  "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
