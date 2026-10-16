@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 75,
-  "dispatch_only": 58,
+  "dispatch": 76,
+  "dispatch_only": 59,
   "here": 0,
   "here_matched": 0,
   "matched": 18,
-  "tomtom": 734,
-  "tomtom_only": 715
+  "tomtom": 776,
+  "tomtom_only": 757
  },
  "date": "2026-10-16",
  "dispatch_life_capped": true,
@@ -33,8 +33,8 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 7,
-   "n": 19,
-   "pct": 36.8
+   "n": 20,
+   "pct": 35.0
   },
   "dispatch_surface": {
    "matched": 10,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 15,
-   "n": 382,
-   "pct": 3.9
+   "n": 397,
+   "pct": 3.8
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 352,
+   "n": 379,
    "pct": 1.1
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 674,
+  "hotspot_buckets": 713,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 693
+  "unreported_congestion": 735
  },
  "sampling": {
   "flow_spent_this_month": 4004,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 734,
+  "incidents_spent_this_month": 735,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -189,11 +189,11 @@
    "seg": "30.201,-97.640"
   },
   {
-   "from": "Onion Creek Pkwy",
+   "from": "Immanuel Rd",
    "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
-   "seg": "30.141,-97.800"
+   "seg": "30.425,-97.626"
   },
   {
    "from": "Highway 71 E",
@@ -203,29 +203,29 @@
    "seg": "30.200,-97.633"
   },
   {
-   "from": "Adage Dr / Epiphany Ln",
-   "hour_of_week": 60,
+   "from": "Alderman Dr",
+   "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
-   "seg": "30.448,-97.631"
+   "seg": "30.152,-97.764"
   },
   {
-   "from": "N Interstate 35",
-   "hour_of_week": 18,
+   "from": "Howerington Cir",
+   "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
-   "seg": "30.320,-97.706"
+   "seg": "30.301,-97.648"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 77.3,
-  "tomtom": 97.4
+  "dispatch": 77.6,
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 75,
-  "neither": 58,
+  "n": 76,
+  "neither": 59,
   "tomtom_only": 17
  }
 }
