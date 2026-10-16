@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 18,
-  "tomtom": 776,
-  "tomtom_only": 757
+  "tomtom": 814,
+  "tomtom_only": 795
  },
  "date": "2026-10-16",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 15,
-   "n": 397,
-   "pct": 3.8
+   "n": 412,
+   "pct": 3.6
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 379,
-   "pct": 1.1
+   "n": 402,
+   "pct": 1.0
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 713,
+  "hotspot_buckets": 749,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 735
+  "unreported_congestion": 773
  },
  "sampling": {
   "flow_spent_this_month": 4004,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 735,
+  "incidents_spent_this_month": 736,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -203,23 +203,23 @@
    "seg": "30.200,-97.633"
   },
   {
+   "from": "I-35 Service Rd (E Koenig Ln/FM-2222)",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.320,-97.714"
+  },
+  {
    "from": "Alderman Dr",
    "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
    "seg": "30.152,-97.764"
-  },
-  {
-   "from": "Howerington Cir",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.301,-97.648"
   }
  ],
  "unmatched_pct": {
   "dispatch": 77.6,
-  "tomtom": 97.6
+  "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
