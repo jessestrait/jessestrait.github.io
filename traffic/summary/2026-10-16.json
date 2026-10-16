@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 155,
-  "dispatch_only": 121,
+  "dispatch": 157,
+  "dispatch_only": 123,
   "here": 0,
   "here_matched": 0,
   "matched": 44,
-  "tomtom": 1925,
-  "tomtom_only": 1865
+  "tomtom": 1980,
+  "tomtom_only": 1920
  },
  "date": "2026-10-16",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 20,
-   "n": 114,
-   "pct": 17.5
+   "n": 116,
+   "pct": 17.2
   },
   "tomtom_highway": {
    "matched": 47,
-   "n": 972,
-   "pct": 4.8
+   "n": 992,
+   "pct": 4.7
   },
   "tomtom_surface": {
    "matched": 13,
-   "n": 953,
-   "pct": 1.4
+   "n": 988,
+   "pct": 1.3
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1656,
+  "hotspot_buckets": 1703,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1838
+  "unreported_congestion": 1893
  },
  "sampling": {
-  "flow_spent_this_month": 4166,
+  "flow_spent_this_month": 4175,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 764,
+  "incidents_spent_this_month": 765,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -203,29 +203,29 @@
    "seg": "30.474,-97.596"
   },
   {
+   "from": "San Antonio St (State Spur 343/W Cesar Chavez St/W 1st St)",
+   "hour_of_week": 116,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.266,-97.756"
+  },
+  {
    "from": "E 38th 1 (I-35)",
    "hour_of_week": 116,
    "n": 3,
    "roadworks": false,
    "seg": "30.302,-97.715"
-  },
-  {
-   "from": "Hesters Crossing Rd (I-35)",
-   "hour_of_week": 116,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.502,-97.682"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.1,
-  "tomtom": 96.9
+  "dispatch": 78.3,
+  "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 155,
-  "neither": 121,
+  "n": 157,
+  "neither": 123,
   "tomtom_only": 34
  }
 }
