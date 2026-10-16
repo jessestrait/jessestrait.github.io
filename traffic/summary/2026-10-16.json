@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 132 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 134 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 152,
-  "dispatch_only": 119,
+  "dispatch_only": 118,
   "here": 0,
   "here_matched": 0,
-  "matched": 41,
-  "tomtom": 1589,
-  "tomtom_only": 1542
+  "matched": 43,
+  "tomtom": 1809,
+  "tomtom_only": 1755
  },
  "date": "2026-10-16",
  "dispatch_life_capped": true,
@@ -23,7 +23,7 @@
   "max": 119.9,
   "median": 116.8,
   "min": 6.1,
-  "n": 132,
+  "n": 134,
   "q1": 115.1,
   "q3": 118.4
  },
@@ -37,19 +37,19 @@
    "pct": 34.1
   },
   "dispatch_surface": {
-   "matched": 19,
+   "matched": 20,
    "n": 111,
-   "pct": 17.1
+   "pct": 18.0
   },
   "tomtom_highway": {
-   "matched": 37,
-   "n": 787,
-   "pct": 4.7
+   "matched": 41,
+   "n": 910,
+   "pct": 4.5
   },
   "tomtom_surface": {
-   "matched": 10,
-   "n": 802,
-   "pct": 1.2
+   "matched": 13,
+   "n": 899,
+   "pct": 1.4
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 81.6,
-  "median": 4.3,
+  "median": 5.9,
   "min": -67.7,
-  "n": 41,
-  "q1": -16.2,
-  "q3": 28.6
+  "n": 43,
+  "q1": -16.0,
+  "q3": 42.8
  },
  "persistence_min": {
   "max": 40.7,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1422,
+  "hotspot_buckets": 1548,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1516
+  "unreported_congestion": 1728
  },
  "sampling": {
   "flow_spent_this_month": 4166,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 761,
+  "incidents_spent_this_month": 762,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,6 +117,34 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.343,-97.573"
+  },
+  {
+   "from": "Steck Ave (Burnet Rd)",
+   "hour_of_week": 115,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.370,-97.727"
+  },
+  {
+   "from": "Sharpstone Trl",
+   "hour_of_week": 116,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.495,-97.750"
+  },
+  {
+   "from": "Allandale Rd",
+   "hour_of_week": 116,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.337,-97.741"
+  },
+  {
+   "from": "W William Cannon Dr (W Gate Blvd)",
+   "hour_of_week": 113,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.217,-97.810"
   },
   {
    "from": "S Lamar Blvd (W Riverside Dr)",
@@ -161,18 +189,18 @@
    "seg": "30.195,-97.767"
   },
   {
-   "from": "Steck Ave (Burnet Rd)",
-   "hour_of_week": 115,
+   "from": "Edwin Ln",
+   "hour_of_week": 94,
    "n": 3,
    "roadworks": false,
-   "seg": "30.370,-97.727"
+   "seg": "30.238,-97.663"
   },
   {
-   "from": "Sharpstone Trl",
+   "from": "Stone Hill Dr",
    "hour_of_week": 116,
    "n": 3,
    "roadworks": false,
-   "seg": "30.495,-97.750"
+   "seg": "30.474,-97.596"
   },
   {
    "from": "E 38th 1 (I-35)",
@@ -182,50 +210,22 @@
    "seg": "30.302,-97.715"
   },
   {
-   "from": "Westlake Dr",
-   "hour_of_week": 94,
-   "n": 2,
+   "from": "Hesters Crossing Rd (I-35)",
+   "hour_of_week": 116,
+   "n": 3,
    "roadworks": false,
-   "seg": "30.292,-97.798"
-  },
-  {
-   "from": "Steck Ave (Burnet Rd)",
-   "hour_of_week": 94,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.374,-97.726"
-  },
-  {
-   "from": "Nature Center Dr",
-   "hour_of_week": 86,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.269,-97.770"
-  },
-  {
-   "from": "Chicon St (E Cesar Chavez St/E 1st St)",
-   "hour_of_week": 96,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.255,-97.720"
-  },
-  {
-   "from": "I-35/US-290 (E Cesar Chavez St/E 1st St/State Spur 343)",
-   "hour_of_week": 96,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.261,-97.735"
+   "seg": "30.502,-97.682"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.3,
+  "dispatch": 77.6,
   "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 152,
-  "neither": 119,
-  "tomtom_only": 33
+  "neither": 118,
+  "tomtom_only": 34
  }
 }
