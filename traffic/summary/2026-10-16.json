@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 44,
-  "dispatch_only": 35,
+  "dispatch": 45,
+  "dispatch_only": 36,
   "here": 0,
   "here_matched": 0,
   "matched": 9,
@@ -21,11 +21,11 @@
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.5,
-  "median": 115.1,
+  "median": 115.3,
   "min": 6.1,
-  "n": 28,
-  "q1": 32.1,
-  "q3": 117.1
+  "n": 30,
+  "q1": 39.0,
+  "q3": 117.4
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,8 +38,8 @@
   },
   "dispatch_surface": {
    "matched": 7,
-   "n": 36,
-   "pct": 19.4
+   "n": 37,
+   "pct": 18.9
   },
   "tomtom_highway": {
    "matched": 6,
@@ -181,6 +181,13 @@
    "seg": "30.234,-97.736"
   },
   {
+   "from": "Chicon St (E Cesar Chavez St/E 1st St)",
+   "hour_of_week": 96,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.255,-97.719"
+  },
+  {
    "from": "Ellas Inlet Dr / Felix Sparke Dr",
    "hour_of_week": 68,
    "n": 2,
@@ -193,13 +200,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "N Pleasant Valley Rd (E Cesar Chavez St/E 1st St)",
-   "hour_of_week": 96,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.255,-97.719"
   },
   {
    "from": "Dies Ranch Rd",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 79.5,
+  "dispatch": 80.0,
   "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 44,
-  "neither": 35,
+  "n": 45,
+  "neither": 36,
   "tomtom_only": 9
  }
 }
