@@ -1,29 +1,6 @@
 {
- "captured_at": "2026-10-16T11:59:57Z",
+ "captured_at": "2026-10-16T12:15:00Z",
  "episodes": [
-  {
-   "customers_served": 16230,
-   "ended": false,
-   "etr_last": "ETR-EXP",
-   "first_seen": "2026-10-16T09:28:47Z",
-   "id": "zip-78727-20261016T092847Z",
-   "kind": "power_outage",
-   "last_seen": "2026-10-16T11:59:57Z",
-   "peak_customers_affected": 1,
-   "peak_outages": 1,
-   "polls": 11,
-   "scope": {
-    "bbox": [
-     -97.76901599956473,
-     30.407756999675197,
-     -97.67601999985635,
-     30.449534998449714
-    ],
-    "id": "78727",
-    "type": "zip"
-   },
-   "source": "austin-energy/kubra"
-  },
   {
    "customers_served": 16576,
    "ended": false,
@@ -31,10 +8,10 @@
    "first_seen": "2026-10-16T11:14:37Z",
    "id": "zip-78729-20261016T111437Z",
    "kind": "power_outage",
-   "last_seen": "2026-10-16T11:59:57Z",
+   "last_seen": "2026-10-16T12:15:00Z",
    "peak_customers_affected": 46,
    "peak_outages": 1,
-   "polls": 4,
+   "polls": 5,
    "scope": {
     "bbox": [
      -97.79631290006832,
@@ -54,10 +31,10 @@
    "first_seen": "2026-10-16T11:29:39Z",
    "id": "zip-78702-20261016T112939Z",
    "kind": "power_outage",
-   "last_seen": "2026-10-16T11:59:57Z",
+   "last_seen": "2026-10-16T12:15:00Z",
    "peak_customers_affected": 14,
    "peak_outages": 1,
-   "polls": 3,
+   "polls": 4,
    "scope": {
     "bbox": [
      -97.73705899996341,
@@ -69,7 +46,30 @@
     "type": "zip"
    },
    "source": "austin-energy/kubra"
+  },
+  {
+   "customers_served": 29994,
+   "ended": false,
+   "etr_last": "2026-10-16T14:21:26Z",
+   "first_seen": "2026-10-16T12:15:00Z",
+   "id": "zip-78741-20261016T121500Z",
+   "kind": "power_outage",
+   "last_seen": "2026-10-16T12:15:00Z",
+   "peak_customers_affected": 2,
+   "peak_outages": 1,
+   "polls": 1,
+   "scope": {
+    "bbox": [
+     -97.75198400028799,
+     30.211896999053565,
+     -97.67641500000612,
+     30.250549098528012
+    ],
+    "id": "78741",
+    "type": "zip"
+   },
+   "source": "austin-energy/kubra"
   }
  ],
- "source_published": "2026-10-16T11:57:26Z"
+ "source_published": "2026-10-16T12:09:23Z"
 }
