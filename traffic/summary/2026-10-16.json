@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 69,
+  "dispatch": 70,
   "dispatch_only": 57,
   "here": 0,
   "here_matched": 0,
-  "matched": 13,
+  "matched": 14,
   "tomtom": 642,
-  "tomtom_only": 629
+  "tomtom_only": 628
  },
  "date": "2026-10-16",
  "dispatch_life_capped": true,
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 4,
-   "n": 18,
-   "pct": 22.2
+   "matched": 5,
+   "n": 19,
+   "pct": 26.3
   },
   "dispatch_surface": {
    "matched": 8,
@@ -42,9 +42,9 @@
    "pct": 15.7
   },
   "tomtom_highway": {
-   "matched": 9,
+   "matched": 10,
    "n": 336,
-   "pct": 2.7
+   "pct": 3.0
   },
   "tomtom_surface": {
    "matched": 4,
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 54.2,
-  "median": -2.2,
-  "min": -61.2,
-  "n": 13,
-  "q1": -16.2,
-  "q3": 19.5
+  "median": -4.2,
+  "min": -67.7,
+  "n": 14,
+  "q1": -18.6,
+  "q3": 17.1
  },
  "persistence_min": {
   "max": 15.1,
@@ -90,10 +90,10 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 592,
+  "hotspot_buckets": 591,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 607
+  "unreported_congestion": 606
  },
  "sampling": {
   "flow_spent_this_month": 3986,
@@ -161,6 +161,13 @@
    "seg": "30.279,-97.733"
   },
   {
+   "from": "Mills Ave",
+   "hour_of_week": 107,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.305,-97.749"
+  },
+  {
    "from": "Burnet Rd",
    "hour_of_week": 61,
    "n": 2,
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "W 35th St",
-   "hour_of_week": 107,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.305,-97.749"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.6,
-  "tomtom": 98.0
+  "dispatch": 81.4,
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 69,
+  "n": 70,
   "neither": 57,
-  "tomtom_only": 12
+  "tomtom_only": 13
  }
 }
