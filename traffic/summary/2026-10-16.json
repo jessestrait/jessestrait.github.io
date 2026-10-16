@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 49,
-  "tomtom": 2142,
-  "tomtom_only": 2075
+  "tomtom": 2203,
+  "tomtom_only": 2135
  },
  "date": "2026-10-16",
  "dispatch_life_capped": true,
@@ -42,14 +42,14 @@
    "pct": 18.3
   },
   "tomtom_highway": {
-   "matched": 51,
-   "n": 1056,
+   "matched": 52,
+   "n": 1084,
    "pct": 4.8
   },
   "tomtom_surface": {
    "matched": 16,
-   "n": 1086,
-   "pct": 1.5
+   "n": 1119,
+   "pct": 1.4
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1832,
+  "hotspot_buckets": 1880,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2048
+  "unreported_congestion": 2108
  },
  "sampling": {
-  "flow_spent_this_month": 4175,
+  "flow_spent_this_month": 4184,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 768,
+  "incidents_spent_this_month": 769,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -140,11 +140,25 @@
    "seg": "30.337,-97.741"
   },
   {
+   "from": "Mopac Expy S",
+   "hour_of_week": 117,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.301,-97.759"
+  },
+  {
    "from": "W William Cannon Dr (W Gate Blvd)",
    "hour_of_week": 113,
    "n": 4,
    "roadworks": false,
    "seg": "30.217,-97.810"
+  },
+  {
+   "from": "S Mo Pac Expy",
+   "hour_of_week": 117,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.265,-97.784"
   },
   {
    "from": "S Lamar Blvd (W Riverside Dr)",
@@ -201,20 +215,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.474,-97.596"
-  },
-  {
-   "from": "San Antonio St (State Spur 343/W Cesar Chavez St/W 1st St)",
-   "hour_of_week": 116,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.266,-97.756"
-  },
-  {
-   "from": "E 38th 1 (I-35)",
-   "hour_of_week": 116,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.302,-97.715"
   }
  ],
  "unmatched_pct": {
