@@ -1,0 +1,230 @@
+{
+ "caveats": [
+  "Dispatch published_date is when APD published, not when it happened.",
+  "Dispatch record lifetimes look like real clearances this day, not a cap.",
+  "Clearance resolution equals the poll interval; shorter incidents are invisible.",
+  "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
+  "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
+  "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
+  "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
+ ],
+ "counts": {
+  "dispatch": 38,
+  "dispatch_only": 29,
+  "here": 0,
+  "here_matched": 0,
+  "matched": 9,
+  "tomtom": 523,
+  "tomtom_only": 514
+ },
+ "date": "2026-10-16",
+ "dispatch_life_capped": false,
+ "dispatch_record_life_min": {
+  "max": 118.9,
+  "median": 35.6,
+  "min": 6.1,
+  "n": 14,
+  "q1": 17.3,
+  "q3": 106.9
+ },
+ "here_onset_offset_min": {
+  "n": 0
+ },
+ "match_rate": {
+  "dispatch_highway": {
+   "matched": 2,
+   "n": 7,
+   "pct": 28.6
+  },
+  "dispatch_surface": {
+   "matched": 7,
+   "n": 31,
+   "pct": 22.6
+  },
+  "tomtom_highway": {
+   "matched": 6,
+   "n": 263,
+   "pct": 2.3
+  },
+  "tomtom_surface": {
+   "matched": 3,
+   "n": 260,
+   "pct": 1.2
+  }
+ },
+ "matcher": {
+  "buffer_m": 200.0,
+  "highway_buffer_m": 130.0,
+  "onset_window_min": 90.0,
+  "tolerance_min": 20.0
+ },
+ "onset_offset_min": {
+  "max": 54.2,
+  "median": -2.2,
+  "min": -25.3,
+  "n": 9,
+  "q1": -16.2,
+  "q3": 14.2
+ },
+ "persistence_min": {
+  "max": 0.0,
+  "median": 0.0,
+  "min": 0.0,
+  "n": 7,
+  "q1": 0.0,
+  "q3": 0.0
+ },
+ "poll_interval_min": 5.0,
+ "probe_agreement": {
+  "cover": {
+   "n": 0
+  },
+  "n": 0,
+  "onset_offset_min": {
+   "n": 0
+  },
+  "pct_of_here": 0.0,
+  "pct_of_tomtom": 0.0,
+  "type_agree": 0
+ },
+ "roadworks": {
+  "explained_by_roadworks": 0,
+  "hotspot_buckets": 482,
+  "hotspot_buckets_on_roadworks": 0,
+  "txdot_rows": 0,
+  "unreported_congestion": 495
+ },
+ "sampling": {
+  "flow_spent_this_month": 3932,
+  "incident_budget": 2500,
+  "incidents_spent_this_month": 720,
+  "off_peak_min": 45,
+  "rush_hours_local": [
+   7,
+   8,
+   16,
+   17,
+   18
+  ],
+  "rush_min": 5,
+  "this_poll": "off-peak"
+ },
+ "structural_hotspots": [
+  {
+   "from": "Westlake Dr",
+   "hour_of_week": 94,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.292,-97.798"
+  },
+  {
+   "from": "Steck Ave (Burnet Rd)",
+   "hour_of_week": 94,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.374,-97.726"
+  },
+  {
+   "from": "Nature Center Dr",
+   "hour_of_week": 86,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.269,-97.770"
+  },
+  {
+   "from": "Surrender Ave",
+   "hour_of_week": 92,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.442,-97.679"
+  },
+  {
+   "from": "Burnet Rd",
+   "hour_of_week": 61,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.394,-97.717"
+  },
+  {
+   "from": "Adage Dr / Epiphany Ln",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.448,-97.631"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 18,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.320,-97.706"
+  },
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Lexington Meadow Ln",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.179,-97.616"
+  },
+  {
+   "from": "I-35/US-290 (E Cesar Chavez St/E 1st St/State Spur 343)",
+   "hour_of_week": 96,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.261,-97.735"
+  },
+  {
+   "from": "Chicon St (E Cesar Chavez St/E 1st St)",
+   "hour_of_week": 96,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.255,-97.720"
+  },
+  {
+   "from": "Dies Ranch Rd",
+   "hour_of_week": 94,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.471,-97.844"
+  },
+  {
+   "from": "FM-1431/Whitestone Blvd (N Bell Blvd/US-183)",
+   "hour_of_week": 94,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.505,-97.821"
+  }
+ ],
+ "unmatched_pct": {
+  "dispatch": 76.3,
+  "tomtom": 98.3
+ },
+ "witnesses": {
+  "both": 0,
+  "here_only": 0,
+  "n": 38,
+  "neither": 29,
+  "tomtom_only": 9
+ }
+}
