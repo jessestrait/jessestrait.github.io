@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 28,
-  "tomtom": 936,
-  "tomtom_only": 907
+  "tomtom": 967,
+  "tomtom_only": 937
  },
  "date": "2026-10-17",
  "dispatch_life_capped": false,
@@ -23,9 +23,9 @@
   "max": 119.9,
   "median": 115.9,
   "min": 2.8,
-  "n": 122,
-  "q1": 81.1,
-  "q3": 117.8
+  "n": 124,
+  "q1": 82.2,
+  "q3": 117.7
  },
  "here_onset_offset_min": {
   "n": 0
@@ -42,13 +42,13 @@
    "pct": 15.4
   },
   "tomtom_highway": {
-   "matched": 19,
-   "n": 470,
-   "pct": 4.0
+   "matched": 20,
+   "n": 482,
+   "pct": 4.1
   },
   "tomtom_surface": {
    "matched": 10,
-   "n": 466,
+   "n": 485,
    "pct": 2.1
   }
  },
@@ -68,10 +68,10 @@
  },
  "persistence_min": {
   "max": 142.4,
-  "median": 0.0,
+  "median": -2.5,
   "min": -132.0,
-  "n": 23,
-  "q1": -75.9,
+  "n": 24,
+  "q1": -74.7,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 855,
+  "hotspot_buckets": 882,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 887
+  "unreported_congestion": 917
  },
  "sampling": {
   "flow_spent_this_month": 4454,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 795,
+  "incidents_spent_this_month": 796,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
+  {
+   "from": "E 6th St (I-35)",
+   "hour_of_week": 142,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.262,-97.736"
+  },
   {
    "from": "Greenlawn Blvd",
    "hour_of_week": 118,
@@ -207,13 +214,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.514,-97.689"
-  },
-  {
-   "from": "W 5th St",
-   "hour_of_week": 125,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.270,-97.751"
   }
  ],
  "unmatched_pct": {
