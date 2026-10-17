@@ -13,9 +13,9 @@
   "dispatch_only": 53,
   "here": 0,
   "here_matched": 0,
-  "matched": 19,
-  "tomtom": 617,
-  "tomtom_only": 599
+  "matched": 20,
+  "tomtom": 645,
+  "tomtom_only": 626
  },
  "date": "2026-10-17",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 11,
-   "n": 308,
-   "pct": 3.6
+   "n": 316,
+   "pct": 3.5
   },
   "tomtom_surface": {
-   "matched": 7,
-   "n": 309,
-   "pct": 2.3
+   "matched": 8,
+   "n": 329,
+   "pct": 2.4
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 86.4,
-  "median": 9.7,
+  "median": 12.9,
   "min": -79.1,
-  "n": 19,
-  "q1": -10.5,
-  "q3": 43.3
+  "n": 20,
+  "q1": -9.4,
+  "q3": 43.1
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 559,
+  "hotspot_buckets": 586,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 580
+  "unreported_congestion": 607
  },
  "sampling": {
   "flow_spent_this_month": 4238,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 781,
+  "incidents_spent_this_month": 782,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -195,18 +195,11 @@
    "seg": "30.281,-97.728"
   },
   {
-   "from": "Congress Ave (W 5th St)",
-   "hour_of_week": 123,
+   "from": "I-35 (E 5th St)",
+   "hour_of_week": 124,
    "n": 2,
    "roadworks": false,
-   "seg": "30.266,-97.739"
-  },
-  {
-   "from": "E 5th St (San Jacinto Blvd)",
-   "hour_of_week": 123,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.263,-97.742"
+   "seg": "30.266,-97.738"
   },
   {
    "from": "Burnet Rd",
@@ -214,6 +207,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.394,-97.717"
+  },
+  {
+   "from": "Adage Dr / Epiphany Ln",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.448,-97.631"
   }
  ],
  "unmatched_pct": {
