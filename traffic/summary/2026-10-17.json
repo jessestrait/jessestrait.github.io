@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 56,
+  "dispatch": 57,
   "dispatch_only": 41,
   "here": 0,
   "here_matched": 0,
-  "matched": 16,
-  "tomtom": 554,
-  "tomtom_only": 539
+  "matched": 17,
+  "tomtom": 570,
+  "tomtom_only": 554
  },
  "date": "2026-10-17",
  "dispatch_life_capped": false,
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 5,
-   "n": 13,
-   "pct": 38.5
+   "n": 14,
+   "pct": 35.7
   },
   "dispatch_surface": {
-   "matched": 10,
+   "matched": 11,
    "n": 43,
-   "pct": 23.3
+   "pct": 25.6
   },
   "tomtom_highway": {
    "matched": 11,
-   "n": 275,
-   "pct": 4.0
+   "n": 283,
+   "pct": 3.9
   },
   "tomtom_surface": {
-   "matched": 4,
-   "n": 279,
-   "pct": 1.4
+   "matched": 5,
+   "n": 287,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 73.1,
-  "median": 6.3,
+  "median": 9.7,
   "min": -79.1,
-  "n": 16,
-  "q1": -19.2,
-  "q3": 38.0
+  "n": 17,
+  "q1": -14.8,
+  "q3": 42.8
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 502,
+  "hotspot_buckets": 517,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 520
+  "unreported_congestion": 535
  },
  "sampling": {
   "flow_spent_this_month": 4220,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 778,
+  "incidents_spent_this_month": 779,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,13 +160,6 @@
    "seg": "30.404,-97.722"
   },
   {
-   "from": "White Horse Trl",
-   "hour_of_week": 120,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.338,-97.741"
-  },
-  {
    "from": "S 5th St",
    "hour_of_week": 120,
    "n": 2,
@@ -186,6 +179,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.281,-97.734"
+  },
+  {
+   "from": "Chestnut Ave (E 12th St)",
+   "hour_of_week": 121,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.272,-97.732"
   },
   {
    "from": "Burnet Rd",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 73.2,
-  "tomtom": 97.3
+  "dispatch": 71.9,
+  "tomtom": 97.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 56,
+  "n": 57,
   "neither": 41,
-  "tomtom_only": 15
+  "tomtom_only": 16
  }
 }
