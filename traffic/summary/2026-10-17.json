@@ -14,17 +14,17 @@
   "here": 0,
   "here_matched": 0,
   "matched": 17,
-  "tomtom": 570,
-  "tomtom_only": 554
+  "tomtom": 590,
+  "tomtom_only": 574
  },
  "date": "2026-10-17",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 108.7,
+  "median": 112.2,
   "min": 3.4,
-  "n": 46,
-  "q1": 55.0,
+  "n": 47,
+  "q1": 55.4,
   "q3": 117.5
  },
  "here_onset_offset_min": {
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 11,
-   "n": 283,
-   "pct": 3.9
+   "n": 294,
+   "pct": 3.7
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 287,
+   "n": 296,
    "pct": 1.7
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 517,
+  "hotspot_buckets": 535,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 535
+  "unreported_congestion": 555
  },
  "sampling": {
   "flow_spent_this_month": 4220,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 779,
+  "incidents_spent_this_month": 780,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -188,6 +188,20 @@
    "seg": "30.272,-97.732"
   },
   {
+   "from": "McNeil Dr",
+   "hour_of_week": 122,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.397,-97.829"
+  },
+  {
+   "from": "26th St (I-35)",
+   "hour_of_week": 122,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.281,-97.728"
+  },
+  {
    "from": "Burnet Rd",
    "hour_of_week": 61,
    "n": 2,
@@ -200,25 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.448,-97.631"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 18,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.320,-97.706"
-  },
-  {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.245,-97.744"
   }
  ],
  "unmatched_pct": {
   "dispatch": 74.2,
-  "tomtom": 97.2
+  "tomtom": 97.3
  },
  "witnesses": {
   "both": 0,
