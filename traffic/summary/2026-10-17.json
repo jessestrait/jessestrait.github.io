@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 41,
-  "dispatch_only": 28,
+  "dispatch": 43,
+  "dispatch_only": 29,
   "here": 0,
   "here_matched": 0,
-  "matched": 13,
+  "matched": 14,
   "tomtom": 533,
-  "tomtom_only": 521
+  "tomtom_only": 520
  },
  "date": "2026-10-17",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
-  "max": 112.2,
-  "median": 57.3,
+  "max": 115.4,
+  "median": 59.2,
   "min": 3.4,
-  "n": 24,
-  "q1": 25.6,
-  "q3": 84.6
+  "n": 25,
+  "q1": 26.2,
+  "q3": 89.0
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,13 +33,13 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 4,
-   "n": 7,
-   "pct": 57.1
+   "n": 8,
+   "pct": 50.0
   },
   "dispatch_surface": {
-   "matched": 9,
-   "n": 34,
-   "pct": 26.5
+   "matched": 10,
+   "n": 35,
+   "pct": 28.6
   },
   "tomtom_highway": {
    "matched": 10,
@@ -47,9 +47,9 @@
    "pct": 3.7
   },
   "tomtom_surface": {
-   "matched": 2,
+   "matched": 3,
    "n": 265,
-   "pct": 0.8
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -60,17 +60,17 @@
  },
  "onset_offset_min": {
   "max": 73.1,
-  "median": 9.7,
+  "median": 6.3,
   "min": -79.1,
-  "n": 13,
-  "q1": -14.2,
-  "q3": 35.2
+  "n": 14,
+  "q1": -11.6,
+  "q3": 28.8
  },
  "persistence_min": {
   "max": 0.0,
   "median": 0.0,
-  "min": 0.0,
-  "n": 11,
+  "min": -132.0,
+  "n": 12,
   "q1": 0.0,
   "q3": 0.0
  },
@@ -89,10 +89,10 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 487,
+  "hotspot_buckets": 486,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 502
+  "unreported_congestion": 501
  },
  "sampling": {
   "flow_spent_this_month": 4202,
@@ -153,6 +153,20 @@
    "seg": "30.217,-97.810"
   },
   {
+   "from": "Domain Dr",
+   "hour_of_week": 120,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.404,-97.722"
+  },
+  {
+   "from": "S 5th St",
+   "hour_of_week": 120,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.252,-97.755"
+  },
+  {
    "from": "Burnet Rd",
    "hour_of_week": 61,
    "n": 2,
@@ -200,31 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "S 5th St",
-   "hour_of_week": 120,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.252,-97.755"
-  },
-  {
-   "from": "Domain Dr",
-   "hour_of_week": 120,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.404,-97.722"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 68.3,
-  "tomtom": 97.7
+  "dispatch": 67.4,
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 41,
-  "neither": 28,
-  "tomtom_only": 13
+  "n": 43,
+  "neither": 29,
+  "tomtom_only": 14
  }
 }
