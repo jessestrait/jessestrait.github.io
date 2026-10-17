@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 20,
-  "tomtom": 645,
-  "tomtom_only": 626
+  "tomtom": 660,
+  "tomtom_only": 641
  },
  "date": "2026-10-17",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 11,
-   "n": 316,
-   "pct": 3.5
+   "n": 326,
+   "pct": 3.4
   },
   "tomtom_surface": {
    "matched": 8,
-   "n": 329,
+   "n": 334,
    "pct": 2.4
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 586,
+  "hotspot_buckets": 599,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 607
+  "unreported_congestion": 622
  },
  "sampling": {
   "flow_spent_this_month": 4247,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 782,
+  "incidents_spent_this_month": 783,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -202,18 +202,18 @@
    "seg": "30.279,-97.736"
   },
   {
+   "from": "W 10th St (West Ave)",
+   "hour_of_week": 125,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.270,-97.751"
+  },
+  {
    "from": "Congress Ave (W 5th St)",
    "hour_of_week": 124,
    "n": 2,
    "roadworks": false,
    "seg": "30.266,-97.738"
-  },
-  {
-   "from": "Burnet Rd",
-   "hour_of_week": 61,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.394,-97.717"
   }
  ],
  "unmatched_pct": {
