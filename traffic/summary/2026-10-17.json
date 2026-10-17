@@ -14,18 +14,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 14,
-  "tomtom": 533,
-  "tomtom_only": 520
+  "tomtom": 554,
+  "tomtom_only": 541
  },
  "date": "2026-10-17",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 63.3,
+  "median": 63.6,
   "min": 3.4,
-  "n": 30,
-  "q1": 30.5,
-  "q3": 106.9
+  "n": 31,
+  "q1": 31.6,
+  "q3": 112.2
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 10,
-   "n": 268,
-   "pct": 3.7
+   "n": 275,
+   "pct": 3.6
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 265,
+   "n": 279,
    "pct": 1.1
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 486,
+  "hotspot_buckets": 504,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 501
+  "unreported_congestion": 522
  },
  "sampling": {
   "flow_spent_this_month": 4211,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 777,
+  "incidents_spent_this_month": 778,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,11 +160,25 @@
    "seg": "30.404,-97.722"
   },
   {
+   "from": "White Horse Trl",
+   "hour_of_week": 120,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.338,-97.741"
+  },
+  {
    "from": "S 5th St",
    "hour_of_week": 120,
    "n": 2,
    "roadworks": false,
    "seg": "30.252,-97.755"
+  },
+  {
+   "from": "E 7th St (Springdale Rd)",
+   "hour_of_week": 137,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.256,-97.702"
   },
   {
    "from": "Burnet Rd",
@@ -200,25 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.234,-97.736"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.616"
   }
  ],
  "unmatched_pct": {
   "dispatch": 73.1,
-  "tomtom": 97.6
+  "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
