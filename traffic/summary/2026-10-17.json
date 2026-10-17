@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 73,
-  "dispatch_only": 56,
+  "dispatch": 74,
+  "dispatch_only": 57,
   "here": 0,
   "here_matched": 0,
-  "matched": 20,
+  "matched": 21,
   "tomtom": 660,
-  "tomtom_only": 641
+  "tomtom_only": 640
  },
  "date": "2026-10-17",
  "dispatch_life_capped": false,
@@ -38,13 +38,13 @@
   },
   "dispatch_surface": {
    "matched": 12,
-   "n": 56,
-   "pct": 21.4
+   "n": 57,
+   "pct": 21.1
   },
   "tomtom_highway": {
-   "matched": 11,
+   "matched": 12,
    "n": 326,
-   "pct": 3.4
+   "pct": 3.7
   },
   "tomtom_surface": {
    "matched": 8,
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 86.4,
-  "median": 12.9,
+  "median": 16.1,
   "min": -79.1,
-  "n": 20,
-  "q1": -9.4,
-  "q3": 43.1
+  "n": 21,
+  "q1": -8.3,
+  "q3": 45.8
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,10 +89,10 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 599,
+  "hotspot_buckets": 598,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 622
+  "unreported_congestion": 621
  },
  "sampling": {
   "flow_spent_this_month": 4247,
@@ -202,7 +202,7 @@
    "seg": "30.279,-97.736"
   },
   {
-   "from": "W 10th St (West Ave)",
+   "from": "W 5th St",
    "hour_of_week": 125,
    "n": 2,
    "roadworks": false,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.7,
-  "tomtom": 97.1
+  "dispatch": 77.0,
+  "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 73,
-  "neither": 56,
+  "n": 74,
+  "neither": 57,
   "tomtom_only": 17
  }
 }
