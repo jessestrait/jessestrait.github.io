@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 52,
-  "dispatch_only": 38,
+  "dispatch": 53,
+  "dispatch_only": 39,
   "here": 0,
   "here_matched": 0,
-  "matched": 14,
+  "matched": 15,
   "tomtom": 554,
-  "tomtom_only": 541
+  "tomtom_only": 540
  },
  "date": "2026-10-17",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 63.6,
+  "median": 65.9,
   "min": 3.4,
-  "n": 31,
-  "q1": 31.6,
-  "q3": 112.2
+  "n": 33,
+  "q1": 37.9,
+  "q3": 115.7
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,8 +33,8 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 4,
-   "n": 9,
-   "pct": 44.4
+   "n": 10,
+   "pct": 40.0
   },
   "dispatch_surface": {
    "matched": 10,
@@ -47,9 +47,9 @@
    "pct": 3.6
   },
   "tomtom_surface": {
-   "matched": 3,
+   "matched": 4,
    "n": 279,
-   "pct": 1.1
+   "pct": 1.4
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 73.1,
-  "median": 6.3,
+  "median": 9.7,
   "min": -79.1,
-  "n": 14,
-  "q1": -11.6,
-  "q3": 28.8
+  "n": 15,
+  "q1": -6.2,
+  "q3": 43.3
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,10 +89,10 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 504,
+  "hotspot_buckets": 503,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 522
+  "unreported_congestion": 521
  },
  "sampling": {
   "flow_spent_this_month": 4211,
@@ -181,6 +181,13 @@
    "seg": "30.256,-97.702"
   },
   {
+   "from": "E Martin Luther King Jr Blvd",
+   "hour_of_week": 121,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.281,-97.734"
+  },
+  {
    "from": "Burnet Rd",
    "hour_of_week": 61,
    "n": 2,
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.234,-97.736"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 73.1,
-  "tomtom": 97.7
+  "dispatch": 73.6,
+  "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 52,
-  "neither": 38,
+  "n": 53,
+  "neither": 39,
   "tomtom_only": 14
  }
 }
