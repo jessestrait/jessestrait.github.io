@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 66,
-  "dispatch_only": 50,
+  "dispatch": 68,
+  "dispatch_only": 51,
   "here": 0,
   "here_matched": 0,
-  "matched": 18,
+  "matched": 19,
   "tomtom": 617,
-  "tomtom_only": 600
+  "tomtom_only": 599
  },
  "date": "2026-10-17",
  "dispatch_life_capped": false,
@@ -37,9 +37,9 @@
    "pct": 31.2
   },
   "dispatch_surface": {
-   "matched": 11,
-   "n": 50,
-   "pct": 22.0
+   "matched": 12,
+   "n": 52,
+   "pct": 23.1
   },
   "tomtom_highway": {
    "matched": 11,
@@ -47,9 +47,9 @@
    "pct": 3.6
   },
   "tomtom_surface": {
-   "matched": 6,
+   "matched": 7,
    "n": 309,
-   "pct": 1.9
+   "pct": 2.3
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 86.4,
-  "median": 12.9,
+  "median": 9.7,
   "min": -79.1,
-  "n": 18,
+  "n": 19,
   "q1": -10.5,
-  "q3": 44.5
+  "q3": 43.3
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,10 +89,10 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 560,
+  "hotspot_buckets": 559,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 581
+  "unreported_congestion": 580
  },
  "sampling": {
   "flow_spent_this_month": 4229,
@@ -195,36 +195,36 @@
    "seg": "30.281,-97.728"
   },
   {
+   "from": "Congress Ave (W 5th St)",
+   "hour_of_week": 123,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.266,-97.739"
+  },
+  {
+   "from": "E 5th St (San Jacinto Blvd)",
+   "hour_of_week": 123,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.263,-97.742"
+  },
+  {
    "from": "Burnet Rd",
    "hour_of_week": 61,
    "n": 2,
    "roadworks": false,
    "seg": "30.394,-97.717"
-  },
-  {
-   "from": "Adage Dr / Epiphany Ln",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.448,-97.631"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 18,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.320,-97.706"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 75.8,
-  "tomtom": 97.2
+  "dispatch": 75.0,
+  "tomtom": 97.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 66,
-  "neither": 50,
-  "tomtom_only": 16
+  "n": 68,
+  "neither": 51,
+  "tomtom_only": 17
  }
 }
