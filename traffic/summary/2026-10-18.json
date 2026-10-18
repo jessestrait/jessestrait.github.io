@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 9,
-  "tomtom": 265,
-  "tomtom_only": 254
+  "tomtom": 273,
+  "tomtom_only": 262
  },
  "date": "2026-10-18",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 7,
-   "n": 107,
-   "pct": 6.5
+   "n": 111,
+   "pct": 6.3
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 158,
+   "n": 162,
    "pct": 2.5
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 218,
+  "hotspot_buckets": 225,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 230
+  "unreported_congestion": 238
  },
  "sampling": {
-  "flow_spent_this_month": 4616,
+  "flow_spent_this_month": 4625,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 809,
+  "incidents_spent_this_month": 810,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -138,6 +138,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.263,-97.728"
+  },
+  {
+   "from": "Burnet Rd",
+   "hour_of_week": 61,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.394,-97.717"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -208,18 +215,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.404,-97.722"
-  },
-  {
-   "from": "Domain Blvd",
-   "hour_of_week": 142,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.403,-97.724"
   }
  ],
  "unmatched_pct": {
   "dispatch": 91.8,
-  "tomtom": 95.8
+  "tomtom": 96.0
  },
  "witnesses": {
   "both": 0,
