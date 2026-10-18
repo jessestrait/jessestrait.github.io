@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 71,
-  "dispatch_only": 65,
+  "dispatch": 72,
+  "dispatch_only": 66,
   "here": 0,
   "here_matched": 0,
   "matched": 9,
-  "tomtom": 262,
-  "tomtom_only": 251
+  "tomtom": 265,
+  "tomtom_only": 254
  },
  "date": "2026-10-18",
  "dispatch_life_capped": true,
@@ -38,8 +38,8 @@
   },
   "dispatch_surface": {
    "matched": 5,
-   "n": 53,
-   "pct": 9.4
+   "n": 54,
+   "pct": 9.3
   },
   "tomtom_highway": {
    "matched": 7,
@@ -48,8 +48,8 @@
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 155,
-   "pct": 2.6
+   "n": 158,
+   "pct": 2.5
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 214,
+  "hotspot_buckets": 218,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 227
+  "unreported_congestion": 230
  },
  "sampling": {
   "flow_spent_this_month": 4598,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 808,
+  "incidents_spent_this_month": 809,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -138,13 +138,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.263,-97.728"
-  },
-  {
-   "from": "Burnet Rd",
-   "hour_of_week": 61,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.393,-97.716"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -215,17 +208,24 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.404,-97.722"
+  },
+  {
+   "from": "Domain Blvd",
+   "hour_of_week": 142,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.403,-97.724"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 91.5,
+  "dispatch": 91.7,
   "tomtom": 95.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 71,
-  "neither": 65,
+  "n": 72,
+  "neither": 66,
   "tomtom_only": 6
  }
 }
