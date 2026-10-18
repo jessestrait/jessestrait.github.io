@@ -9,18 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 15,
-  "dispatch_only": 13,
+  "dispatch": 28,
+  "dispatch_only": 24,
   "here": 0,
   "here_matched": 0,
-  "matched": 2,
-  "tomtom": 164,
-  "tomtom_only": 162
+  "matched": 4,
+  "tomtom": 177,
+  "tomtom_only": 173
  },
  "date": "2026-10-18",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
-  "n": 0
+  "max": 114.9,
+  "median": 60.9,
+  "min": 10.2,
+  "n": 15,
+  "q1": 23.9,
+  "q3": 94.7
  },
  "here_onset_offset_min": {
   "n": 0
@@ -28,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 6,
-   "pct": 16.7
+   "n": 10,
+   "pct": 10.0
   },
   "dispatch_surface": {
-   "matched": 1,
-   "n": 9,
-   "pct": 11.1
+   "matched": 3,
+   "n": 18,
+   "pct": 16.7
   },
   "tomtom_highway": {
-   "matched": 2,
-   "n": 67,
-   "pct": 3.0
+   "matched": 3,
+   "n": 76,
+   "pct": 3.9
   },
   "tomtom_surface": {
-   "matched": 0,
-   "n": 97,
-   "pct": 0.0
+   "matched": 1,
+   "n": 101,
+   "pct": 1.0
   }
  },
  "matcher": {
@@ -54,15 +59,20 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 13.2,
-  "median": 1.2,
+  "max": 66.2,
+  "median": 24.4,
   "min": -10.8,
-  "n": 2,
-  "q1": -10.8,
-  "q3": 13.2
+  "n": 4,
+  "q1": -4.8,
+  "q3": 58.6
  },
  "persistence_min": {
-  "n": 0
+  "max": -20.2,
+  "median": -20.2,
+  "min": -20.2,
+  "n": 2,
+  "q1": -20.2,
+  "q3": -20.2
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -79,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 134,
+  "hotspot_buckets": 144,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 143
+  "unreported_congestion": 154
  },
  "sampling": {
-  "flow_spent_this_month": 4481,
+  "flow_spent_this_month": 4490,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 797,
+  "incidents_spent_this_month": 798,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -101,18 +111,18 @@
  },
  "structural_hotspots": [
   {
+   "from": "E 5th St (San Jacinto Blvd)",
+   "hour_of_week": 145,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.263,-97.742"
+  },
+  {
    "from": "N Mo Pac Expy",
    "hour_of_week": 143,
    "n": 2,
    "roadworks": false,
    "seg": "30.403,-97.721"
-  },
-  {
-   "from": "River St",
-   "hour_of_week": 143,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.258,-97.739"
   },
   {
    "from": "Burnet Rd",
@@ -207,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.7,
-  "tomtom": 98.8
+  "dispatch": 85.7,
+  "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 15,
-  "neither": 13,
-  "tomtom_only": 2
+  "n": 28,
+  "neither": 24,
+  "tomtom_only": 4
  }
 }
