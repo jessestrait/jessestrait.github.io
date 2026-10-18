@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 28,
-  "dispatch_only": 24,
+  "dispatch": 31,
+  "dispatch_only": 27,
   "here": 0,
   "here_matched": 0,
   "matched": 4,
@@ -38,8 +38,8 @@
   },
   "dispatch_surface": {
    "matched": 3,
-   "n": 18,
-   "pct": 16.7
+   "n": 21,
+   "pct": 14.3
   },
   "tomtom_highway": {
    "matched": 3,
@@ -111,7 +111,7 @@
  },
  "structural_hotspots": [
   {
-   "from": "E 5th St (San Jacinto Blvd)",
+   "from": "Congress Ave (1st St/State Spur 343/Cesar Chavez St)",
    "hour_of_week": 145,
    "n": 3,
    "roadworks": false,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.7,
+  "dispatch": 87.1,
   "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 28,
-  "neither": 24,
+  "n": 31,
+  "neither": 27,
   "tomtom_only": 4
  }
 }
