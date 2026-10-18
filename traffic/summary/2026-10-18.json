@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 54,
-  "dispatch_only": 48,
+  "dispatch": 55,
+  "dispatch_only": 49,
   "here": 0,
   "here_matched": 0,
   "matched": 9,
-  "tomtom": 240,
-  "tomtom_only": 231
+  "tomtom": 243,
+  "tomtom_only": 234
  },
  "date": "2026-10-18",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 5,
-   "n": 40,
-   "pct": 12.5
+   "n": 41,
+   "pct": 12.2
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 101,
+   "n": 102,
    "pct": 5.9
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 139,
-   "pct": 2.2
+   "n": 141,
+   "pct": 2.1
   }
  },
  "matcher": {
@@ -70,9 +70,9 @@
   "max": 0.0,
   "median": -20.2,
   "min": -75.8,
-  "n": 5,
-  "q1": -53.0,
-  "q3": -10.1,
+  "n": 7,
+  "q1": -30.2,
+  "q3": -15.2,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 201,
+  "hotspot_buckets": 202,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 211
+  "unreported_congestion": 214
  },
  "sampling": {
   "flow_spent_this_month": 4517,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 802,
+  "incidents_spent_this_month": 803,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -131,6 +131,20 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.269,-97.750"
+  },
+  {
+   "from": "Comal St (E 6th St)",
+   "hour_of_week": 149,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.263,-97.728"
+  },
+  {
+   "from": "Burnet Rd",
+   "hour_of_week": 61,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.394,-97.717"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -201,31 +215,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.403,-97.724"
-  },
-  {
-   "from": "N Mo Pac Expy",
-   "hour_of_week": 143,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.443,-97.693"
-  },
-  {
-   "from": "Far West Blvd (TX-1)",
-   "hour_of_week": 143,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.365,-97.743"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.9,
-  "tomtom": 96.2
+  "dispatch": 89.1,
+  "tomtom": 96.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 54,
-  "neither": 48,
+  "n": 55,
+  "neither": 49,
   "tomtom_only": 6
  }
 }
