@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 55,
-  "dispatch_only": 49,
+  "dispatch": 56,
+  "dispatch_only": 50,
   "here": 0,
   "here_matched": 0,
   "matched": 9,
@@ -38,8 +38,8 @@
   },
   "dispatch_surface": {
    "matched": 5,
-   "n": 41,
-   "pct": 12.2
+   "n": 42,
+   "pct": 11.9
   },
   "tomtom_highway": {
    "matched": 6,
@@ -133,7 +133,7 @@
    "seg": "30.269,-97.750"
   },
   {
-   "from": "Comal St (E 6th St)",
+   "from": "I-35 (E 6th St)",
    "hour_of_week": 149,
    "n": 2,
    "roadworks": false,
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 89.1,
+  "dispatch": 89.3,
   "tomtom": 96.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 55,
-  "neither": 49,
+  "n": 56,
+  "neither": 50,
   "tomtom_only": 6
  }
 }
