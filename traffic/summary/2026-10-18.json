@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 47,
-  "dispatch_only": 42,
+  "dispatch": 50,
+  "dispatch_only": 44,
   "here": 0,
   "here_matched": 0,
-  "matched": 8,
-  "tomtom": 222,
-  "tomtom_only": 214
+  "matched": 9,
+  "tomtom": 240,
+  "tomtom_only": 231
  },
  "date": "2026-10-18",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 7.7
   },
   "dispatch_surface": {
-   "matched": 4,
-   "n": 34,
-   "pct": 11.8
+   "matched": 5,
+   "n": 37,
+   "pct": 13.5
   },
   "tomtom_highway": {
-   "matched": 5,
-   "n": 94,
-   "pct": 5.3
+   "matched": 6,
+   "n": 101,
+   "pct": 5.9
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 128,
-   "pct": 2.3
+   "n": 139,
+   "pct": 2.2
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 84.6,
-  "median": 24.7,
+  "median": 19.2,
   "min": -14.3,
-  "n": 8,
-  "q1": -4.8,
-  "q3": 58.6
+  "n": 9,
+  "q1": -7.5,
+  "q3": 50.9
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 184,
+  "hotspot_buckets": 201,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 194
+  "unreported_congestion": 211
  },
  "sampling": {
-  "flow_spent_this_month": 4508,
+  "flow_spent_this_month": 4517,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 801,
+  "incidents_spent_this_month": 802,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -125,11 +125,11 @@
    "seg": "30.403,-97.721"
   },
   {
-   "from": "Burnet Rd",
-   "hour_of_week": 61,
+   "from": "W 5th St",
+   "hour_of_week": 148,
    "n": 2,
    "roadworks": false,
-   "seg": "30.394,-97.717"
+   "seg": "30.269,-97.750"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 89.4,
-  "tomtom": 96.4
+  "dispatch": 88.0,
+  "tomtom": 96.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 47,
-  "neither": 42,
-  "tomtom_only": 5
+  "n": 50,
+  "neither": 44,
+  "tomtom_only": 6
  }
 }
