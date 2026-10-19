@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 92, q3 118 min over 32 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 92, q3 118 min over 33 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 42,
+  "dispatch": 43,
   "dispatch_only": 37,
   "here": 0,
   "here_matched": 0,
-  "matched": 6,
-  "tomtom": 277,
-  "tomtom_only": 273
+  "matched": 10,
+  "tomtom": 301,
+  "tomtom_only": 294
  },
  "date": "2026-10-19",
  "dispatch_life_capped": true,
@@ -23,18 +23,18 @@
   "max": 119.9,
   "median": 115.3,
   "min": 43.9,
-  "n": 32,
-  "q1": 92.2,
-  "q3": 117.7
+  "n": 33,
+  "q1": 92.3,
+  "q3": 117.5
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 4,
-   "n": 13,
-   "pct": 30.8
+   "matched": 5,
+   "n": 14,
+   "pct": 35.7
   },
   "dispatch_surface": {
    "matched": 1,
@@ -42,13 +42,13 @@
    "pct": 3.4
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 139,
-   "pct": 2.9
+   "matched": 7,
+   "n": 154,
+   "pct": 4.5
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 138,
+   "n": 147,
    "pct": 0.0
   }
  },
@@ -59,11 +59,11 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 18.0,
-  "median": 7.1,
+  "max": 32.0,
+  "median": 13.9,
   "min": -23.4,
-  "n": 6,
-  "q1": -5.7,
+  "n": 10,
+  "q1": -3.1,
   "q3": 18.0
  },
  "persistence_min": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 246,
+  "hotspot_buckets": 267,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 256
+  "unreported_congestion": 277
  },
  "sampling": {
-  "flow_spent_this_month": 4832,
+  "flow_spent_this_month": 4841,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 829,
+  "incidents_spent_this_month": 830,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -131,6 +131,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.520,-97.559"
+  },
+  {
+   "from": "US Highway 183 S",
+   "hour_of_week": 12,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.109,-97.697"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -175,13 +182,6 @@
    "seg": "30.179,-97.616"
   },
   {
-   "from": "US Highway 183 S",
-   "hour_of_week": 12,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.109,-97.697"
-  },
-  {
    "from": "Terjo Ln",
    "hour_of_week": 167,
    "n": 1,
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.1,
-  "tomtom": 98.6
+  "dispatch": 86.0,
+  "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 42,
+  "n": 43,
   "neither": 37,
-  "tomtom_only": 5
+  "tomtom_only": 6
  }
 }
