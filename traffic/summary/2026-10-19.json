@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 91 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 92 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 120,
-  "dispatch_only": 86,
+  "dispatch": 122,
+  "dispatch_only": 87,
   "here": 0,
   "here_matched": 0,
-  "matched": 75,
-  "tomtom": 2513,
-  "tomtom_only": 2426
+  "matched": 76,
+  "tomtom": 2534,
+  "tomtom_only": 2445
  },
  "date": "2026-10-19",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.3,
+  "median": 116.2,
   "min": 24.1,
-  "n": 91,
+  "n": 92,
   "q1": 115.0,
-  "q3": 118.2
+  "q3": 118.1
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,19 +37,19 @@
    "pct": 44.8
   },
   "dispatch_surface": {
-   "matched": 21,
-   "n": 91,
-   "pct": 23.1
+   "matched": 22,
+   "n": 93,
+   "pct": 23.7
   },
   "tomtom_highway": {
    "matched": 61,
-   "n": 1280,
-   "pct": 4.8
+   "n": 1288,
+   "pct": 4.7
   },
   "tomtom_surface": {
-   "matched": 26,
-   "n": 1233,
-   "pct": 2.1
+   "matched": 28,
+   "n": 1246,
+   "pct": 2.2
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 86.7,
   "median": 9.7,
   "min": -76.3,
-  "n": 75,
-  "q1": -15.0,
-  "q3": 23.1
+  "n": 76,
+  "q1": -14.8,
+  "q3": 23.0
  },
  "persistence_min": {
   "max": 127.5,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2016,
+  "hotspot_buckets": 2030,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2390
+  "unreported_congestion": 2409
  },
  "sampling": {
-  "flow_spent_this_month": 4994,
+  "flow_spent_this_month": 5003,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 881,
+  "incidents_spent_this_month": 882,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -168,13 +168,6 @@
    "seg": "30.307,-97.712"
   },
   {
-   "from": "N Interstate 35",
-   "hour_of_week": 22,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.287,-97.725"
-  },
-  {
    "from": "E Ben White Blvd",
    "hour_of_week": 22,
    "n": 4,
@@ -215,17 +208,24 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.436,-97.612"
+  },
+  {
+   "from": "E Koenig Ln (I-35)",
+   "hour_of_week": 12,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.312,-97.709"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 71.7,
+  "dispatch": 71.3,
   "tomtom": 96.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 120,
-  "neither": 86,
-  "tomtom_only": 34
+  "n": 122,
+  "neither": 87,
+  "tomtom_only": 35
  }
 }
