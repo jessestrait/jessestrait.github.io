@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 119,
-  "dispatch_only": 85,
+  "dispatch": 120,
+  "dispatch_only": 86,
   "here": 0,
   "here_matched": 0,
   "matched": 74,
-  "tomtom": 2464,
-  "tomtom_only": 2379
+  "tomtom": 2487,
+  "tomtom_only": 2401
  },
  "date": "2026-10-19",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 21,
-   "n": 90,
-   "pct": 23.3
+   "n": 91,
+   "pct": 23.1
   },
   "tomtom_highway": {
    "matched": 60,
-   "n": 1252,
-   "pct": 4.8
+   "n": 1264,
+   "pct": 4.7
   },
   "tomtom_surface": {
-   "matched": 25,
-   "n": 1212,
+   "matched": 26,
+   "n": 1223,
    "pct": 2.1
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1974,
+  "hotspot_buckets": 1991,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2343
+  "unreported_congestion": 2365
  },
  "sampling": {
   "flow_spent_this_month": 4994,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 879,
+  "incidents_spent_this_month": 880,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -161,25 +161,11 @@
    "seg": "30.179,-97.616"
   },
   {
-   "from": "FM-1431/Whitestone Blvd (N Bell Blvd/US-183)",
-   "hour_of_week": 21,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.504,-97.820"
-  },
-  {
    "from": "N Interstate 35",
    "hour_of_week": 22,
    "n": 4,
    "roadworks": false,
    "seg": "30.307,-97.712"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 22,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.287,-97.725"
   },
   {
    "from": "E Ben White Blvd",
@@ -215,17 +201,31 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.201,-97.640"
+  },
+  {
+   "from": "TX-45 Toll/TX-130 Toll (E Pecan St)",
+   "hour_of_week": 12,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.436,-97.612"
+  },
+  {
+   "from": "E Koenig Ln (I-35)",
+   "hour_of_week": 12,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.312,-97.709"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 71.4,
-  "tomtom": 96.6
+  "dispatch": 71.7,
+  "tomtom": 96.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 119,
-  "neither": 85,
+  "n": 120,
+  "neither": 86,
   "tomtom_only": 34
  }
 }
