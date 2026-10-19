@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 113, q3 118 min over 85 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 87 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 116,
-  "dispatch_only": 84,
+  "dispatch": 118,
+  "dispatch_only": 85,
   "here": 0,
   "here_matched": 0,
-  "matched": 69,
-  "tomtom": 2404,
-  "tomtom_only": 2325
+  "matched": 71,
+  "tomtom": 2445,
+  "tomtom_only": 2363
  },
  "date": "2026-10-19",
  "dispatch_life_capped": true,
@@ -23,9 +23,9 @@
   "max": 119.9,
   "median": 116.1,
   "min": 24.1,
-  "n": 85,
-  "q1": 113.0,
-  "q3": 118.3
+  "n": 87,
+  "q1": 115.0,
+  "q3": 118.2
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,18 +37,18 @@
    "pct": 44.8
   },
   "dispatch_surface": {
-   "matched": 19,
-   "n": 87,
-   "pct": 21.8
+   "matched": 20,
+   "n": 89,
+   "pct": 22.5
   },
   "tomtom_highway": {
-   "matched": 56,
-   "n": 1225,
-   "pct": 4.6
+   "matched": 58,
+   "n": 1243,
+   "pct": 4.7
   },
   "tomtom_surface": {
-   "matched": 23,
-   "n": 1179,
+   "matched": 24,
+   "n": 1202,
    "pct": 2.0
   }
  },
@@ -62,17 +62,17 @@
   "max": 86.7,
   "median": 9.7,
   "min": -76.3,
-  "n": 69,
-  "q1": -17.0,
-  "q3": 26.9
+  "n": 71,
+  "q1": -16.2,
+  "q3": 26.4
  },
  "persistence_min": {
   "max": 127.5,
   "median": -61.2,
   "min": -542.6,
-  "n": 34,
-  "q1": -92.9,
-  "q3": -30.6,
+  "n": 37,
+  "q1": -89.5,
+  "q3": -30.5,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1925,
+  "hotspot_buckets": 1960,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2289
+  "unreported_congestion": 2327
  },
  "sampling": {
-  "flow_spent_this_month": 4985,
+  "flow_spent_this_month": 4994,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 877,
+  "incidents_spent_this_month": 878,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -161,6 +161,13 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "FM-1431/Whitestone Blvd (N Bell Blvd/US-183)",
+   "hour_of_week": 21,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.504,-97.820"
+  },
+  {
    "from": "N Interstate 35",
    "hour_of_week": 22,
    "n": 4,
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.201,-97.640"
-  },
-  {
-   "from": "TX-45 Toll/TX-130 Toll (E Pecan St)",
-   "hour_of_week": 12,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.436,-97.612"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 72.4,
-  "tomtom": 96.7
+  "dispatch": 72.0,
+  "tomtom": 96.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 116,
-  "neither": 84,
-  "tomtom_only": 32
+  "n": 118,
+  "neither": 85,
+  "tomtom_only": 33
  }
 }
