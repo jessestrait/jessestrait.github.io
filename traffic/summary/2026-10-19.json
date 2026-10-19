@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 57,
-  "dispatch_only": 47,
+  "dispatch": 58,
+  "dispatch_only": 48,
   "here": 0,
   "here_matched": 0,
   "matched": 23,
-  "tomtom": 909,
-  "tomtom_only": 892
+  "tomtom": 924,
+  "tomtom_only": 907
  },
  "date": "2026-10-19",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 4,
-   "n": 41,
-   "pct": 9.8
+   "n": 42,
+   "pct": 9.5
   },
   "tomtom_highway": {
    "matched": 14,
-   "n": 469,
-   "pct": 3.0
+   "n": 479,
+   "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 440,
+   "n": 445,
    "pct": 0.7
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 691,
+  "hotspot_buckets": 705,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 859
+  "unreported_congestion": 874
  },
  "sampling": {
   "flow_spent_this_month": 4877,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 848,
+  "incidents_spent_this_month": 849,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,6 +117,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.350,-97.556"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 13,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.305,-97.714"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -182,6 +189,13 @@
    "seg": "30.436,-97.612"
   },
   {
+   "from": "E Koenig Ln (I-35)",
+   "hour_of_week": 12,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.312,-97.709"
+  },
+  {
    "from": "Brodie Ln (Convict Hill Rd)",
    "hour_of_week": 13,
    "n": 3,
@@ -196,36 +210,22 @@
    "seg": "30.348,-97.714"
   },
   {
-   "from": "N Interstate 35",
+   "from": "I-35 Service Rd (E Koenig Ln/FM-2222)",
    "hour_of_week": 13,
    "n": 3,
    "roadworks": false,
-   "seg": "30.305,-97.714"
-  },
-  {
-   "from": "Decker Lake Rd (FM-973)",
-   "hour_of_week": 13,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.259,-97.611"
-  },
-  {
-   "from": "E Ben White Blvd",
-   "hour_of_week": 13,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.217,-97.751"
+   "seg": "30.320,-97.714"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.5,
-  "tomtom": 98.1
+  "dispatch": 82.8,
+  "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 57,
-  "neither": 47,
+  "n": 58,
+  "neither": 48,
   "tomtom_only": 10
  }
 }
