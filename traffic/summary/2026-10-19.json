@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 41,
-  "dispatch_only": 39,
+  "dispatch_only": 36,
   "here": 0,
   "here_matched": 0,
-  "matched": 2,
-  "tomtom": 224,
-  "tomtom_only": 222
+  "matched": 5,
+  "tomtom": 239,
+  "tomtom_only": 235
  },
  "date": "2026-10-19",
  "dispatch_life_capped": true,
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
+   "matched": 4,
    "n": 13,
-   "pct": 7.7
+   "pct": 30.8
   },
   "dispatch_surface": {
    "matched": 1,
@@ -42,13 +42,13 @@
    "pct": 3.6
   },
   "tomtom_highway": {
-   "matched": 2,
-   "n": 114,
-   "pct": 1.8
+   "matched": 4,
+   "n": 123,
+   "pct": 3.3
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 110,
+   "n": 116,
    "pct": 0.0
   }
  },
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 13.6,
-  "median": -4.9,
+  "max": 18.0,
+  "median": 0.7,
   "min": -23.4,
-  "n": 2,
-  "q1": -23.4,
-  "q3": 13.6
+  "n": 5,
+  "q1": -11.6,
+  "q3": 15.8
  },
  "persistence_min": {
   "max": -96.4,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 197,
+  "hotspot_buckets": 211,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 205
+  "unreported_congestion": 218
  },
  "sampling": {
   "flow_spent_this_month": 4832,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 826,
+  "incidents_spent_this_month": 827,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -161,13 +161,6 @@
    "seg": "30.179,-97.616"
   },
   {
-   "from": "N Interstate 35",
-   "hour_of_week": 11,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.362,-97.686"
-  },
-  {
    "from": "Terjo Ln",
    "hour_of_week": 167,
    "n": 1,
@@ -215,17 +208,24 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.289,-97.755"
+  },
+  {
+   "from": "E 18th St",
+   "hour_of_week": 167,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.281,-97.737"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 95.1,
-  "tomtom": 99.1
+  "dispatch": 87.8,
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 41,
-  "neither": 39,
-  "tomtom_only": 2
+  "neither": 36,
+  "tomtom_only": 5
  }
 }
