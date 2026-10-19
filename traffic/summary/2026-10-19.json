@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 112,
+  "dispatch": 113,
   "dispatch_only": 82,
   "here": 0,
   "here_matched": 0,
-  "matched": 64,
-  "tomtom": 2153,
-  "tomtom_only": 2086
+  "matched": 66,
+  "tomtom": 2201,
+  "tomtom_only": 2130
  },
  "date": "2026-10-19",
  "dispatch_life_capped": true,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 12,
+   "matched": 13,
    "n": 29,
-   "pct": 41.4
+   "pct": 44.8
   },
   "dispatch_surface": {
    "matched": 18,
-   "n": 83,
-   "pct": 21.7
+   "n": 84,
+   "pct": 21.4
   },
   "tomtom_highway": {
-   "matched": 50,
-   "n": 1092,
-   "pct": 4.6
+   "matched": 53,
+   "n": 1121,
+   "pct": 4.7
   },
   "tomtom_surface": {
-   "matched": 17,
-   "n": 1061,
-   "pct": 1.6
+   "matched": 18,
+   "n": 1080,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 86.7,
   "median": 9.7,
   "min": -76.3,
-  "n": 64,
-  "q1": -18.7,
-  "q3": 27.1
+  "n": 66,
+  "q1": -18.2,
+  "q3": 26.6
  },
  "persistence_min": {
   "max": 127.5,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1752,
+  "hotspot_buckets": 1784,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2050
+  "unreported_congestion": 2094
  },
  "sampling": {
   "flow_spent_this_month": 4976,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 871,
+  "incidents_spent_this_month": 872,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -152,6 +152,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.179,-97.616"
+  },
+  {
+   "from": "N Lamar Blvd",
+   "hour_of_week": 22,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.408,-97.678"
   },
   {
    "from": "E William Cannon Dr",
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.348,-97.714"
-  },
-  {
-   "from": "I-35 Service Rd (E Koenig Ln/FM-2222)",
-   "hour_of_week": 13,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.320,-97.714"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 73.2,
-  "tomtom": 96.9
+  "dispatch": 72.6,
+  "tomtom": 96.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 112,
+  "n": 113,
   "neither": 82,
-  "tomtom_only": 30
+  "tomtom_only": 31
  }
 }
