@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 50,
-  "dispatch_only": 41,
+  "dispatch": 51,
+  "dispatch_only": 42,
   "here": 0,
   "here_matched": 0,
   "matched": 15,
-  "tomtom": 460,
-  "tomtom_only": 448
+  "tomtom": 493,
+  "tomtom_only": 481
  },
  "date": "2026-10-19",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 4,
-   "n": 36,
-   "pct": 11.1
+   "n": 37,
+   "pct": 10.8
   },
   "tomtom_highway": {
    "matched": 10,
-   "n": 222,
-   "pct": 4.5
+   "n": 239,
+   "pct": 4.2
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 238,
+   "n": 254,
    "pct": 0.8
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 404,
+  "hotspot_buckets": 433,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 431
+  "unreported_congestion": 464
  },
  "sampling": {
   "flow_spent_this_month": 4850,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 834,
+  "incidents_spent_this_month": 835,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -112,18 +112,18 @@
  },
  "structural_hotspots": [
   {
+   "from": "S Interstate 35",
+   "hour_of_week": 12,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.146,-97.794"
+  },
+  {
    "from": "Onion Creek Pkwy exit [225]",
    "hour_of_week": 2,
    "n": 2,
    "roadworks": false,
    "seg": "30.118,-97.804"
-  },
-  {
-   "from": "Bloor Rd (FM-973)",
-   "hour_of_week": 11,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.337,-97.559"
   },
   {
    "from": "E William Cannon Dr",
@@ -147,6 +147,13 @@
    "seg": "30.162,-97.789"
   },
   {
+   "from": "Bella Fortuna Dr",
+   "hour_of_week": 12,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.113,-97.785"
+  },
+  {
    "from": "Apperson St",
    "hour_of_week": 12,
    "n": 2,
@@ -166,13 +173,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.418,-97.576"
-  },
-  {
-   "from": "S Interstate 35",
-   "hour_of_week": 12,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.146,-97.794"
   },
   {
    "from": "TX-45 Toll/TX-130 Toll (E Parmer Ln/FM-734)",
@@ -210,22 +210,22 @@
    "seg": "30.436,-97.612"
   },
   {
-   "from": "Tur Weg Ln",
+   "from": "Nelms Dr",
    "hour_of_week": 12,
    "n": 2,
    "roadworks": false,
-   "seg": "30.348,-97.562"
+   "seg": "30.190,-97.767"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.0,
-  "tomtom": 97.4
+  "dispatch": 82.4,
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 50,
-  "neither": 41,
+  "n": 51,
+  "neither": 42,
   "tomtom_only": 9
  }
 }
