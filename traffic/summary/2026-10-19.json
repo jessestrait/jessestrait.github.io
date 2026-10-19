@@ -13,9 +13,9 @@
   "dispatch_only": 45,
   "here": 0,
   "here_matched": 0,
-  "matched": 17,
-  "tomtom": 595,
-  "tomtom_only": 582
+  "matched": 21,
+  "tomtom": 788,
+  "tomtom_only": 772
  },
  "date": "2026-10-19",
  "dispatch_life_capped": true,
@@ -42,13 +42,13 @@
    "pct": 10.3
   },
   "tomtom_highway": {
-   "matched": 11,
-   "n": 294,
-   "pct": 3.7
+   "matched": 13,
+   "n": 386,
+   "pct": 3.4
   },
   "tomtom_surface": {
-   "matched": 2,
-   "n": 301,
+   "matched": 3,
+   "n": 402,
    "pct": 0.7
   }
  },
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 32.0,
+  "max": 71.2,
   "median": 3.9,
   "min": -59.6,
-  "n": 17,
-  "q1": -8.8,
-  "q3": 16.3
+  "n": 21,
+  "q1": -18.1,
+  "q3": 17.9
  },
  "persistence_min": {
   "max": -96.4,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 522,
+  "hotspot_buckets": 583,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 565
+  "unreported_congestion": 739
  },
  "sampling": {
   "flow_spent_this_month": 4859,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 839,
+  "incidents_spent_this_month": 840,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,41 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Christina Garza Dr",
+   "hour_of_week": 12,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.350,-97.556"
+  },
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Lexington Meadow Ln",
+   "hour_of_week": 44,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.179,-97.616"
+  },
   {
    "from": "E William Cannon Dr",
    "hour_of_week": 12,
@@ -147,11 +182,11 @@
    "seg": "30.436,-97.612"
   },
   {
-   "from": "Christina Garza Dr",
+   "from": "E Koenig Ln (I-35)",
    "hour_of_week": 12,
    "n": 3,
    "roadworks": false,
-   "seg": "30.350,-97.556"
+   "seg": "30.312,-97.709"
   },
   {
    "from": "Onion Creek Pkwy exit [225]",
@@ -180,46 +215,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.401,-97.676"
-  },
-  {
-   "from": "Bella Fortuna Dr",
-   "hour_of_week": 12,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.113,-97.785"
-  },
-  {
-   "from": "Apperson St",
-   "hour_of_week": 12,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.158,-97.645"
-  },
-  {
-   "from": "Braker Ln exit [243]",
-   "hour_of_week": 12,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.395,-97.672"
-  },
-  {
-   "from": "Cameron Rd",
-   "hour_of_week": 12,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.418,-97.576"
-  },
-  {
-   "from": "TX-45 Toll/TX-130 Toll (E Parmer Ln/FM-734)",
-   "hour_of_week": 12,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.368,-97.609"
   }
  ],
  "unmatched_pct": {
   "dispatch": 81.8,
-  "tomtom": 97.8
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
