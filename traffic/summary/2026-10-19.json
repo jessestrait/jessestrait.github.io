@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 43,
-  "dispatch_only": 37,
+  "dispatch": 46,
+  "dispatch_only": 39,
   "here": 0,
   "here_matched": 0,
-  "matched": 10,
-  "tomtom": 301,
-  "tomtom_only": 294
+  "matched": 12,
+  "tomtom": 339,
+  "tomtom_only": 330
  },
  "date": "2026-10-19",
  "dispatch_life_capped": true,
@@ -37,18 +37,18 @@
    "pct": 35.7
   },
   "dispatch_surface": {
-   "matched": 1,
-   "n": 29,
-   "pct": 3.4
+   "matched": 2,
+   "n": 32,
+   "pct": 6.2
   },
   "tomtom_highway": {
-   "matched": 7,
-   "n": 154,
-   "pct": 4.5
+   "matched": 9,
+   "n": 176,
+   "pct": 5.1
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 147,
+   "n": 163,
    "pct": 0.0
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 32.0,
-  "median": 13.9,
+  "median": 8.8,
   "min": -23.4,
-  "n": 10,
-  "q1": -3.1,
-  "q3": 18.0
+  "n": 12,
+  "q1": -3.3,
+  "q3": 17.2
  },
  "persistence_min": {
   "max": -96.4,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 267,
+  "hotspot_buckets": 297,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 277
+  "unreported_congestion": 313
  },
  "sampling": {
   "flow_spent_this_month": 4841,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 830,
+  "incidents_spent_this_month": 831,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -126,11 +126,53 @@
    "seg": "30.337,-97.559"
   },
   {
+   "from": "E William Cannon Dr",
+   "hour_of_week": 12,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.190,-97.770"
+  },
+  {
+   "from": "Otilia Ln",
+   "hour_of_week": 12,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.107,-97.694"
+  },
+  {
+   "from": "Braker Ln exit [243]",
+   "hour_of_week": 12,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.395,-97.672"
+  },
+  {
    "from": "Concho Pearl Pl",
    "hour_of_week": 12,
    "n": 2,
    "roadworks": false,
    "seg": "30.520,-97.559"
+  },
+  {
+   "from": "Cameron Rd",
+   "hour_of_week": 12,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.418,-97.576"
+  },
+  {
+   "from": "S Interstate 35",
+   "hour_of_week": 12,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.146,-97.794"
+  },
+  {
+   "from": "TX-45 Toll/TX-130 Toll (E Parmer Ln/FM-734)",
+   "hour_of_week": 12,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.368,-97.609"
   },
   {
    "from": "US Highway 183 S",
@@ -173,59 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.616"
-  },
-  {
-   "from": "Terjo Ln",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.333,-97.922"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.475,-97.794"
-  },
-  {
-   "from": "Olive Hill Dr",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.488,-97.770"
-  },
-  {
-   "from": "I-35 Bus (I-35)",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.504,-97.684"
-  },
-  {
-   "from": "Rock Rose Ave",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.404,-97.725"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.0,
-  "tomtom": 97.7
+  "dispatch": 84.8,
+  "tomtom": 97.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 43,
-  "neither": 37,
-  "tomtom_only": 6
+  "n": 46,
+  "neither": 39,
+  "tomtom_only": 7
  }
 }
