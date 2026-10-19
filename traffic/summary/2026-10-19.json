@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 41,
-  "dispatch_only": 36,
+  "dispatch": 42,
+  "dispatch_only": 37,
   "here": 0,
   "here_matched": 0,
   "matched": 5,
-  "tomtom": 239,
-  "tomtom_only": 235
+  "tomtom": 254,
+  "tomtom_only": 250
  },
  "date": "2026-10-19",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 28,
-   "pct": 3.6
+   "n": 29,
+   "pct": 3.4
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 123,
-   "pct": 3.3
+   "n": 129,
+   "pct": 3.1
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 116,
+   "n": 125,
    "pct": 0.0
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 211,
+  "hotspot_buckets": 225,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 218
+  "unreported_congestion": 233
  },
  "sampling": {
   "flow_spent_this_month": 4832,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 827,
+  "incidents_spent_this_month": 828,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,6 +117,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.118,-97.804"
+  },
+  {
+   "from": "Bloor Rd (FM-973)",
+   "hour_of_week": 11,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.337,-97.559"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -208,24 +215,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.289,-97.755"
-  },
-  {
-   "from": "E 18th St",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.281,-97.737"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.8,
-  "tomtom": 98.3
+  "dispatch": 88.1,
+  "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 41,
-  "neither": 36,
+  "n": 42,
+  "neither": 37,
   "tomtom_only": 5
  }
 }
