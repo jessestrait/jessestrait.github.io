@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 49,
-  "dispatch_only": 42,
+  "dispatch_only": 41,
   "here": 0,
   "here_matched": 0,
-  "matched": 12,
-  "tomtom": 373,
-  "tomtom_only": 364
+  "matched": 13,
+  "tomtom": 415,
+  "tomtom_only": 405
  },
  "date": "2026-10-19",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 35.7
   },
   "dispatch_surface": {
-   "matched": 2,
+   "matched": 3,
    "n": 35,
-   "pct": 5.7
+   "pct": 8.6
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 188,
-   "pct": 4.8
+   "n": 203,
+   "pct": 4.4
   },
   "tomtom_surface": {
-   "matched": 0,
-   "n": 185,
-   "pct": 0.0
+   "matched": 1,
+   "n": 212,
+   "pct": 0.5
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 32.0,
-  "median": 8.8,
+  "median": 10.6,
   "min": -23.4,
-  "n": 12,
-  "q1": -3.3,
-  "q3": 17.2
+  "n": 13,
+  "q1": -2.1,
+  "q3": 16.4
  },
  "persistence_min": {
   "max": -96.4,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 329,
+  "hotspot_buckets": 365,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 347
+  "unreported_congestion": 388
  },
  "sampling": {
   "flow_spent_this_month": 4841,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 832,
+  "incidents_spent_this_month": 833,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -161,6 +161,13 @@
    "seg": "30.395,-97.672"
   },
   {
+   "from": "N Interstate 35",
+   "hour_of_week": 11,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.362,-97.686"
+  },
+  {
    "from": "Cameron Rd",
    "hour_of_week": 12,
    "n": 2,
@@ -173,6 +180,20 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.146,-97.794"
+  },
+  {
+   "from": "TX-45 Toll/TX-130 Toll (E Parmer Ln/FM-734)",
+   "hour_of_week": 12,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.368,-97.609"
+  },
+  {
+   "from": "Pearce Ln (FM-973)",
+   "hour_of_week": 12,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.201,-97.640"
   },
   {
    "from": "US Highway 183 S",
@@ -189,43 +210,22 @@
    "seg": "30.500,-97.581"
   },
   {
-   "from": "Adage Dr / Epiphany Ln",
-   "hour_of_week": 60,
+   "from": "Muirfield Bend Dr",
+   "hour_of_week": 12,
    "n": 2,
    "roadworks": false,
-   "seg": "30.448,-97.631"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 18,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.320,-97.706"
-  },
-  {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.245,-97.744"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.234,-97.736"
+   "seg": "30.503,-97.581"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.7,
+  "dispatch": 83.7,
   "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 49,
-  "neither": 42,
-  "tomtom_only": 7
+  "neither": 41,
+  "tomtom_only": 8
  }
 }
