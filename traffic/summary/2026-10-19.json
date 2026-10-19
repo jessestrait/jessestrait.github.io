@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 46,
-  "dispatch_only": 39,
+  "dispatch": 49,
+  "dispatch_only": 42,
   "here": 0,
   "here_matched": 0,
   "matched": 12,
-  "tomtom": 339,
-  "tomtom_only": 330
+  "tomtom": 373,
+  "tomtom_only": 364
  },
  "date": "2026-10-19",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 2,
-   "n": 32,
-   "pct": 6.2
+   "n": 35,
+   "pct": 5.7
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 176,
-   "pct": 5.1
+   "n": 188,
+   "pct": 4.8
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 163,
+   "n": 185,
    "pct": 0.0
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 297,
+  "hotspot_buckets": 329,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 313
+  "unreported_congestion": 347
  },
  "sampling": {
   "flow_spent_this_month": 4841,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 831,
+  "incidents_spent_this_month": 832,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -140,18 +140,25 @@
    "seg": "30.107,-97.694"
   },
   {
+   "from": "S Interstate 35",
+   "hour_of_week": 12,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.162,-97.789"
+  },
+  {
+   "from": "Apperson St",
+   "hour_of_week": 12,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.158,-97.645"
+  },
+  {
    "from": "Braker Ln exit [243]",
    "hour_of_week": 12,
    "n": 2,
    "roadworks": false,
    "seg": "30.395,-97.672"
-  },
-  {
-   "from": "Concho Pearl Pl",
-   "hour_of_week": 12,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.520,-97.559"
   },
   {
    "from": "Cameron Rd",
@@ -168,18 +175,18 @@
    "seg": "30.146,-97.794"
   },
   {
-   "from": "TX-45 Toll/TX-130 Toll (E Parmer Ln/FM-734)",
-   "hour_of_week": 12,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.368,-97.609"
-  },
-  {
    "from": "US Highway 183 S",
    "hour_of_week": 12,
    "n": 2,
    "roadworks": false,
    "seg": "30.109,-97.697"
+  },
+  {
+   "from": "FM 685",
+   "hour_of_week": 12,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.500,-97.581"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.234,-97.736"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.148,-97.704"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 84.8,
-  "tomtom": 97.3
+  "dispatch": 85.7,
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 46,
-  "neither": 39,
+  "n": 49,
+  "neither": 42,
   "tomtom_only": 7
  }
 }
