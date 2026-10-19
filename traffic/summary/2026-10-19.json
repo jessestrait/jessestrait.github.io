@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 113,
+  "dispatch": 114,
   "dispatch_only": 82,
   "here": 0,
   "here_matched": 0,
-  "matched": 66,
-  "tomtom": 2338,
-  "tomtom_only": 2264
+  "matched": 69,
+  "tomtom": 2376,
+  "tomtom_only": 2298
  },
  "date": "2026-10-19",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 44.8
   },
   "dispatch_surface": {
-   "matched": 18,
-   "n": 84,
-   "pct": 21.4
+   "matched": 19,
+   "n": 85,
+   "pct": 22.4
   },
   "tomtom_highway": {
-   "matched": 53,
-   "n": 1195,
-   "pct": 4.4
+   "matched": 56,
+   "n": 1214,
+   "pct": 4.6
   },
   "tomtom_surface": {
-   "matched": 21,
-   "n": 1143,
-   "pct": 1.8
+   "matched": 22,
+   "n": 1162,
+   "pct": 1.9
   }
  },
  "matcher": {
@@ -62,17 +62,17 @@
   "max": 86.7,
   "median": 9.7,
   "min": -76.3,
-  "n": 66,
-  "q1": -18.2,
-  "q3": 26.6
+  "n": 69,
+  "q1": -17.0,
+  "q3": 26.9
  },
  "persistence_min": {
   "max": 127.5,
   "median": -61.2,
   "min": -112.1,
-  "n": 30,
-  "q1": -88.3,
-  "q3": -30.6,
+  "n": 31,
+  "q1": -87.2,
+  "q3": -30.4,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1876,
+  "hotspot_buckets": 1899,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2228
+  "unreported_congestion": 2262
  },
  "sampling": {
   "flow_spent_this_month": 4985,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 875,
+  "incidents_spent_this_month": 876,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "N Lamar Blvd",
+   "hour_of_week": 22,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.408,-97.678"
+  },
   {
    "from": "Christina Garza Dr",
    "hour_of_week": 12,
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.436,-97.612"
-  },
-  {
-   "from": "E Koenig Ln (I-35)",
-   "hour_of_week": 12,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.312,-97.709"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 72.6,
-  "tomtom": 96.8
+  "dispatch": 71.9,
+  "tomtom": 96.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 113,
+  "n": 114,
   "neither": 82,
-  "tomtom_only": 31
+  "tomtom_only": 32
  }
 }
