@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 5,
-  "tomtom": 179,
-  "tomtom_only": 175
+  "tomtom": 208,
+  "tomtom_only": 204
  },
  "date": "2026-10-20",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 91,
-   "pct": 2.2
+   "n": 104,
+   "pct": 1.9
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 88,
-   "pct": 2.3
+   "n": 104,
+   "pct": 1.9
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 147,
+  "hotspot_buckets": 174,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 156
+  "unreported_congestion": 185
  },
  "sampling": {
   "flow_spent_this_month": 5048,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 892,
+  "incidents_spent_this_month": 893,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -123,6 +123,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.342,-97.698"
+  },
+  {
+   "from": "Berrywood Dr/Meadow Lark Ave (I-35)",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.385,-97.673"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -167,6 +174,13 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "Wells Port Dr",
+   "hour_of_week": 24,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.439,-97.677"
+  },
+  {
    "from": "Steck Rd",
    "hour_of_week": 23,
    "n": 1,
@@ -200,25 +214,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.380,-97.725"
-  },
-  {
-   "from": "Grand Avenue Pkwy (I-35)",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.443,-97.668"
-  },
-  {
-   "from": "Thermal Dr/Metric Blvd (E Howard Ln)",
-   "hour_of_week": 21,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.425,-97.673"
   }
  ],
  "unmatched_pct": {
   "dispatch": 83.3,
-  "tomtom": 97.8
+  "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
