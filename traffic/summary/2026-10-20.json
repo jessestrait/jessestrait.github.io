@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 108,
-  "dispatch_only": 85,
+  "dispatch": 110,
+  "dispatch_only": 86,
   "here": 0,
   "here_matched": 0,
-  "matched": 28,
-  "tomtom": 782,
-  "tomtom_only": 758
+  "matched": 30,
+  "tomtom": 827,
+  "tomtom_only": 801
  },
  "date": "2026-10-20",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 45.0
   },
   "dispatch_surface": {
-   "matched": 14,
-   "n": 88,
-   "pct": 15.9
+   "matched": 15,
+   "n": 90,
+   "pct": 16.7
   },
   "tomtom_highway": {
-   "matched": 20,
-   "n": 420,
-   "pct": 4.8
+   "matched": 19,
+   "n": 440,
+   "pct": 4.3
   },
   "tomtom_surface": {
-   "matched": 4,
-   "n": 362,
-   "pct": 1.1
+   "matched": 7,
+   "n": 387,
+   "pct": 1.8
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 75.2,
+  "max": 75.7,
   "median": 1.9,
   "min": -87.3,
-  "n": 28,
-  "q1": -51.4,
-  "q3": 35.2
+  "n": 30,
+  "q1": -54.0,
+  "q3": 40.1
  },
  "persistence_min": {
   "max": -5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 710,
+  "hotspot_buckets": 751,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 735
+  "unreported_congestion": 778
  },
  "sampling": {
   "flow_spent_this_month": 5201,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 904,
+  "incidents_spent_this_month": 905,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -123,6 +123,20 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.385,-97.673"
+  },
+  {
+   "from": "Metric Blvd (Research Blvd)",
+   "hour_of_week": 46,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.372,-97.724"
+  },
+  {
+   "from": "County Road 137",
+   "hour_of_week": 46,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.500,-97.575"
   },
   {
    "from": "US-290/Exit 238 (I-35)",
@@ -167,18 +181,18 @@
    "seg": "30.292,-97.798"
   },
   {
-   "from": "Metric Blvd (Research Blvd)",
+   "from": "US Highway 183",
    "hour_of_week": 46,
    "n": 2,
    "roadworks": false,
-   "seg": "30.372,-97.724"
+   "seg": "30.350,-97.713"
   },
   {
-   "from": "County Road 137",
+   "from": "Brodie Ln (Davis Ln)",
    "hour_of_week": 46,
    "n": 2,
    "roadworks": false,
-   "seg": "30.500,-97.575"
+   "seg": "30.192,-97.835"
   },
   {
    "from": "Loralinda Dr",
@@ -188,43 +202,29 @@
    "seg": "30.341,-97.692"
   },
   {
+   "from": "E Anderson Ln / Norwood Park Blvd",
+   "hour_of_week": 46,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.338,-97.695"
+  },
+  {
    "from": "Manor Rd",
    "hour_of_week": 46,
    "n": 2,
    "roadworks": false,
    "seg": "30.306,-97.661"
-  },
-  {
-   "from": "Steck Ave (Burnet Rd)",
-   "hour_of_week": 46,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.373,-97.726"
-  },
-  {
-   "from": "FM-1825/Pecan St E/Pfluderville East Rd (TX-130)",
-   "hour_of_week": 45,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.469,-97.593"
-  },
-  {
-   "from": "San Antonio St (2nd St)",
-   "hour_of_week": 46,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.265,-97.746"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.7,
+  "dispatch": 78.2,
   "tomtom": 96.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 108,
-  "neither": 85,
-  "tomtom_only": 23
+  "n": 110,
+  "neither": 86,
+  "tomtom_only": 24
  }
 }
