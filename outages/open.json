@@ -1,5 +1,5 @@
 {
- "captured_at": "2026-10-20T17:59:38Z",
+ "captured_at": "2026-10-20T18:14:40Z",
  "episodes": [
   {
    "customers_served": 29994,
@@ -8,10 +8,10 @@
    "first_seen": "2026-10-20T15:58:32Z",
    "id": "zip-78741-20261020T155832Z",
    "kind": "power_outage",
-   "last_seen": "2026-10-20T17:59:38Z",
+   "last_seen": "2026-10-20T18:14:40Z",
    "peak_customers_affected": 52,
    "peak_outages": 2,
-   "polls": 9,
+   "polls": 10,
    "scope": {
     "bbox": [
      -97.75198400028799,
@@ -27,14 +27,14 @@
   {
    "customers_served": 14621,
    "ended": false,
-   "etr_last": "2026-10-20T18:13:58Z",
+   "etr_last": "ETR-EXP",
    "first_seen": "2026-10-20T16:13:35Z",
    "id": "zip-78746-20261020T161335Z",
    "kind": "power_outage",
-   "last_seen": "2026-10-20T17:59:38Z",
+   "last_seen": "2026-10-20T18:14:40Z",
    "peak_customers_affected": 1,
    "peak_outages": 1,
-   "polls": 8,
+   "polls": 9,
    "scope": {
     "bbox": [
      -97.8661810003712,
@@ -54,10 +54,10 @@
    "first_seen": "2026-10-20T16:28:50Z",
    "id": "zip-78728-20261020T162850Z",
    "kind": "power_outage",
-   "last_seen": "2026-10-20T17:59:38Z",
+   "last_seen": "2026-10-20T18:14:40Z",
    "peak_customers_affected": 1,
    "peak_outages": 1,
-   "polls": 7,
+   "polls": 8,
    "scope": {
     "bbox": [
      -97.73002200046088,
@@ -69,7 +69,30 @@
     "type": "zip"
    },
    "source": "austin-energy/kubra"
+  },
+  {
+   "customers_served": 17356,
+   "ended": false,
+   "etr_last": "2026-10-20T20:19:21Z",
+   "first_seen": "2026-10-20T18:14:40Z",
+   "id": "zip-78724-20261020T181440Z",
+   "kind": "power_outage",
+   "last_seen": "2026-10-20T18:14:40Z",
+   "peak_customers_affected": 1,
+   "peak_outages": 1,
+   "polls": 1,
+   "scope": {
+    "bbox": [
+     -97.67414810028494,
+     30.247422799220043,
+     -97.5538594996423,
+     30.342751299755758
+    ],
+    "id": "78724",
+    "type": "zip"
+   },
+   "source": "austin-energy/kubra"
   }
  ],
- "source_published": "2026-10-20T17:52:37Z"
+ "source_published": "2026-10-20T18:14:25Z"
 }
