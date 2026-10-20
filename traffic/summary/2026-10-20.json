@@ -1,0 +1,225 @@
+{
+ "caveats": [
+  "Dispatch published_date is when APD published, not when it happened.",
+  "Dispatch record lifetimes look like real clearances this day, not a cap.",
+  "Clearance resolution equals the poll interval; shorter incidents are invisible.",
+  "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
+  "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
+  "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
+  "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
+ ],
+ "counts": {
+  "dispatch": 22,
+  "dispatch_only": 19,
+  "here": 0,
+  "here_matched": 0,
+  "matched": 3,
+  "tomtom": 154,
+  "tomtom_only": 152
+ },
+ "date": "2026-10-20",
+ "dispatch_life_capped": false,
+ "dispatch_record_life_min": {
+  "max": 116.3,
+  "median": 115.9,
+  "min": 115.5,
+  "n": 2,
+  "q1": 115.5,
+  "q3": 116.3
+ },
+ "here_onset_offset_min": {
+  "n": 0
+ },
+ "match_rate": {
+  "dispatch_highway": {
+   "matched": 0,
+   "n": 2,
+   "pct": 0.0
+  },
+  "dispatch_surface": {
+   "matched": 3,
+   "n": 20,
+   "pct": 15.0
+  },
+  "tomtom_highway": {
+   "matched": 0,
+   "n": 69,
+   "pct": 0.0
+  },
+  "tomtom_surface": {
+   "matched": 2,
+   "n": 85,
+   "pct": 2.4
+  }
+ },
+ "matcher": {
+  "buffer_m": 200.0,
+  "highway_buffer_m": 130.0,
+  "onset_window_min": 90.0,
+  "tolerance_min": 20.0
+ },
+ "onset_offset_min": {
+  "max": 54.1,
+  "median": 35.5,
+  "min": -2.1,
+  "n": 3,
+  "q1": -2.1,
+  "q3": 54.1
+ },
+ "persistence_min": {
+  "n": 0
+ },
+ "poll_interval_min": 5.0,
+ "probe_agreement": {
+  "cover": {
+   "n": 0
+  },
+  "n": 0,
+  "onset_offset_min": {
+   "n": 0
+  },
+  "pct_of_here": 0.0,
+  "pct_of_tomtom": 0.0,
+  "type_agree": 0
+ },
+ "roadworks": {
+  "explained_by_roadworks": 0,
+  "hotspot_buckets": 128,
+  "hotspot_buckets_on_roadworks": 0,
+  "txdot_rows": 0,
+  "unreported_congestion": 135
+ },
+ "sampling": {
+  "flow_spent_this_month": 5012,
+  "incident_budget": 2500,
+  "incidents_spent_this_month": 887,
+  "off_peak_min": 45,
+  "rush_hours_local": [
+   7,
+   8,
+   16,
+   17,
+   18
+  ],
+  "rush_min": 5,
+  "this_poll": "off-peak"
+ },
+ "structural_hotspots": [
+  {
+   "from": "Adage Dr / Epiphany Ln",
+   "hour_of_week": 59,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.448,-97.631"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 19,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.320,-97.706"
+  },
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Ramirez Ln",
+   "hour_of_week": 113,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.244,-97.663"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Lexington Meadow Ln",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.179,-97.616"
+  },
+  {
+   "from": "Steck Rd",
+   "hour_of_week": 23,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.350,-97.936"
+  },
+  {
+   "from": "Round Rock-Georgetown",
+   "hour_of_week": 23,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.487,-97.771"
+  },
+  {
+   "from": "Ranch Road 2222",
+   "hour_of_week": 23,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.359,-97.793"
+  },
+  {
+   "from": "FM-2222 (TX-360 Loop/N Capital of Texas Hwy)",
+   "hour_of_week": 21,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.377,-97.779"
+  },
+  {
+   "from": "US-183/Research Blvd (Burnet Rd)",
+   "hour_of_week": 23,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.380,-97.725"
+  },
+  {
+   "from": "Grand Avenue Pkwy (I-35)",
+   "hour_of_week": 23,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.443,-97.668"
+  },
+  {
+   "from": "Thermal Dr/Metric Blvd (E Howard Ln)",
+   "hour_of_week": 21,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.425,-97.673"
+  },
+  {
+   "from": "S Mo Pac Expy",
+   "hour_of_week": 23,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.233,-97.825"
+  }
+ ],
+ "unmatched_pct": {
+  "dispatch": 86.4,
+  "tomtom": 98.7
+ },
+ "witnesses": {
+  "both": 0,
+  "here_only": 0,
+  "n": 22,
+  "neither": 19,
+  "tomtom_only": 3
+ }
+}
