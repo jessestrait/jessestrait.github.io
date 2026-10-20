@@ -10,21 +10,21 @@
  ],
  "counts": {
   "dispatch": 120,
-  "dispatch_only": 92,
+  "dispatch_only": 91,
   "here": 0,
   "here_matched": 0,
-  "matched": 37,
-  "tomtom": 1072,
-  "tomtom_only": 1037
+  "matched": 38,
+  "tomtom": 1096,
+  "tomtom_only": 1060
  },
  "date": "2026-10-20",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 115.9,
+  "median": 116.0,
   "min": 4.5,
-  "n": 85,
-  "q1": 74.8,
+  "n": 86,
+  "q1": 76.0,
   "q3": 117.8
  },
  "here_onset_offset_min": {
@@ -37,18 +37,18 @@
    "pct": 42.9
   },
   "dispatch_surface": {
-   "matched": 19,
+   "matched": 20,
    "n": 99,
-   "pct": 19.2
+   "pct": 20.2
   },
   "tomtom_highway": {
-   "matched": 22,
-   "n": 554,
-   "pct": 4.0
+   "matched": 23,
+   "n": 567,
+   "pct": 4.1
   },
   "tomtom_surface": {
    "matched": 13,
-   "n": 518,
+   "n": 529,
    "pct": 2.5
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 75.7,
-  "median": 3.5,
+  "median": 4.7,
   "min": -87.3,
-  "n": 37,
-  "q1": -36.8,
-  "q3": 44.9
+  "n": 38,
+  "q1": -36.1,
+  "q3": 40.3
  },
  "persistence_min": {
   "max": 184.7,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 964,
+  "hotspot_buckets": 982,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1014
+  "unreported_congestion": 1037
  },
  "sampling": {
   "flow_spent_this_month": 5219,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 911,
+  "incidents_spent_this_month": 912,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -139,13 +139,6 @@
    "seg": "30.292,-97.798"
   },
   {
-   "from": "E Riverside Dr (S Pleasant Valley Rd)",
-   "hour_of_week": 47,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.243,-97.717"
-  },
-  {
    "from": "US-290/Exit 238 (I-35)",
    "hour_of_week": 45,
    "n": 2,
@@ -172,6 +165,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.408,-97.678"
+  },
+  {
+   "from": "US-290/Exit 238 (I-35)",
+   "hour_of_week": 43,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.353,-97.691"
   },
   {
    "from": "E 7th St (Springdale Rd)",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.7,
+  "dispatch": 75.8,
   "tomtom": 96.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 120,
-  "neither": 92,
-  "tomtom_only": 28
+  "neither": 91,
+  "tomtom_only": 29
  }
 }
