@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 120,
-  "dispatch_only": 91,
+  "dispatch": 121,
+  "dispatch_only": 92,
   "here": 0,
   "here_matched": 0,
-  "matched": 38,
-  "tomtom": 1096,
-  "tomtom_only": 1060
+  "matched": 40,
+  "tomtom": 1116,
+  "tomtom_only": 1077
  },
  "date": "2026-10-20",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.9,
   "median": 116.0,
   "min": 4.5,
-  "n": 86,
-  "q1": 76.0,
+  "n": 89,
+  "q1": 81.6,
   "q3": 117.8
  },
  "here_onset_offset_min": {
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 20,
-   "n": 99,
-   "pct": 20.2
+   "n": 100,
+   "pct": 20.0
   },
   "tomtom_highway": {
    "matched": 23,
-   "n": 567,
-   "pct": 4.1
+   "n": 579,
+   "pct": 4.0
   },
   "tomtom_surface": {
-   "matched": 13,
-   "n": 529,
-   "pct": 2.5
+   "matched": 16,
+   "n": 537,
+   "pct": 3.0
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 75.7,
-  "median": 4.7,
+  "median": 6.8,
   "min": -87.3,
-  "n": 38,
-  "q1": -36.1,
-  "q3": 40.3
+  "n": 40,
+  "q1": -34.9,
+  "q3": 35.7
  },
  "persistence_min": {
   "max": 184.7,
-  "median": -20.2,
+  "median": -15.1,
   "min": -106.4,
-  "n": 17,
-  "q1": -50.8,
-  "q3": -7.6
+  "n": 22,
+  "q1": -39.4,
+  "q3": -3.8
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 982,
+  "hotspot_buckets": 993,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1037
+  "unreported_congestion": 1054
  },
  "sampling": {
   "flow_spent_this_month": 5219,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 912,
+  "incidents_spent_this_month": 913,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -139,6 +139,20 @@
    "seg": "30.292,-97.798"
   },
   {
+   "from": "FM-620 (W Parmer Ln/FM-734)",
+   "hour_of_week": 45,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.496,-97.774"
+  },
+  {
+   "from": "Panther Dr",
+   "hour_of_week": 47,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.475,-97.591"
+  },
+  {
    "from": "US-290/Exit 238 (I-35)",
    "hour_of_week": 45,
    "n": 2,
@@ -165,13 +179,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.408,-97.678"
-  },
-  {
-   "from": "US-290/Exit 238 (I-35)",
-   "hour_of_week": 43,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.353,-97.691"
   },
   {
    "from": "E 7th St (Springdale Rd)",
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.338,-97.695"
-  },
-  {
-   "from": "Congress Ave (W 5th St)",
-   "hour_of_week": 46,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.266,-97.738"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 75.8,
-  "tomtom": 96.7
+  "dispatch": 76.0,
+  "tomtom": 96.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 120,
-  "neither": 91,
+  "n": 121,
+  "neither": 92,
   "tomtom_only": 29
  }
 }
