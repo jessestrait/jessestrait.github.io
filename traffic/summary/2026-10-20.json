@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 111,
-  "dispatch_only": 87,
+  "dispatch": 114,
+  "dispatch_only": 90,
   "here": 0,
   "here_matched": 0,
   "matched": 32,
-  "tomtom": 916,
-  "tomtom_only": 887
+  "tomtom": 954,
+  "tomtom_only": 925
  },
  "date": "2026-10-20",
  "dispatch_life_capped": false,
@@ -23,9 +23,9 @@
   "max": 119.9,
   "median": 115.6,
   "min": 4.5,
-  "n": 79,
-  "q1": 69.4,
-  "q3": 117.6
+  "n": 81,
+  "q1": 71.0,
+  "q3": 117.8
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 9,
-   "n": 20,
-   "pct": 45.0
+   "n": 21,
+   "pct": 42.9
   },
   "dispatch_surface": {
    "matched": 15,
-   "n": 91,
-   "pct": 16.5
+   "n": 93,
+   "pct": 16.1
   },
   "tomtom_highway": {
-   "matched": 23,
-   "n": 477,
-   "pct": 4.8
+   "matched": 22,
+   "n": 496,
+   "pct": 4.4
   },
   "tomtom_surface": {
-   "matched": 6,
-   "n": 439,
-   "pct": 1.4
+   "matched": 7,
+   "n": 458,
+   "pct": 1.5
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 832,
+  "hotspot_buckets": 870,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 864
+  "unreported_congestion": 902
  },
  "sampling": {
   "flow_spent_this_month": 5210,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 907,
+  "incidents_spent_this_month": 908,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -137,13 +137,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.292,-97.798"
-  },
-  {
-   "from": "County Road 137",
-   "hour_of_week": 46,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.500,-97.575"
   },
   {
    "from": "US-290/Exit 238 (I-35)",
@@ -195,6 +188,13 @@
    "seg": "30.350,-97.713"
   },
   {
+   "from": "County Road 137",
+   "hour_of_week": 46,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.500,-97.575"
+  },
+  {
    "from": "Loralinda Dr",
    "hour_of_week": 46,
    "n": 2,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.4,
-  "tomtom": 96.8
+  "dispatch": 78.9,
+  "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 111,
-  "neither": 87,
+  "n": 114,
+  "neither": 90,
   "tomtom_only": 24
  }
 }
