@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 114,
-  "dispatch_only": 90,
+  "dispatch": 119,
+  "dispatch_only": 93,
   "here": 0,
   "here_matched": 0,
-  "matched": 33,
-  "tomtom": 998,
-  "tomtom_only": 968
+  "matched": 35,
+  "tomtom": 1037,
+  "tomtom_only": 1005
  },
  "date": "2026-10-20",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 115.7,
+  "median": 115.8,
   "min": 4.5,
-  "n": 82,
-  "q1": 71.8,
-  "q3": 117.7
+  "n": 84,
+  "q1": 73.7,
+  "q3": 117.9
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,19 +37,19 @@
    "pct": 42.9
   },
   "dispatch_surface": {
-   "matched": 15,
-   "n": 93,
-   "pct": 16.1
+   "matched": 17,
+   "n": 98,
+   "pct": 17.3
   },
   "tomtom_highway": {
    "matched": 22,
-   "n": 515,
-   "pct": 4.3
+   "n": 538,
+   "pct": 4.1
   },
   "tomtom_surface": {
-   "matched": 8,
-   "n": 483,
-   "pct": 1.7
+   "matched": 10,
+   "n": 499,
+   "pct": 2.0
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 75.7,
-  "median": 5.8,
+  "median": 3.5,
   "min": -87.3,
-  "n": 33,
-  "q1": -45.8,
-  "q3": 54.4
+  "n": 35,
+  "q1": -38.1,
+  "q3": 54.1
  },
  "persistence_min": {
   "max": 184.7,
-  "median": -15.1,
+  "median": -10.1,
   "min": -106.4,
-  "n": 12,
-  "q1": -85.3,
-  "q3": -10.1
+  "n": 14,
+  "q1": -62.4,
+  "q3": -5.1
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 909,
+  "hotspot_buckets": 939,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 945
+  "unreported_congestion": 982
  },
  "sampling": {
   "flow_spent_this_month": 5210,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 909,
+  "incidents_spent_this_month": 910,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -167,13 +167,6 @@
    "seg": "30.408,-97.678"
   },
   {
-   "from": "US-290/Exit 238 (I-35)",
-   "hour_of_week": 43,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.353,-97.691"
-  },
-  {
    "from": "E 7th St (Springdale Rd)",
    "hour_of_week": 137,
    "n": 2,
@@ -214,17 +207,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.266,-97.738"
+  },
+  {
+   "from": "Softwood Dr",
+   "hour_of_week": 46,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.184,-97.748"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.9,
-  "tomtom": 97.0
+  "dispatch": 78.2,
+  "tomtom": 96.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 114,
-  "neither": 90,
-  "tomtom_only": 24
+  "n": 119,
+  "neither": 93,
+  "tomtom_only": 26
  }
 }
