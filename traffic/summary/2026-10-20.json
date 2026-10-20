@@ -13,19 +13,19 @@
   "dispatch_only": 86,
   "here": 0,
   "here_matched": 0,
-  "matched": 30,
-  "tomtom": 827,
-  "tomtom_only": 801
+  "matched": 32,
+  "tomtom": 878,
+  "tomtom_only": 849
  },
  "date": "2026-10-20",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 115.5,
+  "median": 115.6,
   "min": 4.5,
-  "n": 74,
-  "q1": 67.2,
-  "q3": 117.7
+  "n": 76,
+  "q1": 67.9,
+  "q3": 117.8
  },
  "here_onset_offset_min": {
   "n": 0
@@ -42,14 +42,14 @@
    "pct": 16.7
   },
   "tomtom_highway": {
-   "matched": 19,
-   "n": 440,
-   "pct": 4.3
+   "matched": 23,
+   "n": 466,
+   "pct": 4.9
   },
   "tomtom_surface": {
-   "matched": 7,
-   "n": 387,
-   "pct": 1.8
+   "matched": 6,
+   "n": 412,
+   "pct": 1.5
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 75.7,
-  "median": 1.9,
+  "median": 4.7,
   "min": -87.3,
-  "n": 30,
-  "q1": -54.0,
-  "q3": 40.1
+  "n": 32,
+  "q1": -49.6,
+  "q3": 54.6
  },
  "persistence_min": {
-  "max": -5.0,
-  "median": -50.6,
+  "max": 184.7,
+  "median": -30.4,
   "min": -106.4,
-  "n": 9,
+  "n": 10,
   "q1": -96.7,
-  "q3": -10.1
+  "q3": -8.8
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 751,
+  "hotspot_buckets": 796,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 778
+  "unreported_congestion": 826
  },
  "sampling": {
   "flow_spent_this_month": 5201,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 905,
+  "incidents_spent_this_month": 906,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Metric Blvd (Research Blvd)",
+   "hour_of_week": 46,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.372,-97.724"
+  },
   {
    "from": "N Interstate 35",
    "hour_of_week": 29,
@@ -125,11 +132,11 @@
    "seg": "30.385,-97.673"
   },
   {
-   "from": "Metric Blvd (Research Blvd)",
+   "from": "Westlake Dr",
    "hour_of_week": 46,
    "n": 3,
    "roadworks": false,
-   "seg": "30.372,-97.724"
+   "seg": "30.292,-97.798"
   },
   {
    "from": "County Road 137",
@@ -167,6 +174,13 @@
    "seg": "30.408,-97.678"
   },
   {
+   "from": "US-290/Exit 238 (I-35)",
+   "hour_of_week": 43,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.353,-97.691"
+  },
+  {
    "from": "E 7th St (Springdale Rd)",
    "hour_of_week": 137,
    "n": 2,
@@ -174,25 +188,11 @@
    "seg": "30.256,-97.702"
   },
   {
-   "from": "Westlake Dr",
-   "hour_of_week": 46,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.292,-97.798"
-  },
-  {
    "from": "US Highway 183",
    "hour_of_week": 46,
    "n": 2,
    "roadworks": false,
    "seg": "30.350,-97.713"
-  },
-  {
-   "from": "Brodie Ln (Davis Ln)",
-   "hour_of_week": 46,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.192,-97.835"
   },
   {
    "from": "Loralinda Dr",
@@ -209,16 +209,16 @@
    "seg": "30.338,-97.695"
   },
   {
-   "from": "Manor Rd",
+   "from": "Softwood Dr",
    "hour_of_week": 46,
    "n": 2,
    "roadworks": false,
-   "seg": "30.306,-97.661"
+   "seg": "30.184,-97.748"
   }
  ],
  "unmatched_pct": {
   "dispatch": 78.2,
-  "tomtom": 96.9
+  "tomtom": 96.7
  },
  "witnesses": {
   "both": 0,
