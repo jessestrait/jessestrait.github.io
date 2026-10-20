@@ -13,9 +13,9 @@
   "dispatch_only": 93,
   "here": 0,
   "here_matched": 0,
-  "matched": 40,
-  "tomtom": 1147,
-  "tomtom_only": 1108
+  "matched": 41,
+  "tomtom": 1178,
+  "tomtom_only": 1138
  },
  "date": "2026-10-20",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.9,
   "median": 116.0,
   "min": 4.5,
-  "n": 89,
-  "q1": 81.6,
+  "n": 91,
+  "q1": 86.2,
   "q3": 117.8
  },
  "here_onset_offset_min": {
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 23,
-   "n": 590,
-   "pct": 3.9
+   "n": 606,
+   "pct": 3.8
   },
   "tomtom_surface": {
-   "matched": 16,
-   "n": 557,
-   "pct": 2.9
+   "matched": 17,
+   "n": 572,
+   "pct": 3.0
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 75.7,
-  "median": 6.8,
+  "median": 7.8,
   "min": -87.3,
-  "n": 40,
-  "q1": -34.9,
-  "q3": 35.7
+  "n": 41,
+  "q1": -34.2,
+  "q3": 35.6
  },
  "persistence_min": {
   "max": 225.5,
-  "median": -10.1,
+  "median": -20.2,
   "min": -106.4,
-  "n": 23,
-  "q1": -35.7,
-  "q3": 0.0
+  "n": 25,
+  "q1": -50.8,
+  "q3": -2.5
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1015,
+  "hotspot_buckets": 1039,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1085
+  "unreported_congestion": 1115
  },
  "sampling": {
-  "flow_spent_this_month": 5219,
+  "flow_spent_this_month": 5228,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 914,
+  "incidents_spent_this_month": 915,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -146,6 +146,20 @@
    "seg": "30.496,-97.774"
   },
   {
+   "from": "TX-212 Loop/Gregg Manor Rd/Murray Ave (US-290)",
+   "hour_of_week": 47,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.349,-97.542"
+  },
+  {
+   "from": "Dessau Rd",
+   "hour_of_week": 47,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.422,-97.620"
+  },
+  {
    "from": "Austin",
    "hour_of_week": 47,
    "n": 3,
@@ -153,18 +167,18 @@
    "seg": "30.166,-97.788"
   },
   {
-   "from": "Manor Rd",
-   "hour_of_week": 47,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.305,-97.661"
-  },
-  {
    "from": "Panther Dr",
    "hour_of_week": 47,
    "n": 3,
    "roadworks": false,
    "seg": "30.475,-97.591"
+  },
+  {
+   "from": "W 2nd St/W Willie Nelson Blvd (Colorado St)",
+   "hour_of_week": 47,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.264,-97.746"
   },
   {
    "from": "US-290/Exit 238 (I-35)",
@@ -200,20 +214,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.256,-97.702"
-  },
-  {
-   "from": "US Highway 183",
-   "hour_of_week": 46,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.350,-97.713"
-  },
-  {
-   "from": "County Road 137",
-   "hour_of_week": 46,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.500,-97.575"
   }
  ],
  "unmatched_pct": {
