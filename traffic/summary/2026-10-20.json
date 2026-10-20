@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 58,
-  "dispatch_only": 53,
+  "dispatch": 60,
+  "dispatch_only": 52,
   "here": 0,
   "here_matched": 0,
-  "matched": 5,
-  "tomtom": 279,
-  "tomtom_only": 275
+  "matched": 8,
+  "tomtom": 296,
+  "tomtom_only": 289
  },
  "date": "2026-10-20",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 115.7,
+  "median": 115.6,
   "min": 14.8,
-  "n": 44,
-  "q1": 66.7,
+  "n": 45,
+  "q1": 67.0,
   "q3": 117.8
  },
  "here_onset_offset_min": {
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 5,
-   "pct": 20.0
+   "n": 6,
+   "pct": 16.7
   },
   "dispatch_surface": {
-   "matched": 4,
-   "n": 53,
-   "pct": 7.5
+   "matched": 7,
+   "n": 54,
+   "pct": 13.0
   },
   "tomtom_highway": {
-   "matched": 2,
-   "n": 139,
-   "pct": 1.4
+   "matched": 4,
+   "n": 147,
+   "pct": 2.7
   },
   "tomtom_surface": {
-   "matched": 2,
-   "n": 140,
-   "pct": 1.4
+   "matched": 3,
+   "n": 149,
+   "pct": 2.0
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 54.1,
-  "median": -2.1,
+  "max": 61.1,
+  "median": 10.7,
   "min": -35.5,
-  "n": 5,
-  "q1": -34.2,
-  "q3": 44.8
+  "n": 8,
+  "q1": -25.2,
+  "q3": 49.5
  },
  "persistence_min": {
   "max": -10.1,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 244,
+  "hotspot_buckets": 257,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 256
+  "unreported_congestion": 270
  },
  "sampling": {
-  "flow_spent_this_month": 5147,
+  "flow_spent_this_month": 5156,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 899,
+  "incidents_spent_this_month": 900,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -137,6 +137,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.439,-97.677"
+  },
+  {
+   "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
+   "hour_of_week": 40,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.257,-97.737"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -207,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.377,-97.779"
-  },
-  {
-   "from": "US-183/Research Blvd (Burnet Rd)",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.380,-97.725"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 91.4,
-  "tomtom": 98.6
+  "dispatch": 86.7,
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 58,
-  "neither": 53,
-  "tomtom_only": 5
+  "n": 60,
+  "neither": 52,
+  "tomtom_only": 8
  }
 }
