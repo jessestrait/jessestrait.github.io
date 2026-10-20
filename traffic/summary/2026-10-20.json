@@ -9,47 +9,47 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 107,
-  "dispatch_only": 86,
+  "dispatch": 108,
+  "dispatch_only": 85,
   "here": 0,
   "here_matched": 0,
-  "matched": 22,
-  "tomtom": 730,
-  "tomtom_only": 711
+  "matched": 28,
+  "tomtom": 782,
+  "tomtom_only": 758
  },
  "date": "2026-10-20",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 115.4,
+  "median": 115.5,
   "min": 4.5,
-  "n": 73,
-  "q1": 67.0,
-  "q3": 117.6
+  "n": 74,
+  "q1": 67.2,
+  "q3": 117.7
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 8,
+   "matched": 9,
    "n": 20,
-   "pct": 40.0
+   "pct": 45.0
   },
   "dispatch_surface": {
-   "matched": 13,
-   "n": 87,
-   "pct": 14.9
+   "matched": 14,
+   "n": 88,
+   "pct": 15.9
   },
   "tomtom_highway": {
-   "matched": 15,
-   "n": 397,
-   "pct": 3.8
+   "matched": 20,
+   "n": 420,
+   "pct": 4.8
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 333,
-   "pct": 1.2
+   "n": 362,
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 65.5,
+  "max": 75.2,
   "median": 1.9,
   "min": -87.3,
-  "n": 22,
-  "q1": -42.5,
-  "q3": 34.8
+  "n": 28,
+  "q1": -51.4,
+  "q3": 35.2
  },
  "persistence_min": {
   "max": -5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 667,
+  "hotspot_buckets": 710,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 688
+  "unreported_congestion": 735
  },
  "sampling": {
   "flow_spent_this_month": 5201,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 903,
+  "incidents_spent_this_month": 904,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -153,13 +153,6 @@
    "seg": "30.408,-97.678"
   },
   {
-   "from": "US-290/Exit 238 (I-35)",
-   "hour_of_week": 43,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.353,-97.691"
-  },
-  {
    "from": "E 7th St (Springdale Rd)",
    "hour_of_week": 137,
    "n": 2,
@@ -167,64 +160,71 @@
    "seg": "30.256,-97.702"
   },
   {
-   "from": "E Ben White Blvd",
-   "hour_of_week": 44,
+   "from": "Westlake Dr",
+   "hour_of_week": 46,
    "n": 2,
    "roadworks": false,
-   "seg": "30.217,-97.751"
+   "seg": "30.292,-97.798"
   },
   {
-   "from": "Adage Dr / Epiphany Ln",
-   "hour_of_week": 59,
+   "from": "Metric Blvd (Research Blvd)",
+   "hour_of_week": 46,
    "n": 2,
    "roadworks": false,
-   "seg": "30.448,-97.631"
+   "seg": "30.372,-97.724"
   },
   {
-   "from": "N Interstate 35",
-   "hour_of_week": 19,
+   "from": "County Road 137",
+   "hour_of_week": 46,
    "n": 2,
    "roadworks": false,
-   "seg": "30.320,-97.706"
+   "seg": "30.500,-97.575"
   },
   {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
+   "from": "Loralinda Dr",
+   "hour_of_week": 46,
    "n": 2,
    "roadworks": false,
-   "seg": "30.245,-97.744"
+   "seg": "30.341,-97.692"
   },
   {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
+   "from": "Manor Rd",
+   "hour_of_week": 46,
    "n": 2,
    "roadworks": false,
-   "seg": "30.234,-97.736"
+   "seg": "30.306,-97.661"
   },
   {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
+   "from": "Steck Ave (Burnet Rd)",
+   "hour_of_week": 46,
    "n": 2,
    "roadworks": false,
-   "seg": "30.148,-97.704"
+   "seg": "30.373,-97.726"
   },
   {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
+   "from": "FM-1825/Pecan St E/Pfluderville East Rd (TX-130)",
+   "hour_of_week": 45,
    "n": 2,
    "roadworks": false,
-   "seg": "30.179,-97.616"
+   "seg": "30.469,-97.593"
+  },
+  {
+   "from": "San Antonio St (2nd St)",
+   "hour_of_week": 46,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.265,-97.746"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.4,
-  "tomtom": 97.4
+  "dispatch": 78.7,
+  "tomtom": 96.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 107,
-  "neither": 86,
-  "tomtom_only": 21
+  "n": 108,
+  "neither": 85,
+  "tomtom_only": 23
  }
 }
