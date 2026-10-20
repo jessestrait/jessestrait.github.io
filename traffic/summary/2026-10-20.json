@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch record lifetimes look like real clearances this day, not a cap.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 90, q3 118 min over 94 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 122,
+  "dispatch": 123,
   "dispatch_only": 93,
   "here": 0,
   "here_matched": 0,
-  "matched": 41,
-  "tomtom": 1178,
-  "tomtom_only": 1138
+  "matched": 42,
+  "tomtom": 1191,
+  "tomtom_only": 1150
  },
  "date": "2026-10-20",
- "dispatch_life_capped": false,
+ "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.0,
+  "median": 116.1,
   "min": 4.5,
-  "n": 91,
-  "q1": 86.2,
+  "n": 94,
+  "q1": 89.7,
   "q3": 117.8
  },
  "here_onset_offset_min": {
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 9,
-   "n": 22,
-   "pct": 40.9
+   "matched": 10,
+   "n": 23,
+   "pct": 43.5
   },
   "dispatch_surface": {
    "matched": 20,
@@ -42,14 +42,14 @@
    "pct": 20.0
   },
   "tomtom_highway": {
-   "matched": 23,
-   "n": 606,
-   "pct": 3.8
+   "matched": 24,
+   "n": 608,
+   "pct": 3.9
   },
   "tomtom_surface": {
    "matched": 17,
-   "n": 572,
-   "pct": 3.0
+   "n": 583,
+   "pct": 2.9
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 75.7,
-  "median": 7.8,
+  "median": 6.8,
   "min": -87.3,
-  "n": 41,
-  "q1": -34.2,
-  "q3": 35.6
+  "n": 42,
+  "q1": -33.5,
+  "q3": 35.5
  },
  "persistence_min": {
   "max": 225.5,
@@ -72,7 +72,8 @@
   "min": -106.4,
   "n": 25,
   "q1": -50.8,
-  "q3": -2.5
+  "q3": -2.5,
+  "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1039,
+  "hotspot_buckets": 1049,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1115
+  "unreported_congestion": 1127
  },
  "sampling": {
   "flow_spent_this_month": 5228,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 915,
+  "incidents_spent_this_month": 916,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -195,6 +196,13 @@
    "seg": "30.439,-97.677"
   },
   {
+   "from": "Barton Springs Rd",
+   "hour_of_week": 162,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.269,-97.769"
+  },
+  {
    "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
    "hour_of_week": 40,
    "n": 2,
@@ -207,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.408,-97.678"
-  },
-  {
-   "from": "E 7th St (Springdale Rd)",
-   "hour_of_week": 137,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.256,-97.702"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.2,
+  "dispatch": 75.6,
   "tomtom": 96.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 122,
+  "n": 123,
   "neither": 93,
-  "tomtom_only": 29
+  "tomtom_only": 30
  }
 }
