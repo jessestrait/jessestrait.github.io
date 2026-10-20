@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 72,
-  "dispatch_only": 64,
+  "dispatch_only": 62,
   "here": 0,
   "here_matched": 0,
-  "matched": 8,
-  "tomtom": 315,
-  "tomtom_only": 308
+  "matched": 10,
+  "tomtom": 359,
+  "tomtom_only": 350
  },
  "date": "2026-10-20",
  "dispatch_life_capped": true,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
+   "matched": 2,
    "n": 10,
-   "pct": 10.0
+   "pct": 20.0
   },
   "dispatch_surface": {
-   "matched": 7,
+   "matched": 8,
    "n": 62,
-   "pct": 11.3
+   "pct": 12.9
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 159,
-   "pct": 2.5
+   "matched": 6,
+   "n": 190,
+   "pct": 3.2
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 156,
-   "pct": 1.9
+   "n": 169,
+   "pct": 1.8
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 61.1,
   "median": 10.7,
   "min": -35.5,
-  "n": 8,
-  "q1": -25.2,
-  "q3": 49.5
+  "n": 10,
+  "q1": -9.8,
+  "q3": 40.1
  },
  "persistence_min": {
   "max": -10.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 276,
+  "hotspot_buckets": 315,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 289
+  "unreported_congestion": 329
  },
  "sampling": {
   "flow_spent_this_month": 5192,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 901,
+  "incidents_spent_this_month": 902,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -189,6 +189,13 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "N Lamar Blvd",
+   "hour_of_week": 43,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.408,-97.678"
+  },
+  {
    "from": "Steck Rd",
    "hour_of_week": 23,
    "n": 1,
@@ -208,24 +215,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.359,-97.793"
-  },
-  {
-   "from": "FM-2222 (TX-360 Loop/N Capital of Texas Hwy)",
-   "hour_of_week": 21,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.377,-97.779"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.9,
-  "tomtom": 97.8
+  "dispatch": 86.1,
+  "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 72,
-  "neither": 64,
-  "tomtom_only": 8
+  "neither": 62,
+  "tomtom_only": 10
  }
 }
