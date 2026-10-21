@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 91, q3 117 min over 52 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch record lifetimes look like real clearances this day, not a cap.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 61,
-  "dispatch_only": 58,
+  "dispatch": 70,
+  "dispatch_only": 67,
   "here": 0,
   "here_matched": 0,
   "matched": 3,
-  "tomtom": 395,
-  "tomtom_only": 392
+  "tomtom": 430,
+  "tomtom_only": 427
  },
  "date": "2026-10-21",
- "dispatch_life_capped": true,
+ "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.2,
-  "min": 24.7,
-  "n": 52,
-  "q1": 90.8,
-  "q3": 117.4
+  "median": 115.7,
+  "min": 4.8,
+  "n": 61,
+  "q1": 64.6,
+  "q3": 117.2
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 2,
-   "n": 48,
-   "pct": 4.2
+   "n": 57,
+   "pct": 3.5
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 195,
+   "n": 209,
    "pct": 1.0
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 200,
+   "n": 221,
    "pct": 0.5
   }
  },
@@ -67,13 +67,12 @@
   "q3": 10.4
  },
  "persistence_min": {
-  "max": -91.6,
+  "max": 0.0,
   "median": -91.6,
   "min": -91.6,
-  "n": 2,
+  "n": 3,
   "q1": -91.6,
-  "q3": -91.6,
-  "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
+  "q3": 0.0
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -90,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 361,
+  "hotspot_buckets": 392,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 368
+  "unreported_congestion": 403
  },
  "sampling": {
-  "flow_spent_this_month": 5336,
+  "flow_spent_this_month": 5345,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 929,
+  "incidents_spent_this_month": 930,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -108,15 +107,29 @@
    18
   ],
   "rush_min": 5,
-  "this_poll": "rush"
+  "this_poll": "off-peak"
  },
  "structural_hotspots": [
+  {
+   "from": "Howard Ln/Exit 246 (I-35)",
+   "hour_of_week": 54,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.436,-97.669"
+  },
   {
    "from": "E Stassney Ln",
    "hour_of_week": 54,
    "n": 2,
    "roadworks": false,
    "seg": "30.192,-97.732"
+  },
+  {
+   "from": "Spiers Way",
+   "hour_of_week": 62,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.169,-97.623"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -147,6 +160,13 @@
    "seg": "30.234,-97.736"
   },
   {
+   "from": "Ramirez Ln",
+   "hour_of_week": 113,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.244,-97.663"
+  },
+  {
    "from": "Ellas Inlet Dr / Felix Sparke Dr",
    "hour_of_week": 68,
    "n": 2,
@@ -159,6 +179,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
+  },
+  {
+   "from": "E 7th St (Springdale Rd)",
+   "hour_of_week": 63,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.259,-97.700"
   },
   {
    "from": "Lakeline Blvd (S Bell Blvd/US-183)",
@@ -187,45 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.504,-97.684"
-  },
-  {
-   "from": "N Georgetown St",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.518,-97.671"
-  },
-  {
-   "from": "CR-172 (McNeil Rd)",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.501,-97.684"
-  },
-  {
-   "from": "Highway 45",
-   "hour_of_week": 44,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.488,-97.676"
-  },
-  {
-   "from": "Austin",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.391,-97.740"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 95.1,
-  "tomtom": 99.2
+  "dispatch": 95.7,
+  "tomtom": 99.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 61,
-  "neither": 58,
+  "n": 70,
+  "neither": 67,
   "tomtom_only": 3
  }
 }
