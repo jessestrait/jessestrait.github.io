@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 15,
-  "tomtom": 862,
-  "tomtom_only": 844
+  "tomtom": 948,
+  "tomtom_only": 930
  },
  "date": "2026-10-21",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 10,
-   "n": 426,
-   "pct": 2.3
+   "n": 471,
+   "pct": 2.1
   },
   "tomtom_surface": {
    "matched": 8,
-   "n": 436,
-   "pct": 1.8
+   "n": 477,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 796,
+  "hotspot_buckets": 877,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 818
+  "unreported_congestion": 904
  },
  "sampling": {
   "flow_spent_this_month": 5444,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 937,
+  "incidents_spent_this_month": 938,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -139,13 +139,6 @@
    "seg": "30.290,-97.828"
   },
   {
-   "from": "Mopac Expy S",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.380,-97.738"
-  },
-  {
    "from": "Chicon St (E Cesar Chavez St/E 1st St)",
    "hour_of_week": 68,
    "n": 2,
@@ -167,11 +160,39 @@
    "seg": "30.496,-97.774"
   },
   {
+   "from": "US Highway 183",
+   "hour_of_week": 69,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.470,-97.797"
+  },
+  {
+   "from": "S Interstate 35",
+   "hour_of_week": 69,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.502,-97.682"
+  },
+  {
    "from": "Metric Blvd (W Parmer Ln/FM-734)",
    "hour_of_week": 69,
    "n": 2,
    "roadworks": false,
    "seg": "30.408,-97.678"
+  },
+  {
+   "from": "Airport Blvd (E Koenig Ln/FM-2222)",
+   "hour_of_week": 69,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.325,-97.725"
+  },
+  {
+   "from": "New Hope Dr (Whitestone Blvd)",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.514,-97.853"
   },
   {
    "from": "Steck Ave",
@@ -188,37 +209,16 @@
    "seg": "30.395,-97.721"
   },
   {
-   "from": "Metric Blvd",
+   "from": "Friendship Quilt Ln",
    "hour_of_week": 69,
    "n": 2,
    "roadworks": false,
-   "seg": "30.372,-97.724"
-  },
-  {
-   "from": "FM-2222/Northland Dr (TX-1)",
-   "hour_of_week": 67,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.286,-97.764"
-  },
-  {
-   "from": "Barton Springs Rd (S Congress Ave)",
-   "hour_of_week": 69,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.263,-97.745"
-  },
-  {
-   "from": "Adage Dr / Epiphany Ln",
-   "hour_of_week": 59,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.448,-97.631"
+   "seg": "30.429,-97.635"
   }
  ],
  "unmatched_pct": {
   "dispatch": 86.3,
-  "tomtom": 97.9
+  "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
