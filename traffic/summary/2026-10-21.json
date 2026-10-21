@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 95,
-  "dispatch_only": 82,
+  "dispatch": 96,
+  "dispatch_only": 83,
   "here": 0,
   "here_matched": 0,
   "matched": 15,
-  "tomtom": 948,
-  "tomtom_only": 930
+  "tomtom": 1016,
+  "tomtom_only": 998
  },
  "date": "2026-10-21",
  "dispatch_life_capped": false,
@@ -33,8 +33,8 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 4,
-   "n": 19,
-   "pct": 21.1
+   "n": 20,
+   "pct": 20.0
   },
   "dispatch_surface": {
    "matched": 9,
@@ -42,14 +42,14 @@
    "pct": 11.8
   },
   "tomtom_highway": {
-   "matched": 10,
-   "n": 471,
-   "pct": 2.1
+   "matched": 11,
+   "n": 498,
+   "pct": 2.2
   },
   "tomtom_surface": {
-   "matched": 8,
-   "n": 477,
-   "pct": 1.7
+   "matched": 7,
+   "n": 518,
+   "pct": 1.4
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 877,
+  "hotspot_buckets": 943,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 904
+  "unreported_congestion": 972
  },
  "sampling": {
   "flow_spent_this_month": 5444,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 938,
+  "incidents_spent_this_month": 939,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Metric Blvd (W Parmer Ln/FM-734)",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.408,-97.678"
+  },
   {
    "from": "Howard Ln/Exit 246 (I-35)",
    "hour_of_week": 54,
@@ -174,13 +181,6 @@
    "seg": "30.502,-97.682"
   },
   {
-   "from": "Metric Blvd (W Parmer Ln/FM-734)",
-   "hour_of_week": 69,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.408,-97.678"
-  },
-  {
    "from": "Airport Blvd (E Koenig Ln/FM-2222)",
    "hour_of_week": 69,
    "n": 2,
@@ -188,11 +188,11 @@
    "seg": "30.325,-97.725"
   },
   {
-   "from": "New Hope Dr (Whitestone Blvd)",
-   "hour_of_week": 68,
+   "from": "N Lamar Blvd",
+   "hour_of_week": 69,
    "n": 2,
    "roadworks": false,
-   "seg": "30.514,-97.853"
+   "seg": "30.267,-97.755"
   },
   {
    "from": "Steck Ave",
@@ -209,22 +209,22 @@
    "seg": "30.395,-97.721"
   },
   {
-   "from": "Friendship Quilt Ln",
+   "from": "TX-1 Loop/TX-1 (Research Blvd)",
    "hour_of_week": 69,
    "n": 2,
    "roadworks": false,
-   "seg": "30.429,-97.635"
+   "seg": "30.374,-97.729"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.3,
-  "tomtom": 98.1
+  "dispatch": 86.5,
+  "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 95,
-  "neither": 82,
+  "n": 96,
+  "neither": 83,
   "tomtom_only": 13
  }
 }
