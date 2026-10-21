@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 95,
-  "dispatch_only": 83,
+  "dispatch_only": 82,
   "here": 0,
   "here_matched": 0,
-  "matched": 14,
-  "tomtom": 816,
-  "tomtom_only": 799
+  "matched": 15,
+  "tomtom": 862,
+  "tomtom_only": 844
  },
  "date": "2026-10-21",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 21.1
   },
   "dispatch_surface": {
-   "matched": 8,
+   "matched": 9,
    "n": 76,
-   "pct": 10.5
+   "pct": 11.8
   },
   "tomtom_highway": {
-   "matched": 9,
-   "n": 405,
-   "pct": 2.2
+   "matched": 10,
+   "n": 426,
+   "pct": 2.3
   },
   "tomtom_surface": {
    "matched": 8,
-   "n": 411,
-   "pct": 1.9
+   "n": 436,
+   "pct": 1.8
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 64.2,
-  "median": -0.5,
+  "median": 3.8,
   "min": -49.7,
-  "n": 14,
-  "q1": -20.2,
-  "q3": 21.0
+  "n": 15,
+  "q1": -19.6,
+  "q3": 31.4
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 757,
+  "hotspot_buckets": 796,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 773
+  "unreported_congestion": 818
  },
  "sampling": {
-  "flow_spent_this_month": 5435,
+  "flow_spent_this_month": 5444,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 936,
+  "incidents_spent_this_month": 937,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -139,6 +139,13 @@
    "seg": "30.290,-97.828"
   },
   {
+   "from": "Mopac Expy S",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.380,-97.738"
+  },
+  {
    "from": "Chicon St (E Cesar Chavez St/E 1st St)",
    "hour_of_week": 68,
    "n": 2,
@@ -153,18 +160,53 @@
    "seg": "30.256,-97.702"
   },
   {
-   "from": "S Mo Pac Expy",
+   "from": "FM-620 (W Parmer Ln/FM-734)",
    "hour_of_week": 68,
    "n": 2,
    "roadworks": false,
-   "seg": "30.265,-97.784"
+   "seg": "30.496,-97.774"
   },
   {
-   "from": "Merriltown Rd",
+   "from": "Metric Blvd (W Parmer Ln/FM-734)",
+   "hour_of_week": 69,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.408,-97.678"
+  },
+  {
+   "from": "Steck Ave",
    "hour_of_week": 68,
    "n": 2,
    "roadworks": false,
-   "seg": "30.442,-97.683"
+   "seg": "30.392,-97.733"
+  },
+  {
+   "from": "Esperanza Xing",
+   "hour_of_week": 69,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.395,-97.721"
+  },
+  {
+   "from": "Metric Blvd",
+   "hour_of_week": 69,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.372,-97.724"
+  },
+  {
+   "from": "FM-2222/Northland Dr (TX-1)",
+   "hour_of_week": 67,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.286,-97.764"
+  },
+  {
+   "from": "Barton Springs Rd (S Congress Ave)",
+   "hour_of_week": 69,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.263,-97.745"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -172,59 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.448,-97.631"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 19,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.320,-97.706"
-  },
-  {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.245,-97.744"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.234,-97.736"
-  },
-  {
-   "from": "E 7th St (Springdale Rd)",
-   "hour_of_week": 63,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.259,-97.700"
-  },
-  {
-   "from": "Ramirez Ln",
-   "hour_of_week": 113,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.244,-97.663"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.148,-97.704"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.4,
+  "dispatch": 86.3,
   "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 95,
-  "neither": 83,
-  "tomtom_only": 12
+  "neither": 82,
+  "tomtom_only": 13
  }
 }
