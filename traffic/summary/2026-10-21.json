@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 88,
-  "dispatch_only": 82,
+  "dispatch": 89,
+  "dispatch_only": 81,
   "here": 0,
   "here_matched": 0,
-  "matched": 6,
-  "tomtom": 508,
-  "tomtom_only": 500
+  "matched": 8,
+  "tomtom": 624,
+  "tomtom_only": 614
  },
  "date": "2026-10-21",
  "dispatch_life_capped": false,
@@ -23,33 +23,33 @@
   "max": 120.0,
   "median": 116.2,
   "min": 4.8,
-  "n": 77,
-  "q1": 80.1,
-  "q3": 117.6
+  "n": 78,
+  "q1": 83.4,
+  "q3": 117.7
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 2,
-   "n": 17,
-   "pct": 11.8
+   "matched": 3,
+   "n": 18,
+   "pct": 16.7
   },
   "dispatch_surface": {
-   "matched": 4,
+   "matched": 5,
    "n": 71,
-   "pct": 5.6
+   "pct": 7.0
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 259,
-   "pct": 1.5
+   "matched": 6,
+   "n": 306,
+   "pct": 2.0
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 249,
-   "pct": 1.6
+   "n": 318,
+   "pct": 1.3
   }
  },
  "matcher": {
@@ -59,20 +59,20 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 17.5,
-  "median": 2.9,
+  "max": 60.1,
+  "median": 13.2,
   "min": -19.6,
-  "n": 6,
-  "q1": -11.8,
-  "q3": 16.3
+  "n": 8,
+  "q1": -8.1,
+  "q3": 22.5
  },
  "persistence_min": {
   "max": 0.0,
   "median": -91.6,
-  "min": -91.6,
-  "n": 3,
-  "q1": -91.6,
-  "q3": 0.0
+  "min": -1228.7,
+  "n": 4,
+  "q1": -944.4,
+  "q3": -22.9
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 464,
+  "hotspot_buckets": 576,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 475
+  "unreported_congestion": 588
  },
  "sampling": {
-  "flow_spent_this_month": 5417,
+  "flow_spent_this_month": 5426,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 933,
+  "incidents_spent_this_month": 934,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -188,6 +188,13 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "Gold Fish Pond Ave",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.442,-97.683"
+  },
+  {
    "from": "Lakeline Blvd (S Bell Blvd/US-183)",
    "hour_of_week": 47,
    "n": 1,
@@ -207,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.475,-97.794"
-  },
-  {
-   "from": "FM-1325/Exit 250 (I-35)",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.504,-97.684"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 93.2,
+  "dispatch": 91.0,
   "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 88,
-  "neither": 82,
-  "tomtom_only": 6
+  "n": 89,
+  "neither": 81,
+  "tomtom_only": 8
  }
 }
