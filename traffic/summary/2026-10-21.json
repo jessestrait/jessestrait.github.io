@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 96,
-  "dispatch_only": 83,
+  "dispatch": 100,
+  "dispatch_only": 87,
   "here": 0,
   "here_matched": 0,
-  "matched": 15,
-  "tomtom": 1016,
-  "tomtom_only": 998
+  "matched": 16,
+  "tomtom": 1100,
+  "tomtom_only": 1080
  },
  "date": "2026-10-21",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 9,
-   "n": 76,
-   "pct": 11.8
+   "n": 80,
+   "pct": 11.2
   },
   "tomtom_highway": {
-   "matched": 11,
-   "n": 498,
+   "matched": 12,
+   "n": 543,
    "pct": 2.2
   },
   "tomtom_surface": {
-   "matched": 7,
-   "n": 518,
+   "matched": 8,
+   "n": 557,
    "pct": 1.4
   }
  },
@@ -59,20 +59,20 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 64.2,
-  "median": 3.8,
+  "max": 75.2,
+  "median": 7.1,
   "min": -49.7,
-  "n": 15,
-  "q1": -19.6,
-  "q3": 31.4
+  "n": 16,
+  "q1": -17.1,
+  "q3": 37.4
  },
  "persistence_min": {
-  "max": 0.0,
+  "max": 25.4,
   "median": -91.6,
   "min": -1228.7,
-  "n": 4,
-  "q1": -944.4,
-  "q3": -22.9
+  "n": 5,
+  "q1": -660.2,
+  "q3": 12.7
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 943,
+  "hotspot_buckets": 1012,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 972
+  "unreported_congestion": 1054
  },
  "sampling": {
   "flow_spent_this_month": 5444,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 939,
+  "incidents_spent_this_month": 940,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,11 +111,25 @@
  },
  "structural_hotspots": [
   {
+   "from": "S Interstate 35",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.502,-97.682"
+  },
+  {
    "from": "Metric Blvd (W Parmer Ln/FM-734)",
    "hour_of_week": 69,
    "n": 3,
    "roadworks": false,
    "seg": "30.408,-97.678"
+  },
+  {
+   "from": "Metric Blvd",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.372,-97.724"
   },
   {
    "from": "Howard Ln/Exit 246 (I-35)",
@@ -174,18 +188,18 @@
    "seg": "30.470,-97.797"
   },
   {
-   "from": "S Interstate 35",
-   "hour_of_week": 69,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.502,-97.682"
-  },
-  {
    "from": "Airport Blvd (E Koenig Ln/FM-2222)",
    "hour_of_week": 69,
    "n": 2,
    "roadworks": false,
    "seg": "30.325,-97.725"
+  },
+  {
+   "from": "Panther Dr",
+   "hour_of_week": 69,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.475,-97.592"
   },
   {
    "from": "N Lamar Blvd",
@@ -195,36 +209,22 @@
    "seg": "30.267,-97.755"
   },
   {
-   "from": "Steck Ave",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.392,-97.733"
-  },
-  {
-   "from": "Esperanza Xing",
+   "from": "TX-183A (Avery Ranch Blvd)",
    "hour_of_week": 69,
    "n": 2,
    "roadworks": false,
-   "seg": "30.395,-97.721"
-  },
-  {
-   "from": "TX-1 Loop/TX-1 (Research Blvd)",
-   "hour_of_week": 69,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.374,-97.729"
+   "seg": "30.498,-97.777"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.5,
+  "dispatch": 87.0,
   "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 96,
-  "neither": 83,
+  "n": 100,
+  "neither": 87,
   "tomtom_only": 13
  }
 }
