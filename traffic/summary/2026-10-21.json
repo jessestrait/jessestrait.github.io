@@ -13,9 +13,9 @@
   "dispatch_only": 83,
   "here": 0,
   "here_matched": 0,
-  "matched": 13,
-  "tomtom": 766,
-  "tomtom_only": 751
+  "matched": 14,
+  "tomtom": 816,
+  "tomtom_only": 799
  },
  "date": "2026-10-21",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 120.0,
   "median": 116.3,
   "min": 4.8,
-  "n": 82,
-  "q1": 87.3,
+  "n": 83,
+  "q1": 87.5,
   "q3": 117.8
  },
  "here_onset_offset_min": {
@@ -42,14 +42,14 @@
    "pct": 10.5
   },
   "tomtom_highway": {
-   "matched": 7,
-   "n": 377,
-   "pct": 1.9
+   "matched": 9,
+   "n": 405,
+   "pct": 2.2
   },
   "tomtom_surface": {
    "matched": 8,
-   "n": 389,
-   "pct": 2.1
+   "n": 411,
+   "pct": 1.9
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 60.1,
-  "median": 3.8,
+  "max": 64.2,
+  "median": -0.5,
   "min": -49.7,
-  "n": 13,
-  "q1": -14.5,
-  "q3": 20.9
+  "n": 14,
+  "q1": -20.2,
+  "q3": 21.0
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 710,
+  "hotspot_buckets": 757,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 725
+  "unreported_congestion": 773
  },
  "sampling": {
   "flow_spent_this_month": 5435,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 935,
+  "incidents_spent_this_month": 936,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -151,6 +151,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.256,-97.702"
+  },
+  {
+   "from": "S Mo Pac Expy",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.265,-97.784"
   },
   {
    "from": "Merriltown Rd",
@@ -207,18 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.616"
   }
  ],
  "unmatched_pct": {
   "dispatch": 87.4,
-  "tomtom": 98.0
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
