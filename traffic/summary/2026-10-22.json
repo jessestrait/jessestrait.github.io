@@ -13,17 +13,17 @@
   "dispatch_only": 41,
   "here": 0,
   "here_matched": 0,
-  "matched": 12,
-  "tomtom": 505,
-  "tomtom_only": 493
+  "matched": 13,
+  "tomtom": 530,
+  "tomtom_only": 517
  },
  "date": "2026-10-22",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 73.3,
+  "median": 74.6,
   "min": 4.3,
-  "n": 28,
+  "n": 29,
   "q1": 32.4,
   "q3": 116.9
  },
@@ -42,14 +42,14 @@
    "pct": 20.5
   },
   "tomtom_highway": {
-   "matched": 5,
-   "n": 257,
-   "pct": 1.9
+   "matched": 6,
+   "n": 267,
+   "pct": 2.2
   },
   "tomtom_surface": {
    "matched": 7,
-   "n": 248,
-   "pct": 2.8
+   "n": 263,
+   "pct": 2.7
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 75.2,
-  "median": -1.1,
+  "median": 7.3,
   "min": -69.9,
-  "n": 12,
-  "q1": -37.6,
-  "q3": 57.7
+  "n": 13,
+  "q1": -36.0,
+  "q3": 53.0
  },
  "persistence_min": {
-  "max": 0.0,
+  "max": 157.8,
   "median": 0.0,
   "min": 0.0,
-  "n": 4,
+  "n": 6,
   "q1": 0.0,
-  "q3": 0.0
+  "q3": 157.8
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 458,
+  "hotspot_buckets": 482,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 474
+  "unreported_congestion": 498
  },
  "sampling": {
   "flow_spent_this_month": 5471,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 941,
+  "incidents_spent_this_month": 942,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -132,11 +132,11 @@
    "seg": "30.280,-97.750"
   },
   {
-   "from": "E Cesar Chavez St",
-   "hour_of_week": 69,
+   "from": "Berrywood Dr/Meadow Lark Ave (I-35)",
+   "hour_of_week": 45,
    "n": 2,
    "roadworks": false,
-   "seg": "30.263,-97.743"
+   "seg": "30.385,-97.673"
   },
   {
    "from": "Brodie Ln",
@@ -218,7 +218,7 @@
  ],
  "unmatched_pct": {
   "dispatch": 77.4,
-  "tomtom": 97.6
+  "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
