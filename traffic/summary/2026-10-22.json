@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 109, q3 118 min over 99 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 110, q3 118 min over 100 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 121,
+  "dispatch": 122,
   "dispatch_only": 95,
   "here": 0,
   "here_matched": 0,
-  "matched": 35,
-  "tomtom": 1221,
-  "tomtom_only": 1183
+  "matched": 36,
+  "tomtom": 1247,
+  "tomtom_only": 1208
  },
  "date": "2026-10-22",
  "dispatch_life_capped": true,
@@ -23,8 +23,8 @@
   "max": 119.8,
   "median": 116.5,
   "min": 4.3,
-  "n": 99,
-  "q1": 109.0,
+  "n": 100,
+  "q1": 110.4,
   "q3": 117.7
  },
  "here_onset_offset_min": {
@@ -37,18 +37,18 @@
    "pct": 25.0
   },
   "dispatch_surface": {
-   "matched": 20,
-   "n": 97,
-   "pct": 20.6
+   "matched": 21,
+   "n": 98,
+   "pct": 21.4
   },
   "tomtom_highway": {
    "matched": 19,
-   "n": 619,
-   "pct": 3.1
+   "n": 631,
+   "pct": 3.0
   },
   "tomtom_surface": {
-   "matched": 19,
-   "n": 602,
+   "matched": 20,
+   "n": 616,
    "pct": 3.2
   }
  },
@@ -60,9 +60,9 @@
  },
  "onset_offset_min": {
   "max": 87.9,
-  "median": 1.6,
+  "median": 0.7,
   "min": -69.9,
-  "n": 35,
+  "n": 36,
   "q1": -21.1,
   "q3": 43.6
  },
@@ -70,8 +70,8 @@
   "max": 157.8,
   "median": -40.5,
   "min": -137.2,
-  "n": 21,
-  "q1": -99.2,
+  "n": 23,
+  "q1": -81.4,
   "q3": 0.0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1075,
+  "hotspot_buckets": 1100,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1159
+  "unreported_congestion": 1184
  },
  "sampling": {
   "flow_spent_this_month": 5579,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 966,
+  "incidents_spent_this_month": 967,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -131,13 +131,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.162,-97.789"
-  },
-  {
-   "from": "E William Cannon Dr",
-   "hour_of_week": 84,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.190,-97.770"
   },
   {
    "from": "McKinney Falls Pkwy (Burleson Rd)",
@@ -215,17 +208,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.287,-97.727"
+  },
+  {
+   "from": "12th St exit [234C]",
+   "hour_of_week": 74,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.274,-97.732"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.5,
+  "dispatch": 77.9,
   "tomtom": 96.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 121,
+  "n": 122,
   "neither": 95,
-  "tomtom_only": 26
+  "tomtom_only": 27
  }
 }
