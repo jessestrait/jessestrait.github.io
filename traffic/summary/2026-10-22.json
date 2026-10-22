@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 109, q3 118 min over 158 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 110, q3 118 min over 160 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -10,21 +10,21 @@
  ],
  "counts": {
   "dispatch": 191,
-  "dispatch_only": 144,
+  "dispatch_only": 143,
   "here": 0,
   "here_matched": 0,
-  "matched": 69,
-  "tomtom": 2322,
-  "tomtom_only": 2241
+  "matched": 70,
+  "tomtom": 2395,
+  "tomtom_only": 2313
  },
  "date": "2026-10-22",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.5,
+  "median": 116.6,
   "min": 4.3,
-  "n": 158,
-  "q1": 108.8,
+  "n": 160,
+  "q1": 110.2,
   "q3": 117.8
  },
  "here_onset_offset_min": {
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 13,
+   "matched": 14,
    "n": 39,
-   "pct": 33.3
+   "pct": 35.9
   },
   "dispatch_surface": {
    "matched": 34,
@@ -42,14 +42,14 @@
    "pct": 22.4
   },
   "tomtom_highway": {
-   "matched": 47,
-   "n": 1144,
+   "matched": 48,
+   "n": 1177,
    "pct": 4.1
   },
   "tomtom_surface": {
    "matched": 34,
-   "n": 1178,
-   "pct": 2.9
+   "n": 1218,
+   "pct": 2.8
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 89.3,
-  "median": 17.7,
+  "median": 18.5,
   "min": -69.9,
-  "n": 69,
-  "q1": -13.3,
-  "q3": 60.5
+  "n": 70,
+  "q1": -12.4,
+  "q3": 62.5
  },
  "persistence_min": {
   "max": 157.8,
-  "median": -63.7,
+  "median": -66.2,
   "min": -1035.2,
-  "n": 48,
-  "q1": -92.2,
-  "q3": -29.3,
+  "n": 49,
+  "q1": -92.1,
+  "q3": -33.0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2052,
+  "hotspot_buckets": 2107,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2213
+  "unreported_congestion": 2285
  },
  "sampling": {
   "flow_spent_this_month": 5696,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 985,
+  "incidents_spent_this_month": 986,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -189,43 +189,43 @@
    "seg": "30.350,-97.556"
   },
   {
-   "from": "Metric Blvd",
-   "hour_of_week": 69,
-   "n": 2,
+   "from": "W Guadalupe St (N Lamar Blvd)",
+   "hour_of_week": 93,
+   "n": 3,
    "roadworks": false,
-   "seg": "30.372,-97.724"
+   "seg": "30.315,-97.737"
   },
   {
-   "from": "Howard Ln/Exit 246 (I-35)",
-   "hour_of_week": 69,
-   "n": 2,
+   "from": "N Interstate 35",
+   "hour_of_week": 93,
+   "n": 3,
    "roadworks": false,
-   "seg": "30.399,-97.673"
+   "seg": "30.263,-97.735"
   },
   {
-   "from": "W 15th St",
-   "hour_of_week": 69,
-   "n": 2,
+   "from": "Dessau Rd",
+   "hour_of_week": 93,
+   "n": 3,
    "roadworks": false,
-   "seg": "30.280,-97.750"
+   "seg": "30.422,-97.620"
   },
   {
-   "from": "Berrywood Dr/Meadow Lark Ave (I-35)",
-   "hour_of_week": 45,
-   "n": 2,
+   "from": "E 5th St (Brazos St)",
+   "hour_of_week": 93,
+   "n": 3,
    "roadworks": false,
-   "seg": "30.385,-97.673"
+   "seg": "30.264,-97.743"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 75.4,
-  "tomtom": 96.5
+  "dispatch": 74.9,
+  "tomtom": 96.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 191,
-  "neither": 144,
-  "tomtom_only": 47
+  "neither": 143,
+  "tomtom_only": 48
  }
 }
