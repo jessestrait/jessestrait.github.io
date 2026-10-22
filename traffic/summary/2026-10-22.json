@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 108, q3 118 min over 153 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 108, q3 118 min over 155 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 184,
+  "dispatch": 185,
   "dispatch_only": 145,
   "here": 0,
   "here_matched": 0,
-  "matched": 60,
-  "tomtom": 2091,
-  "tomtom_only": 2023
+  "matched": 61,
+  "tomtom": 2157,
+  "tomtom_only": 2088
  },
  "date": "2026-10-22",
  "dispatch_life_capped": true,
@@ -23,7 +23,7 @@
   "max": 119.9,
   "median": 116.5,
   "min": 4.3,
-  "n": 153,
+  "n": 155,
   "q1": 108.3,
   "q3": 117.8
  },
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 11,
+   "matched": 12,
    "n": 39,
-   "pct": 28.2
+   "pct": 30.8
   },
   "dispatch_surface": {
    "matched": 28,
-   "n": 145,
-   "pct": 19.3
+   "n": 146,
+   "pct": 19.2
   },
   "tomtom_highway": {
-   "matched": 37,
-   "n": 1043,
+   "matched": 38,
+   "n": 1077,
    "pct": 3.5
   },
   "tomtom_surface": {
    "matched": 31,
-   "n": 1048,
-   "pct": 3.0
+   "n": 1080,
+   "pct": 2.9
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 89.1,
-  "median": 14.9,
+  "median": 14.6,
   "min": -69.9,
-  "n": 60,
-  "q1": -11.4,
-  "q3": 56.5
+  "n": 61,
+  "q1": -13.3,
+  "q3": 55.8
  },
  "persistence_min": {
   "max": 157.8,
-  "median": -66.2,
+  "median": -63.7,
   "min": -1035.2,
-  "n": 47,
+  "n": 48,
   "q1": -92.2,
-  "q3": -25.5,
+  "q3": -29.3,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1855,
+  "hotspot_buckets": 1918,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1996
+  "unreported_congestion": 2061
  },
  "sampling": {
-  "flow_spent_this_month": 5687,
+  "flow_spent_this_month": 5696,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 982,
+  "incidents_spent_this_month": 983,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -175,11 +175,11 @@
    "seg": "30.310,-97.711"
   },
   {
-   "from": "New Airport Dr",
-   "hour_of_week": 92,
+   "from": "W Guadalupe St (N Lamar Blvd)",
+   "hour_of_week": 93,
    "n": 3,
    "roadworks": false,
-   "seg": "30.210,-97.664"
+   "seg": "30.315,-97.737"
   },
   {
    "from": "Metric Blvd",
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.8,
-  "tomtom": 96.7
+  "dispatch": 78.4,
+  "tomtom": 96.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 184,
+  "n": 185,
   "neither": 145,
-  "tomtom_only": 39
+  "tomtom_only": 40
  }
 }
