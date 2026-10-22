@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 178 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 179 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -13,9 +13,9 @@
   "dispatch_only": 147,
   "here": 0,
   "here_matched": 0,
-  "matched": 104,
-  "tomtom": 3651,
-  "tomtom_only": 3515
+  "matched": 106,
+  "tomtom": 3731,
+  "tomtom_only": 3591
  },
  "date": "2026-10-22",
  "dispatch_life_capped": true,
@@ -23,7 +23,7 @@
   "max": 119.9,
   "median": 116.6,
   "min": 4.3,
-  "n": 178,
+  "n": 179,
   "q1": 115.3,
   "q3": 117.9
  },
@@ -42,13 +42,13 @@
    "pct": 27.2
   },
   "tomtom_highway": {
-   "matched": 78,
-   "n": 1750,
+   "matched": 80,
+   "n": 1784,
    "pct": 4.5
   },
   "tomtom_surface": {
-   "matched": 58,
-   "n": 1901,
+   "matched": 60,
+   "n": 1947,
    "pct": 3.1
   }
  },
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 89.3,
-  "median": 14.0,
+  "median": 14.9,
   "min": -74.8,
-  "n": 104,
-  "q1": -20.8,
-  "q3": 52.6
+  "n": 106,
+  "q1": -20.3,
+  "q3": 49.3
  },
  "persistence_min": {
   "max": 157.8,
-  "median": -55.8,
+  "median": -53.5,
   "min": -1480.7,
-  "n": 65,
-  "q1": -89.3,
-  "q3": -17.8,
+  "n": 68,
+  "q1": -90.6,
+  "q3": -14.0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 3067,
+  "hotspot_buckets": 3113,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 3487
+  "unreported_congestion": 3563
  },
  "sampling": {
   "flow_spent_this_month": 5732,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1000,
+  "incidents_spent_this_month": 1001,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -154,11 +154,25 @@
    "seg": "30.350,-97.556"
   },
   {
+   "from": "Albert Brown Dr (TX-71)",
+   "hour_of_week": 91,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.183,-97.542"
+  },
+  {
    "from": "S 1st St (W Ben White Blvd)",
    "hour_of_week": 93,
    "n": 4,
    "roadworks": false,
    "seg": "30.223,-97.765"
+  },
+  {
+   "from": "N Lamar Blvd",
+   "hour_of_week": 94,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.267,-97.755"
   },
   {
    "from": "Holly St/River St (I-35)",
@@ -201,25 +215,11 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.388,-97.760"
-  },
-  {
-   "from": "W Slaughter Ln",
-   "hour_of_week": 85,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.218,-97.894"
-  },
-  {
-   "from": "Blake Manor Rd (FM-969)",
-   "hour_of_week": 85,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.248,-97.579"
   }
  ],
  "unmatched_pct": {
   "dispatch": 70.3,
-  "tomtom": 96.3
+  "tomtom": 96.2
  },
  "witnesses": {
   "both": 0,
