@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 118,
-  "dispatch_only": 94,
+  "dispatch": 121,
+  "dispatch_only": 95,
   "here": 0,
   "here_matched": 0,
-  "matched": 32,
-  "tomtom": 1197,
-  "tomtom_only": 1162
+  "matched": 35,
+  "tomtom": 1221,
+  "tomtom_only": 1183
  },
  "date": "2026-10-22",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 25.0
   },
   "dispatch_surface": {
-   "matched": 18,
-   "n": 94,
-   "pct": 19.1
+   "matched": 20,
+   "n": 97,
+   "pct": 20.6
   },
   "tomtom_highway": {
-   "matched": 17,
-   "n": 603,
-   "pct": 2.8
+   "matched": 19,
+   "n": 619,
+   "pct": 3.1
   },
   "tomtom_surface": {
-   "matched": 18,
-   "n": 594,
-   "pct": 3.0
+   "matched": 19,
+   "n": 602,
+   "pct": 3.2
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.9,
-  "median": 4.5,
+  "median": 1.6,
   "min": -69.9,
-  "n": 32,
-  "q1": -19.7,
-  "q3": 53.9
+  "n": 35,
+  "q1": -21.1,
+  "q3": 43.6
  },
  "persistence_min": {
   "max": 157.8,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1054,
+  "hotspot_buckets": 1075,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1138
+  "unreported_congestion": 1159
  },
  "sampling": {
   "flow_spent_this_month": 5579,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 965,
+  "incidents_spent_this_month": 966,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -131,6 +131,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.162,-97.789"
+  },
+  {
+   "from": "E William Cannon Dr",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.190,-97.770"
   },
   {
    "from": "McKinney Falls Pkwy (Burleson Rd)",
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.287,-97.727"
-  },
-  {
-   "from": "12th St exit [234C]",
-   "hour_of_week": 74,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.274,-97.732"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 79.7,
-  "tomtom": 97.1
+  "dispatch": 78.5,
+  "tomtom": 96.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 118,
-  "neither": 94,
-  "tomtom_only": 24
+  "n": 121,
+  "neither": 95,
+  "tomtom_only": 26
  }
 }
