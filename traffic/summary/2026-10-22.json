@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 108,
-  "dispatch_only": 88,
+  "dispatch": 109,
+  "dispatch_only": 89,
   "here": 0,
   "here_matched": 0,
   "matched": 27,
-  "tomtom": 880,
-  "tomtom_only": 852
+  "tomtom": 925,
+  "tomtom_only": 897
  },
  "date": "2026-10-22",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 14,
-   "n": 86,
-   "pct": 16.3
+   "n": 87,
+   "pct": 16.1
   },
   "tomtom_highway": {
    "matched": 13,
-   "n": 450,
-   "pct": 2.9
+   "n": 473,
+   "pct": 2.7
   },
   "tomtom_surface": {
    "matched": 15,
-   "n": 430,
-   "pct": 3.5
+   "n": 452,
+   "pct": 3.3
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 790,
+  "hotspot_buckets": 832,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 828
+  "unreported_congestion": 873
  },
  "sampling": {
   "flow_spent_this_month": 5561,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 958,
+  "incidents_spent_this_month": 959,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -114,9 +114,16 @@
   {
    "from": "Northeast Travis",
    "hour_of_week": 84,
-   "n": 3,
+   "n": 4,
    "roadworks": false,
    "seg": "30.350,-97.556"
+  },
+  {
+   "from": "FM 685",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.500,-97.581"
   },
   {
    "from": "Metric Blvd",
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.263,-97.736"
-  },
-  {
-   "from": "TX-71/Ben White Blvd/Exit 230 (I-35)",
-   "hour_of_week": 76,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.198,-97.765"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.5,
-  "tomtom": 96.8
+  "dispatch": 81.7,
+  "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 108,
-  "neither": 88,
+  "n": 109,
+  "neither": 89,
   "tomtom_only": 20
  }
 }
