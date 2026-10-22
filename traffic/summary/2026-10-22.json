@@ -1,0 +1,230 @@
+{
+ "caveats": [
+  "Dispatch published_date is when APD published, not when it happened.",
+  "Dispatch record lifetimes look like real clearances this day, not a cap.",
+  "Clearance resolution equals the poll interval; shorter incidents are invisible.",
+  "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
+  "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
+  "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
+  "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
+ ],
+ "counts": {
+  "dispatch": 46,
+  "dispatch_only": 37,
+  "here": 0,
+  "here_matched": 0,
+  "matched": 9,
+  "tomtom": 505,
+  "tomtom_only": 496
+ },
+ "date": "2026-10-22",
+ "dispatch_life_capped": false,
+ "dispatch_record_life_min": {
+  "max": 108.3,
+  "median": 36.9,
+  "min": 4.3,
+  "n": 17,
+  "q1": 9.2,
+  "q3": 71.3
+ },
+ "here_onset_offset_min": {
+  "n": 0
+ },
+ "match_rate": {
+  "dispatch_highway": {
+   "matched": 2,
+   "n": 8,
+   "pct": 25.0
+  },
+  "dispatch_surface": {
+   "matched": 7,
+   "n": 38,
+   "pct": 18.4
+  },
+  "tomtom_highway": {
+   "matched": 4,
+   "n": 257,
+   "pct": 1.6
+  },
+  "tomtom_surface": {
+   "matched": 5,
+   "n": 248,
+   "pct": 2.0
+  }
+ },
+ "matcher": {
+  "buffer_m": 200.0,
+  "highway_buffer_m": 130.0,
+  "onset_window_min": 90.0,
+  "tolerance_min": 20.0
+ },
+ "onset_offset_min": {
+  "max": 75.2,
+  "median": 39.4,
+  "min": -69.9,
+  "n": 9,
+  "q1": -29.6,
+  "q3": 62.6
+ },
+ "persistence_min": {
+  "max": 0.0,
+  "median": 0.0,
+  "min": 0.0,
+  "n": 4,
+  "q1": 0.0,
+  "q3": 0.0
+ },
+ "poll_interval_min": 5.0,
+ "probe_agreement": {
+  "cover": {
+   "n": 0
+  },
+  "n": 0,
+  "onset_offset_min": {
+   "n": 0
+  },
+  "pct_of_here": 0.0,
+  "pct_of_tomtom": 0.0,
+  "type_agree": 0
+ },
+ "roadworks": {
+  "explained_by_roadworks": 0,
+  "hotspot_buckets": 460,
+  "hotspot_buckets_on_roadworks": 0,
+  "txdot_rows": 0,
+  "unreported_congestion": 477
+ },
+ "sampling": {
+  "flow_spent_this_month": 5453,
+  "incident_budget": 2500,
+  "incidents_spent_this_month": 941,
+  "off_peak_min": 45,
+  "rush_hours_local": [
+   7,
+   8,
+   16,
+   17,
+   18
+  ],
+  "rush_min": 5,
+  "this_poll": "off-peak"
+ },
+ "structural_hotspots": [
+  {
+   "from": "Metric Blvd",
+   "hour_of_week": 69,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.372,-97.724"
+  },
+  {
+   "from": "Howard Ln/Exit 246 (I-35)",
+   "hour_of_week": 69,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.399,-97.673"
+  },
+  {
+   "from": "W 15th St",
+   "hour_of_week": 69,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.280,-97.750"
+  },
+  {
+   "from": "E Cesar Chavez St",
+   "hour_of_week": 69,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.263,-97.743"
+  },
+  {
+   "from": "San Antonio St (2nd St)",
+   "hour_of_week": 71,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.264,-97.744"
+  },
+  {
+   "from": "Adage Dr / Epiphany Ln",
+   "hour_of_week": 59,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.448,-97.631"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 19,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.320,-97.706"
+  },
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "E 7th St (Springdale Rd)",
+   "hour_of_week": 63,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.259,-97.700"
+  },
+  {
+   "from": "Ramirez Ln",
+   "hour_of_week": 113,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.244,-97.663"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Lexington Meadow Ln",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.179,-97.616"
+  },
+  {
+   "from": "Brodie Ln",
+   "hour_of_week": 72,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.218,-97.827"
+  },
+  {
+   "from": "West Ave",
+   "hour_of_week": 71,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.266,-97.749"
+  }
+ ],
+ "unmatched_pct": {
+  "dispatch": 80.4,
+  "tomtom": 98.2
+ },
+ "witnesses": {
+  "both": 0,
+  "here_only": 0,
+  "n": 46,
+  "neither": 37,
+  "tomtom_only": 9
+ }
+}
