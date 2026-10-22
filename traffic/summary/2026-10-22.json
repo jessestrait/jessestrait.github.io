@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 112,
+  "dispatch": 114,
   "dispatch_only": 91,
   "here": 0,
   "here_matched": 0,
-  "matched": 28,
-  "tomtom": 1066,
-  "tomtom_only": 1035
+  "matched": 31,
+  "tomtom": 1112,
+  "tomtom_only": 1078
  },
  "date": "2026-10-22",
  "dispatch_life_capped": true,
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 6,
-   "n": 22,
-   "pct": 27.3
+   "n": 23,
+   "pct": 26.1
   },
   "dispatch_surface": {
-   "matched": 15,
-   "n": 90,
-   "pct": 16.7
+   "matched": 17,
+   "n": 91,
+   "pct": 18.7
   },
   "tomtom_highway": {
-   "matched": 14,
-   "n": 538,
-   "pct": 2.6
+   "matched": 16,
+   "n": 562,
+   "pct": 2.8
   },
   "tomtom_surface": {
-   "matched": 17,
-   "n": 528,
-   "pct": 3.2
+   "matched": 18,
+   "n": 550,
+   "pct": 3.3
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.9,
-  "median": 0.7,
+  "median": 7.3,
   "min": -69.9,
-  "n": 28,
-  "q1": -21.1,
-  "q3": 43.6
+  "n": 31,
+  "q1": -21.0,
+  "q3": 57.3
  },
  "persistence_min": {
   "max": 157.8,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 949,
+  "hotspot_buckets": 978,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1011
+  "unreported_congestion": 1054
  },
  "sampling": {
   "flow_spent_this_month": 5570,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 962,
+  "incidents_spent_this_month": 963,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -112,6 +112,13 @@
  },
  "structural_hotspots": [
   {
+   "from": "FM 685",
+   "hour_of_week": 84,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.500,-97.581"
+  },
+  {
    "from": "Northeast Travis",
    "hour_of_week": 84,
    "n": 4,
@@ -119,11 +126,25 @@
    "seg": "30.350,-97.556"
   },
   {
-   "from": "FM 685",
+   "from": "S Interstate 35",
    "hour_of_week": 84,
    "n": 3,
    "roadworks": false,
-   "seg": "30.500,-97.581"
+   "seg": "30.162,-97.789"
+  },
+  {
+   "from": "W Parmer Ln",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.406,-97.669"
+  },
+  {
+   "from": "McKinney Falls Pkwy (Burleson Rd)",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.201,-97.709"
   },
   {
    "from": "Metric Blvd",
@@ -194,38 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.287,-97.727"
-  },
-  {
-   "from": "12th St exit [234C]",
-   "hour_of_week": 74,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.274,-97.732"
-  },
-  {
-   "from": "S Interstate 35",
-   "hour_of_week": 74,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.204,-97.760"
-  },
-  {
-   "from": "7th St/Exit 234 (I-35)",
-   "hour_of_week": 74,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.263,-97.736"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.2,
-  "tomtom": 97.1
+  "dispatch": 79.8,
+  "tomtom": 96.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 112,
+  "n": 114,
   "neither": 91,
-  "tomtom_only": 21
+  "tomtom_only": 23
  }
 }
