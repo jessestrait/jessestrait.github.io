@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 104,
-  "tomtom": 3576,
-  "tomtom_only": 3442
+  "tomtom": 3651,
+  "tomtom_only": 3515
  },
  "date": "2026-10-22",
  "dispatch_life_capped": true,
@@ -42,13 +42,13 @@
    "pct": 27.2
   },
   "tomtom_highway": {
-   "matched": 77,
-   "n": 1719,
+   "matched": 78,
+   "n": 1750,
    "pct": 4.5
   },
   "tomtom_surface": {
-   "matched": 57,
-   "n": 1857,
+   "matched": 58,
+   "n": 1901,
    "pct": 3.1
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 3021,
+  "hotspot_buckets": 3067,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 3414
+  "unreported_congestion": 3487
  },
  "sampling": {
   "flow_spent_this_month": 5732,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 999,
+  "incidents_spent_this_month": 1000,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -161,6 +161,27 @@
    "seg": "30.223,-97.765"
   },
   {
+   "from": "Holly St/River St (I-35)",
+   "hour_of_week": 94,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.259,-97.736"
+  },
+  {
+   "from": "W Martin Luther King Jr Blvd (N Lamar Blvd)",
+   "hour_of_week": 94,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.297,-97.749"
+  },
+  {
+   "from": "San Antonio St",
+   "hour_of_week": 94,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.266,-97.746"
+  },
+  {
    "from": "S Interstate 35",
    "hour_of_week": 84,
    "n": 3,
@@ -194,27 +215,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.248,-97.579"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 85,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.310,-97.711"
-  },
-  {
-   "from": "State Highway 130",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.416,-97.577"
-  },
-  {
-   "from": "S 1st St/Conroy Ln (FM-1626)",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.141,-97.797"
   }
  ],
  "unmatched_pct": {
