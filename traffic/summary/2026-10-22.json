@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 112, q3 118 min over 101 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 113, q3 118 min over 102 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -13,9 +13,9 @@
   "dispatch_only": 94,
   "here": 0,
   "here_matched": 0,
-  "matched": 39,
-  "tomtom": 1352,
-  "tomtom_only": 1310
+  "matched": 41,
+  "tomtom": 1379,
+  "tomtom_only": 1335
  },
  "date": "2026-10-22",
  "dispatch_life_capped": true,
@@ -23,8 +23,8 @@
   "max": 119.8,
   "median": 116.5,
   "min": 4.3,
-  "n": 101,
-  "q1": 111.9,
+  "n": 102,
+  "q1": 113.4,
   "q3": 117.7
  },
  "here_onset_offset_min": {
@@ -42,14 +42,14 @@
    "pct": 22.4
   },
   "tomtom_highway": {
-   "matched": 21,
-   "n": 684,
+   "matched": 22,
+   "n": 699,
    "pct": 3.1
   },
   "tomtom_surface": {
-   "matched": 21,
-   "n": 668,
-   "pct": 3.1
+   "matched": 22,
+   "n": 680,
+   "pct": 3.2
   }
  },
  "matcher": {
@@ -62,8 +62,8 @@
   "max": 89.1,
   "median": 4.0,
   "min": -69.9,
-  "n": 39,
-  "q1": -15.9,
+  "n": 41,
+  "q1": -18.4,
   "q3": 43.6
  },
  "persistence_min": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1186,
+  "hotspot_buckets": 1208,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1286
+  "unreported_congestion": 1311
  },
  "sampling": {
   "flow_spent_this_month": 5588,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 970,
+  "incidents_spent_this_month": 971,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -154,6 +154,20 @@
    "seg": "30.218,-97.894"
   },
   {
+   "from": "Mopac Expy S",
+   "hour_of_week": 85,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.371,-97.742"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 85,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.310,-97.711"
+  },
+  {
    "from": "Metric Blvd",
    "hour_of_week": 69,
    "n": 2,
@@ -201,25 +215,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.266,-97.749"
-  },
-  {
-   "from": "Congress Ave / W 3rd St",
-   "hour_of_week": 71,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.265,-97.743"
-  },
-  {
-   "from": "S Lamar Blvd (W Riverside Dr)",
-   "hour_of_week": 23,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.261,-97.750"
   }
  ],
  "unmatched_pct": {
   "dispatch": 76.4,
-  "tomtom": 96.9
+  "tomtom": 96.8
  },
  "witnesses": {
   "both": 0,
