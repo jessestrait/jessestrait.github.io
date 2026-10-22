@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 208,
-  "dispatch_only": 147,
+  "dispatch_only": 146,
   "here": 0,
   "here_matched": 0,
-  "matched": 96,
-  "tomtom": 3317,
-  "tomtom_only": 3197
+  "matched": 98,
+  "tomtom": 3414,
+  "tomtom_only": 3292
  },
  "date": "2026-10-22",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 40.0
   },
   "dispatch_surface": {
-   "matched": 45,
+   "matched": 46,
    "n": 168,
-   "pct": 26.8
+   "pct": 27.4
   },
   "tomtom_highway": {
-   "matched": 69,
-   "n": 1602,
+   "matched": 71,
+   "n": 1647,
    "pct": 4.3
   },
   "tomtom_surface": {
    "matched": 51,
-   "n": 1715,
-   "pct": 3.0
+   "n": 1767,
+   "pct": 2.9
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 89.3,
-  "median": 14.9,
-  "min": -69.9,
-  "n": 96,
-  "q1": -19.1,
-  "q3": 56.5
+  "median": 14.0,
+  "min": -74.8,
+  "n": 98,
+  "q1": -20.3,
+  "q3": 57.5
  },
  "persistence_min": {
   "max": 157.8,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2848,
+  "hotspot_buckets": 2925,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 3169
+  "unreported_congestion": 3264
  },
  "sampling": {
   "flow_spent_this_month": 5723,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 996,
+  "incidents_spent_this_month": 997,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -145,6 +145,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.350,-97.556"
+  },
+  {
+   "from": "Congress Ave S (Barton Springs Rd)",
+   "hour_of_week": 93,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.258,-97.749"
   },
   {
    "from": "S 1st St (W Ben White Blvd)",
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.141,-97.797"
-  },
-  {
-   "from": "Metro Center Dr",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.217,-97.693"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 70.7,
+  "dispatch": 70.2,
   "tomtom": 96.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 208,
-  "neither": 147,
-  "tomtom_only": 61
+  "neither": 146,
+  "tomtom_only": 62
  }
 }
