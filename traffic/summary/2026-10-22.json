@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 18,
-  "tomtom": 585,
-  "tomtom_only": 567
+  "tomtom": 591,
+  "tomtom_only": 573
  },
  "date": "2026-10-22",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 8,
-   "n": 303,
+   "n": 308,
    "pct": 2.6
   },
   "tomtom_surface": {
    "matched": 10,
-   "n": 282,
+   "n": 283,
    "pct": 3.5
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 524,
+  "hotspot_buckets": 529,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 545
+  "unreported_congestion": 551
  },
  "sampling": {
   "flow_spent_this_month": 5498,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 946,
+  "incidents_spent_this_month": 947,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -189,6 +189,13 @@
    "seg": "30.204,-97.760"
   },
   {
+   "from": "7th St/Exit 234 (I-35)",
+   "hour_of_week": 74,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.263,-97.736"
+  },
+  {
    "from": "Sandy Side Dr",
    "hour_of_week": 70,
    "n": 2,
@@ -208,18 +215,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.448,-97.631"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 19,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.320,-97.706"
   }
  ],
  "unmatched_pct": {
   "dispatch": 83.3,
-  "tomtom": 96.9
+  "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
