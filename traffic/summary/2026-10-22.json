@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 176 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 178 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 208,
-  "dispatch_only": 146,
+  "dispatch": 209,
+  "dispatch_only": 147,
   "here": 0,
   "here_matched": 0,
-  "matched": 100,
-  "tomtom": 3484,
-  "tomtom_only": 3360
+  "matched": 104,
+  "tomtom": 3576,
+  "tomtom_only": 3442
  },
  "date": "2026-10-22",
  "dispatch_life_capped": true,
@@ -23,7 +23,7 @@
   "max": 119.9,
   "median": 116.6,
   "min": 4.3,
-  "n": 176,
+  "n": 178,
   "q1": 115.3,
   "q3": 117.9
  },
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 46,
-   "n": 168,
-   "pct": 27.4
+   "n": 169,
+   "pct": 27.2
   },
   "tomtom_highway": {
-   "matched": 73,
-   "n": 1673,
-   "pct": 4.4
+   "matched": 77,
+   "n": 1719,
+   "pct": 4.5
   },
   "tomtom_surface": {
-   "matched": 51,
-   "n": 1811,
-   "pct": 2.8
+   "matched": 57,
+   "n": 1857,
+   "pct": 3.1
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 89.3,
-  "median": 13.3,
+  "median": 14.0,
   "min": -74.8,
-  "n": 100,
+  "n": 104,
   "q1": -20.8,
-  "q3": 56.5
+  "q3": 52.6
  },
  "persistence_min": {
   "max": 157.8,
-  "median": -56.0,
+  "median": -55.8,
   "min": -1480.7,
-  "n": 62,
-  "q1": -91.9,
-  "q3": -25.6,
+  "n": 65,
+  "q1": -89.3,
+  "q3": -17.8,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2968,
+  "hotspot_buckets": 3021,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 3332
+  "unreported_congestion": 3414
  },
  "sampling": {
-  "flow_spent_this_month": 5723,
+  "flow_spent_this_month": 5732,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 998,
+  "incidents_spent_this_month": 999,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,6 +117,13 @@
    "n": 5,
    "roadworks": false,
    "seg": "30.263,-97.735"
+  },
+  {
+   "from": "Congress Ave S (Barton Springs Rd)",
+   "hour_of_week": 93,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.258,-97.749"
   },
   {
    "from": "FM 685",
@@ -145,13 +152,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.350,-97.556"
-  },
-  {
-   "from": "Congress Ave S (Barton Springs Rd)",
-   "hour_of_week": 93,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.258,-97.749"
   },
   {
    "from": "S 1st St (W Ben White Blvd)",
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 70.2,
-  "tomtom": 96.4
+  "dispatch": 70.3,
+  "tomtom": 96.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 208,
-  "neither": 146,
+  "n": 209,
+  "neither": 147,
   "tomtom_only": 62
  }
 }
