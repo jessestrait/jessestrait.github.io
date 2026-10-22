@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 122,
-  "dispatch_only": 95,
+  "dispatch_only": 94,
   "here": 0,
   "here_matched": 0,
-  "matched": 36,
-  "tomtom": 1286,
-  "tomtom_only": 1247
+  "matched": 38,
+  "tomtom": 1328,
+  "tomtom_only": 1287
  },
  "date": "2026-10-22",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 25.0
   },
   "dispatch_surface": {
-   "matched": 21,
+   "matched": 22,
    "n": 98,
-   "pct": 21.4
+   "pct": 22.4
   },
   "tomtom_highway": {
-   "matched": 19,
-   "n": 650,
-   "pct": 2.9
+   "matched": 20,
+   "n": 671,
+   "pct": 3.0
   },
   "tomtom_surface": {
-   "matched": 20,
-   "n": 636,
-   "pct": 3.1
+   "matched": 21,
+   "n": 657,
+   "pct": 3.2
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 87.9,
-  "median": 2.8,
+  "max": 89.1,
+  "median": 5.7,
   "min": -69.9,
-  "n": 36,
-  "q1": -19.7,
-  "q3": 43.6
+  "n": 38,
+  "q1": -17.2,
+  "q3": 47.0
  },
  "persistence_min": {
   "max": 157.8,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1138,
+  "hotspot_buckets": 1169,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1223
+  "unreported_congestion": 1263
  },
  "sampling": {
   "flow_spent_this_month": 5588,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 968,
+  "incidents_spent_this_month": 969,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -138,6 +138,20 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.201,-97.709"
+  },
+  {
+   "from": "US-183 (TX-360 Loop/N Capital of Texas Hwy)",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.388,-97.760"
+  },
+  {
+   "from": "W Slaughter Ln",
+   "hour_of_week": 85,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.218,-97.894"
   },
   {
    "from": "Metric Blvd",
@@ -201,31 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.261,-97.750"
-  },
-  {
-   "from": "Clyde Littlefield Dr",
-   "hour_of_week": 71,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.287,-97.727"
-  },
-  {
-   "from": "12th St exit [234C]",
-   "hour_of_week": 74,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.274,-97.732"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 77.9,
-  "tomtom": 97.0
+  "dispatch": 77.0,
+  "tomtom": 96.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 122,
-  "neither": 95,
-  "tomtom_only": 27
+  "neither": 94,
+  "tomtom_only": 28
  }
 }
