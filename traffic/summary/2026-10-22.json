@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 108, q3 118 min over 156 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 109, q3 118 min over 158 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 189,
-  "dispatch_only": 145,
+  "dispatch": 191,
+  "dispatch_only": 144,
   "here": 0,
   "here_matched": 0,
-  "matched": 66,
-  "tomtom": 2244,
-  "tomtom_only": 2169
+  "matched": 69,
+  "tomtom": 2322,
+  "tomtom_only": 2241
  },
  "date": "2026-10-22",
  "dispatch_life_capped": true,
@@ -23,8 +23,8 @@
   "max": 119.9,
   "median": 116.5,
   "min": 4.3,
-  "n": 156,
-  "q1": 108.5,
+  "n": 158,
+  "q1": 108.8,
   "q3": 117.8
  },
  "here_onset_offset_min": {
@@ -37,19 +37,19 @@
    "pct": 33.3
   },
   "dispatch_surface": {
-   "matched": 31,
-   "n": 150,
-   "pct": 20.7
+   "matched": 34,
+   "n": 152,
+   "pct": 22.4
   },
   "tomtom_highway": {
-   "matched": 43,
-   "n": 1114,
-   "pct": 3.9
+   "matched": 47,
+   "n": 1144,
+   "pct": 4.1
   },
   "tomtom_surface": {
-   "matched": 32,
-   "n": 1130,
-   "pct": 2.8
+   "matched": 34,
+   "n": 1178,
+   "pct": 2.9
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 89.3,
-  "median": 16.4,
+  "median": 17.7,
   "min": -69.9,
-  "n": 66,
-  "q1": -12.4,
-  "q3": 59.6
+  "n": 69,
+  "q1": -13.3,
+  "q3": 60.5
  },
  "persistence_min": {
   "max": 157.8,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1985,
+  "hotspot_buckets": 2052,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2141
+  "unreported_congestion": 2213
  },
  "sampling": {
   "flow_spent_this_month": 5696,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 984,
+  "incidents_spent_this_month": 985,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -175,11 +175,11 @@
    "seg": "30.310,-97.711"
   },
   {
-   "from": "New Airport Dr",
-   "hour_of_week": 92,
+   "from": "Metro Center Dr",
+   "hour_of_week": 93,
    "n": 3,
    "roadworks": false,
-   "seg": "30.210,-97.664"
+   "seg": "30.217,-97.693"
   },
   {
    "from": "Christina Garza Dr",
@@ -187,13 +187,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.350,-97.556"
-  },
-  {
-   "from": "W Guadalupe St (N Lamar Blvd)",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.315,-97.737"
   },
   {
    "from": "Metric Blvd",
@@ -215,17 +208,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.280,-97.750"
+  },
+  {
+   "from": "Berrywood Dr/Meadow Lark Ave (I-35)",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.385,-97.673"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.7,
-  "tomtom": 96.7
+  "dispatch": 75.4,
+  "tomtom": 96.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 189,
-  "neither": 145,
-  "tomtom_only": 44
+  "n": 191,
+  "neither": 144,
+  "tomtom_only": 47
  }
 }
