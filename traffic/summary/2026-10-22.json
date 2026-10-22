@@ -13,9 +13,9 @@
   "dispatch_only": 94,
   "here": 0,
   "here_matched": 0,
-  "matched": 41,
-  "tomtom": 1379,
-  "tomtom_only": 1335
+  "matched": 43,
+  "tomtom": 1410,
+  "tomtom_only": 1364
  },
  "date": "2026-10-22",
  "dispatch_life_capped": true,
@@ -42,14 +42,14 @@
    "pct": 22.4
   },
   "tomtom_highway": {
-   "matched": 22,
-   "n": 699,
-   "pct": 3.1
+   "matched": 23,
+   "n": 719,
+   "pct": 3.2
   },
   "tomtom_surface": {
-   "matched": 22,
-   "n": 680,
-   "pct": 3.2
+   "matched": 23,
+   "n": 691,
+   "pct": 3.3
   }
  },
  "matcher": {
@@ -62,8 +62,8 @@
   "max": 89.1,
   "median": 4.0,
   "min": -69.9,
-  "n": 41,
-  "q1": -18.4,
+  "n": 43,
+  "q1": -21.0,
   "q3": 43.6
  },
  "persistence_min": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1208,
+  "hotspot_buckets": 1229,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1311
+  "unreported_congestion": 1340
  },
  "sampling": {
-  "flow_spent_this_month": 5588,
+  "flow_spent_this_month": 5597,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 971,
+  "incidents_spent_this_month": 972,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -152,6 +152,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.218,-97.894"
+  },
+  {
+   "from": "Blake Manor Rd (FM-969)",
+   "hour_of_week": 85,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.248,-97.579"
   },
   {
    "from": "Mopac Expy S",
@@ -208,18 +215,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.265,-97.748"
-  },
-  {
-   "from": "West Ave",
-   "hour_of_week": 71,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.266,-97.749"
   }
  ],
  "unmatched_pct": {
   "dispatch": 76.4,
-  "tomtom": 96.8
+  "tomtom": 96.7
  },
  "witnesses": {
   "both": 0,
