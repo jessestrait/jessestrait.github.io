@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 114, q3 118 min over 164 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 168 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 197,
-  "dispatch_only": 147,
+  "dispatch_only": 145,
   "here": 0,
   "here_matched": 0,
-  "matched": 76,
-  "tomtom": 2665,
-  "tomtom_only": 2574
+  "matched": 78,
+  "tomtom": 2772,
+  "tomtom_only": 2677
  },
  "date": "2026-10-22",
  "dispatch_life_capped": true,
@@ -23,32 +23,32 @@
   "max": 119.9,
   "median": 116.6,
   "min": 4.3,
-  "n": 164,
-  "q1": 114.2,
-  "q3": 117.8
+  "n": 168,
+  "q1": 114.9,
+  "q3": 117.9
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 14,
+   "matched": 15,
    "n": 39,
-   "pct": 35.9
+   "pct": 38.5
   },
   "dispatch_surface": {
-   "matched": 36,
+   "matched": 37,
    "n": 158,
-   "pct": 22.8
+   "pct": 23.4
   },
   "tomtom_highway": {
-   "matched": 52,
-   "n": 1301,
+   "matched": 54,
+   "n": 1352,
    "pct": 4.0
   },
   "tomtom_surface": {
-   "matched": 39,
-   "n": 1364,
+   "matched": 41,
+   "n": 1420,
    "pct": 2.9
   }
  },
@@ -62,17 +62,17 @@
   "max": 89.3,
   "median": 18.5,
   "min": -69.9,
-  "n": 76,
-  "q1": -15.7,
-  "q3": 61.4
+  "n": 78,
+  "q1": -15.4,
+  "q3": 62.5
  },
  "persistence_min": {
   "max": 157.8,
   "median": -61.2,
   "min": -1035.2,
-  "n": 51,
-  "q1": -92.0,
-  "q3": -35.8,
+  "n": 56,
+  "q1": -91.9,
+  "q3": -28.2,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2306,
+  "hotspot_buckets": 2383,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2546
+  "unreported_congestion": 2649
  },
  "sampling": {
   "flow_spent_this_month": 5705,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 989,
+  "incidents_spent_this_month": 990,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 93,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.263,-97.735"
+  },
   {
    "from": "FM 685",
    "hour_of_week": 84,
@@ -138,13 +145,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.350,-97.556"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 93,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.263,-97.735"
   },
   {
    "from": "S Interstate 35",
@@ -196,6 +196,13 @@
    "seg": "30.416,-97.577"
   },
   {
+   "from": "S 1st St/Conroy Ln (FM-1626)",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.141,-97.797"
+  },
+  {
    "from": "Metro Center Dr",
    "hour_of_week": 93,
    "n": 3,
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.315,-97.737"
-  },
-  {
-   "from": "Dessau Rd",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.422,-97.620"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 74.6,
+  "dispatch": 73.6,
   "tomtom": 96.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 197,
-  "neither": 147,
-  "tomtom_only": 50
+  "neither": 145,
+  "tomtom_only": 52
  }
 }
