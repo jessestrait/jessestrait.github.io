@@ -9,47 +9,47 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 74,
+  "dispatch": 75,
   "dispatch_only": 61,
   "here": 0,
   "here_matched": 0,
-  "matched": 16,
-  "tomtom": 544,
-  "tomtom_only": 528
+  "matched": 17,
+  "tomtom": 558,
+  "tomtom_only": 541
  },
  "date": "2026-10-22",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 116.1,
+  "median": 116.2,
   "min": 4.3,
-  "n": 49,
-  "q1": 67.7,
-  "q3": 117.1
+  "n": 50,
+  "q1": 69.2,
+  "q3": 117.2
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 3,
+   "matched": 4,
    "n": 15,
-   "pct": 20.0
+   "pct": 26.7
   },
   "dispatch_surface": {
    "matched": 10,
-   "n": 59,
-   "pct": 16.9
+   "n": 60,
+   "pct": 16.7
   },
   "tomtom_highway": {
-   "matched": 6,
-   "n": 273,
-   "pct": 2.2
+   "matched": 7,
+   "n": 283,
+   "pct": 2.5
   },
   "tomtom_surface": {
    "matched": 10,
-   "n": 271,
-   "pct": 3.7
+   "n": 275,
+   "pct": 3.6
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 75.2,
-  "median": -10.4,
+  "max": 81.3,
+  "median": -9.4,
   "min": -69.9,
-  "n": 16,
-  "q1": -37.6,
-  "q3": 42.6
+  "n": 17,
+  "q1": -36.0,
+  "q3": 53.0
  },
  "persistence_min": {
   "max": 157.8,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 492,
+  "hotspot_buckets": 502,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 509
+  "unreported_congestion": 521
  },
  "sampling": {
   "flow_spent_this_month": 5480,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 943,
+  "incidents_spent_this_month": 944,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -174,6 +174,13 @@
    "seg": "30.261,-97.750"
   },
   {
+   "from": "Sandy Side Dr",
+   "hour_of_week": 70,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.439,-97.678"
+  },
+  {
    "from": "Adage Dr / Epiphany Ln",
    "hour_of_week": 59,
    "n": 2,
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.259,-97.700"
-  },
-  {
-   "from": "Ramirez Ln",
-   "hour_of_week": 113,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.244,-97.663"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.4,
-  "tomtom": 97.1
+  "dispatch": 81.3,
+  "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 74,
+  "n": 75,
   "neither": 61,
-  "tomtom_only": 13
+  "tomtom_only": 14
  }
 }
