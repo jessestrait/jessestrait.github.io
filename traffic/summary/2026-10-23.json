@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 142,
+  "dispatch": 144,
   "dispatch_only": 103,
   "here": 0,
   "here_matched": 0,
-  "matched": 48,
-  "tomtom": 2032,
-  "tomtom_only": 1981
+  "matched": 50,
+  "tomtom": 2116,
+  "tomtom_only": 2064
  },
  "date": "2026-10-23",
  "dispatch_life_capped": false,
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 12,
-   "n": 30,
-   "pct": 40.0
+   "matched": 14,
+   "n": 32,
+   "pct": 43.8
   },
   "dispatch_surface": {
    "matched": 27,
@@ -42,14 +42,14 @@
    "pct": 24.1
   },
   "tomtom_highway": {
-   "matched": 32,
-   "n": 971,
-   "pct": 3.3
+   "matched": 33,
+   "n": 1019,
+   "pct": 3.2
   },
   "tomtom_surface": {
    "matched": 19,
-   "n": 1061,
-   "pct": 1.8
+   "n": 1097,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.3,
-  "median": 15.8,
+  "median": 13.1,
   "min": -81.2,
-  "n": 48,
-  "q1": -11.3,
-  "q3": 53.6
+  "n": 50,
+  "q1": -12.1,
+  "q3": 52.2
  },
  "persistence_min": {
   "max": 214.7,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1848,
+  "hotspot_buckets": 1919,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1953
+  "unreported_congestion": 2036
  },
  "sampling": {
-  "flow_spent_this_month": 5948,
+  "flow_spent_this_month": 5957,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1045,
+  "incidents_spent_this_month": 1046,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,6 +160,20 @@
    "seg": "30.278,-97.769"
   },
   {
+   "from": "N Interstate 35",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.353,-97.691"
+  },
+  {
+   "from": "Guadalupe St (W 38th St)",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.305,-97.743"
+  },
+  {
    "from": "W 38th St (Shoal Creek Blvd)",
    "hour_of_week": 94,
    "n": 2,
@@ -200,31 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.264,-97.727"
-  },
-  {
-   "from": "E 6th St (I-35)",
-   "hour_of_week": 100,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.262,-97.736"
-  },
-  {
-   "from": "Hotel Dr",
-   "hour_of_week": 101,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.211,-97.663"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 72.5,
+  "dispatch": 71.5,
   "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 142,
+  "n": 144,
   "neither": 103,
-  "tomtom_only": 39
+  "tomtom_only": 41
  }
 }
