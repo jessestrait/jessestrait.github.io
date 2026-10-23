@@ -13,9 +13,9 @@
   "dispatch_only": 104,
   "here": 0,
   "here_matched": 0,
-  "matched": 51,
-  "tomtom": 2169,
-  "tomtom_only": 2115
+  "matched": 53,
+  "tomtom": 2240,
+  "tomtom_only": 2184
  },
  "date": "2026-10-23",
  "dispatch_life_capped": false,
@@ -42,13 +42,13 @@
    "pct": 24.6
   },
   "tomtom_highway": {
-   "matched": 33,
-   "n": 1033,
-   "pct": 3.2
+   "matched": 35,
+   "n": 1069,
+   "pct": 3.3
   },
   "tomtom_surface": {
    "matched": 21,
-   "n": 1136,
+   "n": 1171,
    "pct": 1.8
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.3,
-  "median": 11.6,
+  "median": 11.3,
   "min": -81.2,
-  "n": 51,
-  "q1": -12.8,
-  "q3": 51.5
+  "n": 53,
+  "q1": -14.1,
+  "q3": 49.3
  },
  "persistence_min": {
   "max": 214.7,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1964,
+  "hotspot_buckets": 2021,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2087
+  "unreported_congestion": 2156
  },
  "sampling": {
   "flow_spent_this_month": 5957,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1047,
+  "incidents_spent_this_month": 1048,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -174,6 +174,13 @@
    "seg": "30.348,-97.562"
   },
   {
+   "from": "Hairy Man Rd (Sam Bass Rd)",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.517,-97.690"
+  },
+  {
    "from": "Guadalupe St (W 38th St)",
    "hour_of_week": 117,
    "n": 3,
@@ -207,13 +214,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.168,-97.620"
-  },
-  {
-   "from": "E 7th St (Springdale Rd)",
-   "hour_of_week": 137,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.256,-97.702"
   }
  ],
  "unmatched_pct": {
