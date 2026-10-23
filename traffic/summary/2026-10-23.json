@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 151,
-  "dispatch_only": 107,
+  "dispatch": 152,
+  "dispatch_only": 108,
   "here": 0,
   "here_matched": 0,
-  "matched": 64,
-  "tomtom": 2484,
-  "tomtom_only": 2411
+  "matched": 66,
+  "tomtom": 2527,
+  "tomtom_only": 2451
  },
  "date": "2026-10-23",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 116.0,
+  "median": 116.1,
   "min": 6.5,
-  "n": 116,
-  "q1": 79.2,
-  "q3": 118.1
+  "n": 117,
+  "q1": 79.7,
+  "q3": 118.2
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 29,
-   "n": 116,
-   "pct": 25.0
+   "n": 117,
+   "pct": 24.8
   },
   "tomtom_highway": {
-   "matched": 46,
-   "n": 1181,
+   "matched": 47,
+   "n": 1204,
    "pct": 3.9
   },
   "tomtom_surface": {
-   "matched": 27,
-   "n": 1303,
-   "pct": 2.1
+   "matched": 29,
+   "n": 1323,
+   "pct": 2.2
   }
  },
  "matcher": {
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 87.3,
-  "median": 13.4,
+  "median": 15.2,
   "min": -81.2,
-  "n": 64,
-  "q1": -12.2,
-  "q3": 50.4
+  "n": 66,
+  "q1": -12.0,
+  "q3": 55.2
  },
  "persistence_min": {
   "max": 214.7,
   "median": -21.1,
   "min": -158.2,
-  "n": 32,
-  "q1": -65.1,
+  "n": 33,
+  "q1": -63.8,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2179,
+  "hotspot_buckets": 2219,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2383
+  "unreported_congestion": 2423
  },
  "sampling": {
   "flow_spent_this_month": 5966,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1052,
+  "incidents_spent_this_month": 1053,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Barton Springs Rd (S Lamar Blvd)",
+   "hour_of_week": 117,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.266,-97.756"
+  },
   {
    "from": "US-183 (FM-973)",
    "hour_of_week": 108,
@@ -195,13 +202,6 @@
    "seg": "30.267,-97.755"
   },
   {
-   "from": "Barton Springs Rd (S Lamar Blvd)",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.266,-97.756"
-  },
-  {
    "from": "MLK & 15th St exit [235A]",
    "hour_of_week": 117,
    "n": 3,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 70.9,
-  "tomtom": 97.1
+  "dispatch": 71.1,
+  "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 151,
-  "neither": 107,
+  "n": 152,
+  "neither": 108,
   "tomtom_only": 44
  }
 }
