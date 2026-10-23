@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 161,
-  "dispatch_only": 110,
+  "dispatch": 163,
+  "dispatch_only": 112,
   "here": 0,
   "here_matched": 0,
-  "matched": 82,
-  "tomtom": 2907,
-  "tomtom_only": 2816
+  "matched": 83,
+  "tomtom": 2950,
+  "tomtom_only": 2857
  },
  "date": "2026-10-23",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 120.0,
   "median": 116.2,
   "min": 6.5,
-  "n": 127,
-  "q1": 85.4,
+  "n": 128,
+  "q1": 85.6,
   "q3": 118.4
  },
  "here_onset_offset_min": {
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 32,
-   "n": 122,
-   "pct": 26.2
+   "n": 124,
+   "pct": 25.8
   },
   "tomtom_highway": {
-   "matched": 61,
-   "n": 1403,
-   "pct": 4.3
+   "matched": 63,
+   "n": 1427,
+   "pct": 4.4
   },
   "tomtom_surface": {
    "matched": 30,
-   "n": 1504,
+   "n": 1523,
    "pct": 2.0
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.3,
-  "median": 11.9,
+  "median": 12.2,
   "min": -81.2,
-  "n": 82,
-  "q1": -15.9,
-  "q3": 47.2
+  "n": 83,
+  "q1": -15.3,
+  "q3": 47.1
  },
  "persistence_min": {
   "max": 214.7,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2545,
+  "hotspot_buckets": 2575,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2788
+  "unreported_congestion": 2829
  },
  "sampling": {
   "flow_spent_this_month": 5984,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1059,
+  "incidents_spent_this_month": 1060,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -151,6 +151,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.406,-97.722"
+  },
+  {
+   "from": "Highway 71 E",
+   "hour_of_week": 118,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.199,-97.633"
   },
   {
    "from": "Windsor Rd (Exposition Blvd)",
@@ -207,24 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.278,-97.769"
-  },
-  {
-   "from": "N Lamar Blvd",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.267,-97.755"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 68.3,
-  "tomtom": 96.9
+  "dispatch": 68.7,
+  "tomtom": 96.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 161,
-  "neither": 110,
+  "n": 163,
+  "neither": 112,
   "tomtom_only": 51
  }
 }
