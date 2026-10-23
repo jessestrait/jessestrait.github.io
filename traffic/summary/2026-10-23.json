@@ -13,9 +13,9 @@
   "dispatch_only": 116,
   "here": 0,
   "here_matched": 0,
-  "matched": 94,
-  "tomtom": 3123,
-  "tomtom_only": 3013
+  "matched": 98,
+  "tomtom": 3160,
+  "tomtom_only": 3048
  },
  "date": "2026-10-23",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 120.0,
   "median": 116.3,
   "min": 6.5,
-  "n": 133,
-  "q1": 87.2,
+  "n": 134,
+  "q1": 87.7,
   "q3": 118.4
  },
  "here_onset_offset_min": {
@@ -42,13 +42,13 @@
    "pct": 26.4
   },
   "tomtom_highway": {
-   "matched": 75,
-   "n": 1515,
+   "matched": 77,
+   "n": 1533,
    "pct": 5.0
   },
   "tomtom_surface": {
    "matched": 35,
-   "n": 1608,
+   "n": 1627,
    "pct": 2.2
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.3,
-  "median": 10.2,
+  "median": 8.2,
   "min": -81.2,
-  "n": 94,
-  "q1": -18.0,
-  "q3": 45.4
+  "n": 98,
+  "q1": -21.7,
+  "q3": 42.9
  },
  "persistence_min": {
   "max": 214.7,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2689,
+  "hotspot_buckets": 2723,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2985
+  "unreported_congestion": 3020
  },
  "sampling": {
   "flow_spent_this_month": 5993,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1064,
+  "incidents_spent_this_month": 1065,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -151,13 +151,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.406,-97.722"
-  },
-  {
-   "from": "Cardinal Bloom Loop / Cotton Bluff Pkwy",
-   "hour_of_week": 118,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.162,-97.724"
   },
   {
    "from": "N Lake Creek Pkwy",
@@ -214,6 +207,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.180,-97.747"
+  },
+  {
+   "from": "Taft Ln (I-35)",
+   "hour_of_week": 108,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.166,-97.786"
   }
  ],
  "unmatched_pct": {
