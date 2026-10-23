@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 150,
+  "dispatch": 151,
   "dispatch_only": 107,
   "here": 0,
   "here_matched": 0,
-  "matched": 62,
-  "tomtom": 2427,
-  "tomtom_only": 2356
+  "matched": 64,
+  "tomtom": 2484,
+  "tomtom_only": 2411
  },
  "date": "2026-10-23",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 115.8,
+  "median": 116.0,
   "min": 6.5,
-  "n": 114,
-  "q1": 77.6,
+  "n": 116,
+  "q1": 79.2,
   "q3": 118.1
  },
  "here_onset_offset_min": {
@@ -37,19 +37,19 @@
    "pct": 42.9
   },
   "dispatch_surface": {
-   "matched": 28,
-   "n": 115,
-   "pct": 24.3
+   "matched": 29,
+   "n": 116,
+   "pct": 25.0
   },
   "tomtom_highway": {
-   "matched": 45,
-   "n": 1155,
+   "matched": 46,
+   "n": 1181,
    "pct": 3.9
   },
   "tomtom_surface": {
-   "matched": 26,
-   "n": 1272,
-   "pct": 2.0
+   "matched": 27,
+   "n": 1303,
+   "pct": 2.1
   }
  },
  "matcher": {
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 87.3,
-  "median": 11.9,
+  "median": 13.4,
   "min": -81.2,
-  "n": 62,
-  "q1": -12.4,
-  "q3": 52.2
+  "n": 64,
+  "q1": -12.2,
+  "q3": 50.4
  },
  "persistence_min": {
   "max": 214.7,
   "median": -21.1,
   "min": -158.2,
-  "n": 31,
-  "q1": -66.5,
+  "n": 32,
+  "q1": -65.1,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2148,
+  "hotspot_buckets": 2179,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2328
+  "unreported_congestion": 2383
  },
  "sampling": {
   "flow_spent_this_month": 5966,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1051,
+  "incidents_spent_this_month": 1052,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -122,7 +122,28 @@
    "hour_of_week": 117,
    "n": 4,
    "roadworks": false,
+   "seg": "30.353,-97.691"
+  },
+  {
+   "from": "Hairy Man Rd (Sam Bass Rd)",
+   "hour_of_week": 117,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.517,-97.690"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 117,
+   "n": 4,
+   "roadworks": false,
    "seg": "30.278,-97.731"
+  },
+  {
+   "from": "Momentum Way",
+   "hour_of_week": 117,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.197,-97.629"
   },
   {
    "from": "Immanuel Rd",
@@ -167,13 +188,6 @@
    "seg": "30.278,-97.769"
   },
   {
-   "from": "N Interstate 35",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.353,-97.691"
-  },
-  {
    "from": "N Lamar Blvd",
    "hour_of_week": 117,
    "n": 3,
@@ -181,11 +195,11 @@
    "seg": "30.267,-97.755"
   },
   {
-   "from": "Hairy Man Rd (Sam Bass Rd)",
+   "from": "Barton Springs Rd (S Lamar Blvd)",
    "hour_of_week": 117,
    "n": 3,
    "roadworks": false,
-   "seg": "30.517,-97.690"
+   "seg": "30.266,-97.756"
   },
   {
    "from": "MLK & 15th St exit [235A]",
@@ -200,31 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.502,-97.682"
-  },
-  {
-   "from": "Guadalupe St (W 38th St)",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.305,-97.743"
-  },
-  {
-   "from": "US-290 (Cameron Rd)",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.317,-97.700"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 71.3,
+  "dispatch": 70.9,
   "tomtom": 97.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 150,
+  "n": 151,
   "neither": 107,
-  "tomtom_only": 43
+  "tomtom_only": 44
  }
 }
