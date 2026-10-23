@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 56,
-  "dispatch_only": 46,
+  "dispatch": 57,
+  "dispatch_only": 45,
   "here": 0,
   "here_matched": 0,
-  "matched": 10,
-  "tomtom": 566,
-  "tomtom_only": 556
+  "matched": 12,
+  "tomtom": 594,
+  "tomtom_only": 581
  },
  "date": "2026-10-23",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 96.9,
+  "median": 98.0,
   "min": 19.4,
-  "n": 45,
-  "q1": 63.5,
+  "n": 46,
+  "q1": 64.3,
   "q3": 117.4
  },
  "here_onset_offset_min": {
@@ -32,23 +32,23 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
+   "matched": 2,
    "n": 9,
-   "pct": 11.1
+   "pct": 22.2
   },
   "dispatch_surface": {
-   "matched": 9,
-   "n": 47,
-   "pct": 19.1
+   "matched": 10,
+   "n": 48,
+   "pct": 20.8
   },
   "tomtom_highway": {
-   "matched": 5,
-   "n": 275,
-   "pct": 1.8
+   "matched": 8,
+   "n": 291,
+   "pct": 2.7
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 291,
+   "n": 303,
    "pct": 1.7
   }
  },
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 62.5,
-  "median": -0.6,
+  "max": 85.6,
+  "median": 16.7,
   "min": -68.0,
-  "n": 10,
-  "q1": -21.8,
-  "q3": 49.9
+  "n": 12,
+  "q1": -17.7,
+  "q3": 56.5
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 522,
+  "hotspot_buckets": 547,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 537
+  "unreported_congestion": 563
  },
  "sampling": {
   "flow_spent_this_month": 5759,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1005,
+  "incidents_spent_this_month": 1006,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -144,6 +144,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.168,-97.620"
+  },
+  {
+   "from": "E 7th St (Springdale Rd)",
+   "hour_of_week": 137,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.256,-97.702"
   },
   {
    "from": "E 6th St",
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.168,-97.621"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.616"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.1,
-  "tomtom": 98.2
+  "dispatch": 78.9,
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 56,
-  "neither": 46,
-  "tomtom_only": 10
+  "n": 57,
+  "neither": 45,
+  "tomtom_only": 12
  }
 }
