@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 141,
-  "dispatch_only": 104,
+  "dispatch": 142,
+  "dispatch_only": 103,
   "here": 0,
   "here_matched": 0,
-  "matched": 45,
-  "tomtom": 1980,
-  "tomtom_only": 1931
+  "matched": 48,
+  "tomtom": 2032,
+  "tomtom_only": 1981
  },
  "date": "2026-10-23",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 40.0
   },
   "dispatch_surface": {
-   "matched": 25,
-   "n": 111,
-   "pct": 22.5
+   "matched": 27,
+   "n": 112,
+   "pct": 24.1
   },
   "tomtom_highway": {
    "matched": 32,
-   "n": 945,
-   "pct": 3.4
+   "n": 971,
+   "pct": 3.3
   },
   "tomtom_surface": {
-   "matched": 17,
-   "n": 1035,
-   "pct": 1.6
+   "matched": 19,
+   "n": 1061,
+   "pct": 1.8
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 85.6,
-  "median": 11.6,
+  "max": 87.3,
+  "median": 15.8,
   "min": -81.2,
-  "n": 45,
-  "q1": -11.8,
-  "q3": 46.0
+  "n": 48,
+  "q1": -11.3,
+  "q3": 53.6
  },
  "persistence_min": {
   "max": 214.7,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1802,
+  "hotspot_buckets": 1848,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1904
+  "unreported_congestion": 1953
  },
  "sampling": {
   "flow_spent_this_month": 5948,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1044,
+  "incidents_spent_this_month": 1045,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -181,13 +181,6 @@
    "seg": "30.273,-97.699"
   },
   {
-   "from": "US-290/Exit 238 (I-35)",
-   "hour_of_week": 45,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.342,-97.698"
-  },
-  {
    "from": "Noche Clara Dr",
    "hour_of_week": 93,
    "n": 2,
@@ -214,17 +207,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.262,-97.736"
+  },
+  {
+   "from": "Hotel Dr",
+   "hour_of_week": 101,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.211,-97.663"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 73.8,
+  "dispatch": 72.5,
   "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 141,
-  "neither": 104,
-  "tomtom_only": 37
+  "n": 142,
+  "neither": 103,
+  "tomtom_only": 39
  }
 }
