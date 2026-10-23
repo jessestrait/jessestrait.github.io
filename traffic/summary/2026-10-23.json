@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 154,
-  "dispatch_only": 108,
+  "dispatch": 155,
+  "dispatch_only": 107,
   "here": 0,
   "here_matched": 0,
-  "matched": 69,
-  "tomtom": 2584,
-  "tomtom_only": 2505
+  "matched": 71,
+  "tomtom": 2655,
+  "tomtom_only": 2575
  },
  "date": "2026-10-23",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 116.1,
+  "median": 116.2,
   "min": 6.5,
-  "n": 117,
-  "q1": 79.7,
+  "n": 119,
+  "q1": 80.7,
   "q3": 118.2
  },
  "here_onset_offset_min": {
@@ -32,23 +32,23 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 16,
-   "n": 36,
-   "pct": 44.4
+   "matched": 17,
+   "n": 37,
+   "pct": 45.9
   },
   "dispatch_surface": {
-   "matched": 30,
+   "matched": 31,
    "n": 118,
-   "pct": 25.4
+   "pct": 26.3
   },
   "tomtom_highway": {
-   "matched": 49,
-   "n": 1233,
-   "pct": 4.0
+   "matched": 50,
+   "n": 1269,
+   "pct": 3.9
   },
   "tomtom_surface": {
    "matched": 30,
-   "n": 1351,
+   "n": 1386,
    "pct": 2.2
   }
  },
@@ -62,9 +62,9 @@
   "max": 87.3,
   "median": 14.7,
   "min": -81.2,
-  "n": 69,
-  "q1": -12.6,
-  "q3": 52.9
+  "n": 71,
+  "q1": -12.8,
+  "q3": 51.5
  },
  "persistence_min": {
   "max": 214.7,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2274,
+  "hotspot_buckets": 2337,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2477
+  "unreported_congestion": 2547
  },
  "sampling": {
   "flow_spent_this_month": 5975,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1054,
+  "incidents_spent_this_month": 1055,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,13 +111,6 @@
  },
  "structural_hotspots": [
   {
-   "from": "Barton Springs Rd (S Lamar Blvd)",
-   "hour_of_week": 117,
-   "n": 5,
-   "roadworks": false,
-   "seg": "30.266,-97.756"
-  },
-  {
    "from": "US-183 (FM-973)",
    "hour_of_week": 108,
    "n": 4,
@@ -130,6 +123,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.353,-97.691"
+  },
+  {
+   "from": "Barton Springs Rd (S Lamar Blvd)",
+   "hour_of_week": 117,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.266,-97.756"
   },
   {
    "from": "Hairy Man Rd (Sam Bass Rd)",
@@ -146,11 +146,11 @@
    "seg": "30.278,-97.731"
   },
   {
-   "from": "Momentum Way",
-   "hour_of_week": 117,
-   "n": 4,
+   "from": "E 7th St (Springdale Rd)",
+   "hour_of_week": 137,
+   "n": 3,
    "roadworks": false,
-   "seg": "30.197,-97.629"
+   "seg": "30.256,-97.702"
   },
   {
    "from": "Immanuel Rd",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 70.1,
-  "tomtom": 96.9
+  "dispatch": 69.0,
+  "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 154,
-  "neither": 108,
-  "tomtom_only": 46
+  "n": 155,
+  "neither": 107,
+  "tomtom_only": 48
  }
 }
