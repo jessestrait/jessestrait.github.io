@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 49,
-  "dispatch_only": 40,
+  "dispatch": 50,
+  "dispatch_only": 41,
   "here": 0,
   "here_matched": 0,
   "matched": 9,
-  "tomtom": 525,
-  "tomtom_only": 516
+  "tomtom": 549,
+  "tomtom_only": 540
  },
  "date": "2026-10-23",
  "dispatch_life_capped": false,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 9,
-   "n": 41,
-   "pct": 22.0
+   "n": 42,
+   "pct": 21.4
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 252,
-   "pct": 1.6
+   "n": 261,
+   "pct": 1.5
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 273,
-   "pct": 1.8
+   "n": 288,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 484,
+  "hotspot_buckets": 507,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 497
+  "unreported_congestion": 521
  },
  "sampling": {
   "flow_spent_this_month": 5741,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1003,
+  "incidents_spent_this_month": 1004,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -202,29 +202,29 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "E 7th St",
+   "hour_of_week": 97,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.264,-97.727"
+  },
+  {
    "from": "New Hope Dr (Whitestone Blvd)",
    "hour_of_week": 93,
    "n": 1,
    "roadworks": false,
    "seg": "30.514,-97.853"
-  },
-  {
-   "from": "S Bell Blvd",
-   "hour_of_week": 94,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.505,-97.820"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.6,
-  "tomtom": 98.3
+  "dispatch": 82.0,
+  "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 49,
-  "neither": 40,
+  "n": 50,
+  "neither": 41,
   "tomtom_only": 9
  }
 }
