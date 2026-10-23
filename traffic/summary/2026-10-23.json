@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 15,
-  "tomtom": 820,
-  "tomtom_only": 805
+  "tomtom": 863,
+  "tomtom_only": 848
  },
  "date": "2026-10-23",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 389,
-   "pct": 2.3
+   "n": 406,
+   "pct": 2.2
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 431,
-   "pct": 1.4
+   "n": 457,
+   "pct": 1.3
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 754,
+  "hotspot_buckets": 795,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 784
+  "unreported_congestion": 827
  },
  "sampling": {
   "flow_spent_this_month": 5813,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1018,
+  "incidents_spent_this_month": 1019,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -116,6 +116,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.200,-97.633"
+  },
+  {
+   "from": "Bluebonnet Ln",
+   "hour_of_week": 108,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.253,-97.774"
   },
   {
    "from": "W 38th St (Shoal Creek Blvd)",
@@ -207,18 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.500,-97.581"
-  },
-  {
-   "from": "US-183 (FM-973)",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.144,-97.675"
   }
  ],
  "unmatched_pct": {
   "dispatch": 80.0,
-  "tomtom": 98.2
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
