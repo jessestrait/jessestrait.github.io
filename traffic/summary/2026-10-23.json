@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 15,
-  "tomtom": 689,
-  "tomtom_only": 674
+  "tomtom": 713,
+  "tomtom_only": 698
  },
  "date": "2026-10-23",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 337,
-   "pct": 2.7
+   "n": 347,
+   "pct": 2.6
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 352,
-   "pct": 1.7
+   "n": 366,
+   "pct": 1.6
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 636,
+  "hotspot_buckets": 656,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 653
+  "unreported_congestion": 677
  },
  "sampling": {
-  "flow_spent_this_month": 5795,
+  "flow_spent_this_month": 5804,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1013,
+  "incidents_spent_this_month": 1014,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -174,6 +174,27 @@
    "seg": "30.211,-97.663"
   },
   {
+   "from": "Harris Ridge Blvd (E Howard Ln)",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.424,-97.669"
+  },
+  {
+   "from": "Immanuel Rd",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.425,-97.626"
+  },
+  {
+   "from": "Highway 71 E",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.200,-97.633"
+  },
+  {
    "from": "Adage Dr / Epiphany Ln",
    "hour_of_week": 59,
    "n": 2,
@@ -193,32 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.286,-97.727"
-  },
-  {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.245,-97.744"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.234,-97.736"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.148,-97.704"
   }
  ],
  "unmatched_pct": {
   "dispatch": 80.0,
-  "tomtom": 97.8
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
