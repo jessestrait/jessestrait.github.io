@@ -14,18 +14,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 10,
-  "tomtom": 549,
-  "tomtom_only": 539
+  "tomtom": 566,
+  "tomtom_only": 556
  },
  "date": "2026-10-23",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 93.1,
+  "median": 94.2,
   "min": 19.4,
-  "n": 39,
-  "q1": 59.7,
-  "q3": 115.4
+  "n": 40,
+  "q1": 60.3,
+  "q3": 116.9
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 261,
-   "pct": 1.9
+   "n": 275,
+   "pct": 1.8
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 288,
+   "n": 291,
    "pct": 1.7
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 506,
+  "hotspot_buckets": 522,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 520
+  "unreported_congestion": 537
  },
  "sampling": {
   "flow_spent_this_month": 5750,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1004,
+  "incidents_spent_this_month": 1005,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -130,6 +130,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.273,-97.699"
+  },
+  {
+   "from": "US-290/Exit 238 (I-35)",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.342,-97.698"
   },
   {
    "from": "Noche Clara Dr",
@@ -207,13 +214,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "New Hope Dr (Whitestone Blvd)",
-   "hour_of_week": 93,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.514,-97.853"
   }
  ],
  "unmatched_pct": {
