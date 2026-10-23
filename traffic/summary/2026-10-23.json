@@ -14,18 +14,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 15,
-  "tomtom": 735,
-  "tomtom_only": 720
+  "tomtom": 759,
+  "tomtom_only": 744
  },
  "date": "2026-10-23",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 115.1,
+  "median": 115.2,
   "min": 6.5,
-  "n": 71,
-  "q1": 73.9,
-  "q3": 118.2
+  "n": 72,
+  "q1": 74.0,
+  "q3": 118.1
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 354,
+   "n": 366,
    "pct": 2.5
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 381,
-   "pct": 1.6
+   "n": 393,
+   "pct": 1.5
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 676,
+  "hotspot_buckets": 698,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 699
+  "unreported_congestion": 723
  },
  "sampling": {
   "flow_spent_this_month": 5804,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1015,
+  "incidents_spent_this_month": 1016,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -113,7 +113,7 @@
   {
    "from": "Highway 71 E",
    "hour_of_week": 108,
-   "n": 3,
+   "n": 4,
    "roadworks": false,
    "seg": "30.200,-97.633"
   },
@@ -195,13 +195,6 @@
    "seg": "30.162,-97.789"
   },
   {
-   "from": "Cardinal Bloom Loop / Cotton Bluff Pkwy",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.162,-97.724"
-  },
-  {
    "from": "W Braker Ln",
    "hour_of_week": 108,
    "n": 2,
@@ -209,11 +202,18 @@
    "seg": "30.400,-97.708"
   },
   {
-   "from": "Adage Dr / Epiphany Ln",
-   "hour_of_week": 59,
+   "from": "US-290/Exit 238 (I-35)",
+   "hour_of_week": 45,
    "n": 2,
    "roadworks": false,
-   "seg": "30.448,-97.631"
+   "seg": "30.331,-97.705"
+  },
+  {
+   "from": "Llano River Trl",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.518,-97.558"
   }
  ],
  "unmatched_pct": {
