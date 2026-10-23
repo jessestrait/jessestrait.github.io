@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 17,
-  "tomtom": 1000,
-  "tomtom_only": 983
+  "tomtom": 1030,
+  "tomtom_only": 1013
  },
  "date": "2026-10-23",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 11,
-   "n": 475,
+   "n": 488,
    "pct": 2.3
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 525,
+   "n": 542,
    "pct": 1.1
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 913,
+  "hotspot_buckets": 938,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 962
+  "unreported_congestion": 992
  },
  "sampling": {
   "flow_spent_this_month": 5822,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1023,
+  "incidents_spent_this_month": 1024,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -116,6 +116,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.144,-97.675"
+  },
+  {
+   "from": "Immanuel Rd",
+   "hour_of_week": 108,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.425,-97.626"
   },
   {
    "from": "Highway 71 E",
@@ -207,13 +214,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.211,-97.663"
-  },
-  {
-   "from": "Immanuel Rd",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.425,-97.626"
   }
  ],
  "unmatched_pct": {
