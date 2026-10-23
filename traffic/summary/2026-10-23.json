@@ -9,47 +9,47 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 71,
-  "dispatch_only": 57,
+  "dispatch": 74,
+  "dispatch_only": 59,
   "here": 0,
   "here_matched": 0,
-  "matched": 14,
-  "tomtom": 624,
-  "tomtom_only": 610
+  "matched": 15,
+  "tomtom": 667,
+  "tomtom_only": 652
  },
  "date": "2026-10-23",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 115.4,
-  "min": 19.4,
-  "n": 63,
-  "q1": 78.7,
-  "q3": 118.7
+  "median": 115.1,
+  "min": 6.5,
+  "n": 71,
+  "q1": 73.9,
+  "q3": 118.2
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 2,
-   "n": 12,
-   "pct": 16.7
+   "matched": 3,
+   "n": 13,
+   "pct": 23.1
   },
   "dispatch_surface": {
    "matched": 12,
-   "n": 59,
-   "pct": 20.3
+   "n": 61,
+   "pct": 19.7
   },
   "tomtom_highway": {
-   "matched": 8,
-   "n": 304,
-   "pct": 2.6
+   "matched": 9,
+   "n": 325,
+   "pct": 2.8
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 320,
-   "pct": 1.9
+   "n": 342,
+   "pct": 1.8
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 85.6,
-  "median": 12.2,
+  "median": 17.1,
   "min": -68.0,
-  "n": 14,
-  "q1": -16.5,
-  "q3": 53.1
+  "n": 15,
+  "q1": -15.3,
+  "q3": 51.5
  },
  "persistence_min": {
   "max": 86.5,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 574,
+  "hotspot_buckets": 613,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 591
+  "unreported_congestion": 631
  },
  "sampling": {
-  "flow_spent_this_month": 5786,
+  "flow_spent_this_month": 5795,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1010,
+  "incidents_spent_this_month": 1011,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
+  {
+   "from": "Noche Clara Dr",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.168,-97.620"
+  },
   {
    "from": "W 38th St (Shoal Creek Blvd)",
    "hour_of_week": 94,
@@ -137,13 +144,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.342,-97.698"
-  },
-  {
-   "from": "Noche Clara Dr",
-   "hour_of_week": 93,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.168,-97.620"
   },
   {
    "from": "E 7th St (Springdale Rd)",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.3,
+  "dispatch": 79.7,
   "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 71,
-  "neither": 57,
-  "tomtom_only": 14
+  "n": 74,
+  "neither": 59,
+  "tomtom_only": 15
  }
 }
