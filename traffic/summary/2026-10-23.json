@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 147,
+  "dispatch": 148,
   "dispatch_only": 105,
   "here": 0,
   "here_matched": 0,
-  "matched": 56,
-  "tomtom": 2294,
-  "tomtom_only": 2233
+  "matched": 60,
+  "tomtom": 2370,
+  "tomtom_only": 2303
  },
  "date": "2026-10-23",
  "dispatch_life_capped": false,
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 14,
-   "n": 32,
-   "pct": 43.8
+   "matched": 15,
+   "n": 33,
+   "pct": 45.5
   },
   "dispatch_surface": {
    "matched": 28,
@@ -42,14 +42,14 @@
    "pct": 24.3
   },
   "tomtom_highway": {
-   "matched": 39,
-   "n": 1100,
-   "pct": 3.5
+   "matched": 42,
+   "n": 1128,
+   "pct": 3.7
   },
   "tomtom_surface": {
-   "matched": 22,
-   "n": 1194,
-   "pct": 1.8
+   "matched": 25,
+   "n": 1242,
+   "pct": 2.0
   }
  },
  "matcher": {
@@ -60,10 +60,10 @@
  },
  "onset_offset_min": {
   "max": 87.3,
-  "median": 11.9,
+  "median": 11.4,
   "min": -81.2,
-  "n": 56,
-  "q1": -12.6,
+  "n": 60,
+  "q1": -12.7,
   "q3": 50.4
  },
  "persistence_min": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2055,
+  "hotspot_buckets": 2109,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2205
+  "unreported_congestion": 2275
  },
  "sampling": {
-  "flow_spent_this_month": 5957,
+  "flow_spent_this_month": 5966,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1049,
+  "incidents_spent_this_month": 1050,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -167,18 +167,11 @@
    "seg": "30.353,-97.691"
   },
   {
-   "from": "Tur Weg Ln",
+   "from": "N Interstate 35",
    "hour_of_week": 117,
    "n": 3,
    "roadworks": false,
-   "seg": "30.348,-97.562"
-  },
-  {
-   "from": "Mopac Expy N",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.264,-97.787"
+   "seg": "30.278,-97.731"
   },
   {
    "from": "Guadalupe St (W 38th St)",
@@ -186,6 +179,20 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.305,-97.743"
+  },
+  {
+   "from": "US-290 (Cameron Rd)",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.317,-97.700"
+  },
+  {
+   "from": "Momentum Way",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.197,-97.629"
   },
   {
    "from": "W 38th St (Shoal Creek Blvd)",
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.273,-97.699"
-  },
-  {
-   "from": "Noche Clara Dr",
-   "hour_of_week": 93,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.168,-97.620"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 71.4,
-  "tomtom": 97.3
+  "dispatch": 70.9,
+  "tomtom": 97.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 147,
+  "n": 148,
   "neither": 105,
-  "tomtom_only": 42
+  "tomtom_only": 43
  }
 }
