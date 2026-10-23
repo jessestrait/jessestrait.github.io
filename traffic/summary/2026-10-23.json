@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 163,
-  "dispatch_only": 112,
+  "dispatch": 167,
+  "dispatch_only": 115,
   "here": 0,
   "here_matched": 0,
-  "matched": 83,
-  "tomtom": 2950,
-  "tomtom_only": 2857
+  "matched": 85,
+  "tomtom": 2992,
+  "tomtom_only": 2894
  },
  "date": "2026-10-23",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 116.2,
+  "median": 116.3,
   "min": 6.5,
-  "n": 128,
-  "q1": 85.6,
+  "n": 129,
+  "q1": 85.8,
   "q3": 118.4
  },
  "here_onset_offset_min": {
@@ -37,19 +37,19 @@
    "pct": 48.7
   },
   "dispatch_surface": {
-   "matched": 32,
-   "n": 124,
+   "matched": 33,
+   "n": 128,
    "pct": 25.8
   },
   "tomtom_highway": {
-   "matched": 63,
-   "n": 1427,
-   "pct": 4.4
+   "matched": 66,
+   "n": 1440,
+   "pct": 4.6
   },
   "tomtom_surface": {
-   "matched": 30,
-   "n": 1523,
-   "pct": 2.0
+   "matched": 32,
+   "n": 1552,
+   "pct": 2.1
   }
  },
  "matcher": {
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 87.3,
-  "median": 12.2,
+  "median": 11.6,
   "min": -81.2,
-  "n": 83,
-  "q1": -15.3,
-  "q3": 47.1
+  "n": 85,
+  "q1": -16.6,
+  "q3": 46.9
  },
  "persistence_min": {
   "max": 214.7,
-  "median": -30.5,
+  "median": -25.5,
   "min": -1404.1,
-  "n": 42,
-  "q1": -69.1,
+  "n": 45,
+  "q1": -71.6,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2575,
+  "hotspot_buckets": 2603,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2829
+  "unreported_congestion": 2866
  },
  "sampling": {
   "flow_spent_this_month": 5984,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1060,
+  "incidents_spent_this_month": 1061,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -151,6 +151,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.406,-97.722"
+  },
+  {
+   "from": "N Lake Creek Pkwy",
+   "hour_of_week": 118,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.475,-97.794"
   },
   {
    "from": "Highway 71 E",
@@ -207,24 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.166,-97.786"
-  },
-  {
-   "from": "Winsted Ln",
-   "hour_of_week": 116,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.278,-97.769"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 68.7,
-  "tomtom": 96.8
+  "dispatch": 68.9,
+  "tomtom": 96.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 163,
-  "neither": 112,
-  "tomtom_only": 51
+  "n": 167,
+  "neither": 115,
+  "tomtom_only": 52
  }
 }
