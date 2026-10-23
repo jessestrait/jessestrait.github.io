@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 144,
-  "dispatch_only": 103,
+  "dispatch": 146,
+  "dispatch_only": 104,
   "here": 0,
   "here_matched": 0,
-  "matched": 50,
-  "tomtom": 2116,
-  "tomtom_only": 2064
+  "matched": 51,
+  "tomtom": 2169,
+  "tomtom_only": 2115
  },
  "date": "2026-10-23",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 115.8,
+  "median": 115.9,
   "min": 6.5,
-  "n": 111,
-  "q1": 74.2,
-  "q3": 118.2
+  "n": 112,
+  "q1": 75.3,
+  "q3": 118.1
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,19 +37,19 @@
    "pct": 43.8
   },
   "dispatch_surface": {
-   "matched": 27,
-   "n": 112,
-   "pct": 24.1
+   "matched": 28,
+   "n": 114,
+   "pct": 24.6
   },
   "tomtom_highway": {
    "matched": 33,
-   "n": 1019,
+   "n": 1033,
    "pct": 3.2
   },
   "tomtom_surface": {
-   "matched": 19,
-   "n": 1097,
-   "pct": 1.7
+   "matched": 21,
+   "n": 1136,
+   "pct": 1.8
   }
  },
  "matcher": {
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 87.3,
-  "median": 13.1,
+  "median": 11.6,
   "min": -81.2,
-  "n": 50,
-  "q1": -12.1,
-  "q3": 52.2
+  "n": 51,
+  "q1": -12.8,
+  "q3": 51.5
  },
  "persistence_min": {
   "max": 214.7,
-  "median": -18.1,
+  "median": -21.1,
   "min": -158.2,
-  "n": 28,
-  "q1": -77.7,
+  "n": 29,
+  "q1": -74.0,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1919,
+  "hotspot_buckets": 1964,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2036
+  "unreported_congestion": 2087
  },
  "sampling": {
   "flow_spent_this_month": 5957,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1046,
+  "incidents_spent_this_month": 1047,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -167,6 +167,13 @@
    "seg": "30.353,-97.691"
   },
   {
+   "from": "Tur Weg Ln",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.348,-97.562"
+  },
+  {
    "from": "Guadalupe St (W 38th St)",
    "hour_of_week": 117,
    "n": 3,
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.256,-97.702"
-  },
-  {
-   "from": "E 6th St",
-   "hour_of_week": 97,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.264,-97.727"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 71.5,
+  "dispatch": 71.2,
   "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 144,
-  "neither": 103,
-  "tomtom_only": 41
+  "n": 146,
+  "neither": 104,
+  "tomtom_only": 42
  }
 }
