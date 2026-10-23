@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 77,
-  "dispatch_only": 61,
+  "dispatch_only": 60,
   "here": 0,
   "here_matched": 0,
-  "matched": 16,
-  "tomtom": 971,
-  "tomtom_only": 955
+  "matched": 17,
+  "tomtom": 1000,
+  "tomtom_only": 983
  },
  "date": "2026-10-23",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 26.7
   },
   "dispatch_surface": {
-   "matched": 12,
+   "matched": 13,
    "n": 62,
-   "pct": 19.4
+   "pct": 21.0
   },
   "tomtom_highway": {
-   "matched": 10,
-   "n": 461,
-   "pct": 2.2
+   "matched": 11,
+   "n": 475,
+   "pct": 2.3
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 510,
-   "pct": 1.2
+   "n": 525,
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 85.6,
-  "median": 20.8,
+  "median": 22.4,
   "min": -68.0,
-  "n": 16,
-  "q1": -14.1,
-  "q3": 50.4
+  "n": 17,
+  "q1": -12.9,
+  "q3": 49.3
  },
  "persistence_min": {
   "max": 86.5,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 889,
+  "hotspot_buckets": 913,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 934
+  "unreported_congestion": 962
  },
  "sampling": {
   "flow_spent_this_month": 5822,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1022,
+  "incidents_spent_this_month": 1023,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
  },
  "structural_hotspots": [
   {
+   "from": "US-183 (FM-973)",
+   "hour_of_week": 108,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.144,-97.675"
+  },
+  {
    "from": "Highway 71 E",
    "hour_of_week": 108,
    "n": 3,
@@ -118,18 +125,25 @@
    "seg": "30.200,-97.633"
   },
   {
-   "from": "US-183 (FM-973)",
-   "hour_of_week": 108,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.144,-97.675"
-  },
-  {
    "from": "Bluebonnet Ln",
    "hour_of_week": 108,
    "n": 3,
    "roadworks": false,
    "seg": "30.253,-97.774"
+  },
+  {
+   "from": "S Pleasant Valley Rd",
+   "hour_of_week": 108,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.180,-97.747"
+  },
+  {
+   "from": "Taft Ln (I-35)",
+   "hour_of_week": 108,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.166,-97.786"
   },
   {
    "from": "W 38th St (Shoal Creek Blvd)",
@@ -200,31 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.425,-97.626"
-  },
-  {
-   "from": "S Interstate 35",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.162,-97.789"
-  },
-  {
-   "from": "W Braker Ln",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.400,-97.708"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 79.2,
-  "tomtom": 98.4
+  "dispatch": 77.9,
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 77,
-  "neither": 61,
-  "tomtom_only": 16
+  "neither": 60,
+  "tomtom_only": 17
  }
 }
