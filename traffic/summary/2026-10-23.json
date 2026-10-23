@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 15,
-  "tomtom": 667,
-  "tomtom_only": 652
+  "tomtom": 679,
+  "tomtom_only": 664
  },
  "date": "2026-10-23",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 325,
-   "pct": 2.8
+   "n": 333,
+   "pct": 2.7
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 342,
-   "pct": 1.8
+   "n": 346,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 613,
+  "hotspot_buckets": 626,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 631
+  "unreported_congestion": 643
  },
  "sampling": {
   "flow_spent_this_month": 5795,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1011,
+  "incidents_spent_this_month": 1012,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -107,16 +107,9 @@
    18
   ],
   "rush_min": 5,
-  "this_poll": "off-peak"
+  "this_poll": "rush"
  },
  "structural_hotspots": [
-  {
-   "from": "Noche Clara Dr",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.168,-97.620"
-  },
   {
    "from": "W 38th St (Shoal Creek Blvd)",
    "hour_of_week": 94,
@@ -144,6 +137,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.342,-97.698"
+  },
+  {
+   "from": "Noche Clara Dr",
+   "hour_of_week": 93,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.168,-97.620"
   },
   {
    "from": "E 7th St (Springdale Rd)",
