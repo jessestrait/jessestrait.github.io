@@ -13,19 +13,19 @@
   "dispatch_only": 68,
   "here": 0,
   "here_matched": 0,
-  "matched": 9,
-  "tomtom": 461,
-  "tomtom_only": 453
+  "matched": 10,
+  "tomtom": 478,
+  "tomtom_only": 469
  },
  "date": "2026-10-24",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 115.9,
+  "median": 116.2,
   "min": 14.7,
-  "n": 61,
-  "q1": 63.8,
-  "q3": 118.5
+  "n": 62,
+  "q1": 64.5,
+  "q3": 118.6
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 216,
-   "pct": 2.3
+   "n": 224,
+   "pct": 2.2
   },
   "tomtom_surface": {
-   "matched": 3,
-   "n": 245,
-   "pct": 1.2
+   "matched": 4,
+   "n": 254,
+   "pct": 1.6
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 55.4,
-  "median": -12.7,
+  "median": -2.2,
   "min": -71.5,
-  "n": 9,
-  "q1": -62.8,
-  "q3": 13.7
+  "n": 10,
+  "q1": -59.1,
+  "q3": 21.0
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 413,
+  "hotspot_buckets": 426,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 430
+  "unreported_congestion": 445
  },
  "sampling": {
   "flow_spent_this_month": 6038,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1074,
+  "incidents_spent_this_month": 1075,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,11 +111,11 @@
  },
  "structural_hotspots": [
   {
-   "from": "Congress Ave (W 5th St)",
-   "hour_of_week": 123,
+   "from": "TX-343 Loop/E 1st St (Red River St)",
+   "hour_of_week": 124,
    "n": 3,
    "roadworks": false,
-   "seg": "30.266,-97.738"
+   "seg": "30.266,-97.737"
   },
   {
    "from": "E 6th St (I-35)",
@@ -153,6 +153,13 @@
    "seg": "30.139,-97.633"
   },
   {
+   "from": "Congress Ave (W 5th St)",
+   "hour_of_week": 123,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.266,-97.738"
+  },
+  {
    "from": "E 4th St",
    "hour_of_week": 123,
    "n": 2,
@@ -167,11 +174,18 @@
    "seg": "30.112,-97.650"
   },
   {
-   "from": "TX-343 Loop/E 1st St (Red River St)",
-   "hour_of_week": 124,
+   "from": "I-35 (E 5th St)",
+   "hour_of_week": 125,
    "n": 2,
    "roadworks": false,
-   "seg": "30.266,-97.737"
+   "seg": "30.266,-97.738"
+  },
+  {
+   "from": "E 7th St",
+   "hour_of_week": 125,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.264,-97.727"
   },
   {
    "from": "Connie St",
@@ -200,25 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.234,-97.736"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.148,-97.704"
   }
  ],
  "unmatched_pct": {
   "dispatch": 88.3,
-  "tomtom": 98.3
+  "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
