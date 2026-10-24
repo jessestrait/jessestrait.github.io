@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 94,
-  "dispatch_only": 84,
+  "dispatch": 96,
+  "dispatch_only": 86,
   "here": 0,
   "here_matched": 0,
   "matched": 11,
-  "tomtom": 498,
-  "tomtom_only": 488
+  "tomtom": 507,
+  "tomtom_only": 497
  },
  "date": "2026-10-24",
  "dispatch_life_capped": false,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 5,
-   "n": 66,
-   "pct": 7.6
+   "n": 68,
+   "pct": 7.4
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 229,
-   "pct": 2.2
+   "n": 233,
+   "pct": 2.1
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 269,
-   "pct": 1.9
+   "n": 274,
+   "pct": 1.8
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 441,
+  "hotspot_buckets": 450,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 461
+  "unreported_congestion": 470
  },
  "sampling": {
   "flow_spent_this_month": 6101,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1079,
+  "incidents_spent_this_month": 1080,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -188,6 +188,13 @@
    "seg": "30.264,-97.727"
   },
   {
+   "from": "TX-45 Toll/TX-130 Toll (FM-812)",
+   "hour_of_week": 132,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.131,-97.646"
+  },
+  {
    "from": "Connie St",
    "hour_of_week": 114,
    "n": 2,
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.267,-97.748"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 19,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.320,-97.706"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 89.4,
+  "dispatch": 89.6,
   "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 94,
-  "neither": 84,
+  "n": 96,
+  "neither": 86,
   "tomtom_only": 10
  }
 }
