@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 128,
-  "dispatch_only": 116,
+  "dispatch": 131,
+  "dispatch_only": 119,
   "here": 0,
   "here_matched": 0,
   "matched": 14,
-  "tomtom": 598,
-  "tomtom_only": 585
+  "tomtom": 651,
+  "tomtom_only": 638
  },
  "date": "2026-10-24",
  "dispatch_life_capped": false,
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 6,
-   "n": 37,
-   "pct": 16.2
+   "n": 39,
+   "pct": 15.4
   },
   "dispatch_surface": {
    "matched": 6,
-   "n": 91,
-   "pct": 6.6
+   "n": 92,
+   "pct": 6.5
   },
   "tomtom_highway": {
    "matched": 8,
-   "n": 277,
-   "pct": 2.9
+   "n": 304,
+   "pct": 2.6
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 321,
-   "pct": 1.6
+   "n": 347,
+   "pct": 1.4
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 532,
+  "hotspot_buckets": 582,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 556
+  "unreported_congestion": 609
  },
  "sampling": {
   "flow_spent_this_month": 6173,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1083,
+  "incidents_spent_this_month": 1084,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -188,18 +188,18 @@
    "seg": "30.264,-97.727"
   },
   {
-   "from": "Elroy Rd (FM-812)",
-   "hour_of_week": 132,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.126,-97.641"
-  },
-  {
    "from": "E 7th St (Springdale Rd)",
    "hour_of_week": 137,
    "n": 2,
    "roadworks": false,
    "seg": "30.256,-97.702"
+  },
+  {
+   "from": "N Lake Creek Pkwy",
+   "hour_of_week": 138,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.475,-97.794"
   },
   {
    "from": "S Interstate 35",
@@ -209,22 +209,22 @@
    "seg": "30.480,-97.673"
   },
   {
-   "from": "TX-343 Loop/W Cesar Chavez St (Colorado St)",
+   "from": "E Dean Keeton St",
    "hour_of_week": 138,
    "n": 2,
    "roadworks": false,
-   "seg": "30.266,-97.745"
+   "seg": "30.289,-97.734"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 90.6,
-  "tomtom": 97.8
+  "dispatch": 90.8,
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 128,
-  "neither": 116,
+  "n": 131,
+  "neither": 119,
   "tomtom_only": 12
  }
 }
