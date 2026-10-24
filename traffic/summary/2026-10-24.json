@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 71,
+  "dispatch": 72,
   "dispatch_only": 63,
   "here": 0,
   "here_matched": 0,
-  "matched": 8,
-  "tomtom": 443,
-  "tomtom_only": 436
+  "matched": 9,
+  "tomtom": 461,
+  "tomtom_only": 453
  },
  "date": "2026-10-24",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 22.7
   },
   "dispatch_surface": {
-   "matched": 3,
-   "n": 49,
-   "pct": 6.1
+   "matched": 4,
+   "n": 50,
+   "pct": 8.0
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 211,
-   "pct": 2.4
+   "n": 216,
+   "pct": 2.3
   },
   "tomtom_surface": {
-   "matched": 2,
-   "n": 232,
-   "pct": 0.9
+   "matched": 3,
+   "n": 245,
+   "pct": 1.2
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 55.4,
-  "median": -7.7,
+  "median": -12.7,
   "min": -71.5,
-  "n": 8,
-  "q1": -66.4,
-  "q3": 14.7
+  "n": 9,
+  "q1": -62.8,
+  "q3": 13.7
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 396,
+  "hotspot_buckets": 413,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 414
+  "unreported_congestion": 430
  },
  "sampling": {
-  "flow_spent_this_month": 6029,
+  "flow_spent_this_month": 6038,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1073,
+  "incidents_spent_this_month": 1074,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
+  {
+   "from": "Congress Ave (W 5th St)",
+   "hour_of_week": 123,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.266,-97.738"
+  },
   {
    "from": "E 6th St (I-35)",
    "hour_of_week": 119,
@@ -139,32 +146,11 @@
    "seg": "30.263,-97.742"
   },
   {
-   "from": "I-35 (E 6th St)",
-   "hour_of_week": 122,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.263,-97.728"
-  },
-  {
    "from": "Austin",
    "hour_of_week": 122,
    "n": 2,
    "roadworks": false,
    "seg": "30.139,-97.633"
-  },
-  {
-   "from": "River St",
-   "hour_of_week": 123,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.258,-97.739"
-  },
-  {
-   "from": "E 6th St",
-   "hour_of_week": 123,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.264,-97.727"
   },
   {
    "from": "E 4th St",
@@ -179,13 +165,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.112,-97.650"
-  },
-  {
-   "from": "Congress Ave (W 5th St)",
-   "hour_of_week": 123,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.266,-97.739"
   },
   {
    "from": "Connie St",
@@ -214,17 +193,38 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Lexington Meadow Ln",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.178,-97.615"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.7,
-  "tomtom": 98.4
+  "dispatch": 87.5,
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 71,
+  "n": 72,
   "neither": 63,
-  "tomtom_only": 8
+  "tomtom_only": 9
  }
 }
