@@ -9,47 +9,47 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 108,
-  "dispatch_only": 97,
+  "dispatch": 123,
+  "dispatch_only": 111,
   "here": 0,
   "here_matched": 0,
-  "matched": 13,
-  "tomtom": 536,
-  "tomtom_only": 524
+  "matched": 14,
+  "tomtom": 598,
+  "tomtom_only": 585
  },
  "date": "2026-10-24",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 116.4,
-  "min": 14.7,
-  "n": 93,
-  "q1": 76.4,
-  "q3": 118.5
+  "median": 115.6,
+  "min": 4.9,
+  "n": 108,
+  "q1": 64.6,
+  "q3": 118.2
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 5,
-   "n": 32,
-   "pct": 15.6
+   "matched": 6,
+   "n": 34,
+   "pct": 17.6
   },
   "dispatch_surface": {
    "matched": 6,
-   "n": 76,
-   "pct": 7.9
+   "n": 89,
+   "pct": 6.7
   },
   "tomtom_highway": {
-   "matched": 7,
-   "n": 251,
-   "pct": 2.8
+   "matched": 8,
+   "n": 277,
+   "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 285,
-   "pct": 1.8
+   "n": 321,
+   "pct": 1.6
   }
  },
  "matcher": {
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 55.4,
-  "median": -12.7,
+  "median": -18.0,
   "min": -71.5,
-  "n": 13,
-  "q1": -45.1,
-  "q3": 13.7
+  "n": 14,
+  "q1": -39.9,
+  "q3": 12.7
  },
  "persistence_min": {
   "max": 0.0,
-  "median": 0.0,
+  "median": -7.6,
   "min": -126.8,
-  "n": 11,
-  "q1": -91.3,
+  "n": 12,
+  "q1": -83.7,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 478,
+  "hotspot_buckets": 532,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 497
+  "unreported_congestion": 556
  },
  "sampling": {
-  "flow_spent_this_month": 6146,
+  "flow_spent_this_month": 6155,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1082,
+  "incidents_spent_this_month": 1083,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -188,6 +188,20 @@
    "seg": "30.264,-97.727"
   },
   {
+   "from": "Elroy Rd (FM-812)",
+   "hour_of_week": 132,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.126,-97.641"
+  },
+  {
+   "from": "E 7th St (Springdale Rd)",
+   "hour_of_week": 137,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.256,-97.702"
+  },
+  {
    "from": "Connie St",
    "hour_of_week": 114,
    "n": 2,
@@ -200,31 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.448,-97.631"
-  },
-  {
-   "from": "W 2nd St (San Antonio St)",
-   "hour_of_week": 131,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.267,-97.748"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 19,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.320,-97.706"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 89.8,
+  "dispatch": 90.2,
   "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 108,
-  "neither": 97,
-  "tomtom_only": 11
+  "n": 123,
+  "neither": 111,
+  "tomtom_only": 12
  }
 }
