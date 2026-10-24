@@ -10,22 +10,22 @@
  ],
  "counts": {
   "dispatch": 61,
-  "dispatch_only": 54,
+  "dispatch_only": 53,
   "here": 0,
   "here_matched": 0,
-  "matched": 7,
-  "tomtom": 391,
-  "tomtom_only": 385
+  "matched": 8,
+  "tomtom": 414,
+  "tomtom_only": 407
  },
  "date": "2026-10-24",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 88.0,
+  "median": 91.5,
   "min": 14.7,
-  "n": 45,
-  "q1": 48.7,
-  "q3": 117.6
+  "n": 47,
+  "q1": 49.6,
+  "q3": 117.9
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,19 +37,19 @@
    "pct": 25.0
   },
   "dispatch_surface": {
-   "matched": 2,
+   "matched": 3,
    "n": 41,
-   "pct": 4.9
+   "pct": 7.3
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 190,
-   "pct": 2.6
+   "n": 201,
+   "pct": 2.5
   },
   "tomtom_surface": {
-   "matched": 1,
-   "n": 201,
-   "pct": 0.5
+   "matched": 2,
+   "n": 213,
+   "pct": 0.9
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 55.4,
-  "median": 8.2,
+  "median": -7.7,
   "min": -71.5,
-  "n": 7,
-  "q1": -70.0,
-  "q3": 15.7
+  "n": 8,
+  "q1": -66.4,
+  "q3": 14.7
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 353,
+  "hotspot_buckets": 373,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 364
+  "unreported_congestion": 386
  },
  "sampling": {
   "flow_spent_this_month": 6020,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1071,
+  "incidents_spent_this_month": 1072,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -130,6 +130,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.263,-97.742"
+  },
+  {
+   "from": "Austin",
+   "hour_of_week": 122,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.139,-97.633"
   },
   {
    "from": "Connie St",
@@ -188,6 +195,13 @@
    "seg": "30.112,-97.650"
   },
   {
+   "from": "E 4th St",
+   "hour_of_week": 123,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.264,-97.728"
+  },
+  {
    "from": "New Hope Dr (Whitestone Blvd)",
    "hour_of_week": 119,
    "n": 1,
@@ -200,31 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.505,-97.820"
-  },
-  {
-   "from": "FM-1431/Whitestone Blvd (N Bell Blvd/US-183)",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.504,-97.820"
-  },
-  {
-   "from": "Willie Way",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.316,-97.951"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.5,
-  "tomtom": 98.5
+  "dispatch": 86.9,
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 61,
-  "neither": 54,
-  "tomtom_only": 7
+  "neither": 53,
+  "tomtom_only": 8
  }
 }
