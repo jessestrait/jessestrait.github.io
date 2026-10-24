@@ -14,18 +14,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 367,
-  "tomtom_only": 362
+  "tomtom": 391,
+  "tomtom_only": 386
  },
  "date": "2026-10-24",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 69.4,
+  "median": 79.4,
   "min": 14.7,
-  "n": 36,
-  "q1": 46.7,
-  "q3": 102.9
+  "n": 39,
+  "q1": 47.2,
+  "q3": 117.0
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 179,
-   "pct": 2.2
+   "n": 190,
+   "pct": 2.1
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 188,
+   "n": 201,
    "pct": 0.5
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 331,
+  "hotspot_buckets": 353,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 341
+  "unreported_congestion": 365
  },
  "sampling": {
   "flow_spent_this_month": 6011,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1070,
+  "incidents_spent_this_month": 1071,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -123,6 +123,20 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.168,-97.620"
+  },
+  {
+   "from": "I-35/US-290 (E Cesar Chavez St/E 1st St/State Spur 343)",
+   "hour_of_week": 121,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.263,-97.742"
+  },
+  {
+   "from": "TX-21 (FM-812)",
+   "hour_of_week": 121,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.126,-97.641"
   },
   {
    "from": "Connie St",
@@ -200,25 +214,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.504,-97.820"
-  },
-  {
-   "from": "Willie Way",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.316,-97.951"
-  },
-  {
-   "from": "TX-71 (FM-620)",
-   "hour_of_week": 117,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.321,-97.954"
   }
  ],
  "unmatched_pct": {
   "dispatch": 89.5,
-  "tomtom": 98.6
+  "tomtom": 98.7
  },
  "witnesses": {
   "both": 0,
