@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 146,
-  "dispatch_only": 129,
+  "dispatch": 147,
+  "dispatch_only": 130,
   "here": 0,
   "here_matched": 0,
   "matched": 20,
-  "tomtom": 758,
-  "tomtom_only": 741
+  "tomtom": 819,
+  "tomtom_only": 802
  },
  "date": "2026-10-24",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 116.7,
+  "median": 116.8,
   "min": 4.9,
-  "n": 133,
-  "q1": 76.4,
+  "n": 134,
+  "q1": 77.9,
   "q3": 118.5
  },
  "here_onset_offset_min": {
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 7,
-   "n": 103,
-   "pct": 6.8
+   "n": 104,
+   "pct": 6.7
   },
   "tomtom_highway": {
    "matched": 11,
-   "n": 360,
-   "pct": 3.1
+   "n": 387,
+   "pct": 2.8
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 398,
-   "pct": 1.5
+   "n": 432,
+   "pct": 1.4
   }
  },
  "matcher": {
@@ -67,11 +67,11 @@
   "q3": 22.0
  },
  "persistence_min": {
-  "max": 0.0,
-  "median": -15.1,
+  "max": 331.7,
+  "median": -7.6,
   "min": -126.8,
-  "n": 13,
-  "q1": -76.0,
+  "n": 14,
+  "q1": -68.4,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 679,
+  "hotspot_buckets": 734,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 711
+  "unreported_congestion": 772
  },
  "sampling": {
-  "flow_spent_this_month": 6227,
+  "flow_spent_this_month": 6236,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1086,
+  "incidents_spent_this_month": 1087,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -195,36 +195,36 @@
    "seg": "30.264,-97.727"
   },
   {
+   "from": "Elroy Rd (FM-812)",
+   "hour_of_week": 132,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.131,-97.645"
+  },
+  {
+   "from": "E 12th St (Red River St)",
+   "hour_of_week": 101,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.274,-97.735"
+  },
+  {
    "from": "E 7th St (Springdale Rd)",
    "hour_of_week": 137,
    "n": 2,
    "roadworks": false,
    "seg": "30.256,-97.702"
-  },
-  {
-   "from": "S Interstate 35",
-   "hour_of_week": 138,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.480,-97.673"
-  },
-  {
-   "from": "E Dean Keeton St",
-   "hour_of_week": 138,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.289,-97.734"
   }
  ],
  "unmatched_pct": {
   "dispatch": 88.4,
-  "tomtom": 97.8
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 146,
-  "neither": 129,
+  "n": 147,
+  "neither": 130,
   "tomtom_only": 17
  }
 }
