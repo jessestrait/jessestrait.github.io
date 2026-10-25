@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 21,
-  "dispatch_only": 16,
+  "dispatch": 23,
+  "dispatch_only": 18,
   "here": 0,
   "here_matched": 0,
-  "matched": 5,
+  "matched": 6,
   "tomtom": 298,
-  "tomtom_only": 293
+  "tomtom_only": 292
  },
  "date": "2026-10-25",
  "dispatch_life_capped": false,
@@ -33,18 +33,18 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 2,
-   "n": 3,
-   "pct": 66.7
+   "n": 4,
+   "pct": 50.0
   },
   "dispatch_surface": {
    "matched": 3,
-   "n": 18,
-   "pct": 16.7
+   "n": 19,
+   "pct": 15.8
   },
   "tomtom_highway": {
-   "matched": 4,
+   "matched": 5,
    "n": 124,
-   "pct": 3.2
+   "pct": 4.0
   },
   "tomtom_surface": {
    "matched": 1,
@@ -62,9 +62,9 @@
   "max": 72.2,
   "median": -11.7,
   "min": -48.7,
-  "n": 5,
-  "q1": -48.7,
-  "q3": 31.7
+  "n": 6,
+  "q1": -48.6,
+  "q3": 11.4
  },
  "persistence_min": {
   "max": -40.6,
@@ -89,10 +89,10 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 257,
+  "hotspot_buckets": 256,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 272
+  "unreported_congestion": 271
  },
  "sampling": {
   "flow_spent_this_month": 6263,
@@ -111,7 +111,7 @@
  },
  "structural_hotspots": [
   {
-   "from": "Alterra Pkwy",
+   "from": "Domain Dr",
    "hour_of_week": 143,
    "n": 3,
    "roadworks": false,
@@ -139,14 +139,21 @@
    "seg": "30.118,-97.661"
   },
   {
-   "from": "N Interstate 35",
+   "from": "E 5th St (San Jacinto Blvd)",
+   "hour_of_week": 143,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.264,-97.742"
+  },
+  {
+   "from": "6th St exit [234C]",
    "hour_of_week": 144,
    "n": 2,
    "roadworks": false,
    "seg": "30.265,-97.735"
   },
   {
-   "from": "FM-812 (South) (FM-973)",
+   "from": "FM 812",
    "hour_of_week": 144,
    "n": 2,
    "roadworks": false,
@@ -202,13 +209,6 @@
    "seg": "30.178,-97.615"
   },
   {
-   "from": "E 5th St (San Jacinto Blvd)",
-   "hour_of_week": 143,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.264,-97.742"
-  },
-  {
    "from": "FM-2222/Bullick Hollow Rd (FM-620)",
    "hour_of_week": 142,
    "n": 1,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.2,
-  "tomtom": 98.3
+  "dispatch": 78.3,
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 21,
-  "neither": 16,
+  "n": 23,
+  "neither": 18,
   "tomtom_only": 5
  }
 }
