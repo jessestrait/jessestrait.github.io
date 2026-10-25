@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 11,
-  "tomtom": 388,
-  "tomtom_only": 377
+  "tomtom": 391,
+  "tomtom_only": 380
  },
  "date": "2026-10-25",
  "dispatch_life_capped": true,
@@ -48,7 +48,7 @@
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 225,
+   "n": 228,
    "pct": 1.3
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 332,
+  "hotspot_buckets": 333,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 353
+  "unreported_congestion": 356
  },
  "sampling": {
   "flow_spent_this_month": 6308,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1094,
+  "incidents_spent_this_month": 1095,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
+  {
+   "from": "W Slaughter Ln",
+   "hour_of_week": 98,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.195,-97.862"
+  },
   {
    "from": "8th-3rd Sts exit [234B]",
    "hour_of_week": 143,
@@ -131,13 +138,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.118,-97.661"
-  },
-  {
-   "from": "W Slaughter Ln",
-   "hour_of_week": 98,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.195,-97.862"
   },
   {
    "from": "Domain Dr",
@@ -210,11 +210,11 @@
    "seg": "30.266,-97.738"
   },
   {
-   "from": "Connie St",
-   "hour_of_week": 114,
+   "from": "E 11th St (Red River St)",
+   "hour_of_week": 102,
    "n": 2,
    "roadworks": false,
-   "seg": "30.454,-97.667"
+   "seg": "30.274,-97.734"
   }
  ],
  "unmatched_pct": {
