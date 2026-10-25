@@ -21,11 +21,11 @@
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.4,
+  "median": 116.6,
   "min": 115.5,
-  "n": 10,
-  "q1": 115.9,
-  "q3": 117.5
+  "n": 11,
+  "q1": 116.0,
+  "q3": 119.3
  },
  "here_onset_offset_min": {
   "n": 0
@@ -160,6 +160,13 @@
    "seg": "30.143,-97.647"
   },
   {
+   "from": "Congress Ave/Speedway (Martin Luther King Jr Blvd)",
+   "hour_of_week": 144,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.279,-97.732"
+  },
+  {
    "from": "6th St exit [234C]",
    "hour_of_week": 144,
    "n": 2,
@@ -207,13 +214,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.178,-97.615"
   }
  ],
  "unmatched_pct": {
