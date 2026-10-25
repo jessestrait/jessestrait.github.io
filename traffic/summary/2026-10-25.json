@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 29,
-  "dispatch_only": 23,
+  "dispatch": 30,
+  "dispatch_only": 24,
   "here": 0,
   "here_matched": 0,
-  "matched": 7,
-  "tomtom": 298,
-  "tomtom_only": 291
+  "matched": 8,
+  "tomtom": 327,
+  "tomtom_only": 319
  },
  "date": "2026-10-25",
  "dispatch_life_capped": false,
@@ -33,8 +33,8 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 2,
-   "n": 4,
-   "pct": 50.0
+   "n": 5,
+   "pct": 40.0
   },
   "dispatch_surface": {
    "matched": 4,
@@ -42,14 +42,14 @@
    "pct": 16.0
   },
   "tomtom_highway": {
-   "matched": 6,
-   "n": 124,
-   "pct": 4.8
+   "matched": 7,
+   "n": 143,
+   "pct": 4.9
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 174,
-   "pct": 0.6
+   "n": 184,
+   "pct": 0.5
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 72.2,
-  "median": -11.7,
+  "median": -30.1,
   "min": -86.1,
-  "n": 7,
-  "q1": -48.7,
-  "q3": -8.8
+  "n": 8,
+  "q1": -76.7,
+  "q3": -9.5
  },
  "persistence_min": {
   "max": -40.6,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 255,
+  "hotspot_buckets": 282,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 270
+  "unreported_congestion": 298
  },
  "sampling": {
   "flow_spent_this_month": 6281,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1089,
+  "incidents_spent_this_month": 1090,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,13 +110,6 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
-  {
-   "from": "Domain Dr",
-   "hour_of_week": 143,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.404,-97.722"
-  },
   {
    "from": "8th-3rd Sts exit [234B]",
    "hour_of_week": 143,
@@ -139,18 +132,18 @@
    "seg": "30.118,-97.661"
   },
   {
-   "from": "E 5th St (San Jacinto Blvd)",
+   "from": "Domain Dr",
+   "hour_of_week": 143,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.404,-97.722"
+  },
+  {
+   "from": "Trinity St (2nd St)",
    "hour_of_week": 143,
    "n": 2,
    "roadworks": false,
    "seg": "30.264,-97.742"
-  },
-  {
-   "from": "6th St exit [234C]",
-   "hour_of_week": 144,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.265,-97.735"
   },
   {
    "from": "FM 812",
@@ -158,6 +151,20 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.153,-97.670"
+  },
+  {
+   "from": "Elroy Rd / Heine Farm Rd",
+   "hour_of_week": 144,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.143,-97.647"
+  },
+  {
+   "from": "6th St exit [234C]",
+   "hour_of_week": 144,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.265,-97.735"
   },
   {
    "from": "Connie St",
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.178,-97.615"
-  },
-  {
-   "from": "FM-2222/Bullick Hollow Rd (FM-620)",
-   "hour_of_week": 142,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.452,-97.829"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 79.3,
-  "tomtom": 97.7
+  "dispatch": 80.0,
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 29,
-  "neither": 23,
+  "n": 30,
+  "neither": 24,
   "tomtom_only": 6
  }
 }
