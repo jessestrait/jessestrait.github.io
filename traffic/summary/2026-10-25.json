@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 19,
-  "dispatch_only": 14,
+  "dispatch": 21,
+  "dispatch_only": 16,
   "here": 0,
   "here_matched": 0,
   "matched": 5,
-  "tomtom": 233,
-  "tomtom_only": 228
+  "tomtom": 298,
+  "tomtom_only": 293
  },
  "date": "2026-10-25",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
-  "max": 116.7,
+  "max": 116.8,
   "median": 116.6,
   "min": 115.7,
-  "n": 3,
-  "q1": 115.7,
+  "n": 5,
+  "q1": 115.8,
   "q3": 116.7
  },
  "here_onset_offset_min": {
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 2,
-   "n": 2,
-   "pct": 100.0
+   "n": 3,
+   "pct": 66.7
   },
   "dispatch_surface": {
    "matched": 3,
-   "n": 17,
-   "pct": 17.6
+   "n": 18,
+   "pct": 16.7
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 97,
-   "pct": 4.1
+   "n": 124,
+   "pct": 3.2
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 136,
-   "pct": 0.7
+   "n": 174,
+   "pct": 0.6
   }
  },
  "matcher": {
@@ -67,7 +67,12 @@
   "q3": 31.7
  },
  "persistence_min": {
-  "n": 0
+  "max": -40.6,
+  "median": -40.6,
+  "min": -40.6,
+  "n": 1,
+  "q1": -40.6,
+  "q3": -40.6
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -84,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 197,
+  "hotspot_buckets": 257,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 207
+  "unreported_congestion": 272
  },
  "sampling": {
   "flow_spent_this_month": 6263,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1088,
+  "incidents_spent_this_month": 1089,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -105,6 +110,13 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
+  {
+   "from": "Alterra Pkwy",
+   "hour_of_week": 143,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.404,-97.722"
+  },
   {
    "from": "8th-3rd Sts exit [234B]",
    "hour_of_week": 143,
@@ -125,6 +137,20 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.118,-97.661"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 144,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.265,-97.735"
+  },
+  {
+   "from": "FM-812 (South) (FM-973)",
+   "hour_of_week": 144,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.153,-97.670"
   },
   {
    "from": "Connie St",
@@ -176,50 +202,29 @@
    "seg": "30.178,-97.615"
   },
   {
+   "from": "E 5th St (San Jacinto Blvd)",
+   "hour_of_week": 143,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.264,-97.742"
+  },
+  {
    "from": "FM-2222/Bullick Hollow Rd (FM-620)",
    "hour_of_week": 142,
    "n": 1,
    "roadworks": false,
    "seg": "30.452,-97.829"
-  },
-  {
-   "from": "Lakeline Mall Dr",
-   "hour_of_week": 143,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.475,-97.795"
-  },
-  {
-   "from": "US Highway 183",
-   "hour_of_week": 143,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.470,-97.797"
-  },
-  {
-   "from": "FM-1431/Chandler St/Exit 256 (I-35)",
-   "hour_of_week": 143,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.532,-97.691"
-  },
-  {
-   "from": "Parker Dr",
-   "hour_of_week": 143,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.483,-97.676"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 73.7,
-  "tomtom": 97.9
+  "dispatch": 76.2,
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 19,
-  "neither": 14,
+  "n": 21,
+  "neither": 16,
   "tomtom_only": 5
  }
 }
