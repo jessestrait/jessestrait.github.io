@@ -13,19 +13,19 @@
   "dispatch_only": 26,
   "here": 0,
   "here_matched": 0,
-  "matched": 9,
-  "tomtom": 327,
-  "tomtom_only": 318
+  "matched": 11,
+  "tomtom": 357,
+  "tomtom_only": 346
  },
  "date": "2026-10-25",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.8,
+  "median": 116.9,
   "min": 115.5,
-  "n": 17,
+  "n": 18,
   "q1": 116.1,
-  "q3": 119.2
+  "q3": 119.4
  },
  "here_onset_offset_min": {
   "n": 0
@@ -42,14 +42,14 @@
    "pct": 17.9
   },
   "tomtom_highway": {
-   "matched": 7,
-   "n": 143,
-   "pct": 4.9
+   "matched": 8,
+   "n": 152,
+   "pct": 5.3
   },
   "tomtom_surface": {
-   "matched": 2,
-   "n": 184,
-   "pct": 1.1
+   "matched": 3,
+   "n": 205,
+   "pct": 1.5
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 72.2,
-  "median": -48.6,
+  "median": -11.7,
   "min": -86.1,
-  "n": 9,
-  "q1": -85.6,
-  "q3": -10.2
+  "n": 11,
+  "q1": -85.1,
+  "q3": 22.4
  },
  "persistence_min": {
-  "max": -40.6,
-  "median": -114.2,
+  "max": -15.1,
+  "median": -73.6,
   "min": -127.0,
-  "n": 4,
-  "q1": -125.8,
-  "q3": -57.1
+  "n": 6,
+  "q1": -123.2,
+  "q3": -34.2
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 281,
+  "hotspot_buckets": 306,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 297
+  "unreported_congestion": 324
  },
  "sampling": {
   "flow_spent_this_month": 6281,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1090,
+  "incidents_spent_this_month": 1091,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -174,6 +174,20 @@
    "seg": "30.265,-97.735"
   },
   {
+   "from": "E Anderson Ln",
+   "hour_of_week": 145,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.328,-97.673"
+  },
+  {
+   "from": "TX-21 (FM-812)",
+   "hour_of_week": 142,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.126,-97.641"
+  },
+  {
    "from": "Connie St",
    "hour_of_week": 114,
    "n": 2,
@@ -200,25 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.234,-97.736"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.148,-97.704"
   }
  ],
  "unmatched_pct": {
   "dispatch": 78.8,
-  "tomtom": 97.2
+  "tomtom": 96.9
  },
  "witnesses": {
   "both": 0,
