@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 12,
-  "tomtom": 214,
-  "tomtom_only": 205
+  "tomtom": 215,
+  "tomtom_only": 206
  },
  "date": "2026-10-26",
  "dispatch_life_capped": false,
@@ -48,7 +48,7 @@
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 121,
+   "n": 122,
    "pct": 2.5
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 174,
+  "hotspot_buckets": 176,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 183
+  "unreported_congestion": 184
  },
  "sampling": {
   "flow_spent_this_month": 6551,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1110,
+  "incidents_spent_this_month": 1111,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -167,13 +167,6 @@
    "seg": "30.148,-97.704"
   },
   {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.178,-97.615"
-  },
-  {
    "from": "Esperanza Xing",
    "hour_of_week": 167,
    "n": 1,
@@ -214,6 +207,13 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.262,-97.736"
+  },
+  {
+   "from": "Austin",
+   "hour_of_week": 167,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.298,-97.705"
   }
  ],
  "unmatched_pct": {
