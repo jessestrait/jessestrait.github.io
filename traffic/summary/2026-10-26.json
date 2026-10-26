@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 58,
-  "dispatch_only": 47,
+  "dispatch": 59,
+  "dispatch_only": 48,
   "here": 0,
   "here_matched": 0,
   "matched": 15,
-  "tomtom": 324,
-  "tomtom_only": 312
+  "tomtom": 337,
+  "tomtom_only": 325
  },
  "date": "2026-10-26",
  "dispatch_life_capped": false,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 8,
-   "n": 48,
-   "pct": 16.7
+   "n": 49,
+   "pct": 16.3
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 139,
-   "pct": 6.5
+   "n": 143,
+   "pct": 6.3
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 185,
-   "pct": 1.6
+   "n": 194,
+   "pct": 1.5
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 274,
+  "hotspot_buckets": 284,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 287
+  "unreported_congestion": 300
  },
  "sampling": {
   "flow_spent_this_month": 6632,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1120,
+  "incidents_spent_this_month": 1121,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
  },
  "structural_hotspots": [
   {
+   "from": "Burnet Rd",
+   "hour_of_week": 61,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.394,-97.717"
+  },
+  {
    "from": "Elroy Rd / Heine Farm Rd",
    "hour_of_week": 166,
    "n": 2,
@@ -118,18 +125,25 @@
    "seg": "30.149,-97.643"
   },
   {
-   "from": "Burnet Rd",
-   "hour_of_week": 61,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.394,-97.717"
-  },
-  {
    "from": "W Braker Ln",
    "hour_of_week": 13,
    "n": 2,
    "roadworks": false,
    "seg": "30.394,-97.717"
+  },
+  {
+   "from": "Wells Branch Pkwy/Exit 248 (I-35)",
+   "hour_of_week": 12,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.429,-97.671"
+  },
+  {
+   "from": "W Slaughter Ln (I-35)",
+   "hour_of_week": 12,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.181,-97.776"
   },
   {
    "from": "TX-130 Toll/TX-45 Toll (TX-71)",
@@ -200,31 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.167,-97.622"
-  },
-  {
-   "from": "Esperanza Xing",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.404,-97.722"
-  },
-  {
-   "from": "US-183/E Anderson Ln (I-35)",
-   "hour_of_week": 166,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.356,-97.689"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.0,
-  "tomtom": 96.3
+  "dispatch": 81.4,
+  "tomtom": 96.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 58,
-  "neither": 47,
+  "n": 59,
+  "neither": 48,
   "tomtom_only": 11
  }
 }
