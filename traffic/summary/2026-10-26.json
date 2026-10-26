@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 44,
-  "tomtom": 1812,
-  "tomtom_only": 1767
+  "tomtom": 1882,
+  "tomtom_only": 1837
  },
  "date": "2026-10-26",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 34,
-   "n": 869,
-   "pct": 3.9
+   "n": 894,
+   "pct": 3.8
   },
   "tomtom_surface": {
    "matched": 11,
-   "n": 943,
-   "pct": 1.2
+   "n": 988,
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1448,
+  "hotspot_buckets": 1505,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1721
+  "unreported_congestion": 1791
  },
  "sampling": {
   "flow_spent_this_month": 6740,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1143,
+  "incidents_spent_this_month": 1144,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Highway 71 E / TX-71",
+   "hour_of_week": 22,
+   "n": 6,
+   "roadworks": false,
+   "seg": "30.215,-97.664"
+  },
   {
    "from": "Cardinal Loop / Highway 71 E",
    "hour_of_week": 21,
@@ -207,18 +214,11 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.470,-97.797"
-  },
-  {
-   "from": "Dessau Rd",
-   "hour_of_week": 21,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.422,-97.620"
   }
  ],
  "unmatched_pct": {
   "dispatch": 74.8,
-  "tomtom": 97.5
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
