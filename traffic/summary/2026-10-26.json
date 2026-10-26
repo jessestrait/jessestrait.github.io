@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 32,
-  "tomtom": 1156,
-  "tomtom_only": 1127
+  "tomtom": 1214,
+  "tomtom_only": 1185
  },
  "date": "2026-10-26",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 120.0,
   "median": 115.7,
   "min": 9.1,
-  "n": 85,
-  "q1": 83.8,
+  "n": 86,
+  "q1": 85.0,
   "q3": 117.7
  },
  "here_onset_offset_min": {
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 22,
-   "n": 523,
-   "pct": 4.2
+   "n": 552,
+   "pct": 4.0
   },
   "tomtom_surface": {
    "matched": 7,
-   "n": 633,
+   "n": 662,
    "pct": 1.1
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 924,
+  "hotspot_buckets": 964,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1081
+  "unreported_congestion": 1139
  },
  "sampling": {
   "flow_spent_this_month": 6713,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1133,
+  "incidents_spent_this_month": 1134,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -139,6 +139,13 @@
    "seg": "30.148,-97.704"
   },
   {
+   "from": "Cardinal Loop / Highway 71 E",
+   "hour_of_week": 21,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.213,-97.659"
+  },
+  {
    "from": "Burnet Rd",
    "hour_of_week": 61,
    "n": 3,
@@ -160,11 +167,25 @@
    "seg": "30.393,-97.716"
   },
   {
+   "from": "Christina Garza Dr",
+   "hour_of_week": 21,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.350,-97.556"
+  },
+  {
    "from": "Austin",
    "hour_of_week": 21,
    "n": 3,
    "roadworks": false,
    "seg": "30.115,-97.806"
+  },
+  {
+   "from": "Settlers Valley Dr",
+   "hour_of_week": 21,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.425,-97.627"
   },
   {
    "from": "MLK & 15th St exit [235A]",
@@ -174,11 +195,11 @@
    "seg": "30.278,-97.730"
   },
   {
-   "from": "Cardinal Loop / Highway 71 E",
+   "from": "E 15th St (I-35)",
    "hour_of_week": 21,
    "n": 3,
    "roadworks": false,
-   "seg": "30.213,-97.659"
+   "seg": "30.268,-97.734"
   },
   {
    "from": "W Louis Henna Blvd",
@@ -188,37 +209,16 @@
    "seg": "30.480,-97.674"
   },
   {
-   "from": "Wm Cannon Dr exit [228]",
+   "from": "Colorado Sand Dr",
    "hour_of_week": 21,
    "n": 3,
    "roadworks": false,
-   "seg": "30.195,-97.767"
-  },
-  {
-   "from": "Highway 71 E",
-   "hour_of_week": 21,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.214,-97.662"
-  },
-  {
-   "from": "Buenos Aires Pkwy",
-   "hour_of_week": 15,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.169,-97.623"
-  },
-  {
-   "from": "Elroy Rd / Heine Farm Rd",
-   "hour_of_week": 166,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.149,-97.643"
+   "seg": "30.458,-97.588"
   }
  ],
  "unmatched_pct": {
   "dispatch": 79.3,
-  "tomtom": 97.5
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
