@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 41,
-  "dispatch_only": 33,
+  "dispatch": 42,
+  "dispatch_only": 34,
   "here": 0,
   "here_matched": 0,
   "matched": 12,
@@ -38,8 +38,8 @@
   },
   "dispatch_surface": {
    "matched": 7,
-   "n": 36,
-   "pct": 19.4
+   "n": 37,
+   "pct": 18.9
   },
   "tomtom_highway": {
    "matched": 6,
@@ -167,18 +167,18 @@
    "seg": "30.148,-97.704"
   },
   {
-   "from": "Los Cielos Blvd",
-   "hour_of_week": 2,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.167,-97.622"
-  },
-  {
    "from": "Buenos Aires Pkwy",
    "hour_of_week": 2,
    "n": 2,
    "roadworks": false,
    "seg": "30.168,-97.621"
+  },
+  {
+   "from": "Los Cielos Blvd",
+   "hour_of_week": 2,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.167,-97.622"
   },
   {
    "from": "Esperanza Xing",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.5,
+  "dispatch": 81.0,
   "tomtom": 96.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 41,
-  "neither": 33,
+  "n": 42,
+  "neither": 34,
   "tomtom_only": 8
  }
 }
