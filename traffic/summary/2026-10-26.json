@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 35,
-  "tomtom": 1370,
-  "tomtom_only": 1338
+  "tomtom": 1433,
+  "tomtom_only": 1401
  },
  "date": "2026-10-26",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 24,
-   "n": 628,
-   "pct": 3.8
+   "n": 660,
+   "pct": 3.6
   },
   "tomtom_surface": {
    "matched": 8,
-   "n": 742,
-   "pct": 1.1
+   "n": 773,
+   "pct": 1.0
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1083,
+  "hotspot_buckets": 1125,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1292
+  "unreported_congestion": 1355
  },
  "sampling": {
   "flow_spent_this_month": 6722,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1136,
+  "incidents_spent_this_month": 1137,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Cardinal Loop / Highway 71 E",
+   "hour_of_week": 21,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.213,-97.659"
+  },
   {
    "from": "Connie St",
    "hour_of_week": 114,
@@ -146,18 +153,11 @@
    "seg": "30.408,-97.678"
   },
   {
-   "from": "Cardinal Loop / Highway 71 E",
+   "from": "E 15th St (I-35)",
    "hour_of_week": 21,
    "n": 4,
    "roadworks": false,
-   "seg": "30.213,-97.659"
-  },
-  {
-   "from": "Wooldridge Dr",
-   "hour_of_week": 21,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.291,-97.757"
+   "seg": "30.268,-97.734"
   },
   {
    "from": "Burnet Rd",
@@ -209,16 +209,16 @@
    "seg": "30.350,-97.556"
   },
   {
-   "from": "Lakeline Blvd (S Bell Blvd/US-183)",
+   "from": "US-183/Research Blvd (FM-620)",
    "hour_of_week": 21,
    "n": 3,
    "roadworks": false,
-   "seg": "30.500,-97.816"
+   "seg": "30.458,-97.824"
   }
  ],
  "unmatched_pct": {
   "dispatch": 78.8,
-  "tomtom": 97.7
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
