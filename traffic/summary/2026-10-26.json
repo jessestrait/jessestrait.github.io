@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 111,
-  "dispatch_only": 88,
+  "dispatch": 113,
+  "dispatch_only": 89,
   "here": 0,
   "here_matched": 0,
-  "matched": 32,
-  "tomtom": 1293,
-  "tomtom_only": 1264
+  "matched": 35,
+  "tomtom": 1370,
+  "tomtom_only": 1338
  },
  "date": "2026-10-26",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 115.8,
+  "median": 115.9,
   "min": 9.1,
-  "n": 87,
+  "n": 88,
   "q1": 86.3,
-  "q3": 117.6
+  "q3": 117.8
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,19 +37,19 @@
    "pct": 34.8
   },
   "dispatch_surface": {
-   "matched": 15,
-   "n": 88,
-   "pct": 17.0
+   "matched": 16,
+   "n": 90,
+   "pct": 17.8
   },
   "tomtom_highway": {
-   "matched": 22,
-   "n": 589,
-   "pct": 3.7
+   "matched": 24,
+   "n": 628,
+   "pct": 3.8
   },
   "tomtom_surface": {
-   "matched": 7,
-   "n": 704,
-   "pct": 1.0
+   "matched": 8,
+   "n": 742,
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 79.1,
-  "median": 8.4,
+  "median": 10.1,
   "min": -71.8,
-  "n": 32,
+  "n": 35,
   "q1": -27.7,
-  "q3": 18.1
+  "q3": 23.2
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1021,
+  "hotspot_buckets": 1083,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1218
+  "unreported_congestion": 1292
  },
  "sampling": {
   "flow_spent_this_month": 6722,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1135,
+  "incidents_spent_this_month": 1136,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -137,6 +137,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.148,-97.704"
+  },
+  {
+   "from": "N Lamar Blvd",
+   "hour_of_week": 21,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.408,-97.678"
   },
   {
    "from": "Cardinal Loop / Highway 71 E",
@@ -181,11 +188,11 @@
    "seg": "30.178,-97.615"
   },
   {
-   "from": "N Lamar Blvd",
+   "from": "US Highway 183",
    "hour_of_week": 21,
    "n": 3,
    "roadworks": false,
-   "seg": "30.408,-97.678"
+   "seg": "30.470,-97.797"
   },
   {
    "from": "Dessau Rd",
@@ -207,24 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.500,-97.816"
-  },
-  {
-   "from": "Austin",
-   "hour_of_week": 21,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.115,-97.806"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 79.3,
-  "tomtom": 97.8
+  "dispatch": 78.8,
+  "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 111,
-  "neither": 88,
-  "tomtom_only": 23
+  "n": 113,
+  "neither": 89,
+  "tomtom_only": 24
  }
 }
