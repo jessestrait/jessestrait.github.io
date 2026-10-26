@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 27,
-  "dispatch_only": 19,
+  "dispatch": 34,
+  "dispatch_only": 26,
   "here": 0,
   "here_matched": 0,
   "matched": 12,
-  "tomtom": 210,
-  "tomtom_only": 201
+  "tomtom": 214,
+  "tomtom_only": 205
  },
  "date": "2026-10-26",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 116.9,
-  "min": 115.1,
-  "n": 6,
-  "q1": 116.1,
-  "q3": 119.2
+  "median": 86.4,
+  "min": 9.1,
+  "n": 27,
+  "q1": 38.1,
+  "q3": 115.1
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,22 +33,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 3,
-   "pct": 33.3
+   "n": 4,
+   "pct": 25.0
   },
   "dispatch_surface": {
    "matched": 7,
-   "n": 24,
-   "pct": 29.2
+   "n": 30,
+   "pct": 23.3
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 91,
-   "pct": 6.6
+   "n": 93,
+   "pct": 6.5
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 119,
+   "n": 121,
    "pct": 2.5
   }
  },
@@ -67,12 +67,12 @@
   "q3": 17.1
  },
  "persistence_min": {
-  "max": -25.3,
-  "median": -40.5,
-  "min": -55.8,
-  "n": 2,
-  "q1": -55.8,
-  "q3": -25.3
+  "max": -10.2,
+  "median": -20.4,
+  "min": -66.0,
+  "n": 12,
+  "q1": -63.5,
+  "q3": -20.4
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 173,
+  "hotspot_buckets": 174,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 181
+  "unreported_congestion": 183
  },
  "sampling": {
-  "flow_spent_this_month": 6542,
+  "flow_spent_this_month": 6551,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1109,
+  "incidents_spent_this_month": 1110,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -151,6 +151,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Thompson Ln",
+   "hour_of_week": 94,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.246,-97.673"
   },
   {
    "from": "Ellas Inlet Dr / Felix Sparke Dr",
@@ -207,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.262,-97.736"
-  },
-  {
-   "from": "Austin",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.298,-97.705"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 70.4,
-  "tomtom": 95.7
+  "dispatch": 76.5,
+  "tomtom": 95.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 27,
-  "neither": 19,
+  "n": 34,
+  "neither": 26,
   "tomtom_only": 8
  }
 }
