@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 104,
+  "dispatch": 105,
   "dispatch_only": 85,
   "here": 0,
   "here_matched": 0,
-  "matched": 26,
-  "tomtom": 907,
-  "tomtom_only": 885
+  "matched": 28,
+  "tomtom": 954,
+  "tomtom_only": 930
  },
  "date": "2026-10-26",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 33.3
   },
   "dispatch_surface": {
-   "matched": 12,
-   "n": 83,
-   "pct": 14.5
+   "matched": 13,
+   "n": 84,
+   "pct": 15.5
   },
   "tomtom_highway": {
-   "matched": 17,
-   "n": 406,
-   "pct": 4.2
+   "matched": 18,
+   "n": 437,
+   "pct": 4.1
   },
   "tomtom_surface": {
-   "matched": 5,
-   "n": 501,
-   "pct": 1.0
+   "matched": 6,
+   "n": 517,
+   "pct": 1.2
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 79.1,
   "median": 13.7,
   "min": -71.8,
-  "n": 26,
+  "n": 28,
   "q1": -27.7,
-  "q3": 19.6
+  "q3": 22.0
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 723,
+  "hotspot_buckets": 764,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 839
+  "unreported_congestion": 884
  },
  "sampling": {
   "flow_spent_this_month": 6704,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1129,
+  "incidents_spent_this_month": 1130,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -188,6 +188,13 @@
    "seg": "30.393,-97.716"
   },
   {
+   "from": "State Highway 130 / Copper Mine Dr",
+   "hour_of_week": 11,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.470,-97.593"
+  },
+  {
    "from": "Pond Springs Rd",
    "hour_of_week": 46,
    "n": 2,
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.514,-97.689"
-  },
-  {
-   "from": "Sam Bass Rd",
-   "hour_of_week": 39,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.515,-97.690"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.7,
-  "tomtom": 97.6
+  "dispatch": 81.0,
+  "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 104,
+  "n": 105,
   "neither": 85,
-  "tomtom_only": 19
+  "tomtom_only": 20
  }
 }
