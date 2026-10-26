@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 15,
-  "tomtom": 337,
-  "tomtom_only": 325
+  "tomtom": 359,
+  "tomtom_only": 347
  },
  "date": "2026-10-26",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 143,
-   "pct": 6.3
+   "n": 155,
+   "pct": 5.8
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 194,
+   "n": 204,
    "pct": 1.5
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 284,
+  "hotspot_buckets": 306,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 300
+  "unreported_congestion": 322
  },
  "sampling": {
   "flow_spent_this_month": 6632,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1121,
+  "incidents_spent_this_month": 1122,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,11 +111,11 @@
  },
  "structural_hotspots": [
   {
-   "from": "Burnet Rd",
-   "hour_of_week": 61,
+   "from": "W Slaughter Ln (I-35)",
+   "hour_of_week": 12,
    "n": 3,
    "roadworks": false,
-   "seg": "30.394,-97.717"
+   "seg": "30.181,-97.776"
   },
   {
    "from": "Elroy Rd / Heine Farm Rd",
@@ -125,6 +125,13 @@
    "seg": "30.149,-97.643"
   },
   {
+   "from": "Burnet Rd",
+   "hour_of_week": 61,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.394,-97.717"
+  },
+  {
    "from": "W Braker Ln",
    "hour_of_week": 13,
    "n": 2,
@@ -132,25 +139,18 @@
    "seg": "30.394,-97.717"
   },
   {
-   "from": "Wells Branch Pkwy/Exit 248 (I-35)",
-   "hour_of_week": 12,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.429,-97.671"
-  },
-  {
-   "from": "W Slaughter Ln (I-35)",
-   "hour_of_week": 12,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.181,-97.776"
-  },
-  {
    "from": "TX-130 Toll/TX-45 Toll (TX-71)",
    "hour_of_week": 10,
    "n": 2,
    "roadworks": false,
    "seg": "30.186,-97.608"
+  },
+  {
+   "from": "W Braker Ln",
+   "hour_of_week": 13,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.393,-97.716"
   },
   {
    "from": "Connie St",
@@ -218,7 +218,7 @@
  ],
  "unmatched_pct": {
   "dispatch": 81.4,
-  "tomtom": 96.4
+  "tomtom": 96.7
  },
  "witnesses": {
   "both": 0,
