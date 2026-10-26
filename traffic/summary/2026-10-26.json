@@ -9,32 +9,32 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 122,
+  "dispatch": 123,
   "dispatch_only": 92,
   "here": 0,
   "here_matched": 0,
-  "matched": 42,
-  "tomtom": 1684,
-  "tomtom_only": 1643
+  "matched": 44,
+  "tomtom": 1750,
+  "tomtom_only": 1706
  },
  "date": "2026-10-26",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 116.0,
+  "median": 116.1,
   "min": 9.1,
-  "n": 91,
+  "n": 93,
   "q1": 86.4,
-  "q3": 117.8
+  "q3": 117.9
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 9,
-   "n": 24,
-   "pct": 37.5
+   "matched": 10,
+   "n": 25,
+   "pct": 40.0
   },
   "dispatch_surface": {
    "matched": 21,
@@ -42,14 +42,14 @@
    "pct": 21.4
   },
   "tomtom_highway": {
-   "matched": 31,
-   "n": 794,
-   "pct": 3.9
+   "matched": 33,
+   "n": 834,
+   "pct": 4.0
   },
   "tomtom_surface": {
-   "matched": 10,
-   "n": 890,
-   "pct": 1.1
+   "matched": 11,
+   "n": 916,
+   "pct": 1.2
   }
  },
  "matcher": {
@@ -60,17 +60,17 @@
  },
  "onset_offset_min": {
   "max": 79.1,
-  "median": 7.4,
+  "median": 6.5,
   "min": -71.8,
-  "n": 42,
-  "q1": -22.4,
-  "q3": 19.6
+  "n": 44,
+  "q1": -20.6,
+  "q3": 18.2
  },
  "persistence_min": {
-  "max": 0.0,
-  "median": -30.4,
+  "max": 164.0,
+  "median": -25.3,
   "min": -133.4,
-  "n": 18,
+  "n": 21,
   "q1": -66.0,
   "q3": -20.4
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1356,
+  "hotspot_buckets": 1403,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1597
+  "unreported_congestion": 1660
  },
  "sampling": {
   "flow_spent_this_month": 6731,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1141,
+  "incidents_spent_this_month": 1142,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -167,6 +167,13 @@
    "seg": "30.291,-97.757"
   },
   {
+   "from": "Manchaca Rd (W William Cannon Dr)",
+   "hour_of_week": 21,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.193,-97.780"
+  },
+  {
    "from": "Burnet Rd",
    "hour_of_week": 61,
    "n": 3,
@@ -207,24 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.422,-97.620"
-  },
-  {
-   "from": "Christina Garza Dr",
-   "hour_of_week": 21,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.350,-97.556"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 75.4,
-  "tomtom": 97.6
+  "dispatch": 74.8,
+  "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 122,
+  "n": 123,
   "neither": 92,
-  "tomtom_only": 30
+  "tomtom_only": 31
  }
 }
