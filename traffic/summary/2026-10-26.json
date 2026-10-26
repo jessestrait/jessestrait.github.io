@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 115,
-  "dispatch_only": 88,
+  "dispatch": 120,
+  "dispatch_only": 91,
   "here": 0,
   "here_matched": 0,
-  "matched": 38,
-  "tomtom": 1534,
-  "tomtom_only": 1498
+  "matched": 40,
+  "tomtom": 1605,
+  "tomtom_only": 1566
  },
  "date": "2026-10-26",
  "dispatch_life_capped": false,
@@ -37,18 +37,18 @@
    "pct": 34.8
   },
   "dispatch_surface": {
-   "matched": 19,
-   "n": 92,
-   "pct": 20.7
+   "matched": 21,
+   "n": 97,
+   "pct": 21.6
   },
   "tomtom_highway": {
-   "matched": 26,
-   "n": 712,
-   "pct": 3.7
+   "matched": 29,
+   "n": 749,
+   "pct": 3.9
   },
   "tomtom_surface": {
    "matched": 10,
-   "n": 822,
+   "n": 856,
    "pct": 1.2
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 79.1,
-  "median": 10.8,
+  "median": 8.4,
   "min": -71.8,
-  "n": 38,
-  "q1": -25.6,
-  "q3": 23.7
+  "n": 40,
+  "q1": -24.1,
+  "q3": 22.0
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1221,
+  "hotspot_buckets": 1287,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1452
+  "unreported_congestion": 1520
  },
  "sampling": {
   "flow_spent_this_month": 6731,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1139,
+  "incidents_spent_this_month": 1140,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -174,18 +174,18 @@
    "seg": "30.394,-97.717"
   },
   {
+   "from": "W Braker Ln",
+   "hour_of_week": 13,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.394,-97.717"
+  },
+  {
    "from": "W Slaughter Ln (I-35)",
    "hour_of_week": 12,
    "n": 3,
    "roadworks": false,
    "seg": "30.181,-97.776"
-  },
-  {
-   "from": "W Braker Ln",
-   "hour_of_week": 13,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.393,-97.716"
   },
   {
    "from": "Lexington Meadow Ln",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.5,
-  "tomtom": 97.7
+  "dispatch": 75.8,
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 115,
-  "neither": 88,
-  "tomtom_only": 27
+  "n": 120,
+  "neither": 91,
+  "tomtom_only": 29
  }
 }
