@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 57,
-  "dispatch_only": 46,
+  "dispatch": 58,
+  "dispatch_only": 47,
   "here": 0,
   "here_matched": 0,
   "matched": 15,
-  "tomtom": 282,
-  "tomtom_only": 270
+  "tomtom": 305,
+  "tomtom_only": 293
  },
  "date": "2026-10-26",
  "dispatch_life_capped": false,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 8,
-   "n": 47,
-   "pct": 17.0
+   "n": 48,
+   "pct": 16.7
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 119,
-   "pct": 7.6
+   "n": 131,
+   "pct": 6.9
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 163,
-   "pct": 1.8
+   "n": 174,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 236,
+  "hotspot_buckets": 258,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 247
+  "unreported_congestion": 270
  },
  "sampling": {
-  "flow_spent_this_month": 6623,
+  "flow_spent_this_month": 6632,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1118,
+  "incidents_spent_this_month": 1119,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -107,7 +107,7 @@
    18
   ],
   "rush_min": 5,
-  "this_poll": "off-peak"
+  "this_poll": "rush"
  },
  "structural_hotspots": [
   {
@@ -120,6 +120,13 @@
   {
    "from": "Burnet Rd",
    "hour_of_week": 61,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.394,-97.717"
+  },
+  {
+   "from": "W Braker Ln",
+   "hour_of_week": 13,
    "n": 2,
    "roadworks": false,
    "seg": "30.394,-97.717"
@@ -207,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.423,-97.618"
-  },
-  {
-   "from": "E Riverside Dr (I-35)",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.259,-97.736"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.7,
-  "tomtom": 95.7
+  "dispatch": 81.0,
+  "tomtom": 96.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 57,
-  "neither": 46,
+  "n": 58,
+  "neither": 47,
   "tomtom_only": 11
  }
 }
