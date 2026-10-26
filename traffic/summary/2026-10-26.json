@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 23,
-  "dispatch_only": 17,
+  "dispatch": 25,
+  "dispatch_only": 18,
   "here": 0,
   "here_matched": 0,
-  "matched": 6,
-  "tomtom": 176,
-  "tomtom_only": 171
+  "matched": 9,
+  "tomtom": 210,
+  "tomtom_only": 202
  },
  "date": "2026-10-26",
  "dispatch_life_capped": false,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 0,
+   "matched": 1,
    "n": 3,
-   "pct": 0.0
+   "pct": 33.3
   },
   "dispatch_surface": {
    "matched": 6,
-   "n": 20,
-   "pct": 30.0
+   "n": 22,
+   "pct": 27.3
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 69,
-   "pct": 5.8
+   "matched": 6,
+   "n": 91,
+   "pct": 6.6
   },
   "tomtom_surface": {
-   "matched": 1,
-   "n": 107,
-   "pct": 0.9
+   "matched": 2,
+   "n": 119,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -59,15 +59,20 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 27.7,
-  "median": 16.4,
+  "max": 79.1,
+  "median": 16.9,
   "min": -69.4,
-  "n": 6,
-  "q1": -36.0,
-  "q3": 19.8
+  "n": 9,
+  "q1": -7.4,
+  "q3": 22.4
  },
  "persistence_min": {
-  "n": 0
+  "max": -25.3,
+  "median": -25.3,
+  "min": -25.3,
+  "n": 1,
+  "q1": -25.3,
+  "q3": -25.3
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -84,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 144,
+  "hotspot_buckets": 174,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 151
+  "unreported_congestion": 182
  },
  "sampling": {
   "flow_spent_this_month": 6533,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1108,
+  "incidents_spent_this_month": 1109,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -105,6 +110,13 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
+  {
+   "from": "Elroy Rd / Heine Farm Rd",
+   "hour_of_week": 166,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.149,-97.643"
+  },
   {
    "from": "Connie St",
    "hour_of_week": 114,
@@ -190,13 +202,6 @@
    "seg": "30.262,-97.737"
   },
   {
-   "from": "E 15th St (Red River St)",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.273,-97.735"
-  },
-  {
    "from": "Cesar Chavez St exit [234A]",
    "hour_of_week": 167,
    "n": 1,
@@ -212,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 73.9,
-  "tomtom": 97.2
+  "dispatch": 72.0,
+  "tomtom": 96.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 23,
-  "neither": 17,
-  "tomtom_only": 6
+  "n": 25,
+  "neither": 18,
+  "tomtom_only": 7
  }
 }
