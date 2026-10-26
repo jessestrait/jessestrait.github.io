@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 100,
+  "dispatch": 101,
   "dispatch_only": 82,
   "here": 0,
   "here_matched": 0,
-  "matched": 24,
-  "tomtom": 745,
-  "tomtom_only": 725
+  "matched": 25,
+  "tomtom": 796,
+  "tomtom_only": 775
  },
  "date": "2026-10-26",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 115.5,
+  "median": 115.6,
   "min": 9.1,
-  "n": 78,
-  "q1": 76.6,
-  "q3": 117.4
+  "n": 80,
+  "q1": 80.7,
+  "q3": 117.5
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,19 +37,19 @@
    "pct": 35.0
   },
   "dispatch_surface": {
-   "matched": 11,
-   "n": 80,
-   "pct": 13.8
+   "matched": 12,
+   "n": 81,
+   "pct": 14.8
   },
   "tomtom_highway": {
-   "matched": 15,
-   "n": 324,
-   "pct": 4.6
+   "matched": 16,
+   "n": 344,
+   "pct": 4.7
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 421,
-   "pct": 1.2
+   "n": 452,
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 79.1,
-  "median": 16.4,
+  "median": 15.9,
   "min": -71.8,
-  "n": 24,
-  "q1": -27.0,
-  "q3": 22.0
+  "n": 25,
+  "q1": -27.7,
+  "q3": 20.8
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 573,
+  "hotspot_buckets": 621,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 679
+  "unreported_congestion": 729
  },
  "sampling": {
-  "flow_spent_this_month": 6695,
+  "flow_spent_this_month": 6704,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1126,
+  "incidents_spent_this_month": 1127,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.0,
-  "tomtom": 97.3
+  "dispatch": 81.2,
+  "tomtom": 97.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 100,
+  "n": 101,
   "neither": 82,
-  "tomtom_only": 18
+  "tomtom_only": 19
  }
 }
