@@ -9,47 +9,47 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 44,
-  "dispatch_only": 39,
+  "dispatch": 55,
+  "dispatch_only": 48,
   "here": 0,
   "here_matched": 0,
-  "matched": 5,
-  "tomtom": 296,
-  "tomtom_only": 291
+  "matched": 7,
+  "tomtom": 331,
+  "tomtom_only": 324
  },
  "date": "2026-10-27",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 115.6,
+  "median": 113.7,
   "min": 13.2,
-  "n": 41,
-  "q1": 72.1,
-  "q3": 117.8
+  "n": 44,
+  "q1": 69.5,
+  "q3": 117.7
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 2,
-   "n": 9,
-   "pct": 22.2
+   "matched": 4,
+   "n": 14,
+   "pct": 28.6
   },
   "dispatch_surface": {
    "matched": 3,
-   "n": 35,
-   "pct": 8.6
+   "n": 41,
+   "pct": 7.3
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 149,
-   "pct": 2.7
+   "matched": 6,
+   "n": 170,
+   "pct": 3.5
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 147,
-   "pct": 0.7
+   "n": 161,
+   "pct": 0.6
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 71.4,
-  "median": 9.9,
-  "min": -60.1,
-  "n": 5,
-  "q1": -26.0,
-  "q3": 41.8
+  "median": 8.2,
+  "min": -84.9,
+  "n": 7,
+  "q1": -60.1,
+  "q3": 12.1
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 257,
+  "hotspot_buckets": 288,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 268
+  "unreported_congestion": 300
  },
  "sampling": {
-  "flow_spent_this_month": 6812,
+  "flow_spent_this_month": 6821,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1162,
+  "incidents_spent_this_month": 1163,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -181,6 +181,13 @@
    "seg": "30.148,-97.704"
   },
   {
+   "from": "Lexington Meadow Ln",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.179,-97.616"
+  },
+  {
    "from": "Lakeline Blvd (S Bell Blvd/US-183)",
    "hour_of_week": 23,
    "n": 1,
@@ -207,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.454,-97.824"
-  },
-  {
-   "from": "Lakeline Mall Dr",
-   "hour_of_week": 22,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.476,-97.793"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.6,
-  "tomtom": 98.3
+  "dispatch": 87.3,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 44,
-  "neither": 39,
-  "tomtom_only": 5
+  "n": 55,
+  "neither": 48,
+  "tomtom_only": 7
  }
 }
