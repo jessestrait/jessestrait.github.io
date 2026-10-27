@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 71,
-  "dispatch_only": 63,
+  "dispatch": 72,
+  "dispatch_only": 64,
   "here": 0,
   "here_matched": 0,
   "matched": 8,
-  "tomtom": 377,
-  "tomtom_only": 369
+  "tomtom": 397,
+  "tomtom_only": 389
  },
  "date": "2026-10-27",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.8,
   "median": 116.5,
   "min": 13.2,
-  "n": 60,
-  "q1": 75.7,
+  "n": 61,
+  "q1": 76.2,
   "q3": 118.0
  },
  "here_onset_offset_min": {
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 4,
-   "n": 55,
-   "pct": 7.3
+   "n": 56,
+   "pct": 7.1
   },
   "tomtom_highway": {
    "matched": 7,
-   "n": 195,
-   "pct": 3.6
+   "n": 203,
+   "pct": 3.4
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 182,
+   "n": 194,
    "pct": 0.5
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 329,
+  "hotspot_buckets": 347,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 343
+  "unreported_congestion": 362
  },
  "sampling": {
-  "flow_spent_this_month": 6893,
+  "flow_spent_this_month": 6902,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1166,
+  "incidents_spent_this_month": 1167,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -144,6 +144,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.473,-97.593"
+  },
+  {
+   "from": "Kellam Rd / Circuit of the Americas Blvd",
+   "hour_of_week": 41,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.142,-97.616"
   },
   {
    "from": "Connie St",
@@ -207,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.500,-97.816"
-  },
-  {
-   "from": "FM-2222/Bullick Hollow Rd (FM-620)",
-   "hour_of_week": 21,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.440,-97.835"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.7,
-  "tomtom": 97.9
+  "dispatch": 88.9,
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 71,
-  "neither": 63,
+  "n": 72,
+  "neither": 64,
   "tomtom_only": 8
  }
 }
