@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 66,
-  "dispatch_only": 59,
+  "dispatch": 67,
+  "dispatch_only": 60,
   "here": 0,
   "here_matched": 0,
   "matched": 7,
-  "tomtom": 348,
-  "tomtom_only": 341
+  "tomtom": 377,
+  "tomtom_only": 370
  },
  "date": "2026-10-27",
  "dispatch_life_capped": false,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 3,
-   "n": 51,
-   "pct": 5.9
+   "n": 52,
+   "pct": 5.8
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 180,
-   "pct": 3.3
+   "n": 195,
+   "pct": 3.1
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 168,
-   "pct": 0.6
+   "n": 182,
+   "pct": 0.5
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 302,
+  "hotspot_buckets": 330,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 316
+  "unreported_congestion": 344
  },
  "sampling": {
   "flow_spent_this_month": 6875,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1165,
+  "incidents_spent_this_month": 1166,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -144,13 +144,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.473,-97.593"
-  },
-  {
-   "from": "Kellam Rd / Circuit of the Americas Blvd",
-   "hour_of_week": 39,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.142,-97.616"
   },
   {
    "from": "Connie St",
@@ -202,6 +195,13 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "W 51st St",
+   "hour_of_week": 40,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.314,-97.731"
+  },
+  {
    "from": "Lakeline Blvd (S Bell Blvd/US-183)",
    "hour_of_week": 23,
    "n": 1,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 89.4,
-  "tomtom": 98.0
+  "dispatch": 89.6,
+  "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 66,
-  "neither": 59,
+  "n": 67,
+  "neither": 60,
   "tomtom_only": 7
  }
 }
