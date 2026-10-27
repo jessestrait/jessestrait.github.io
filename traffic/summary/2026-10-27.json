@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 59,
-  "dispatch_only": 52,
+  "dispatch": 60,
+  "dispatch_only": 53,
   "here": 0,
   "here_matched": 0,
   "matched": 7,
-  "tomtom": 331,
-  "tomtom_only": 324
+  "tomtom": 340,
+  "tomtom_only": 333
  },
  "date": "2026-10-27",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 115.6,
+  "median": 115.7,
   "min": 13.2,
-  "n": 47,
-  "q1": 70.6,
+  "n": 48,
+  "q1": 71.3,
   "q3": 117.8
  },
  "here_onset_offset_min": {
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 3,
-   "n": 44,
-   "pct": 6.8
+   "n": 45,
+   "pct": 6.7
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 170,
-   "pct": 3.5
+   "n": 174,
+   "pct": 3.4
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 161,
+   "n": 166,
    "pct": 0.6
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 288,
+  "hotspot_buckets": 296,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 300
+  "unreported_congestion": 309
  },
  "sampling": {
   "flow_spent_this_month": 6839,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1163,
+  "incidents_spent_this_month": 1164,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -137,6 +137,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.385,-97.673"
+  },
+  {
+   "from": "Kellam Rd / Circuit of the Americas Blvd",
+   "hour_of_week": 39,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.142,-97.616"
   },
   {
    "from": "Connie St",
@@ -207,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.451,-97.829"
-  },
-  {
-   "from": "N TX-183 (Anderson Mill Rd)",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.454,-97.824"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.1,
+  "dispatch": 88.3,
   "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 59,
-  "neither": 52,
+  "n": 60,
+  "neither": 53,
   "tomtom_only": 7
  }
 }
