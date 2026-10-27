@@ -14,18 +14,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 3,
-  "tomtom": 270,
-  "tomtom_only": 267
+  "tomtom": 279,
+  "tomtom_only": 276
  },
  "date": "2026-10-27",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 74.0,
+  "median": 74.5,
   "min": 13.2,
-  "n": 22,
-  "q1": 48.3,
-  "q3": 92.0
+  "n": 23,
+  "q1": 50.4,
+  "q3": 99.3
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 131,
-   "pct": 1.5
+   "n": 138,
+   "pct": 1.4
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 139,
+   "n": 141,
    "pct": 0.7
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 235,
+  "hotspot_buckets": 243,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 244
+  "unreported_congestion": 253
  },
  "sampling": {
   "flow_spent_this_month": 6767,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1155,
+  "incidents_spent_this_month": 1156,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -123,6 +123,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.195,-97.767"
+  },
+  {
+   "from": "E 20th St",
+   "hour_of_week": 22,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.282,-97.732"
   },
   {
    "from": "Connie St",
@@ -207,13 +214,6 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.470,-97.797"
-  },
-  {
-   "from": "Westinghouse Rd/Exit 257 (I-35)",
-   "hour_of_week": 22,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.538,-97.692"
   }
  ],
  "unmatched_pct": {
