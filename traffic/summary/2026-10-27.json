@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 114,
-  "dispatch_only": 89,
+  "dispatch": 116,
+  "dispatch_only": 90,
   "here": 0,
   "here_matched": 0,
-  "matched": 28,
-  "tomtom": 1027,
-  "tomtom_only": 998
+  "matched": 29,
+  "tomtom": 1040,
+  "tomtom_only": 1011
  },
  "date": "2026-10-27",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 116.0,
+  "median": 116.1,
   "min": 10.5,
-  "n": 91,
-  "q1": 78.3,
+  "n": 92,
+  "q1": 79.0,
   "q3": 118.0
  },
  "here_onset_offset_min": {
@@ -37,18 +37,18 @@
    "pct": 26.3
   },
   "dispatch_surface": {
-   "matched": 20,
-   "n": 95,
-   "pct": 21.1
+   "matched": 21,
+   "n": 97,
+   "pct": 21.6
   },
   "tomtom_highway": {
    "matched": 20,
-   "n": 525,
+   "n": 531,
    "pct": 3.8
   },
   "tomtom_surface": {
    "matched": 9,
-   "n": 502,
+   "n": 509,
    "pct": 1.8
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 77.3,
-  "median": 3.8,
+  "median": 2.6,
   "min": -84.9,
-  "n": 28,
+  "n": 29,
   "q1": -44.0,
-  "q3": 28.2
+  "q3": 28.0
  },
  "persistence_min": {
   "max": 66.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 809,
+  "hotspot_buckets": 814,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 950
+  "unreported_congestion": 963
  },
  "sampling": {
   "flow_spent_this_month": 6974,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1177,
+  "incidents_spent_this_month": 1178,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -174,6 +174,13 @@
    "seg": "30.385,-97.673"
   },
   {
+   "from": "N Lamar Blvd",
+   "hour_of_week": 47,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.408,-97.678"
+  },
+  {
    "from": "TX-71 (I-35)",
    "hour_of_week": 22,
    "n": 2,
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.473,-97.593"
-  },
-  {
-   "from": "Pearson Ranch Rd / Iveans Way",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.495,-97.750"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.1,
+  "dispatch": 77.6,
   "tomtom": 97.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 114,
-  "neither": 89,
-  "tomtom_only": 25
+  "n": 116,
+  "neither": 90,
+  "tomtom_only": 26
  }
 }
