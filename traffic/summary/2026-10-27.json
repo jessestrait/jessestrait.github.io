@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 5,
-  "tomtom": 290,
-  "tomtom_only": 285
+  "tomtom": 291,
+  "tomtom_only": 286
  },
  "date": "2026-10-27",
  "dispatch_life_capped": false,
@@ -43,8 +43,8 @@
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 145,
-   "pct": 2.8
+   "n": 146,
+   "pct": 2.7
   },
   "tomtom_surface": {
    "matched": 1,
@@ -92,12 +92,12 @@
   "hotspot_buckets": 252,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 262
+  "unreported_congestion": 263
  },
  "sampling": {
   "flow_spent_this_month": 6794,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1159,
+  "incidents_spent_this_month": 1160,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -130,6 +130,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.282,-97.732"
+  },
+  {
+   "from": "Berrywood Dr/Meadow Lark Ave (I-35)",
+   "hour_of_week": 164,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.385,-97.673"
   },
   {
    "from": "Connie St",
@@ -207,13 +214,6 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.476,-97.793"
-  },
-  {
-   "from": "US Highway 183",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.470,-97.797"
   }
  ],
  "unmatched_pct": {
