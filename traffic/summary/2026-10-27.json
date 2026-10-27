@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 80,
-  "dispatch_only": 71,
+  "dispatch": 81,
+  "dispatch_only": 72,
   "here": 0,
   "here_matched": 0,
   "matched": 10,
@@ -21,10 +21,10 @@
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 116.7,
+  "median": 116.6,
   "min": 13.2,
-  "n": 69,
-  "q1": 83.7,
+  "n": 70,
+  "q1": 86.4,
   "q3": 118.0
  },
  "here_onset_offset_min": {
@@ -33,8 +33,8 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 5,
-   "n": 17,
-   "pct": 29.4
+   "n": 18,
+   "pct": 27.8
   },
   "dispatch_surface": {
    "matched": 4,
@@ -188,6 +188,13 @@
    "seg": "30.234,-97.736"
   },
   {
+   "from": "FM 1327",
+   "hour_of_week": 43,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.110,-97.782"
+  },
+  {
    "from": "Ellas Inlet Dr / Felix Sparke Dr",
    "hour_of_week": 68,
    "n": 2,
@@ -202,13 +209,6 @@
    "seg": "30.179,-97.616"
   },
   {
-   "from": "FM 1327",
-   "hour_of_week": 43,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.110,-97.782"
-  },
-  {
    "from": "Lakeline Blvd (S Bell Blvd/US-183)",
    "hour_of_week": 23,
    "n": 1,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.8,
+  "dispatch": 88.9,
   "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 80,
-  "neither": 71,
+  "n": 81,
+  "neither": 72,
   "tomtom_only": 9
  }
 }
