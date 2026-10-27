@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 89, q3 118 min over 72 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 89, q3 118 min over 73 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -10,21 +10,21 @@
  ],
  "counts": {
   "dispatch": 85,
-  "dispatch_only": 76,
+  "dispatch_only": 74,
   "here": 0,
   "here_matched": 0,
-  "matched": 10,
-  "tomtom": 444,
-  "tomtom_only": 434
+  "matched": 12,
+  "tomtom": 530,
+  "tomtom_only": 518
  },
  "date": "2026-10-27",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 116.6,
+  "median": 116.5,
   "min": 13.2,
-  "n": 72,
-  "q1": 89.2,
+  "n": 73,
+  "q1": 89.3,
   "q3": 118.0
  },
  "here_onset_offset_min": {
@@ -37,19 +37,19 @@
    "pct": 27.8
   },
   "dispatch_surface": {
-   "matched": 4,
+   "matched": 6,
    "n": 67,
-   "pct": 6.0
+   "pct": 9.0
   },
   "tomtom_highway": {
-   "matched": 9,
-   "n": 231,
-   "pct": 3.9
+   "matched": 11,
+   "n": 268,
+   "pct": 4.1
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 213,
-   "pct": 0.5
+   "n": 262,
+   "pct": 0.4
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 71.4,
-  "median": -32.3,
+  "median": -9.8,
   "min": -84.9,
-  "n": 10,
-  "q1": -48.0,
-  "q3": 10.5
+  "n": 12,
+  "q1": -44.0,
+  "q3": 11.5
  },
  "persistence_min": {
   "max": 0.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 392,
+  "hotspot_buckets": 472,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 407
+  "unreported_congestion": 491
  },
  "sampling": {
   "flow_spent_this_month": 6956,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1169,
+  "incidents_spent_this_month": 1170,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -142,6 +142,20 @@
   {
    "from": "State Highway 45",
    "hour_of_week": 39,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.473,-97.593"
+  },
+  {
+   "from": "Lakeline Mall Dr",
+   "hour_of_week": 43,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.475,-97.795"
+  },
+  {
+   "from": "State Highway 45",
+   "hour_of_week": 43,
    "n": 2,
    "roadworks": false,
    "seg": "30.473,-97.593"
@@ -201,31 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.616"
-  },
-  {
-   "from": "Lakeline Blvd (S Bell Blvd/US-183)",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.500,-97.816"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 89.4,
+  "dispatch": 87.1,
   "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 85,
-  "neither": 76,
-  "tomtom_only": 9
+  "neither": 74,
+  "tomtom_only": 11
  }
 }
