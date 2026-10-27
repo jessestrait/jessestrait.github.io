@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 5,
-  "tomtom": 294,
-  "tomtom_only": 289
+  "tomtom": 296,
+  "tomtom_only": 291
  },
  "date": "2026-10-27",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 148,
+   "n": 149,
    "pct": 2.7
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 146,
+   "n": 147,
    "pct": 0.7
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 254,
+  "hotspot_buckets": 257,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 266
+  "unreported_congestion": 268
  },
  "sampling": {
   "flow_spent_this_month": 6812,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1161,
+  "incidents_spent_this_month": 1162,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -137,13 +137,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.385,-97.673"
-  },
-  {
-   "from": "Slaughter Ln/Exit 226 (I-35)",
-   "hour_of_week": 27,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.195,-97.767"
   },
   {
    "from": "Connie St",
@@ -214,6 +207,13 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.454,-97.824"
+  },
+  {
+   "from": "Lakeline Mall Dr",
+   "hour_of_week": 22,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.476,-97.793"
   }
  ],
  "unmatched_pct": {
