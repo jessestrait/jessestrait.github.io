@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 89, q3 118 min over 73 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch record lifetimes look like real clearances this day, not a cap.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 85,
-  "dispatch_only": 74,
+  "dispatch": 106,
+  "dispatch_only": 87,
   "here": 0,
   "here_matched": 0,
-  "matched": 12,
-  "tomtom": 530,
-  "tomtom_only": 518
+  "matched": 20,
+  "tomtom": 850,
+  "tomtom_only": 831
  },
  "date": "2026-10-27",
- "dispatch_life_capped": true,
+ "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 116.5,
-  "min": 13.2,
-  "n": 73,
-  "q1": 89.3,
-  "q3": 118.0
+  "median": 115.8,
+  "min": 10.5,
+  "n": 85,
+  "q1": 76.2,
+  "q3": 117.9
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 5,
-   "n": 18,
-   "pct": 27.8
+   "n": 19,
+   "pct": 26.3
   },
   "dispatch_surface": {
-   "matched": 6,
-   "n": 67,
-   "pct": 9.0
+   "matched": 14,
+   "n": 87,
+   "pct": 16.1
   },
   "tomtom_highway": {
-   "matched": 11,
-   "n": 268,
-   "pct": 4.1
+   "matched": 16,
+   "n": 435,
+   "pct": 3.7
   },
   "tomtom_surface": {
-   "matched": 1,
-   "n": 262,
-   "pct": 0.4
+   "matched": 3,
+   "n": 415,
+   "pct": 0.7
   }
  },
  "matcher": {
@@ -60,20 +60,19 @@
  },
  "onset_offset_min": {
   "max": 71.4,
-  "median": -9.8,
+  "median": -27.0,
   "min": -84.9,
-  "n": 12,
-  "q1": -44.0,
+  "n": 20,
+  "q1": -51.3,
   "q3": 11.5
  },
  "persistence_min": {
-  "max": 0.0,
-  "median": -5.1,
+  "max": 66.0,
+  "median": 0.0,
   "min": -131.8,
-  "n": 8,
-  "q1": -100.4,
-  "q3": 0.0,
-  "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
+  "n": 12,
+  "q1": -35.8,
+  "q3": 0.0
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -90,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 472,
+  "hotspot_buckets": 667,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 491
+  "unreported_congestion": 784
  },
  "sampling": {
-  "flow_spent_this_month": 6956,
+  "flow_spent_this_month": 6965,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1170,
+  "incidents_spent_this_month": 1171,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -108,15 +107,71 @@
    18
   ],
   "rush_min": 5,
-  "this_poll": "off-peak"
+  "this_poll": "rush"
  },
  "structural_hotspots": [
   {
    "from": "Buenos Aires Pkwy",
    "hour_of_week": 15,
-   "n": 3,
+   "n": 6,
    "roadworks": false,
    "seg": "30.169,-97.623"
+  },
+  {
+   "from": "Connie St",
+   "hour_of_week": 114,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.454,-97.667"
+  },
+  {
+   "from": "Adage Dr / Epiphany Ln",
+   "hour_of_week": 60,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.448,-97.631"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 18,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.320,-97.706"
+  },
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Lexington Meadow Ln",
+   "hour_of_week": 44,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.179,-97.616"
+  },
+  {
+   "from": "Berrywood Dr/Meadow Lark Ave (I-35)",
+   "hour_of_week": 164,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.385,-97.673"
   },
   {
    "from": "TX-71 (I-35)",
@@ -131,13 +186,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.282,-97.732"
-  },
-  {
-   "from": "Berrywood Dr/Meadow Lark Ave (I-35)",
-   "hour_of_week": 164,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.385,-97.673"
   },
   {
    "from": "State Highway 45",
@@ -161,71 +209,22 @@
    "seg": "30.473,-97.593"
   },
   {
-   "from": "Connie St",
-   "hour_of_week": 114,
+   "from": "Pearson Ranch Rd / Iveans Way",
+   "hour_of_week": 44,
    "n": 2,
    "roadworks": false,
-   "seg": "30.454,-97.667"
-  },
-  {
-   "from": "Adage Dr / Epiphany Ln",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.448,-97.631"
-  },
-  {
-   "from": "W 46th St",
-   "hour_of_week": 40,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.314,-97.731"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 18,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.320,-97.706"
-  },
-  {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.245,-97.744"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.234,-97.736"
-  },
-  {
-   "from": "FM 1327",
-   "hour_of_week": 43,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.110,-97.782"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.148,-97.704"
+   "seg": "30.495,-97.750"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.1,
-  "tomtom": 97.7
+  "dispatch": 82.1,
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 85,
-  "neither": 74,
-  "tomtom_only": 11
+  "n": 106,
+  "neither": 87,
+  "tomtom_only": 19
  }
 }
