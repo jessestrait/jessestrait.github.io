@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 75,
-  "dispatch_only": 66,
+  "dispatch": 77,
+  "dispatch_only": 68,
   "here": 0,
   "here_matched": 0,
   "matched": 10,
-  "tomtom": 397,
-  "tomtom_only": 387
+  "tomtom": 416,
+  "tomtom_only": 406
  },
  "date": "2026-10-27",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 119.8,
   "median": 116.6,
   "min": 13.2,
-  "n": 64,
-  "q1": 77.5,
+  "n": 66,
+  "q1": 78.1,
   "q3": 118.0
  },
  "here_onset_offset_min": {
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 4,
-   "n": 58,
-   "pct": 6.9
+   "n": 60,
+   "pct": 6.7
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 203,
-   "pct": 4.4
+   "n": 212,
+   "pct": 4.2
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 194,
+   "n": 204,
    "pct": 0.5
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 345,
+  "hotspot_buckets": 365,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 360
+  "unreported_congestion": 379
  },
  "sampling": {
   "flow_spent_this_month": 6920,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1167,
+  "incidents_spent_this_month": 1168,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -144,13 +144,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.473,-97.593"
-  },
-  {
-   "from": "Kellam Rd / Circuit of the Americas Blvd",
-   "hour_of_week": 41,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.142,-97.616"
   },
   {
    "from": "Connie St",
@@ -214,17 +207,24 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.500,-97.816"
+  },
+  {
+   "from": "FM-2222/Bullick Hollow Rd (FM-620)",
+   "hour_of_week": 21,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.440,-97.835"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.0,
-  "tomtom": 97.5
+  "dispatch": 88.3,
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 75,
-  "neither": 66,
+  "n": 77,
+  "neither": 68,
   "tomtom_only": 9
  }
 }
