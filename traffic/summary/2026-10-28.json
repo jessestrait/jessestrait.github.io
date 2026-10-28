@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 13,
-  "tomtom": 541,
-  "tomtom_only": 528
+  "tomtom": 598,
+  "tomtom_only": 585
  },
  "date": "2026-10-28",
  "dispatch_life_capped": true,
@@ -42,14 +42,14 @@
    "pct": 20.0
   },
   "tomtom_highway": {
-   "matched": 10,
-   "n": 255,
+   "matched": 11,
+   "n": 279,
    "pct": 3.9
   },
   "tomtom_surface": {
-   "matched": 3,
-   "n": 286,
-   "pct": 1.0
+   "matched": 2,
+   "n": 319,
+   "pct": 0.6
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 480,
+  "hotspot_buckets": 533,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 503
+  "unreported_congestion": 560
  },
  "sampling": {
   "flow_spent_this_month": 7073,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1192,
+  "incidents_spent_this_month": 1193,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -147,18 +147,18 @@
    "seg": "30.266,-97.745"
   },
   {
+   "from": "Bloor Rd (FM-973)",
+   "hour_of_week": 59,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.337,-97.559"
+  },
+  {
    "from": "Truman Oak Cv",
    "hour_of_week": 60,
    "n": 2,
    "roadworks": false,
    "seg": "30.248,-97.583"
-  },
-  {
-   "from": "Shropshire Blvd",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.390,-97.658"
   },
   {
    "from": "Bumblebee Dr",
@@ -175,11 +175,11 @@
    "seg": "30.281,-97.649"
   },
   {
-   "from": "Capital of Texas Hwy (TX-1)",
+   "from": "Mariposa Dr",
    "hour_of_week": 60,
    "n": 2,
    "roadworks": false,
-   "seg": "30.379,-97.738"
+   "seg": "30.241,-97.746"
   },
   {
    "from": "McKinney Falls Pkwy (Burleson Rd)",
@@ -203,23 +203,23 @@
    "seg": "30.502,-97.777"
   },
   {
-   "from": "Dessau Rd (E Parmer Ln/FM-734)",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.406,-97.669"
-  },
-  {
    "from": "Long Meadow Dr",
    "hour_of_week": 60,
    "n": 2,
    "roadworks": false,
    "seg": "30.402,-97.635"
+  },
+  {
+   "from": "Braker Ln (TX-1)",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.380,-97.738"
   }
  ],
  "unmatched_pct": {
   "dispatch": 79.6,
-  "tomtom": 97.6
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
