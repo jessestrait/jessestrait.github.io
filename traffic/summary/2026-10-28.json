@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 49,
-  "dispatch_only": 40,
+  "dispatch": 51,
+  "dispatch_only": 42,
   "here": 0,
   "here_matched": 0,
   "matched": 11,
-  "tomtom": 412,
-  "tomtom_only": 401
+  "tomtom": 450,
+  "tomtom_only": 439
  },
  "date": "2026-10-28",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 8,
-   "n": 45,
-   "pct": 17.8
+   "n": 47,
+   "pct": 17.0
   },
   "tomtom_highway": {
-   "matched": 9,
-   "n": 195,
-   "pct": 4.6
+   "matched": 8,
+   "n": 216,
+   "pct": 3.7
   },
   "tomtom_surface": {
-   "matched": 2,
-   "n": 217,
-   "pct": 0.9
+   "matched": 3,
+   "n": 234,
+   "pct": 1.3
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 362,
+  "hotspot_buckets": 398,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 376
+  "unreported_congestion": 414
  },
  "sampling": {
-  "flow_spent_this_month": 7064,
+  "flow_spent_this_month": 7073,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1189,
+  "incidents_spent_this_month": 1190,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -154,6 +154,20 @@
    "seg": "30.337,-97.559"
   },
   {
+   "from": "Truman Oak Cv",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.248,-97.583"
+  },
+  {
+   "from": "Woodland Ave (I-35)",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.258,-97.737"
+  },
+  {
    "from": "Connie St",
    "hour_of_week": 114,
    "n": 2,
@@ -201,31 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "N TX-183 (Anderson Mill Rd)",
-   "hour_of_week": 45,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.454,-97.824"
-  },
-  {
-   "from": "Research Blvd (Pecan Park Blvd)",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.466,-97.804"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.6,
-  "tomtom": 97.3
+  "dispatch": 82.4,
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 49,
-  "neither": 40,
+  "n": 51,
+  "neither": 42,
   "tomtom_only": 9
  }
 }
