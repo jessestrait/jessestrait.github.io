@@ -1,5 +1,5 @@
 {
- "captured_at": "2026-10-27T23:45:59Z",
+ "captured_at": "2026-10-28T00:01:01Z",
  "episodes": [
   {
    "customers_served": 25056,
@@ -8,10 +8,10 @@
    "first_seen": "2026-10-27T22:00:07Z",
    "id": "zip-78744-20261027T220007Z",
    "kind": "power_outage",
-   "last_seen": "2026-10-27T23:45:59Z",
+   "last_seen": "2026-10-28T00:01:01Z",
    "peak_customers_affected": 34,
    "peak_outages": 1,
-   "polls": 8,
+   "polls": 9,
    "scope": {
     "bbox": [
      -97.791455000598,
@@ -31,10 +31,10 @@
    "first_seen": "2026-10-27T23:15:41Z",
    "id": "zip-78747-20261027T231541Z",
    "kind": "power_outage",
-   "last_seen": "2026-10-27T23:45:59Z",
+   "last_seen": "2026-10-28T00:01:01Z",
    "peak_customers_affected": 1,
    "peak_outages": 1,
-   "polls": 3,
+   "polls": 4,
    "scope": {
     "bbox": [
      -97.81557800059177,
@@ -46,7 +46,53 @@
     "type": "zip"
    },
    "source": "austin-energy/kubra"
+  },
+  {
+   "customers_served": 10687,
+   "ended": false,
+   "etr_last": "2026-10-28T02:03:07Z",
+   "first_seen": "2026-10-28T00:01:01Z",
+   "id": "zip-78751-20261028T000101Z",
+   "kind": "power_outage",
+   "last_seen": "2026-10-28T00:01:01Z",
+   "peak_customers_affected": 1,
+   "peak_outages": 1,
+   "polls": 1,
+   "scope": {
+    "bbox": [
+     -97.74306900068774,
+     30.294226999128895,
+     -97.70695999962267,
+     30.32597999943006
+    ],
+    "id": "78751",
+    "type": "zip"
+   },
+   "source": "austin-energy/kubra"
+  },
+  {
+   "customers_served": 17357,
+   "ended": false,
+   "etr_last": "2026-10-28T02:00:36Z",
+   "first_seen": "2026-10-28T00:01:01Z",
+   "id": "zip-78724-20261028T000101Z",
+   "kind": "power_outage",
+   "last_seen": "2026-10-28T00:01:01Z",
+   "peak_customers_affected": 1,
+   "peak_outages": 1,
+   "polls": 1,
+   "scope": {
+    "bbox": [
+     -97.67414810028494,
+     30.247422799220043,
+     -97.5538594996423,
+     30.342751299755758
+    ],
+    "id": "78724",
+    "type": "zip"
+   },
+   "source": "austin-energy/kubra"
   }
  ],
- "source_published": "2026-10-27T23:44:24Z"
+ "source_published": "2026-10-27T23:52:30Z"
 }
