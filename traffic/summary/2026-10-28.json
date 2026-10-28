@@ -13,9 +13,9 @@
   "dispatch_only": 49,
   "here": 0,
   "here_matched": 0,
-  "matched": 24,
-  "tomtom": 1002,
-  "tomtom_only": 978
+  "matched": 25,
+  "tomtom": 1041,
+  "tomtom_only": 1015
  },
  "date": "2026-10-28",
  "dispatch_life_capped": true,
@@ -42,14 +42,14 @@
    "pct": 26.2
   },
   "tomtom_highway": {
-   "matched": 16,
-   "n": 504,
+   "matched": 17,
+   "n": 529,
    "pct": 3.2
   },
   "tomtom_surface": {
-   "matched": 8,
-   "n": 498,
-   "pct": 1.6
+   "matched": 9,
+   "n": 512,
+   "pct": 1.8
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 59.5,
-  "median": 5.5,
+  "median": 5.0,
   "min": -71.8,
-  "n": 24,
-  "q1": -5.2,
-  "q3": 27.6
+  "n": 25,
+  "q1": -8.9,
+  "q3": 26.4
  },
  "persistence_min": {
   "max": 0.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 867,
+  "hotspot_buckets": 899,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 953
+  "unreported_congestion": 989
  },
  "sampling": {
   "flow_spent_this_month": 7100,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1204,
+  "incidents_spent_this_month": 1205,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -168,13 +168,6 @@
    "seg": "30.310,-97.711"
   },
   {
-   "from": "US-290/Exit 238 (I-35)",
-   "hour_of_week": 61,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.331,-97.705"
-  },
-  {
    "from": "Asa Dr / Colton Bluff Springs Rd",
    "hour_of_week": 61,
    "n": 3,
@@ -215,11 +208,18 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.337,-97.559"
+  },
+  {
+   "from": "Truman Oak Cv",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.248,-97.583"
   }
  ],
  "unmatched_pct": {
   "dispatch": 73.1,
-  "tomtom": 97.6
+  "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
