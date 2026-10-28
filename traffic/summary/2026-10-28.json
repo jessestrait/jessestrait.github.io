@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 97 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 98 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -13,9 +13,9 @@
   "dispatch_only": 85,
   "here": 0,
   "here_matched": 0,
-  "matched": 48,
-  "tomtom": 2790,
-  "tomtom_only": 2734
+  "matched": 49,
+  "tomtom": 2861,
+  "tomtom_only": 2804
  },
  "date": "2026-10-28",
  "dispatch_life_capped": true,
@@ -23,7 +23,7 @@
   "max": 119.9,
   "median": 117.0,
   "min": 14.5,
-  "n": 97,
+  "n": 98,
   "q1": 115.0,
   "q3": 118.5
  },
@@ -42,13 +42,13 @@
    "pct": 27.2
   },
   "tomtom_highway": {
-   "matched": 40,
-   "n": 1445,
+   "matched": 41,
+   "n": 1480,
    "pct": 2.8
   },
   "tomtom_surface": {
    "matched": 16,
-   "n": 1345,
+   "n": 1381,
    "pct": 1.2
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 80.0,
-  "median": 5.5,
+  "median": 6.1,
   "min": -71.8,
-  "n": 48,
+  "n": 49,
   "q1": -8.1,
-  "q3": 30.5
+  "q3": 31.4
  },
  "persistence_min": {
   "max": 30.6,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2363,
+  "hotspot_buckets": 2407,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2703
+  "unreported_congestion": 2773
  },
  "sampling": {
   "flow_spent_this_month": 7226,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1230,
+  "incidents_spent_this_month": 1231,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -152,6 +152,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.268,-97.734"
+  },
+  {
+   "from": "Hesters Crossing Rd (I-35)",
+   "hour_of_week": 69,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.476,-97.673"
   },
   {
    "from": "Bumblebee Dr",
@@ -208,13 +215,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.283,-97.703"
-  },
-  {
-   "from": "Asa Dr / Colton Bluff Springs Rd",
-   "hour_of_week": 61,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.168,-97.740"
   }
  ],
  "unmatched_pct": {
