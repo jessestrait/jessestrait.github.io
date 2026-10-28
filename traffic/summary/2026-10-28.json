@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 70,
-  "dispatch_only": 52,
+  "dispatch_only": 51,
   "here": 0,
   "here_matched": 0,
-  "matched": 25,
-  "tomtom": 1077,
-  "tomtom_only": 1050
+  "matched": 26,
+  "tomtom": 1116,
+  "tomtom_only": 1088
  },
  "date": "2026-10-28",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 33.3
   },
   "dispatch_surface": {
-   "matched": 16,
+   "matched": 17,
    "n": 64,
-   "pct": 25.0
+   "pct": 26.6
   },
   "tomtom_highway": {
-   "matched": 17,
-   "n": 548,
-   "pct": 3.1
+   "matched": 19,
+   "n": 574,
+   "pct": 3.3
   },
   "tomtom_surface": {
-   "matched": 10,
-   "n": 529,
-   "pct": 1.9
+   "matched": 9,
+   "n": 542,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 59.5,
-  "median": 5.0,
+  "median": 5.5,
   "min": -71.8,
-  "n": 25,
-  "q1": -8.9,
-  "q3": 26.4
+  "n": 26,
+  "q1": -8.0,
+  "q3": 25.3
  },
  "persistence_min": {
   "max": 0.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 928,
+  "hotspot_buckets": 958,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1024
+  "unreported_congestion": 1062
  },
  "sampling": {
   "flow_spent_this_month": 7109,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1206,
+  "incidents_spent_this_month": 1207,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -114,7 +114,7 @@
   {
    "from": "N Interstate 35",
    "hour_of_week": 61,
-   "n": 4,
+   "n": 5,
    "roadworks": false,
    "seg": "30.310,-97.711"
   },
@@ -168,11 +168,11 @@
    "seg": "30.167,-97.787"
   },
   {
-   "from": "Manchaca Rd (W William Cannon Dr)",
+   "from": "N Interstate 35",
    "hour_of_week": 61,
    "n": 3,
    "roadworks": false,
-   "seg": "30.206,-97.812"
+   "seg": "30.305,-97.714"
   },
   {
    "from": "US Highway 183",
@@ -189,43 +189,43 @@
    "seg": "30.168,-97.740"
   },
   {
+   "from": "Fletcher Ln (TX-71)",
+   "hour_of_week": 61,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.259,-97.906"
+  },
+  {
+   "from": "TX-1 Loop/N Mo Pac Expy (TX-360 Loop)",
+   "hour_of_week": 61,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.388,-97.755"
+  },
+  {
+   "from": "Northland Dr",
+   "hour_of_week": 61,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.335,-97.756"
+  },
+  {
    "from": "Brazos St (2nd St)",
    "hour_of_week": 47,
    "n": 2,
    "roadworks": false,
    "seg": "30.264,-97.744"
-  },
-  {
-   "from": "E Oltorf St (I-35)",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.215,-97.753"
-  },
-  {
-   "from": "Settlers Valley Dr",
-   "hour_of_week": 49,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.425,-97.627"
-  },
-  {
-   "from": "W 5th St (Colorado St)",
-   "hour_of_week": 48,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.266,-97.745"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 74.3,
+  "dispatch": 72.9,
   "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 70,
-  "neither": 52,
-  "tomtom_only": 18
+  "neither": 51,
+  "tomtom_only": 19
  }
 }
