@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 109 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 111 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 126,
-  "dispatch_only": 88,
+  "dispatch_only": 87,
   "here": 0,
   "here_matched": 0,
-  "matched": 67,
-  "tomtom": 3407,
-  "tomtom_only": 3327
+  "matched": 69,
+  "tomtom": 3440,
+  "tomtom_only": 3358
  },
  "date": "2026-10-28",
  "dispatch_life_capped": true,
@@ -23,8 +23,8 @@
   "max": 120.0,
   "median": 117.2,
   "min": 14.5,
-  "n": 109,
-  "q1": 115.2,
+  "n": 111,
+  "q1": 115.3,
   "q3": 118.6
  },
  "here_onset_offset_min": {
@@ -37,19 +37,19 @@
    "pct": 33.3
   },
   "dispatch_surface": {
-   "matched": 33,
+   "matched": 34,
    "n": 111,
-   "pct": 29.7
+   "pct": 30.6
   },
   "tomtom_highway": {
    "matched": 55,
-   "n": 1764,
+   "n": 1779,
    "pct": 3.1
   },
   "tomtom_surface": {
-   "matched": 25,
-   "n": 1643,
-   "pct": 1.5
+   "matched": 27,
+   "n": 1661,
+   "pct": 1.6
   }
  },
  "matcher": {
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 80.0,
-  "median": 6.1,
+  "median": 9.2,
   "min": -78.4,
-  "n": 67,
-  "q1": -11.4,
+  "n": 69,
+  "q1": -11.1,
   "q3": 32.7
  },
  "persistence_min": {
   "max": 50.8,
   "median": -66.1,
   "min": -122.2,
-  "n": 45,
-  "q1": -94.6,
+  "n": 46,
+  "q1": -93.7,
   "q3": -25.5,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2815,
+  "hotspot_buckets": 2839,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 3296
+  "unreported_congestion": 3327
  },
  "sampling": {
   "flow_spent_this_month": 7253,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1243,
+  "incidents_spent_this_month": 1244,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -189,6 +189,13 @@
    "seg": "30.372,-97.724"
   },
   {
+   "from": "US-290/TX-290 Toll (Ed Bluestein Blvd)",
+   "hour_of_week": 70,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.332,-97.685"
+  },
+  {
    "from": "Bumblebee Dr",
    "hour_of_week": 60,
    "n": 3,
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.234,-97.741"
-  },
-  {
-   "from": "Genome Dr",
-   "hour_of_week": 60,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.349,-97.563"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 69.8,
-  "tomtom": 97.7
+  "dispatch": 69.0,
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 126,
-  "neither": 88,
-  "tomtom_only": 38
+  "neither": 87,
+  "tomtom_only": 39
  }
 }
