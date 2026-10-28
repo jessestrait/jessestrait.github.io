@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 54,
-  "dispatch_only": 43,
+  "dispatch": 55,
+  "dispatch_only": 44,
   "here": 0,
   "here_matched": 0,
   "matched": 13,
-  "tomtom": 598,
-  "tomtom_only": 585
+  "tomtom": 650,
+  "tomtom_only": 637
  },
  "date": "2026-10-28",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 10,
-   "n": 50,
-   "pct": 20.0
+   "n": 51,
+   "pct": 19.6
   },
   "tomtom_highway": {
    "matched": 11,
-   "n": 279,
-   "pct": 3.9
+   "n": 302,
+   "pct": 3.6
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 319,
+   "n": 348,
    "pct": 0.6
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 533,
+  "hotspot_buckets": 583,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 560
+  "unreported_congestion": 612
  },
  "sampling": {
-  "flow_spent_this_month": 7073,
+  "flow_spent_this_month": 7082,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1193,
+  "incidents_spent_this_month": 1194,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -189,13 +189,6 @@
    "seg": "30.201,-97.709"
   },
   {
-   "from": "Colton Bluff Springs Rd",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.161,-97.727"
-  },
-  {
    "from": "Kenai Dr (W Parmer Ln/FM-734)",
    "hour_of_week": 60,
    "n": 2,
@@ -203,29 +196,36 @@
    "seg": "30.502,-97.777"
   },
   {
-   "from": "Long Meadow Dr",
+   "from": "Ranchito Dr",
    "hour_of_week": 60,
    "n": 2,
    "roadworks": false,
-   "seg": "30.402,-97.635"
+   "seg": "30.165,-97.731"
   },
   {
-   "from": "Braker Ln (TX-1)",
+   "from": "Decker Lake Rd (FM-973)",
    "hour_of_week": 60,
    "n": 2,
    "roadworks": false,
-   "seg": "30.380,-97.738"
+   "seg": "30.259,-97.611"
+  },
+  {
+   "from": "Melekhin Bnd",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.482,-97.854"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 79.6,
-  "tomtom": 97.8
+  "dispatch": 80.0,
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 54,
-  "neither": 43,
+  "n": 55,
+  "neither": 44,
   "tomtom_only": 11
  }
 }
