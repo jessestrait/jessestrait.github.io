@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 98 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 99 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 116,
+  "dispatch": 119,
   "dispatch_only": 84,
   "here": 0,
   "here_matched": 0,
-  "matched": 50,
-  "tomtom": 2937,
-  "tomtom_only": 2879
+  "matched": 53,
+  "tomtom": 2998,
+  "tomtom_only": 2935
  },
  "date": "2026-10-28",
  "dispatch_life_capped": true,
@@ -23,8 +23,8 @@
   "max": 119.9,
   "median": 117.0,
   "min": 14.5,
-  "n": 98,
-  "q1": 115.0,
+  "n": 99,
+  "q1": 115.1,
   "q3": 118.5
  },
  "here_onset_offset_min": {
@@ -37,19 +37,19 @@
    "pct": 23.1
   },
   "dispatch_surface": {
-   "matched": 29,
-   "n": 103,
-   "pct": 28.2
+   "matched": 32,
+   "n": 106,
+   "pct": 30.2
   },
   "tomtom_highway": {
-   "matched": 41,
-   "n": 1521,
+   "matched": 42,
+   "n": 1554,
    "pct": 2.7
   },
   "tomtom_surface": {
-   "matched": 17,
-   "n": 1416,
-   "pct": 1.2
+   "matched": 21,
+   "n": 1444,
+   "pct": 1.5
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 80.0,
-  "median": 7.6,
+  "median": 5.0,
   "min": -71.8,
-  "n": 50,
-  "q1": -8.1,
-  "q3": 31.9
+  "n": 53,
+  "q1": -9.4,
+  "q3": 31.4
  },
  "persistence_min": {
   "max": 30.6,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2448,
+  "hotspot_buckets": 2484,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2848
+  "unreported_congestion": 2904
  },
  "sampling": {
-  "flow_spent_this_month": 7226,
+  "flow_spent_this_month": 7235,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1232,
+  "incidents_spent_this_month": 1233,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -147,6 +147,13 @@
    "seg": "30.350,-97.556"
   },
   {
+   "from": "E 26th St/E Dean Keeton St (I-35)",
+   "hour_of_week": 69,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.285,-97.726"
+  },
+  {
    "from": "W 15th St",
    "hour_of_week": 69,
    "n": 4,
@@ -154,18 +161,18 @@
    "seg": "30.281,-97.750"
   },
   {
+   "from": "Hesters Crossing Rd (I-35)",
+   "hour_of_week": 69,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.476,-97.673"
+  },
+  {
    "from": "N Interstate 35",
    "hour_of_week": 70,
    "n": 4,
    "roadworks": false,
    "seg": "30.273,-97.732"
-  },
-  {
-   "from": "Little Lake Rd / Derby Day Ave",
-   "hour_of_week": 70,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.501,-97.578"
   },
   {
    "from": "Metric Blvd",
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.349,-97.563"
-  },
-  {
-   "from": "Highway 71 E",
-   "hour_of_week": 60,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.200,-97.633"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 72.4,
-  "tomtom": 98.0
+  "dispatch": 70.6,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 116,
+  "n": 119,
   "neither": 84,
-  "tomtom_only": 32
+  "tomtom_only": 35
  }
 }
