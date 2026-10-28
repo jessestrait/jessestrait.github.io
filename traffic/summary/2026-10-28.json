@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 58,
-  "dispatch_only": 43,
+  "dispatch": 60,
+  "dispatch_only": 44,
   "here": 0,
   "here_matched": 0,
-  "matched": 18,
-  "tomtom": 838,
-  "tomtom_only": 819
+  "matched": 19,
+  "tomtom": 873,
+  "tomtom_only": 853
  },
  "date": "2026-10-28",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 25.0
   },
   "dispatch_surface": {
-   "matched": 14,
-   "n": 54,
-   "pct": 25.9
+   "matched": 15,
+   "n": 56,
+   "pct": 26.8
   },
   "tomtom_highway": {
    "matched": 16,
-   "n": 415,
-   "pct": 3.9
+   "n": 435,
+   "pct": 3.7
   },
   "tomtom_surface": {
-   "matched": 3,
-   "n": 423,
-   "pct": 0.7
+   "matched": 4,
+   "n": 438,
+   "pct": 0.9
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 34.6,
-  "median": 5.5,
+  "median": 5.0,
   "min": -71.8,
-  "n": 18,
-  "q1": 1.2,
-  "q3": 29.3
+  "n": 19,
+  "q1": 0.2,
+  "q3": 28.7
  },
  "persistence_min": {
   "max": -25.3,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 730,
+  "hotspot_buckets": 764,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 794
+  "unreported_congestion": 828
  },
  "sampling": {
   "flow_spent_this_month": 7091,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1198,
+  "incidents_spent_this_month": 1199,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -124,13 +124,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.281,-97.649"
-  },
-  {
-   "from": "McKinney Falls Pkwy (Burleson Rd)",
-   "hour_of_week": 60,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.201,-97.709"
   },
   {
    "from": "Genome Dr",
@@ -215,17 +208,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.379,-97.738"
+  },
+  {
+   "from": "Mariposa Dr",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.241,-97.746"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 74.1,
+  "dispatch": 73.3,
   "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 58,
-  "neither": 43,
-  "tomtom_only": 15
+  "n": 60,
+  "neither": 44,
+  "tomtom_only": 16
  }
 }
