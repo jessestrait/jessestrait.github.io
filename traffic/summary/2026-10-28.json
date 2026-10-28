@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 55,
-  "dispatch_only": 44,
+  "dispatch": 57,
+  "dispatch_only": 45,
   "here": 0,
   "here_matched": 0,
-  "matched": 13,
-  "tomtom": 650,
-  "tomtom_only": 637
+  "matched": 14,
+  "tomtom": 709,
+  "tomtom_only": 695
  },
  "date": "2026-10-28",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 25.0
   },
   "dispatch_surface": {
-   "matched": 10,
-   "n": 51,
-   "pct": 19.6
+   "matched": 11,
+   "n": 53,
+   "pct": 20.8
   },
   "tomtom_highway": {
    "matched": 11,
-   "n": 302,
-   "pct": 3.6
+   "n": 338,
+   "pct": 3.3
   },
   "tomtom_surface": {
-   "matched": 2,
-   "n": 348,
-   "pct": 0.6
+   "matched": 3,
+   "n": 371,
+   "pct": 0.8
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 34.6,
-  "median": 2.4,
+  "median": 2.2,
   "min": -71.8,
-  "n": 13,
-  "q1": -3.4,
-  "q3": 25.1
+  "n": 14,
+  "q1": -1.6,
+  "q3": 22.0
  },
  "persistence_min": {
   "max": -25.3,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 583,
+  "hotspot_buckets": 630,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 612
+  "unreported_congestion": 670
  },
  "sampling": {
   "flow_spent_this_month": 7082,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1194,
+  "incidents_spent_this_month": 1195,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,20 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Long Meadow Dr",
+   "hour_of_week": 60,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.402,-97.635"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 60,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.310,-97.711"
+  },
   {
    "from": "Buenos Aires Pkwy",
    "hour_of_week": 15,
@@ -161,6 +175,13 @@
    "seg": "30.248,-97.583"
   },
   {
+   "from": "Shropshire Blvd",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.390,-97.658"
+  },
+  {
    "from": "Bumblebee Dr",
    "hour_of_week": 60,
    "n": 2,
@@ -175,6 +196,13 @@
    "seg": "30.281,-97.649"
   },
   {
+   "from": "E William Cannon Dr (McKinney Falls Pkwy)",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.190,-97.700"
+  },
+  {
    "from": "Mariposa Dr",
    "hour_of_week": 60,
    "n": 2,
@@ -187,45 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.201,-97.709"
-  },
-  {
-   "from": "Kenai Dr (W Parmer Ln/FM-734)",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.502,-97.777"
-  },
-  {
-   "from": "Ranchito Dr",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.165,-97.731"
-  },
-  {
-   "from": "Decker Lake Rd (FM-973)",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.259,-97.611"
-  },
-  {
-   "from": "Melekhin Bnd",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.482,-97.854"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.0,
+  "dispatch": 78.9,
   "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 55,
-  "neither": 44,
-  "tomtom_only": 11
+  "n": 57,
+  "neither": 45,
+  "tomtom_only": 12
  }
 }
