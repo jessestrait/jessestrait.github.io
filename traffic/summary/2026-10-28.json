@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 10,
-  "tomtom": 368,
-  "tomtom_only": 358
+  "tomtom": 387,
+  "tomtom_only": 377
  },
  "date": "2026-10-28",
  "dispatch_life_capped": true,
@@ -42,14 +42,14 @@
    "pct": 18.2
   },
   "tomtom_highway": {
-   "matched": 7,
-   "n": 173,
-   "pct": 4.0
+   "matched": 8,
+   "n": 182,
+   "pct": 4.4
   },
   "tomtom_surface": {
-   "matched": 3,
-   "n": 195,
-   "pct": 1.5
+   "matched": 2,
+   "n": 205,
+   "pct": 1.0
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 320,
+  "hotspot_buckets": 338,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 333
+  "unreported_congestion": 352
  },
  "sampling": {
   "flow_spent_this_month": 7064,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1187,
+  "incidents_spent_this_month": 1188,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -145,6 +145,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.266,-97.745"
+  },
+  {
+   "from": "Bloor Rd (FM-973)",
+   "hour_of_week": 59,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.337,-97.559"
   },
   {
    "from": "Connie St",
@@ -208,18 +215,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.466,-97.804"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.471,-97.794"
   }
  ],
  "unmatched_pct": {
   "dispatch": 81.2,
-  "tomtom": 97.3
+  "tomtom": 97.4
  },
  "witnesses": {
   "both": 0,
