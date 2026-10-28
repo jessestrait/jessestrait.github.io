@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 91 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 92 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 109,
-  "dispatch_only": 82,
+  "dispatch": 110,
+  "dispatch_only": 83,
   "here": 0,
   "here_matched": 0,
   "matched": 42,
-  "tomtom": 1946,
-  "tomtom_only": 1901
+  "tomtom": 2031,
+  "tomtom_only": 1986
  },
  "date": "2026-10-28",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 117.0,
+  "median": 116.8,
   "min": 14.5,
-  "n": 91,
-  "q1": 115.0,
-  "q3": 118.5
+  "n": 92,
+  "q1": 114.8,
+  "q3": 118.4
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 24,
-   "n": 96,
-   "pct": 25.0
+   "n": 97,
+   "pct": 24.7
   },
   "tomtom_highway": {
    "matched": 32,
-   "n": 1034,
-   "pct": 3.1
+   "n": 1075,
+   "pct": 3.0
   },
   "tomtom_surface": {
    "matched": 13,
-   "n": 912,
+   "n": 956,
    "pct": 1.4
   }
  },
@@ -67,12 +67,12 @@
   "q3": 27.5
  },
  "persistence_min": {
-  "max": 0.0,
-  "median": -76.3,
+  "max": 25.3,
+  "median": -74.2,
   "min": -122.2,
-  "n": 29,
-  "q1": -101.8,
-  "q3": -45.8,
+  "n": 30,
+  "q1": -101.7,
+  "q3": -37.1,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1656,
+  "hotspot_buckets": 1708,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1870
+  "unreported_congestion": 1955
  },
  "sampling": {
-  "flow_spent_this_month": 7199,
+  "flow_spent_this_month": 7208,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1220,
+  "incidents_spent_this_month": 1221,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -126,11 +126,11 @@
    "seg": "30.339,-97.701"
   },
   {
-   "from": "W Braker Ln (Burnet Rd)",
+   "from": "N Interstate 35",
    "hour_of_week": 69,
    "n": 4,
    "roadworks": false,
-   "seg": "30.375,-97.726"
+   "seg": "30.446,-97.668"
   },
   {
    "from": "Bumblebee Dr",
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 75.2,
-  "tomtom": 97.7
+  "dispatch": 75.5,
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 109,
-  "neither": 82,
+  "n": 110,
+  "neither": 83,
   "tomtom_only": 27
  }
 }
