@@ -13,9 +13,9 @@
   "dispatch_only": 82,
   "here": 0,
   "here_matched": 0,
-  "matched": 39,
-  "tomtom": 1781,
-  "tomtom_only": 1739
+  "matched": 41,
+  "tomtom": 1862,
+  "tomtom_only": 1818
  },
  "date": "2026-10-28",
  "dispatch_life_capped": true,
@@ -42,14 +42,14 @@
    "pct": 25.0
   },
   "tomtom_highway": {
-   "matched": 29,
-   "n": 945,
+   "matched": 31,
+   "n": 985,
    "pct": 3.1
   },
   "tomtom_surface": {
    "matched": 13,
-   "n": 836,
-   "pct": 1.6
+   "n": 877,
+   "pct": 1.5
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 80.0,
   "median": 5.0,
   "min": -71.8,
-  "n": 39,
-  "q1": -7.0,
-  "q3": 27.1
+  "n": 41,
+  "q1": -7.5,
+  "q3": 27.9
  },
  "persistence_min": {
   "max": 0.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1539,
+  "hotspot_buckets": 1601,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1709
+  "unreported_congestion": 1787
  },
  "sampling": {
   "flow_spent_this_month": 7199,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1218,
+  "incidents_spent_this_month": 1219,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -124,6 +124,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.339,-97.701"
+  },
+  {
+   "from": "W Braker Ln (Burnet Rd)",
+   "hour_of_week": 69,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.375,-97.726"
   },
   {
    "from": "Bumblebee Dr",
@@ -208,13 +215,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.240,-97.800"
-  },
-  {
-   "from": "E Ben White Blvd",
-   "hour_of_week": 61,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.217,-97.750"
   }
  ],
  "unmatched_pct": {
