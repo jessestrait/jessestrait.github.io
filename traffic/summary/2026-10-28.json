@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 119,
-  "dispatch_only": 84,
+  "dispatch": 120,
+  "dispatch_only": 85,
   "here": 0,
   "here_matched": 0,
-  "matched": 53,
-  "tomtom": 2998,
-  "tomtom_only": 2935
+  "matched": 55,
+  "tomtom": 3058,
+  "tomtom_only": 2994
  },
  "date": "2026-10-28",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 32,
-   "n": 106,
-   "pct": 30.2
+   "n": 107,
+   "pct": 29.9
   },
   "tomtom_highway": {
-   "matched": 42,
-   "n": 1554,
+   "matched": 43,
+   "n": 1590,
    "pct": 2.7
   },
   "tomtom_surface": {
    "matched": 21,
-   "n": 1444,
-   "pct": 1.5
+   "n": 1468,
+   "pct": 1.4
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 80.0,
   "median": 5.0,
   "min": -71.8,
-  "n": 53,
-  "q1": -9.4,
-  "q3": 31.4
+  "n": 55,
+  "q1": -10.8,
+  "q3": 31.6
  },
  "persistence_min": {
   "max": 30.6,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2484,
+  "hotspot_buckets": 2523,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2904
+  "unreported_congestion": 2963
  },
  "sampling": {
   "flow_spent_this_month": 7235,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1233,
+  "incidents_spent_this_month": 1234,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -131,6 +131,13 @@
    "n": 5,
    "roadworks": false,
    "seg": "30.268,-97.734"
+  },
+  {
+   "from": "W Louis Henna Blvd",
+   "hour_of_week": 70,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.480,-97.674"
   },
   {
    "from": "US Highway 183",
@@ -175,18 +182,11 @@
    "seg": "30.273,-97.732"
   },
   {
-   "from": "Metric Blvd",
+   "from": "Little Lake Rd / Derby Day Ave",
    "hour_of_week": 70,
    "n": 4,
    "roadworks": false,
-   "seg": "30.372,-97.724"
-  },
-  {
-   "from": "W Louis Henna Blvd",
-   "hour_of_week": 70,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.480,-97.674"
+   "seg": "30.501,-97.578"
   },
   {
    "from": "Bumblebee Dr",
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 70.6,
+  "dispatch": 70.8,
   "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 119,
-  "neither": 84,
+  "n": 120,
+  "neither": 85,
   "tomtom_only": 35
  }
 }
