@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 52,
-  "dispatch_only": 42,
+  "dispatch": 54,
+  "dispatch_only": 43,
   "here": 0,
   "here_matched": 0,
-  "matched": 12,
-  "tomtom": 489,
-  "tomtom_only": 477
+  "matched": 13,
+  "tomtom": 541,
+  "tomtom_only": 528
  },
  "date": "2026-10-28",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 25.0
   },
   "dispatch_surface": {
-   "matched": 9,
-   "n": 48,
-   "pct": 18.8
+   "matched": 10,
+   "n": 50,
+   "pct": 20.0
   },
   "tomtom_highway": {
-   "matched": 9,
-   "n": 229,
+   "matched": 10,
+   "n": 255,
    "pct": 3.9
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 260,
-   "pct": 1.2
+   "n": 286,
+   "pct": 1.0
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 34.6,
-  "median": 3.5,
+  "median": 2.4,
   "min": -71.8,
-  "n": 12,
-  "q1": -5.2,
-  "q3": 28.1
+  "n": 13,
+  "q1": -3.4,
+  "q3": 25.1
  },
  "persistence_min": {
   "max": -25.3,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 432,
+  "hotspot_buckets": 480,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 452
+  "unreported_congestion": 503
  },
  "sampling": {
   "flow_spent_this_month": 7073,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1191,
+  "incidents_spent_this_month": 1192,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -154,6 +154,13 @@
    "seg": "30.248,-97.583"
   },
   {
+   "from": "Shropshire Blvd",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.390,-97.658"
+  },
+  {
    "from": "Bumblebee Dr",
    "hour_of_week": 60,
    "n": 2,
@@ -168,11 +175,11 @@
    "seg": "30.281,-97.649"
   },
   {
-   "from": "Woodland Ave (I-35)",
+   "from": "Capital of Texas Hwy (TX-1)",
    "hour_of_week": 60,
    "n": 2,
    "roadworks": false,
-   "seg": "30.258,-97.737"
+   "seg": "30.379,-97.738"
   },
   {
    "from": "McKinney Falls Pkwy (Burleson Rd)",
@@ -182,50 +189,43 @@
    "seg": "30.201,-97.709"
   },
   {
-   "from": "TX-45 Toll/TX-45/Louis Henna Blvd (Greenlawn Blvd)",
+   "from": "Colton Bluff Springs Rd",
    "hour_of_week": 60,
    "n": 2,
    "roadworks": false,
-   "seg": "30.480,-97.662"
+   "seg": "30.161,-97.727"
   },
   {
-   "from": "Connie St",
-   "hour_of_week": 114,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.454,-97.667"
-  },
-  {
-   "from": "Adage Dr / Epiphany Ln",
+   "from": "Kenai Dr (W Parmer Ln/FM-734)",
    "hour_of_week": 60,
    "n": 2,
    "roadworks": false,
-   "seg": "30.448,-97.631"
+   "seg": "30.502,-97.777"
   },
   {
-   "from": "N Interstate 35",
-   "hour_of_week": 18,
+   "from": "Dessau Rd (E Parmer Ln/FM-734)",
+   "hour_of_week": 60,
    "n": 2,
    "roadworks": false,
-   "seg": "30.320,-97.706"
+   "seg": "30.406,-97.669"
   },
   {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
+   "from": "Long Meadow Dr",
+   "hour_of_week": 60,
    "n": 2,
    "roadworks": false,
-   "seg": "30.245,-97.744"
+   "seg": "30.402,-97.635"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.8,
-  "tomtom": 97.5
+  "dispatch": 79.6,
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 52,
-  "neither": 42,
-  "tomtom_only": 10
+  "n": 54,
+  "neither": 43,
+  "tomtom_only": 11
  }
 }
