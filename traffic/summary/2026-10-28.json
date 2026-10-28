@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 274,
-  "tomtom_only": 268
+  "tomtom": 279,
+  "tomtom_only": 273
  },
  "date": "2026-10-28",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 123,
-   "pct": 3.3
+   "n": 125,
+   "pct": 3.2
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 151,
+   "n": 154,
    "pct": 1.3
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 231,
+  "hotspot_buckets": 237,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 245
+  "unreported_congestion": 250
  },
  "sampling": {
   "flow_spent_this_month": 7019,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1182,
+  "incidents_spent_this_month": 1183,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -131,13 +131,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.215,-97.753"
-  },
-  {
-   "from": "S 1st St (W Riverside Dr)",
-   "hour_of_week": 13,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.262,-97.751"
   },
   {
    "from": "Settlers Valley Dr",
@@ -215,6 +208,13 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.466,-97.804"
+  },
+  {
+   "from": "N Lake Creek Pkwy",
+   "hour_of_week": 47,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.471,-97.794"
   }
  ],
  "unmatched_pct": {
