@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 39 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 40 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 18,
-  "tomtom": 812,
-  "tomtom_only": 793
+  "tomtom": 838,
+  "tomtom_only": 819
  },
  "date": "2026-10-28",
  "dispatch_life_capped": true,
@@ -23,9 +23,9 @@
   "max": 119.9,
   "median": 116.4,
   "min": 14.9,
-  "n": 39,
+  "n": 40,
   "q1": 115.2,
-  "q3": 118.0
+  "q3": 118.2
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 16,
-   "n": 403,
-   "pct": 4.0
+   "n": 415,
+   "pct": 3.9
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 409,
+   "n": 423,
    "pct": 0.7
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 705,
+  "hotspot_buckets": 730,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 768
+  "unreported_congestion": 794
  },
  "sampling": {
-  "flow_spent_this_month": 7082,
+  "flow_spent_this_month": 7091,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1197,
+  "incidents_spent_this_month": 1198,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -124,6 +124,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.281,-97.649"
+  },
+  {
+   "from": "McKinney Falls Pkwy (Burleson Rd)",
+   "hour_of_week": 60,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.201,-97.709"
   },
   {
    "from": "Genome Dr",
@@ -201,13 +208,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.390,-97.658"
-  },
-  {
-   "from": "E William Cannon Dr (McKinney Falls Pkwy)",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.190,-97.700"
   },
   {
    "from": "Capital of Texas Hwy (TX-1)",
