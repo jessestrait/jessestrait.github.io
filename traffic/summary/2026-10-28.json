@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 96 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 97 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -14,18 +14,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 48,
-  "tomtom": 2638,
-  "tomtom_only": 2583
+  "tomtom": 2715,
+  "tomtom_only": 2660
  },
  "date": "2026-10-28",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.8,
+  "median": 117.0,
   "min": 14.5,
-  "n": 96,
+  "n": 97,
   "q1": 115.0,
-  "q3": 118.4
+  "q3": 118.5
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 39,
-   "n": 1370,
+   "n": 1417,
    "pct": 2.8
   },
   "tomtom_surface": {
    "matched": 16,
-   "n": 1268,
-   "pct": 1.3
+   "n": 1298,
+   "pct": 1.2
   }
  },
  "matcher": {
@@ -68,11 +68,11 @@
  },
  "persistence_min": {
   "max": 30.6,
-  "median": -72.0,
+  "median": -71.2,
   "min": -122.2,
-  "n": 31,
-  "q1": -101.7,
-  "q3": -26.2,
+  "n": 33,
+  "q1": -97.2,
+  "q3": -33.5,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2242,
+  "hotspot_buckets": 2306,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2552
+  "unreported_congestion": 2629
  },
  "sampling": {
-  "flow_spent_this_month": 7217,
+  "flow_spent_this_month": 7226,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1228,
+  "incidents_spent_this_month": 1229,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,6 +117,13 @@
    "n": 5,
    "roadworks": false,
    "seg": "30.310,-97.711"
+  },
+  {
+   "from": "Airport Blvd/Exit 236-237 (I-35)",
+   "hour_of_week": 68,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.316,-97.708"
   },
   {
    "from": "US Highway 183",
@@ -145,13 +152,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.268,-97.734"
-  },
-  {
-   "from": "Airport Blvd/Exit 236-237 (I-35)",
-   "hour_of_week": 68,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.316,-97.708"
   },
   {
    "from": "Bumblebee Dr",
@@ -219,7 +219,7 @@
  ],
  "unmatched_pct": {
   "dispatch": 73.3,
-  "tomtom": 97.9
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
