@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 32,
-  "dispatch_only": 27,
+  "dispatch": 33,
+  "dispatch_only": 28,
   "here": 0,
   "here_matched": 0,
   "matched": 5,
@@ -21,11 +21,11 @@
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.7,
+  "median": 117.0,
   "min": 115.0,
-  "n": 18,
+  "n": 19,
   "q1": 115.6,
-  "q3": 118.3
+  "q3": 118.4
  },
  "here_onset_offset_min": {
   "n": 0
@@ -36,8 +36,8 @@
   },
   "dispatch_surface": {
    "matched": 5,
-   "n": 32,
-   "pct": 15.6
+   "n": 33,
+   "pct": 15.2
   },
   "tomtom_highway": {
    "matched": 3,
@@ -137,6 +137,13 @@
    "seg": "30.262,-97.751"
   },
   {
+   "from": "Settlers Valley Dr",
+   "hour_of_week": 49,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.425,-97.627"
+  },
+  {
    "from": "Connie St",
    "hour_of_week": 114,
    "n": 2,
@@ -186,13 +193,6 @@
    "seg": "30.179,-97.616"
   },
   {
-   "from": "S 10th St (Wells Branch Pkwy)",
-   "hour_of_week": 49,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.425,-97.627"
-  },
-  {
    "from": "N TX-183 (Anderson Mill Rd)",
    "hour_of_week": 45,
    "n": 1,
@@ -215,14 +215,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 84.4,
+  "dispatch": 84.8,
   "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 32,
-  "neither": 27,
+  "n": 33,
+  "neither": 28,
   "tomtom_only": 5
  }
 }
