@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 5,
-  "tomtom": 234,
-  "tomtom_only": 229
+  "tomtom": 243,
+  "tomtom_only": 238
  },
  "date": "2026-10-28",
  "dispatch_life_capped": false,
@@ -23,7 +23,7 @@
   "max": 119.9,
   "median": 116.7,
   "min": 115.0,
-  "n": 16,
+  "n": 18,
   "q1": 115.6,
   "q3": 118.3
  },
@@ -41,13 +41,13 @@
   },
   "tomtom_highway": {
    "matched": 3,
-   "n": 103,
+   "n": 105,
    "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 131,
-   "pct": 1.5
+   "n": 138,
+   "pct": 1.4
   }
  },
  "matcher": {
@@ -87,15 +87,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 196,
+  "hotspot_buckets": 203,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 207
+  "unreported_congestion": 216
  },
  "sampling": {
   "flow_spent_this_month": 7001,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1179,
+  "incidents_spent_this_month": 1180,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -128,6 +128,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.215,-97.753"
+  },
+  {
+   "from": "S 1st St (W Riverside Dr)",
+   "hour_of_week": 13,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.262,-97.751"
   },
   {
    "from": "Connie St",
@@ -179,6 +186,13 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "S 10th St (Wells Branch Pkwy)",
+   "hour_of_week": 49,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.425,-97.627"
+  },
+  {
    "from": "N TX-183 (Anderson Mill Rd)",
    "hour_of_week": 45,
    "n": 1,
@@ -198,20 +212,6 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.471,-97.794"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.475,-97.794"
-  },
-  {
-   "from": "Lyndon Ln",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.458,-97.767"
   }
  ],
  "unmatched_pct": {
