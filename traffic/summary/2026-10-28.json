@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 48,
-  "tomtom": 2715,
-  "tomtom_only": 2660
+  "tomtom": 2790,
+  "tomtom_only": 2734
  },
  "date": "2026-10-28",
  "dispatch_life_capped": true,
@@ -42,13 +42,13 @@
    "pct": 27.2
   },
   "tomtom_highway": {
-   "matched": 39,
-   "n": 1417,
+   "matched": 40,
+   "n": 1445,
    "pct": 2.8
   },
   "tomtom_surface": {
    "matched": 16,
-   "n": 1298,
+   "n": 1345,
    "pct": 1.2
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2306,
+  "hotspot_buckets": 2363,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2629
+  "unreported_congestion": 2703
  },
  "sampling": {
   "flow_spent_this_month": 7226,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1229,
+  "incidents_spent_this_month": 1230,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -112,18 +112,18 @@
  },
  "structural_hotspots": [
   {
+   "from": "Airport Blvd/Exit 236-237 (I-35)",
+   "hour_of_week": 68,
+   "n": 6,
+   "roadworks": false,
+   "seg": "30.316,-97.708"
+  },
+  {
    "from": "N Interstate 35",
    "hour_of_week": 61,
    "n": 5,
    "roadworks": false,
    "seg": "30.310,-97.711"
-  },
-  {
-   "from": "Airport Blvd/Exit 236-237 (I-35)",
-   "hour_of_week": 68,
-   "n": 5,
-   "roadworks": false,
-   "seg": "30.316,-97.708"
   },
   {
    "from": "US Highway 183",
