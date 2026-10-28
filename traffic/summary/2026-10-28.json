@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 60,
-  "dispatch_only": 44,
+  "dispatch": 63,
+  "dispatch_only": 45,
   "here": 0,
   "here_matched": 0,
-  "matched": 19,
-  "tomtom": 900,
-  "tomtom_only": 880
+  "matched": 21,
+  "tomtom": 929,
+  "tomtom_only": 908
  },
  "date": "2026-10-28",
  "dispatch_life_capped": true,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
-   "n": 4,
-   "pct": 25.0
+   "matched": 2,
+   "n": 5,
+   "pct": 40.0
   },
   "dispatch_surface": {
-   "matched": 15,
-   "n": 56,
-   "pct": 26.8
+   "matched": 16,
+   "n": 58,
+   "pct": 27.6
   },
   "tomtom_highway": {
    "matched": 16,
-   "n": 446,
-   "pct": 3.6
+   "n": 463,
+   "pct": 3.5
   },
   "tomtom_surface": {
-   "matched": 4,
-   "n": 454,
-   "pct": 0.9
+   "matched": 5,
+   "n": 466,
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 34.6,
-  "median": 5.0,
+  "median": 2.4,
   "min": -71.8,
-  "n": 19,
-  "q1": 0.2,
-  "q3": 28.7
+  "n": 21,
+  "q1": -8.9,
+  "q3": 23.9
  },
  "persistence_min": {
   "max": 0.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 787,
+  "hotspot_buckets": 810,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 855
+  "unreported_congestion": 883
  },
  "sampling": {
   "flow_spent_this_month": 7091,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1200,
+  "incidents_spent_this_month": 1201,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "TX-45 Toll/TX-130 Toll (Pearce Ln)",
+   "hour_of_week": 15,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.169,-97.623"
+  },
   {
    "from": "Bumblebee Dr",
    "hour_of_week": 60,
@@ -154,11 +161,11 @@
    "seg": "30.167,-97.787"
   },
   {
-   "from": "Buenos Aires Pkwy",
-   "hour_of_week": 15,
+   "from": "N Interstate 35",
+   "hour_of_week": 61,
    "n": 3,
    "roadworks": false,
-   "seg": "30.169,-97.623"
+   "seg": "30.310,-97.711"
   },
   {
    "from": "Brazos St (2nd St)",
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.390,-97.658"
-  },
-  {
-   "from": "Capital of Texas Hwy (TX-1)",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.379,-97.738"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 73.3,
-  "tomtom": 97.8
+  "dispatch": 71.4,
+  "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 60,
-  "neither": 44,
-  "tomtom_only": 16
+  "n": 63,
+  "neither": 45,
+  "tomtom_only": 18
  }
 }
