@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 23,
-  "dispatch_only": 18,
+  "dispatch": 28,
+  "dispatch_only": 23,
   "here": 0,
   "here_matched": 0,
   "matched": 5,
-  "tomtom": 273,
-  "tomtom_only": 269
+  "tomtom": 293,
+  "tomtom_only": 289
  },
  "date": "2026-10-29",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.9,
-  "min": 115.1,
-  "n": 11,
-  "q1": 116.1,
-  "q3": 118.5
+  "median": 107.3,
+  "min": 5.2,
+  "n": 23,
+  "q1": 50.7,
+  "q3": 116.9
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,22 +33,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 0,
-   "n": 2,
+   "n": 3,
    "pct": 0.0
   },
   "dispatch_surface": {
    "matched": 5,
-   "n": 21,
-   "pct": 23.8
+   "n": 25,
+   "pct": 20.0
   },
   "tomtom_highway": {
    "matched": 3,
-   "n": 135,
-   "pct": 2.2
+   "n": 148,
+   "pct": 2.0
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 138,
+   "n": 145,
    "pct": 0.7
   }
  },
@@ -67,12 +67,12 @@
   "q3": 50.2
  },
  "persistence_min": {
-  "max": -45.8,
-  "median": -48.3,
-  "min": -50.8,
-  "n": 2,
-  "q1": -50.8,
-  "q3": -45.8
+  "max": -25.2,
+  "median": -45.8,
+  "min": -76.2,
+  "n": 5,
+  "q1": -63.5,
+  "q3": -27.8
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 239,
+  "hotspot_buckets": 254,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 249
+  "unreported_congestion": 265
  },
  "sampling": {
-  "flow_spent_this_month": 7289,
+  "flow_spent_this_month": 7298,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1246,
+  "incidents_spent_this_month": 1247,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -116,6 +116,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.169,-97.623"
+  },
+  {
+   "from": "W Braker Ln",
+   "hour_of_week": 13,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.394,-97.717"
   },
   {
    "from": "Connie St",
@@ -207,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.494,-97.678"
-  },
-  {
-   "from": "Westlake Dr (TX-360 Loop/N Capital of Texas Hwy)",
-   "hour_of_week": 68,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.347,-97.798"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.3,
-  "tomtom": 98.5
+  "dispatch": 82.1,
+  "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 23,
-  "neither": 18,
+  "n": 28,
+  "neither": 23,
   "tomtom_only": 5
  }
 }
