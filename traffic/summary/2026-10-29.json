@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 123,
-  "dispatch_only": 74,
+  "dispatch": 124,
+  "dispatch_only": 75,
   "here": 0,
   "here_matched": 0,
   "matched": 92,
-  "tomtom": 3298,
-  "tomtom_only": 3185
+  "tomtom": 3322,
+  "tomtom_only": 3209
  },
  "date": "2026-10-29",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
-  "max": 119.9,
+  "max": 120.0,
   "median": 116.0,
   "min": 5.2,
-  "n": 107,
-  "q1": 80.3,
+  "n": 110,
+  "q1": 81.4,
   "q3": 117.9
  },
  "here_onset_offset_min": {
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 41,
-   "n": 98,
-   "pct": 41.8
+   "n": 99,
+   "pct": 41.4
   },
   "tomtom_highway": {
-   "matched": 59,
-   "n": 1656,
-   "pct": 3.6
+   "matched": 58,
+   "n": 1664,
+   "pct": 3.5
   },
   "tomtom_surface": {
-   "matched": 54,
-   "n": 1642,
+   "matched": 55,
+   "n": 1658,
    "pct": 3.3
   }
  },
@@ -68,11 +68,11 @@
  },
  "persistence_min": {
   "max": 101.6,
-  "median": -55.9,
+  "median": -60.9,
   "min": -1412.5,
-  "n": 69,
-  "q1": -79.0,
-  "q3": -28.0
+  "n": 75,
+  "q1": -86.4,
+  "q3": -30.4
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2753,
+  "hotspot_buckets": 2774,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 3154
+  "unreported_congestion": 3178
  },
  "sampling": {
   "flow_spent_this_month": 7541,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1312,
+  "incidents_spent_this_month": 1313,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -125,13 +125,6 @@
    "seg": "30.371,-97.742"
   },
   {
-   "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
-   "hour_of_week": 91,
-   "n": 5,
-   "roadworks": false,
-   "seg": "30.257,-97.737"
-  },
-  {
    "from": "S Interstate 35",
    "hour_of_week": 93,
    "n": 5,
@@ -151,6 +144,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.299,-97.717"
+  },
+  {
+   "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
+   "hour_of_week": 91,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.257,-97.737"
   },
   {
    "from": "Metric Blvd (Research Blvd)",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 60.2,
+  "dispatch": 60.5,
   "tomtom": 96.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 123,
-  "neither": 74,
+  "n": 124,
+  "neither": 75,
   "tomtom_only": 49
  }
 }
