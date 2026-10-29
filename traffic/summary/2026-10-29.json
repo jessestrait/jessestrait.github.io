@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 46,
-  "dispatch_only": 35,
+  "dispatch": 47,
+  "dispatch_only": 36,
   "here": 0,
   "here_matched": 0,
   "matched": 14,
-  "tomtom": 744,
-  "tomtom_only": 731
+  "tomtom": 796,
+  "tomtom_only": 783
  },
  "date": "2026-10-29",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 11,
-   "n": 37,
-   "pct": 29.7
+   "n": 38,
+   "pct": 28.9
   },
   "tomtom_highway": {
    "matched": 10,
-   "n": 372,
-   "pct": 2.7
+   "n": 404,
+   "pct": 2.5
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 372,
+   "n": 392,
    "pct": 0.8
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 655,
+  "hotspot_buckets": 692,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 706
+  "unreported_congestion": 758
  },
  "sampling": {
   "flow_spent_this_month": 7379,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1263,
+  "incidents_spent_this_month": 1264,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -118,11 +118,25 @@
    "seg": "30.394,-97.596"
   },
   {
-   "from": "Long Meadow Dr",
+   "from": "Immanuel Rd",
    "hour_of_week": 84,
    "n": 3,
    "roadworks": false,
-   "seg": "30.402,-97.635"
+   "seg": "30.425,-97.626"
+  },
+  {
+   "from": "Kenai Dr (W Parmer Ln/FM-734)",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.512,-97.774"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.365,-97.687"
   },
   {
    "from": "Austin",
@@ -167,6 +181,13 @@
    "seg": "30.406,-97.637"
   },
   {
+   "from": "Dessau Rd",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.422,-97.620"
+  },
+  {
    "from": "S Farm to Market 973 Rd",
    "hour_of_week": 84,
    "n": 2,
@@ -181,50 +202,29 @@
    "seg": "30.193,-97.624"
   },
   {
-   "from": "Immanuel Rd",
+   "from": "N Lake Creek Pkwy",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
-   "seg": "30.425,-97.626"
+   "seg": "30.476,-97.794"
   },
   {
-   "from": "W Slaughter Ln (I-35)",
+   "from": "Lewis Ln",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
-   "seg": "30.190,-97.770"
-  },
-  {
-   "from": "Fuchs Grove Rd",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.417,-97.575"
-  },
-  {
-   "from": "Barteny Cv",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.254,-97.594"
-  },
-  {
-   "from": "Rio Mesa Dr",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.364,-97.901"
+   "seg": "30.126,-97.861"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.1,
-  "tomtom": 98.3
+  "dispatch": 76.6,
+  "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 46,
-  "neither": 35,
+  "n": 47,
+  "neither": 36,
   "tomtom_only": 11
  }
 }
