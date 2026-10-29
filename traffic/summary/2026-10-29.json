@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 100,
+  "dispatch": 102,
   "dispatch_only": 71,
   "here": 0,
   "here_matched": 0,
-  "matched": 41,
-  "tomtom": 1478,
-  "tomtom_only": 1440
+  "matched": 44,
+  "tomtom": 1586,
+  "tomtom_only": 1545
  },
  "date": "2026-10-29",
  "dispatch_life_capped": false,
@@ -32,23 +32,23 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 3,
+   "matched": 4,
    "n": 21,
-   "pct": 14.3
+   "pct": 19.0
   },
   "dispatch_surface": {
-   "matched": 26,
-   "n": 79,
-   "pct": 32.9
+   "matched": 27,
+   "n": 81,
+   "pct": 33.3
   },
   "tomtom_highway": {
-   "matched": 27,
-   "n": 792,
-   "pct": 3.4
+   "matched": 29,
+   "n": 839,
+   "pct": 3.5
   },
   "tomtom_surface": {
-   "matched": 11,
-   "n": 686,
+   "matched": 12,
+   "n": 747,
    "pct": 1.6
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.9,
-  "median": 9.6,
+  "median": 9.1,
   "min": -51.5,
-  "n": 41,
-  "q1": -9.2,
-  "q3": 18.4
+  "n": 44,
+  "q1": -7.1,
+  "q3": 18.5
  },
  "persistence_min": {
   "max": 101.6,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1273,
+  "hotspot_buckets": 1373,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1410
+  "unreported_congestion": 1515
  },
  "sampling": {
   "flow_spent_this_month": 7469,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1280,
+  "incidents_spent_this_month": 1281,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -107,7 +107,7 @@
    18
   ],
   "rush_min": 5,
-  "this_poll": "off-peak"
+  "this_poll": "rush"
  },
  "structural_hotspots": [
   {
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 71.0,
+  "dispatch": 69.6,
   "tomtom": 97.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 100,
+  "n": 102,
   "neither": 71,
-  "tomtom_only": 29
+  "tomtom_only": 31
  }
 }
