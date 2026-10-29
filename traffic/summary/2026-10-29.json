@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 111,
+  "dispatch": 113,
   "dispatch_only": 68,
   "here": 0,
   "here_matched": 0,
-  "matched": 70,
-  "tomtom": 2261,
-  "tomtom_only": 2189
+  "matched": 73,
+  "tomtom": 2323,
+  "tomtom_only": 2245
  },
  "date": "2026-10-29",
  "dispatch_life_capped": false,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 7,
-   "n": 23,
-   "pct": 30.4
+   "matched": 8,
+   "n": 24,
+   "pct": 33.3
   },
   "dispatch_surface": {
-   "matched": 36,
-   "n": 88,
-   "pct": 40.9
+   "matched": 37,
+   "n": 89,
+   "pct": 41.6
   },
   "tomtom_highway": {
-   "matched": 46,
-   "n": 1177,
-   "pct": 3.9
+   "matched": 48,
+   "n": 1214,
+   "pct": 4.0
   },
   "tomtom_surface": {
-   "matched": 26,
-   "n": 1084,
-   "pct": 2.4
+   "matched": 30,
+   "n": 1109,
+   "pct": 2.7
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.9,
-  "median": 10.4,
+  "median": 10.2,
   "min": -89.4,
-  "n": 70,
-  "q1": 0.0,
-  "q3": 31.6
+  "n": 73,
+  "q1": -5.5,
+  "q3": 30.6
  },
  "persistence_min": {
   "max": 101.6,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1911,
+  "hotspot_buckets": 1972,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2159
+  "unreported_congestion": 2215
  },
  "sampling": {
   "flow_spent_this_month": 7496,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1292,
+  "incidents_spent_this_month": 1293,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,11 +160,11 @@
    "seg": "30.372,-97.724"
   },
   {
-   "from": "FM-2304/Manchaca Rd (W Ben White Blvd)",
+   "from": "Christina Garza Dr",
    "hour_of_week": 93,
    "n": 4,
    "roadworks": false,
-   "seg": "30.227,-97.772"
+   "seg": "30.350,-97.556"
   },
   {
    "from": "US-290/Exit 238 (I-35)",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 61.3,
-  "tomtom": 96.8
+  "dispatch": 60.2,
+  "tomtom": 96.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 111,
+  "n": 113,
   "neither": 68,
-  "tomtom_only": 43
+  "tomtom_only": 45
  }
 }
