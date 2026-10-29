@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 58,
+  "dispatch": 59,
   "dispatch_only": 42,
   "here": 0,
   "here_matched": 0,
-  "matched": 23,
-  "tomtom": 1173,
-  "tomtom_only": 1152
+  "matched": 24,
+  "tomtom": 1217,
+  "tomtom_only": 1194
  },
  "date": "2026-10-29",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 9.1
   },
   "dispatch_surface": {
-   "matched": 15,
-   "n": 47,
-   "pct": 31.9
+   "matched": 16,
+   "n": 48,
+   "pct": 33.3
   },
   "tomtom_highway": {
-   "matched": 16,
-   "n": 621,
-   "pct": 2.6
+   "matched": 19,
+   "n": 647,
+   "pct": 2.9
   },
   "tomtom_surface": {
-   "matched": 5,
-   "n": 552,
-   "pct": 0.9
+   "matched": 4,
+   "n": 570,
+   "pct": 0.7
   }
  },
  "matcher": {
@@ -60,10 +60,10 @@
  },
  "onset_offset_min": {
   "max": 87.6,
-  "median": 9.9,
+  "median": 9.8,
   "min": -46.2,
-  "n": 23,
-  "q1": 2.8,
+  "n": 24,
+  "q1": 3.2,
   "q3": 18.2
  },
  "persistence_min": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1016,
+  "hotspot_buckets": 1055,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1127
+  "unreported_congestion": 1169
  },
  "sampling": {
   "flow_spent_this_month": 7406,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1274,
+  "incidents_spent_this_month": 1275,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -182,11 +182,11 @@
    "seg": "30.320,-97.714"
   },
   {
-   "from": "N Interstate 35",
+   "from": "Airport Blvd/Exit 237 (I-35)",
    "hour_of_week": 85,
    "n": 3,
    "roadworks": false,
-   "seg": "30.310,-97.711"
+   "seg": "30.299,-97.717"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 72.4,
-  "tomtom": 98.2
+  "dispatch": 71.2,
+  "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 58,
+  "n": 59,
   "neither": 42,
-  "tomtom_only": 16
+  "tomtom_only": 17
  }
 }
