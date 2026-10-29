@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 44,
-  "dispatch_only": 38,
+  "dispatch_only": 35,
   "here": 0,
   "here_matched": 0,
-  "matched": 6,
-  "tomtom": 563,
-  "tomtom_only": 558
+  "matched": 10,
+  "tomtom": 627,
+  "tomtom_only": 618
  },
  "date": "2026-10-29",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 6,
+   "matched": 9,
    "n": 36,
-   "pct": 16.7
+   "pct": 25.0
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 285,
-   "pct": 1.4
+   "matched": 7,
+   "n": 316,
+   "pct": 2.2
   },
   "tomtom_surface": {
-   "matched": 1,
-   "n": 278,
-   "pct": 0.4
+   "matched": 2,
+   "n": 311,
+   "pct": 0.6
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.6,
-  "median": -4.5,
+  "median": 6.6,
   "min": -46.2,
-  "n": 6,
-  "q1": -46.0,
-  "q3": 31.5
+  "n": 10,
+  "q1": -24.8,
+  "q3": 30.9
  },
  "persistence_min": {
   "max": -25.2,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 513,
+  "hotspot_buckets": 567,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 533
+  "unreported_congestion": 593
  },
  "sampling": {
   "flow_spent_this_month": 7370,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1260,
+  "incidents_spent_this_month": 1261,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -125,6 +125,13 @@
    "seg": "30.331,-97.705"
   },
   {
+   "from": "FM 1327",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.131,-97.799"
+  },
+  {
    "from": "Tudor House Rd (Dessau Rd)",
    "hour_of_week": 84,
    "n": 2,
@@ -139,11 +146,11 @@
    "seg": "30.394,-97.596"
   },
   {
-   "from": "W Slaughter Ln (I-35)",
+   "from": "TX-71 exit [449]",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
-   "seg": "30.181,-97.776"
+   "seg": "30.193,-97.624"
   },
   {
    "from": "Fuchs Grove Rd",
@@ -160,6 +167,20 @@
    "seg": "30.254,-97.594"
   },
   {
+   "from": "Dessau Rd (E Parmer Ln/FM-734)",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.401,-97.655"
+  },
+  {
+   "from": "W Slaughter Ln (I-35)",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.190,-97.771"
+  },
+  {
    "from": "TX-45 Toll/TX-130 Toll (E Parmer Ln/FM-734)",
    "hour_of_week": 84,
    "n": 2,
@@ -167,64 +188,43 @@
    "seg": "30.368,-97.609"
   },
   {
-   "from": "Dessau Rd (E Parmer Ln/FM-734)",
+   "from": "Gattis School Rd",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
-   "seg": "30.406,-97.669"
+   "seg": "30.498,-97.624"
   },
   {
-   "from": "Old Gregg Ln",
+   "from": "Slaughter Ln (TX-1)",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.205,-97.863"
+  },
+  {
+   "from": "Long Meadow Dr",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
    "seg": "30.402,-97.635"
   },
   {
-   "from": "E William Cannon Dr / Springfield Dr",
+   "from": "S 1st St/Conroy Ln (FM-1626)",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
-   "seg": "30.165,-97.729"
-  },
-  {
-   "from": "Connie St",
-   "hour_of_week": 114,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.454,-97.667"
-  },
-  {
-   "from": "Adage Dr / Epiphany Ln",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.448,-97.631"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 18,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.320,-97.706"
-  },
-  {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.245,-97.744"
+   "seg": "30.141,-97.830"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.4,
-  "tomtom": 99.1
+  "dispatch": 79.5,
+  "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 44,
-  "neither": 38,
-  "tomtom_only": 6
+  "neither": 35,
+  "tomtom_only": 9
  }
 }
