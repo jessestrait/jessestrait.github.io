@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 46,
-  "dispatch_only": 36,
+  "dispatch_only": 35,
   "here": 0,
   "here_matched": 0,
-  "matched": 13,
-  "tomtom": 695,
-  "tomtom_only": 683
+  "matched": 14,
+  "tomtom": 744,
+  "tomtom_only": 731
  },
  "date": "2026-10-29",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 10,
+   "matched": 11,
    "n": 37,
-   "pct": 27.0
+   "pct": 29.7
   },
   "tomtom_highway": {
-   "matched": 9,
-   "n": 344,
-   "pct": 2.6
+   "matched": 10,
+   "n": 372,
+   "pct": 2.7
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 351,
-   "pct": 0.9
+   "n": 372,
+   "pct": 0.8
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.6,
-  "median": 8.7,
+  "median": 8.1,
   "min": -46.2,
-  "n": 13,
-  "q1": -13.8,
-  "q3": 15.5
+  "n": 14,
+  "q1": -11.8,
+  "q3": 14.2
  },
  "persistence_min": {
   "max": -25.2,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 623,
+  "hotspot_buckets": 655,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 658
+  "unreported_congestion": 706
  },
  "sampling": {
   "flow_spent_this_month": 7379,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1262,
+  "incidents_spent_this_month": 1263,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,11 +111,25 @@
  },
  "structural_hotspots": [
   {
+   "from": "E Wells Branch Pkwy",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.394,-97.596"
+  },
+  {
    "from": "Long Meadow Dr",
    "hour_of_week": 84,
    "n": 3,
    "roadworks": false,
    "seg": "30.402,-97.635"
+  },
+  {
+   "from": "Austin",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.165,-97.729"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -139,11 +153,25 @@
    "seg": "30.131,-97.799"
   },
   {
-   "from": "E Wells Branch Pkwy",
+   "from": "S San Marcos St",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
-   "seg": "30.394,-97.596"
+   "seg": "30.337,-97.557"
+  },
+  {
+   "from": "Tudor House Rd (Dessau Rd)",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.406,-97.637"
+  },
+  {
+   "from": "S Farm to Market 973 Rd",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.204,-97.640"
   },
   {
    "from": "TX-71 exit [449]",
@@ -186,45 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.364,-97.901"
-  },
-  {
-   "from": "Onion Creek Dr",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.747"
-  },
-  {
-   "from": "Hunters Bend Rd (FM-969)",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.250,-97.589"
-  },
-  {
-   "from": "Daleview Dr",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.370,-97.734"
-  },
-  {
-   "from": "Gattis School Rd",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.498,-97.624"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.3,
+  "dispatch": 76.1,
   "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 46,
-  "neither": 36,
-  "tomtom_only": 10
+  "neither": 35,
+  "tomtom_only": 11
  }
 }
