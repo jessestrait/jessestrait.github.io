@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 117,
+  "dispatch": 118,
   "dispatch_only": 69,
   "here": 0,
   "here_matched": 0,
-  "matched": 87,
-  "tomtom": 3028,
-  "tomtom_only": 2925
+  "matched": 90,
+  "tomtom": 3060,
+  "tomtom_only": 2953
  },
  "date": "2026-10-29",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 33.3
   },
   "dispatch_surface": {
-   "matched": 40,
-   "n": 93,
-   "pct": 43.0
+   "matched": 41,
+   "n": 94,
+   "pct": 43.6
   },
   "tomtom_highway": {
-   "matched": 57,
-   "n": 1546,
-   "pct": 3.7
+   "matched": 59,
+   "n": 1554,
+   "pct": 3.8
   },
   "tomtom_surface": {
-   "matched": 46,
-   "n": 1482,
-   "pct": 3.1
+   "matched": 48,
+   "n": 1506,
+   "pct": 3.2
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.9,
-  "median": 10.6,
+  "median": 10.7,
   "min": -89.4,
-  "n": 87,
-  "q1": -8.7,
-  "q3": 38.4
+  "n": 90,
+  "q1": -9.0,
+  "q3": 40.4
  },
  "persistence_min": {
   "max": 101.6,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2521,
+  "hotspot_buckets": 2537,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2894
+  "unreported_congestion": 2922
  },
  "sampling": {
-  "flow_spent_this_month": 7514,
+  "flow_spent_this_month": 7523,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1303,
+  "incidents_spent_this_month": 1304,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -144,13 +144,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.299,-97.717"
-  },
-  {
-   "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
-   "hour_of_week": 91,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.257,-97.737"
   },
   {
    "from": "Metric Blvd (Research Blvd)",
@@ -214,17 +207,24 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.425,-97.626"
+  },
+  {
+   "from": "S Pleasant Valley Rd",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.180,-97.747"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 59.0,
-  "tomtom": 96.6
+  "dispatch": 58.5,
+  "tomtom": 96.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 117,
+  "n": 118,
   "neither": 69,
-  "tomtom_only": 48
+  "tomtom_only": 49
  }
 }
