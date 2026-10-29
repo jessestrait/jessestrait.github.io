@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 106,
-  "dispatch_only": 70,
+  "dispatch": 110,
+  "dispatch_only": 69,
   "here": 0,
   "here_matched": 0,
-  "matched": 57,
-  "tomtom": 2071,
-  "tomtom_only": 2015
+  "matched": 64,
+  "tomtom": 2149,
+  "tomtom_only": 2086
  },
  "date": "2026-10-29",
  "dispatch_life_capped": false,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 5,
-   "n": 22,
-   "pct": 22.7
+   "matched": 7,
+   "n": 23,
+   "pct": 30.4
   },
   "dispatch_surface": {
-   "matched": 31,
-   "n": 84,
-   "pct": 36.9
+   "matched": 34,
+   "n": 87,
+   "pct": 39.1
   },
   "tomtom_highway": {
-   "matched": 37,
-   "n": 1081,
-   "pct": 3.4
+   "matched": 41,
+   "n": 1124,
+   "pct": 3.6
   },
   "tomtom_surface": {
-   "matched": 19,
-   "n": 990,
-   "pct": 1.9
+   "matched": 22,
+   "n": 1025,
+   "pct": 2.1
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.9,
-  "median": 10.6,
-  "min": -51.5,
-  "n": 57,
-  "q1": -0.8,
-  "q3": 30.6
+  "median": 10.1,
+  "min": -89.4,
+  "n": 64,
+  "q1": -1.6,
+  "q3": 30.4
  },
  "persistence_min": {
   "max": 101.6,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1779,
+  "hotspot_buckets": 1843,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1985
+  "unreported_congestion": 2056
  },
  "sampling": {
   "flow_spent_this_month": 7487,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1289,
+  "incidents_spent_this_month": 1290,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -139,6 +139,13 @@
    "seg": "30.299,-97.717"
   },
   {
+   "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
+   "hour_of_week": 91,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.257,-97.737"
+  },
+  {
    "from": "Metric Blvd (Research Blvd)",
    "hour_of_week": 93,
    "n": 4,
@@ -151,6 +158,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.204,-97.760"
+  },
+  {
+   "from": "Christina Garza Dr",
+   "hour_of_week": 93,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.350,-97.556"
   },
   {
    "from": "US-290/Exit 238 (I-35)",
@@ -200,31 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.305,-97.714"
-  },
-  {
-   "from": "US Highway 183",
-   "hour_of_week": 85,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.379,-97.739"
-  },
-  {
-   "from": "Northland Dr",
-   "hour_of_week": 85,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.335,-97.756"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 66.0,
-  "tomtom": 97.3
+  "dispatch": 62.7,
+  "tomtom": 97.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 106,
-  "neither": 70,
-  "tomtom_only": 36
+  "n": 110,
+  "neither": 69,
+  "tomtom_only": 41
  }
 }
