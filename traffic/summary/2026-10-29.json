@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 114,
-  "dispatch_only": 68,
+  "dispatch": 115,
+  "dispatch_only": 69,
   "here": 0,
   "here_matched": 0,
-  "matched": 80,
-  "tomtom": 2790,
-  "tomtom_only": 2700
+  "matched": 81,
+  "tomtom": 2857,
+  "tomtom_only": 2764
  },
  "date": "2026-10-29",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 38,
-   "n": 90,
-   "pct": 42.2
+   "n": 91,
+   "pct": 41.8
   },
   "tomtom_highway": {
-   "matched": 52,
-   "n": 1434,
-   "pct": 3.6
+   "matched": 54,
+   "n": 1463,
+   "pct": 3.7
   },
   "tomtom_surface": {
-   "matched": 38,
-   "n": 1356,
+   "matched": 39,
+   "n": 1394,
    "pct": 2.8
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.9,
-  "median": 10.4,
+  "median": 10.6,
   "min": -89.4,
-  "n": 80,
-  "q1": -8.1,
-  "q3": 33.5
+  "n": 81,
+  "q1": -7.5,
+  "q3": 35.5
  },
  "persistence_min": {
   "max": 101.6,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2361,
+  "hotspot_buckets": 2412,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2670
+  "unreported_congestion": 2734
  },
  "sampling": {
-  "flow_spent_this_month": 7505,
+  "flow_spent_this_month": 7514,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1299,
+  "incidents_spent_this_month": 1300,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,11 +160,11 @@
    "seg": "30.350,-97.556"
   },
   {
-   "from": "Wooldridge Dr",
+   "from": "San Antonio St",
    "hour_of_week": 94,
    "n": 4,
    "roadworks": false,
-   "seg": "30.291,-97.757"
+   "seg": "30.266,-97.746"
   },
   {
    "from": "US-290/Exit 238 (I-35)",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 59.6,
-  "tomtom": 96.8
+  "dispatch": 60.0,
+  "tomtom": 96.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 114,
-  "neither": 68,
+  "n": 115,
+  "neither": 69,
   "tomtom_only": 46
  }
 }
