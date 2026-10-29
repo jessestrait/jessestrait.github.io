@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch record lifetimes look like real clearances this day, not a cap.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 94, q3 118 min over 34 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -13,18 +13,18 @@
   "dispatch_only": 36,
   "here": 0,
   "here_matched": 0,
-  "matched": 15,
-  "tomtom": 891,
-  "tomtom_only": 877
+  "matched": 17,
+  "tomtom": 938,
+  "tomtom_only": 922
  },
  "date": "2026-10-29",
- "dispatch_life_capped": false,
+ "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.1,
+  "median": 116.3,
   "min": 5.2,
-  "n": 31,
-  "q1": 75.0,
+  "n": 34,
+  "q1": 93.9,
   "q3": 118.0
  },
  "here_onset_offset_min": {
@@ -42,13 +42,13 @@
    "pct": 30.8
   },
   "tomtom_highway": {
-   "matched": 10,
-   "n": 452,
-   "pct": 2.2
+   "matched": 12,
+   "n": 480,
+   "pct": 2.5
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 439,
+   "n": 458,
    "pct": 0.9
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.6,
-  "median": 7.4,
+  "median": 8.7,
   "min": -46.2,
-  "n": 15,
-  "q1": -9.8,
-  "q3": 12.8
+  "n": 17,
+  "q1": -3.5,
+  "q3": 15.5
  },
  "persistence_min": {
   "max": -25.2,
@@ -72,7 +72,8 @@
   "min": -76.2,
   "n": 5,
   "q1": -63.5,
-  "q3": -27.8
+  "q3": -27.8,
+  "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 771,
+  "hotspot_buckets": 816,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 852
+  "unreported_congestion": 897
  },
  "sampling": {
   "flow_spent_this_month": 7388,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1266,
+  "incidents_spent_this_month": 1267,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -130,13 +131,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.425,-97.626"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 84,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.310,-97.711"
   },
   {
    "from": "S Pleasant Valley Rd",
@@ -214,11 +208,18 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.193,-97.624"
+  },
+  {
+   "from": "N Lake Creek Pkwy",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.476,-97.794"
   }
  ],
  "unmatched_pct": {
   "dispatch": 75.0,
-  "tomtom": 98.4
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
