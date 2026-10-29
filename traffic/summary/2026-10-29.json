@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 39,
-  "dispatch_only": 34,
+  "dispatch": 41,
+  "dispatch_only": 36,
   "here": 0,
   "here_matched": 0,
   "matched": 5,
-  "tomtom": 473,
-  "tomtom_only": 469
+  "tomtom": 513,
+  "tomtom_only": 509
  },
  "date": "2026-10-29",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 5,
-   "n": 31,
-   "pct": 16.1
+   "n": 33,
+   "pct": 15.2
   },
   "tomtom_highway": {
    "matched": 3,
-   "n": 247,
-   "pct": 1.2
+   "n": 264,
+   "pct": 1.1
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 226,
+   "n": 249,
    "pct": 0.4
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 433,
+  "hotspot_buckets": 469,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 444
+  "unreported_congestion": 484
  },
  "sampling": {
   "flow_spent_this_month": 7370,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1258,
+  "incidents_spent_this_month": 1259,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -123,6 +123,34 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.331,-97.705"
+  },
+  {
+   "from": "Tudor House Rd (Dessau Rd)",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.406,-97.637"
+  },
+  {
+   "from": "Cameron Rd (Parmer Ln/FM-734)",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.385,-97.646"
+  },
+  {
+   "from": "E Wells Branch Pkwy",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.394,-97.596"
+  },
+  {
+   "from": "W Slaughter Ln (I-35)",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.181,-97.776"
   },
   {
    "from": "Connie St",
@@ -186,45 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.452,-97.829"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 71,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.476,-97.794"
-  },
-  {
-   "from": "Avery Ranch Blvd (W Parmer Ln/FM-734)",
-   "hour_of_week": 71,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.505,-97.777"
-  },
-  {
-   "from": "Old Bee Caves Rd / Cedar Elm Trl",
-   "hour_of_week": 71,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.248,-97.888"
-  },
-  {
-   "from": "FM-1325/Exit 250 (I-35)",
-   "hour_of_week": 70,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.494,-97.678"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.2,
+  "dispatch": 87.8,
   "tomtom": 99.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 39,
-  "neither": 34,
+  "n": 41,
+  "neither": 36,
   "tomtom_only": 5
  }
 }
