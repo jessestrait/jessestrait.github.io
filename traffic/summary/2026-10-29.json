@@ -13,9 +13,9 @@
   "dispatch_only": 67,
   "here": 0,
   "here_matched": 0,
-  "matched": 78,
-  "tomtom": 2587,
-  "tomtom_only": 2501
+  "matched": 79,
+  "tomtom": 2670,
+  "tomtom_only": 2582
  },
  "date": "2026-10-29",
  "dispatch_life_capped": false,
@@ -23,9 +23,9 @@
   "max": 119.9,
   "median": 115.6,
   "min": 5.2,
-  "n": 95,
-  "q1": 65.3,
-  "q3": 117.5
+  "n": 97,
+  "q1": 70.1,
+  "q3": 117.7
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 51,
-   "n": 1340,
-   "pct": 3.8
+   "n": 1375,
+   "pct": 3.7
   },
   "tomtom_surface": {
-   "matched": 35,
-   "n": 1247,
-   "pct": 2.8
+   "matched": 37,
+   "n": 1295,
+   "pct": 2.9
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 87.9,
-  "median": 10.4,
+  "median": 10.6,
   "min": -89.4,
-  "n": 78,
-  "q1": -6.9,
-  "q3": 31.6
+  "n": 79,
+  "q1": -6.3,
+  "q3": 34.5
  },
  "persistence_min": {
   "max": 101.6,
-  "median": -53.3,
+  "median": -50.8,
   "min": -137.9,
-  "n": 44,
-  "q1": -74.9,
-  "q3": -26.8
+  "n": 47,
+  "q1": -76.1,
+  "q3": -25.6
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2208,
+  "hotspot_buckets": 2276,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2471
+  "unreported_congestion": 2552
  },
  "sampling": {
   "flow_spent_this_month": 7505,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1296,
+  "incidents_spent_this_month": 1297,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -167,6 +167,13 @@
    "seg": "30.350,-97.556"
   },
   {
+   "from": "Wooldridge Dr",
+   "hour_of_week": 94,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.291,-97.757"
+  },
+  {
    "from": "US-290/Exit 238 (I-35)",
    "hour_of_week": 45,
    "n": 3,
@@ -207,13 +214,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.495,-97.750"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 85,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.305,-97.714"
   }
  ],
  "unmatched_pct": {
