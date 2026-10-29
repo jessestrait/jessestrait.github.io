@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 100, q3 118 min over 35 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 100, q3 118 min over 36 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 56,
-  "dispatch_only": 41,
+  "dispatch": 58,
+  "dispatch_only": 42,
   "here": 0,
   "here_matched": 0,
-  "matched": 21,
-  "tomtom": 1133,
-  "tomtom_only": 1114
+  "matched": 23,
+  "tomtom": 1173,
+  "tomtom_only": 1152
  },
  "date": "2026-10-29",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.1,
+  "median": 116.3,
   "min": 5.2,
-  "n": 35,
-  "q1": 100.1,
-  "q3": 118.0
+  "n": 36,
+  "q1": 100.2,
+  "q3": 118.1
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,19 +37,19 @@
    "pct": 9.1
   },
   "dispatch_surface": {
-   "matched": 14,
-   "n": 45,
-   "pct": 31.1
+   "matched": 15,
+   "n": 47,
+   "pct": 31.9
   },
   "tomtom_highway": {
-   "matched": 15,
-   "n": 594,
-   "pct": 2.5
+   "matched": 16,
+   "n": 621,
+   "pct": 2.6
   },
   "tomtom_surface": {
-   "matched": 4,
-   "n": 539,
-   "pct": 0.7
+   "matched": 5,
+   "n": 552,
+   "pct": 0.9
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.6,
-  "median": 9.6,
+  "median": 9.9,
   "min": -46.2,
-  "n": 21,
-  "q1": -3.5,
-  "q3": 15.5
+  "n": 23,
+  "q1": 2.8,
+  "q3": 18.2
  },
  "persistence_min": {
   "max": -25.2,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 984,
+  "hotspot_buckets": 1016,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1089
+  "unreported_congestion": 1127
  },
  "sampling": {
-  "flow_spent_this_month": 7397,
+  "flow_spent_this_month": 7406,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1273,
+  "incidents_spent_this_month": 1274,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,6 +117,20 @@
    "n": 5,
    "roadworks": false,
    "seg": "30.512,-97.774"
+  },
+  {
+   "from": "Mopac Expy S",
+   "hour_of_week": 85,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.371,-97.742"
+  },
+  {
+   "from": "S Lamar Blvd / W Ben White Blvd",
+   "hour_of_week": 85,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.240,-97.800"
   },
   {
    "from": "E Wells Branch Pkwy",
@@ -154,13 +168,6 @@
    "seg": "30.495,-97.750"
   },
   {
-   "from": "Mopac Expy S",
-   "hour_of_week": 85,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.371,-97.742"
-  },
-  {
    "from": "N Interstate 35",
    "hour_of_week": 85,
    "n": 3,
@@ -168,11 +175,11 @@
    "seg": "30.305,-97.714"
   },
   {
-   "from": "S Lamar Blvd / W Ben White Blvd",
+   "from": "I-35 Service Rd (E Koenig Ln/FM-2222)",
    "hour_of_week": 85,
    "n": 3,
    "roadworks": false,
-   "seg": "30.240,-97.800"
+   "seg": "30.320,-97.714"
   },
   {
    "from": "N Interstate 35",
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.337,-97.557"
-  },
-  {
-   "from": "Wells Branch Pkwy (I-35)",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.427,-97.671"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 73.2,
-  "tomtom": 98.3
+  "dispatch": 72.4,
+  "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 56,
-  "neither": 41,
-  "tomtom_only": 15
+  "n": 58,
+  "neither": 42,
+  "tomtom_only": 16
  }
 }
