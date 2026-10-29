@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 116,
+  "dispatch": 117,
   "dispatch_only": 69,
   "here": 0,
   "here_matched": 0,
-  "matched": 85,
-  "tomtom": 2971,
-  "tomtom_only": 2872
+  "matched": 87,
+  "tomtom": 3028,
+  "tomtom_only": 2925
  },
  "date": "2026-10-29",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 115.8,
+  "median": 115.9,
   "min": 5.2,
-  "n": 100,
-  "q1": 75.3,
-  "q3": 117.8
+  "n": 102,
+  "q1": 75.8,
+  "q3": 117.6
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,19 +37,19 @@
    "pct": 33.3
   },
   "dispatch_surface": {
-   "matched": 39,
-   "n": 92,
-   "pct": 42.4
+   "matched": 40,
+   "n": 93,
+   "pct": 43.0
   },
   "tomtom_highway": {
-   "matched": 58,
-   "n": 1516,
-   "pct": 3.8
+   "matched": 57,
+   "n": 1546,
+   "pct": 3.7
   },
   "tomtom_surface": {
-   "matched": 41,
-   "n": 1455,
-   "pct": 2.8
+   "matched": 46,
+   "n": 1482,
+   "pct": 3.1
   }
  },
  "matcher": {
@@ -62,17 +62,17 @@
   "max": 87.9,
   "median": 10.6,
   "min": -89.4,
-  "n": 85,
-  "q1": -7.5,
-  "q3": 37.5
+  "n": 87,
+  "q1": -8.7,
+  "q3": 38.4
  },
  "persistence_min": {
   "max": 101.6,
   "median": -55.9,
   "min": -137.9,
-  "n": 51,
+  "n": 54,
   "q1": -76.2,
-  "q3": -30.4
+  "q3": -29.2
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2483,
+  "hotspot_buckets": 2521,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2841
+  "unreported_congestion": 2894
  },
  "sampling": {
   "flow_spent_this_month": 7514,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1302,
+  "incidents_spent_this_month": 1303,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -167,11 +167,32 @@
    "seg": "30.350,-97.556"
   },
   {
+   "from": "W Ben White Blvd",
+   "hour_of_week": 94,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.225,-97.767"
+  },
+  {
    "from": "San Antonio St",
    "hour_of_week": 94,
    "n": 4,
    "roadworks": false,
    "seg": "30.266,-97.746"
+  },
+  {
+   "from": "W 25th St",
+   "hour_of_week": 94,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.290,-97.742"
+  },
+  {
+   "from": "Cesar Chavez St exit [234A]",
+   "hour_of_week": 94,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.262,-97.736"
   },
   {
    "from": "US-290/Exit 238 (I-35)",
@@ -193,38 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.425,-97.626"
-  },
-  {
-   "from": "S Pleasant Valley Rd",
-   "hour_of_week": 84,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.180,-97.747"
-  },
-  {
-   "from": "Decker Ln (FM-969)",
-   "hour_of_week": 84,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.281,-97.648"
-  },
-  {
-   "from": "Pearson Ranch Rd",
-   "hour_of_week": 84,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.495,-97.750"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 59.5,
-  "tomtom": 96.7
+  "dispatch": 59.0,
+  "tomtom": 96.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 116,
+  "n": 117,
   "neither": 69,
-  "tomtom_only": 47
+  "tomtom_only": 48
  }
 }
