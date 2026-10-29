@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 15,
-  "tomtom": 850,
-  "tomtom_only": 836
+  "tomtom": 891,
+  "tomtom_only": 877
  },
  "date": "2026-10-29",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 10,
-   "n": 429,
-   "pct": 2.3
+   "n": 452,
+   "pct": 2.2
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 421,
-   "pct": 1.0
+   "n": 439,
+   "pct": 0.9
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 733,
+  "hotspot_buckets": 771,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 811
+  "unreported_congestion": 852
  },
  "sampling": {
-  "flow_spent_this_month": 7379,
+  "flow_spent_this_month": 7388,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1265,
+  "incidents_spent_this_month": 1266,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -113,7 +113,7 @@
   {
    "from": "Kenai Dr (W Parmer Ln/FM-734)",
    "hour_of_week": 84,
-   "n": 4,
+   "n": 5,
    "roadworks": false,
    "seg": "30.512,-97.774"
   },
@@ -132,6 +132,20 @@
    "seg": "30.425,-97.626"
   },
   {
+   "from": "N Interstate 35",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.310,-97.711"
+  },
+  {
+   "from": "S Pleasant Valley Rd",
+   "hour_of_week": 84,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.180,-97.747"
+  },
+  {
    "from": "Decker Ln (FM-969)",
    "hour_of_week": 84,
    "n": 3,
@@ -139,25 +153,11 @@
    "seg": "30.281,-97.648"
   },
   {
-   "from": "Austin",
-   "hour_of_week": 84,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.165,-97.729"
-  },
-  {
    "from": "Pearson Ranch Rd",
    "hour_of_week": 84,
    "n": 3,
    "roadworks": false,
    "seg": "30.495,-97.750"
-  },
-  {
-   "from": "E Riverside Dr",
-   "hour_of_week": 84,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.226,-97.700"
   },
   {
    "from": "Buenos Aires Pkwy",
