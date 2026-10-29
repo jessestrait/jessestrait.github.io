@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 56,
-  "dispatch_only": 43,
+  "dispatch_only": 41,
   "here": 0,
   "here_matched": 0,
-  "matched": 19,
-  "tomtom": 1103,
-  "tomtom_only": 1085
+  "matched": 21,
+  "tomtom": 1133,
+  "tomtom_only": 1114
  },
  "date": "2026-10-29",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 9.1
   },
   "dispatch_surface": {
-   "matched": 12,
+   "matched": 14,
    "n": 45,
-   "pct": 26.7
+   "pct": 31.1
   },
   "tomtom_highway": {
-   "matched": 14,
-   "n": 570,
+   "matched": 15,
+   "n": 594,
    "pct": 2.5
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 533,
-   "pct": 0.8
+   "n": 539,
+   "pct": 0.7
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.6,
-  "median": 8.7,
+  "median": 9.6,
   "min": -46.2,
-  "n": 19,
-  "q1": -9.8,
-  "q3": 18.2
+  "n": 21,
+  "q1": -3.5,
+  "q3": 15.5
  },
  "persistence_min": {
   "max": -25.2,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 965,
+  "hotspot_buckets": 984,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1060
+  "unreported_congestion": 1089
  },
  "sampling": {
   "flow_spent_this_month": 7397,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1272,
+  "incidents_spent_this_month": 1273,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -161,6 +161,27 @@
    "seg": "30.371,-97.742"
   },
   {
+   "from": "N Interstate 35",
+   "hour_of_week": 85,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.305,-97.714"
+  },
+  {
+   "from": "S Lamar Blvd / W Ben White Blvd",
+   "hour_of_week": 85,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.240,-97.800"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 85,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.310,-97.711"
+  },
+  {
    "from": "Buenos Aires Pkwy",
    "hour_of_week": 15,
    "n": 3,
@@ -189,43 +210,22 @@
    "seg": "30.337,-97.557"
   },
   {
-   "from": "Tudor House Rd (Dessau Rd)",
+   "from": "Wells Branch Pkwy (I-35)",
    "hour_of_week": 84,
    "n": 2,
    "roadworks": false,
-   "seg": "30.406,-97.637"
-  },
-  {
-   "from": "Dessau Rd",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.422,-97.620"
-  },
-  {
-   "from": "S Farm to Market 973 Rd",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.204,-97.640"
-  },
-  {
-   "from": "TX-71 exit [449]",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.193,-97.624"
+   "seg": "30.427,-97.671"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.8,
-  "tomtom": 98.4
+  "dispatch": 73.2,
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 56,
-  "neither": 43,
-  "tomtom_only": 13
+  "neither": 41,
+  "tomtom_only": 15
  }
 }
