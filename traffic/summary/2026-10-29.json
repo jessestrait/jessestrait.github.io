@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 115,
+  "dispatch": 116,
   "dispatch_only": 69,
   "here": 0,
   "here_matched": 0,
-  "matched": 81,
-  "tomtom": 2857,
-  "tomtom_only": 2764
+  "matched": 83,
+  "tomtom": 2916,
+  "tomtom_only": 2820
  },
  "date": "2026-10-29",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 115.7,
+  "median": 115.8,
   "min": 5.2,
-  "n": 98,
-  "q1": 72.6,
-  "q3": 117.6
+  "n": 100,
+  "q1": 75.3,
+  "q3": 117.8
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,19 +37,19 @@
    "pct": 33.3
   },
   "dispatch_surface": {
-   "matched": 38,
-   "n": 91,
-   "pct": 41.8
+   "matched": 39,
+   "n": 92,
+   "pct": 42.4
   },
   "tomtom_highway": {
-   "matched": 54,
-   "n": 1463,
-   "pct": 3.7
+   "matched": 57,
+   "n": 1495,
+   "pct": 3.8
   },
   "tomtom_surface": {
    "matched": 39,
-   "n": 1394,
-   "pct": 2.8
+   "n": 1421,
+   "pct": 2.7
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 87.9,
-  "median": 10.6,
+  "median": 10.2,
   "min": -89.4,
-  "n": 81,
-  "q1": -7.5,
-  "q3": 35.5
+  "n": 83,
+  "q1": -8.7,
+  "q3": 34.5
  },
  "persistence_min": {
   "max": 101.6,
-  "median": -50.8,
+  "median": -55.9,
   "min": -137.9,
-  "n": 47,
-  "q1": -76.1,
-  "q3": -25.6
+  "n": 51,
+  "q1": -76.2,
+  "q3": -30.4
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2412,
+  "hotspot_buckets": 2450,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2734
+  "unreported_congestion": 2789
  },
  "sampling": {
   "flow_spent_this_month": 7514,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1300,
+  "incidents_spent_this_month": 1301,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 60.0,
+  "dispatch": 59.5,
   "tomtom": 96.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 115,
+  "n": 116,
   "neither": 69,
-  "tomtom_only": 46
+  "tomtom_only": 47
  }
 }
