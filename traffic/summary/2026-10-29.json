@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 102,
+  "dispatch": 103,
   "dispatch_only": 69,
   "here": 0,
   "here_matched": 0,
-  "matched": 49,
-  "tomtom": 1795,
-  "tomtom_only": 1749
+  "matched": 51,
+  "tomtom": 1877,
+  "tomtom_only": 1829
  },
  "date": "2026-10-29",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 115.2,
+  "median": 115.3,
   "min": 5.2,
-  "n": 83,
-  "q1": 58.1,
+  "n": 84,
+  "q1": 59.7,
   "q3": 117.2
  },
  "here_onset_offset_min": {
@@ -37,18 +37,18 @@
    "pct": 19.0
   },
   "dispatch_surface": {
-   "matched": 29,
-   "n": 81,
-   "pct": 35.8
+   "matched": 30,
+   "n": 82,
+   "pct": 36.6
   },
   "tomtom_highway": {
-   "matched": 31,
-   "n": 947,
+   "matched": 32,
+   "n": 980,
    "pct": 3.3
   },
   "tomtom_surface": {
-   "matched": 15,
-   "n": 848,
+   "matched": 16,
+   "n": 897,
    "pct": 1.8
   }
  },
@@ -62,9 +62,9 @@
   "max": 87.9,
   "median": 10.0,
   "min": -51.5,
-  "n": 49,
-  "q1": -0.8,
-  "q3": 24.4
+  "n": 51,
+  "q1": -2.4,
+  "q3": 27.5
  },
  "persistence_min": {
   "max": 101.6,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1567,
+  "hotspot_buckets": 1636,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1719
+  "unreported_congestion": 1799
  },
  "sampling": {
   "flow_spent_this_month": 7478,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1285,
+  "incidents_spent_this_month": 1286,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -137,6 +137,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.299,-97.717"
+  },
+  {
+   "from": "Metric Blvd (Research Blvd)",
+   "hour_of_week": 93,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.372,-97.724"
   },
   {
    "from": "US-290/Exit 238 (I-35)",
@@ -207,24 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.354,-97.748"
-  },
-  {
-   "from": "E 38th St (E 38th 1)",
-   "hour_of_week": 85,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.295,-97.720"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 67.6,
+  "dispatch": 67.0,
   "tomtom": 97.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 102,
+  "n": 103,
   "neither": 69,
-  "tomtom_only": 33
+  "tomtom_only": 34
  }
 }
