@@ -13,9 +13,9 @@
   "dispatch_only": 30,
   "here": 0,
   "here_matched": 0,
-  "matched": 9,
-  "tomtom": 448,
-  "tomtom_only": 441
+  "matched": 11,
+  "tomtom": 473,
+  "tomtom_only": 465
  },
  "date": "2026-10-30",
  "dispatch_life_capped": false,
@@ -42,13 +42,13 @@
    "pct": 15.6
   },
   "tomtom_highway": {
-   "matched": 3,
-   "n": 189,
-   "pct": 1.6
+   "matched": 4,
+   "n": 199,
+   "pct": 2.0
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 259,
+   "n": 274,
    "pct": 1.5
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 57.8,
-  "median": 7.8,
+  "median": 13.3,
   "min": -72.9,
-  "n": 9,
-  "q1": 2.6,
-  "q3": 23.4
+  "n": 11,
+  "q1": 4.3,
+  "q3": 19.8
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 392,
+  "hotspot_buckets": 411,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 417
+  "unreported_congestion": 441
  },
  "sampling": {
-  "flow_spent_this_month": 7631,
+  "flow_spent_this_month": 7640,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1332,
+  "incidents_spent_this_month": 1333,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -116,6 +116,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.204,-97.639"
+  },
+  {
+   "from": "Northridge Dr",
+   "hour_of_week": 108,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.307,-97.690"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -146,13 +153,6 @@
    "seg": "30.475,-97.794"
   },
   {
-   "from": "Grand Avenue Pkwy (I-35)",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.441,-97.669"
-  },
-  {
    "from": "Austin",
    "hour_of_week": 108,
    "n": 2,
@@ -160,11 +160,11 @@
    "seg": "30.165,-97.729"
   },
   {
-   "from": "S Heatherwilde Blvd (Wells Branch Pkwy)",
+   "from": "Cardinal Bloom Loop / Cotton Bluff Pkwy",
    "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
-   "seg": "30.441,-97.665"
+   "seg": "30.162,-97.724"
   },
   {
    "from": "Arroyo Seco",
@@ -181,11 +181,25 @@
    "seg": "30.500,-97.581"
   },
   {
+   "from": "McCallen Pass (E Parmer Ln/FM-734)",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.389,-97.651"
+  },
+  {
    "from": "S Pleasant Valley Rd (E William Cannon Dr)",
    "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
    "seg": "30.189,-97.768"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.362,-97.688"
   },
   {
    "from": "Dessau Rd",
@@ -195,30 +209,16 @@
    "seg": "30.422,-97.620"
   },
   {
-   "from": "FM-734/E Parmer Ln (Tech Ridge Blvd)",
+   "from": "Duval Rd (TX-1)",
    "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
-   "seg": "30.399,-97.671"
-  },
-  {
-   "from": "Northridge Dr",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.307,-97.690"
-  },
-  {
-   "from": "Cruz St",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.226,-97.700"
+   "seg": "30.407,-97.723"
   }
  ],
  "unmatched_pct": {
   "dispatch": 85.7,
-  "tomtom": 98.4
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
