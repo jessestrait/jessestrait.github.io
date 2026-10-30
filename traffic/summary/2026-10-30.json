@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 107,
+  "dispatch": 112,
   "dispatch_only": 77,
   "here": 0,
   "here_matched": 0,
-  "matched": 53,
-  "tomtom": 2386,
-  "tomtom_only": 2336
+  "matched": 59,
+  "tomtom": 2476,
+  "tomtom_only": 2419
  },
  "date": "2026-10-30",
  "dispatch_life_capped": false,
@@ -32,23 +32,23 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 10,
-   "n": 24,
-   "pct": 41.7
+   "matched": 11,
+   "n": 25,
+   "pct": 44.0
   },
   "dispatch_surface": {
-   "matched": 20,
-   "n": 83,
-   "pct": 24.1
+   "matched": 24,
+   "n": 87,
+   "pct": 27.6
   },
   "tomtom_highway": {
-   "matched": 26,
-   "n": 1101,
-   "pct": 2.4
+   "matched": 32,
+   "n": 1141,
+   "pct": 2.8
   },
   "tomtom_surface": {
-   "matched": 24,
-   "n": 1285,
+   "matched": 25,
+   "n": 1335,
    "pct": 1.9
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 88.3,
-  "median": 7.8,
+  "median": 7.0,
   "min": -81.0,
-  "n": 53,
-  "q1": -17.0,
-  "q3": 31.6
+  "n": 59,
+  "q1": -18.7,
+  "q3": 31.3
  },
  "persistence_min": {
   "max": 56.1,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1858,
+  "hotspot_buckets": 1925,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2087
+  "unreported_congestion": 2160
  },
  "sampling": {
   "flow_spent_this_month": 7757,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1361,
+  "incidents_spent_this_month": 1362,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -137,13 +137,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.349,-97.563"
-  },
-  {
-   "from": "E William Cannon Dr (I-35)",
-   "hour_of_week": 117,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.182,-97.777"
   },
   {
    "from": "N Interstate 35",
@@ -214,17 +207,24 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.496,-97.775"
+  },
+  {
+   "from": "Gattis School Rd (Greenlawn Blvd)",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.484,-97.661"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 72.0,
-  "tomtom": 97.9
+  "dispatch": 68.8,
+  "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 107,
+  "n": 112,
   "neither": 77,
-  "tomtom_only": 30
+  "tomtom_only": 35
  }
 }
