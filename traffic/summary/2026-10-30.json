@@ -14,17 +14,17 @@
   "here": 0,
   "here_matched": 0,
   "matched": 46,
-  "tomtom": 1858,
-  "tomtom_only": 1817
+  "tomtom": 1927,
+  "tomtom_only": 1886
  },
  "date": "2026-10-30",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 116.1,
+  "median": 116.2,
   "min": 10.7,
-  "n": 67,
-  "q1": 78.3,
+  "n": 68,
+  "q1": 78.5,
   "q3": 117.9
  },
  "here_onset_offset_min": {
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 25,
-   "n": 856,
-   "pct": 2.9
+   "n": 884,
+   "pct": 2.8
   },
   "tomtom_surface": {
    "matched": 16,
-   "n": 1002,
-   "pct": 1.6
+   "n": 1043,
+   "pct": 1.5
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1524,
+  "hotspot_buckets": 1570,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1653
+  "unreported_congestion": 1711
  },
  "sampling": {
   "flow_spent_this_month": 7739,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1354,
+  "incidents_spent_this_month": 1355,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Genome Dr",
+   "hour_of_week": 117,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.349,-97.563"
+  },
   {
    "from": "FM-969 (FM-973)",
    "hour_of_week": 108,
@@ -167,11 +174,11 @@
    "seg": "30.425,-97.626"
   },
   {
-   "from": "Genome Dr",
+   "from": "E William Cannon Dr (I-35)",
    "hour_of_week": 117,
    "n": 3,
    "roadworks": false,
-   "seg": "30.349,-97.563"
+   "seg": "30.182,-97.777"
   },
   {
    "from": "N Interstate 35",
@@ -181,44 +188,37 @@
    "seg": "30.353,-97.691"
   },
   {
-   "from": "Buenos Aires Pkwy",
-   "hour_of_week": 15,
+   "from": "E Anderson Ln",
+   "hour_of_week": 117,
    "n": 3,
    "roadworks": false,
-   "seg": "30.169,-97.623"
+   "seg": "30.337,-97.696"
   },
   {
-   "from": "US-290/Exit 238 (I-35)",
-   "hour_of_week": 45,
-   "n": 2,
+   "from": "N Imperial Dr",
+   "hour_of_week": 117,
+   "n": 3,
    "roadworks": false,
-   "seg": "30.331,-97.705"
+   "seg": "30.290,-97.626"
   },
   {
-   "from": "Frate Barker Rd (Manchaca Rd/FM-2304)",
-   "hour_of_week": 100,
-   "n": 2,
+   "from": "E Dean Keeton St",
+   "hour_of_week": 117,
+   "n": 3,
    "roadworks": false,
-   "seg": "30.169,-97.825"
+   "seg": "30.286,-97.724"
   },
   {
-   "from": "Northtown Blvd",
-   "hour_of_week": 108,
-   "n": 2,
+   "from": "W Ben White Blvd",
+   "hour_of_week": 117,
+   "n": 3,
    "roadworks": false,
-   "seg": "30.430,-97.669"
-  },
-  {
-   "from": "Austin",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.165,-97.729"
+   "seg": "30.223,-97.764"
   }
  ],
  "unmatched_pct": {
   "dispatch": 71.6,
-  "tomtom": 97.8
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
