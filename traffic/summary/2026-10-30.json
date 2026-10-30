@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 95,
-  "dispatch_only": 68,
+  "dispatch": 97,
+  "dispatch_only": 67,
   "here": 0,
   "here_matched": 0,
-  "matched": 46,
-  "tomtom": 1927,
-  "tomtom_only": 1886
+  "matched": 50,
+  "tomtom": 1999,
+  "tomtom_only": 1954
  },
  "date": "2026-10-30",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 116.2,
+  "median": 116.3,
   "min": 10.7,
-  "n": 68,
-  "q1": 78.5,
+  "n": 71,
+  "q1": 79.0,
   "q3": 117.9
  },
  "here_onset_offset_min": {
@@ -37,19 +37,19 @@
    "pct": 45.5
   },
   "dispatch_surface": {
-   "matched": 17,
-   "n": 73,
-   "pct": 23.3
+   "matched": 20,
+   "n": 75,
+   "pct": 26.7
   },
   "tomtom_highway": {
-   "matched": 25,
-   "n": 884,
-   "pct": 2.8
+   "matched": 27,
+   "n": 923,
+   "pct": 2.9
   },
   "tomtom_surface": {
-   "matched": 16,
-   "n": 1043,
-   "pct": 1.5
+   "matched": 18,
+   "n": 1076,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 83.3,
-  "median": 5.4,
+  "median": 6.7,
   "min": -81.0,
-  "n": 46,
-  "q1": -26.1,
-  "q3": 23.8
+  "n": 50,
+  "q1": -23.8,
+  "q3": 30.1
  },
  "persistence_min": {
   "max": 56.1,
-  "median": -50.9,
+  "median": -43.3,
   "min": -91.5,
-  "n": 22,
-  "q1": -67.5,
-  "q3": -29.3
+  "n": 24,
+  "q1": -66.2,
+  "q3": -26.7
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1570,
+  "hotspot_buckets": 1617,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1711
+  "unreported_congestion": 1771
  },
  "sampling": {
-  "flow_spent_this_month": 7739,
+  "flow_spent_this_month": 7748,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1355,
+  "incidents_spent_this_month": 1356,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,13 +110,6 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
-  {
-   "from": "Genome Dr",
-   "hour_of_week": 117,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.349,-97.563"
-  },
   {
    "from": "FM-969 (FM-973)",
    "hour_of_week": 108,
@@ -174,6 +167,20 @@
    "seg": "30.425,-97.626"
   },
   {
+   "from": "Genome Dr",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.349,-97.563"
+  },
+  {
+   "from": "FM-620 (W Parmer Ln/FM-734)",
+   "hour_of_week": 116,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.496,-97.775"
+  },
+  {
    "from": "E William Cannon Dr (I-35)",
    "hour_of_week": 117,
    "n": 3,
@@ -195,36 +202,29 @@
    "seg": "30.337,-97.696"
   },
   {
+   "from": "Chestnut Ave (E 12th St)",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.277,-97.702"
+  },
+  {
    "from": "N Imperial Dr",
    "hour_of_week": 117,
    "n": 3,
    "roadworks": false,
    "seg": "30.290,-97.626"
-  },
-  {
-   "from": "E Dean Keeton St",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.286,-97.724"
-  },
-  {
-   "from": "W Ben White Blvd",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.223,-97.764"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 71.6,
-  "tomtom": 97.9
+  "dispatch": 69.1,
+  "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 95,
-  "neither": 68,
-  "tomtom_only": 27
+  "n": 97,
+  "neither": 67,
+  "tomtom_only": 30
  }
 }
