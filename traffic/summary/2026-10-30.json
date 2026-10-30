@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 53,
-  "tomtom": 2165,
-  "tomtom_only": 2117
+  "tomtom": 2249,
+  "tomtom_only": 2200
  },
  "date": "2026-10-30",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 26,
-   "n": 996,
-   "pct": 2.6
+   "n": 1036,
+   "pct": 2.5
   },
   "tomtom_surface": {
-   "matched": 22,
-   "n": 1169,
+   "matched": 23,
+   "n": 1213,
    "pct": 1.9
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1716,
+  "hotspot_buckets": 1759,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1913
+  "unreported_congestion": 1980
  },
  "sampling": {
   "flow_spent_this_month": 7748,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1358,
+  "incidents_spent_this_month": 1359,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -118,6 +118,13 @@
    "seg": "30.425,-97.627"
   },
   {
+   "from": "Immanuel Rd",
+   "hour_of_week": 117,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.425,-97.626"
+  },
+  {
    "from": "Genome Dr",
    "hour_of_week": 117,
    "n": 4,
@@ -125,11 +132,18 @@
    "seg": "30.349,-97.563"
   },
   {
-   "from": "E William Cannon Dr (I-35)",
+   "from": "N Interstate 35",
    "hour_of_week": 117,
    "n": 4,
    "roadworks": false,
-   "seg": "30.182,-97.777"
+   "seg": "30.353,-97.691"
+  },
+  {
+   "from": "Heatherwilde Blvd (Red Bud Ln)",
+   "hour_of_week": 117,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.496,-97.613"
   },
   {
    "from": "FM-969 (FM-973)",
@@ -174,13 +188,6 @@
    "seg": "30.458,-97.588"
   },
   {
-   "from": "Immanuel Rd",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.425,-97.626"
-  },
-  {
    "from": "Christina Garza Dr",
    "hour_of_week": 117,
    "n": 3,
@@ -202,18 +209,11 @@
    "seg": "30.484,-97.661"
   },
   {
-   "from": "W Ben White Blvd",
+   "from": "E William Cannon Dr (I-35)",
    "hour_of_week": 117,
    "n": 3,
    "roadworks": false,
-   "seg": "30.230,-97.788"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.353,-97.691"
+   "seg": "30.182,-97.777"
   }
  ],
  "unmatched_pct": {
