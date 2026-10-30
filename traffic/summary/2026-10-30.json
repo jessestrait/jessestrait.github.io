@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 93,
+  "dispatch": 95,
   "dispatch_only": 68,
   "here": 0,
   "here_matched": 0,
-  "matched": 44,
-  "tomtom": 1762,
-  "tomtom_only": 1724
+  "matched": 46,
+  "tomtom": 1858,
+  "tomtom_only": 1817
  },
  "date": "2026-10-30",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 45.5
   },
   "dispatch_surface": {
-   "matched": 15,
-   "n": 71,
-   "pct": 21.1
+   "matched": 17,
+   "n": 73,
+   "pct": 23.3
   },
   "tomtom_highway": {
-   "matched": 24,
-   "n": 828,
+   "matched": 25,
+   "n": 856,
    "pct": 2.9
   },
   "tomtom_surface": {
-   "matched": 14,
-   "n": 934,
-   "pct": 1.5
+   "matched": 16,
+   "n": 1002,
+   "pct": 1.6
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 83.3,
-  "median": 6.7,
+  "median": 5.4,
   "min": -81.0,
-  "n": 44,
-  "q1": -22.2,
-  "q3": 25.9
+  "n": 46,
+  "q1": -26.1,
+  "q3": 23.8
  },
  "persistence_min": {
   "max": 56.1,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1467,
+  "hotspot_buckets": 1524,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1579
+  "unreported_congestion": 1653
  },
  "sampling": {
   "flow_spent_this_month": 7739,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1353,
+  "incidents_spent_this_month": 1354,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,11 +160,25 @@
    "seg": "30.425,-97.627"
   },
   {
+   "from": "Immanuel Rd",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.425,-97.626"
+  },
+  {
    "from": "Genome Dr",
    "hour_of_week": 117,
    "n": 3,
    "roadworks": false,
    "seg": "30.349,-97.563"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.353,-97.691"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -200,31 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.165,-97.729"
-  },
-  {
-   "from": "FM 969 Rd",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.286,-97.664"
-  },
-  {
-   "from": "Cardinal Bloom Loop / Cotton Bluff Pkwy",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.162,-97.724"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 73.1,
+  "dispatch": 71.6,
   "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 93,
+  "n": 95,
   "neither": 68,
-  "tomtom_only": 25
+  "tomtom_only": 27
  }
 }
