@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 100,
-  "dispatch_only": 70,
+  "dispatch": 106,
+  "dispatch_only": 76,
   "here": 0,
   "here_matched": 0,
   "matched": 53,
-  "tomtom": 2249,
-  "tomtom_only": 2200
+  "tomtom": 2324,
+  "tomtom_only": 2275
  },
  "date": "2026-10-30",
  "dispatch_life_capped": false,
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 10,
-   "n": 23,
-   "pct": 43.5
+   "n": 24,
+   "pct": 41.7
   },
   "dispatch_surface": {
    "matched": 20,
-   "n": 77,
-   "pct": 26.0
+   "n": 82,
+   "pct": 24.4
   },
   "tomtom_highway": {
    "matched": 26,
-   "n": 1036,
-   "pct": 2.5
+   "n": 1067,
+   "pct": 2.4
   },
   "tomtom_surface": {
    "matched": 23,
-   "n": 1213,
-   "pct": 1.9
+   "n": 1257,
+   "pct": 1.8
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1759,
+  "hotspot_buckets": 1814,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1980
+  "unreported_congestion": 2036
  },
  "sampling": {
-  "flow_spent_this_month": 7748,
+  "flow_spent_this_month": 7757,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1359,
+  "incidents_spent_this_month": 1360,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -144,6 +144,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.496,-97.613"
+  },
+  {
+   "from": "Hesters Crossing Rd (I-35)",
+   "hour_of_week": 117,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.501,-97.681"
   },
   {
    "from": "FM-969 (FM-973)",
@@ -207,24 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.484,-97.661"
-  },
-  {
-   "from": "E William Cannon Dr (I-35)",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.182,-97.777"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 70.0,
-  "tomtom": 97.8
+  "dispatch": 71.7,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 100,
-  "neither": 70,
+  "n": 106,
+  "neither": 76,
   "tomtom_only": 30
  }
 }
