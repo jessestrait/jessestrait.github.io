@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch record lifetimes look like real clearances this day, not a cap.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 91, q3 118 min over 78 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,47 +9,47 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 114,
+  "dispatch": 117,
   "dispatch_only": 78,
   "here": 0,
   "here_matched": 0,
-  "matched": 60,
-  "tomtom": 2562,
-  "tomtom_only": 2504
+  "matched": 65,
+  "tomtom": 2643,
+  "tomtom_only": 2580
  },
  "date": "2026-10-30",
- "dispatch_life_capped": false,
+ "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 116.3,
+  "median": 116.4,
   "min": 10.7,
-  "n": 76,
-  "q1": 85.2,
-  "q3": 117.9
+  "n": 78,
+  "q1": 90.7,
+  "q3": 118.2
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 11,
-   "n": 25,
-   "pct": 44.0
+   "matched": 12,
+   "n": 26,
+   "pct": 46.2
   },
   "dispatch_surface": {
-   "matched": 25,
-   "n": 89,
-   "pct": 28.1
+   "matched": 27,
+   "n": 91,
+   "pct": 29.7
   },
   "tomtom_highway": {
-   "matched": 32,
-   "n": 1179,
-   "pct": 2.7
+   "matched": 34,
+   "n": 1221,
+   "pct": 2.8
   },
   "tomtom_surface": {
-   "matched": 26,
-   "n": 1383,
-   "pct": 1.9
+   "matched": 29,
+   "n": 1422,
+   "pct": 2.0
   }
  },
  "matcher": {
@@ -60,19 +60,20 @@
  },
  "onset_offset_min": {
   "max": 88.3,
-  "median": 6.7,
+  "median": 6.3,
   "min": -81.0,
-  "n": 60,
-  "q1": -22.0,
-  "q3": 31.1
+  "n": 65,
+  "q1": -20.9,
+  "q3": 30.9
  },
  "persistence_min": {
   "max": 56.1,
-  "median": -43.3,
+  "median": -40.9,
   "min": -91.5,
-  "n": 28,
+  "n": 29,
   "q1": -66.2,
-  "q3": -25.5
+  "q3": -25.5,
+  "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1993,
+  "hotspot_buckets": 2044,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2230
+  "unreported_congestion": 2292
  },
  "sampling": {
-  "flow_spent_this_month": 7757,
+  "flow_spent_this_month": 7766,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1363,
+  "incidents_spent_this_month": 1364,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -139,13 +140,6 @@
    "seg": "30.349,-97.563"
   },
   {
-   "from": "E William Cannon Dr (I-35)",
-   "hour_of_week": 117,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.182,-97.777"
-  },
-  {
    "from": "N Interstate 35",
    "hour_of_week": 117,
    "n": 4,
@@ -158,6 +152,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.496,-97.613"
+  },
+  {
+   "from": "N Lamar Blvd",
+   "hour_of_week": 118,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.267,-97.755"
   },
   {
    "from": "FM-969 (FM-973)",
@@ -217,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 68.4,
-  "tomtom": 97.7
+  "dispatch": 66.7,
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 114,
+  "n": 117,
   "neither": 78,
-  "tomtom_only": 36
+  "tomtom_only": 39
  }
 }
