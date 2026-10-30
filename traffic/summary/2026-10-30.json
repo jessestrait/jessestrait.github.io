@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 97,
-  "dispatch_only": 67,
+  "dispatch": 99,
+  "dispatch_only": 69,
   "here": 0,
   "here_matched": 0,
-  "matched": 50,
-  "tomtom": 1999,
-  "tomtom_only": 1954
+  "matched": 51,
+  "tomtom": 2091,
+  "tomtom_only": 2045
  },
  "date": "2026-10-30",
  "dispatch_life_capped": false,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 20,
-   "n": 75,
-   "pct": 26.7
+   "n": 77,
+   "pct": 26.0
   },
   "tomtom_highway": {
-   "matched": 27,
-   "n": 923,
-   "pct": 2.9
+   "matched": 26,
+   "n": 969,
+   "pct": 2.7
   },
   "tomtom_surface": {
-   "matched": 18,
-   "n": 1076,
-   "pct": 1.7
+   "matched": 20,
+   "n": 1122,
+   "pct": 1.8
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 83.3,
-  "median": 6.7,
+  "max": 88.3,
+  "median": 7.0,
   "min": -81.0,
-  "n": 50,
-  "q1": -23.8,
-  "q3": 30.1
+  "n": 51,
+  "q1": -23.1,
+  "q3": 30.4
  },
  "persistence_min": {
   "max": 56.1,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1617,
+  "hotspot_buckets": 1674,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1771
+  "unreported_congestion": 1846
  },
  "sampling": {
   "flow_spent_this_month": 7748,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1356,
+  "incidents_spent_this_month": 1357,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "S 10th St (Wells Branch Pkwy)",
+   "hour_of_week": 117,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.425,-97.627"
+  },
   {
    "from": "FM-969 (FM-973)",
    "hour_of_week": 108,
@@ -153,18 +160,18 @@
    "seg": "30.458,-97.588"
   },
   {
-   "from": "S 10th St (Wells Branch Pkwy)",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.425,-97.627"
-  },
-  {
    "from": "Immanuel Rd",
    "hour_of_week": 117,
    "n": 3,
    "roadworks": false,
    "seg": "30.425,-97.626"
+  },
+  {
+   "from": "Christina Garza Dr",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.350,-97.556"
   },
   {
    "from": "Genome Dr",
@@ -179,6 +186,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.496,-97.775"
+  },
+  {
+   "from": "Gattis School Rd (Greenlawn Blvd)",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.484,-97.661"
   },
   {
    "from": "E William Cannon Dr (I-35)",
@@ -200,31 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.337,-97.696"
-  },
-  {
-   "from": "Chestnut Ave (E 12th St)",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.277,-97.702"
-  },
-  {
-   "from": "N Imperial Dr",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.290,-97.626"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 69.1,
-  "tomtom": 97.7
+  "dispatch": 69.7,
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 97,
-  "neither": 67,
+  "n": 99,
+  "neither": 69,
   "tomtom_only": 30
  }
 }
