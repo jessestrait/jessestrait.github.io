@@ -13,9 +13,9 @@
   "dispatch_only": 30,
   "here": 0,
   "here_matched": 0,
-  "matched": 11,
-  "tomtom": 473,
-  "tomtom_only": 465
+  "matched": 12,
+  "tomtom": 511,
+  "tomtom_only": 501
  },
  "date": "2026-10-30",
  "dispatch_life_capped": false,
@@ -42,14 +42,14 @@
    "pct": 15.6
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 199,
-   "pct": 2.0
+   "matched": 5,
+   "n": 214,
+   "pct": 2.3
   },
   "tomtom_surface": {
-   "matched": 4,
-   "n": 274,
-   "pct": 1.5
+   "matched": 5,
+   "n": 297,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 57.8,
-  "median": 13.3,
+  "max": 77.8,
+  "median": 14.4,
   "min": -72.9,
-  "n": 11,
+  "n": 12,
   "q1": 4.3,
-  "q3": 19.8
+  "q3": 28.4
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 411,
+  "hotspot_buckets": 446,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 441
+  "unreported_congestion": 477
  },
  "sampling": {
   "flow_spent_this_month": 7640,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1333,
+  "incidents_spent_this_month": 1334,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -116,6 +116,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.204,-97.639"
+  },
+  {
+   "from": "N Lake Creek Pkwy",
+   "hour_of_week": 108,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.475,-97.794"
   },
   {
    "from": "Northridge Dr",
@@ -144,13 +151,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.169,-97.825"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.475,-97.794"
   },
   {
    "from": "Austin",
@@ -188,13 +188,6 @@
    "seg": "30.389,-97.651"
   },
   {
-   "from": "S Pleasant Valley Rd (E William Cannon Dr)",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.189,-97.768"
-  },
-  {
    "from": "N Interstate 35",
    "hour_of_week": 108,
    "n": 2,
@@ -209,16 +202,23 @@
    "seg": "30.422,-97.620"
   },
   {
-   "from": "Duval Rd (TX-1)",
+   "from": "W 33rd St",
    "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
-   "seg": "30.407,-97.723"
+   "seg": "30.306,-97.751"
+  },
+  {
+   "from": "FM-734/E Parmer Ln (Tech Ridge Blvd)",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.399,-97.671"
   }
  ],
  "unmatched_pct": {
   "dispatch": 85.7,
-  "tomtom": 98.3
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
