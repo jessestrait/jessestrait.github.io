@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 2,
-  "tomtom": 222,
-  "tomtom_only": 220
+  "tomtom": 223,
+  "tomtom_only": 221
  },
  "date": "2026-10-30",
  "dispatch_life_capped": false,
@@ -43,7 +43,7 @@
   },
   "tomtom_highway": {
    "matched": 1,
-   "n": 104,
+   "n": 105,
    "pct": 1.0
   },
   "tomtom_surface": {
@@ -92,12 +92,12 @@
   "hotspot_buckets": 186,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 196
+  "unreported_congestion": 197
  },
  "sampling": {
   "flow_spent_this_month": 7568,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1318,
+  "incidents_spent_this_month": 1319,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -116,6 +116,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.169,-97.623"
+  },
+  {
+   "from": "US-290/Exit 238 (I-35)",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.331,-97.705"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -207,13 +214,6 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.425,-97.673"
-  },
-  {
-   "from": "S Mo Pac Expy",
-   "hour_of_week": 95,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.233,-97.825"
   }
  ],
  "unmatched_pct": {
