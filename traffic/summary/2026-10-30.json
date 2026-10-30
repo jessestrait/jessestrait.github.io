@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 37,
-  "dispatch_only": 32,
+  "dispatch": 38,
+  "dispatch_only": 33,
   "here": 0,
   "here_matched": 0,
   "matched": 15,
-  "tomtom": 572,
-  "tomtom_only": 559
+  "tomtom": 588,
+  "tomtom_only": 575
  },
  "date": "2026-10-30",
  "dispatch_life_capped": false,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 5,
-   "n": 33,
-   "pct": 15.2
+   "n": 34,
+   "pct": 14.7
   },
   "tomtom_highway": {
    "matched": 7,
-   "n": 238,
+   "n": 242,
    "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 334,
-   "pct": 1.8
+   "n": 346,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 495,
+  "hotspot_buckets": 510,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 535
+  "unreported_congestion": 551
  },
  "sampling": {
   "flow_spent_this_month": 7649,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1337,
+  "incidents_spent_this_month": 1338,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -137,6 +137,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.307,-97.690"
+  },
+  {
+   "from": "Cruz St",
+   "hour_of_week": 108,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.226,-97.700"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -181,13 +188,6 @@
    "seg": "30.286,-97.664"
   },
   {
-   "from": "E Riverside Dr",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.227,-97.699"
-  },
-  {
    "from": "Cardinal Bloom Loop / Cotton Bluff Pkwy",
    "hour_of_week": 108,
    "n": 2,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.5,
-  "tomtom": 97.7
+  "dispatch": 86.8,
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 37,
-  "neither": 32,
+  "n": 38,
+  "neither": 33,
   "tomtom_only": 5
  }
 }
