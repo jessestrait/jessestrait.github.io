@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 36,
-  "dispatch_only": 31,
+  "dispatch": 37,
+  "dispatch_only": 32,
   "here": 0,
   "here_matched": 0,
   "matched": 15,
-  "tomtom": 554,
-  "tomtom_only": 542
+  "tomtom": 572,
+  "tomtom_only": 559
  },
  "date": "2026-10-30",
  "dispatch_life_capped": false,
@@ -33,7 +33,7 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 0,
-   "n": 3,
+   "n": 4,
    "pct": 0.0
   },
   "dispatch_surface": {
@@ -42,14 +42,14 @@
    "pct": 15.2
   },
   "tomtom_highway": {
-   "matched": 6,
-   "n": 232,
-   "pct": 2.6
+   "matched": 7,
+   "n": 238,
+   "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 322,
-   "pct": 1.9
+   "n": 334,
+   "pct": 1.8
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 479,
+  "hotspot_buckets": 495,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 518
+  "unreported_congestion": 535
  },
  "sampling": {
-  "flow_spent_this_month": 7640,
+  "flow_spent_this_month": 7649,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1336,
+  "incidents_spent_this_month": 1337,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -195,6 +195,13 @@
    "seg": "30.162,-97.724"
   },
   {
+   "from": "S Heatherwilde Blvd (Wells Branch Pkwy)",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.441,-97.665"
+  },
+  {
    "from": "Arroyo Seco",
    "hour_of_week": 108,
    "n": 2,
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.241,-97.761"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.362,-97.688"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.1,
-  "tomtom": 97.8
+  "dispatch": 86.5,
+  "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 36,
-  "neither": 31,
+  "n": 37,
+  "neither": 32,
   "tomtom_only": 5
  }
 }
