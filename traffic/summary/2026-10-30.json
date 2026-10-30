@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 112,
-  "dispatch_only": 77,
+  "dispatch": 114,
+  "dispatch_only": 78,
   "here": 0,
   "here_matched": 0,
-  "matched": 59,
-  "tomtom": 2476,
-  "tomtom_only": 2419
+  "matched": 60,
+  "tomtom": 2562,
+  "tomtom_only": 2504
  },
  "date": "2026-10-30",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 120.0,
   "median": 116.3,
   "min": 10.7,
-  "n": 72,
-  "q1": 79.8,
+  "n": 76,
+  "q1": 85.2,
   "q3": 117.9
  },
  "here_onset_offset_min": {
@@ -37,18 +37,18 @@
    "pct": 44.0
   },
   "dispatch_surface": {
-   "matched": 24,
-   "n": 87,
-   "pct": 27.6
+   "matched": 25,
+   "n": 89,
+   "pct": 28.1
   },
   "tomtom_highway": {
    "matched": 32,
-   "n": 1141,
-   "pct": 2.8
+   "n": 1179,
+   "pct": 2.7
   },
   "tomtom_surface": {
-   "matched": 25,
-   "n": 1335,
+   "matched": 26,
+   "n": 1383,
    "pct": 1.9
   }
  },
@@ -60,17 +60,17 @@
  },
  "onset_offset_min": {
   "max": 88.3,
-  "median": 7.0,
+  "median": 6.7,
   "min": -81.0,
-  "n": 59,
-  "q1": -18.7,
-  "q3": 31.3
+  "n": 60,
+  "q1": -22.0,
+  "q3": 31.1
  },
  "persistence_min": {
   "max": 56.1,
-  "median": -40.9,
+  "median": -43.3,
   "min": -91.5,
-  "n": 25,
+  "n": 28,
   "q1": -66.2,
   "q3": -25.5
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1925,
+  "hotspot_buckets": 1993,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2160
+  "unreported_congestion": 2230
  },
  "sampling": {
   "flow_spent_this_month": 7757,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1362,
+  "incidents_spent_this_month": 1363,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -137,6 +137,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.349,-97.563"
+  },
+  {
+   "from": "E William Cannon Dr (I-35)",
+   "hour_of_week": 117,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.182,-97.777"
   },
   {
    "from": "N Interstate 35",
@@ -207,24 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.496,-97.775"
-  },
-  {
-   "from": "Gattis School Rd (Greenlawn Blvd)",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.484,-97.661"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 68.8,
+  "dispatch": 68.4,
   "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 112,
-  "neither": 77,
-  "tomtom_only": 35
+  "n": 114,
+  "neither": 78,
+  "tomtom_only": 36
  }
 }
