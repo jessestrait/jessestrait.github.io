@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 35,
-  "dispatch_only": 30,
+  "dispatch": 36,
+  "dispatch_only": 31,
   "here": 0,
   "here_matched": 0,
-  "matched": 13,
-  "tomtom": 527,
-  "tomtom_only": 516
+  "matched": 15,
+  "tomtom": 554,
+  "tomtom_only": 542
  },
  "date": "2026-10-30",
  "dispatch_life_capped": false,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 5,
-   "n": 32,
-   "pct": 15.6
+   "n": 33,
+   "pct": 15.2
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 222,
-   "pct": 2.7
+   "n": 232,
+   "pct": 2.6
   },
   "tomtom_surface": {
-   "matched": 5,
-   "n": 305,
-   "pct": 1.6
+   "matched": 6,
+   "n": 322,
+   "pct": 1.9
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 83.3,
-  "median": 15.4,
+  "median": 16.5,
   "min": -72.9,
-  "n": 13,
-  "q1": 4.4,
-  "q3": 44.5
+  "n": 15,
+  "q1": 4.5,
+  "q3": 33.3
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 457,
+  "hotspot_buckets": 479,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 492
+  "unreported_congestion": 518
  },
  "sampling": {
   "flow_spent_this_month": 7640,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1335,
+  "incidents_spent_this_month": 1336,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,11 +160,25 @@
    "seg": "30.169,-97.825"
   },
   {
+   "from": "Northtown Blvd",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.430,-97.669"
+  },
+  {
    "from": "Austin",
    "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
    "seg": "30.165,-97.729"
+  },
+  {
+   "from": "FM 969 Rd",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.286,-97.664"
   },
   {
    "from": "E Riverside Dr",
@@ -188,43 +202,29 @@
    "seg": "30.339,-97.732"
   },
   {
+   "from": "S 1st St",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.241,-97.761"
+  },
+  {
    "from": "N Interstate 35",
    "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
    "seg": "30.362,-97.688"
-  },
-  {
-   "from": "Dessau Rd",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.422,-97.620"
-  },
-  {
-   "from": "Dove Haven Dr",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.434,-97.611"
-  },
-  {
-   "from": "W 33rd St",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.306,-97.751"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.7,
-  "tomtom": 97.9
+  "dispatch": 86.1,
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 35,
-  "neither": 30,
+  "n": 36,
+  "neither": 31,
   "tomtom_only": 5
  }
 }
