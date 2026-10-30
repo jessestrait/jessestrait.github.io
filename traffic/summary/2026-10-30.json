@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 4,
-  "tomtom": 265,
-  "tomtom_only": 261
+  "tomtom": 282,
+  "tomtom_only": 278
  },
  "date": "2026-10-30",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 127,
-   "pct": 1.6
+   "n": 137,
+   "pct": 1.5
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 138,
+   "n": 145,
    "pct": 1.4
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 226,
+  "hotspot_buckets": 240,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 237
+  "unreported_congestion": 254
  },
  "sampling": {
   "flow_spent_this_month": 7622,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1326,
+  "incidents_spent_this_month": 1327,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -130,6 +130,20 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.169,-97.825"
+  },
+  {
+   "from": "FM-969 (FM-973)",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.204,-97.639"
+  },
+  {
+   "from": "I-35/FM-3406 (I-35)",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.517,-97.688"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -181,6 +195,13 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "Mopac Expy S",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.176,-97.889"
+  },
+  {
    "from": "FM-1325/Exit 250 (I-35)",
    "hour_of_week": 92,
    "n": 1,
@@ -193,32 +214,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.483,-97.676"
-  },
-  {
-   "from": "Grand Avenue Pkwy (I-35)",
-   "hour_of_week": 94,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.443,-97.668"
-  },
-  {
-   "from": "W Rundberg Ln (Metric Blvd)",
-   "hour_of_week": 95,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.372,-97.721"
-  },
-  {
-   "from": "Wells Branch Pkwy (W Howard Ln)",
-   "hour_of_week": 93,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.425,-97.673"
   }
  ],
  "unmatched_pct": {
   "dispatch": 90.6,
-  "tomtom": 98.5
+  "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
