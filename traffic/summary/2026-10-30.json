@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 4,
-  "tomtom": 282,
-  "tomtom_only": 278
+  "tomtom": 309,
+  "tomtom_only": 305
  },
  "date": "2026-10-30",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 137,
-   "pct": 1.5
+   "n": 148,
+   "pct": 1.4
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 145,
-   "pct": 1.4
+   "n": 161,
+   "pct": 1.2
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 240,
+  "hotspot_buckets": 267,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 254
+  "unreported_congestion": 281
  },
  "sampling": {
   "flow_spent_this_month": 7622,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1327,
+  "incidents_spent_this_month": 1328,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -139,11 +139,18 @@
    "seg": "30.204,-97.639"
   },
   {
-   "from": "I-35/FM-3406 (I-35)",
+   "from": "N Lake Creek Pkwy",
    "hour_of_week": 108,
    "n": 2,
    "roadworks": false,
-   "seg": "30.517,-97.688"
+   "seg": "30.475,-97.794"
+  },
+  {
+   "from": "Mopac Expy S",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.176,-97.889"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -195,13 +202,6 @@
    "seg": "30.179,-97.616"
   },
   {
-   "from": "Mopac Expy S",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.176,-97.889"
-  },
-  {
    "from": "FM-1325/Exit 250 (I-35)",
    "hour_of_week": 92,
    "n": 1,
@@ -218,7 +218,7 @@
  ],
  "unmatched_pct": {
   "dispatch": 90.6,
-  "tomtom": 98.6
+  "tomtom": 98.7
  },
  "witnesses": {
   "both": 0,
