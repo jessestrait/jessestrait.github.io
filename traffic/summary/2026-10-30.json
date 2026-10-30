@@ -9,32 +9,32 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 39,
+  "dispatch": 40,
   "dispatch_only": 34,
   "here": 0,
   "here_matched": 0,
-  "matched": 15,
-  "tomtom": 614,
-  "tomtom_only": 601
+  "matched": 16,
+  "tomtom": 626,
+  "tomtom_only": 612
  },
  "date": "2026-10-30",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.0,
+  "median": 115.9,
   "min": 10.7,
-  "n": 29,
-  "q1": 56.8,
-  "q3": 118.7
+  "n": 30,
+  "q1": 58.1,
+  "q3": 118.5
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 0,
-   "n": 4,
-   "pct": 0.0
+   "matched": 1,
+   "n": 5,
+   "pct": 20.0
   },
   "dispatch_surface": {
    "matched": 5,
@@ -42,13 +42,13 @@
    "pct": 14.3
   },
   "tomtom_highway": {
-   "matched": 7,
-   "n": 250,
-   "pct": 2.8
+   "matched": 8,
+   "n": 256,
+   "pct": 3.1
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 364,
+   "n": 370,
    "pct": 1.6
   }
  },
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 83.3,
-  "median": 16.5,
+  "median": 15.9,
   "min": -72.9,
-  "n": 15,
-  "q1": 4.5,
-  "q3": 33.3
+  "n": 16,
+  "q1": 4.3,
+  "q3": 32.8
  },
  "persistence_min": {
   "max": 0.0,
-  "median": -45.7,
+  "median": -56.0,
   "min": -91.5,
-  "n": 2,
-  "q1": -91.5,
-  "q3": 0.0
+  "n": 7,
+  "q1": -86.6,
+  "q3": -30.7
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 535,
+  "hotspot_buckets": 546,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 577
+  "unreported_congestion": 588
  },
  "sampling": {
   "flow_spent_this_month": 7658,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1341,
+  "incidents_spent_this_month": 1342,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.2,
-  "tomtom": 97.9
+  "dispatch": 85.0,
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 39,
+  "n": 40,
   "neither": 34,
-  "tomtom_only": 5
+  "tomtom_only": 6
  }
 }
