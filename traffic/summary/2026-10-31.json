@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 159,
-  "dispatch_only": 131,
+  "dispatch_only": 130,
   "here": 0,
   "here_matched": 0,
-  "matched": 33,
-  "tomtom": 736,
-  "tomtom_only": 703
+  "matched": 34,
+  "tomtom": 778,
+  "tomtom_only": 742
  },
  "date": "2026-10-31",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 21.4
   },
   "dispatch_surface": {
-   "matched": 22,
+   "matched": 23,
    "n": 131,
-   "pct": 16.8
+   "pct": 17.6
   },
   "tomtom_highway": {
    "matched": 14,
-   "n": 339,
-   "pct": 4.1
+   "n": 359,
+   "pct": 3.9
   },
   "tomtom_surface": {
-   "matched": 19,
-   "n": 397,
-   "pct": 4.8
+   "matched": 22,
+   "n": 419,
+   "pct": 5.3
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 85.6,
-  "median": 4.5,
+  "median": 4.8,
   "min": -79.6,
-  "n": 33,
-  "q1": -25.7,
-  "q3": 27.5
+  "n": 34,
+  "q1": -24.4,
+  "q3": 27.8
  },
  "persistence_min": {
   "max": 45.7,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 611,
+  "hotspot_buckets": 647,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 650
+  "unreported_congestion": 689
  },
  "sampling": {
-  "flow_spent_this_month": 7910,
+  "flow_spent_this_month": 7919,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1380,
+  "incidents_spent_this_month": 1381,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -118,11 +118,11 @@
    "seg": "30.265,-97.729"
   },
   {
-   "from": "San Gabriel St",
-   "hour_of_week": 124,
+   "from": "Enfield Rd",
+   "hour_of_week": 91,
    "n": 3,
    "roadworks": false,
-   "seg": "30.287,-97.746"
+   "seg": "30.279,-97.753"
   },
   {
    "from": "E 5th St",
@@ -209,22 +209,22 @@
    "seg": "30.284,-97.743"
   },
   {
-   "from": "Enfield Rd",
-   "hour_of_week": 91,
+   "from": "Pearl St",
+   "hour_of_week": 123,
    "n": 2,
    "roadworks": false,
-   "seg": "30.279,-97.753"
+   "seg": "30.285,-97.744"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.4,
-  "tomtom": 95.5
+  "dispatch": 81.8,
+  "tomtom": 95.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 159,
-  "neither": 131,
-  "tomtom_only": 28
+  "neither": 130,
+  "tomtom_only": 29
  }
 }
