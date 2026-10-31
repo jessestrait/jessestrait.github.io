@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 91,
-  "dispatch_only": 72,
+  "dispatch": 93,
+  "dispatch_only": 73,
   "here": 0,
   "here_matched": 0,
-  "matched": 21,
-  "tomtom": 559,
-  "tomtom_only": 539
+  "matched": 24,
+  "tomtom": 593,
+  "tomtom_only": 569
  },
  "date": "2026-10-31",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 107.1,
+  "median": 109.1,
   "min": 2.8,
-  "n": 68,
-  "q1": 40.0,
+  "n": 71,
+  "q1": 41.7,
   "q3": 116.7
  },
  "here_onset_offset_min": {
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 3,
+   "matched": 4,
    "n": 19,
-   "pct": 15.8
+   "pct": 21.1
   },
   "dispatch_surface": {
    "matched": 16,
-   "n": 72,
-   "pct": 22.2
+   "n": 74,
+   "pct": 21.6
   },
   "tomtom_highway": {
-   "matched": 9,
-   "n": 272,
-   "pct": 3.3
+   "matched": 10,
+   "n": 281,
+   "pct": 3.6
   },
   "tomtom_surface": {
-   "matched": 11,
-   "n": 287,
-   "pct": 3.8
+   "matched": 14,
+   "n": 312,
+   "pct": 4.5
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 56.5,
-  "median": 3.7,
+  "max": 74.8,
+  "median": 7.8,
   "min": -79.6,
-  "n": 21,
-  "q1": -20.9,
-  "q3": 22.5
+  "n": 24,
+  "q1": -18.0,
+  "q3": 27.9
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 468,
+  "hotspot_buckets": 490,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 490
+  "unreported_congestion": 519
  },
  "sampling": {
   "flow_spent_this_month": 7793,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1370,
+  "incidents_spent_this_month": 1371,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -116,6 +116,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.169,-97.623"
+  },
+  {
+   "from": "E 7th St",
+   "hour_of_week": 124,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.265,-97.729"
   },
   {
    "from": "W Martin Luther King Jr Blvd",
@@ -188,6 +195,13 @@
    "seg": "30.284,-97.743"
   },
   {
+   "from": "Enfield Rd",
+   "hour_of_week": 91,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.279,-97.753"
+  },
+  {
    "from": "Pearl St",
    "hour_of_week": 123,
    "n": 2,
@@ -195,36 +209,22 @@
    "seg": "30.285,-97.744"
   },
   {
-   "from": "Pearl St",
+   "from": "Whitis Ave",
    "hour_of_week": 123,
    "n": 2,
    "roadworks": false,
    "seg": "30.284,-97.743"
-  },
-  {
-   "from": "Mopac Expy S",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.176,-97.889"
-  },
-  {
-   "from": "Adage Dr / Epiphany Ln",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.448,-97.631"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 79.1,
-  "tomtom": 96.4
+  "dispatch": 78.5,
+  "tomtom": 96.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 91,
-  "neither": 72,
-  "tomtom_only": 19
+  "n": 93,
+  "neither": 73,
+  "tomtom_only": 20
  }
 }
