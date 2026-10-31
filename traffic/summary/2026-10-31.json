@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 77,
-  "dispatch_only": 60,
+  "dispatch": 78,
+  "dispatch_only": 61,
   "here": 0,
   "here_matched": 0,
-  "matched": 17,
+  "matched": 18,
   "tomtom": 528,
-  "tomtom_only": 512
+  "tomtom_only": 511
  },
  "date": "2026-10-31",
  "dispatch_life_capped": false,
@@ -38,8 +38,8 @@
   },
   "dispatch_surface": {
    "matched": 15,
-   "n": 59,
-   "pct": 25.4
+   "n": 60,
+   "pct": 25.0
   },
   "tomtom_highway": {
    "matched": 8,
@@ -47,9 +47,9 @@
    "pct": 3.0
   },
   "tomtom_surface": {
-   "matched": 8,
+   "matched": 9,
    "n": 263,
-   "pct": 3.0
+   "pct": 3.4
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 56.5,
-  "median": -3.1,
+  "median": -1.1,
   "min": -79.6,
-  "n": 17,
-  "q1": -37.0,
-  "q3": 11.9
+  "n": 18,
+  "q1": -30.1,
+  "q3": 14.1
  },
  "persistence_min": {
   "max": 0.0,
@@ -92,7 +92,7 @@
   "hotspot_buckets": 443,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 465
+  "unreported_congestion": 464
  },
  "sampling": {
   "flow_spent_this_month": 7775,
@@ -174,11 +174,25 @@
    "seg": "30.285,-97.744"
   },
   {
-   "from": "Rio Grande St",
+   "from": "San Gabriel St",
    "hour_of_week": 122,
    "n": 2,
    "roadworks": false,
    "seg": "30.287,-97.746"
+  },
+  {
+   "from": "Pearl St",
+   "hour_of_week": 122,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.285,-97.744"
+  },
+  {
+   "from": "San Gabriel St",
+   "hour_of_week": 122,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.286,-97.746"
   },
   {
    "from": "Mopac Expy S",
@@ -200,31 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.320,-97.706"
-  },
-  {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.245,-97.744"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.234,-97.736"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 77.9,
-  "tomtom": 97.0
+  "dispatch": 78.2,
+  "tomtom": 96.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 77,
-  "neither": 60,
+  "n": 78,
+  "neither": 61,
   "tomtom_only": 17
  }
 }
