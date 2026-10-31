@@ -10,22 +10,22 @@
  ],
  "counts": {
   "dispatch": 190,
-  "dispatch_only": 160,
+  "dispatch_only": 159,
   "here": 0,
   "here_matched": 0,
-  "matched": 36,
-  "tomtom": 973,
-  "tomtom_only": 935
+  "matched": 37,
+  "tomtom": 1019,
+  "tomtom_only": 980
  },
  "date": "2026-10-31",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 115.6,
+  "median": 115.7,
   "min": 2.8,
-  "n": 173,
-  "q1": 59.7,
-  "q3": 117.9
+  "n": 175,
+  "q1": 60.9,
+  "q3": 118.0
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,19 +37,19 @@
    "pct": 19.4
   },
   "dispatch_surface": {
-   "matched": 24,
+   "matched": 25,
    "n": 159,
-   "pct": 15.1
+   "pct": 15.7
   },
   "tomtom_highway": {
    "matched": 14,
-   "n": 445,
+   "n": 454,
    "pct": 3.1
   },
   "tomtom_surface": {
-   "matched": 24,
-   "n": 528,
-   "pct": 4.5
+   "matched": 25,
+   "n": 565,
+   "pct": 4.4
   }
  },
  "matcher": {
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 88.5,
-  "median": 7.8,
+  "median": 5.0,
   "min": -79.6,
-  "n": 36,
-  "q1": -22.6,
-  "q3": 47.2
+  "n": 37,
+  "q1": -22.0,
+  "q3": 40.8
  },
  "persistence_min": {
   "max": 45.7,
   "median": -15.2,
   "min": -926.4,
-  "n": 34,
-  "q1": -97.5,
+  "n": 35,
+  "q1": -96.2,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 832,
+  "hotspot_buckets": 875,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 880
+  "unreported_congestion": 925
  },
  "sampling": {
   "flow_spent_this_month": 7982,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1384,
+  "incidents_spent_this_month": 1385,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 84.2,
-  "tomtom": 96.1
+  "dispatch": 83.7,
+  "tomtom": 96.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 190,
-  "neither": 160,
-  "tomtom_only": 30
+  "neither": 159,
+  "tomtom_only": 31
  }
 }
