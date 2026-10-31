@@ -14,17 +14,17 @@
   "here": 0,
   "here_matched": 0,
   "matched": 29,
-  "tomtom": 649,
-  "tomtom_only": 620
+  "tomtom": 663,
+  "tomtom_only": 634
  },
  "date": "2026-10-31",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 115.8,
+  "median": 115.9,
   "min": 2.8,
-  "n": 101,
-  "q1": 60.7,
+  "n": 102,
+  "q1": 62.3,
   "q3": 118.4
  },
  "here_onset_offset_min": {
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 12,
-   "n": 300,
+   "n": 302,
    "pct": 4.0
   },
   "tomtom_surface": {
    "matched": 17,
-   "n": 349,
-   "pct": 4.9
+   "n": 361,
+   "pct": 4.7
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 534,
+  "hotspot_buckets": 546,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 570
+  "unreported_congestion": 584
  },
  "sampling": {
   "flow_spent_this_month": 7820,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1374,
+  "incidents_spent_this_month": 1375,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -130,6 +130,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.169,-97.623"
+  },
+  {
+   "from": "E 7th St",
+   "hour_of_week": 127,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.264,-97.728"
   },
   {
    "from": "W Martin Luther King Jr Blvd",
@@ -207,18 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.279,-97.753"
-  },
-  {
-   "from": "Pearl St",
-   "hour_of_week": 123,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.285,-97.744"
   }
  ],
  "unmatched_pct": {
   "dispatch": 77.7,
-  "tomtom": 95.5
+  "tomtom": 95.6
  },
  "witnesses": {
   "both": 0,
