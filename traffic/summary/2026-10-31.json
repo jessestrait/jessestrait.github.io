@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 93,
-  "dispatch_only": 73,
+  "dispatch": 95,
+  "dispatch_only": 75,
   "here": 0,
   "here_matched": 0,
   "matched": 24,
@@ -33,13 +33,13 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 4,
-   "n": 19,
-   "pct": 21.1
+   "n": 20,
+   "pct": 20.0
   },
   "dispatch_surface": {
    "matched": 16,
-   "n": 74,
-   "pct": 21.6
+   "n": 75,
+   "pct": 21.3
   },
   "tomtom_highway": {
    "matched": 10,
@@ -111,18 +111,18 @@
  },
  "structural_hotspots": [
   {
-   "from": "Buenos Aires Pkwy",
-   "hour_of_week": 15,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.169,-97.623"
-  },
-  {
    "from": "E 7th St",
    "hour_of_week": 124,
    "n": 3,
    "roadworks": false,
    "seg": "30.265,-97.729"
+  },
+  {
+   "from": "Buenos Aires Pkwy",
+   "hour_of_week": 15,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.169,-97.623"
   },
   {
    "from": "W Martin Luther King Jr Blvd",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.5,
+  "dispatch": 78.9,
   "tomtom": 96.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 93,
-  "neither": 73,
+  "n": 95,
+  "neither": 75,
   "tomtom_only": 20
  }
 }
