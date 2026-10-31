@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 87,
-  "dispatch_only": 68,
+  "dispatch": 89,
+  "dispatch_only": 70,
   "here": 0,
   "here_matched": 0,
   "matched": 21,
@@ -20,12 +20,12 @@
  "date": "2026-10-31",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
-  "max": 119.3,
-  "median": 73.6,
+  "max": 119.5,
+  "median": 89.7,
   "min": 2.8,
-  "n": 56,
-  "q1": 31.4,
-  "q3": 116.0
+  "n": 59,
+  "q1": 31.9,
+  "q3": 116.2
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,8 +38,8 @@
   },
   "dispatch_surface": {
    "matched": 16,
-   "n": 68,
-   "pct": 23.5
+   "n": 70,
+   "pct": 22.9
   },
   "tomtom_highway": {
    "matched": 9,
@@ -69,8 +69,8 @@
  "persistence_min": {
   "max": 0.0,
   "median": 0.0,
-  "min": -15.1,
-  "n": 14,
+  "min": -91.1,
+  "n": 15,
   "q1": 0.0,
   "q3": 0.0
  },
@@ -195,6 +195,13 @@
    "seg": "30.285,-97.744"
   },
   {
+   "from": "Pearl St",
+   "hour_of_week": 123,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.284,-97.743"
+  },
+  {
    "from": "Mopac Expy S",
    "hour_of_week": 108,
    "n": 2,
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.448,-97.631"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 18,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.320,-97.706"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.2,
+  "dispatch": 78.7,
   "tomtom": 96.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 87,
-  "neither": 68,
+  "n": 89,
+  "neither": 70,
   "tomtom_only": 19
  }
 }
