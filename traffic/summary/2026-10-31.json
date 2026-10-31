@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 169,
-  "dispatch_only": 140,
+  "dispatch": 182,
+  "dispatch_only": 152,
   "here": 0,
   "here_matched": 0,
-  "matched": 35,
-  "tomtom": 903,
-  "tomtom_only": 866
+  "matched": 36,
+  "tomtom": 973,
+  "tomtom_only": 935
  },
  "date": "2026-10-31",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 115.8,
+  "median": 115.6,
   "min": 2.8,
-  "n": 158,
-  "q1": 63.5,
-  "q3": 118.2
+  "n": 169,
+  "q1": 58.0,
+  "q3": 117.9
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,19 +37,19 @@
    "pct": 20.0
   },
   "dispatch_surface": {
-   "matched": 23,
-   "n": 139,
-   "pct": 16.5
+   "matched": 24,
+   "n": 152,
+   "pct": 15.8
   },
   "tomtom_highway": {
    "matched": 14,
-   "n": 419,
-   "pct": 3.3
+   "n": 445,
+   "pct": 3.1
   },
   "tomtom_surface": {
-   "matched": 23,
-   "n": 484,
-   "pct": 4.8
+   "matched": 24,
+   "n": 528,
+   "pct": 4.5
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 88.5,
-  "median": 5.0,
+  "median": 7.8,
   "min": -79.6,
-  "n": 35,
-  "q1": -23.1,
-  "q3": 27.9
+  "n": 36,
+  "q1": -22.6,
+  "q3": 47.2
  },
  "persistence_min": {
   "max": 45.7,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 768,
+  "hotspot_buckets": 832,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 813
+  "unreported_congestion": 880
  },
  "sampling": {
-  "flow_spent_this_month": 7955,
+  "flow_spent_this_month": 7964,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1383,
+  "incidents_spent_this_month": 1384,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -137,6 +137,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.169,-97.623"
+  },
+  {
+   "from": "River St",
+   "hour_of_week": 142,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.258,-97.739"
   },
   {
    "from": "W Martin Luther King Jr Blvd",
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.284,-97.743"
-  },
-  {
-   "from": "Pearl St",
-   "hour_of_week": 123,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.285,-97.744"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.8,
-  "tomtom": 95.9
+  "dispatch": 83.5,
+  "tomtom": 96.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 169,
-  "neither": 140,
-  "tomtom_only": 29
+  "n": 182,
+  "neither": 152,
+  "tomtom_only": 30
  }
 }
