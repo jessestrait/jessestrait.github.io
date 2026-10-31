@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 86,
-  "dispatch_only": 69,
+  "dispatch": 87,
+  "dispatch_only": 68,
   "here": 0,
   "here_matched": 0,
-  "matched": 18,
-  "tomtom": 528,
-  "tomtom_only": 511
+  "matched": 21,
+  "tomtom": 559,
+  "tomtom_only": 539
  },
  "date": "2026-10-31",
  "dispatch_life_capped": false,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 2,
+   "matched": 3,
    "n": 19,
-   "pct": 10.5
+   "pct": 15.8
   },
   "dispatch_surface": {
-   "matched": 15,
-   "n": 67,
-   "pct": 22.4
+   "matched": 16,
+   "n": 68,
+   "pct": 23.5
   },
   "tomtom_highway": {
-   "matched": 8,
-   "n": 265,
-   "pct": 3.0
+   "matched": 9,
+   "n": 272,
+   "pct": 3.3
   },
   "tomtom_surface": {
-   "matched": 9,
-   "n": 263,
-   "pct": 3.4
+   "matched": 11,
+   "n": 287,
+   "pct": 3.8
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 56.5,
-  "median": -1.1,
+  "median": 3.7,
   "min": -79.6,
-  "n": 18,
-  "q1": -30.1,
-  "q3": 14.1
+  "n": 21,
+  "q1": -20.9,
+  "q3": 22.5
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 443,
+  "hotspot_buckets": 468,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 464
+  "unreported_congestion": 490
  },
  "sampling": {
   "flow_spent_this_month": 7784,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1369,
+  "incidents_spent_this_month": 1370,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -174,25 +174,25 @@
    "seg": "30.285,-97.744"
   },
   {
-   "from": "San Gabriel St",
+   "from": "W Martin Luther King Jr Blvd (Rio Grande St)",
    "hour_of_week": 122,
    "n": 2,
    "roadworks": false,
-   "seg": "30.287,-97.746"
+   "seg": "30.286,-97.745"
+  },
+  {
+   "from": "Whitis Ave",
+   "hour_of_week": 122,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.284,-97.743"
   },
   {
    "from": "Pearl St",
-   "hour_of_week": 122,
+   "hour_of_week": 123,
    "n": 2,
    "roadworks": false,
    "seg": "30.285,-97.744"
-  },
-  {
-   "from": "San Gabriel St",
-   "hour_of_week": 122,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.286,-97.746"
   },
   {
    "from": "Mopac Expy S",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.2,
-  "tomtom": 96.8
+  "dispatch": 78.2,
+  "tomtom": 96.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 86,
-  "neither": 69,
-  "tomtom_only": 17
+  "n": 87,
+  "neither": 68,
+  "tomtom_only": 19
  }
 }
