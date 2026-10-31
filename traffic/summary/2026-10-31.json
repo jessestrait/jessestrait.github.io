@@ -10,22 +10,22 @@
  ],
  "counts": {
   "dispatch": 77,
-  "dispatch_only": 61,
+  "dispatch_only": 60,
   "here": 0,
   "here_matched": 0,
-  "matched": 16,
-  "tomtom": 499,
-  "tomtom_only": 484
+  "matched": 17,
+  "tomtom": 528,
+  "tomtom_only": 512
  },
  "date": "2026-10-31",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.3,
-  "median": 57.1,
+  "median": 57.6,
   "min": 2.8,
-  "n": 48,
-  "q1": 30.1,
-  "q3": 113.6
+  "n": 49,
+  "q1": 30.4,
+  "q3": 115.1
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,18 +37,18 @@
    "pct": 11.1
   },
   "dispatch_surface": {
-   "matched": 14,
+   "matched": 15,
    "n": 59,
-   "pct": 23.7
+   "pct": 25.4
   },
   "tomtom_highway": {
    "matched": 8,
-   "n": 262,
-   "pct": 3.1
+   "n": 265,
+   "pct": 3.0
   },
   "tomtom_surface": {
-   "matched": 7,
-   "n": 237,
+   "matched": 8,
+   "n": 263,
    "pct": 3.0
   }
  },
@@ -60,17 +60,17 @@
  },
  "onset_offset_min": {
   "max": 56.5,
-  "median": -3.2,
+  "median": -3.1,
   "min": -79.6,
-  "n": 16,
-  "q1": -44.0,
-  "q3": 9.4
+  "n": 17,
+  "q1": -37.0,
+  "q3": 11.9
  },
  "persistence_min": {
   "max": 0.0,
   "median": 0.0,
-  "min": 0.0,
-  "n": 13,
+  "min": -15.1,
+  "n": 14,
   "q1": 0.0,
   "q3": 0.0
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 419,
+  "hotspot_buckets": 443,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 437
+  "unreported_congestion": 465
  },
  "sampling": {
   "flow_spent_this_month": 7775,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1368,
+  "incidents_spent_this_month": 1369,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -174,6 +174,13 @@
    "seg": "30.285,-97.744"
   },
   {
+   "from": "Rio Grande St",
+   "hour_of_week": 122,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.287,-97.746"
+  },
+  {
    "from": "Mopac Expy S",
    "hour_of_week": 108,
    "n": 2,
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.234,-97.736"
-  },
-  {
-   "from": "Ramirez Ln",
-   "hour_of_week": 112,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.244,-97.663"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 79.2,
+  "dispatch": 77.9,
   "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 77,
-  "neither": 61,
-  "tomtom_only": 16
+  "neither": 60,
+  "tomtom_only": 17
  }
 }
