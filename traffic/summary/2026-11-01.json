@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 17,
-  "dispatch_only": 16,
+  "dispatch_only": 15,
   "here": 0,
   "here_matched": 0,
-  "matched": 1,
-  "tomtom": 191,
-  "tomtom_only": 190
+  "matched": 3,
+  "tomtom": 238,
+  "tomtom_only": 235
  },
  "date": "2026-11-01",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 1,
+   "matched": 2,
    "n": 15,
-   "pct": 6.7
+   "pct": 13.3
   },
   "tomtom_highway": {
-   "matched": 0,
-   "n": 60,
-   "pct": 0.0
+   "matched": 1,
+   "n": 68,
+   "pct": 1.5
   },
   "tomtom_surface": {
-   "matched": 1,
-   "n": 131,
-   "pct": 0.8
+   "matched": 2,
+   "n": 170,
+   "pct": 1.2
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": -3.5,
-  "median": -3.5,
+  "max": 7.9,
+  "median": 3.5,
   "min": -3.5,
-  "n": 1,
+  "n": 3,
   "q1": -3.5,
-  "q3": -3.5
+  "q3": 7.9
  },
  "persistence_min": {
   "n": 0
@@ -84,15 +84,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 157,
+  "hotspot_buckets": 201,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 168
+  "unreported_congestion": 213
  },
  "sampling": {
-  "flow_spent_this_month": 0,
+  "flow_spent_this_month": 9,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 0,
+  "incidents_spent_this_month": 1,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -113,18 +113,18 @@
    "seg": "30.169,-97.623"
   },
   {
-   "from": "Venado Dr",
+   "from": "Greystone Dr",
    "hour_of_week": 143,
    "n": 2,
    "roadworks": false,
    "seg": "30.364,-97.770"
   },
   {
-   "from": "W Martin Luther King Jr Blvd (Rio Grande St)",
+   "from": "San Gabriel St",
    "hour_of_week": 143,
    "n": 2,
    "roadworks": false,
-   "seg": "30.286,-97.745"
+   "seg": "30.287,-97.745"
   },
   {
    "from": "Mopac Expy S",
@@ -176,18 +176,18 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "Zach Scott St",
+   "hour_of_week": 143,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.295,-97.703"
+  },
+  {
    "from": "N Lake Creek Pkwy",
    "hour_of_week": 143,
    "n": 1,
    "roadworks": false,
    "seg": "30.476,-97.794"
-  },
-  {
-   "from": "Danwood Dr",
-   "hour_of_week": 143,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.428,-97.776"
   },
   {
    "from": "Bunny Run",
@@ -212,14 +212,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 94.1,
-  "tomtom": 99.5
+  "dispatch": 88.2,
+  "tomtom": 98.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 17,
-  "neither": 16,
-  "tomtom_only": 1
+  "neither": 15,
+  "tomtom_only": 2
  }
 }
