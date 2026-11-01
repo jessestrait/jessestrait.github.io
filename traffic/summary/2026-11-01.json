@@ -13,19 +13,19 @@
   "dispatch_only": 17,
   "here": 0,
   "here_matched": 0,
-  "matched": 6,
-  "tomtom": 238,
-  "tomtom_only": 232
+  "matched": 7,
+  "tomtom": 307,
+  "tomtom_only": 300
  },
  "date": "2026-11-01",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 116.3,
+  "median": 116.5,
   "min": 114.0,
-  "n": 5,
-  "q1": 115.1,
-  "q3": 118.4
+  "n": 6,
+  "q1": 115.7,
+  "q3": 117.7
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 1,
-   "n": 68,
-   "pct": 1.5
+   "n": 81,
+   "pct": 1.2
   },
   "tomtom_surface": {
-   "matched": 5,
-   "n": 170,
-   "pct": 2.9
+   "matched": 6,
+   "n": 226,
+   "pct": 2.7
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 47.0,
-  "median": 0.0,
+  "median": -3.5,
   "min": -58.1,
-  "n": 6,
-  "q1": -45.2,
-  "q3": 17.7
+  "n": 7,
+  "q1": -47.4,
+  "q3": 7.9
  },
  "persistence_min": {
   "n": 0
@@ -84,15 +84,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 198,
+  "hotspot_buckets": 263,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 210
+  "unreported_congestion": 278
  },
  "sampling": {
-  "flow_spent_this_month": 18,
+  "flow_spent_this_month": 27,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1,
+  "incidents_spent_this_month": 2,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -113,13 +113,6 @@
    "seg": "30.169,-97.623"
   },
   {
-   "from": "Greystone Dr",
-   "hour_of_week": 143,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.364,-97.770"
-  },
-  {
    "from": "San Gabriel St",
    "hour_of_week": 143,
    "n": 2,
@@ -127,11 +120,25 @@
    "seg": "30.287,-97.745"
   },
   {
-   "from": "Mc Bee St / McBee St",
-   "hour_of_week": 143,
+   "from": "Melridge Pl / Ashby Ave",
+   "hour_of_week": 144,
    "n": 2,
    "roadworks": false,
-   "seg": "30.295,-97.703"
+   "seg": "30.253,-97.773"
+  },
+  {
+   "from": "Guadalupe St / W 27th St",
+   "hour_of_week": 144,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.290,-97.740"
+  },
+  {
+   "from": "Gochman St",
+   "hour_of_week": 144,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.295,-97.705"
   },
   {
    "from": "Mopac Expy S",
@@ -183,37 +190,30 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "Cesar Chavez St exit [234A]",
+   "hour_of_week": 144,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.262,-97.736"
+  },
+  {
+   "from": "Ausblick Ave",
+   "hour_of_week": 144,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.150,-97.720"
+  },
+  {
    "from": "N Lake Creek Pkwy",
    "hour_of_week": 143,
    "n": 1,
    "roadworks": false,
    "seg": "30.476,-97.794"
-  },
-  {
-   "from": "Bunny Run",
-   "hour_of_week": 143,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.340,-97.804"
-  },
-  {
-   "from": "Duval Rd",
-   "hour_of_week": 143,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.419,-97.739"
-  },
-  {
-   "from": "Burnet Rd / Rosalind Way",
-   "hour_of_week": 143,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.403,-97.721"
   }
  ],
  "unmatched_pct": {
   "dispatch": 81.0,
-  "tomtom": 97.5
+  "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
