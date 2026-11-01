@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 15,
-  "tomtom": 438,
-  "tomtom_only": 423
+  "tomtom": 440,
+  "tomtom_only": 425
  },
  "date": "2026-11-01",
  "dispatch_life_capped": true,
@@ -43,8 +43,8 @@
   },
   "tomtom_highway": {
    "matched": 7,
-   "n": 123,
-   "pct": 5.7
+   "n": 125,
+   "pct": 5.6
   },
   "tomtom_surface": {
    "matched": 8,
@@ -93,12 +93,12 @@
   "hotspot_buckets": 379,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 394
+  "unreported_congestion": 395
  },
  "sampling": {
   "flow_spent_this_month": 90,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 7,
+  "incidents_spent_this_month": 8,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -161,6 +161,13 @@
    "seg": "30.331,-97.705"
   },
   {
+   "from": "Berrywood Dr/Meadow Lark Ave (I-35)",
+   "hour_of_week": 164,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.385,-97.673"
+  },
+  {
    "from": "Mopac Expy S",
    "hour_of_week": 108,
    "n": 2,
@@ -208,13 +215,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 143,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.476,-97.794"
   }
  ],
  "unmatched_pct": {
