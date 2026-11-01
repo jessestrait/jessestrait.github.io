@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 71,
-  "dispatch_only": 61,
+  "dispatch_only": 60,
   "here": 0,
   "here_matched": 0,
-  "matched": 16,
-  "tomtom": 444,
-  "tomtom_only": 428
+  "matched": 17,
+  "tomtom": 446,
+  "tomtom_only": 429
  },
  "date": "2026-11-01",
  "dispatch_life_capped": true,
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 4,
+   "matched": 5,
    "n": 15,
-   "pct": 26.7
+   "pct": 33.3
   },
   "dispatch_surface": {
    "matched": 6,
@@ -42,13 +42,13 @@
    "pct": 10.7
   },
   "tomtom_highway": {
-   "matched": 8,
-   "n": 125,
-   "pct": 6.4
+   "matched": 9,
+   "n": 126,
+   "pct": 7.1
   },
   "tomtom_surface": {
    "matched": 8,
-   "n": 319,
+   "n": 320,
    "pct": 2.5
   }
  },
@@ -62,9 +62,9 @@
   "max": 47.0,
   "median": -2.3,
   "min": -58.1,
-  "n": 16,
-  "q1": -27.3,
-  "q3": 27.7
+  "n": 17,
+  "q1": -27.1,
+  "q3": 26.6
  },
  "persistence_min": {
   "max": 10.3,
@@ -93,12 +93,12 @@
   "hotspot_buckets": 382,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 399
+  "unreported_congestion": 400
  },
  "sampling": {
   "flow_spent_this_month": 153,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 10,
+  "incidents_spent_this_month": 11,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -161,6 +161,13 @@
    "seg": "30.331,-97.705"
   },
   {
+   "from": "Enfield Rd",
+   "hour_of_week": 91,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.279,-97.753"
+  },
+  {
    "from": "Berrywood Dr/Meadow Lark Ave (I-35)",
    "hour_of_week": 164,
    "n": 2,
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.234,-97.736"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.148,-97.704"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.9,
-  "tomtom": 96.4
+  "dispatch": 84.5,
+  "tomtom": 96.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 71,
-  "neither": 61,
-  "tomtom_only": 10
+  "neither": 60,
+  "tomtom_only": 11
  }
 }
