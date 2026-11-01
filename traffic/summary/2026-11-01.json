@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 31,
+  "dispatch": 32,
   "dispatch_only": 25,
   "here": 0,
   "here_matched": 0,
-  "matched": 10,
-  "tomtom": 358,
-  "tomtom_only": 348
+  "matched": 12,
+  "tomtom": 420,
+  "tomtom_only": 408
  },
  "date": "2026-11-01",
  "dispatch_life_capped": true,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 2,
+   "matched": 3,
    "n": 7,
-   "pct": 28.6
+   "pct": 42.9
   },
   "dispatch_surface": {
    "matched": 4,
-   "n": 24,
-   "pct": 16.7
+   "n": 25,
+   "pct": 16.0
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 92,
-   "pct": 4.3
+   "matched": 6,
+   "n": 111,
+   "pct": 5.4
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 266,
-   "pct": 2.3
+   "n": 309,
+   "pct": 1.9
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 47.0,
-  "median": 0.0,
+  "median": 5.7,
   "min": -58.1,
-  "n": 10,
-  "q1": -42.5,
-  "q3": 25.5
+  "n": 12,
+  "q1": -37.6,
+  "q3": 30.4
  },
  "persistence_min": {
-  "max": -67.1,
-  "median": -79.7,
+  "max": -35.4,
+  "median": -67.1,
   "min": -107.8,
-  "n": 4,
-  "q1": -103.9,
-  "q3": -67.1,
+  "n": 6,
+  "q1": -96.2,
+  "q3": -35.4,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 311,
+  "hotspot_buckets": 370,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 326
+  "unreported_congestion": 385
  },
  "sampling": {
   "flow_spent_this_month": 36,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 3,
+  "incidents_spent_this_month": 4,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -147,15 +147,8 @@
    "seg": "30.295,-97.705"
   },
   {
-   "from": "W Martin Luther King Jr Blvd (Rio Grande St)",
-   "hour_of_week": 145,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.286,-97.745"
-  },
-  {
    "from": "Congress Ave (W 5th St)",
-   "hour_of_week": 145,
+   "hour_of_week": 146,
    "n": 2,
    "roadworks": false,
    "seg": "30.266,-97.738"
@@ -210,6 +203,13 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "E 7th St",
+   "hour_of_week": 146,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.263,-97.726"
+  },
+  {
    "from": "N Lake Creek Pkwy",
    "hour_of_week": 143,
    "n": 1,
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.6,
-  "tomtom": 97.2
+  "dispatch": 78.1,
+  "tomtom": 97.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 31,
+  "n": 32,
   "neither": 25,
-  "tomtom_only": 6
+  "tomtom_only": 7
  }
 }
