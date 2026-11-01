@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 75 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 114, q3 119 min over 81 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 81,
-  "dispatch_only": 70,
+  "dispatch": 92,
+  "dispatch_only": 79,
   "here": 0,
   "here_matched": 0,
-  "matched": 17,
-  "tomtom": 470,
-  "tomtom_only": 453
+  "matched": 19,
+  "tomtom": 502,
+  "tomtom_only": 483
  },
  "date": "2026-11-01",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 117.2,
-  "min": 12.8,
-  "n": 75,
-  "q1": 115.8,
+  "median": 117.1,
+  "min": 6.0,
+  "n": 81,
+  "q1": 114.4,
   "q3": 118.6
  },
  "here_onset_offset_min": {
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 5,
-   "n": 16,
-   "pct": 31.2
+   "matched": 6,
+   "n": 18,
+   "pct": 33.3
   },
   "dispatch_surface": {
-   "matched": 6,
-   "n": 65,
-   "pct": 9.2
+   "matched": 7,
+   "n": 74,
+   "pct": 9.5
   },
   "tomtom_highway": {
-   "matched": 9,
-   "n": 136,
-   "pct": 6.6
+   "matched": 10,
+   "n": 153,
+   "pct": 6.5
   },
   "tomtom_surface": {
-   "matched": 8,
-   "n": 334,
-   "pct": 2.4
+   "matched": 9,
+   "n": 349,
+   "pct": 2.6
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 47.0,
+  "max": 70.1,
   "median": -2.3,
   "min": -58.1,
-  "n": 17,
-  "q1": -27.1,
-  "q3": 26.6
+  "n": 19,
+  "q1": -26.5,
+  "q3": 28.8
  },
  "persistence_min": {
   "max": 10.3,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 405,
+  "hotspot_buckets": 431,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 423
+  "unreported_congestion": 452
  },
  "sampling": {
-  "flow_spent_this_month": 225,
+  "flow_spent_this_month": 234,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 14,
+  "incidents_spent_this_month": 15,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
+  {
+   "from": "Enfield Rd",
+   "hour_of_week": 91,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.279,-97.753"
+  },
   {
    "from": "Buenos Aires Pkwy",
    "hour_of_week": 15,
@@ -147,6 +154,13 @@
    "seg": "30.295,-97.705"
   },
   {
+   "from": "W Braker Ln",
+   "hour_of_week": 13,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.394,-97.717"
+  },
+  {
    "from": "Concho St / East Ave",
    "hour_of_week": 146,
    "n": 2,
@@ -159,13 +173,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.331,-97.705"
-  },
-  {
-   "from": "Enfield Rd",
-   "hour_of_week": 91,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.279,-97.753"
   },
   {
    "from": "Berrywood Dr/Meadow Lark Ave (I-35)",
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.300,-97.703"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.234,-97.736"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.4,
-  "tomtom": 96.4
+  "dispatch": 85.9,
+  "tomtom": 96.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 81,
-  "neither": 70,
-  "tomtom_only": 11
+  "n": 92,
+  "neither": 79,
+  "tomtom_only": 13
  }
 }
