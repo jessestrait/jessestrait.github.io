@@ -13,18 +13,18 @@
   "dispatch_only": 15,
   "here": 0,
   "here_matched": 0,
-  "matched": 3,
+  "matched": 4,
   "tomtom": 238,
-  "tomtom_only": 235
+  "tomtom_only": 234
  },
  "date": "2026-11-01",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 119.7,
-  "min": 119.7,
-  "n": 1,
-  "q1": 119.7,
+  "median": 118.0,
+  "min": 116.3,
+  "n": 2,
+  "q1": 116.3,
   "q3": 119.7
  },
  "here_onset_offset_min": {
@@ -47,9 +47,9 @@
    "pct": 1.5
   },
   "tomtom_surface": {
-   "matched": 2,
+   "matched": 3,
    "n": 170,
-   "pct": 1.2
+   "pct": 1.8
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 7.9,
-  "median": 3.5,
+  "max": 47.0,
+  "median": 5.7,
   "min": -3.5,
-  "n": 3,
-  "q1": -3.5,
-  "q3": 7.9
+  "n": 4,
+  "q1": -1.8,
+  "q3": 37.2
  },
  "persistence_min": {
   "n": 0
@@ -84,10 +84,10 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 201,
+  "hotspot_buckets": 200,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 213
+  "unreported_congestion": 212
  },
  "sampling": {
   "flow_spent_this_month": 9,
@@ -125,6 +125,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.287,-97.745"
+  },
+  {
+   "from": "Mc Bee St / McBee St",
+   "hour_of_week": 143,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.295,-97.703"
   },
   {
    "from": "Mopac Expy S",
@@ -176,13 +183,6 @@
    "seg": "30.179,-97.616"
   },
   {
-   "from": "Zach Scott St",
-   "hour_of_week": 143,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.295,-97.703"
-  },
-  {
    "from": "N Lake Creek Pkwy",
    "hour_of_week": 143,
    "n": 1,
@@ -213,7 +213,7 @@
  ],
  "unmatched_pct": {
   "dispatch": 88.2,
-  "tomtom": 98.7
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
