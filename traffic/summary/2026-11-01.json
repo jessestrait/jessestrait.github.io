@@ -9,32 +9,32 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 22,
+  "dispatch": 23,
   "dispatch_only": 18,
   "here": 0,
   "here_matched": 0,
-  "matched": 7,
+  "matched": 8,
   "tomtom": 307,
-  "tomtom_only": 300
+  "tomtom_only": 299
  },
  "date": "2026-11-01",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 116.9,
+  "median": 117.1,
   "min": 114.0,
-  "n": 10,
-  "q1": 116.1,
-  "q3": 119.1
+  "n": 13,
+  "q1": 116.2,
+  "q3": 118.5
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 0,
-   "n": 3,
-   "pct": 0.0
+   "matched": 1,
+   "n": 4,
+   "pct": 25.0
   },
   "dispatch_surface": {
    "matched": 4,
@@ -42,9 +42,9 @@
    "pct": 21.1
   },
   "tomtom_highway": {
-   "matched": 1,
+   "matched": 2,
    "n": 81,
-   "pct": 1.2
+   "pct": 2.5
   },
   "tomtom_surface": {
    "matched": 6,
@@ -60,14 +60,19 @@
  },
  "onset_offset_min": {
   "max": 47.0,
-  "median": -3.5,
+  "median": -15.6,
   "min": -58.1,
-  "n": 7,
-  "q1": -47.4,
-  "q3": 7.9
+  "n": 8,
+  "q1": -45.8,
+  "q3": 6.8
  },
  "persistence_min": {
-  "n": 0
+  "max": -67.1,
+  "median": -67.1,
+  "min": -92.3,
+  "n": 3,
+  "q1": -92.3,
+  "q3": -67.1
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -84,10 +89,10 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 263,
+  "hotspot_buckets": 262,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 278
+  "unreported_congestion": 277
  },
  "sampling": {
   "flow_spent_this_month": 27,
@@ -212,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.8,
-  "tomtom": 97.7
+  "dispatch": 78.3,
+  "tomtom": 97.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 22,
+  "n": 23,
   "neither": 18,
-  "tomtom_only": 4
+  "tomtom_only": 5
  }
 }
