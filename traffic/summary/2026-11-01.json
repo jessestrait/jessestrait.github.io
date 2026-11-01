@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 24,
+  "dispatch": 25,
   "dispatch_only": 19,
   "here": 0,
   "here_matched": 0,
-  "matched": 8,
-  "tomtom": 307,
-  "tomtom_only": 299
+  "matched": 10,
+  "tomtom": 358,
+  "tomtom_only": 348
  },
  "date": "2026-11-01",
  "dispatch_life_capped": false,
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
-   "n": 4,
-   "pct": 25.0
+   "matched": 2,
+   "n": 5,
+   "pct": 40.0
   },
   "dispatch_surface": {
    "matched": 4,
@@ -42,14 +42,14 @@
    "pct": 20.0
   },
   "tomtom_highway": {
-   "matched": 2,
-   "n": 81,
-   "pct": 2.5
+   "matched": 4,
+   "n": 92,
+   "pct": 4.3
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 226,
-   "pct": 2.7
+   "n": 266,
+   "pct": 2.3
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 47.0,
-  "median": -15.6,
+  "median": 0.0,
   "min": -58.1,
-  "n": 8,
-  "q1": -45.8,
-  "q3": 6.8
+  "n": 10,
+  "q1": -42.5,
+  "q3": 25.5
  },
  "persistence_min": {
   "max": -67.1,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 262,
+  "hotspot_buckets": 311,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 277
+  "unreported_congestion": 326
  },
  "sampling": {
   "flow_spent_this_month": 27,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 2,
+  "incidents_spent_this_month": 3,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -139,13 +139,6 @@
    "seg": "30.290,-97.740"
   },
   {
-   "from": "E 6th St (I-35)",
-   "hour_of_week": 144,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.262,-97.736"
-  },
-  {
    "from": "Littlefield St",
    "hour_of_week": 144,
    "n": 2,
@@ -153,11 +146,11 @@
    "seg": "30.295,-97.705"
   },
   {
-   "from": "Ausblick Ave",
-   "hour_of_week": 144,
+   "from": "I-35 (E 5th St)",
+   "hour_of_week": 145,
    "n": 2,
    "roadworks": false,
-   "seg": "30.150,-97.720"
+   "seg": "30.266,-97.738"
   },
   {
    "from": "Mopac Expy S",
@@ -209,6 +202,13 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "Pearl St",
+   "hour_of_week": 145,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.286,-97.745"
+  },
+  {
    "from": "N Lake Creek Pkwy",
    "hour_of_week": 143,
    "n": 1,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 79.2,
-  "tomtom": 97.4
+  "dispatch": 76.0,
+  "tomtom": 97.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 24,
+  "n": 25,
   "neither": 19,
-  "tomtom_only": 5
+  "tomtom_only": 6
  }
 }
