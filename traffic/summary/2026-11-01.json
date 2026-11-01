@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 15,
-  "tomtom": 437,
-  "tomtom_only": 422
+  "tomtom": 438,
+  "tomtom_only": 423
  },
  "date": "2026-11-01",
  "dispatch_life_capped": true,
@@ -43,7 +43,7 @@
   },
   "tomtom_highway": {
    "matched": 7,
-   "n": 122,
+   "n": 123,
    "pct": 5.7
   },
   "tomtom_surface": {
@@ -90,7 +90,7 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 378,
+  "hotspot_buckets": 379,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
   "unreported_congestion": 394
@@ -98,7 +98,7 @@
  "sampling": {
   "flow_spent_this_month": 72,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 6,
+  "incidents_spent_this_month": 7,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -145,13 +145,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.295,-97.705"
-  },
-  {
-   "from": "W Braker Ln",
-   "hour_of_week": 13,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.394,-97.717"
   },
   {
    "from": "Concho St / East Ave",
@@ -215,6 +208,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
+  },
+  {
+   "from": "N Lake Creek Pkwy",
+   "hour_of_week": 143,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.476,-97.794"
   }
  ],
  "unmatched_pct": {
