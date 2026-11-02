@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 35,
-  "dispatch_only": 33,
+  "dispatch": 38,
+  "dispatch_only": 36,
   "here": 0,
   "here_matched": 0,
   "matched": 4,
-  "tomtom": 594,
-  "tomtom_only": 590
+  "tomtom": 636,
+  "tomtom_only": 632
  },
  "date": "2026-11-02",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 29,
-   "pct": 3.4
+   "n": 32,
+   "pct": 3.1
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 311,
-   "pct": 1.3
+   "n": 336,
+   "pct": 1.2
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 283,
+   "n": 300,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 419,
+  "hotspot_buckets": 451,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 538
+  "unreported_congestion": 580
  },
  "sampling": {
   "flow_spent_this_month": 441,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 46,
+  "incidents_spent_this_month": 47,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -167,6 +167,20 @@
    "seg": "30.281,-97.729"
   },
   {
+   "from": "FM 685",
+   "hour_of_week": 13,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.500,-97.581"
+  },
+  {
+   "from": "E Starling Dr",
+   "hour_of_week": 13,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.365,-97.687"
+  },
+  {
    "from": "TX-21 (FM-535)",
    "hour_of_week": 12,
    "n": 2,
@@ -200,31 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.176,-97.889"
-  },
-  {
-   "from": "Braker Ln exit [243]",
-   "hour_of_week": 12,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.395,-97.672"
-  },
-  {
-   "from": "Lakeline Mall Dr",
-   "hour_of_week": 13,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.476,-97.793"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 94.3,
-  "tomtom": 99.3
+  "dispatch": 94.7,
+  "tomtom": 99.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 35,
-  "neither": 33,
+  "n": 38,
+  "neither": 36,
   "tomtom_only": 2
  }
 }
