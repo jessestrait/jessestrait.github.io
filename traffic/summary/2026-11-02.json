@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 4,
-  "tomtom": 207,
-  "tomtom_only": 203
+  "tomtom": 213,
+  "tomtom_only": 209
  },
  "date": "2026-11-02",
  "dispatch_life_capped": false,
@@ -43,8 +43,8 @@
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 110,
-   "pct": 3.6
+   "n": 116,
+   "pct": 3.4
   },
   "tomtom_surface": {
    "matched": 0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 162,
+  "hotspot_buckets": 165,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 174
+  "unreported_congestion": 178
  },
  "sampling": {
-  "flow_spent_this_month": 405,
+  "flow_spent_this_month": 414,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 33,
+  "incidents_spent_this_month": 34,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -137,6 +137,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.140,-97.565"
+  },
+  {
+   "from": "E 12th St",
+   "hour_of_week": 12,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.272,-97.732"
   },
   {
    "from": "Mopac Expy S",
@@ -207,13 +214,6 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.427,-97.671"
-  },
-  {
-   "from": "W Grady Dr (N Lamar Blvd)",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.367,-97.695"
   }
  ],
  "unmatched_pct": {
