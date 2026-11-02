@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 21,
-  "dispatch_only": 19,
+  "dispatch": 25,
+  "dispatch_only": 23,
   "here": 0,
   "here_matched": 0,
   "matched": 4,
-  "tomtom": 148,
-  "tomtom_only": 144
+  "tomtom": 152,
+  "tomtom_only": 148
  },
  "date": "2026-11-02",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 118.7,
-  "min": 117.2,
-  "n": 6,
-  "q1": 118.3,
-  "q3": 119.6
+  "median": 66.8,
+  "min": 7.7,
+  "n": 21,
+  "q1": 39.8,
+  "q3": 117.9
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,18 +33,18 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 3,
-   "pct": 33.3
+   "n": 4,
+   "pct": 25.0
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 18,
-   "pct": 5.6
+   "n": 21,
+   "pct": 4.8
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 61,
-   "pct": 6.6
+   "n": 65,
+   "pct": 6.2
   },
   "tomtom_surface": {
    "matched": 0,
@@ -67,7 +67,12 @@
   "q3": 31.8
  },
  "persistence_min": {
-  "n": 0
+  "max": -10.1,
+  "median": -10.1,
+  "min": -56.0,
+  "n": 4,
+  "q1": -44.5,
+  "q3": -10.1
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -84,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 117,
+  "hotspot_buckets": 119,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 126
+  "unreported_congestion": 128
  },
  "sampling": {
-  "flow_spent_this_month": 333,
+  "flow_spent_this_month": 342,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 20,
+  "incidents_spent_this_month": 21,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -212,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 90.5,
-  "tomtom": 97.3
+  "dispatch": 92.0,
+  "tomtom": 97.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 21,
-  "neither": 19,
+  "n": 25,
+  "neither": 23,
   "tomtom_only": 2
  }
 }
