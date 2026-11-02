@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 38,
-  "dispatch_only": 36,
+  "dispatch_only": 35,
   "here": 0,
   "here_matched": 0,
-  "matched": 4,
-  "tomtom": 636,
-  "tomtom_only": 632
+  "matched": 5,
+  "tomtom": 667,
+  "tomtom_only": 662
  },
  "date": "2026-11-02",
  "dispatch_life_capped": false,
@@ -37,18 +37,18 @@
    "pct": 16.7
   },
   "dispatch_surface": {
-   "matched": 1,
+   "matched": 2,
    "n": 32,
-   "pct": 3.1
+   "pct": 6.2
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 336,
-   "pct": 1.2
+   "matched": 5,
+   "n": 357,
+   "pct": 1.4
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 300,
+   "n": 310,
    "pct": 0.0
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 50.4,
-  "median": -40.8,
+  "median": -24.1,
   "min": -57.5,
-  "n": 4,
+  "n": 5,
   "q1": -57.5,
-  "q3": 31.8
+  "q3": 38.8
  },
  "persistence_min": {
   "max": -10.1,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 451,
+  "hotspot_buckets": 476,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 580
+  "unreported_congestion": 610
  },
  "sampling": {
   "flow_spent_this_month": 441,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 47,
+  "incidents_spent_this_month": 48,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -174,7 +174,7 @@
    "seg": "30.500,-97.581"
   },
   {
-   "from": "E Starling Dr",
+   "from": "Diamondback Trl",
    "hour_of_week": 13,
    "n": 3,
    "roadworks": false,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 94.7,
-  "tomtom": 99.4
+  "dispatch": 92.1,
+  "tomtom": 99.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 38,
-  "neither": 36,
-  "tomtom_only": 2
+  "neither": 35,
+  "tomtom_only": 3
  }
 }
