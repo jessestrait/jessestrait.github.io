@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 34,
-  "dispatch_only": 32,
+  "dispatch": 35,
+  "dispatch_only": 33,
   "here": 0,
   "here_matched": 0,
   "matched": 4,
-  "tomtom": 552,
-  "tomtom_only": 548
+  "tomtom": 594,
+  "tomtom_only": 590
  },
  "date": "2026-11-02",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 28,
-   "pct": 3.6
+   "n": 29,
+   "pct": 3.4
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 289,
-   "pct": 1.4
+   "n": 311,
+   "pct": 1.3
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 263,
+   "n": 283,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 380,
+  "hotspot_buckets": 419,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 496
+  "unreported_congestion": 538
  },
  "sampling": {
-  "flow_spent_this_month": 432,
+  "flow_spent_this_month": 441,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 45,
+  "incidents_spent_this_month": 46,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -195,13 +195,6 @@
    "seg": "30.390,-97.672"
   },
   {
-   "from": "E Martin Luther King Junior Blvd / FM 969 Rd",
-   "hour_of_week": 12,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.301,-97.661"
-  },
-  {
    "from": "Mopac Expy S",
    "hour_of_week": 108,
    "n": 2,
@@ -214,17 +207,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.395,-97.672"
+  },
+  {
+   "from": "Lakeline Mall Dr",
+   "hour_of_week": 13,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.476,-97.793"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 94.1,
+  "dispatch": 94.3,
   "tomtom": 99.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 34,
-  "neither": 32,
+  "n": 35,
+  "neither": 33,
   "tomtom_only": 2
  }
 }
