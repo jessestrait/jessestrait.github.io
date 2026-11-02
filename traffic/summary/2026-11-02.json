@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 4,
-  "tomtom": 173,
-  "tomtom_only": 169
+  "tomtom": 182,
+  "tomtom_only": 178
  },
  "date": "2026-11-02",
  "dispatch_life_capped": false,
@@ -43,8 +43,8 @@
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 80,
-   "pct": 5.0
+   "n": 89,
+   "pct": 4.5
   },
   "tomtom_surface": {
    "matched": 0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 135,
+  "hotspot_buckets": 141,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 144
+  "unreported_congestion": 152
  },
  "sampling": {
   "flow_spent_this_month": 396,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 26,
+  "incidents_spent_this_month": 27,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -107,7 +107,7 @@
    18
   ],
   "rush_min": 5,
-  "this_poll": "off-peak"
+  "this_poll": "rush"
  },
  "structural_hotspots": [
   {
@@ -116,6 +116,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.169,-97.623"
+  },
+  {
+   "from": "E 12th St",
+   "hour_of_week": 11,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.272,-97.732"
   },
   {
    "from": "Mopac Expy S",
@@ -167,6 +174,13 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "N Interstate 35",
+   "hour_of_week": 11,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.430,-97.671"
+  },
+  {
    "from": "FM-1325/Exit 250 (I-35)",
    "hour_of_week": 167,
    "n": 1,
@@ -200,25 +214,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.450,-97.590"
-  },
-  {
-   "from": "Congress Ave (1st St/State Spur 343/Cesar Chavez St)",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.262,-97.741"
-  },
-  {
-   "from": "Manor Rd (Overpass) (I-35)",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.279,-97.730"
   }
  ],
  "unmatched_pct": {
   "dispatch": 93.8,
-  "tomtom": 97.7
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
