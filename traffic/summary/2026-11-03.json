@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 137,
-  "dispatch_only": 116,
+  "dispatch": 138,
+  "dispatch_only": 117,
   "here": 0,
   "here_matched": 0,
   "matched": 25,
-  "tomtom": 646,
-  "tomtom_only": 620
+  "tomtom": 663,
+  "tomtom_only": 637
  },
  "date": "2026-11-03",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 15,
-   "n": 107,
-   "pct": 14.0
+   "n": 108,
+   "pct": 13.9
   },
   "tomtom_highway": {
    "matched": 19,
-   "n": 345,
-   "pct": 5.5
+   "n": 356,
+   "pct": 5.3
   },
   "tomtom_surface": {
    "matched": 7,
-   "n": 301,
+   "n": 307,
    "pct": 2.3
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 574,
+  "hotspot_buckets": 587,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 588
+  "unreported_congestion": 605
  },
  "sampling": {
   "flow_spent_this_month": 792,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 78,
+  "incidents_spent_this_month": 79,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -154,6 +154,27 @@
    "seg": "30.223,-97.764"
   },
   {
+   "from": "51st St/Cameron Rd/Exit 237 (I-35)",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.302,-97.715"
+  },
+  {
+   "from": "Westlake Dr (TX-360 Loop/N Capital of Texas Hwy)",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.350,-97.797"
+  },
+  {
+   "from": "E 7th St (Springdale Rd)",
+   "hour_of_week": 137,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.256,-97.702"
+  },
+  {
    "from": "Adage Dr / Epiphany Ln",
    "hour_of_week": 59,
    "n": 2,
@@ -194,38 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.616"
-  },
-  {
-   "from": "N Lamar Blvd",
-   "hour_of_week": 17,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.408,-97.678"
-  },
-  {
-   "from": "E Braker Ln (I-35)",
-   "hour_of_week": 17,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.423,-97.671"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 84.7,
-  "tomtom": 96.0
+  "dispatch": 84.8,
+  "tomtom": 96.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 137,
-  "neither": 116,
+  "n": 138,
+  "neither": 117,
   "tomtom_only": 21
  }
 }
