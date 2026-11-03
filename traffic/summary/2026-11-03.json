@@ -13,9 +13,9 @@
   "dispatch_only": 116,
   "here": 0,
   "here_matched": 0,
-  "matched": 24,
-  "tomtom": 599,
-  "tomtom_only": 574
+  "matched": 25,
+  "tomtom": 614,
+  "tomtom_only": 588
  },
  "date": "2026-11-03",
  "dispatch_life_capped": true,
@@ -42,13 +42,13 @@
    "pct": 14.0
   },
   "tomtom_highway": {
-   "matched": 18,
-   "n": 320,
-   "pct": 5.6
+   "matched": 19,
+   "n": 329,
+   "pct": 5.8
   },
   "tomtom_surface": {
    "matched": 7,
-   "n": 279,
+   "n": 285,
    "pct": 2.5
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 86.2,
-  "median": 17.1,
+  "median": 15.7,
   "min": -60.1,
-  "n": 24,
-  "q1": -21.2,
-  "q3": 39.2
+  "n": 25,
+  "q1": -17.0,
+  "q3": 38.6
  },
  "persistence_min": {
   "max": 26.2,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 528,
+  "hotspot_buckets": 539,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 542
+  "unreported_congestion": 556
  },
  "sampling": {
   "flow_spent_this_month": 783,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 76,
+  "incidents_spent_this_month": 77,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -154,6 +154,27 @@
    "seg": "30.223,-97.764"
   },
   {
+   "from": "Far West Blvd (TX-1)",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.365,-97.743"
+  },
+  {
+   "from": "Barton Skwy (TX-1)",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.287,-97.763"
+  },
+  {
+   "from": "Airport Blvd/Exit 237 (I-35)",
+   "hour_of_week": 43,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.284,-97.727"
+  },
+  {
    "from": "Adage Dr / Epiphany Ln",
    "hour_of_week": 59,
    "n": 2,
@@ -194,27 +215,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.616"
-  },
-  {
-   "from": "N Lamar Blvd",
-   "hour_of_week": 17,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.408,-97.678"
-  },
-  {
-   "from": "E Braker Ln (I-35)",
-   "hour_of_week": 17,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.423,-97.671"
   }
  ],
  "unmatched_pct": {
