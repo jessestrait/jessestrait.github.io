@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 118 min over 123 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 118 min over 125 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 25,
-  "tomtom": 614,
-  "tomtom_only": 588
+  "tomtom": 646,
+  "tomtom_only": 620
  },
  "date": "2026-11-03",
  "dispatch_life_capped": true,
@@ -23,8 +23,8 @@
   "max": 119.8,
   "median": 117.0,
   "min": 14.8,
-  "n": 123,
-  "q1": 115.7,
+  "n": 125,
+  "q1": 115.8,
   "q3": 118.4
  },
  "here_onset_offset_min": {
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 19,
-   "n": 329,
-   "pct": 5.8
+   "n": 345,
+   "pct": 5.5
   },
   "tomtom_surface": {
    "matched": 7,
-   "n": 285,
-   "pct": 2.5
+   "n": 301,
+   "pct": 2.3
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 539,
+  "hotspot_buckets": 574,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 556
+  "unreported_congestion": 588
  },
  "sampling": {
-  "flow_spent_this_month": 783,
+  "flow_spent_this_month": 792,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 77,
+  "incidents_spent_this_month": 78,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -154,27 +154,6 @@
    "seg": "30.223,-97.764"
   },
   {
-   "from": "Far West Blvd (TX-1)",
-   "hour_of_week": 45,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.365,-97.743"
-  },
-  {
-   "from": "Barton Skwy (TX-1)",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.287,-97.763"
-  },
-  {
-   "from": "Airport Blvd/Exit 237 (I-35)",
-   "hour_of_week": 43,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.284,-97.727"
-  },
-  {
    "from": "Adage Dr / Epiphany Ln",
    "hour_of_week": 59,
    "n": 2,
@@ -215,11 +194,32 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Lexington Meadow Ln",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.179,-97.616"
+  },
+  {
+   "from": "N Lamar Blvd",
+   "hour_of_week": 17,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.408,-97.678"
+  },
+  {
+   "from": "E Braker Ln (I-35)",
+   "hour_of_week": 17,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.423,-97.671"
   }
  ],
  "unmatched_pct": {
   "dispatch": 84.7,
-  "tomtom": 95.8
+  "tomtom": 96.0
  },
  "witnesses": {
   "both": 0,
