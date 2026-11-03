@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 22,
-  "tomtom": 542,
-  "tomtom_only": 519
+  "tomtom": 560,
+  "tomtom_only": 537
  },
  "date": "2026-11-03",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 16,
-   "n": 297,
-   "pct": 5.4
+   "n": 305,
+   "pct": 5.2
   },
   "tomtom_surface": {
    "matched": 7,
-   "n": 245,
-   "pct": 2.9
+   "n": 255,
+   "pct": 2.7
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 475,
+  "hotspot_buckets": 492,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 487
+  "unreported_congestion": 505
  },
  "sampling": {
-  "flow_spent_this_month": 774,
+  "flow_spent_this_month": 783,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 73,
+  "incidents_spent_this_month": 74,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -108,7 +108,7 @@
    18
   ],
   "rush_min": 5,
-  "this_poll": "off-peak"
+  "this_poll": "rush"
  },
  "structural_hotspots": [
   {
@@ -138,6 +138,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.339,-97.699"
+  },
+  {
+   "from": "Thermal Dr/Metric Blvd (E Howard Ln)",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.425,-97.673"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -208,18 +215,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.408,-97.676"
-  },
-  {
-   "from": "W Anderson Ln",
-   "hour_of_week": 17,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.348,-97.714"
   }
  ],
  "unmatched_pct": {
   "dispatch": 85.3,
-  "tomtom": 95.8
+  "tomtom": 95.9
  },
  "witnesses": {
   "both": 0,
