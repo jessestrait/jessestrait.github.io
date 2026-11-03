@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 118 min over 121 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 118 min over 123 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -13,9 +13,9 @@
   "dispatch_only": 116,
   "here": 0,
   "here_matched": 0,
-  "matched": 22,
-  "tomtom": 560,
-  "tomtom_only": 537
+  "matched": 23,
+  "tomtom": 578,
+  "tomtom_only": 554
  },
  "date": "2026-11-03",
  "dispatch_life_capped": true,
@@ -23,7 +23,7 @@
   "max": 119.8,
   "median": 117.0,
   "min": 14.8,
-  "n": 121,
+  "n": 123,
   "q1": 115.7,
   "q3": 118.4
  },
@@ -42,14 +42,14 @@
    "pct": 13.2
   },
   "tomtom_highway": {
-   "matched": 16,
-   "n": 305,
-   "pct": 5.2
+   "matched": 17,
+   "n": 310,
+   "pct": 5.5
   },
   "tomtom_surface": {
    "matched": 7,
-   "n": 255,
-   "pct": 2.7
+   "n": 268,
+   "pct": 2.6
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 86.2,
-  "median": 17.1,
+  "median": 18.6,
   "min": -60.1,
-  "n": 22,
-  "q1": -28.4,
-  "q3": 38.1
+  "n": 23,
+  "q1": -25.5,
+  "q3": 39.8
  },
  "persistence_min": {
   "max": 26.2,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 492,
+  "hotspot_buckets": 507,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 505
+  "unreported_congestion": 522
  },
  "sampling": {
   "flow_spent_this_month": 783,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 74,
+  "incidents_spent_this_month": 75,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -145,6 +145,20 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.425,-97.673"
+  },
+  {
+   "from": "Anderson Ln/Spicewood Springs Rd (TX-1)",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.367,-97.743"
+  },
+  {
+   "from": "W Ben White Blvd",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.223,-97.764"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -201,25 +215,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.408,-97.678"
-  },
-  {
-   "from": "E Braker Ln (I-35)",
-   "hour_of_week": 17,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.423,-97.671"
-  },
-  {
-   "from": "Metric Blvd (W Parmer Ln/FM-734)",
-   "hour_of_week": 17,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.408,-97.676"
   }
  ],
  "unmatched_pct": {
   "dispatch": 85.3,
-  "tomtom": 95.9
+  "tomtom": 95.8
  },
  "witnesses": {
   "both": 0,
