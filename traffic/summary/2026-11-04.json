@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 118 min over 94 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 118 min over 95 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 14,
-  "tomtom": 870,
-  "tomtom_only": 856
+  "tomtom": 916,
+  "tomtom_only": 902
  },
  "date": "2026-11-04",
  "dispatch_life_capped": true,
@@ -23,7 +23,7 @@
   "max": 119.9,
   "median": 117.2,
   "min": 7.4,
-  "n": 94,
+  "n": 95,
   "q1": 115.5,
   "q3": 118.5
  },
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 10,
-   "n": 414,
-   "pct": 2.4
+   "n": 430,
+   "pct": 2.3
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 456,
-   "pct": 0.9
+   "n": 486,
+   "pct": 0.8
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 758,
+  "hotspot_buckets": 793,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 816
+  "unreported_congestion": 862
  },
  "sampling": {
-  "flow_spent_this_month": 1008,
+  "flow_spent_this_month": 1017,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 107,
+  "incidents_spent_this_month": 108,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -119,11 +119,25 @@
    "seg": "30.195,-97.864"
   },
   {
+   "from": "Northeast Travis",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.474,-97.594"
+  },
+  {
    "from": "Mopac Expy S",
    "hour_of_week": 69,
    "n": 3,
    "roadworks": false,
    "seg": "30.301,-97.759"
+  },
+  {
+   "from": "MLK & 15th St exit [235A]",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.278,-97.730"
   },
   {
    "from": "Wm Cannon Dr exit [228]",
@@ -133,11 +147,25 @@
    "seg": "30.195,-97.767"
   },
   {
+   "from": "W Ben White Blvd",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.223,-97.764"
+  },
+  {
    "from": "N Lake Creek Pkwy",
    "hour_of_week": 69,
    "n": 3,
    "roadworks": false,
    "seg": "30.475,-97.794"
+  },
+  {
+   "from": "S Interstate 35",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.204,-97.760"
   },
   {
    "from": "S Pleasant Valley Rd",
@@ -187,39 +215,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.257,-97.737"
-  },
-  {
-   "from": "Steck Ave (Burnet Rd)",
-   "hour_of_week": 67,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.373,-97.726"
-  },
-  {
-   "from": "E 7th St (Springdale Rd)",
-   "hour_of_week": 137,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.256,-97.702"
-  },
-  {
-   "from": "US Highway 183",
-   "hour_of_week": 69,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.470,-97.797"
-  },
-  {
-   "from": "Northeast Travis",
-   "hour_of_week": 69,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.474,-97.594"
   }
  ],
  "unmatched_pct": {
   "dispatch": 89.8,
-  "tomtom": 98.4
+  "tomtom": 98.5
  },
  "witnesses": {
   "both": 0,
