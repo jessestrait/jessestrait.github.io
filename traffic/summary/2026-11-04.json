@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 75 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 76 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 394,
-  "tomtom_only": 388
+  "tomtom": 415,
+  "tomtom_only": 409
  },
  "date": "2026-11-04",
  "dispatch_life_capped": true,
@@ -23,7 +23,7 @@
   "max": 119.9,
   "median": 117.2,
   "min": 7.4,
-  "n": 75,
+  "n": 76,
   "q1": 115.3,
   "q3": 118.6
  },
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 187,
-   "pct": 2.1
+   "n": 199,
+   "pct": 2.0
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 207,
-   "pct": 1.0
+   "n": 216,
+   "pct": 0.9
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 337,
+  "hotspot_buckets": 357,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 352
+  "unreported_congestion": 372
  },
  "sampling": {
   "flow_spent_this_month": 927,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 94,
+  "incidents_spent_this_month": 95,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
+  {
+   "from": "Steed Dr",
+   "hour_of_week": 98,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.195,-97.864"
+  },
   {
    "from": "Buenos Aires Pkwy",
    "hour_of_week": 15,
@@ -133,13 +140,6 @@
    "seg": "30.451,-97.604"
   },
   {
-   "from": "Steed Dr",
-   "hour_of_week": 98,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.195,-97.864"
-  },
-  {
    "from": "TX-71 (I-35)",
    "hour_of_week": 51,
    "n": 2,
@@ -152,13 +152,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.394,-97.717"
-  },
-  {
-   "from": "E Ben White Blvd (Montopolis Dr)",
-   "hour_of_week": 65,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.208,-97.715"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -215,11 +208,18 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.452,-97.829"
+  },
+  {
+   "from": "US-183/Research Blvd (FM-620)",
+   "hour_of_week": 45,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.459,-97.822"
   }
  ],
  "unmatched_pct": {
   "dispatch": 94.0,
-  "tomtom": 98.5
+  "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
