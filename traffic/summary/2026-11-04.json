@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 115,
+  "dispatch": 116,
   "dispatch_only": 101,
   "here": 0,
   "here_matched": 0,
-  "matched": 17,
-  "tomtom": 1276,
-  "tomtom_only": 1258
+  "matched": 19,
+  "tomtom": 1339,
+  "tomtom_only": 1319
  },
  "date": "2026-11-04",
  "dispatch_life_capped": true,
@@ -37,18 +37,18 @@
    "pct": 11.1
   },
   "dispatch_surface": {
-   "matched": 12,
-   "n": 97,
-   "pct": 12.4
+   "matched": 13,
+   "n": 98,
+   "pct": 13.3
   },
   "tomtom_highway": {
-   "matched": 14,
-   "n": 611,
-   "pct": 2.3
+   "matched": 16,
+   "n": 645,
+   "pct": 2.5
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 665,
+   "n": 694,
    "pct": 0.6
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 73.8,
-  "median": 10.8,
+  "median": 11.6,
   "min": -35.9,
-  "n": 17,
-  "q1": 3.7,
-  "q3": 49.0
+  "n": 19,
+  "q1": 3.8,
+  "q3": 58.3
  },
  "persistence_min": {
   "max": 51.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1119,
+  "hotspot_buckets": 1172,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1218
+  "unreported_congestion": 1279
  },
  "sampling": {
   "flow_spent_this_month": 1026,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 114,
+  "incidents_spent_this_month": 115,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -147,13 +147,6 @@
    "seg": "30.195,-97.767"
   },
   {
-   "from": "W 15th St (N Lamar Blvd)",
-   "hour_of_week": 69,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.274,-97.753"
-  },
-  {
    "from": "W Ben White Blvd",
    "hour_of_week": 69,
    "n": 3,
@@ -189,11 +182,25 @@
    "seg": "30.474,-97.596"
   },
   {
+   "from": "N Interstate 35",
+   "hour_of_week": 70,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.353,-97.691"
+  },
+  {
    "from": "E Anderson Ln",
    "hour_of_week": 70,
    "n": 3,
    "roadworks": false,
    "seg": "30.337,-97.696"
+  },
+  {
+   "from": "Colorado Sand Dr",
+   "hour_of_week": 70,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.458,-97.588"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.284,-97.743"
-  },
-  {
-   "from": "E Pfennig Ln",
-   "hour_of_week": 45,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.451,-97.604"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.8,
-  "tomtom": 98.6
+  "dispatch": 87.1,
+  "tomtom": 98.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 115,
+  "n": 116,
   "neither": 101,
-  "tomtom_only": 14
+  "tomtom_only": 15
  }
 }
