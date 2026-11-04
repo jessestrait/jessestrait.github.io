@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 107,
+  "dispatch": 108,
   "dispatch_only": 97,
   "here": 0,
   "here_matched": 0,
-  "matched": 13,
-  "tomtom": 772,
-  "tomtom_only": 759
+  "matched": 14,
+  "tomtom": 814,
+  "tomtom_only": 800
  },
  "date": "2026-11-04",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 11.8
   },
   "dispatch_surface": {
-   "matched": 8,
-   "n": 90,
-   "pct": 8.9
+   "matched": 9,
+   "n": 91,
+   "pct": 9.9
   },
   "tomtom_highway": {
-   "matched": 9,
-   "n": 370,
-   "pct": 2.4
+   "matched": 10,
+   "n": 390,
+   "pct": 2.6
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 402,
-   "pct": 1.0
+   "n": 424,
+   "pct": 0.9
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 73.8,
-  "median": 10.8,
-  "min": 1.1,
-  "n": 13,
-  "q1": 4.0,
-  "q3": 49.0
+  "median": 8.7,
+  "min": 0.1,
+  "n": 14,
+  "q1": 3.7,
+  "q3": 44.4
  },
  "persistence_min": {
   "max": 0.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 677,
+  "hotspot_buckets": 716,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 719
+  "unreported_congestion": 760
  },
  "sampling": {
   "flow_spent_this_month": 1008,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 105,
+  "incidents_spent_this_month": 106,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -203,29 +203,29 @@
    "seg": "30.301,-97.759"
   },
   {
+   "from": "MLK & 15th St exit [235A]",
+   "hour_of_week": 69,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.278,-97.730"
+  },
+  {
    "from": "Wm Cannon Dr exit [228]",
    "hour_of_week": 69,
    "n": 2,
    "roadworks": false,
    "seg": "30.195,-97.767"
-  },
-  {
-   "from": "Spirit of Texas Dr",
-   "hour_of_week": 69,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.213,-97.659"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 90.7,
+  "dispatch": 89.8,
   "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 107,
+  "n": 108,
   "neither": 97,
-  "tomtom_only": 10
+  "tomtom_only": 11
  }
 }
