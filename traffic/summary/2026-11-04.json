@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 49,
-  "dispatch_only": 46,
+  "dispatch": 75,
+  "dispatch_only": 70,
   "here": 0,
   "here_matched": 0,
-  "matched": 4,
-  "tomtom": 308,
-  "tomtom_only": 304
+  "matched": 6,
+  "tomtom": 350,
+  "tomtom_only": 344
  },
  "date": "2026-11-04",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.5,
-  "median": 117.3,
+  "median": 117.2,
   "min": 7.4,
-  "n": 48,
-  "q1": 86.2,
+  "n": 49,
+  "q1": 86.6,
   "q3": 118.8
  },
  "here_onset_offset_min": {
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 0,
-   "n": 9,
-   "pct": 0.0
+   "matched": 1,
+   "n": 12,
+   "pct": 8.3
   },
   "dispatch_surface": {
-   "matched": 3,
-   "n": 40,
-   "pct": 7.5
+   "matched": 4,
+   "n": 63,
+   "pct": 6.3
   },
   "tomtom_highway": {
-   "matched": 2,
-   "n": 140,
-   "pct": 1.4
+   "matched": 4,
+   "n": 163,
+   "pct": 2.5
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 168,
-   "pct": 1.2
+   "n": 187,
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 68.8,
-  "median": 13.6,
-  "min": 10.8,
-  "n": 4,
-  "q1": 11.0,
-  "q3": 55.5
+  "median": 11.2,
+  "min": 1.1,
+  "n": 6,
+  "q1": 4.6,
+  "q3": 29.0
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 261,
+  "hotspot_buckets": 297,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 274
+  "unreported_congestion": 311
  },
  "sampling": {
-  "flow_spent_this_month": 864,
+  "flow_spent_this_month": 873,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 91,
+  "incidents_spent_this_month": 92,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -144,6 +144,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.200,-97.763"
+  },
+  {
+   "from": "Burnet Rd",
+   "hour_of_week": 61,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.394,-97.717"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -207,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.459,-97.822"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 45,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.476,-97.794"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 93.9,
-  "tomtom": 98.7
+  "dispatch": 93.3,
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 49,
-  "neither": 46,
-  "tomtom_only": 3
+  "n": 75,
+  "neither": 70,
+  "tomtom_only": 5
  }
 }
