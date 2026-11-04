@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 103,
+  "dispatch": 104,
   "dispatch_only": 95,
   "here": 0,
   "here_matched": 0,
-  "matched": 10,
-  "tomtom": 465,
-  "tomtom_only": 455
+  "matched": 11,
+  "tomtom": 546,
+  "tomtom_only": 535
  },
  "date": "2026-11-04",
  "dispatch_life_capped": true,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
+   "matched": 2,
    "n": 16,
-   "pct": 6.2
+   "pct": 12.5
   },
   "dispatch_surface": {
    "matched": 7,
-   "n": 87,
+   "n": 88,
    "pct": 8.0
   },
   "tomtom_highway": {
-   "matched": 7,
-   "n": 231,
+   "matched": 8,
+   "n": 267,
    "pct": 3.0
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 234,
-   "pct": 1.3
+   "n": 279,
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 68.8,
-  "median": 13.6,
+  "max": 73.8,
+  "median": 11.6,
   "min": 1.1,
-  "n": 10,
-  "q1": 5.2,
-  "q3": 60.5
+  "n": 11,
+  "q1": 5.7,
+  "q3": 58.3
  },
  "persistence_min": {
   "max": 0.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 402,
+  "hotspot_buckets": 477,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 418
+  "unreported_congestion": 495
  },
  "sampling": {
   "flow_spent_this_month": 990,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 97,
+  "incidents_spent_this_month": 98,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -108,7 +108,7 @@
    18
   ],
   "rush_min": 5,
-  "this_poll": "off-peak"
+  "this_poll": "rush"
  },
  "structural_hotspots": [
   {
@@ -154,11 +154,25 @@
    "seg": "30.394,-97.717"
   },
   {
+   "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
+   "hour_of_week": 63,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.257,-97.737"
+  },
+  {
    "from": "Steck Ave (Burnet Rd)",
    "hour_of_week": 67,
    "n": 2,
    "roadworks": false,
    "seg": "30.373,-97.726"
+  },
+  {
+   "from": "E 7th St (Springdale Rd)",
+   "hour_of_week": 137,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.256,-97.702"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -201,31 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.616"
-  },
-  {
-   "from": "FM-2222/Bullick Hollow Rd (FM-620)",
-   "hour_of_week": 45,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.452,-97.829"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 92.2,
-  "tomtom": 97.8
+  "dispatch": 91.3,
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 103,
+  "n": 104,
   "neither": 95,
-  "tomtom_only": 8
+  "tomtom_only": 9
  }
 }
