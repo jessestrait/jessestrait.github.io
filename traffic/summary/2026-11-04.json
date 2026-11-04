@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 14,
-  "tomtom": 814,
-  "tomtom_only": 800
+  "tomtom": 870,
+  "tomtom_only": 856
  },
  "date": "2026-11-04",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 10,
-   "n": 390,
-   "pct": 2.6
+   "n": 414,
+   "pct": 2.4
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 424,
+   "n": 456,
    "pct": 0.9
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 716,
+  "hotspot_buckets": 758,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 760
+  "unreported_congestion": 816
  },
  "sampling": {
   "flow_spent_this_month": 1008,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 106,
+  "incidents_spent_this_month": 107,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,6 +117,34 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.195,-97.864"
+  },
+  {
+   "from": "Mopac Expy S",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.301,-97.759"
+  },
+  {
+   "from": "Wm Cannon Dr exit [228]",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.195,-97.767"
+  },
+  {
+   "from": "N Lake Creek Pkwy",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.475,-97.794"
+  },
+  {
+   "from": "S Pleasant Valley Rd",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.180,-97.747"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -187,39 +215,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.474,-97.594"
-  },
-  {
-   "from": "Lakeline Blvd (S Bell Blvd/US-183)",
-   "hour_of_week": 69,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.505,-97.820"
-  },
-  {
-   "from": "Mopac Expy S",
-   "hour_of_week": 69,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.301,-97.759"
-  },
-  {
-   "from": "MLK & 15th St exit [235A]",
-   "hour_of_week": 69,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.278,-97.730"
-  },
-  {
-   "from": "Wm Cannon Dr exit [228]",
-   "hour_of_week": 69,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.195,-97.767"
   }
  ],
  "unmatched_pct": {
   "dispatch": 89.8,
-  "tomtom": 98.3
+  "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
