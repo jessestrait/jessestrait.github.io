@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 87 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 90 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 105,
-  "dispatch_only": 96,
+  "dispatch": 107,
+  "dispatch_only": 97,
   "here": 0,
   "here_matched": 0,
-  "matched": 11,
-  "tomtom": 607,
-  "tomtom_only": 596
+  "matched": 12,
+  "tomtom": 648,
+  "tomtom_only": 636
  },
  "date": "2026-11-04",
  "dispatch_life_capped": true,
@@ -23,7 +23,7 @@
   "max": 119.9,
   "median": 117.2,
   "min": 7.4,
-  "n": 87,
+  "n": 90,
   "q1": 115.5,
   "q3": 118.6
  },
@@ -37,18 +37,18 @@
    "pct": 11.8
   },
   "dispatch_surface": {
-   "matched": 7,
-   "n": 88,
-   "pct": 8.0
+   "matched": 8,
+   "n": 90,
+   "pct": 8.9
   },
   "tomtom_highway": {
-   "matched": 8,
-   "n": 290,
-   "pct": 2.8
+   "matched": 9,
+   "n": 308,
+   "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 317,
+   "n": 340,
    "pct": 0.9
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 73.8,
-  "median": 11.6,
+  "median": 11.2,
   "min": 1.1,
-  "n": 11,
-  "q1": 5.7,
-  "q3": 58.3
+  "n": 12,
+  "q1": 4.6,
+  "q3": 53.7
  },
  "persistence_min": {
   "max": 0.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 534,
+  "hotspot_buckets": 574,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 556
+  "unreported_congestion": 596
  },
  "sampling": {
   "flow_spent_this_month": 999,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 100,
+  "incidents_spent_this_month": 101,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -182,11 +182,18 @@
    "seg": "30.474,-97.594"
   },
   {
-   "from": "N Capital of Texas Hwy",
-   "hour_of_week": 68,
+   "from": "Creston St",
+   "hour_of_week": 69,
    "n": 2,
    "roadworks": false,
-   "seg": "30.340,-97.804"
+   "seg": "30.520,-97.559"
+  },
+  {
+   "from": "Autumn Slate Dr",
+   "hour_of_week": 69,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.469,-97.589"
   },
   {
    "from": "E 6th St (I-35)",
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.320,-97.706"
-  },
-  {
-   "from": "Crystal Bend Dr",
-   "hour_of_week": 41,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.406,-97.628"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 91.4,
-  "tomtom": 98.2
+  "dispatch": 90.7,
+  "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 105,
-  "neither": 96,
-  "tomtom_only": 9
+  "n": 107,
+  "neither": 97,
+  "tomtom_only": 10
  }
 }
