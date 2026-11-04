@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 13,
-  "tomtom": 711,
-  "tomtom_only": 698
+  "tomtom": 739,
+  "tomtom_only": 726
  },
  "date": "2026-11-04",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 335,
-   "pct": 2.7
+   "n": 352,
+   "pct": 2.6
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 376,
-   "pct": 1.1
+   "n": 387,
+   "pct": 1.0
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 626,
+  "hotspot_buckets": 646,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 658
+  "unreported_congestion": 686
  },
  "sampling": {
-  "flow_spent_this_month": 999,
+  "flow_spent_this_month": 1008,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 103,
+  "incidents_spent_this_month": 104,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,13 +117,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.195,-97.864"
-  },
-  {
-   "from": "Northeast Travis",
-   "hour_of_week": 69,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.474,-97.594"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -182,6 +175,27 @@
    "seg": "30.256,-97.702"
   },
   {
+   "from": "US Highway 183",
+   "hour_of_week": 69,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.470,-97.797"
+  },
+  {
+   "from": "Northeast Travis",
+   "hour_of_week": 69,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.474,-97.594"
+  },
+  {
+   "from": "Lakeline Blvd (S Bell Blvd/US-183)",
+   "hour_of_week": 69,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.505,-97.820"
+  },
+  {
    "from": "Mopac Expy S",
    "hour_of_week": 69,
    "n": 2,
@@ -196,25 +210,11 @@
    "seg": "30.195,-97.767"
   },
   {
-   "from": "Cervinus Run",
+   "from": "Spirit of Texas Dr",
    "hour_of_week": 69,
    "n": 2,
    "roadworks": false,
-   "seg": "30.255,-97.845"
-  },
-  {
-   "from": "Austin",
-   "hour_of_week": 69,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.177,-97.889"
-  },
-  {
-   "from": "Creston St",
-   "hour_of_week": 69,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.520,-97.559"
+   "seg": "30.213,-97.659"
   }
  ],
  "unmatched_pct": {
