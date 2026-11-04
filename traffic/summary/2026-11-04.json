@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 4,
-  "tomtom": 297,
-  "tomtom_only": 293
+  "tomtom": 300,
+  "tomtom_only": 296
  },
  "date": "2026-11-04",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 133,
+   "n": 135,
    "pct": 1.5
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 164,
+   "n": 165,
    "pct": 1.2
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 251,
+  "hotspot_buckets": 253,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 263
+  "unreported_congestion": 266
  },
  "sampling": {
   "flow_spent_this_month": 846,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 88,
+  "incidents_spent_this_month": 89,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -137,6 +137,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.195,-97.864"
+  },
+  {
+   "from": "TX-71 (I-35)",
+   "hour_of_week": 51,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.200,-97.763"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -207,13 +214,6 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.476,-97.794"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 45,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.475,-97.794"
   }
  ],
  "unmatched_pct": {
