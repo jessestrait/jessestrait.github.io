@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 112,
+  "dispatch": 113,
   "dispatch_only": 83,
   "here": 0,
   "here_matched": 0,
-  "matched": 49,
-  "tomtom": 2915,
-  "tomtom_only": 2848
+  "matched": 51,
+  "tomtom": 3008,
+  "tomtom_only": 2938
  },
  "date": "2026-11-05",
  "dispatch_life_capped": true,
@@ -37,18 +37,18 @@
    "pct": 21.1
   },
   "dispatch_surface": {
-   "matched": 25,
-   "n": 93,
-   "pct": 26.9
+   "matched": 26,
+   "n": 94,
+   "pct": 27.7
   },
   "tomtom_highway": {
-   "matched": 33,
-   "n": 1377,
-   "pct": 2.4
+   "matched": 35,
+   "n": 1412,
+   "pct": 2.5
   },
   "tomtom_surface": {
-   "matched": 34,
-   "n": 1538,
+   "matched": 35,
+   "n": 1596,
    "pct": 2.2
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 89.6,
-  "median": 17.6,
+  "median": 16.2,
   "min": -68.8,
-  "n": 49,
-  "q1": -7.2,
-  "q3": 45.7
+  "n": 51,
+  "q1": -6.4,
+  "q3": 42.6
  },
  "persistence_min": {
   "max": 66.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2480,
+  "hotspot_buckets": 2543,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2812
+  "unreported_congestion": 2902
  },
  "sampling": {
   "flow_spent_this_month": 1251,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 159,
+  "incidents_spent_this_month": 160,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -168,6 +168,13 @@
    "seg": "30.458,-97.588"
   },
   {
+   "from": "Rio Grande St",
+   "hour_of_week": 95,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.290,-97.742"
+  },
+  {
    "from": "Christina Garza Dr",
    "hour_of_week": 93,
    "n": 3,
@@ -180,6 +187,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.141,-97.797"
+  },
+  {
+   "from": "E Riverside Dr (S Pleasant Valley Rd)",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.249,-97.714"
   },
   {
    "from": "Highway 45",
@@ -201,31 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.368,-97.789"
-  },
-  {
-   "from": "E 7th St (I-35)",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.268,-97.733"
-  },
-  {
-   "from": "E 11th St (I-35)",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.267,-97.735"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 74.1,
+  "dispatch": 73.5,
   "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 112,
+  "n": 113,
   "neither": 83,
-  "tomtom_only": 29
+  "tomtom_only": 30
  }
 }
