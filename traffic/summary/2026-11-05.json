@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 43,
-  "dispatch_only": 38,
+  "dispatch": 56,
+  "dispatch_only": 51,
   "here": 0,
   "here_matched": 0,
   "matched": 5,
-  "tomtom": 463,
-  "tomtom_only": 458
+  "tomtom": 511,
+  "tomtom_only": 506
  },
  "date": "2026-11-05",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.4,
+  "median": 116.1,
   "min": 6.5,
-  "n": 42,
-  "q1": 79.8,
-  "q3": 118.2
+  "n": 43,
+  "q1": 80.3,
+  "q3": 118.1
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,22 +33,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 0,
-   "n": 9,
+   "n": 10,
    "pct": 0.0
   },
   "dispatch_surface": {
    "matched": 5,
-   "n": 34,
-   "pct": 14.7
+   "n": 46,
+   "pct": 10.9
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 234,
-   "pct": 2.1
+   "n": 251,
+   "pct": 2.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 229,
+   "n": 260,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 409,
+  "hotspot_buckets": 452,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 427
+  "unreported_congestion": 472
  },
  "sampling": {
-  "flow_spent_this_month": 1098,
+  "flow_spent_this_month": 1107,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 125,
+  "incidents_spent_this_month": 126,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -181,6 +181,27 @@
    "seg": "30.282,-97.732"
   },
   {
+   "from": "W Braker Ln",
+   "hour_of_week": 13,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.394,-97.717"
+  },
+  {
+   "from": "Burnet Rd",
+   "hour_of_week": 61,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.394,-97.717"
+  },
+  {
+   "from": "Crystal Bend Dr",
+   "hour_of_week": 41,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.406,-97.628"
+  },
+  {
    "from": "Adage Dr / Epiphany Ln",
    "hour_of_week": 59,
    "n": 2,
@@ -193,38 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.320,-97.706"
-  },
-  {
-   "from": "Crystal Bend Dr",
-   "hour_of_week": 41,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.406,-97.628"
-  },
-  {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.245,-97.744"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.234,-97.736"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.4,
-  "tomtom": 98.9
+  "dispatch": 91.1,
+  "tomtom": 99.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 43,
-  "neither": 38,
+  "n": 56,
+  "neither": 51,
   "tomtom_only": 5
  }
 }
