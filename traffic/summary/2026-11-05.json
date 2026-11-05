@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 81 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 82 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -13,9 +13,9 @@
   "dispatch_only": 84,
   "here": 0,
   "here_matched": 0,
-  "matched": 41,
-  "tomtom": 2299,
-  "tomtom_only": 2246
+  "matched": 43,
+  "tomtom": 2398,
+  "tomtom_only": 2343
  },
  "date": "2026-11-05",
  "dispatch_life_capped": true,
@@ -23,7 +23,7 @@
   "max": 119.9,
   "median": 116.8,
   "min": 6.5,
-  "n": 81,
+  "n": 82,
   "q1": 115.2,
   "q3": 118.4
  },
@@ -42,14 +42,14 @@
    "pct": 23.6
   },
   "tomtom_highway": {
-   "matched": 25,
-   "n": 1113,
+   "matched": 26,
+   "n": 1158,
    "pct": 2.2
   },
   "tomtom_surface": {
-   "matched": 28,
-   "n": 1186,
-   "pct": 2.4
+   "matched": 29,
+   "n": 1240,
+   "pct": 2.3
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 80.2,
   "median": 16.2,
   "min": -68.8,
-  "n": 41,
-  "q1": -4.3,
-  "q3": 36.5
+  "n": 43,
+  "q1": -6.4,
+  "q3": 37.7
  },
  "persistence_min": {
   "max": 66.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1949,
+  "hotspot_buckets": 2040,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2210
+  "unreported_congestion": 2307
  },
  "sampling": {
   "flow_spent_this_month": 1233,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 154,
+  "incidents_spent_this_month": 155,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -114,7 +114,7 @@
   {
    "from": "N Lamar Blvd",
    "hour_of_week": 94,
-   "n": 8,
+   "n": 7,
    "roadworks": false,
    "seg": "30.408,-97.678"
   },
@@ -131,13 +131,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.223,-97.764"
-  },
-  {
-   "from": "Henderson St",
-   "hour_of_week": 94,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.274,-97.752"
   },
   {
    "from": "Southwest Pkwy (TX-71)",
@@ -159,13 +152,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.209,-97.662"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 94,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.273,-97.732"
   },
   {
    "from": "Colorado Sand Dr",
@@ -210,11 +196,25 @@
    "seg": "30.286,-97.724"
   },
   {
+   "from": "FM-2222 (TX-360 Loop/N Capital of Texas Hwy)",
+   "hour_of_week": 92,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.368,-97.789"
+  },
+  {
    "from": "E 7th St (I-35)",
    "hour_of_week": 93,
    "n": 3,
    "roadworks": false,
    "seg": "30.268,-97.733"
+  },
+  {
+   "from": "E 11th St (I-35)",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.267,-97.735"
   }
  ],
  "unmatched_pct": {
