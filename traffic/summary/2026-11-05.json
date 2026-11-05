@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 88 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 91 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -13,9 +13,9 @@
   "dispatch_only": 84,
   "here": 0,
   "here_matched": 0,
-  "matched": 52,
-  "tomtom": 3122,
-  "tomtom_only": 3050
+  "matched": 53,
+  "tomtom": 3192,
+  "tomtom_only": 3119
  },
  "date": "2026-11-05",
  "dispatch_life_capped": true,
@@ -23,9 +23,9 @@
   "max": 119.9,
   "median": 116.8,
   "min": 6.5,
-  "n": 88,
+  "n": 91,
   "q1": 115.2,
-  "q3": 118.5
+  "q3": 118.4
  },
  "here_onset_offset_min": {
   "n": 0
@@ -42,14 +42,14 @@
    "pct": 27.4
   },
   "tomtom_highway": {
-   "matched": 36,
-   "n": 1474,
-   "pct": 2.4
+   "matched": 37,
+   "n": 1504,
+   "pct": 2.5
   },
   "tomtom_surface": {
    "matched": 36,
-   "n": 1648,
-   "pct": 2.2
+   "n": 1688,
+   "pct": 2.1
   }
  },
  "matcher": {
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 89.6,
-  "median": 16.9,
+  "median": 17.6,
   "min": -68.8,
-  "n": 52,
-  "q1": -5.4,
-  "q3": 47.2
+  "n": 53,
+  "q1": -4.3,
+  "q3": 49.8
  },
  "persistence_min": {
   "max": 66.1,
-  "median": -30.7,
+  "median": -28.1,
   "min": -1486.5,
-  "n": 17,
-  "q1": -81.8,
+  "n": 20,
+  "q1": -75.2,
   "q3": 0.0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2627,
+  "hotspot_buckets": 2680,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 3014
+  "unreported_congestion": 3083
  },
  "sampling": {
   "flow_spent_this_month": 1251,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 161,
+  "incidents_spent_this_month": 162,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -182,6 +182,13 @@
    "seg": "30.415,-97.673"
   },
   {
+   "from": "W 49th St",
+   "hour_of_week": 95,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.315,-97.737"
+  },
+  {
    "from": "Ranch Road 620 N",
    "hour_of_week": 95,
    "n": 4,
@@ -208,13 +215,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.141,-97.797"
-  },
-  {
-   "from": "Highway 45",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.481,-97.675"
   }
  ],
  "unmatched_pct": {
