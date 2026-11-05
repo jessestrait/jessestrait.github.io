@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 103, q3 118 min over 57 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 106, q3 118 min over 58 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -10,21 +10,21 @@
  ],
  "counts": {
   "dispatch": 74,
-  "dispatch_only": 69,
+  "dispatch_only": 68,
   "here": 0,
   "here_matched": 0,
-  "matched": 5,
-  "tomtom": 575,
-  "tomtom_only": 570
+  "matched": 6,
+  "tomtom": 621,
+  "tomtom_only": 615
  },
  "date": "2026-11-05",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.7,
+  "median": 116.8,
   "min": 6.5,
-  "n": 57,
-  "q1": 102.9,
+  "n": 58,
+  "q1": 106.0,
   "q3": 118.4
  },
  "here_onset_offset_min": {
@@ -37,19 +37,19 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 5,
+   "matched": 6,
    "n": 59,
-   "pct": 8.5
+   "pct": 10.2
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 287,
-   "pct": 1.7
+   "n": 317,
+   "pct": 1.6
   },
   "tomtom_surface": {
-   "matched": 0,
-   "n": 288,
-   "pct": 0.0
+   "matched": 1,
+   "n": 304,
+   "pct": 0.3
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 72.0,
-  "median": 30.7,
+  "median": 30.5,
   "min": -35.9,
-  "n": 5,
-  "q1": -10.6,
-  "q3": 68.2
+  "n": 6,
+  "q1": 2.0,
+  "q3": 66.4
  },
  "persistence_min": {
   "max": 0.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 511,
+  "hotspot_buckets": 558,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 536
+  "unreported_congestion": 581
  },
  "sampling": {
   "flow_spent_this_month": 1161,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 128,
+  "incidents_spent_this_month": 129,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -182,20 +182,6 @@
    "seg": "30.282,-97.732"
   },
   {
-   "from": "W Braker Ln",
-   "hour_of_week": 13,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.394,-97.717"
-  },
-  {
-   "from": "Burnet Rd",
-   "hour_of_week": 61,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.394,-97.717"
-  },
-  {
    "from": "Crystal Bend Dr",
    "hour_of_week": 41,
    "n": 2,
@@ -215,17 +201,31 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.249,-97.753"
+  },
+  {
+   "from": "US-183/W Braker Ln (Research Blvd)",
+   "hour_of_week": 90,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.392,-97.747"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 90,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.460,-97.666"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 93.2,
-  "tomtom": 99.1
+  "dispatch": 91.9,
+  "tomtom": 99.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 74,
-  "neither": 69,
-  "tomtom_only": 5
+  "neither": 68,
+  "tomtom_only": 6
  }
 }
