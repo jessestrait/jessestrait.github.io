@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 80 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 81 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -10,22 +10,22 @@
  ],
  "counts": {
   "dispatch": 108,
-  "dispatch_only": 85,
+  "dispatch_only": 84,
   "here": 0,
   "here_matched": 0,
-  "matched": 38,
-  "tomtom": 2224,
-  "tomtom_only": 2175
+  "matched": 41,
+  "tomtom": 2299,
+  "tomtom_only": 2246
  },
  "date": "2026-11-05",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.9,
+  "median": 116.8,
   "min": 6.5,
-  "n": 80,
+  "n": 81,
   "q1": 115.2,
-  "q3": 118.5
+  "q3": 118.4
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,19 +37,19 @@
    "pct": 15.8
   },
   "dispatch_surface": {
-   "matched": 20,
+   "matched": 21,
    "n": 89,
-   "pct": 22.5
+   "pct": 23.6
   },
   "tomtom_highway": {
-   "matched": 24,
-   "n": 1086,
+   "matched": 25,
+   "n": 1113,
    "pct": 2.2
   },
   "tomtom_surface": {
-   "matched": 25,
-   "n": 1138,
-   "pct": 2.2
+   "matched": 28,
+   "n": 1186,
+   "pct": 2.4
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 78.3,
-  "median": 14.2,
+  "max": 80.2,
+  "median": 16.2,
   "min": -68.8,
-  "n": 38,
-  "q1": -7.7,
-  "q3": 34.3
+  "n": 41,
+  "q1": -4.3,
+  "q3": 36.5
  },
  "persistence_min": {
   "max": 66.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1880,
+  "hotspot_buckets": 1949,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2139
+  "unreported_congestion": 2210
  },
  "sampling": {
   "flow_spent_this_month": 1233,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 153,
+  "incidents_spent_this_month": 154,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -114,7 +114,7 @@
   {
    "from": "N Lamar Blvd",
    "hour_of_week": 94,
-   "n": 7,
+   "n": 8,
    "roadworks": false,
    "seg": "30.408,-97.678"
   },
@@ -133,6 +133,20 @@
    "seg": "30.223,-97.764"
   },
   {
+   "from": "Henderson St",
+   "hour_of_week": 94,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.274,-97.752"
+  },
+  {
+   "from": "Southwest Pkwy (TX-71)",
+   "hour_of_week": 94,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.301,-97.930"
+  },
+  {
    "from": "S Mo Pac Expy",
    "hour_of_week": 94,
    "n": 4,
@@ -145,6 +159,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.209,-97.662"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 94,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.273,-97.732"
   },
   {
    "from": "Colorado Sand Dr",
@@ -194,38 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.268,-97.733"
-  },
-  {
-   "from": "E 11th St (I-35)",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.267,-97.735"
-  },
-  {
-   "from": "Bunny Run",
-   "hour_of_week": 94,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.340,-97.804"
-  },
-  {
-   "from": "Henderson St",
-   "hour_of_week": 94,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.274,-97.752"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.7,
-  "tomtom": 97.8
+  "dispatch": 77.8,
+  "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 108,
-  "neither": 85,
-  "tomtom_only": 23
+  "neither": 84,
+  "tomtom_only": 24
  }
 }
