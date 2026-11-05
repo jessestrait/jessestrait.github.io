@@ -13,9 +13,9 @@
   "dispatch_only": 83,
   "here": 0,
   "here_matched": 0,
-  "matched": 26,
-  "tomtom": 1642,
-  "tomtom_only": 1609
+  "matched": 27,
+  "tomtom": 1738,
+  "tomtom_only": 1703
  },
  "date": "2026-11-05",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 15,
-   "n": 826,
-   "pct": 1.8
+   "n": 866,
+   "pct": 1.7
   },
   "tomtom_surface": {
-   "matched": 18,
-   "n": 816,
-   "pct": 2.2
+   "matched": 20,
+   "n": 872,
+   "pct": 2.3
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 78.3,
-  "median": 13.3,
+  "median": 13.8,
   "min": -68.8,
-  "n": 26,
-  "q1": -15.6,
-  "q3": 32.6
+  "n": 27,
+  "q1": -14.8,
+  "q3": 37.7
  },
  "persistence_min": {
   "max": 0.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1427,
+  "hotspot_buckets": 1516,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1573
+  "unreported_congestion": 1667
  },
  "sampling": {
-  "flow_spent_this_month": 1215,
+  "flow_spent_this_month": 1224,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 147,
+  "incidents_spent_this_month": 148,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -175,18 +175,25 @@
    "seg": "30.267,-97.735"
   },
   {
-   "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
-   "hour_of_week": 91,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.257,-97.737"
-  },
-  {
    "from": "Ed Bluestein Blvd (FM-969)",
    "hour_of_week": 94,
    "n": 3,
    "roadworks": false,
    "seg": "30.284,-97.657"
+  },
+  {
+   "from": "S Mo Pac Expy",
+   "hour_of_week": 94,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.267,-97.779"
+  },
+  {
+   "from": "Presidential Blvd",
+   "hour_of_week": 94,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.209,-97.662"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -208,13 +215,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.465,-97.591"
-  },
-  {
-   "from": "Colorado Sand Dr",
-   "hour_of_week": 70,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.458,-97.588"
   }
  ],
  "unmatched_pct": {
