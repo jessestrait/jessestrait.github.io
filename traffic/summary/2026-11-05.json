@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 82 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 83 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 43,
-  "tomtom": 2398,
-  "tomtom_only": 2343
+  "tomtom": 2529,
+  "tomtom_only": 2471
  },
  "date": "2026-11-05",
  "dispatch_life_capped": true,
@@ -23,7 +23,7 @@
   "max": 119.9,
   "median": 116.8,
   "min": 6.5,
-  "n": 82,
+  "n": 83,
   "q1": 115.2,
   "q3": 118.4
  },
@@ -42,13 +42,13 @@
    "pct": 23.6
   },
   "tomtom_highway": {
-   "matched": 26,
-   "n": 1158,
-   "pct": 2.2
+   "matched": 28,
+   "n": 1217,
+   "pct": 2.3
   },
   "tomtom_surface": {
-   "matched": 29,
-   "n": 1240,
+   "matched": 30,
+   "n": 1312,
    "pct": 2.3
   }
  },
@@ -64,7 +64,7 @@
   "min": -68.8,
   "n": 43,
   "q1": -6.4,
-  "q3": 37.7
+  "q3": 40.2
  },
  "persistence_min": {
   "max": 66.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2040,
+  "hotspot_buckets": 2159,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2307
+  "unreported_congestion": 2435
  },
  "sampling": {
-  "flow_spent_this_month": 1233,
+  "flow_spent_this_month": 1242,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 155,
+  "incidents_spent_this_month": 156,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -114,7 +114,7 @@
   {
    "from": "N Lamar Blvd",
    "hour_of_week": 94,
-   "n": 7,
+   "n": 8,
    "roadworks": false,
    "seg": "30.408,-97.678"
   },
