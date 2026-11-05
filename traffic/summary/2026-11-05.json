@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 71 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 72 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 88,
-  "dispatch_only": 76,
+  "dispatch": 91,
+  "dispatch_only": 78,
   "here": 0,
   "here_matched": 0,
-  "matched": 14,
-  "tomtom": 1097,
-  "tomtom_only": 1084
+  "matched": 15,
+  "tomtom": 1145,
+  "tomtom_only": 1131
  },
  "date": "2026-11-05",
  "dispatch_life_capped": true,
@@ -23,7 +23,7 @@
   "max": 119.9,
   "median": 116.9,
   "min": 6.5,
-  "n": 71,
+  "n": 72,
   "q1": 115.2,
   "q3": 118.5
  },
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 16,
-   "pct": 6.2
+   "n": 17,
+   "pct": 5.9
   },
   "dispatch_surface": {
-   "matched": 11,
-   "n": 72,
-   "pct": 15.3
+   "matched": 12,
+   "n": 74,
+   "pct": 16.2
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 545,
-   "pct": 1.7
+   "n": 570,
+   "pct": 1.6
   },
   "tomtom_surface": {
-   "matched": 4,
-   "n": 552,
-   "pct": 0.7
+   "matched": 5,
+   "n": 575,
+   "pct": 0.9
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 78.3,
-  "median": 17.4,
+  "median": 20.1,
   "min": -68.8,
-  "n": 14,
-  "q1": -42.2,
-  "q3": 46.3
+  "n": 15,
+  "q1": -35.9,
+  "q3": 40.2
  },
  "persistence_min": {
   "max": 0.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 963,
+  "hotspot_buckets": 999,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1048
+  "unreported_congestion": 1095
  },
  "sampling": {
-  "flow_spent_this_month": 1197,
+  "flow_spent_this_month": 1206,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 139,
+  "incidents_spent_this_month": 140,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -119,16 +119,9 @@
    "seg": "30.273,-97.732"
   },
   {
-   "from": "Old TX-20 (US-290)",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.346,-97.571"
-  },
-  {
    "from": "W Ben White Blvd",
    "hour_of_week": 93,
-   "n": 3,
+   "n": 4,
    "roadworks": false,
    "seg": "30.223,-97.764"
   },
@@ -138,6 +131,20 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.286,-97.724"
+  },
+  {
+   "from": "W 35th Street Cutoff (W 38th St)",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.305,-97.743"
+  },
+  {
+   "from": "E 11th St (I-35)",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.267,-97.735"
   },
   {
    "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.472,-97.592"
-  },
-  {
-   "from": "Deloss Dodds Way",
-   "hour_of_week": 71,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.282,-97.732"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.4,
+  "dispatch": 85.7,
   "tomtom": 98.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 88,
-  "neither": 76,
-  "tomtom_only": 12
+  "n": 91,
+  "neither": 78,
+  "tomtom_only": 13
  }
 }
