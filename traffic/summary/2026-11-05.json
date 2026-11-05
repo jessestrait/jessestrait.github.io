@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 63 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 65 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 9,
-  "tomtom": 700,
-  "tomtom_only": 691
+  "tomtom": 734,
+  "tomtom_only": 725
  },
  "date": "2026-11-05",
  "dispatch_life_capped": true,
@@ -23,9 +23,9 @@
   "max": 119.9,
   "median": 116.8,
   "min": 6.5,
-  "n": 63,
+  "n": 65,
   "q1": 115.2,
-  "q3": 118.4
+  "q3": 118.5
  },
  "here_onset_offset_min": {
   "n": 0
@@ -42,14 +42,14 @@
    "pct": 10.9
   },
   "tomtom_highway": {
-   "matched": 7,
-   "n": 352,
-   "pct": 2.0
+   "matched": 6,
+   "n": 367,
+   "pct": 1.6
   },
   "tomtom_surface": {
-   "matched": 2,
-   "n": 348,
-   "pct": 0.6
+   "matched": 3,
+   "n": 367,
+   "pct": 0.8
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 627,
+  "hotspot_buckets": 659,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 656
+  "unreported_congestion": 690
  },
  "sampling": {
   "flow_spent_this_month": 1179,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 130,
+  "incidents_spent_this_month": 131,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -112,18 +112,18 @@
  },
  "structural_hotspots": [
   {
-   "from": "Buenos Aires Pkwy",
-   "hour_of_week": 15,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.169,-97.623"
-  },
-  {
    "from": "Arboretum Blvd",
    "hour_of_week": 92,
    "n": 3,
    "roadworks": false,
    "seg": "30.392,-97.747"
+  },
+  {
+   "from": "Buenos Aires Pkwy",
+   "hour_of_week": 15,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.169,-97.623"
   },
   {
    "from": "Round Rock Ave",
@@ -219,7 +219,7 @@
  ],
  "unmatched_pct": {
   "dispatch": 90.0,
-  "tomtom": 98.7
+  "tomtom": 98.8
  },
  "witnesses": {
   "both": 0,
