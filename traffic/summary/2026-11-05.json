@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 94,
-  "dispatch_only": 79,
+  "dispatch": 96,
+  "dispatch_only": 81,
   "here": 0,
   "here_matched": 0,
-  "matched": 18,
-  "tomtom": 1414,
-  "tomtom_only": 1395
+  "matched": 19,
+  "tomtom": 1499,
+  "tomtom_only": 1479
  },
  "date": "2026-11-05",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 13,
-   "n": 76,
-   "pct": 17.1
+   "n": 78,
+   "pct": 16.7
   },
   "tomtom_highway": {
    "matched": 11,
-   "n": 711,
-   "pct": 1.5
+   "n": 760,
+   "pct": 1.4
   },
   "tomtom_surface": {
-   "matched": 8,
-   "n": 703,
-   "pct": 1.1
+   "matched": 9,
+   "n": 739,
+   "pct": 1.2
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 78.3,
-  "median": 17.4,
+  "median": 14.7,
   "min": -68.8,
-  "n": 18,
-  "q1": -25.6,
-  "q3": 38.3
+  "n": 19,
+  "q1": -22.1,
+  "q3": 37.7
  },
  "persistence_min": {
   "max": 0.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1248,
+  "hotspot_buckets": 1327,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1359
+  "unreported_congestion": 1443
  },
  "sampling": {
   "flow_spent_this_month": 1215,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 144,
+  "incidents_spent_this_month": 145,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "N Lamar Blvd",
+   "hour_of_week": 94,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.408,-97.678"
+  },
   {
    "from": "N Interstate 35",
    "hour_of_week": 93,
@@ -154,25 +161,11 @@
    "seg": "30.286,-97.724"
   },
   {
-   "from": "E 7th St (I-35)",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.268,-97.733"
-  },
-  {
    "from": "E 11th St (I-35)",
    "hour_of_week": 93,
    "n": 3,
    "roadworks": false,
    "seg": "30.267,-97.735"
-  },
-  {
-   "from": "N Lamar Blvd",
-   "hour_of_week": 94,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.408,-97.678"
   },
   {
    "from": "Ed Bluestein Blvd (FM-969)",
@@ -215,17 +208,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.296,-97.719"
+  },
+  {
+   "from": "E 7th St",
+   "hour_of_week": 70,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.267,-97.734"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 84.0,
+  "dispatch": 84.4,
   "tomtom": 98.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 94,
-  "neither": 79,
+  "n": 96,
+  "neither": 81,
   "tomtom_only": 15
  }
 }
