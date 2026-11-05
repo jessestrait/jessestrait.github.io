@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 5,
-  "tomtom": 541,
-  "tomtom_only": 536
+  "tomtom": 575,
+  "tomtom_only": 570
  },
  "date": "2026-11-05",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 268,
-   "pct": 1.9
+   "n": 287,
+   "pct": 1.7
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 273,
+   "n": 288,
    "pct": 0.0
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 478,
+  "hotspot_buckets": 511,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 502
+  "unreported_congestion": 536
  },
  "sampling": {
   "flow_spent_this_month": 1143,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 127,
+  "incidents_spent_this_month": 128,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,13 +111,6 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
-  {
-   "from": "US-183/W Braker Ln (Research Blvd)",
-   "hour_of_week": 90,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.392,-97.747"
-  },
   {
    "from": "Buenos Aires Pkwy",
    "hour_of_week": 15,
@@ -210,11 +203,18 @@
    "seg": "30.406,-97.628"
   },
   {
-   "from": "N Interstate 35",
+   "from": "US-290/Exit 238 (I-35)",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.331,-97.705"
+  },
+  {
+   "from": "S 1st St",
    "hour_of_week": 90,
    "n": 2,
    "roadworks": false,
-   "seg": "30.460,-97.666"
+   "seg": "30.249,-97.753"
   }
  ],
  "unmatched_pct": {
