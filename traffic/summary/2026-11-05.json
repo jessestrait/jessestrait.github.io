@@ -13,9 +13,9 @@
   "dispatch_only": 84,
   "here": 0,
   "here_matched": 0,
-  "matched": 53,
-  "tomtom": 3192,
-  "tomtom_only": 3119
+  "matched": 56,
+  "tomtom": 3265,
+  "tomtom_only": 3182
  },
  "date": "2026-11-05",
  "dispatch_life_capped": true,
@@ -42,14 +42,14 @@
    "pct": 27.4
   },
   "tomtom_highway": {
-   "matched": 37,
-   "n": 1504,
-   "pct": 2.5
+   "matched": 40,
+   "n": 1538,
+   "pct": 2.6
   },
   "tomtom_surface": {
-   "matched": 36,
-   "n": 1688,
-   "pct": 2.1
+   "matched": 43,
+   "n": 1727,
+   "pct": 2.5
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 89.6,
-  "median": 17.6,
+  "median": 19.3,
   "min": -68.8,
-  "n": 53,
-  "q1": -4.3,
-  "q3": 49.8
+  "n": 56,
+  "q1": -2.1,
+  "q3": 52.8
  },
  "persistence_min": {
   "max": 66.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2680,
+  "hotspot_buckets": 2716,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 3083
+  "unreported_congestion": 3146
  },
  "sampling": {
-  "flow_spent_this_month": 1251,
+  "flow_spent_this_month": 1260,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 162,
+  "incidents_spent_this_month": 163,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -126,18 +126,18 @@
    "seg": "30.290,-97.742"
   },
   {
+   "from": "Ranch Road 620 N",
+   "hour_of_week": 95,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.473,-97.798"
+  },
+  {
    "from": "N Interstate 35",
    "hour_of_week": 93,
    "n": 4,
    "roadworks": false,
    "seg": "30.273,-97.732"
-  },
-  {
-   "from": "W Ben White Blvd",
-   "hour_of_week": 93,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.223,-97.764"
   },
   {
    "from": "Southwest Pkwy (TX-71)",
@@ -152,6 +152,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.267,-97.779"
+  },
+  {
+   "from": "TX-71/E Ben White Blvd (Burleson Rd)",
+   "hour_of_week": 93,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.207,-97.720"
   },
   {
    "from": "Metlink Dr",
@@ -189,13 +196,6 @@
    "seg": "30.315,-97.737"
   },
   {
-   "from": "Ranch Road 620 N",
-   "hour_of_week": 95,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.473,-97.798"
-  },
-  {
    "from": "Robert Dedman Dr (E 26th St)",
    "hour_of_week": 95,
    "n": 4,
@@ -219,7 +219,7 @@
  ],
  "unmatched_pct": {
   "dispatch": 73.7,
-  "tomtom": 97.7
+  "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
