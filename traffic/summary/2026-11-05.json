@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 13,
-  "tomtom": 970,
-  "tomtom_only": 958
+  "tomtom": 1026,
+  "tomtom_only": 1014
  },
  "date": "2026-11-05",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 8,
-   "n": 486,
+   "n": 509,
    "pct": 1.6
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 484,
+   "n": 517,
    "pct": 0.8
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 873,
+  "hotspot_buckets": 916,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 922
+  "unreported_congestion": 978
  },
  "sampling": {
   "flow_spent_this_month": 1197,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 137,
+  "incidents_spent_this_month": 138,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -114,9 +114,23 @@
   {
    "from": "N Interstate 35",
    "hour_of_week": 93,
-   "n": 3,
+   "n": 4,
    "roadworks": false,
    "seg": "30.273,-97.732"
+  },
+  {
+   "from": "Old TX-20 (US-290)",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.346,-97.571"
+  },
+  {
+   "from": "W Ben White Blvd",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.223,-97.764"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -201,20 +215,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.331,-97.705"
-  },
-  {
-   "from": "S 1st St",
-   "hour_of_week": 90,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.249,-97.753"
-  },
-  {
-   "from": "US-183/W Braker Ln (Research Blvd)",
-   "hour_of_week": 90,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.392,-97.747"
   }
  ],
  "unmatched_pct": {
