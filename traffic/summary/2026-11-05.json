@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 91,
+  "dispatch": 92,
   "dispatch_only": 78,
   "here": 0,
   "here_matched": 0,
-  "matched": 15,
-  "tomtom": 1200,
-  "tomtom_only": 1185
+  "matched": 16,
+  "tomtom": 1274,
+  "tomtom_only": 1258
  },
  "date": "2026-11-05",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 5.9
   },
   "dispatch_surface": {
-   "matched": 12,
-   "n": 74,
-   "pct": 16.2
+   "matched": 13,
+   "n": 75,
+   "pct": 17.3
   },
   "tomtom_highway": {
    "matched": 10,
-   "n": 600,
-   "pct": 1.7
+   "n": 640,
+   "pct": 1.6
   },
   "tomtom_surface": {
-   "matched": 5,
-   "n": 600,
-   "pct": 0.8
+   "matched": 6,
+   "n": 634,
+   "pct": 0.9
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 78.3,
-  "median": 20.1,
+  "median": 17.4,
   "min": -68.8,
-  "n": 15,
-  "q1": -35.9,
-  "q3": 40.2
+  "n": 16,
+  "q1": -32.4,
+  "q3": 37.9
  },
  "persistence_min": {
   "max": 0.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1042,
+  "hotspot_buckets": 1113,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1149
+  "unreported_congestion": 1222
  },
  "sampling": {
   "flow_spent_this_month": 1206,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 141,
+  "incidents_spent_this_month": 142,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -145,13 +145,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.481,-97.675"
-  },
-  {
-   "from": "Guadalupe St (W 6th St)",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.271,-97.753"
   },
   {
    "from": "E Dean Keeton St",
@@ -215,17 +208,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.267,-97.734"
+  },
+  {
+   "from": "Steed Dr",
+   "hour_of_week": 98,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.195,-97.864"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.7,
-  "tomtom": 98.8
+  "dispatch": 84.8,
+  "tomtom": 98.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 91,
+  "n": 92,
   "neither": 78,
-  "tomtom_only": 13
+  "tomtom_only": 14
  }
 }
