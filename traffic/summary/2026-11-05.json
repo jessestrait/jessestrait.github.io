@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 77 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 78 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,21 +9,21 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 105,
-  "dispatch_only": 86,
+  "dispatch": 106,
+  "dispatch_only": 87,
   "here": 0,
   "here_matched": 0,
-  "matched": 30,
-  "tomtom": 1831,
-  "tomtom_only": 1791
+  "matched": 32,
+  "tomtom": 1931,
+  "tomtom_only": 1889
  },
  "date": "2026-11-05",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.8,
+  "median": 116.9,
   "min": 6.5,
-  "n": 77,
+  "n": 78,
   "q1": 115.2,
   "q3": 118.4
  },
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 17,
-   "n": 86,
-   "pct": 19.8
+   "n": 87,
+   "pct": 19.5
   },
   "tomtom_highway": {
-   "matched": 19,
-   "n": 914,
-   "pct": 2.1
+   "matched": 21,
+   "n": 956,
+   "pct": 2.2
   },
   "tomtom_surface": {
    "matched": 21,
-   "n": 917,
-   "pct": 2.3
+   "n": 975,
+   "pct": 2.2
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 78.3,
-  "median": 13.8,
+  "median": 14.2,
   "min": -68.8,
-  "n": 30,
-  "q1": -12.2,
-  "q3": 32.6
+  "n": 32,
+  "q1": -9.1,
+  "q3": 36.0
  },
  "persistence_min": {
   "max": 0.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1587,
+  "hotspot_buckets": 1667,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1755
+  "unreported_congestion": 1853
  },
  "sampling": {
   "flow_spent_this_month": 1224,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 149,
+  "incidents_spent_this_month": 150,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -145,6 +145,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.141,-97.797"
+  },
+  {
+   "from": "E Riverside Dr (S Pleasant Valley Rd)",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.249,-97.714"
   },
   {
    "from": "Highway 45",
@@ -203,29 +210,22 @@
    "seg": "30.311,-97.662"
   },
   {
-   "from": "S 1st St (Barton Springs Rd)",
+   "from": "Hancock Center Access (Overpass) (I-35)",
    "hour_of_week": 94,
    "n": 3,
    "roadworks": false,
-   "seg": "30.260,-97.756"
-  },
-  {
-   "from": "Buenos Aires Pkwy",
-   "hour_of_week": 15,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.169,-97.623"
+   "seg": "30.301,-97.715"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.9,
+  "dispatch": 82.1,
   "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 105,
-  "neither": 86,
+  "n": 106,
+  "neither": 87,
   "tomtom_only": 19
  }
 }
