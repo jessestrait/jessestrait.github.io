@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 107,
-  "dispatch_only": 84,
+  "dispatch": 108,
+  "dispatch_only": 85,
   "here": 0,
   "here_matched": 0,
-  "matched": 37,
-  "tomtom": 2130,
-  "tomtom_only": 2082
+  "matched": 38,
+  "tomtom": 2224,
+  "tomtom_only": 2175
  },
  "date": "2026-11-05",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 20,
-   "n": 88,
-   "pct": 22.7
+   "n": 89,
+   "pct": 22.5
   },
   "tomtom_highway": {
-   "matched": 23,
-   "n": 1045,
+   "matched": 24,
+   "n": 1086,
    "pct": 2.2
   },
   "tomtom_surface": {
    "matched": 25,
-   "n": 1085,
-   "pct": 2.3
+   "n": 1138,
+   "pct": 2.2
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 78.3,
-  "median": 14.7,
+  "median": 14.2,
   "min": -68.8,
-  "n": 37,
-  "q1": -6.8,
-  "q3": 35.5
+  "n": 38,
+  "q1": -7.7,
+  "q3": 34.3
  },
  "persistence_min": {
   "max": 66.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1816,
+  "hotspot_buckets": 1880,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2046
+  "unreported_congestion": 2139
  },
  "sampling": {
   "flow_spent_this_month": 1233,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 152,
+  "incidents_spent_this_month": 153,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -114,7 +114,7 @@
   {
    "from": "N Lamar Blvd",
    "hour_of_week": 94,
-   "n": 6,
+   "n": 7,
    "roadworks": false,
    "seg": "30.408,-97.678"
   },
@@ -131,6 +131,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.223,-97.764"
+  },
+  {
+   "from": "S Mo Pac Expy",
+   "hour_of_week": 94,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.267,-97.779"
   },
   {
    "from": "Presidential Blvd",
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.274,-97.752"
-  },
-  {
-   "from": "Ed Bluestein Blvd (FM-969)",
-   "hour_of_week": 94,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.284,-97.657"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.5,
-  "tomtom": 97.7
+  "dispatch": 78.7,
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 107,
-  "neither": 84,
+  "n": 108,
+  "neither": 85,
   "tomtom_only": 23
  }
 }
