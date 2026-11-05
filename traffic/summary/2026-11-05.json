@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 5,
-  "tomtom": 426,
-  "tomtom_only": 421
+  "tomtom": 430,
+  "tomtom_only": 425
  },
  "date": "2026-11-05",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 220,
+   "n": 222,
    "pct": 2.3
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 206,
+   "n": 208,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 375,
+  "hotspot_buckets": 378,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 391
+  "unreported_congestion": 395
  },
  "sampling": {
   "flow_spent_this_month": 1035,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 116,
+  "incidents_spent_this_month": 117,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -153,6 +153,13 @@
    "seg": "30.267,-97.734"
   },
   {
+   "from": "Steed Dr",
+   "hour_of_week": 98,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.195,-97.864"
+  },
+  {
    "from": "US-290/Exit 238 (I-35)",
    "hour_of_week": 40,
    "n": 2,
@@ -167,7 +174,7 @@
    "seg": "30.448,-97.631"
   },
   {
-   "from": "E 20th St",
+   "from": "E Martin Luther King Jr Blvd / Red River St",
    "hour_of_week": 71,
    "n": 2,
    "roadworks": false,
@@ -207,13 +214,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.616"
   }
  ],
  "unmatched_pct": {
