@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 96,
-  "dispatch_only": 81,
+  "dispatch": 100,
+  "dispatch_only": 82,
   "here": 0,
   "here_matched": 0,
-  "matched": 19,
-  "tomtom": 1499,
-  "tomtom_only": 1479
+  "matched": 24,
+  "tomtom": 1572,
+  "tomtom_only": 1546
  },
  "date": "2026-11-05",
  "dispatch_life_capped": true,
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 2,
-   "n": 18,
-   "pct": 11.1
+   "n": 19,
+   "pct": 10.5
   },
   "dispatch_surface": {
-   "matched": 13,
-   "n": 78,
-   "pct": 16.7
+   "matched": 16,
+   "n": 81,
+   "pct": 19.8
   },
   "tomtom_highway": {
-   "matched": 11,
-   "n": 760,
-   "pct": 1.4
+   "matched": 15,
+   "n": 803,
+   "pct": 1.9
   },
   "tomtom_surface": {
-   "matched": 9,
-   "n": 739,
-   "pct": 1.2
+   "matched": 11,
+   "n": 769,
+   "pct": 1.4
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 78.3,
-  "median": 14.7,
+  "median": 13.3,
   "min": -68.8,
-  "n": 19,
-  "q1": -22.1,
-  "q3": 37.7
+  "n": 24,
+  "q1": -17.2,
+  "q3": 36.0
  },
  "persistence_min": {
   "max": 0.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1327,
+  "hotspot_buckets": 1385,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1443
+  "unreported_congestion": 1510
  },
  "sampling": {
   "flow_spent_this_month": 1215,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 145,
+  "incidents_spent_this_month": 146,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -147,18 +147,18 @@
    "seg": "30.141,-97.797"
   },
   {
-   "from": "Highway 45",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.481,-97.675"
-  },
-  {
    "from": "E Dean Keeton St",
    "hour_of_week": 93,
    "n": 3,
    "roadworks": false,
    "seg": "30.286,-97.724"
+  },
+  {
+   "from": "E 7th St (I-35)",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.268,-97.733"
   },
   {
    "from": "E 11th St (I-35)",
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 84.4,
-  "tomtom": 98.7
+  "dispatch": 82.0,
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 96,
-  "neither": 81,
-  "tomtom_only": 15
+  "n": 100,
+  "neither": 82,
+  "tomtom_only": 18
  }
 }
