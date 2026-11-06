@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 30,
-  "tomtom": 1371,
-  "tomtom_only": 1340
+  "tomtom": 1414,
+  "tomtom_only": 1383
  },
  "date": "2026-11-06",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 22,
-   "n": 730,
-   "pct": 3.0
+   "n": 754,
+   "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 9,
-   "n": 641,
+   "n": 660,
    "pct": 1.4
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1086,
+  "hotspot_buckets": 1117,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1145
+  "unreported_congestion": 1188
  },
  "sampling": {
-  "flow_spent_this_month": 1422,
+  "flow_spent_this_month": 1431,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 190,
+  "incidents_spent_this_month": 191,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -112,18 +112,25 @@
  },
  "structural_hotspots": [
   {
-   "from": "Old TX-20 (US-290)",
-   "hour_of_week": 114,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.346,-97.571"
-  },
-  {
    "from": "Davis St",
    "hour_of_week": 101,
    "n": 3,
    "roadworks": false,
    "seg": "30.258,-97.739"
+  },
+  {
+   "from": "Colorado Sand Dr",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.465,-97.593"
+  },
+  {
+   "from": "Old TX-20 (US-290)",
+   "hour_of_week": 114,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.346,-97.571"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -208,18 +215,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.209,-97.756"
-  },
-  {
-   "from": "Highway 290 W",
-   "hour_of_week": 99,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.232,-97.877"
   }
  ],
  "unmatched_pct": {
   "dispatch": 70.9,
-  "tomtom": 97.7
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
