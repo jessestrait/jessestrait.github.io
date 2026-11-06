@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 13,
-  "tomtom": 791,
-  "tomtom_only": 778
+  "tomtom": 795,
+  "tomtom_only": 782
  },
  "date": "2026-11-06",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 8,
-   "n": 444,
+   "n": 446,
    "pct": 1.8
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 347,
+   "n": 349,
    "pct": 1.4
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 564,
+  "hotspot_buckets": 567,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 587
+  "unreported_congestion": 591
  },
  "sampling": {
   "flow_spent_this_month": 1314,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 170,
+  "incidents_spent_this_month": 171,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -202,18 +202,18 @@
    "seg": "30.209,-97.756"
   },
   {
+   "from": "Highway 290 W",
+   "hour_of_week": 99,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.232,-97.877"
+  },
+  {
    "from": "N Interstate 35",
    "hour_of_week": 90,
    "n": 2,
    "roadworks": false,
    "seg": "30.460,-97.666"
-  },
-  {
-   "from": "Adage Dr / Epiphany Ln",
-   "hour_of_week": 59,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.448,-97.631"
   }
  ],
  "unmatched_pct": {
