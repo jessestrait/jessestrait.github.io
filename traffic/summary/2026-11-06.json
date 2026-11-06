@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 112,
-  "dispatch_only": 77,
+  "dispatch": 113,
+  "dispatch_only": 78,
   "here": 0,
   "here_matched": 0,
   "matched": 59,
-  "tomtom": 2816,
-  "tomtom_only": 2748
+  "tomtom": 2875,
+  "tomtom_only": 2807
  },
  "date": "2026-11-06",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 31,
-   "n": 101,
-   "pct": 30.7
+   "n": 102,
+   "pct": 30.4
   },
   "tomtom_highway": {
    "matched": 42,
-   "n": 1437,
+   "n": 1466,
    "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 26,
-   "n": 1379,
-   "pct": 1.9
+   "n": 1409,
+   "pct": 1.8
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2270,
+  "hotspot_buckets": 2315,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2552
+  "unreported_congestion": 2611
  },
  "sampling": {
   "flow_spent_this_month": 1476,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 213,
+  "incidents_spent_this_month": 214,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -126,18 +126,18 @@
    "seg": "30.282,-97.742"
   },
   {
+   "from": "S Interstate 35",
+   "hour_of_week": 118,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.195,-97.767"
+  },
+  {
    "from": "Old TX-20 (US-290)",
    "hour_of_week": 114,
    "n": 4,
    "roadworks": false,
    "seg": "30.346,-97.571"
-  },
-  {
-   "from": "S Interstate 35",
-   "hour_of_week": 118,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.195,-97.767"
   },
   {
    "from": "Cameron Rd (Parmer Ln/FM-734)",
@@ -154,6 +154,13 @@
    "seg": "30.223,-97.764"
   },
   {
+   "from": "Whitis Ave",
+   "hour_of_week": 119,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.284,-97.743"
+  },
+  {
    "from": "Davis St",
    "hour_of_week": 101,
    "n": 3,
@@ -166,6 +173,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.195,-97.767"
+  },
+  {
+   "from": "W 15th St (N Lamar Blvd)",
+   "hour_of_week": 116,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.274,-97.753"
   },
   {
    "from": "Lakeline Mall Dr",
@@ -201,31 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.432,-97.673"
-  },
-  {
-   "from": "W 21st St",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.287,-97.743"
-  },
-  {
-   "from": "S Interstate 35",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.195,-97.767"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 68.8,
+  "dispatch": 69.0,
   "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 112,
-  "neither": 77,
+  "n": 113,
+  "neither": 78,
   "tomtom_only": 35
  }
 }
