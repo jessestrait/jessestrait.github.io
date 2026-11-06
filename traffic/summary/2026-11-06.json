@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 88,
-  "dispatch_only": 62,
+  "dispatch": 90,
+  "dispatch_only": 64,
   "here": 0,
   "here_matched": 0,
   "matched": 31,
-  "tomtom": 1455,
-  "tomtom_only": 1423
+  "tomtom": 1509,
+  "tomtom_only": 1477
  },
  "date": "2026-11-06",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 23,
-   "n": 78,
-   "pct": 29.5
+   "n": 80,
+   "pct": 28.8
   },
   "tomtom_highway": {
    "matched": 22,
-   "n": 771,
-   "pct": 2.9
+   "n": 792,
+   "pct": 2.8
   },
   "tomtom_surface": {
    "matched": 10,
-   "n": 684,
-   "pct": 1.5
+   "n": 717,
+   "pct": 1.4
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1151,
+  "hotspot_buckets": 1192,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1228
+  "unreported_congestion": 1282
  },
  "sampling": {
   "flow_spent_this_month": 1431,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 192,
+  "incidents_spent_this_month": 193,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "W 26th St (Guadalupe St)",
+   "hour_of_week": 117,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.282,-97.742"
+  },
   {
    "from": "Old TX-20 (US-290)",
    "hour_of_week": 114,
@@ -140,11 +147,18 @@
    "seg": "30.465,-97.593"
   },
   {
-   "from": "W 26th St (Guadalupe St)",
+   "from": "S Interstate 35",
    "hour_of_week": 117,
    "n": 3,
    "roadworks": false,
-   "seg": "30.282,-97.742"
+   "seg": "30.195,-97.767"
+  },
+  {
+   "from": "Atlanta St",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.276,-97.771"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -201,31 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.394,-97.717"
-  },
-  {
-   "from": "US-290/Exit 238 (I-35)",
-   "hour_of_week": 40,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.342,-97.698"
-  },
-  {
-   "from": "Clyde Littlefield Dr",
-   "hour_of_week": 95,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.282,-97.732"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 70.5,
-  "tomtom": 97.8
+  "dispatch": 71.1,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 88,
-  "neither": 62,
+  "n": 90,
+  "neither": 64,
   "tomtom_only": 26
  }
 }
