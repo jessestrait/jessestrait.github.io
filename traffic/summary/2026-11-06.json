@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 13,
-  "tomtom": 616,
-  "tomtom_only": 603
+  "tomtom": 618,
+  "tomtom_only": 605
  },
  "date": "2026-11-06",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 8,
-   "n": 310,
+   "n": 311,
    "pct": 2.6
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 306,
+   "n": 307,
    "pct": 1.6
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 556,
+  "hotspot_buckets": 557,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 578
+  "unreported_congestion": 580
  },
  "sampling": {
   "flow_spent_this_month": 1287,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 166,
+  "incidents_spent_this_month": 167,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -195,6 +195,13 @@
    "seg": "30.191,-97.771"
   },
   {
+   "from": "W Ben White Blvd",
+   "hour_of_week": 99,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.209,-97.756"
+  },
+  {
    "from": "N Interstate 35",
    "hour_of_week": 90,
    "n": 2,
@@ -207,13 +214,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.448,-97.631"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 19,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.320,-97.706"
   }
  ],
  "unmatched_pct": {
