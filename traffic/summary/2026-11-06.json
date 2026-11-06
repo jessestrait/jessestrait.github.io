@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 110, q3 118 min over 86 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 110, q3 118 min over 88 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -13,18 +13,18 @@
   "dispatch_only": 78,
   "here": 0,
   "here_matched": 0,
-  "matched": 59,
-  "tomtom": 2875,
-  "tomtom_only": 2807
+  "matched": 60,
+  "tomtom": 2934,
+  "tomtom_only": 2865
  },
  "date": "2026-11-06",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.4,
+  "median": 116.6,
   "min": 9.0,
-  "n": 86,
-  "q1": 109.8,
+  "n": 88,
+  "q1": 110.2,
   "q3": 118.3
  },
  "here_onset_offset_min": {
@@ -42,13 +42,13 @@
    "pct": 30.4
   },
   "tomtom_highway": {
-   "matched": 42,
-   "n": 1466,
+   "matched": 43,
+   "n": 1496,
    "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 26,
-   "n": 1409,
+   "n": 1438,
    "pct": 1.8
   }
  },
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 89.6,
-  "median": 25.4,
+  "median": 28.1,
   "min": -78.5,
-  "n": 59,
-  "q1": 6.2,
-  "q3": 50.0
+  "n": 60,
+  "q1": 6.4,
+  "q3": 52.5
  },
  "persistence_min": {
   "max": 0.0,
-  "median": -35.8,
+  "median": -38.2,
   "min": -1315.0,
-  "n": 34,
-  "q1": -77.3,
+  "n": 40,
+  "q1": -76.4,
   "q3": -15.2,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2315,
+  "hotspot_buckets": 2350,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2611
+  "unreported_congestion": 2669
  },
  "sampling": {
-  "flow_spent_this_month": 1476,
+  "flow_spent_this_month": 1485,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 214,
+  "incidents_spent_this_month": 215,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -133,6 +133,20 @@
    "seg": "30.195,-97.767"
   },
   {
+   "from": "Whitis Ave",
+   "hour_of_week": 119,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.284,-97.743"
+  },
+  {
+   "from": "W 15th St (N Lamar Blvd)",
+   "hour_of_week": 116,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.274,-97.753"
+  },
+  {
    "from": "Old TX-20 (US-290)",
    "hour_of_week": 114,
    "n": 4,
@@ -154,13 +168,6 @@
    "seg": "30.223,-97.764"
   },
   {
-   "from": "Whitis Ave",
-   "hour_of_week": 119,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.284,-97.743"
-  },
-  {
    "from": "Davis St",
    "hour_of_week": 101,
    "n": 3,
@@ -173,13 +180,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.195,-97.767"
-  },
-  {
-   "from": "W 15th St (N Lamar Blvd)",
-   "hour_of_week": 116,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.274,-97.753"
   },
   {
    "from": "Lakeline Mall Dr",
