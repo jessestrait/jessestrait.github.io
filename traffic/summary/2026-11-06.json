@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 41,
-  "dispatch_only": 29,
+  "dispatch": 42,
+  "dispatch_only": 30,
   "here": 0,
   "here_matched": 0,
   "matched": 12,
@@ -38,8 +38,8 @@
   },
   "dispatch_surface": {
    "matched": 10,
-   "n": 37,
-   "pct": 27.0
+   "n": 38,
+   "pct": 26.3
   },
   "tomtom_highway": {
    "matched": 8,
@@ -209,22 +209,22 @@
    "seg": "30.320,-97.706"
   },
   {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
+   "from": "Clyde Littlefield Dr",
+   "hour_of_week": 100,
    "n": 2,
    "roadworks": false,
-   "seg": "30.245,-97.744"
+   "seg": "30.286,-97.727"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 70.7,
+  "dispatch": 71.4,
   "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 41,
-  "neither": 29,
+  "n": 42,
+  "neither": 30,
   "tomtom_only": 12
  }
 }
