@@ -10,21 +10,21 @@
  ],
  "counts": {
   "dispatch": 43,
-  "dispatch_only": 31,
+  "dispatch_only": 30,
   "here": 0,
   "here_matched": 0,
-  "matched": 12,
-  "tomtom": 602,
-  "tomtom_only": 590
+  "matched": 13,
+  "tomtom": 616,
+  "tomtom_only": 603
  },
  "date": "2026-11-06",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 112.0,
+  "median": 112.6,
   "min": 9.0,
-  "n": 37,
-  "q1": 56.8,
+  "n": 38,
+  "q1": 59.4,
   "q3": 117.9
  },
  "here_onset_offset_min": {
@@ -37,19 +37,19 @@
    "pct": 50.0
   },
   "dispatch_surface": {
-   "matched": 10,
+   "matched": 11,
    "n": 39,
-   "pct": 25.6
+   "pct": 28.2
   },
   "tomtom_highway": {
    "matched": 8,
-   "n": 305,
+   "n": 310,
    "pct": 2.6
   },
   "tomtom_surface": {
-   "matched": 4,
-   "n": 297,
-   "pct": 1.3
+   "matched": 5,
+   "n": 306,
+   "pct": 1.6
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 89.6,
-  "median": 19.6,
+  "median": 23.4,
   "min": -49.0,
-  "n": 12,
-  "q1": -14.3,
-  "q3": 42.8
+  "n": 13,
+  "q1": -10.7,
+  "q3": 40.2
  },
  "persistence_min": {
   "max": -5.1,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 546,
+  "hotspot_buckets": 556,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 566
+  "unreported_congestion": 578
  },
  "sampling": {
   "flow_spent_this_month": 1278,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 165,
+  "incidents_spent_this_month": 166,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
+  {
+   "from": "Davis St",
+   "hour_of_week": 101,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.258,-97.739"
+  },
   {
    "from": "Buenos Aires Pkwy",
    "hour_of_week": 15,
@@ -181,11 +188,11 @@
    "seg": "30.282,-97.732"
   },
   {
-   "from": "W Ben White Blvd",
-   "hour_of_week": 99,
+   "from": "Stassney Ln (I-35)",
+   "hour_of_week": 101,
    "n": 2,
    "roadworks": false,
-   "seg": "30.211,-97.755"
+   "seg": "30.191,-97.771"
   },
   {
    "from": "N Interstate 35",
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.320,-97.706"
-  },
-  {
-   "from": "Clyde Littlefield Dr",
-   "hour_of_week": 100,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.286,-97.727"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 72.1,
-  "tomtom": 98.0
+  "dispatch": 69.8,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 43,
-  "neither": 31,
-  "tomtom_only": 12
+  "neither": 30,
+  "tomtom_only": 13
  }
 }
