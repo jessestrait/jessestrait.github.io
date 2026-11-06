@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 105,
-  "dispatch_only": 73,
+  "dispatch": 108,
+  "dispatch_only": 75,
   "here": 0,
   "here_matched": 0,
-  "matched": 47,
-  "tomtom": 2202,
-  "tomtom_only": 2151
+  "matched": 48,
+  "tomtom": 2281,
+  "tomtom_only": 2229
  },
  "date": "2026-11-06",
  "dispatch_life_capped": true,
@@ -37,18 +37,18 @@
    "pct": 27.3
   },
   "dispatch_surface": {
-   "matched": 29,
-   "n": 94,
+   "matched": 30,
+   "n": 97,
    "pct": 30.9
   },
   "tomtom_highway": {
    "matched": 33,
-   "n": 1127,
-   "pct": 2.9
+   "n": 1165,
+   "pct": 2.8
   },
   "tomtom_surface": {
-   "matched": 18,
-   "n": 1075,
+   "matched": 19,
+   "n": 1116,
    "pct": 1.7
   }
  },
@@ -60,10 +60,10 @@
  },
  "onset_offset_min": {
   "max": 89.6,
-  "median": 19.5,
+  "median": 19.1,
   "min": -78.5,
-  "n": 47,
-  "q1": 4.4,
+  "n": 48,
+  "q1": 4.6,
   "q3": 46.0
  },
  "persistence_min": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1772,
+  "hotspot_buckets": 1831,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1955
+  "unreported_congestion": 2033
  },
  "sampling": {
   "flow_spent_this_month": 1458,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 204,
+  "incidents_spent_this_month": 205,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -126,6 +126,13 @@
    "seg": "30.346,-97.571"
   },
   {
+   "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
+   "hour_of_week": 114,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.257,-97.737"
+  },
+  {
    "from": "S Interstate 35",
    "hour_of_week": 118,
    "n": 4,
@@ -138,6 +145,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.258,-97.739"
+  },
+  {
+   "from": "S Interstate 35",
+   "hour_of_week": 108,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.195,-97.767"
   },
   {
    "from": "Lakeline Mall Dr",
@@ -201,31 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.422,-97.620"
-  },
-  {
-   "from": "Braker Ln (I-35)",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.360,-97.687"
-  },
-  {
-   "from": "Kellam Rd / Circuit of the Americas Blvd",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.142,-97.616"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 69.5,
+  "dispatch": 69.4,
   "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 105,
-  "neither": 73,
-  "tomtom_only": 32
+  "n": 108,
+  "neither": 75,
+  "tomtom_only": 33
  }
 }
