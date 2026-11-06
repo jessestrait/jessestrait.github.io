@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 109, q3 118 min over 83 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 110, q3 118 min over 85 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -13,18 +13,18 @@
   "dispatch_only": 76,
   "here": 0,
   "here_matched": 0,
-  "matched": 57,
-  "tomtom": 2676,
-  "tomtom_only": 2611
+  "matched": 58,
+  "tomtom": 2753,
+  "tomtom_only": 2686
  },
  "date": "2026-11-06",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.2,
+  "median": 116.4,
   "min": 9.0,
-  "n": 83,
-  "q1": 109.4,
+  "n": 85,
+  "q1": 109.6,
   "q3": 118.3
  },
  "here_onset_offset_min": {
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 41,
-   "n": 1363,
-   "pct": 3.0
+   "n": 1405,
+   "pct": 2.9
   },
   "tomtom_surface": {
-   "matched": 24,
-   "n": 1313,
-   "pct": 1.8
+   "matched": 26,
+   "n": 1348,
+   "pct": 1.9
   }
  },
  "matcher": {
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 89.6,
-  "median": 24.2,
+  "median": 24.8,
   "min": -78.5,
-  "n": 57,
-  "q1": 5.8,
-  "q3": 49.2
+  "n": 58,
+  "q1": 6.0,
+  "q3": 48.8
  },
  "persistence_min": {
   "max": 0.0,
-  "median": -23.0,
+  "median": -35.8,
   "min": -1315.0,
-  "n": 30,
-  "q1": -81.3,
+  "n": 34,
+  "q1": -77.3,
   "q3": -15.2,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2155,
+  "hotspot_buckets": 2222,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2415
+  "unreported_congestion": 2490
  },
  "sampling": {
   "flow_spent_this_month": 1476,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 211,
+  "incidents_spent_this_month": 212,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -114,7 +114,7 @@
   {
    "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
    "hour_of_week": 114,
-   "n": 6,
+   "n": 8,
    "roadworks": false,
    "seg": "30.257,-97.737"
   },
