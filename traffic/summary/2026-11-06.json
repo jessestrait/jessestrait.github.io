@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 100, q3 118 min over 76 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 100, q3 118 min over 77 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 108,
-  "dispatch_only": 74,
+  "dispatch": 109,
+  "dispatch_only": 75,
   "here": 0,
   "here_matched": 0,
-  "matched": 51,
-  "tomtom": 2343,
-  "tomtom_only": 2288
+  "matched": 52,
+  "tomtom": 2417,
+  "tomtom_only": 2360
  },
  "date": "2026-11-06",
  "dispatch_life_capped": true,
@@ -23,9 +23,9 @@
   "max": 119.9,
   "median": 116.0,
   "min": 9.0,
-  "n": 76,
-  "q1": 99.6,
-  "q3": 118.1
+  "n": 77,
+  "q1": 99.8,
+  "q3": 118.2
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 30,
-   "n": 97,
-   "pct": 30.9
+   "n": 98,
+   "pct": 30.6
   },
   "tomtom_highway": {
-   "matched": 35,
-   "n": 1192,
+   "matched": 36,
+   "n": 1226,
    "pct": 2.9
   },
   "tomtom_surface": {
-   "matched": 20,
-   "n": 1151,
-   "pct": 1.7
+   "matched": 21,
+   "n": 1191,
+   "pct": 1.8
   }
  },
  "matcher": {
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 89.6,
-  "median": 19.5,
+  "median": 19.1,
   "min": -78.5,
-  "n": 51,
-  "q1": 4.4,
-  "q3": 47.2
+  "n": 52,
+  "q1": 4.6,
+  "q3": 46.9
  },
  "persistence_min": {
   "max": 0.0,
   "median": -15.2,
   "min": -1315.0,
-  "n": 24,
-  "q1": -79.9,
+  "n": 25,
+  "q1": -78.6,
   "q3": -15.2,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1870,
+  "hotspot_buckets": 1924,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2092
+  "unreported_congestion": 2164
  },
  "sampling": {
-  "flow_spent_this_month": 1458,
+  "flow_spent_this_month": 1467,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 206,
+  "incidents_spent_this_month": 207,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -119,6 +119,13 @@
    "seg": "30.282,-97.742"
   },
   {
+   "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
+   "hour_of_week": 114,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.257,-97.737"
+  },
+  {
    "from": "S Interstate 35",
    "hour_of_week": 118,
    "n": 5,
@@ -133,11 +140,18 @@
    "seg": "30.346,-97.571"
   },
   {
-   "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
-   "hour_of_week": 114,
+   "from": "Cesar Chavez St exit [234A]",
+   "hour_of_week": 118,
    "n": 4,
    "roadworks": false,
-   "seg": "30.257,-97.737"
+   "seg": "30.262,-97.736"
+  },
+  {
+   "from": "W Ben White Blvd",
+   "hour_of_week": 118,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.223,-97.764"
   },
   {
    "from": "Davis St",
@@ -201,31 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.195,-97.767"
-  },
-  {
-   "from": "Atlanta St",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.276,-97.771"
-  },
-  {
-   "from": "Dessau Rd",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.422,-97.620"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 68.5,
-  "tomtom": 97.7
+  "dispatch": 68.8,
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 108,
-  "neither": 74,
+  "n": 109,
+  "neither": 75,
   "tomtom_only": 34
  }
 }
