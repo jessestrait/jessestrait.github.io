@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 85,
+  "dispatch": 86,
   "dispatch_only": 61,
   "here": 0,
   "here_matched": 0,
-  "matched": 29,
-  "tomtom": 1326,
-  "tomtom_only": 1296
+  "matched": 30,
+  "tomtom": 1371,
+  "tomtom_only": 1340
  },
  "date": "2026-11-06",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 30.0
   },
   "dispatch_surface": {
-   "matched": 21,
-   "n": 75,
-   "pct": 28.0
+   "matched": 22,
+   "n": 76,
+   "pct": 28.9
   },
   "tomtom_highway": {
-   "matched": 21,
-   "n": 709,
+   "matched": 22,
+   "n": 730,
    "pct": 3.0
   },
   "tomtom_surface": {
    "matched": 9,
-   "n": 617,
-   "pct": 1.5
+   "n": 641,
+   "pct": 1.4
   }
  },
  "matcher": {
@@ -60,10 +60,10 @@
  },
  "onset_offset_min": {
   "max": 89.6,
-  "median": 18.6,
+  "median": 19.1,
   "min": -49.0,
-  "n": 29,
-  "q1": -1.1,
+  "n": 30,
+  "q1": -0.0,
   "q3": 46.0
  },
  "persistence_min": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1051,
+  "hotspot_buckets": 1086,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1101
+  "unreported_congestion": 1145
  },
  "sampling": {
   "flow_spent_this_month": 1422,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 189,
+  "incidents_spent_this_month": 190,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -112,25 +112,18 @@
  },
  "structural_hotspots": [
   {
+   "from": "Old TX-20 (US-290)",
+   "hour_of_week": 114,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.346,-97.571"
+  },
+  {
    "from": "Davis St",
    "hour_of_week": 101,
    "n": 3,
    "roadworks": false,
    "seg": "30.258,-97.739"
-  },
-  {
-   "from": "N Mo Pac Expy",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.406,-97.722"
-  },
-  {
-   "from": "Old TX-20 (US-290)",
-   "hour_of_week": 114,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.346,-97.571"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -215,17 +208,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.209,-97.756"
+  },
+  {
+   "from": "Highway 290 W",
+   "hour_of_week": 99,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.232,-97.877"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 71.8,
+  "dispatch": 70.9,
   "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 85,
+  "n": 86,
   "neither": 61,
-  "tomtom_only": 24
+  "tomtom_only": 25
  }
 }
