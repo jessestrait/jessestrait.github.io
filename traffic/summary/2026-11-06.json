@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 97, q3 118 min over 71 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 98, q3 118 min over 72 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 97,
-  "dispatch_only": 67,
+  "dispatch": 99,
+  "dispatch_only": 68,
   "here": 0,
   "here_matched": 0,
-  "matched": 37,
-  "tomtom": 1761,
-  "tomtom_only": 1722
+  "matched": 39,
+  "tomtom": 1807,
+  "tomtom_only": 1765
  },
  "date": "2026-11-06",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.0,
+  "median": 115.9,
   "min": 9.0,
-  "n": 71,
-  "q1": 97.0,
+  "n": 72,
+  "q1": 97.6,
   "q3": 118.2
  },
  "here_onset_offset_min": {
@@ -37,19 +37,19 @@
    "pct": 27.3
   },
   "dispatch_surface": {
-   "matched": 27,
-   "n": 86,
-   "pct": 31.4
+   "matched": 28,
+   "n": 88,
+   "pct": 31.8
   },
   "tomtom_highway": {
-   "matched": 27,
-   "n": 905,
+   "matched": 28,
+   "n": 935,
    "pct": 3.0
   },
   "tomtom_surface": {
-   "matched": 12,
-   "n": 856,
-   "pct": 1.4
+   "matched": 14,
+   "n": 872,
+   "pct": 1.6
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 89.6,
-  "median": 18.2,
+  "median": 15.4,
   "min": -78.5,
-  "n": 37,
-  "q1": 2.7,
-  "q3": 44.1
+  "n": 39,
+  "q1": 1.1,
+  "q3": 43.0
  },
  "persistence_min": {
   "max": 0.0,
   "median": -15.2,
   "min": -1315.0,
-  "n": 22,
-  "q1": -77.3,
-  "q3": -13.9,
+  "n": 23,
+  "q1": -75.9,
+  "q3": -15.2,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1403,
+  "hotspot_buckets": 1448,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1527
+  "unreported_congestion": 1570
  },
  "sampling": {
   "flow_spent_this_month": 1440,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 197,
+  "incidents_spent_this_month": 198,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -147,13 +147,6 @@
    "seg": "30.406,-97.722"
   },
   {
-   "from": "Harris Ridge Blvd (E Howard Ln)",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.424,-97.669"
-  },
-  {
    "from": "Colorado Sand Dr",
    "hour_of_week": 117,
    "n": 3,
@@ -189,13 +182,6 @@
    "seg": "30.276,-97.771"
   },
   {
-   "from": "E Stassney Ln (S Pleasant Valley Rd)",
-   "hour_of_week": 117,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.183,-97.745"
-  },
-  {
    "from": "Dessau Rd",
    "hour_of_week": 117,
    "n": 3,
@@ -215,17 +201,31 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.142,-97.616"
+  },
+  {
+   "from": "N Lamar Blvd",
+   "hour_of_week": 117,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.408,-97.678"
+  },
+  {
+   "from": "Buenos Aires Pkwy",
+   "hour_of_week": 15,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.169,-97.623"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 69.1,
-  "tomtom": 97.8
+  "dispatch": 68.7,
+  "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 97,
-  "neither": 67,
-  "tomtom_only": 30
+  "n": 99,
+  "neither": 68,
+  "tomtom_only": 31
  }
 }
