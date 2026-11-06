@@ -9,46 +9,46 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 27,
-  "dispatch_only": 17,
+  "dispatch": 39,
+  "dispatch_only": 27,
   "here": 0,
   "here_matched": 0,
-  "matched": 10,
-  "tomtom": 561,
-  "tomtom_only": 551
+  "matched": 12,
+  "tomtom": 590,
+  "tomtom_only": 578
  },
  "date": "2026-11-06",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
-  "max": 118.7,
-  "median": 118.3,
-  "min": 117.9,
-  "n": 2,
-  "q1": 117.9,
-  "q3": 118.7
+  "max": 119.3,
+  "median": 96.1,
+  "min": 9.0,
+  "n": 27,
+  "q1": 48.6,
+  "q3": 114.7
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
-   "n": 2,
+   "matched": 2,
+   "n": 4,
    "pct": 50.0
   },
   "dispatch_surface": {
-   "matched": 9,
-   "n": 25,
-   "pct": 36.0
+   "matched": 10,
+   "n": 35,
+   "pct": 28.6
   },
   "tomtom_highway": {
-   "matched": 6,
-   "n": 281,
-   "pct": 2.1
+   "matched": 8,
+   "n": 299,
+   "pct": 2.7
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 280,
+   "n": 291,
    "pct": 1.4
   }
  },
@@ -60,14 +60,19 @@
  },
  "onset_offset_min": {
   "max": 89.6,
-  "median": 24.1,
+  "median": 19.6,
   "min": -49.0,
-  "n": 10,
-  "q1": -23.0,
-  "q3": 47.3
+  "n": 12,
+  "q1": -14.3,
+  "q3": 42.8
  },
  "persistence_min": {
-  "n": 0
+  "max": -5.1,
+  "median": -15.2,
+  "min": -15.2,
+  "n": 10,
+  "q1": -15.2,
+  "q3": -15.2
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -84,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 512,
+  "hotspot_buckets": 535,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 529
+  "unreported_congestion": 554
  },
  "sampling": {
-  "flow_spent_this_month": 1260,
+  "flow_spent_this_month": 1269,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 163,
+  "incidents_spent_this_month": 164,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -162,6 +167,27 @@
    "seg": "30.260,-97.749"
   },
   {
+   "from": "W Braker Ln",
+   "hour_of_week": 13,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.394,-97.717"
+  },
+  {
+   "from": "US-290/Exit 238 (I-35)",
+   "hour_of_week": 40,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.342,-97.698"
+  },
+  {
+   "from": "Clyde Littlefield Dr",
+   "hour_of_week": 95,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.282,-97.732"
+  },
+  {
    "from": "N Interstate 35",
    "hour_of_week": 90,
    "n": 2,
@@ -176,13 +202,6 @@
    "seg": "30.448,-97.631"
   },
   {
-   "from": "E 20th St",
-   "hour_of_week": 95,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.282,-97.732"
-  },
-  {
    "from": "N Interstate 35",
    "hour_of_week": 19,
    "n": 2,
@@ -195,31 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
-  },
-  {
-   "from": "E Oltorf St",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.234,-97.736"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.148,-97.704"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 63.0,
-  "tomtom": 98.2
+  "dispatch": 69.2,
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 27,
-  "neither": 17,
-  "tomtom_only": 10
+  "n": 39,
+  "neither": 27,
+  "tomtom_only": 12
  }
 }
