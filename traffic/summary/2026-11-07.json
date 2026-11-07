@@ -9,47 +9,47 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 43,
-  "dispatch_only": 37,
+  "dispatch": 59,
+  "dispatch_only": 51,
   "here": 0,
   "here_matched": 0,
-  "matched": 6,
-  "tomtom": 432,
-  "tomtom_only": 426
+  "matched": 8,
+  "tomtom": 504,
+  "tomtom_only": 496
  },
  "date": "2026-11-07",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 113.6,
+  "median": 110.5,
   "min": 2.1,
-  "n": 41,
-  "q1": 55.3,
-  "q3": 116.3
+  "n": 43,
+  "q1": 47.6,
+  "q3": 116.2
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 0,
-   "n": 3,
-   "pct": 0.0
+   "matched": 2,
+   "n": 5,
+   "pct": 40.0
   },
   "dispatch_surface": {
    "matched": 6,
-   "n": 40,
-   "pct": 15.0
+   "n": 54,
+   "pct": 11.1
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 218,
-   "pct": 1.8
+   "matched": 6,
+   "n": 242,
+   "pct": 2.5
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 214,
-   "pct": 0.9
+   "n": 262,
+   "pct": 0.8
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 76.7,
   "median": -8.9,
   "min": -59.6,
-  "n": 6,
-  "q1": -36.0,
-  "q3": 69.5
+  "n": 8,
+  "q1": -24.7,
+  "q3": 59.3
  },
  "persistence_min": {
   "max": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 394,
+  "hotspot_buckets": 458,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 406
+  "unreported_congestion": 476
  },
  "sampling": {
-  "flow_spent_this_month": 1584,
+  "flow_spent_this_month": 1593,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 228,
+  "incidents_spent_this_month": 229,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,7 +111,7 @@
  },
  "structural_hotspots": [
   {
-   "from": "W Riverside Dr (Barton Springs Rd)",
+   "from": "S 1st St",
    "hour_of_week": 131,
    "n": 3,
    "roadworks": false,
@@ -181,50 +181,50 @@
    "seg": "30.179,-97.616"
   },
   {
-   "from": "New Hope Dr (Whitestone Blvd)",
-   "hour_of_week": 118,
-   "n": 1,
+   "from": "W 2nd St (San Antonio St)",
+   "hour_of_week": 132,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.514,-97.854"
+   "seg": "30.267,-97.748"
   },
   {
-   "from": "US-183/N Bell Blvd (Whitestone Blvd)",
-   "hour_of_week": 119,
-   "n": 1,
+   "from": "Congress Ave / E 3rd St",
+   "hour_of_week": 135,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.515,-97.848"
+   "seg": "30.265,-97.745"
   },
   {
-   "from": "FM-1431/Whitestone Blvd (N Bell Blvd/US-183)",
-   "hour_of_week": 119,
-   "n": 1,
+   "from": "Brazos St (Cesar Chavez St/1st St)",
+   "hour_of_week": 134,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.505,-97.820"
+   "seg": "30.264,-97.745"
   },
   {
-   "from": "Lakeline Blvd (S Bell Blvd/US-183)",
-   "hour_of_week": 119,
-   "n": 1,
+   "from": "Congress Ave / W 3rd St",
+   "hour_of_week": 135,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.500,-97.815"
+   "seg": "30.265,-97.743"
   },
   {
-   "from": "Willie Way",
-   "hour_of_week": 119,
-   "n": 1,
+   "from": "Colorado St",
+   "hour_of_week": 135,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.316,-97.951"
+   "seg": "30.266,-97.743"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.0,
-  "tomtom": 98.6
+  "dispatch": 86.4,
+  "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 43,
-  "neither": 37,
-  "tomtom_only": 6
+  "n": 59,
+  "neither": 51,
+  "tomtom_only": 8
  }
 }
