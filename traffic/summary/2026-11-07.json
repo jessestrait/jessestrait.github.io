@@ -1,0 +1,225 @@
+{
+ "caveats": [
+  "Dispatch published_date is when APD published, not when it happened.",
+  "Dispatch record lifetimes look like real clearances this day, not a cap.",
+  "Clearance resolution equals the poll interval; shorter incidents are invisible.",
+  "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
+  "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
+  "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
+  "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
+ ],
+ "counts": {
+  "dispatch": 24,
+  "dispatch_only": 21,
+  "here": 0,
+  "here_matched": 0,
+  "matched": 3,
+  "tomtom": 366,
+  "tomtom_only": 363
+ },
+ "date": "2026-11-07",
+ "dispatch_life_capped": false,
+ "dispatch_record_life_min": {
+  "max": 118.5,
+  "median": 117.3,
+  "min": 115.9,
+  "n": 4,
+  "q1": 116.0,
+  "q3": 118.5
+ },
+ "here_onset_offset_min": {
+  "n": 0
+ },
+ "match_rate": {
+  "dispatch_highway": {
+   "matched": 0,
+   "n": 1,
+   "pct": 0.0
+  },
+  "dispatch_surface": {
+   "matched": 3,
+   "n": 23,
+   "pct": 13.0
+  },
+  "tomtom_highway": {
+   "matched": 2,
+   "n": 188,
+   "pct": 1.1
+  },
+  "tomtom_surface": {
+   "matched": 1,
+   "n": 178,
+   "pct": 0.6
+  }
+ },
+ "matcher": {
+  "buffer_m": 200.0,
+  "highway_buffer_m": 130.0,
+  "onset_window_min": 90.0,
+  "tolerance_min": 20.0
+ },
+ "onset_offset_min": {
+  "max": 76.7,
+  "median": 67.1,
+  "min": -9.3,
+  "n": 3,
+  "q1": -9.3,
+  "q3": 76.7
+ },
+ "persistence_min": {
+  "n": 0
+ },
+ "poll_interval_min": 5.0,
+ "probe_agreement": {
+  "cover": {
+   "n": 0
+  },
+  "n": 0,
+  "onset_offset_min": {
+   "n": 0
+  },
+  "pct_of_here": 0.0,
+  "pct_of_tomtom": 0.0,
+  "type_agree": 0
+ },
+ "roadworks": {
+  "explained_by_roadworks": 0,
+  "hotspot_buckets": 334,
+  "hotspot_buckets_on_roadworks": 0,
+  "txdot_rows": 0,
+  "unreported_congestion": 346
+ },
+ "sampling": {
+  "flow_spent_this_month": 1494,
+  "incident_budget": 2500,
+  "incidents_spent_this_month": 218,
+  "off_peak_min": 45,
+  "rush_hours_local": [
+   7,
+   8,
+   16,
+   17,
+   18
+  ],
+  "rush_min": 5,
+  "this_poll": "off-peak"
+ },
+ "structural_hotspots": [
+  {
+   "from": "Buenos Aires Pkwy",
+   "hour_of_week": 15,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.169,-97.623"
+  },
+  {
+   "from": "Highway 45",
+   "hour_of_week": 119,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.475,-97.591"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 90,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.460,-97.666"
+  },
+  {
+   "from": "Fairlane Dr",
+   "hour_of_week": 114,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.339,-97.748"
+  },
+  {
+   "from": "Adage Dr / Epiphany Ln",
+   "hour_of_week": 59,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.448,-97.631"
+  },
+  {
+   "from": "E 20th St",
+   "hour_of_week": 119,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.282,-97.732"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 19,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.320,-97.706"
+  },
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E Oltorf St",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.234,-97.736"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Lexington Meadow Ln",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.179,-97.616"
+  },
+  {
+   "from": "New Hope Dr (Whitestone Blvd)",
+   "hour_of_week": 118,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.514,-97.854"
+  },
+  {
+   "from": "US-183/N Bell Blvd (Whitestone Blvd)",
+   "hour_of_week": 119,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.515,-97.848"
+  },
+  {
+   "from": "FM-1431/Whitestone Blvd (N Bell Blvd/US-183)",
+   "hour_of_week": 119,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.505,-97.820"
+  },
+  {
+   "from": "Lakeline Blvd (S Bell Blvd/US-183)",
+   "hour_of_week": 119,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.500,-97.815"
+  }
+ ],
+ "unmatched_pct": {
+  "dispatch": 87.5,
+  "tomtom": 99.2
+ },
+ "witnesses": {
+  "both": 0,
+  "here_only": 0,
+  "n": 24,
+  "neither": 21,
+  "tomtom_only": 3
+ }
+}
