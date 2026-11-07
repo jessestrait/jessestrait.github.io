@@ -9,46 +9,46 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 70,
-  "dispatch_only": 59,
+  "dispatch": 71,
+  "dispatch_only": 58,
   "here": 0,
   "here_matched": 0,
-  "matched": 11,
-  "tomtom": 544,
-  "tomtom_only": 532
+  "matched": 13,
+  "tomtom": 594,
+  "tomtom_only": 580
  },
  "date": "2026-11-07",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 115.3,
+  "median": 115.4,
   "min": 2.1,
-  "n": 54,
-  "q1": 77.3,
-  "q3": 118.2
+  "n": 56,
+  "q1": 83.4,
+  "q3": 118.1
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 4,
+   "matched": 5,
    "n": 11,
-   "pct": 36.4
+   "pct": 45.5
   },
   "dispatch_surface": {
-   "matched": 7,
-   "n": 59,
-   "pct": 11.9
+   "matched": 8,
+   "n": 60,
+   "pct": 13.3
   },
   "tomtom_highway": {
-   "matched": 10,
-   "n": 260,
-   "pct": 3.8
+   "matched": 12,
+   "n": 289,
+   "pct": 4.2
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 284,
+   "n": 305,
    "pct": 0.7
   }
  },
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 80.0,
-  "median": -9.3,
+  "median": -8.4,
   "min": -59.6,
-  "n": 11,
-  "q1": -21.4,
-  "q3": 67.1
+  "n": 13,
+  "q1": -18.0,
+  "q3": 51.5
  },
  "persistence_min": {
   "max": 5.0,
-  "median": -15.2,
+  "median": -20.2,
   "min": -106.6,
-  "n": 6,
-  "q1": -41.8,
-  "q3": 1.3
+  "n": 8,
+  "q1": -69.9,
+  "q3": -2.5
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 491,
+  "hotspot_buckets": 528,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 512
+  "unreported_congestion": 550
  },
  "sampling": {
   "flow_spent_this_month": 1629,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 230,
+  "incidents_spent_this_month": 231,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,18 +160,39 @@
    "seg": "30.171,-97.691"
   },
   {
+   "from": "Cedar Park-Liberty Hill",
+   "hour_of_week": 138,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.482,-97.828"
+  },
+  {
+   "from": "E 6th St (Congress Ave)",
+   "hour_of_week": 132,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.272,-97.741"
+  },
+  {
+   "from": "Congress Ave / W 3rd St",
+   "hour_of_week": 135,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.265,-97.743"
+  },
+  {
+   "from": "Colorado St",
+   "hour_of_week": 135,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.265,-97.745"
+  },
+  {
    "from": "Adage Dr / Epiphany Ln",
    "hour_of_week": 59,
    "n": 2,
    "roadworks": false,
    "seg": "30.448,-97.631"
-  },
-  {
-   "from": "Lavaca St/S 1st St/Guadalupe St (State Spur 343/W Cesar Chavez St/W 1st St)",
-   "hour_of_week": 134,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.264,-97.745"
   },
   {
    "from": "W 2nd St (San Antonio St)",
@@ -193,38 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.320,-97.706"
-  },
-  {
-   "from": "Congress Ave / W 3rd St",
-   "hour_of_week": 135,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.265,-97.743"
-  },
-  {
-   "from": "Colorado St",
-   "hour_of_week": 135,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.265,-97.745"
-  },
-  {
-   "from": "Colorado St",
-   "hour_of_week": 135,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.266,-97.743"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 84.3,
-  "tomtom": 97.8
+  "dispatch": 81.7,
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 70,
-  "neither": 59,
-  "tomtom_only": 11
+  "n": 71,
+  "neither": 58,
+  "tomtom_only": 13
  }
 }
