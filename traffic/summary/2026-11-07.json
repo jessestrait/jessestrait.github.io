@@ -14,18 +14,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 412,
-  "tomtom_only": 406
+  "tomtom": 418,
+  "tomtom_only": 412
  },
  "date": "2026-11-07",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 107.6,
+  "median": 108.6,
   "min": 2.1,
-  "n": 36,
-  "q1": 47.7,
-  "q3": 116.2
+  "n": 37,
+  "q1": 47.8,
+  "q3": 117.1
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 213,
+   "n": 216,
    "pct": 1.9
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 199,
+   "n": 202,
    "pct": 1.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 376,
+  "hotspot_buckets": 381,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 386
+  "unreported_congestion": 392
  },
  "sampling": {
   "flow_spent_this_month": 1530,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 223,
+  "incidents_spent_this_month": 224,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -130,6 +130,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.460,-97.666"
+  },
+  {
+   "from": "Burleson Rd",
+   "hour_of_week": 124,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.181,-97.686"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -207,18 +214,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.316,-97.951"
-  },
-  {
-   "from": "US-183/Research Blvd (FM-620)",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.461,-97.820"
   }
  ],
  "unmatched_pct": {
   "dispatch": 85.4,
-  "tomtom": 98.5
+  "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
