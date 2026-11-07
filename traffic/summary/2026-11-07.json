@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 28,
-  "dispatch_only": 24,
+  "dispatch": 32,
+  "dispatch_only": 27,
   "here": 0,
   "here_matched": 0,
-  "matched": 4,
-  "tomtom": 366,
-  "tomtom_only": 363
+  "matched": 5,
+  "tomtom": 385,
+  "tomtom_only": 381
  },
  "date": "2026-11-07",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.5,
-  "median": 118.2,
-  "min": 115.4,
-  "n": 7,
-  "q1": 115.9,
-  "q3": 118.5
+  "median": 95.5,
+  "min": 2.1,
+  "n": 28,
+  "q1": 26.1,
+  "q3": 114.9
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,19 +37,19 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 4,
-   "n": 26,
-   "pct": 15.4
+   "matched": 5,
+   "n": 30,
+   "pct": 16.7
   },
   "tomtom_highway": {
-   "matched": 2,
-   "n": 188,
-   "pct": 1.1
+   "matched": 3,
+   "n": 200,
+   "pct": 1.5
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 178,
-   "pct": 0.6
+   "n": 185,
+   "pct": 0.5
   }
  },
  "matcher": {
@@ -60,14 +60,19 @@
  },
  "onset_offset_min": {
   "max": 76.7,
-  "median": 28.9,
+  "median": -9.3,
   "min": -59.6,
-  "n": 4,
-  "q1": -47.0,
-  "q3": 74.3
+  "n": 5,
+  "q1": -43.9,
+  "q3": 71.9
  },
  "persistence_min": {
-  "n": 0
+  "max": 0.0,
+  "median": -15.2,
+  "min": -20.2,
+  "n": 4,
+  "q1": -20.2,
+  "q3": -2.5
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -84,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 334,
+  "hotspot_buckets": 351,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 346
+  "unreported_congestion": 361
  },
  "sampling": {
-  "flow_spent_this_month": 1494,
+  "flow_spent_this_month": 1503,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 218,
+  "incidents_spent_this_month": 219,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -120,18 +125,11 @@
    "seg": "30.475,-97.591"
   },
   {
-   "from": "N Interstate 35",
+   "from": "Central Commerce Dr",
    "hour_of_week": 90,
    "n": 2,
    "roadworks": false,
    "seg": "30.460,-97.666"
-  },
-  {
-   "from": "Fairlane Dr",
-   "hour_of_week": 114,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.339,-97.748"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -139,13 +137,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.448,-97.631"
-  },
-  {
-   "from": "E 20th St",
-   "hour_of_week": 119,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.282,-97.732"
   },
   {
    "from": "N Interstate 35",
@@ -209,17 +200,31 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.500,-97.815"
+  },
+  {
+   "from": "Willie Way",
+   "hour_of_week": 119,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.316,-97.951"
+  },
+  {
+   "from": "US-183/Research Blvd (FM-620)",
+   "hour_of_week": 119,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.461,-97.820"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.7,
-  "tomtom": 99.2
+  "dispatch": 84.4,
+  "tomtom": 99.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 28,
-  "neither": 24,
-  "tomtom_only": 4
+  "n": 32,
+  "neither": 27,
+  "tomtom_only": 5
  }
 }
