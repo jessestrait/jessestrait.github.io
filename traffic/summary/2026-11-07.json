@@ -13,9 +13,9 @@
   "dispatch_only": 59,
   "here": 0,
   "here_matched": 0,
-  "matched": 15,
+  "matched": 16,
   "tomtom": 631,
-  "tomtom_only": 615
+  "tomtom_only": 614
  },
  "date": "2026-11-07",
  "dispatch_life_capped": true,
@@ -42,9 +42,9 @@
    "pct": 14.3
   },
   "tomtom_highway": {
-   "matched": 13,
+   "matched": 14,
    "n": 308,
-   "pct": 4.2
+   "pct": 4.5
   },
   "tomtom_surface": {
    "matched": 3,
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 80.0,
-  "median": 9.7,
+  "median": 10.4,
   "min": -59.6,
-  "n": 15,
-  "q1": -14.6,
-  "q3": 60.5
+  "n": 16,
+  "q1": -14.0,
+  "q3": 54.4
  },
  "persistence_min": {
   "max": 5.0,
@@ -90,13 +90,13 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 566,
+  "hotspot_buckets": 565,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 589
+  "unreported_congestion": 588
  },
  "sampling": {
-  "flow_spent_this_month": 1647,
+  "flow_spent_this_month": 1656,
   "incident_budget": 2500,
   "incidents_spent_this_month": 232,
   "off_peak_min": 45,
@@ -203,23 +203,23 @@
    "seg": "30.266,-97.743"
   },
   {
+   "from": "Lavaca St/S 1st St/Guadalupe St (State Spur 343/W Cesar Chavez St/W 1st St)",
+   "hour_of_week": 139,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.263,-97.742"
+  },
+  {
    "from": "Adage Dr / Epiphany Ln",
    "hour_of_week": 59,
    "n": 2,
    "roadworks": false,
    "seg": "30.448,-97.631"
-  },
-  {
-   "from": "W 2nd St (San Antonio St)",
-   "hour_of_week": 132,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.267,-97.748"
   }
  ],
  "unmatched_pct": {
   "dispatch": 79.7,
-  "tomtom": 97.5
+  "tomtom": 97.3
  },
  "witnesses": {
   "both": 0,
