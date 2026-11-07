@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 76,
-  "dispatch_only": 61,
+  "dispatch_only": 60,
   "here": 0,
   "here_matched": 0,
-  "matched": 16,
-  "tomtom": 631,
-  "tomtom_only": 614
+  "matched": 17,
+  "tomtom": 663,
+  "tomtom_only": 645
  },
  "date": "2026-11-07",
  "dispatch_life_capped": true,
@@ -37,18 +37,18 @@
    "pct": 50.0
   },
   "dispatch_surface": {
-   "matched": 9,
+   "matched": 10,
    "n": 64,
-   "pct": 14.1
+   "pct": 15.6
   },
   "tomtom_highway": {
-   "matched": 14,
-   "n": 308,
-   "pct": 4.5
+   "matched": 15,
+   "n": 318,
+   "pct": 4.7
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 323,
+   "n": 345,
    "pct": 0.9
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 80.0,
-  "median": 10.4,
-  "min": -59.6,
-  "n": 16,
-  "q1": -14.0,
-  "q3": 54.4
+  "median": 9.7,
+  "min": -84.5,
+  "n": 17,
+  "q1": -18.0,
+  "q3": 48.2
  },
  "persistence_min": {
   "max": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 565,
+  "hotspot_buckets": 595,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 588
+  "unreported_congestion": 619
  },
  "sampling": {
-  "flow_spent_this_month": 1665,
+  "flow_spent_this_month": 1674,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 232,
+  "incidents_spent_this_month": 233,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -210,22 +210,22 @@
    "seg": "30.263,-97.742"
   },
   {
-   "from": "Adage Dr / Epiphany Ln",
-   "hour_of_week": 59,
+   "from": "Brockton Dr",
+   "hour_of_week": 61,
    "n": 2,
    "roadworks": false,
-   "seg": "30.448,-97.631"
+   "seg": "30.393,-97.716"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.3,
+  "dispatch": 78.9,
   "tomtom": 97.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 76,
-  "neither": 61,
-  "tomtom_only": 15
+  "neither": 60,
+  "tomtom_only": 16
  }
 }
