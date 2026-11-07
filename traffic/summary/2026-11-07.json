@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 422,
-  "tomtom_only": 416
+  "tomtom": 428,
+  "tomtom_only": 422
  },
  "date": "2026-11-07",
  "dispatch_life_capped": false,
@@ -48,7 +48,7 @@
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 204,
+   "n": 210,
    "pct": 1.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 386,
+  "hotspot_buckets": 390,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 396
+  "unreported_congestion": 402
  },
  "sampling": {
-  "flow_spent_this_month": 1548,
+  "flow_spent_this_month": 1557,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 226,
+  "incidents_spent_this_month": 227,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -116,6 +116,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.169,-97.623"
+  },
+  {
+   "from": "S 1st St",
+   "hour_of_week": 131,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.259,-97.747"
   },
   {
    "from": "Highway 45",
@@ -207,13 +214,6 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.316,-97.951"
-  },
-  {
-   "from": "US-183/Research Blvd (FM-620)",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.461,-97.820"
   }
  ],
  "unmatched_pct": {
