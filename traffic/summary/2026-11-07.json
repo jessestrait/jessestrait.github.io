@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 74,
-  "dispatch_only": 61,
+  "dispatch_only": 59,
   "here": 0,
   "here_matched": 0,
-  "matched": 13,
-  "tomtom": 594,
-  "tomtom_only": 580
+  "matched": 15,
+  "tomtom": 631,
+  "tomtom_only": 615
  },
  "date": "2026-11-07",
  "dispatch_life_capped": true,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 5,
+   "matched": 6,
    "n": 11,
-   "pct": 45.5
+   "pct": 54.5
   },
   "dispatch_surface": {
-   "matched": 8,
+   "matched": 9,
    "n": 63,
-   "pct": 12.7
+   "pct": 14.3
   },
   "tomtom_highway": {
-   "matched": 12,
-   "n": 289,
+   "matched": 13,
+   "n": 308,
    "pct": 4.2
   },
   "tomtom_surface": {
-   "matched": 2,
-   "n": 305,
-   "pct": 0.7
+   "matched": 3,
+   "n": 323,
+   "pct": 0.9
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 80.0,
-  "median": -8.4,
+  "median": 9.7,
   "min": -59.6,
-  "n": 13,
-  "q1": -18.0,
-  "q3": 51.5
+  "n": 15,
+  "q1": -14.6,
+  "q3": 60.5
  },
  "persistence_min": {
   "max": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 528,
+  "hotspot_buckets": 566,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 550
+  "unreported_congestion": 589
  },
  "sampling": {
   "flow_spent_this_month": 1647,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 231,
+  "incidents_spent_this_month": 232,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -189,6 +189,20 @@
    "seg": "30.265,-97.745"
   },
   {
+   "from": "Lavaca St",
+   "hour_of_week": 135,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.273,-97.743"
+  },
+  {
+   "from": "Colorado St",
+   "hour_of_week": 135,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.266,-97.743"
+  },
+  {
    "from": "Adage Dr / Epiphany Ln",
    "hour_of_week": 59,
    "n": 2,
@@ -201,31 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.267,-97.748"
-  },
-  {
-   "from": "Lavaca St",
-   "hour_of_week": 135,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.273,-97.743"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 19,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.320,-97.706"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.4,
-  "tomtom": 97.6
+  "dispatch": 79.7,
+  "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 74,
-  "neither": 61,
-  "tomtom_only": 13
+  "neither": 59,
+  "tomtom_only": 15
  }
 }
