@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 41 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 42 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 54,
-  "dispatch_only": 51,
+  "dispatch": 55,
+  "dispatch_only": 52,
   "here": 0,
   "here_matched": 0,
   "matched": 3,
-  "tomtom": 275,
-  "tomtom_only": 273
+  "tomtom": 289,
+  "tomtom_only": 287
  },
  "date": "2026-11-08",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 117.2,
+  "median": 117.1,
   "min": 12.2,
-  "n": 41,
-  "q1": 115.1,
+  "n": 42,
+  "q1": 115.2,
   "q3": 118.8
  },
  "here_onset_offset_min": {
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 3,
-   "n": 46,
-   "pct": 6.5
+   "n": 47,
+   "pct": 6.4
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 111,
-   "pct": 1.8
+   "n": 117,
+   "pct": 1.7
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 164,
+   "n": 172,
    "pct": 0.0
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 243,
+  "hotspot_buckets": 253,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 252
+  "unreported_congestion": 264
  },
  "sampling": {
   "flow_spent_this_month": 1728,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 239,
+  "incidents_spent_this_month": 240,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -119,11 +119,25 @@
    "seg": "30.169,-97.623"
   },
   {
+   "from": "E Martin Luther King Jr Blvd / Red River St",
+   "hour_of_week": 145,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.280,-97.732"
+  },
+  {
    "from": "Clyde Littlefield Dr",
    "hour_of_week": 146,
    "n": 2,
    "roadworks": false,
    "seg": "30.282,-97.732"
+  },
+  {
+   "from": "Clyde Littlefield Dr",
+   "hour_of_week": 140,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.286,-97.727"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -201,31 +215,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.404,-97.722"
-  },
-  {
-   "from": "Esperanza Xing",
-   "hour_of_week": 140,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.402,-97.724"
-  },
-  {
-   "from": "Century Oaks Ter",
-   "hour_of_week": 140,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.403,-97.721"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 94.4,
+  "dispatch": 94.5,
   "tomtom": 99.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 54,
-  "neither": 51,
+  "n": 55,
+  "neither": 52,
   "tomtom_only": 3
  }
 }
