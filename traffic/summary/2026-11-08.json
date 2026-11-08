@@ -13,9 +13,9 @@
   "dispatch_only": 61,
   "here": 0,
   "here_matched": 0,
-  "matched": 5,
-  "tomtom": 307,
-  "tomtom_only": 303
+  "matched": 6,
+  "tomtom": 320,
+  "tomtom_only": 315
  },
  "date": "2026-11-08",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 126,
-   "pct": 3.2
+   "n": 130,
+   "pct": 3.1
   },
   "tomtom_surface": {
-   "matched": 0,
-   "n": 181,
-   "pct": 0.0
+   "matched": 1,
+   "n": 190,
+   "pct": 0.5
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 54.5,
-  "median": 0.5,
+  "median": 4.2,
   "min": -8.2,
-  "n": 5,
-  "q1": -5.4,
-  "q3": 35.4
+  "n": 6,
+  "q1": -4.0,
+  "q3": 25.9
  },
  "persistence_min": {
   "max": -10.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 268,
+  "hotspot_buckets": 275,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 280
+  "unreported_congestion": 288
  },
  "sampling": {
   "flow_spent_this_month": 1746,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 241,
+  "incidents_spent_this_month": 242,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -175,6 +175,13 @@
    "seg": "30.234,-97.736"
   },
   {
+   "from": "Hawkins Ln",
+   "hour_of_week": 147,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.229,-97.672"
+  },
+  {
    "from": "Ellas Inlet Dr / Felix Sparke Dr",
    "hour_of_week": 68,
    "n": 2,
@@ -208,18 +215,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.470,-97.797"
-  },
-  {
-   "from": "N Mo Pac Expy",
-   "hour_of_week": 140,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.405,-97.721"
   }
  ],
  "unmatched_pct": {
   "dispatch": 92.4,
-  "tomtom": 98.7
+  "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
