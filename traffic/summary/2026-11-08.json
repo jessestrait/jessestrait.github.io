@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 82,
-  "dispatch_only": 77,
+  "dispatch": 84,
+  "dispatch_only": 79,
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 345,
-  "tomtom_only": 340
+  "tomtom": 353,
+  "tomtom_only": 348
  },
  "date": "2026-11-08",
  "dispatch_life_capped": false,
@@ -33,22 +33,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 14,
-   "pct": 7.1
+   "n": 15,
+   "pct": 6.7
   },
   "dispatch_surface": {
    "matched": 4,
-   "n": 68,
-   "pct": 5.9
+   "n": 69,
+   "pct": 5.8
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 135,
-   "pct": 3.0
+   "n": 137,
+   "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 210,
+   "n": 216,
    "pct": 0.5
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 297,
+  "hotspot_buckets": 302,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 313
+  "unreported_congestion": 319
  },
  "sampling": {
   "flow_spent_this_month": 1791,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 244,
+  "incidents_spent_this_month": 245,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -116,6 +116,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.169,-97.623"
+  },
+  {
+   "from": "W Braker Ln",
+   "hour_of_week": 13,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.393,-97.716"
   },
   {
    "from": "E Martin Luther King Jr Blvd / Red River St",
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.616"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 93.9,
+  "dispatch": 94.0,
   "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 82,
-  "neither": 77,
+  "n": 84,
+  "neither": 79,
   "tomtom_only": 5
  }
 }
