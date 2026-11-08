@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 103,
-  "dispatch_only": 96,
+  "dispatch": 104,
+  "dispatch_only": 97,
   "here": 0,
   "here_matched": 0,
   "matched": 8,
-  "tomtom": 407,
-  "tomtom_only": 400
+  "tomtom": 424,
+  "tomtom_only": 417
  },
  "date": "2026-11-08",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 6,
-   "n": 86,
-   "pct": 7.0
+   "n": 87,
+   "pct": 6.9
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 162,
-   "pct": 3.1
+   "n": 172,
+   "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 245,
+   "n": 252,
    "pct": 0.8
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 349,
+  "hotspot_buckets": 367,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 368
+  "unreported_congestion": 385
  },
  "sampling": {
   "flow_spent_this_month": 1872,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 248,
+  "incidents_spent_this_month": 249,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,13 +117,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.169,-97.623"
-  },
-  {
-   "from": "W Braker Ln",
-   "hour_of_week": 13,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.393,-97.716"
   },
   {
    "from": "E Martin Luther King Jr Blvd / Red River St",
@@ -175,18 +168,18 @@
    "seg": "30.203,-97.669"
   },
   {
-   "from": "Adage Dr / Epiphany Ln",
-   "hour_of_week": 59,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.448,-97.631"
-  },
-  {
    "from": "W Riverside Dr (S 1st St)",
    "hour_of_week": 153,
    "n": 2,
    "roadworks": false,
    "seg": "30.261,-97.749"
+  },
+  {
+   "from": "Adage Dr / Epiphany Ln",
+   "hour_of_week": 59,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.448,-97.631"
   },
   {
    "from": "N Interstate 35",
@@ -215,17 +208,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.234,-97.736"
+  },
+  {
+   "from": "E Cesar Chavez St (Springdale Rd)",
+   "hour_of_week": 137,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.255,-97.702"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 93.2,
+  "dispatch": 93.3,
   "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 103,
-  "neither": 96,
+  "n": 104,
+  "neither": 97,
   "tomtom_only": 7
  }
 }
