@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 87,
-  "dispatch_only": 82,
+  "dispatch": 88,
+  "dispatch_only": 83,
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 353,
-  "tomtom_only": 348
+  "tomtom": 362,
+  "tomtom_only": 357
  },
  "date": "2026-11-08",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 4,
-   "n": 71,
+   "n": 72,
    "pct": 5.6
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 137,
+   "n": 139,
    "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 216,
-   "pct": 0.5
+   "n": 223,
+   "pct": 0.4
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 302,
+  "hotspot_buckets": 309,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 319
+  "unreported_congestion": 327
  },
  "sampling": {
   "flow_spent_this_month": 1809,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 245,
+  "incidents_spent_this_month": 246,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -175,6 +175,13 @@
    "seg": "30.261,-97.749"
   },
   {
+   "from": "TX-343 Loop/W Cesar Chavez St (San Antonio St)",
+   "hour_of_week": 158,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.265,-97.749"
+  },
+  {
    "from": "N Interstate 35",
    "hour_of_week": 19,
    "n": 2,
@@ -208,13 +215,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.255,-97.702"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.148,-97.704"
   }
  ],
  "unmatched_pct": {
@@ -224,8 +224,8 @@
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 87,
-  "neither": 82,
+  "n": 88,
+  "neither": 83,
   "tomtom_only": 5
  }
 }
