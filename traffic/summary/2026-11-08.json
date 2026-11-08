@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 55 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch record lifetimes look like real clearances this day, not a cap.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 71,
-  "dispatch_only": 66,
+  "dispatch": 75,
+  "dispatch_only": 70,
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 320,
-  "tomtom_only": 315
+  "tomtom": 335,
+  "tomtom_only": 330
  },
  "date": "2026-11-08",
- "dispatch_life_capped": true,
+ "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 117.0,
+  "median": 116.5,
   "min": 12.2,
-  "n": 55,
-  "q1": 115.3,
-  "q3": 118.7
+  "n": 71,
+  "q1": 80.5,
+  "q3": 118.5
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,22 +33,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 11,
-   "pct": 9.1
+   "n": 12,
+   "pct": 8.3
   },
   "dispatch_surface": {
    "matched": 4,
-   "n": 60,
-   "pct": 6.7
+   "n": 63,
+   "pct": 6.3
   },
   "tomtom_highway": {
    "matched": 4,
-   "n": 130,
-   "pct": 3.1
+   "n": 133,
+   "pct": 3.0
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 190,
+   "n": 202,
    "pct": 0.5
   }
  },
@@ -68,12 +68,11 @@
  },
  "persistence_min": {
   "max": -10.1,
-  "median": -10.1,
+  "median": -40.7,
   "min": -111.6,
-  "n": 3,
-  "q1": -111.6,
-  "q3": -10.1,
-  "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
+  "n": 6,
+  "q1": -92.6,
+  "q3": -10.1
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -90,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 275,
+  "hotspot_buckets": 287,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 288
+  "unreported_congestion": 303
  },
  "sampling": {
-  "flow_spent_this_month": 1746,
+  "flow_spent_this_month": 1755,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 242,
+  "incidents_spent_this_month": 243,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -147,6 +146,13 @@
    "seg": "30.275,-97.737"
   },
   {
+   "from": "Sherman Rd",
+   "hour_of_week": 147,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.229,-97.672"
+  },
+  {
    "from": "Adage Dr / Epiphany Ln",
    "hour_of_week": 59,
    "n": 2,
@@ -175,11 +181,11 @@
    "seg": "30.234,-97.736"
   },
   {
-   "from": "Hawkins Ln",
-   "hour_of_week": 147,
+   "from": "E Cesar Chavez St (Springdale Rd)",
+   "hour_of_week": 137,
    "n": 2,
    "roadworks": false,
-   "seg": "30.229,-97.672"
+   "seg": "30.255,-97.702"
   },
   {
    "from": "Ellas Inlet Dr / Felix Sparke Dr",
@@ -196,36 +202,29 @@
    "seg": "30.179,-97.616"
   },
   {
-   "from": "Alexis Dr",
-   "hour_of_week": 140,
-   "n": 1,
+   "from": "W Cesar Chavez St (S 1st St)",
+   "hour_of_week": 153,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.489,-97.814"
+   "seg": "30.261,-97.749"
   },
   {
-   "from": "Lakeline Mall Dr",
-   "hour_of_week": 140,
-   "n": 1,
+   "from": "Mattie St",
+   "hour_of_week": 157,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.476,-97.793"
-  },
-  {
-   "from": "US Highway 183",
-   "hour_of_week": 139,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.470,-97.797"
+   "seg": "30.300,-97.703"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 93.0,
-  "tomtom": 98.4
+  "dispatch": 93.3,
+  "tomtom": 98.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 71,
-  "neither": 66,
+  "n": 75,
+  "neither": 70,
   "tomtom_only": 5
  }
 }
