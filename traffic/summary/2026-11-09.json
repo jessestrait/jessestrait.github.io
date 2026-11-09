@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 48,
-  "dispatch_only": 46,
+  "dispatch": 49,
+  "dispatch_only": 47,
   "here": 0,
   "here_matched": 0,
   "matched": 2,
-  "tomtom": 234,
-  "tomtom_only": 232
+  "tomtom": 238,
+  "tomtom_only": 236
  },
  "date": "2026-11-09",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 37,
-   "pct": 2.7
+   "n": 38,
+   "pct": 2.6
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 95,
+   "n": 97,
    "pct": 2.1
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 139,
+   "n": 141,
    "pct": 0.0
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 197,
+  "hotspot_buckets": 200,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 206
+  "unreported_congestion": 210
  },
  "sampling": {
   "flow_spent_this_month": 2007,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 260,
+  "incidents_spent_this_month": 261,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -124,6 +124,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.420,-97.703"
+  },
+  {
+   "from": "Elroy Rd / Kellam Rd",
+   "hour_of_week": 2,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.145,-97.625"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -208,24 +215,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.366,-97.695"
-  },
-  {
-   "from": "Stone Hill Dr",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.474,-97.596"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 95.8,
-  "tomtom": 99.1
+  "dispatch": 95.9,
+  "tomtom": 99.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 48,
-  "neither": 46,
+  "n": 49,
+  "neither": 47,
   "tomtom_only": 2
  }
 }
