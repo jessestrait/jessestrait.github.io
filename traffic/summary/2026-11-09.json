@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 17,
+  "dispatch": 18,
   "dispatch_only": 17,
   "here": 0,
   "here_matched": 0,
-  "matched": 0,
-  "tomtom": 142,
-  "tomtom_only": 142
+  "matched": 1,
+  "tomtom": 166,
+  "tomtom_only": 165
  },
  "date": "2026-11-09",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.0,
-  "median": 117.7,
+  "median": 117.2,
   "min": 115.6,
-  "n": 4,
-  "q1": 116.0,
-  "q3": 118.8
+  "n": 5,
+  "q1": 115.9,
+  "q3": 118.6
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,18 +37,18 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 0,
-   "n": 14,
-   "pct": 0.0
+   "matched": 1,
+   "n": 15,
+   "pct": 6.7
   },
   "tomtom_highway": {
-   "matched": 0,
-   "n": 54,
-   "pct": 0.0
+   "matched": 1,
+   "n": 68,
+   "pct": 1.5
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 88,
+   "n": 98,
    "pct": 0.0
   }
  },
@@ -59,7 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "n": 0
+  "max": 11.8,
+  "median": 11.8,
+  "min": 11.8,
+  "n": 1,
+  "q1": 11.8,
+  "q3": 11.8
  },
  "persistence_min": {
   "n": 0
@@ -79,15 +84,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 110,
+  "hotspot_buckets": 133,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 119
+  "unreported_congestion": 142
  },
  "sampling": {
   "flow_spent_this_month": 1935,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 252,
+  "incidents_spent_this_month": 253,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -185,13 +190,6 @@
    "seg": "30.458,-97.667"
   },
   {
-   "from": "Central Commerce Dr (Grand Avenue Pkwy)",
-   "hour_of_week": 159,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.456,-97.664"
-  },
-  {
    "from": "Thermal Dr/Metric Blvd (E Howard Ln)",
    "hour_of_week": 167,
    "n": 1,
@@ -199,22 +197,29 @@
    "seg": "30.425,-97.673"
   },
   {
-   "from": "E Braker Ln (I-35)",
+   "from": "W Grady Dr (N Lamar Blvd)",
    "hour_of_week": 167,
    "n": 1,
    "roadworks": false,
-   "seg": "30.423,-97.671"
+   "seg": "30.366,-97.695"
+  },
+  {
+   "from": "Stone Hill Dr",
+   "hour_of_week": 167,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.474,-97.596"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 100.0,
-  "tomtom": 100.0
+  "dispatch": 94.4,
+  "tomtom": 99.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 17,
+  "n": 18,
   "neither": 17,
-  "tomtom_only": 0
+  "tomtom_only": 1
  }
 }
