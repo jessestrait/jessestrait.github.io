@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 121,
+  "dispatch": 122,
   "dispatch_only": 104,
   "here": 0,
   "here_matched": 0,
-  "matched": 24,
-  "tomtom": 1420,
-  "tomtom_only": 1392
+  "matched": 25,
+  "tomtom": 1489,
+  "tomtom_only": 1460
  },
  "date": "2026-11-09",
  "dispatch_life_capped": true,
@@ -37,18 +37,18 @@
    "pct": 26.9
   },
   "dispatch_surface": {
-   "matched": 10,
-   "n": 95,
-   "pct": 10.5
+   "matched": 11,
+   "n": 96,
+   "pct": 11.5
   },
   "tomtom_highway": {
    "matched": 16,
-   "n": 651,
-   "pct": 2.5
+   "n": 689,
+   "pct": 2.3
   },
   "tomtom_surface": {
-   "matched": 12,
-   "n": 769,
+   "matched": 13,
+   "n": 800,
    "pct": 1.6
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 89.2,
-  "median": 14.9,
+  "median": 14.8,
   "min": -23.5,
-  "n": 24,
-  "q1": -7.3,
-  "q3": 46.2
+  "n": 25,
+  "q1": -4.7,
+  "q3": 44.5
  },
  "persistence_min": {
   "max": -20.3,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1242,
+  "hotspot_buckets": 1299,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1357
+  "unreported_congestion": 1424
  },
  "sampling": {
   "flow_spent_this_month": 2205,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 304,
+  "incidents_spent_this_month": 305,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,20 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Manor Rd (Overpass) (I-35)",
+   "hour_of_week": 22,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.279,-97.730"
+  },
+  {
+   "from": "Manor Rd",
+   "hour_of_week": 22,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.305,-97.661"
+  },
   {
    "from": "E William Cannon Dr",
    "hour_of_week": 13,
@@ -161,13 +175,6 @@
    "seg": "30.388,-97.651"
   },
   {
-   "from": "Manor Rd",
-   "hour_of_week": 22,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.305,-97.661"
-  },
-  {
    "from": "Old TX-20 (US-290)",
    "hour_of_week": 22,
    "n": 3,
@@ -182,6 +189,20 @@
    "seg": "30.422,-97.620"
   },
   {
+   "from": "Nelms Dr",
+   "hour_of_week": 22,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.190,-97.767"
+  },
+  {
+   "from": "Tur Weg Ln",
+   "hour_of_week": 22,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.348,-97.562"
+  },
+  {
    "from": "Northtown Blvd",
    "hour_of_week": 22,
    "n": 3,
@@ -189,43 +210,22 @@
    "seg": "30.430,-97.669"
   },
   {
-   "from": "Manor Rd (Overpass) (I-35)",
-   "hour_of_week": 22,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.279,-97.730"
-  },
-  {
    "from": "Buenos Aires Pkwy",
    "hour_of_week": 15,
    "n": 3,
    "roadworks": false,
    "seg": "30.169,-97.623"
-  },
-  {
-   "from": "N Mo Pac Expy",
-   "hour_of_week": 167,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.420,-97.703"
-  },
-  {
-   "from": "Elroy Rd / Kellam Rd",
-   "hour_of_week": 2,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.145,-97.625"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.0,
-  "tomtom": 98.0
+  "dispatch": 85.2,
+  "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 121,
+  "n": 122,
   "neither": 104,
-  "tomtom_only": 17
+  "tomtom_only": 18
  }
 }
