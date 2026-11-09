@@ -13,9 +13,9 @@
   "dispatch_only": 51,
   "here": 0,
   "here_matched": 0,
-  "matched": 5,
-  "tomtom": 288,
-  "tomtom_only": 283
+  "matched": 6,
+  "tomtom": 307,
+  "tomtom_only": 301
  },
  "date": "2026-11-09",
  "dispatch_life_capped": true,
@@ -42,13 +42,13 @@
    "pct": 4.8
   },
   "tomtom_highway": {
-   "matched": 5,
-   "n": 133,
-   "pct": 3.8
+   "matched": 6,
+   "n": 140,
+   "pct": 4.3
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 155,
+   "n": 167,
    "pct": 0.0
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 18.0,
-  "median": 11.8,
+  "median": 12.7,
   "min": -16.5,
-  "n": 5,
-  "q1": -13.3,
-  "q3": 16.4
+  "n": 6,
+  "q1": -11.8,
+  "q3": 15.6
  },
  "persistence_min": {
   "max": -91.3,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 245,
+  "hotspot_buckets": 262,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 255
+  "unreported_congestion": 273
  },
  "sampling": {
   "flow_spent_this_month": 2034,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 272,
+  "incidents_spent_this_month": 273,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -131,6 +131,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.145,-97.625"
+  },
+  {
+   "from": "Highway 71 E",
+   "hour_of_week": 13,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.200,-97.633"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -208,18 +215,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.425,-97.673"
-  },
-  {
-   "from": "W Grady Dr (N Lamar Blvd)",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.366,-97.695"
   }
  ],
  "unmatched_pct": {
   "dispatch": 91.1,
-  "tomtom": 98.3
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
