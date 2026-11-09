@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 120,
-  "dispatch_only": 104,
+  "dispatch_only": 103,
   "here": 0,
   "here_matched": 0,
-  "matched": 22,
-  "tomtom": 1335,
-  "tomtom_only": 1309
+  "matched": 24,
+  "tomtom": 1374,
+  "tomtom_only": 1346
  },
  "date": "2026-11-09",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 26.9
   },
   "dispatch_surface": {
-   "matched": 9,
+   "matched": 10,
    "n": 94,
-   "pct": 9.6
+   "pct": 10.6
   },
   "tomtom_highway": {
    "matched": 15,
-   "n": 612,
-   "pct": 2.5
+   "n": 629,
+   "pct": 2.4
   },
   "tomtom_surface": {
-   "matched": 11,
-   "n": 723,
-   "pct": 1.5
+   "matched": 13,
+   "n": 745,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 88.7,
-  "median": 14.7,
+  "max": 89.2,
+  "median": 14.9,
   "min": -23.5,
-  "n": 22,
-  "q1": -10.0,
-  "q3": 42.8
+  "n": 24,
+  "q1": -7.3,
+  "q3": 46.2
  },
  "persistence_min": {
   "max": -20.3,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1173,
+  "hotspot_buckets": 1207,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1274
+  "unreported_congestion": 1311
  },
  "sampling": {
   "flow_spent_this_month": 2205,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 302,
+  "incidents_spent_this_month": 303,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -168,13 +168,6 @@
    "seg": "30.305,-97.661"
   },
   {
-   "from": "Old TX-20 (US-290)",
-   "hour_of_week": 22,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.346,-97.571"
-  },
-  {
    "from": "Manor Rd (Overpass) (I-35)",
    "hour_of_week": 22,
    "n": 3,
@@ -215,17 +208,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.162,-97.724"
+  },
+  {
+   "from": "Dessau Rd",
+   "hour_of_week": 13,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.422,-97.620"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.7,
-  "tomtom": 98.1
+  "dispatch": 85.8,
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 120,
-  "neither": 104,
-  "tomtom_only": 16
+  "neither": 103,
+  "tomtom_only": 17
  }
 }
