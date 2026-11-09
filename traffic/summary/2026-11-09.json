@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 34,
-  "dispatch_only": 32,
+  "dispatch": 35,
+  "dispatch_only": 33,
   "here": 0,
   "here_matched": 0,
   "matched": 2,
-  "tomtom": 181,
-  "tomtom_only": 179
+  "tomtom": 197,
+  "tomtom_only": 195
  },
  "date": "2026-11-09",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
-  "max": 119.0,
-  "median": 117.0,
+  "max": 119.2,
+  "median": 117.2,
   "min": 115.2,
-  "n": 12,
-  "q1": 116.2,
+  "n": 13,
+  "q1": 116.3,
   "q3": 118.9
  },
  "here_onset_offset_min": {
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 27,
-   "pct": 3.7
+   "n": 28,
+   "pct": 3.6
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 75,
-   "pct": 2.7
+   "n": 79,
+   "pct": 2.5
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 106,
+   "n": 118,
    "pct": 0.0
   }
  },
@@ -84,15 +84,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 146,
+  "hotspot_buckets": 161,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 156
+  "unreported_congestion": 172
  },
  "sampling": {
   "flow_spent_this_month": 1953,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 254,
+  "incidents_spent_this_month": 255,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -125,6 +125,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.393,-97.715"
+  },
+  {
+   "from": "S 1st St (W Riverside Dr)",
+   "hour_of_week": 0,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.261,-97.750"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -202,24 +209,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.425,-97.673"
-  },
-  {
-   "from": "W Grady Dr (N Lamar Blvd)",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.366,-97.695"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 94.1,
-  "tomtom": 98.9
+  "dispatch": 94.3,
+  "tomtom": 99.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 34,
-  "neither": 32,
+  "n": 35,
+  "neither": 33,
   "tomtom_only": 2
  }
 }
