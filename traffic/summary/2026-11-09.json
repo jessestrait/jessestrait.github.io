@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 56,
-  "dispatch_only": 51,
+  "dispatch": 57,
+  "dispatch_only": 52,
   "here": 0,
   "here_matched": 0,
-  "matched": 6,
-  "tomtom": 332,
-  "tomtom_only": 326
+  "matched": 7,
+  "tomtom": 362,
+  "tomtom_only": 354
  },
  "date": "2026-11-09",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 2,
-   "n": 42,
-   "pct": 4.8
+   "n": 43,
+   "pct": 4.7
   },
   "tomtom_highway": {
-   "matched": 6,
-   "n": 154,
-   "pct": 3.9
+   "matched": 8,
+   "n": 164,
+   "pct": 4.9
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 178,
+   "n": 198,
    "pct": 0.0
   }
  },
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 18.0,
-  "median": 12.7,
+  "max": 19.5,
+  "median": 13.5,
   "min": -16.5,
-  "n": 6,
-  "q1": -11.8,
-  "q3": 15.6
+  "n": 7,
+  "q1": -10.2,
+  "q3": 18.0
  },
  "persistence_min": {
   "max": -91.3,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 286,
+  "hotspot_buckets": 312,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 297
+  "unreported_congestion": 326
  },
  "sampling": {
-  "flow_spent_this_month": 2034,
+  "flow_spent_this_month": 2043,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 274,
+  "incidents_spent_this_month": 275,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -138,6 +138,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.200,-97.633"
+  },
+  {
+   "from": "Cardinal Bloom Loop / Cotton Bluff Pkwy",
+   "hour_of_week": 13,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.162,-97.724"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -182,6 +189,20 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "E William Cannon Dr / Springfield Dr",
+   "hour_of_week": 13,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.165,-97.729"
+  },
+  {
+   "from": "Ranchito Dr",
+   "hour_of_week": 13,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.164,-97.728"
+  },
+  {
    "from": "Dona Villa Dr",
    "hour_of_week": 167,
    "n": 1,
@@ -194,38 +215,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.475,-97.794"
-  },
-  {
-   "from": "I-35 Bus (I-35)",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.512,-97.687"
-  },
-  {
-   "from": "Greenlawn Blvd (I-35)",
-   "hour_of_week": 166,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.458,-97.667"
-  },
-  {
-   "from": "Thermal Dr/Metric Blvd (E Howard Ln)",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.425,-97.673"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 91.1,
-  "tomtom": 98.2
+  "dispatch": 91.2,
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 56,
-  "neither": 51,
+  "n": 57,
+  "neither": 52,
   "tomtom_only": 5
  }
 }
