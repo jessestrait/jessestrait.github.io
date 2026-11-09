@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 129,
-  "dispatch_only": 105,
+  "dispatch": 130,
+  "dispatch_only": 106,
   "here": 0,
   "here_matched": 0,
   "matched": 35,
-  "tomtom": 1982,
-  "tomtom_only": 1941
+  "tomtom": 2005,
+  "tomtom_only": 1963
  },
  "date": "2026-11-09",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 16,
-   "n": 101,
-   "pct": 15.8
+   "n": 102,
+   "pct": 15.7
   },
   "tomtom_highway": {
    "matched": 19,
-   "n": 965,
+   "n": 971,
    "pct": 2.0
   },
   "tomtom_surface": {
-   "matched": 22,
-   "n": 1017,
+   "matched": 23,
+   "n": 1034,
    "pct": 2.2
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1697,
+  "hotspot_buckets": 1707,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1904
+  "unreported_congestion": 1926
  },
  "sampling": {
-  "flow_spent_this_month": 2232,
+  "flow_spent_this_month": 2241,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 317,
+  "incidents_spent_this_month": 318,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -182,13 +182,6 @@
    "seg": "30.406,-97.637"
   },
   {
-   "from": "W Braker Ln",
-   "hour_of_week": 13,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.394,-97.717"
-  },
-  {
    "from": "TX-1 Loop (Slaughter Ln)",
    "hour_of_week": 21,
    "n": 3,
@@ -215,17 +208,24 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.422,-97.620"
+  },
+  {
+   "from": "E Martin Luther King Jr Blvd",
+   "hour_of_week": 22,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.279,-97.731"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.4,
+  "dispatch": 81.5,
   "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 129,
-  "neither": 105,
+  "n": 130,
+  "neither": 106,
   "tomtom_only": 24
  }
 }
