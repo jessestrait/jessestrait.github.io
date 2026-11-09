@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 21,
-  "tomtom": 1188,
-  "tomtom_only": 1163
+  "tomtom": 1231,
+  "tomtom_only": 1206
  },
  "date": "2026-11-09",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 15,
-   "n": 543,
-   "pct": 2.8
+   "n": 569,
+   "pct": 2.6
   },
   "tomtom_surface": {
    "matched": 10,
-   "n": 645,
-   "pct": 1.6
+   "n": 662,
+   "pct": 1.5
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1053,
+  "hotspot_buckets": 1086,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1128
+  "unreported_congestion": 1171
  },
  "sampling": {
   "flow_spent_this_month": 2196,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 299,
+  "incidents_spent_this_month": 300,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -147,11 +147,25 @@
    "seg": "30.406,-97.637"
   },
   {
+   "from": "TX-1 Loop (Slaughter Ln)",
+   "hour_of_week": 21,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.185,-97.853"
+  },
+  {
    "from": "McCallen Pass (E Parmer Ln/FM-734)",
    "hour_of_week": 22,
    "n": 3,
    "roadworks": false,
    "seg": "30.388,-97.651"
+  },
+  {
+   "from": "Manor Rd",
+   "hour_of_week": 22,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.305,-97.661"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -201,25 +215,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.131,-97.799"
-  },
-  {
-   "from": "E Rector St",
-   "hour_of_week": 13,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.348,-97.556"
-  },
-  {
-   "from": "Harris Ridge Blvd (E Howard Ln)",
-   "hour_of_week": 13,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.424,-97.669"
   }
  ],
  "unmatched_pct": {
   "dispatch": 86.7,
-  "tomtom": 97.9
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
