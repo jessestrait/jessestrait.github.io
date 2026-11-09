@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 95, q3 118 min over 47 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 96, q3 118 min over 48 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -13,9 +13,9 @@
   "dispatch_only": 55,
   "here": 0,
   "here_matched": 0,
-  "matched": 11,
-  "tomtom": 530,
-  "tomtom_only": 519
+  "matched": 12,
+  "tomtom": 574,
+  "tomtom_only": 562
  },
  "date": "2026-11-09",
  "dispatch_life_capped": true,
@@ -23,9 +23,9 @@
   "max": 119.8,
   "median": 116.9,
   "min": 9.8,
-  "n": 47,
-  "q1": 94.8,
-  "q3": 118.2
+  "n": 48,
+  "q1": 96.3,
+  "q3": 118.1
  },
  "here_onset_offset_min": {
   "n": 0
@@ -42,14 +42,14 @@
    "pct": 4.4
   },
   "tomtom_highway": {
-   "matched": 10,
-   "n": 246,
+   "matched": 11,
+   "n": 271,
    "pct": 4.1
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 284,
-   "pct": 0.4
+   "n": 303,
+   "pct": 0.3
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 57.3,
-  "median": 13.5,
+  "median": 14.2,
   "min": -23.5,
-  "n": 11,
-  "q1": -16.5,
-  "q3": 19.5
+  "n": 12,
+  "q1": -14.9,
+  "q3": 34.5
  },
  "persistence_min": {
   "max": -91.3,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 460,
+  "hotspot_buckets": 496,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 491
+  "unreported_congestion": 534
  },
  "sampling": {
   "flow_spent_this_month": 2052,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 279,
+  "incidents_spent_this_month": 280,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -119,11 +119,11 @@
    "seg": "30.190,-97.770"
   },
   {
-   "from": "Highway 71 E",
+   "from": "Immanuel Rd",
    "hour_of_week": 13,
    "n": 3,
    "roadworks": false,
-   "seg": "30.200,-97.633"
+   "seg": "30.425,-97.626"
   },
   {
    "from": "N Interstate 35",
@@ -154,11 +154,11 @@
    "seg": "30.145,-97.625"
   },
   {
-   "from": "Immanuel Rd",
+   "from": "Highway 71 E",
    "hour_of_week": 13,
    "n": 2,
    "roadworks": false,
-   "seg": "30.425,-97.626"
+   "seg": "30.200,-97.633"
   },
   {
    "from": "Cardinal Bloom Loop / Cotton Bluff Pkwy",
@@ -173,6 +173,27 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.422,-97.620"
+  },
+  {
+   "from": "Heatherly Dr",
+   "hour_of_week": 13,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.131,-97.799"
+  },
+  {
+   "from": "E Rector St",
+   "hour_of_week": 13,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.348,-97.556"
+  },
+  {
+   "from": "Oak Knoll Dr (US-183)",
+   "hour_of_week": 13,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.423,-97.748"
   },
   {
    "from": "I-35 Service Rd (E Koenig Ln/FM-2222)",
@@ -194,27 +215,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.164,-97.728"
-  },
-  {
-   "from": "Northeast Travis",
-   "hour_of_week": 13,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.474,-97.594"
-  },
-  {
-   "from": "S Interstate 35",
-   "hour_of_week": 13,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.162,-97.789"
-  },
-  {
-   "from": "Old Lockhart Hwy (Slaughter Ln)",
-   "hour_of_week": 13,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.166,-97.781"
   }
  ],
  "unmatched_pct": {
