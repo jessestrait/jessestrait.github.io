@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 114 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 116 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -13,18 +13,18 @@
   "dispatch_only": 105,
   "here": 0,
   "here_matched": 0,
-  "matched": 33,
-  "tomtom": 1873,
-  "tomtom_only": 1834
+  "matched": 34,
+  "tomtom": 1919,
+  "tomtom_only": 1879
  },
  "date": "2026-11-09",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 116.8,
+  "median": 116.7,
   "min": 9.8,
-  "n": 114,
-  "q1": 115.2,
+  "n": 116,
+  "q1": 115.3,
   "q3": 118.4
  },
  "here_onset_offset_min": {
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 19,
-   "n": 910,
-   "pct": 2.1
+   "n": 931,
+   "pct": 2.0
   },
   "tomtom_surface": {
-   "matched": 20,
-   "n": 963,
+   "matched": 21,
+   "n": 988,
    "pct": 2.1
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 89.2,
-  "median": 14.8,
+  "median": 14.9,
   "min": -23.5,
-  "n": 33,
-  "q1": 2.1,
-  "q3": 44.5
+  "n": 34,
+  "q1": 2.8,
+  "q3": 50.2
  },
  "persistence_min": {
   "max": -5.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1620,
+  "hotspot_buckets": 1660,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1798
+  "unreported_congestion": 1843
  },
  "sampling": {
   "flow_spent_this_month": 2232,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 314,
+  "incidents_spent_this_month": 315,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -112,18 +112,18 @@
  },
  "structural_hotspots": [
   {
+   "from": "Old TX-20 (US-290)",
+   "hour_of_week": 22,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.346,-97.571"
+  },
+  {
    "from": "Manor Rd",
    "hour_of_week": 22,
    "n": 4,
    "roadworks": false,
    "seg": "30.305,-97.661"
-  },
-  {
-   "from": "Old TX-20 (US-290)",
-   "hour_of_week": 22,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.346,-97.571"
   },
   {
    "from": "Manor Rd (Overpass) (I-35)",
@@ -168,13 +168,6 @@
    "seg": "30.406,-97.637"
   },
   {
-   "from": "W Braker Ln",
-   "hour_of_week": 13,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.394,-97.717"
-  },
-  {
    "from": "TX-1 Loop (Slaughter Ln)",
    "hour_of_week": 21,
    "n": 3,
@@ -215,6 +208,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.190,-97.767"
+  },
+  {
+   "from": "Tur Weg Ln",
+   "hour_of_week": 22,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.348,-97.562"
   }
  ],
  "unmatched_pct": {
