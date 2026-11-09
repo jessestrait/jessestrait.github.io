@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 127,
-  "dispatch_only": 108,
+  "dispatch_only": 106,
   "here": 0,
   "here_matched": 0,
-  "matched": 27,
-  "tomtom": 1629,
-  "tomtom_only": 1597
+  "matched": 29,
+  "tomtom": 1685,
+  "tomtom_only": 1651
  },
  "date": "2026-11-09",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 28.6
   },
   "dispatch_surface": {
-   "matched": 11,
+   "matched": 13,
    "n": 99,
-   "pct": 11.1
+   "pct": 13.1
   },
   "tomtom_highway": {
    "matched": 18,
-   "n": 768,
-   "pct": 2.3
+   "n": 800,
+   "pct": 2.2
   },
   "tomtom_surface": {
-   "matched": 14,
-   "n": 861,
-   "pct": 1.6
+   "matched": 16,
+   "n": 885,
+   "pct": 1.8
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 89.2,
   "median": 14.5,
   "min": -23.5,
-  "n": 27,
-  "q1": 0.5,
-  "q3": 41.0
+  "n": 29,
+  "q1": 0.6,
+  "q3": 40.2
  },
  "persistence_min": {
   "max": -5.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1410,
+  "hotspot_buckets": 1459,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1561
+  "unreported_congestion": 1615
  },
  "sampling": {
-  "flow_spent_this_month": 2214,
+  "flow_spent_this_month": 2223,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 309,
+  "incidents_spent_this_month": 310,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -112,13 +112,6 @@
  },
  "structural_hotspots": [
   {
-   "from": "Manor Rd (Overpass) (I-35)",
-   "hour_of_week": 22,
-   "n": 5,
-   "roadworks": false,
-   "seg": "30.279,-97.730"
-  },
-  {
    "from": "Manor Rd",
    "hour_of_week": 22,
    "n": 4,
@@ -131,6 +124,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.346,-97.571"
+  },
+  {
+   "from": "Manor Rd (Overpass) (I-35)",
+   "hour_of_week": 22,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.279,-97.730"
   },
   {
    "from": "E William Cannon Dr",
@@ -166,6 +166,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.406,-97.637"
+  },
+  {
+   "from": "W Braker Ln",
+   "hour_of_week": 13,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.394,-97.717"
   },
   {
    "from": "TX-1 Loop (Slaughter Ln)",
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.190,-97.767"
-  },
-  {
-   "from": "Tur Weg Ln",
-   "hour_of_week": 22,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.348,-97.562"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.0,
+  "dispatch": 83.5,
   "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 127,
-  "neither": 108,
-  "tomtom_only": 19
+  "neither": 106,
+  "tomtom_only": 21
  }
 }
