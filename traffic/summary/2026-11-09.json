@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 114, q3 118 min over 107 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 114, q3 118 min over 108 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 120,
-  "dispatch_only": 103,
+  "dispatch": 121,
+  "dispatch_only": 104,
   "here": 0,
   "here_matched": 0,
   "matched": 24,
-  "tomtom": 1374,
-  "tomtom_only": 1346
+  "tomtom": 1420,
+  "tomtom_only": 1392
  },
  "date": "2026-11-09",
  "dispatch_life_capped": true,
@@ -23,8 +23,8 @@
   "max": 120.0,
   "median": 116.7,
   "min": 9.8,
-  "n": 107,
-  "q1": 114.2,
+  "n": 108,
+  "q1": 114.4,
   "q3": 118.3
  },
  "here_onset_offset_min": {
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 10,
-   "n": 94,
-   "pct": 10.6
+   "n": 95,
+   "pct": 10.5
   },
   "tomtom_highway": {
-   "matched": 15,
-   "n": 629,
-   "pct": 2.4
+   "matched": 16,
+   "n": 651,
+   "pct": 2.5
   },
   "tomtom_surface": {
-   "matched": 13,
-   "n": 745,
-   "pct": 1.7
+   "matched": 12,
+   "n": 769,
+   "pct": 1.6
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1207,
+  "hotspot_buckets": 1242,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1311
+  "unreported_congestion": 1357
  },
  "sampling": {
   "flow_spent_this_month": 2205,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 303,
+  "incidents_spent_this_month": 304,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -168,6 +168,27 @@
    "seg": "30.305,-97.661"
   },
   {
+   "from": "Old TX-20 (US-290)",
+   "hour_of_week": 22,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.346,-97.571"
+  },
+  {
+   "from": "Dessau Rd",
+   "hour_of_week": 22,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.422,-97.620"
+  },
+  {
+   "from": "Northtown Blvd",
+   "hour_of_week": 22,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.430,-97.669"
+  },
+  {
    "from": "Manor Rd (Overpass) (I-35)",
    "hour_of_week": 22,
    "n": 3,
@@ -194,38 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.145,-97.625"
-  },
-  {
-   "from": "Highway 71 E",
-   "hour_of_week": 13,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.200,-97.633"
-  },
-  {
-   "from": "Cardinal Bloom Loop / Cotton Bluff Pkwy",
-   "hour_of_week": 13,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.162,-97.724"
-  },
-  {
-   "from": "Dessau Rd",
-   "hour_of_week": 13,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.422,-97.620"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.8,
+  "dispatch": 86.0,
   "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 120,
-  "neither": 103,
+  "n": 121,
+  "neither": 104,
   "tomtom_only": 17
  }
 }
