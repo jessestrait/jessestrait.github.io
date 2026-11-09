@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 117, q3 119 min over 26 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch record lifetimes look like real clearances this day, not a cap.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 41,
-  "dispatch_only": 39,
+  "dispatch": 45,
+  "dispatch_only": 43,
   "here": 0,
   "here_matched": 0,
   "matched": 2,
-  "tomtom": 212,
-  "tomtom_only": 210
+  "tomtom": 222,
+  "tomtom_only": 220
  },
  "date": "2026-11-09",
- "dispatch_life_capped": true,
+ "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 117.3,
-  "min": 115.2,
-  "n": 26,
-  "q1": 116.6,
-  "q3": 118.9
+  "median": 116.7,
+  "min": 9.8,
+  "n": 41,
+  "q1": 88.0,
+  "q3": 118.4
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,22 +33,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 10,
-   "pct": 10.0
+   "n": 11,
+   "pct": 9.1
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 31,
-   "pct": 3.2
+   "n": 34,
+   "pct": 2.9
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 86,
-   "pct": 2.3
+   "n": 91,
+   "pct": 2.2
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 126,
+   "n": 131,
    "pct": 0.0
   }
  },
@@ -72,8 +72,7 @@
   "min": -101.3,
   "n": 2,
   "q1": -101.3,
-  "q3": -91.3,
-  "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
+  "q3": -91.3
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -90,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 173,
+  "hotspot_buckets": 185,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 183
+  "unreported_congestion": 194
  },
  "sampling": {
-  "flow_spent_this_month": 1962,
+  "flow_spent_this_month": 1971,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 256,
+  "incidents_spent_this_month": 257,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -124,13 +123,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.420,-97.703"
-  },
-  {
-   "from": "W Braker Ln",
-   "hour_of_week": 13,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.393,-97.715"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -215,17 +207,24 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.366,-97.695"
+  },
+  {
+   "from": "Stone Hill Dr",
+   "hour_of_week": 167,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.474,-97.596"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 95.1,
+  "dispatch": 95.6,
   "tomtom": 99.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 41,
-  "neither": 39,
+  "n": 45,
+  "neither": 43,
   "tomtom_only": 2
  }
 }
