@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 122,
-  "dispatch_only": 104,
+  "dispatch": 125,
+  "dispatch_only": 107,
   "here": 0,
   "here_matched": 0,
-  "matched": 25,
-  "tomtom": 1528,
-  "tomtom_only": 1499
+  "matched": 26,
+  "tomtom": 1570,
+  "tomtom_only": 1540
  },
  "date": "2026-11-09",
  "dispatch_life_capped": true,
@@ -33,22 +33,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 7,
-   "n": 26,
-   "pct": 26.9
+   "n": 28,
+   "pct": 25.0
   },
   "dispatch_surface": {
    "matched": 11,
-   "n": 96,
-   "pct": 11.5
+   "n": 97,
+   "pct": 11.3
   },
   "tomtom_highway": {
-   "matched": 15,
-   "n": 715,
-   "pct": 2.1
+   "matched": 16,
+   "n": 735,
+   "pct": 2.2
   },
   "tomtom_surface": {
    "matched": 14,
-   "n": 813,
+   "n": 835,
    "pct": 1.7
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 89.2,
-  "median": 14.8,
+  "median": 14.7,
   "min": -23.5,
-  "n": 25,
-  "q1": -4.7,
-  "q3": 44.5
+  "n": 26,
+  "q1": -2.1,
+  "q3": 42.8
  },
  "persistence_min": {
   "max": -20.3,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1327,
+  "hotspot_buckets": 1355,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1463
+  "unreported_congestion": 1504
  },
  "sampling": {
   "flow_spent_this_month": 2214,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 306,
+  "incidents_spent_this_month": 307,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -119,11 +119,25 @@
    "seg": "30.279,-97.730"
   },
   {
+   "from": "McCallen Pass (E Parmer Ln/FM-734)",
+   "hour_of_week": 22,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.388,-97.651"
+  },
+  {
    "from": "Manor Rd",
    "hour_of_week": 22,
    "n": 4,
    "roadworks": false,
    "seg": "30.305,-97.661"
+  },
+  {
+   "from": "Old TX-20 (US-290)",
+   "hour_of_week": 22,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.346,-97.571"
   },
   {
    "from": "E William Cannon Dr",
@@ -168,20 +182,6 @@
    "seg": "30.185,-97.853"
   },
   {
-   "from": "McCallen Pass (E Parmer Ln/FM-734)",
-   "hour_of_week": 22,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.388,-97.651"
-  },
-  {
-   "from": "Old TX-20 (US-290)",
-   "hour_of_week": 22,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.346,-97.571"
-  },
-  {
    "from": "Dessau Rd",
    "hour_of_week": 22,
    "n": 3,
@@ -210,22 +210,22 @@
    "seg": "30.348,-97.562"
   },
   {
-   "from": "Winsted Ln",
+   "from": "Round Rock-Georgetown",
    "hour_of_week": 22,
    "n": 3,
    "roadworks": false,
-   "seg": "30.278,-97.769"
+   "seg": "30.487,-97.771"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.2,
+  "dispatch": 85.6,
   "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 122,
-  "neither": 104,
+  "n": 125,
+  "neither": 107,
   "tomtom_only": 18
  }
 }
