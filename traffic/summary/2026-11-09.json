@@ -10,31 +10,31 @@
  ],
  "counts": {
   "dispatch": 28,
-  "dispatch_only": 27,
+  "dispatch_only": 26,
   "here": 0,
   "here_matched": 0,
-  "matched": 1,
-  "tomtom": 166,
-  "tomtom_only": 165
+  "matched": 2,
+  "tomtom": 181,
+  "tomtom_only": 179
  },
  "date": "2026-11-09",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.0,
-  "median": 117.0,
+  "median": 117.2,
   "min": 115.2,
-  "n": 8,
-  "q1": 115.8,
-  "q3": 118.7
+  "n": 9,
+  "q1": 115.9,
+  "q3": 118.8
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 0,
+   "matched": 1,
    "n": 5,
-   "pct": 0.0
+   "pct": 20.0
   },
   "dispatch_surface": {
    "matched": 1,
@@ -42,13 +42,13 @@
    "pct": 4.3
   },
   "tomtom_highway": {
-   "matched": 1,
-   "n": 68,
-   "pct": 1.5
+   "matched": 2,
+   "n": 75,
+   "pct": 2.7
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 98,
+   "n": 106,
    "pct": 0.0
   }
  },
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 11.8,
-  "median": 11.8,
+  "max": 18.0,
+  "median": 14.9,
   "min": 11.8,
-  "n": 1,
+  "n": 2,
   "q1": 11.8,
-  "q3": 11.8
+  "q3": 18.0
  },
  "persistence_min": {
   "n": 0
@@ -84,15 +84,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 133,
+  "hotspot_buckets": 146,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 142
+  "unreported_congestion": 156
  },
  "sampling": {
   "flow_spent_this_month": 1944,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 253,
+  "incidents_spent_this_month": 254,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -118,6 +118,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.420,-97.703"
+  },
+  {
+   "from": "W Braker Ln",
+   "hour_of_week": 13,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.393,-97.715"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -202,24 +209,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.366,-97.695"
-  },
-  {
-   "from": "Stone Hill Dr",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.474,-97.596"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 96.4,
-  "tomtom": 99.4
+  "dispatch": 92.9,
+  "tomtom": 98.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 28,
-  "neither": 27,
-  "tomtom_only": 1
+  "neither": 26,
+  "tomtom_only": 2
  }
 }
