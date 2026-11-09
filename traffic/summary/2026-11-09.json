@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 94, q3 118 min over 46 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 95, q3 118 min over 47 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,32 +9,32 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 61,
+  "dispatch": 62,
   "dispatch_only": 55,
   "here": 0,
   "here_matched": 0,
-  "matched": 8,
-  "tomtom": 443,
-  "tomtom_only": 434
+  "matched": 10,
+  "tomtom": 495,
+  "tomtom_only": 485
  },
  "date": "2026-11-09",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 116.8,
+  "median": 116.9,
   "min": 9.8,
-  "n": 46,
-  "q1": 94.0,
-  "q3": 118.3
+  "n": 47,
+  "q1": 94.8,
+  "q3": 118.2
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 4,
-   "n": 16,
-   "pct": 25.0
+   "matched": 5,
+   "n": 17,
+   "pct": 29.4
   },
   "dispatch_surface": {
    "matched": 2,
@@ -42,13 +42,13 @@
    "pct": 4.4
   },
   "tomtom_highway": {
-   "matched": 9,
-   "n": 204,
-   "pct": 4.4
+   "matched": 10,
+   "n": 224,
+   "pct": 4.5
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 239,
+   "n": 271,
    "pct": 0.0
   }
  },
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 19.5,
+  "max": 39.5,
   "median": 12.7,
-  "min": -21.5,
-  "n": 8,
-  "q1": -14.9,
-  "q3": 17.2
+  "min": -23.5,
+  "n": 10,
+  "q1": -17.8,
+  "q3": 18.4
  },
  "persistence_min": {
   "max": -91.3,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 382,
+  "hotspot_buckets": 429,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 406
+  "unreported_congestion": 457
  },
  "sampling": {
   "flow_spent_this_month": 2043,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 277,
+  "incidents_spent_this_month": 278,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -112,11 +112,25 @@
  },
  "structural_hotspots": [
   {
+   "from": "E William Cannon Dr",
+   "hour_of_week": 13,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.190,-97.770"
+  },
+  {
    "from": "Highway 71 E",
    "hour_of_week": 13,
    "n": 3,
    "roadworks": false,
    "seg": "30.200,-97.633"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 13,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.431,-97.673"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -140,32 +154,11 @@
    "seg": "30.145,-97.625"
   },
   {
-   "from": "E William Cannon Dr",
-   "hour_of_week": 13,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.190,-97.770"
-  },
-  {
    "from": "Immanuel Rd",
    "hour_of_week": 13,
    "n": 2,
    "roadworks": false,
    "seg": "30.425,-97.626"
-  },
-  {
-   "from": "Cardinal Bloom Loop / Cotton Bluff Pkwy",
-   "hour_of_week": 13,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.162,-97.724"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 13,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.431,-97.673"
   },
   {
    "from": "Dessau Rd",
@@ -182,11 +175,18 @@
    "seg": "30.131,-97.799"
   },
   {
-   "from": "E Rector St",
+   "from": "I-35 Service Rd (E Koenig Ln/FM-2222)",
    "hour_of_week": 13,
    "n": 2,
    "roadworks": false,
-   "seg": "30.348,-97.556"
+   "seg": "30.320,-97.713"
+  },
+  {
+   "from": "S Pleasant Valley Rd (E William Cannon Dr)",
+   "hour_of_week": 13,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.189,-97.768"
   },
   {
    "from": "Tinnapark Ln",
@@ -203,29 +203,29 @@
    "seg": "30.474,-97.594"
   },
   {
-   "from": "Manor Rd",
+   "from": "S Interstate 35",
    "hour_of_week": 13,
    "n": 2,
    "roadworks": false,
-   "seg": "30.304,-97.661"
+   "seg": "30.162,-97.789"
   },
   {
-   "from": "FM 969 Rd / Farm to Market 969 Rd",
+   "from": "Old Lockhart Hwy (Slaughter Ln)",
    "hour_of_week": 13,
    "n": 2,
    "roadworks": false,
-   "seg": "30.301,-97.648"
+   "seg": "30.166,-97.781"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 90.2,
+  "dispatch": 88.7,
   "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 61,
+  "n": 62,
   "neither": 55,
-  "tomtom_only": 6
+  "tomtom_only": 7
  }
 }
