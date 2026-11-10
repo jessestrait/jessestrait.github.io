@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 20,
-  "dispatch_only": 15,
+  "dispatch": 22,
+  "dispatch_only": 17,
   "here": 0,
   "here_matched": 0,
   "matched": 6,
@@ -33,13 +33,13 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 4,
-   "pct": 25.0
+   "n": 5,
+   "pct": 20.0
   },
   "dispatch_surface": {
    "matched": 4,
-   "n": 16,
-   "pct": 25.0
+   "n": 17,
+   "pct": 23.5
   },
   "tomtom_highway": {
    "matched": 2,
@@ -125,6 +125,13 @@
    "seg": "30.280,-97.732"
   },
   {
+   "from": "Trinity St (E Cesar Chavez St/E 1st St/State Spur 343)",
+   "hour_of_week": 25,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.263,-97.743"
+  },
+  {
    "from": "Adage Dr / Epiphany Ln",
    "hour_of_week": 59,
    "n": 2,
@@ -165,13 +172,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.179,-97.616"
-  },
-  {
-   "from": "E Cesar Chavez St",
-   "hour_of_week": 25,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.263,-97.743"
   },
   {
    "from": "FM-2222/Bullick Hollow Rd (FM-620)",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 75.0,
+  "dispatch": 77.3,
   "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 20,
-  "neither": 15,
+  "n": 22,
+  "neither": 17,
   "tomtom_only": 5
  }
 }
