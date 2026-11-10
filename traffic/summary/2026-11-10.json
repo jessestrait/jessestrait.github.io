@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 506,
-  "tomtom_only": 500
+  "tomtom": 520,
+  "tomtom_only": 514
  },
  "date": "2026-11-10",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 224,
+   "n": 232,
    "pct": 0.9
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 282,
+   "n": 288,
    "pct": 1.4
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 372,
+  "hotspot_buckets": 386,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 464
+  "unreported_congestion": 478
  },
  "sampling": {
   "flow_spent_this_month": 2322,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 337,
+  "incidents_spent_this_month": 338,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -145,6 +145,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.179,-97.616"
+  },
+  {
+   "from": "TX-45 Toll/TX-130 Toll (E Parmer Ln/FM-734)",
+   "hour_of_week": 36,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.368,-97.609"
   },
   {
    "from": "E Martin Luther King Jr Blvd / Red River St",
@@ -205,13 +212,6 @@
   {
    "from": "N Capital of Texas Highway South Bound / N Capital of Texas Hwy",
    "hour_of_week": 14,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.383,-97.767"
-  },
-  {
-   "from": "Spicewood Springs Rd / Adirondack Trl",
-   "hour_of_week": 12,
    "n": 2,
    "roadworks": false,
    "seg": "30.383,-97.767"
