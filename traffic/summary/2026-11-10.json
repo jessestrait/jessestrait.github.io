@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 41,
-  "dispatch_only": 36,
+  "dispatch": 42,
+  "dispatch_only": 37,
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 615,
-  "tomtom_only": 609
+  "tomtom": 665,
+  "tomtom_only": 659
  },
  "date": "2026-11-10",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 4,
-   "n": 33,
-   "pct": 12.1
+   "n": 34,
+   "pct": 11.8
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 276,
+   "n": 303,
    "pct": 0.7
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 339,
-   "pct": 1.2
+   "n": 362,
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 481,
+  "hotspot_buckets": 527,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 573
+  "unreported_congestion": 623
  },
  "sampling": {
   "flow_spent_this_month": 2331,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 341,
+  "incidents_spent_this_month": 342,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -152,6 +152,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.368,-97.609"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 37,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.310,-97.711"
   },
   {
    "from": "E Martin Luther King Jr Blvd / Red River St",
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.405,-97.759"
-  },
-  {
-   "from": "N Capital of Texas Highway South Bound / N Capital of Texas Hwy",
-   "hour_of_week": 14,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.383,-97.767"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.8,
-  "tomtom": 99.0
+  "dispatch": 88.1,
+  "tomtom": 99.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 41,
-  "neither": 36,
+  "n": 42,
+  "neither": 37,
   "tomtom_only": 5
  }
 }
