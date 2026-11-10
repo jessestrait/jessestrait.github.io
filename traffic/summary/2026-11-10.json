@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 113, q3 118 min over 45 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 114, q3 118 min over 46 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 55,
-  "dispatch_only": 47,
+  "dispatch": 56,
+  "dispatch_only": 48,
   "here": 0,
   "here_matched": 0,
   "matched": 10,
-  "tomtom": 1051,
-  "tomtom_only": 1041
+  "tomtom": 1064,
+  "tomtom_only": 1054
  },
  "date": "2026-11-10",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 116.2,
+  "median": 116.3,
   "min": 5.9,
-  "n": 45,
-  "q1": 112.7,
-  "q3": 118.3
+  "n": 46,
+  "q1": 113.9,
+  "q3": 118.4
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 6,
-   "n": 43,
-   "pct": 14.0
+   "n": 44,
+   "pct": 13.6
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 502,
+   "n": 506,
    "pct": 1.2
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 549,
+   "n": 558,
    "pct": 0.7
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 870,
+  "hotspot_buckets": 883,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1005
+  "unreported_congestion": 1018
  },
  "sampling": {
   "flow_spent_this_month": 2403,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 349,
+  "incidents_spent_this_month": 350,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -203,29 +203,29 @@
    "seg": "30.263,-97.743"
   },
   {
+   "from": "W Braker Ln",
+   "hour_of_week": 13,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.394,-97.717"
+  },
+  {
    "from": "Pond Springs Rd",
    "hour_of_week": 46,
    "n": 2,
    "roadworks": false,
    "seg": "30.448,-97.780"
-  },
-  {
-   "from": "Round Rock Ave",
-   "hour_of_week": 23,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.513,-97.684"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.5,
-  "tomtom": 99.0
+  "dispatch": 85.7,
+  "tomtom": 99.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 55,
-  "neither": 47,
+  "n": 56,
+  "neither": 48,
   "tomtom_only": 8
  }
 }
