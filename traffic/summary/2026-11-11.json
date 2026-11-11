@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 106 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 108 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 122,
-  "dispatch_only": 95,
+  "dispatch": 123,
+  "dispatch_only": 96,
   "here": 0,
   "here_matched": 0,
-  "matched": 46,
-  "tomtom": 1479,
-  "tomtom_only": 1437
+  "matched": 47,
+  "tomtom": 1521,
+  "tomtom_only": 1478
  },
  "date": "2026-11-11",
  "dispatch_life_capped": true,
@@ -23,9 +23,9 @@
   "max": 120.0,
   "median": 117.4,
   "min": 8.1,
-  "n": 106,
-  "q1": 115.7,
-  "q3": 118.7
+  "n": 108,
+  "q1": 115.8,
+  "q3": 118.6
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 16,
-   "n": 95,
-   "pct": 16.8
+   "n": 96,
+   "pct": 16.7
   },
   "tomtom_highway": {
-   "matched": 33,
-   "n": 751,
-   "pct": 4.4
+   "matched": 34,
+   "n": 763,
+   "pct": 4.5
   },
   "tomtom_surface": {
    "matched": 9,
-   "n": 728,
+   "n": 758,
    "pct": 1.2
   }
  },
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 83.7,
-  "median": 6.2,
+  "median": 5.7,
   "min": -84.7,
-  "n": 46,
-  "q1": -24.2,
-  "q3": 21.3
+  "n": 47,
+  "q1": -23.9,
+  "q3": 20.9
  },
  "persistence_min": {
   "max": 5.0,
-  "median": -71.3,
+  "median": -65.9,
   "min": -137.4,
-  "n": 21,
-  "q1": -101.8,
+  "n": 25,
+  "q1": -96.7,
   "q3": -30.5,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1314,
+  "hotspot_buckets": 1346,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1404
+  "unreported_congestion": 1445
  },
  "sampling": {
-  "flow_spent_this_month": 2763,
+  "flow_spent_this_month": 2772,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 391,
+  "incidents_spent_this_month": 392,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -161,6 +161,13 @@
    "seg": "30.438,-97.671"
   },
   {
+   "from": "S 1st St/Conroy Ln (FM-1626)",
+   "hour_of_week": 70,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.141,-97.797"
+  },
+  {
    "from": "Dessau Rd",
    "hour_of_week": 70,
    "n": 3,
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.282,-97.733"
-  },
-  {
-   "from": "Barton Springs Rd",
-   "hour_of_week": 0,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.269,-97.769"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 77.9,
+  "dispatch": 78.0,
   "tomtom": 97.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 122,
-  "neither": 95,
+  "n": 123,
+  "neither": 96,
   "tomtom_only": 27
  }
 }
