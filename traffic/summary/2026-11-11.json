@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 34,
+  "dispatch": 35,
   "dispatch_only": 28,
   "here": 0,
   "here_matched": 0,
-  "matched": 6,
-  "tomtom": 379,
-  "tomtom_only": 373
+  "matched": 7,
+  "tomtom": 408,
+  "tomtom_only": 401
  },
  "date": "2026-11-11",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 58.6,
+  "median": 60.7,
   "min": 8.1,
-  "n": 16,
-  "q1": 26.3,
-  "q3": 116.9
+  "n": 18,
+  "q1": 30.1,
+  "q3": 117.2
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,19 +37,19 @@
    "pct": 16.7
   },
   "dispatch_surface": {
-   "matched": 5,
-   "n": 28,
-   "pct": 17.9
+   "matched": 6,
+   "n": 29,
+   "pct": 20.7
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 200,
-   "pct": 3.0
+   "n": 214,
+   "pct": 2.8
   },
   "tomtom_surface": {
-   "matched": 0,
-   "n": 179,
-   "pct": 0.0
+   "matched": 1,
+   "n": 194,
+   "pct": 0.5
   }
  },
  "matcher": {
@@ -60,14 +60,19 @@
  },
  "onset_offset_min": {
   "max": 83.7,
-  "median": -4.5,
+  "median": 4.2,
   "min": -52.6,
-  "n": 6,
-  "q1": -26.7,
-  "q3": 31.4
+  "n": 7,
+  "q1": -18.1,
+  "q3": 82.6
  },
  "persistence_min": {
-  "n": 0
+  "max": -30.5,
+  "median": -30.5,
+  "min": -30.5,
+  "n": 1,
+  "q1": -30.5,
+  "q3": -30.5
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -84,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 344,
+  "hotspot_buckets": 367,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 355
+  "unreported_congestion": 382
  },
  "sampling": {
   "flow_spent_this_month": 2520,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 356,
+  "incidents_spent_this_month": 357,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -127,11 +132,32 @@
    "seg": "30.256,-97.702"
   },
   {
+   "from": "N Lake Creek Pkwy",
+   "hour_of_week": 48,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.476,-97.794"
+  },
+  {
+   "from": "Braker Ln (I-35)",
+   "hour_of_week": 47,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.358,-97.688"
+  },
+  {
    "from": "Adage Dr / Epiphany Ln",
    "hour_of_week": 60,
    "n": 2,
    "roadworks": false,
    "seg": "30.448,-97.631"
+  },
+  {
+   "from": "E 20th St",
+   "hour_of_week": 48,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.282,-97.732"
   },
   {
    "from": "N Interstate 35",
@@ -176,50 +202,29 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "E Martin Luther King Jr Blvd / Red River St",
+   "hour_of_week": 48,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.280,-97.732"
+  },
+  {
    "from": "N Bell Blvd",
    "hour_of_week": 43,
    "n": 1,
    "roadworks": false,
    "seg": "30.511,-97.823"
-  },
-  {
-   "from": "Cedar Park-Liberty Hill",
-   "hour_of_week": 43,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.482,-97.828"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 43,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.475,-97.794"
-  },
-  {
-   "from": "Gattis School Rd",
-   "hour_of_week": 43,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.496,-97.666"
-  },
-  {
-   "from": "Grand Avenue Pkwy (I-35)",
-   "hour_of_week": 44,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.442,-97.669"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.4,
-  "tomtom": 98.4
+  "dispatch": 80.0,
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 34,
+  "n": 35,
   "neither": 28,
-  "tomtom_only": 6
+  "tomtom_only": 7
  }
 }
