@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 47,
-  "dispatch_only": 37,
+  "dispatch": 49,
+  "dispatch_only": 39,
   "here": 0,
   "here_matched": 0,
   "matched": 11,
-  "tomtom": 417,
-  "tomtom_only": 407
+  "tomtom": 427,
+  "tomtom_only": 417
  },
  "date": "2026-11-11",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 116.7,
+  "median": 116.8,
   "min": 8.1,
-  "n": 33,
-  "q1": 58.6,
+  "n": 34,
+  "q1": 59.2,
   "q3": 118.9
  },
  "here_onset_offset_min": {
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 7,
-   "n": 40,
-   "pct": 17.5
+   "n": 42,
+   "pct": 16.7
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 217,
-   "pct": 4.1
+   "n": 223,
+   "pct": 4.0
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 200,
+   "n": 204,
    "pct": 0.5
   }
  },
@@ -67,11 +67,11 @@
   "q3": 81.6
  },
  "persistence_min": {
-  "max": -30.5,
-  "median": -101.8,
+  "max": 5.0,
+  "median": -81.4,
   "min": -112.0,
-  "n": 7,
-  "q1": -107.0,
+  "n": 8,
+  "q1": -105.7,
   "q3": -30.5
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 374,
+  "hotspot_buckets": 382,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 388
+  "unreported_congestion": 397
  },
  "sampling": {
   "flow_spent_this_month": 2529,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 358,
+  "incidents_spent_this_month": 359,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -144,6 +144,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.358,-97.688"
+  },
+  {
+   "from": "Parmer Ln/Exit 245 (I-35)",
+   "hour_of_week": 138,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.424,-97.671"
   },
   {
    "from": "E 21st St",
@@ -207,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.511,-97.823"
-  },
-  {
-   "from": "Cedar Park-Liberty Hill",
-   "hour_of_week": 43,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.482,-97.828"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.7,
-  "tomtom": 97.6
+  "dispatch": 79.6,
+  "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 47,
-  "neither": 37,
+  "n": 49,
+  "neither": 39,
   "tomtom_only": 10
  }
 }
