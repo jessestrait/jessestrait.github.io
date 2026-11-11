@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 11,
-  "tomtom": 435,
-  "tomtom_only": 425
+  "tomtom": 449,
+  "tomtom_only": 439
  },
  "date": "2026-11-11",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 226,
-   "pct": 4.0
+   "n": 233,
+   "pct": 3.9
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 209,
+   "n": 216,
    "pct": 0.5
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 390,
+  "hotspot_buckets": 400,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 405
+  "unreported_congestion": 417
  },
  "sampling": {
   "flow_spent_this_month": 2547,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 360,
+  "incidents_spent_this_month": 361,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -153,11 +153,25 @@
    "seg": "30.424,-97.671"
   },
   {
+   "from": "FM 685",
+   "hour_of_week": 91,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.472,-97.592"
+  },
+  {
    "from": "E 21st St",
    "hour_of_week": 49,
    "n": 2,
    "roadworks": false,
    "seg": "30.282,-97.733"
+  },
+  {
+   "from": "Barton Springs Rd",
+   "hour_of_week": 0,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.269,-97.769"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -200,25 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Lexington Meadow Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.179,-97.616"
-  },
-  {
-   "from": "N Bell Blvd",
-   "hour_of_week": 43,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.511,-97.823"
   }
  ],
  "unmatched_pct": {
   "dispatch": 82.5,
-  "tomtom": 97.7
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
