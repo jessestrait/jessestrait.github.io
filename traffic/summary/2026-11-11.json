@@ -10,31 +10,31 @@
  ],
  "counts": {
   "dispatch": 44,
-  "dispatch_only": 36,
+  "dispatch_only": 34,
   "here": 0,
   "here_matched": 0,
-  "matched": 8,
-  "tomtom": 408,
-  "tomtom_only": 400
+  "matched": 11,
+  "tomtom": 417,
+  "tomtom_only": 407
  },
  "date": "2026-11-11",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 115.1,
+  "median": 115.4,
   "min": 8.1,
-  "n": 25,
-  "q1": 51.4,
-  "q3": 117.2
+  "n": 26,
+  "q1": 54.3,
+  "q3": 117.4
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
+   "matched": 3,
    "n": 7,
-   "pct": 14.3
+   "pct": 42.9
   },
   "dispatch_surface": {
    "matched": 7,
@@ -42,13 +42,13 @@
    "pct": 18.9
   },
   "tomtom_highway": {
-   "matched": 7,
-   "n": 214,
-   "pct": 3.3
+   "matched": 9,
+   "n": 217,
+   "pct": 4.1
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 194,
+   "n": 200,
    "pct": 0.5
   }
  },
@@ -60,17 +60,17 @@
  },
  "onset_offset_min": {
   "max": 83.7,
-  "median": -4.5,
+  "median": 4.2,
   "min": -52.6,
-  "n": 8,
-  "q1": -21.0,
-  "q3": 65.4
+  "n": 11,
+  "q1": -18.1,
+  "q3": 81.6
  },
  "persistence_min": {
   "max": -30.5,
-  "median": -45.7,
+  "median": -30.5,
   "min": -61.0,
-  "n": 2,
+  "n": 3,
   "q1": -61.0,
   "q3": -30.5
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 366,
+  "hotspot_buckets": 374,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 381
+  "unreported_congestion": 388
  },
  "sampling": {
   "flow_spent_this_month": 2529,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 357,
+  "incidents_spent_this_month": 358,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -146,11 +146,11 @@
    "seg": "30.358,-97.688"
   },
   {
-   "from": "Clyde Littlefield Dr",
-   "hour_of_week": 48,
+   "from": "E 21st St",
+   "hour_of_week": 49,
    "n": 2,
    "roadworks": false,
-   "seg": "30.282,-97.732"
+   "seg": "30.282,-97.733"
   },
   {
    "from": "Adage Dr / Epiphany Ln",
@@ -158,13 +158,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.448,-97.631"
-  },
-  {
-   "from": "E Martin Luther King Jr Blvd / Red River St",
-   "hour_of_week": 48,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.280,-97.732"
   },
   {
    "from": "N Interstate 35",
@@ -214,17 +207,24 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.511,-97.823"
+  },
+  {
+   "from": "Cedar Park-Liberty Hill",
+   "hour_of_week": 43,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.482,-97.828"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.8,
-  "tomtom": 98.0
+  "dispatch": 77.3,
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 44,
-  "neither": 36,
-  "tomtom_only": 8
+  "neither": 34,
+  "tomtom_only": 10
  }
 }
