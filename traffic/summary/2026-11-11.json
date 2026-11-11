@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 101 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 103 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,47 +9,47 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 117,
+  "dispatch": 118,
   "dispatch_only": 95,
   "here": 0,
   "here_matched": 0,
-  "matched": 32,
-  "tomtom": 1191,
-  "tomtom_only": 1164
+  "matched": 36,
+  "tomtom": 1264,
+  "tomtom_only": 1234
  },
  "date": "2026-11-11",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 117.2,
+  "median": 117.3,
   "min": 8.1,
-  "n": 101,
+  "n": 103,
   "q1": 115.7,
-  "q3": 118.6
+  "q3": 118.8
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 8,
+   "matched": 9,
    "n": 24,
-   "pct": 33.3
+   "pct": 37.5
   },
   "dispatch_surface": {
    "matched": 14,
-   "n": 93,
-   "pct": 15.1
+   "n": 94,
+   "pct": 14.9
   },
   "tomtom_highway": {
-   "matched": 20,
-   "n": 603,
-   "pct": 3.3
+   "matched": 23,
+   "n": 640,
+   "pct": 3.6
   },
   "tomtom_surface": {
    "matched": 7,
-   "n": 588,
-   "pct": 1.2
+   "n": 624,
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -60,10 +60,10 @@
  },
  "onset_offset_min": {
   "max": 83.7,
-  "median": 0.4,
+  "median": 3.0,
   "min": -84.7,
-  "n": 32,
-  "q1": -49.5,
+  "n": 36,
+  "q1": -48.0,
   "q3": 20.7
  },
  "persistence_min": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1061,
+  "hotspot_buckets": 1132,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1131
+  "unreported_congestion": 1201
  },
  "sampling": {
   "flow_spent_this_month": 2754,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 386,
+  "incidents_spent_this_month": 387,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -119,18 +119,18 @@
    "seg": "30.262,-97.736"
   },
   {
+   "from": "E 7th St (Springdale Rd)",
+   "hour_of_week": 137,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.256,-97.702"
+  },
+  {
    "from": "FM 685",
    "hour_of_week": 91,
    "n": 3,
    "roadworks": false,
    "seg": "30.472,-97.592"
-  },
-  {
-   "from": "Domain Blvd",
-   "hour_of_week": 69,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.403,-97.719"
   },
   {
    "from": "US-290/TX-71/W Ben White Blvd (TX-360 Loop/S Capital of Texas Hwy)",
@@ -175,13 +175,6 @@
    "seg": "30.254,-97.727"
   },
   {
-   "from": "E 7th St (Springdale Rd)",
-   "hour_of_week": 137,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.256,-97.702"
-  },
-  {
    "from": "N Lake Creek Pkwy",
    "hour_of_week": 48,
    "n": 2,
@@ -215,17 +208,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.269,-97.769"
+  },
+  {
+   "from": "San Antonio St",
+   "hour_of_week": 53,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.280,-97.742"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.2,
-  "tomtom": 97.7
+  "dispatch": 80.5,
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 117,
+  "n": 118,
   "neither": 95,
-  "tomtom_only": 22
+  "tomtom_only": 23
  }
 }
