@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 47,
-  "tomtom": 1521,
-  "tomtom_only": 1478
+  "tomtom": 1585,
+  "tomtom_only": 1541
  },
  "date": "2026-11-11",
  "dispatch_life_capped": true,
@@ -42,14 +42,14 @@
    "pct": 16.7
   },
   "tomtom_highway": {
-   "matched": 34,
-   "n": 763,
-   "pct": 4.5
+   "matched": 35,
+   "n": 794,
+   "pct": 4.4
   },
   "tomtom_surface": {
    "matched": 9,
-   "n": 758,
-   "pct": 1.2
+   "n": 791,
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1346,
+  "hotspot_buckets": 1398,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1445
+  "unreported_congestion": 1508
  },
  "sampling": {
   "flow_spent_this_month": 2772,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 392,
+  "incidents_spent_this_month": 393,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -112,18 +112,18 @@
  },
  "structural_hotspots": [
   {
+   "from": "W Braker Ln",
+   "hour_of_week": 13,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.393,-97.715"
+  },
+  {
    "from": "E 6th St (I-35)",
    "hour_of_week": 69,
    "n": 4,
    "roadworks": false,
    "seg": "30.262,-97.736"
-  },
-  {
-   "from": "W Braker Ln",
-   "hour_of_week": 13,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.393,-97.715"
   },
   {
    "from": "E 7th St (Springdale Rd)",
@@ -161,6 +161,13 @@
    "seg": "30.438,-97.671"
   },
   {
+   "from": "Northeast Travis",
+   "hour_of_week": 70,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.475,-97.595"
+  },
+  {
    "from": "S 1st St/Conroy Ln (FM-1626)",
    "hour_of_week": 70,
    "n": 3,
@@ -173,6 +180,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.422,-97.620"
+  },
+  {
+   "from": "Manor Rd",
+   "hour_of_week": 70,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.305,-97.661"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -201,20 +215,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.358,-97.688"
-  },
-  {
-   "from": "Parmer Ln/Exit 245 (I-35)",
-   "hour_of_week": 138,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.424,-97.671"
-  },
-  {
-   "from": "E 21st St",
-   "hour_of_week": 49,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.282,-97.733"
   }
  ],
  "unmatched_pct": {
