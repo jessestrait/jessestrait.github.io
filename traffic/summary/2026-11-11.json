@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 118,
-  "dispatch_only": 95,
+  "dispatch": 119,
+  "dispatch_only": 94,
   "here": 0,
   "here_matched": 0,
-  "matched": 36,
-  "tomtom": 1264,
-  "tomtom_only": 1234
+  "matched": 41,
+  "tomtom": 1313,
+  "tomtom_only": 1278
  },
  "date": "2026-11-11",
  "dispatch_life_capped": true,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 9,
-   "n": 24,
-   "pct": 37.5
+   "matched": 10,
+   "n": 25,
+   "pct": 40.0
   },
   "dispatch_surface": {
-   "matched": 14,
+   "matched": 15,
    "n": 94,
-   "pct": 14.9
+   "pct": 16.0
   },
   "tomtom_highway": {
-   "matched": 23,
-   "n": 640,
-   "pct": 3.6
+   "matched": 26,
+   "n": 664,
+   "pct": 3.9
   },
   "tomtom_surface": {
-   "matched": 7,
-   "n": 624,
-   "pct": 1.1
+   "matched": 9,
+   "n": 649,
+   "pct": 1.4
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 83.7,
-  "median": 3.0,
+  "median": 4.2,
   "min": -84.7,
-  "n": 36,
-  "q1": -48.0,
-  "q3": 20.7
+  "n": 41,
+  "q1": -34.3,
+  "q3": 21.6
  },
  "persistence_min": {
   "max": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1132,
+  "hotspot_buckets": 1172,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1201
+  "unreported_congestion": 1245
  },
  "sampling": {
-  "flow_spent_this_month": 2754,
+  "flow_spent_this_month": 2763,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 387,
+  "incidents_spent_this_month": 388,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,6 +117,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.262,-97.736"
+  },
+  {
+   "from": "W Braker Ln",
+   "hour_of_week": 13,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.393,-97.715"
   },
   {
    "from": "E 7th St (Springdale Rd)",
@@ -145,13 +152,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.273,-97.732"
-  },
-  {
-   "from": "W Braker Ln",
-   "hour_of_week": 13,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.393,-97.715"
   },
   {
    "from": "Korman Dr",
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.5,
-  "tomtom": 97.6
+  "dispatch": 79.0,
+  "tomtom": 97.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 118,
-  "neither": 95,
-  "tomtom_only": 23
+  "n": 119,
+  "neither": 94,
+  "tomtom_only": 25
  }
 }
