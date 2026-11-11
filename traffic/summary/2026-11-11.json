@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 100 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 101 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 115,
-  "dispatch_only": 93,
+  "dispatch": 117,
+  "dispatch_only": 95,
   "here": 0,
   "here_matched": 0,
-  "matched": 30,
-  "tomtom": 1154,
-  "tomtom_only": 1128
+  "matched": 32,
+  "tomtom": 1191,
+  "tomtom_only": 1164
  },
  "date": "2026-11-11",
  "dispatch_life_capped": true,
@@ -23,7 +23,7 @@
   "max": 120.0,
   "median": 117.2,
   "min": 8.1,
-  "n": 100,
+  "n": 101,
   "q1": 115.7,
   "q3": 118.6
  },
@@ -33,22 +33,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 8,
-   "n": 23,
-   "pct": 34.8
+   "n": 24,
+   "pct": 33.3
   },
   "dispatch_surface": {
    "matched": 14,
-   "n": 92,
-   "pct": 15.2
+   "n": 93,
+   "pct": 15.1
   },
   "tomtom_highway": {
-   "matched": 19,
-   "n": 589,
-   "pct": 3.2
+   "matched": 20,
+   "n": 603,
+   "pct": 3.3
   },
   "tomtom_surface": {
    "matched": 7,
-   "n": 565,
+   "n": 588,
    "pct": 1.2
   }
  },
@@ -62,17 +62,17 @@
   "max": 83.7,
   "median": 0.4,
   "min": -84.7,
-  "n": 30,
+  "n": 32,
   "q1": -49.5,
-  "q3": 22.9
+  "q3": 20.7
  },
  "persistence_min": {
   "max": 5.0,
-  "median": -78.7,
+  "median": -73.7,
   "min": -137.4,
-  "n": 16,
-  "q1": -105.7,
-  "q3": -42.0,
+  "n": 18,
+  "q1": -103.1,
+  "q3": -34.3,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1029,
+  "hotspot_buckets": 1061,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1096
+  "unreported_congestion": 1131
  },
  "sampling": {
   "flow_spent_this_month": 2754,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 385,
+  "incidents_spent_this_month": 386,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -126,6 +126,13 @@
    "seg": "30.472,-97.592"
   },
   {
+   "from": "Domain Blvd",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.403,-97.719"
+  },
+  {
    "from": "US-290/TX-71/W Ben White Blvd (TX-360 Loop/S Capital of Texas Hwy)",
    "hour_of_week": 69,
    "n": 3,
@@ -133,18 +140,25 @@
    "seg": "30.245,-97.802"
   },
   {
-   "from": "Lakeline Mall Dr",
-   "hour_of_week": 69,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.475,-97.795"
-  },
-  {
    "from": "N Interstate 35",
    "hour_of_week": 69,
    "n": 3,
    "roadworks": false,
    "seg": "30.273,-97.732"
+  },
+  {
+   "from": "W Braker Ln",
+   "hour_of_week": 13,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.393,-97.715"
+  },
+  {
+   "from": "Korman Dr",
+   "hour_of_week": 69,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.438,-97.671"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -201,31 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.269,-97.769"
-  },
-  {
-   "from": "San Antonio St",
-   "hour_of_week": 53,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.280,-97.742"
-  },
-  {
-   "from": "Oak Springs Dr / Rosewood Ave",
-   "hour_of_week": 46,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.273,-97.705"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.9,
+  "dispatch": 81.2,
   "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 115,
-  "neither": 93,
+  "n": 117,
+  "neither": 95,
   "tomtom_only": 22
  }
 }
