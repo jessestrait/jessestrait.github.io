@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 108 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 109 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 48,
-  "tomtom": 1660,
-  "tomtom_only": 1615
+  "tomtom": 1715,
+  "tomtom_only": 1667
  },
  "date": "2026-11-11",
  "dispatch_life_capped": true,
@@ -23,7 +23,7 @@
   "max": 120.0,
   "median": 117.4,
   "min": 8.1,
-  "n": 108,
+  "n": 109,
   "q1": 115.8,
   "q3": 118.6
  },
@@ -42,14 +42,14 @@
    "pct": 16.7
   },
   "tomtom_highway": {
-   "matched": 36,
-   "n": 831,
-   "pct": 4.3
+   "matched": 39,
+   "n": 857,
+   "pct": 4.6
   },
   "tomtom_surface": {
    "matched": 9,
-   "n": 829,
-   "pct": 1.1
+   "n": 858,
+   "pct": 1.0
   }
  },
  "matcher": {
@@ -64,7 +64,7 @@
   "min": -84.7,
   "n": 48,
   "q1": -23.4,
-  "q3": 19.5
+  "q3": 22.0
  },
  "persistence_min": {
   "max": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1455,
+  "hotspot_buckets": 1499,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1582
+  "unreported_congestion": 1634
  },
  "sampling": {
   "flow_spent_this_month": 2772,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 394,
+  "incidents_spent_this_month": 395,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -124,13 +124,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.262,-97.736"
-  },
-  {
-   "from": "E 7th St (Springdale Rd)",
-   "hour_of_week": 137,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.256,-97.702"
   },
   {
    "from": "FM 685",
@@ -168,13 +161,6 @@
    "seg": "30.475,-97.595"
   },
   {
-   "from": "S 1st St/Conroy Ln (FM-1626)",
-   "hour_of_week": 70,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.141,-97.797"
-  },
-  {
    "from": "Dessau Rd",
    "hour_of_week": 70,
    "n": 3,
@@ -182,11 +168,18 @@
    "seg": "30.422,-97.620"
   },
   {
-   "from": "Manor Rd",
+   "from": "US Highway 183",
    "hour_of_week": 70,
    "n": 3,
    "roadworks": false,
-   "seg": "30.305,-97.661"
+   "seg": "30.470,-97.797"
+  },
+  {
+   "from": "New Hope Dr (Whitestone Blvd)",
+   "hour_of_week": 70,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.514,-97.853"
   },
   {
    "from": "Colorado Sand Dr",
@@ -215,11 +208,18 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.254,-97.727"
+  },
+  {
+   "from": "E 7th St (Springdale Rd)",
+   "hour_of_week": 137,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.256,-97.702"
   }
  ],
  "unmatched_pct": {
   "dispatch": 78.0,
-  "tomtom": 97.3
+  "tomtom": 97.2
  },
  "witnesses": {
   "both": 0,
