@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 71,
-  "dispatch_only": 59,
+  "dispatch": 73,
+  "dispatch_only": 60,
   "here": 0,
   "here_matched": 0,
-  "matched": 13,
-  "tomtom": 977,
-  "tomtom_only": 963
+  "matched": 14,
+  "tomtom": 1047,
+  "tomtom_only": 1032
  },
  "date": "2026-11-12",
  "dispatch_life_capped": true,
@@ -37,18 +37,18 @@
    "pct": 35.7
   },
   "dispatch_surface": {
-   "matched": 7,
-   "n": 57,
-   "pct": 12.3
+   "matched": 8,
+   "n": 59,
+   "pct": 13.6
   },
   "tomtom_highway": {
-   "matched": 12,
-   "n": 501,
+   "matched": 13,
+   "n": 531,
    "pct": 2.4
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 476,
+   "n": 516,
    "pct": 0.4
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 84.4,
-  "median": 16.1,
+  "median": 12.6,
   "min": -4.2,
-  "n": 13,
-  "q1": 4.5,
-  "q3": 45.0
+  "n": 14,
+  "q1": 3.1,
+  "q3": 43.4
  },
  "persistence_min": {
   "max": 0.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 871,
+  "hotspot_buckets": 926,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 919
+  "unreported_congestion": 988
  },
  "sampling": {
   "flow_spent_this_month": 2943,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 419,
+  "incidents_spent_this_month": 420,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -119,11 +119,25 @@
    "seg": "30.293,-97.571"
   },
   {
+   "from": "N Lamar Blvd",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.267,-97.755"
+  },
+  {
    "from": "S Interstate 35",
    "hour_of_week": 93,
    "n": 3,
    "roadworks": false,
    "seg": "30.502,-97.682"
+  },
+  {
+   "from": "Wm Cannon Dr exit [228]",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.195,-97.767"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -201,31 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.500,-97.698"
-  },
-  {
-   "from": "Burnet Rd",
-   "hour_of_week": 92,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.373,-97.726"
-  },
-  {
-   "from": "San Marino Dr",
-   "hour_of_week": 92,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.219,-97.744"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 83.1,
+  "dispatch": 82.2,
   "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 71,
-  "neither": 59,
-  "tomtom_only": 12
+  "n": 73,
+  "neither": 60,
+  "tomtom_only": 13
  }
 }
