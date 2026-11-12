@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 89,
+  "dispatch": 90,
   "dispatch_only": 65,
   "here": 0,
   "here_matched": 0,
-  "matched": 40,
-  "tomtom": 2043,
-  "tomtom_only": 1998
+  "matched": 42,
+  "tomtom": 2113,
+  "tomtom_only": 2066
  },
  "date": "2026-11-12",
  "dispatch_life_capped": true,
@@ -37,18 +37,18 @@
    "pct": 40.0
   },
   "dispatch_surface": {
-   "matched": 16,
-   "n": 69,
-   "pct": 23.2
+   "matched": 17,
+   "n": 70,
+   "pct": 24.3
   },
   "tomtom_highway": {
-   "matched": 36,
-   "n": 1032,
-   "pct": 3.5
+   "matched": 38,
+   "n": 1064,
+   "pct": 3.6
   },
   "tomtom_surface": {
    "matched": 9,
-   "n": 1011,
+   "n": 1049,
    "pct": 0.9
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 84.4,
-  "median": 20.6,
+  "median": 19.5,
   "min": -21.4,
-  "n": 40,
-  "q1": 4.7,
-  "q3": 49.2
+  "n": 42,
+  "q1": 3.1,
+  "q3": 48.8
  },
  "persistence_min": {
   "max": 0.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1745,
+  "hotspot_buckets": 1811,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1953
+  "unreported_congestion": 2021
  },
  "sampling": {
-  "flow_spent_this_month": 2970,
+  "flow_spent_this_month": 2979,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 434,
+  "incidents_spent_this_month": 435,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -154,13 +154,6 @@
    "seg": "30.301,-97.759"
   },
   {
-   "from": "N Interstate 35",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.353,-97.691"
-  },
-  {
    "from": "Wm Cannon Dr exit [228]",
    "hour_of_week": 93,
    "n": 3,
@@ -180,13 +173,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.433,-97.653"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 94,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.278,-97.731"
   },
   {
    "from": "Rental Car Ln",
@@ -215,17 +201,31 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.301,-97.759"
+  },
+  {
+   "from": "Hartford Rd",
+   "hour_of_week": 94,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.293,-97.759"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 94,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.353,-97.691"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 73.0,
+  "dispatch": 72.2,
   "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 89,
+  "n": 90,
   "neither": 65,
-  "tomtom_only": 24
+  "tomtom_only": 25
  }
 }
