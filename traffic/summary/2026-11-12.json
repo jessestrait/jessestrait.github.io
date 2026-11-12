@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 36,
-  "dispatch_only": 30,
+  "dispatch": 52,
+  "dispatch_only": 46,
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 461,
-  "tomtom_only": 455
+  "tomtom": 524,
+  "tomtom_only": 518
  },
  "date": "2026-11-12",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 116.1,
+  "median": 115.8,
   "min": 21.9,
-  "n": 35,
-  "q1": 65.8,
-  "q3": 117.7
+  "n": 36,
+  "q1": 66.3,
+  "q3": 117.6
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,22 +33,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 4,
-   "n": 8,
-   "pct": 50.0
+   "n": 11,
+   "pct": 36.4
   },
   "dispatch_surface": {
    "matched": 2,
-   "n": 28,
-   "pct": 7.1
+   "n": 41,
+   "pct": 4.9
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 251,
-   "pct": 2.4
+   "n": 283,
+   "pct": 2.1
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 210,
+   "n": 241,
    "pct": 0.0
   }
  },
@@ -70,8 +70,8 @@
   "max": 0.0,
   "median": 0.0,
   "min": -106.6,
-  "n": 5,
-  "q1": -53.3,
+  "n": 6,
+  "q1": -41.8,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 405,
+  "hotspot_buckets": 460,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 420
+  "unreported_congestion": 478
  },
  "sampling": {
-  "flow_spent_this_month": 2871,
+  "flow_spent_this_month": 2880,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 407,
+  "incidents_spent_this_month": 408,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -144,13 +144,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.269,-97.769"
-  },
-  {
-   "from": "Brockton Dr",
-   "hour_of_week": 61,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.393,-97.715"
   },
   {
    "from": "Bloor Rd (FM-973)",
@@ -202,29 +195,36 @@
    "seg": "30.179,-97.616"
   },
   {
-   "from": "New Hope Dr (Whitestone Blvd)",
-   "hour_of_week": 70,
-   "n": 1,
+   "from": "I-35 (Holly St)",
+   "hour_of_week": 89,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.514,-97.853"
+   "seg": "30.254,-97.727"
   },
   {
-   "from": "US-183/N Bell Blvd (Whitestone Blvd)",
-   "hour_of_week": 70,
-   "n": 1,
+   "from": "Burnet Rd",
+   "hour_of_week": 91,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.515,-97.848"
+   "seg": "30.373,-97.726"
+  },
+  {
+   "from": "Blue Goose Rd",
+   "hour_of_week": 89,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.346,-97.606"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 83.3,
-  "tomtom": 98.7
+  "dispatch": 88.5,
+  "tomtom": 98.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 36,
-  "neither": 30,
+  "n": 52,
+  "neither": 46,
   "tomtom_only": 6
  }
 }
