@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 5,
-  "tomtom": 430,
-  "tomtom_only": 425
+  "tomtom": 435,
+  "tomtom_only": 430
  },
  "date": "2026-11-12",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 230,
-   "pct": 2.2
+   "n": 234,
+   "pct": 2.1
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 200,
+   "n": 201,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 379,
+  "hotspot_buckets": 384,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 395
+  "unreported_congestion": 399
  },
  "sampling": {
   "flow_spent_this_month": 2826,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 402,
+  "incidents_spent_this_month": 403,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -151,13 +151,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.393,-97.715"
-  },
-  {
-   "from": "Decker Lake Rd (FM-973)",
-   "hour_of_week": 79,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.293,-97.571"
   },
   {
    "from": "Austin",
@@ -214,11 +207,18 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.514,-97.853"
+  },
+  {
+   "from": "US-183/N Bell Blvd (Whitestone Blvd)",
+   "hour_of_week": 70,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.515,-97.848"
   }
  ],
  "unmatched_pct": {
   "dispatch": 85.3,
-  "tomtom": 98.8
+  "tomtom": 98.9
  },
  "witnesses": {
   "both": 0,
