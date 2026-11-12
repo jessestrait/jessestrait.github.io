@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 88, q3 118 min over 52 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 90, q3 118 min over 53 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 9,
-  "tomtom": 776,
-  "tomtom_only": 766
+  "tomtom": 818,
+  "tomtom_only": 808
  },
  "date": "2026-11-12",
  "dispatch_life_capped": true,
@@ -23,9 +23,9 @@
   "max": 119.7,
   "median": 116.4,
   "min": 21.9,
-  "n": 52,
-  "q1": 88.4,
-  "q3": 117.9
+  "n": 53,
+  "q1": 90.4,
+  "q3": 117.8
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 10,
-   "n": 397,
-   "pct": 2.5
+   "n": 415,
+   "pct": 2.4
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 379,
+   "n": 403,
    "pct": 0.0
   }
  },
@@ -68,10 +68,10 @@
  },
  "persistence_min": {
   "max": 0.0,
-  "median": 0.0,
-  "min": -106.6,
-  "n": 7,
-  "q1": -30.8,
+  "median": -10.1,
+  "min": -118.1,
+  "n": 8,
+  "q1": -87.7,
   "q3": 0.0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 697,
+  "hotspot_buckets": 734,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 722
+  "unreported_congestion": 764
  },
  "sampling": {
-  "flow_spent_this_month": 2925,
+  "flow_spent_this_month": 2934,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 414,
+  "incidents_spent_this_month": 415,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -168,6 +168,27 @@
    "seg": "30.408,-97.561"
   },
   {
+   "from": "Woodward St (I-35)",
+   "hour_of_week": 90,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.256,-97.737"
+  },
+  {
+   "from": "Onion Creek Pkwy/Exit 225 (I-35)",
+   "hour_of_week": 91,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.094,-97.816"
+  },
+  {
+   "from": "TX-1 Loop (US-183)",
+   "hour_of_week": 92,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.370,-97.720"
+  },
+  {
    "from": "Lavaca St/S 1st St/Guadalupe St (State Spur 343/W Cesar Chavez St/W 1st St)",
    "hour_of_week": 92,
    "n": 2,
@@ -182,44 +203,23 @@
    "seg": "30.500,-97.698"
   },
   {
+   "from": "Burnet Rd",
+   "hour_of_week": 92,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.373,-97.726"
+  },
+  {
    "from": "San Marino Dr",
    "hour_of_week": 92,
    "n": 2,
    "roadworks": false,
    "seg": "30.219,-97.744"
-  },
-  {
-   "from": "N Lamar Blvd",
-   "hour_of_week": 93,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.267,-97.755"
-  },
-  {
-   "from": "E Rundberg Ln / W Rundberg Ln",
-   "hour_of_week": 93,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.363,-97.692"
-  },
-  {
-   "from": "Burleson Rd (McKinney Falls Pkwy)",
-   "hour_of_week": 93,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.164,-97.725"
-  },
-  {
-   "from": "Cesar Chavez St exit [234A]",
-   "hour_of_week": 93,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.262,-97.736"
   }
  ],
  "unmatched_pct": {
   "dispatch": 86.8,
-  "tomtom": 98.7
+  "tomtom": 98.8
  },
  "witnesses": {
   "both": 0,
