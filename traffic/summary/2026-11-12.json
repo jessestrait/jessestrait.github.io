@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 92, q3 118 min over 54 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 94, q3 118 min over 55 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 70,
-  "dispatch_only": 58,
+  "dispatch": 71,
+  "dispatch_only": 59,
   "here": 0,
   "here_matched": 0,
   "matched": 13,
-  "tomtom": 937,
-  "tomtom_only": 923
+  "tomtom": 977,
+  "tomtom_only": 963
  },
  "date": "2026-11-12",
  "dispatch_life_capped": true,
@@ -23,9 +23,9 @@
   "max": 119.7,
   "median": 116.4,
   "min": 21.9,
-  "n": 54,
-  "q1": 92.4,
-  "q3": 117.8
+  "n": 55,
+  "q1": 94.4,
+  "q3": 117.9
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 7,
-   "n": 56,
-   "pct": 12.5
+   "n": 57,
+   "pct": 12.3
   },
   "tomtom_highway": {
    "matched": 12,
-   "n": 478,
-   "pct": 2.5
+   "n": 501,
+   "pct": 2.4
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 459,
+   "n": 476,
    "pct": 0.4
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 837,
+  "hotspot_buckets": 871,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 879
+  "unreported_congestion": 919
  },
  "sampling": {
-  "flow_spent_this_month": 2934,
+  "flow_spent_this_month": 2943,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 418,
+  "incidents_spent_this_month": 419,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,6 +117,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.293,-97.571"
+  },
+  {
+   "from": "S Interstate 35",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.502,-97.682"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.219,-97.744"
-  },
-  {
-   "from": "Manor Rd",
-   "hour_of_week": 93,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.305,-97.661"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.9,
-  "tomtom": 98.5
+  "dispatch": 83.1,
+  "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 70,
-  "neither": 58,
+  "n": 71,
+  "neither": 59,
   "tomtom_only": 12
  }
 }
