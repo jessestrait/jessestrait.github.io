@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 79,
+  "dispatch": 80,
   "dispatch_only": 59,
   "here": 0,
   "here_matched": 0,
-  "matched": 26,
-  "tomtom": 1330,
-  "tomtom_only": 1300
+  "matched": 29,
+  "tomtom": 1400,
+  "tomtom_only": 1367
  },
  "date": "2026-11-12",
  "dispatch_life_capped": true,
@@ -37,18 +37,18 @@
    "pct": 43.8
   },
   "dispatch_surface": {
-   "matched": 13,
-   "n": 63,
-   "pct": 20.6
+   "matched": 14,
+   "n": 64,
+   "pct": 21.9
   },
   "tomtom_highway": {
-   "matched": 24,
-   "n": 672,
-   "pct": 3.6
+   "matched": 27,
+   "n": 712,
+   "pct": 3.8
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 658,
+   "n": 688,
    "pct": 0.9
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 84.4,
-  "median": 12.2,
+  "median": 15.4,
   "min": -18.8,
-  "n": 26,
+  "n": 29,
   "q1": 2.5,
-  "q3": 30.9
+  "q3": 31.1
  },
  "persistence_min": {
   "max": 0.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1175,
+  "hotspot_buckets": 1235,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1255
+  "unreported_congestion": 1322
  },
  "sampling": {
   "flow_spent_this_month": 2952,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 425,
+  "incidents_spent_this_month": 426,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -138,6 +138,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.301,-97.759"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.353,-97.691"
   },
   {
    "from": "Wm Cannon Dr exit [228]",
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.094,-97.816"
-  },
-  {
-   "from": "E Cesar Chavez St (Springdale Rd)",
-   "hour_of_week": 137,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.255,-97.702"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 74.7,
-  "tomtom": 97.7
+  "dispatch": 73.8,
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 79,
+  "n": 80,
   "neither": 59,
-  "tomtom_only": 20
+  "tomtom_only": 21
  }
 }
