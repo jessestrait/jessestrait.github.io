@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 63,
-  "dispatch_only": 55,
+  "dispatch": 66,
+  "dispatch_only": 58,
   "here": 0,
   "here_matched": 0,
   "matched": 8,
-  "tomtom": 698,
-  "tomtom_only": 689
+  "tomtom": 735,
+  "tomtom_only": 726
  },
  "date": "2026-11-12",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 4,
-   "n": 51,
-   "pct": 7.8
+   "n": 54,
+   "pct": 7.4
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 367,
-   "pct": 2.5
+   "n": 379,
+   "pct": 2.4
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 331,
+   "n": 356,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 623,
+  "hotspot_buckets": 658,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 645
+  "unreported_congestion": 682
  },
  "sampling": {
   "flow_spent_this_month": 2925,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 412,
+  "incidents_spent_this_month": 413,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -167,6 +167,13 @@
    "seg": "30.408,-97.561"
   },
   {
+   "from": "Grand Avenue Pkwy (I-35)",
+   "hour_of_week": 92,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.497,-97.680"
+  },
+  {
    "from": "Lavaca St/S 1st St/Guadalupe St (State Spur 343/W Cesar Chavez St/W 1st St)",
    "hour_of_week": 92,
    "n": 2,
@@ -188,6 +195,13 @@
    "seg": "30.219,-97.744"
   },
   {
+   "from": "Barton Skwy (TX-1)",
+   "hour_of_week": 92,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.290,-97.761"
+  },
+  {
    "from": "E Rundberg Ln / W Rundberg Ln",
    "hour_of_week": 93,
    "n": 2,
@@ -200,31 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.430,-97.699"
-  },
-  {
-   "from": "Adage Dr / Epiphany Ln",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.448,-97.631"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 18,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.320,-97.706"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.3,
-  "tomtom": 98.7
+  "dispatch": 87.9,
+  "tomtom": 98.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 63,
-  "neither": 55,
+  "n": 66,
+  "neither": 58,
   "tomtom_only": 8
  }
 }
