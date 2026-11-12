@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 80,
-  "dispatch_only": 59,
+  "dispatch": 81,
+  "dispatch_only": 60,
   "here": 0,
   "here_matched": 0,
-  "matched": 29,
-  "tomtom": 1400,
-  "tomtom_only": 1367
+  "matched": 30,
+  "tomtom": 1475,
+  "tomtom_only": 1441
  },
  "date": "2026-11-12",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 14,
-   "n": 64,
-   "pct": 21.9
+   "n": 65,
+   "pct": 21.5
   },
   "tomtom_highway": {
-   "matched": 27,
-   "n": 712,
-   "pct": 3.8
+   "matched": 28,
+   "n": 751,
+   "pct": 3.7
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 688,
-   "pct": 0.9
+   "n": 724,
+   "pct": 0.8
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 84.4,
-  "median": 15.4,
+  "median": 15.8,
   "min": -18.8,
-  "n": 29,
+  "n": 30,
   "q1": 2.5,
-  "q3": 31.1
+  "q3": 34.1
  },
  "persistence_min": {
   "max": 0.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1235,
+  "hotspot_buckets": 1297,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1322
+  "unreported_congestion": 1396
  },
  "sampling": {
-  "flow_spent_this_month": 2952,
+  "flow_spent_this_month": 2961,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 426,
+  "incidents_spent_this_month": 427,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -161,6 +161,13 @@
    "seg": "30.274,-97.753"
   },
   {
+   "from": "E Dean Keeton St",
+   "hour_of_week": 94,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.286,-97.724"
+  },
+  {
    "from": "Buenos Aires Pkwy",
    "hour_of_week": 15,
    "n": 3,
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.408,-97.561"
-  },
-  {
-   "from": "Onion Creek Pkwy/Exit 225 (I-35)",
-   "hour_of_week": 91,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.094,-97.816"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 73.8,
-  "tomtom": 97.6
+  "dispatch": 74.1,
+  "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 80,
-  "neither": 59,
+  "n": 81,
+  "neither": 60,
   "tomtom_only": 21
  }
 }
