@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch record lifetimes look like real clearances this day, not a cap.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 88, q3 118 min over 52 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 66,
-  "dispatch_only": 58,
+  "dispatch": 68,
+  "dispatch_only": 59,
   "here": 0,
   "here_matched": 0,
-  "matched": 8,
-  "tomtom": 735,
-  "tomtom_only": 726
+  "matched": 9,
+  "tomtom": 776,
+  "tomtom_only": 766
  },
  "date": "2026-11-12",
- "dispatch_life_capped": false,
+ "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.7,
-  "median": 116.3,
+  "median": 116.4,
   "min": 21.9,
-  "n": 50,
-  "q1": 84.6,
-  "q3": 117.8
+  "n": 52,
+  "q1": 88.4,
+  "q3": 117.9
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,22 +33,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 4,
-   "n": 12,
-   "pct": 33.3
+   "n": 13,
+   "pct": 30.8
   },
   "dispatch_surface": {
-   "matched": 4,
-   "n": 54,
-   "pct": 7.4
+   "matched": 5,
+   "n": 55,
+   "pct": 9.1
   },
   "tomtom_highway": {
-   "matched": 9,
-   "n": 379,
-   "pct": 2.4
+   "matched": 10,
+   "n": 397,
+   "pct": 2.5
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 356,
+   "n": 379,
    "pct": 0.0
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 84.4,
-  "median": 25.4,
+  "median": 9.0,
   "min": -4.2,
-  "n": 8,
-  "q1": 6.2,
-  "q3": 71.4
+  "n": 9,
+  "q1": 1.8,
+  "q3": 63.7
  },
  "persistence_min": {
   "max": 0.0,
@@ -72,7 +72,8 @@
   "min": -106.6,
   "n": 7,
   "q1": -30.8,
-  "q3": 0.0
+  "q3": 0.0,
+  "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 658,
+  "hotspot_buckets": 697,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 682
+  "unreported_congestion": 722
  },
  "sampling": {
   "flow_spent_this_month": 2925,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 413,
+  "incidents_spent_this_month": 414,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -167,13 +168,6 @@
    "seg": "30.408,-97.561"
   },
   {
-   "from": "Grand Avenue Pkwy (I-35)",
-   "hour_of_week": 92,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.497,-97.680"
-  },
-  {
    "from": "Lavaca St/S 1st St/Guadalupe St (State Spur 343/W Cesar Chavez St/W 1st St)",
    "hour_of_week": 92,
    "n": 2,
@@ -195,11 +189,11 @@
    "seg": "30.219,-97.744"
   },
   {
-   "from": "Barton Skwy (TX-1)",
-   "hour_of_week": 92,
+   "from": "N Lamar Blvd",
+   "hour_of_week": 93,
    "n": 2,
    "roadworks": false,
-   "seg": "30.290,-97.761"
+   "seg": "30.267,-97.755"
   },
   {
    "from": "E Rundberg Ln / W Rundberg Ln",
@@ -209,22 +203,29 @@
    "seg": "30.363,-97.692"
   },
   {
-   "from": "Austin",
-   "hour_of_week": 75,
+   "from": "Burleson Rd (McKinney Falls Pkwy)",
+   "hour_of_week": 93,
    "n": 2,
    "roadworks": false,
-   "seg": "30.430,-97.699"
+   "seg": "30.164,-97.725"
+  },
+  {
+   "from": "Cesar Chavez St exit [234A]",
+   "hour_of_week": 93,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.262,-97.736"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.9,
-  "tomtom": 98.8
+  "dispatch": 86.8,
+  "tomtom": 98.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 66,
-  "neither": 58,
-  "tomtom_only": 8
+  "n": 68,
+  "neither": 59,
+  "tomtom_only": 9
  }
 }
