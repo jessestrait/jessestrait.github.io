@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 73 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 118 min over 76 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 98,
-  "dispatch_only": 66,
+  "dispatch": 101,
+  "dispatch_only": 68,
   "here": 0,
   "here_matched": 0,
-  "matched": 63,
-  "tomtom": 2838,
-  "tomtom_only": 2765
+  "matched": 65,
+  "tomtom": 2920,
+  "tomtom_only": 2845
  },
  "date": "2026-11-12",
  "dispatch_life_capped": true,
@@ -23,32 +23,32 @@
   "max": 119.7,
   "median": 117.0,
   "min": 21.9,
-  "n": 73,
-  "q1": 115.4,
-  "q3": 118.2
+  "n": 76,
+  "q1": 115.5,
+  "q3": 118.3
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 8,
-   "n": 20,
-   "pct": 40.0
+   "matched": 9,
+   "n": 21,
+   "pct": 42.9
   },
   "dispatch_surface": {
    "matched": 24,
-   "n": 78,
-   "pct": 30.8
+   "n": 80,
+   "pct": 30.0
   },
   "tomtom_highway": {
-   "matched": 59,
-   "n": 1408,
+   "matched": 60,
+   "n": 1443,
    "pct": 4.2
   },
   "tomtom_surface": {
-   "matched": 14,
-   "n": 1430,
+   "matched": 15,
+   "n": 1477,
    "pct": 1.0
   }
  },
@@ -59,20 +59,20 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 85.8,
+  "max": 87.9,
   "median": 21.9,
   "min": -64.3,
-  "n": 63,
+  "n": 65,
   "q1": -2.2,
-  "q3": 49.5
+  "q3": 50.6
  },
  "persistence_min": {
   "max": 0.0,
   "median": -56.5,
   "min": -118.1,
-  "n": 23,
-  "q1": -92.2,
-  "q3": -20.2,
+  "n": 33,
+  "q1": -94.7,
+  "q3": -17.7,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2386,
+  "hotspot_buckets": 2429,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2720
+  "unreported_congestion": 2800
  },
  "sampling": {
   "flow_spent_this_month": 2997,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 443,
+  "incidents_spent_this_month": 444,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -131,6 +131,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.286,-97.724"
+  },
+  {
+   "from": "FM 685",
+   "hour_of_week": 95,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.501,-97.578"
   },
   {
    "from": "Decker Lake Rd (FM-973)",
@@ -175,6 +182,13 @@
    "seg": "30.274,-97.753"
   },
   {
+   "from": "US-290 (Cameron Rd)",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.317,-97.700"
+  },
+  {
    "from": "Strathaven Pass",
    "hour_of_week": 94,
    "n": 3,
@@ -201,20 +215,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.438,-97.699"
-  },
-  {
-   "from": "FM-734/W Parmer Ln (Metric Blvd)",
-   "hour_of_week": 94,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.426,-97.677"
-  },
-  {
-   "from": "Mopac Expy S",
-   "hour_of_week": 94,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.301,-97.759"
   }
  ],
  "unmatched_pct": {
@@ -224,8 +224,8 @@
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 98,
-  "neither": 66,
-  "tomtom_only": 32
+  "n": 101,
+  "neither": 68,
+  "tomtom_only": 33
  }
 }
