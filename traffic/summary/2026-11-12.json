@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 90, q3 118 min over 53 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 92, q3 118 min over 54 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 69,
-  "dispatch_only": 60,
+  "dispatch": 70,
+  "dispatch_only": 61,
   "here": 0,
   "here_matched": 0,
   "matched": 10,
-  "tomtom": 858,
-  "tomtom_only": 847
+  "tomtom": 890,
+  "tomtom_only": 879
  },
  "date": "2026-11-12",
  "dispatch_life_capped": true,
@@ -23,8 +23,8 @@
   "max": 119.7,
   "median": 116.4,
   "min": 21.9,
-  "n": 53,
-  "q1": 90.4,
+  "n": 54,
+  "q1": 92.4,
   "q3": 117.8
  },
  "here_onset_offset_min": {
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 5,
-   "n": 55,
-   "pct": 9.1
+   "n": 56,
+   "pct": 8.9
   },
   "tomtom_highway": {
    "matched": 10,
-   "n": 433,
-   "pct": 2.3
+   "n": 453,
+   "pct": 2.2
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 425,
+   "n": 437,
    "pct": 0.2
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 770,
+  "hotspot_buckets": 798,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 803
+  "unreported_congestion": 835
  },
  "sampling": {
   "flow_spent_this_month": 2934,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 416,
+  "incidents_spent_this_month": 417,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -168,18 +168,18 @@
    "seg": "30.408,-97.561"
   },
   {
-   "from": "Woodward St (I-35)",
-   "hour_of_week": 90,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.256,-97.737"
-  },
-  {
    "from": "Onion Creek Pkwy/Exit 225 (I-35)",
    "hour_of_week": 91,
    "n": 2,
    "roadworks": false,
    "seg": "30.094,-97.816"
+  },
+  {
+   "from": "E Cesar Chavez St (Springdale Rd)",
+   "hour_of_week": 137,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.255,-97.702"
   },
   {
    "from": "Lavaca St/S 1st St/Guadalupe St (State Spur 343/W Cesar Chavez St/W 1st St)",
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.0,
-  "tomtom": 98.7
+  "dispatch": 87.1,
+  "tomtom": 98.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 69,
-  "neither": 60,
+  "n": 70,
+  "neither": 61,
   "tomtom_only": 9
  }
 }
