@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 5,
-  "tomtom": 428,
-  "tomtom_only": 423
+  "tomtom": 430,
+  "tomtom_only": 425
  },
  "date": "2026-11-12",
  "dispatch_life_capped": false,
@@ -43,7 +43,7 @@
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 228,
+   "n": 230,
    "pct": 2.2
   },
   "tomtom_surface": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 378,
+  "hotspot_buckets": 379,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 393
+  "unreported_congestion": 395
  },
  "sampling": {
   "flow_spent_this_month": 2817,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 401,
+  "incidents_spent_this_month": 402,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -202,18 +202,18 @@
    "seg": "30.179,-97.616"
   },
   {
+   "from": "Decker Lake Rd (FM-973)",
+   "hour_of_week": 79,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.293,-97.571"
+  },
+  {
    "from": "New Hope Dr (Whitestone Blvd)",
    "hour_of_week": 70,
    "n": 1,
    "roadworks": false,
    "seg": "30.514,-97.853"
-  },
-  {
-   "from": "US-183/N Bell Blvd (Whitestone Blvd)",
-   "hour_of_week": 70,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.515,-97.848"
   }
  ],
  "unmatched_pct": {
