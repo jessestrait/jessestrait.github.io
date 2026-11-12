@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 85,
-  "dispatch_only": 63,
+  "dispatch": 86,
+  "dispatch_only": 64,
   "here": 0,
   "here_matched": 0,
   "matched": 36,
-  "tomtom": 1701,
-  "tomtom_only": 1661
+  "tomtom": 1782,
+  "tomtom_only": 1742
  },
  "date": "2026-11-12",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 15,
-   "n": 67,
-   "pct": 22.4
+   "n": 68,
+   "pct": 22.1
   },
   "tomtom_highway": {
-   "matched": 33,
-   "n": 853,
-   "pct": 3.9
+   "matched": 32,
+   "n": 895,
+   "pct": 3.6
   },
   "tomtom_surface": {
-   "matched": 7,
-   "n": 848,
-   "pct": 0.8
+   "matched": 8,
+   "n": 887,
+   "pct": 0.9
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1475,
+  "hotspot_buckets": 1538,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1616
+  "unreported_congestion": 1697
  },
  "sampling": {
-  "flow_spent_this_month": 2961,
+  "flow_spent_this_month": 2970,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 430,
+  "incidents_spent_this_month": 431,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -175,6 +175,13 @@
    "seg": "30.410,-97.714"
   },
   {
+   "from": "FM-734/W Parmer Ln (Metric Blvd)",
+   "hour_of_week": 94,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.426,-97.677"
+  },
+  {
    "from": "Mopac Expy S",
    "hour_of_week": 94,
    "n": 3,
@@ -196,11 +203,11 @@
    "seg": "30.372,-97.724"
   },
   {
-   "from": "E Martin Luther King Jr Blvd (I-35)",
+   "from": "Congress Ave (E 12th St)",
    "hour_of_week": 94,
    "n": 3,
    "roadworks": false,
-   "seg": "30.276,-97.731"
+   "seg": "30.272,-97.733"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.169,-97.623"
-  },
-  {
-   "from": "W Cesar Chavez St",
-   "hour_of_week": 70,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.278,-97.769"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 74.1,
-  "tomtom": 97.6
+  "dispatch": 74.4,
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 85,
-  "neither": 63,
+  "n": 86,
+  "neither": 64,
   "tomtom_only": 22
  }
 }
