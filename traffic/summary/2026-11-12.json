@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 5,
-  "tomtom": 408,
-  "tomtom_only": 403
+  "tomtom": 413,
+  "tomtom_only": 408
  },
  "date": "2026-11-12",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 211,
-   "pct": 2.4
+   "n": 215,
+   "pct": 2.3
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 197,
+   "n": 198,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 363,
+  "hotspot_buckets": 366,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 374
+  "unreported_congestion": 379
  },
  "sampling": {
   "flow_spent_this_month": 2799,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 398,
+  "incidents_spent_this_month": 399,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -137,6 +137,20 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.269,-97.769"
+  },
+  {
+   "from": "Brockton Dr",
+   "hour_of_week": 61,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.393,-97.715"
+  },
+  {
+   "from": "Decker Lake Rd (FM-973)",
+   "hour_of_week": 76,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.293,-97.571"
   },
   {
    "from": "Austin",
@@ -200,20 +214,6 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.382,-97.943"
-  },
-  {
-   "from": "Campanello Way",
-   "hour_of_week": 70,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.465,-97.845"
-  },
-  {
-   "from": "Abbotsbury Dr (FM-2769)",
-   "hour_of_week": 70,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.459,-97.842"
   }
  ],
  "unmatched_pct": {
