@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 85,
-  "dispatch_only": 64,
+  "dispatch_only": 63,
   "here": 0,
   "here_matched": 0,
-  "matched": 32,
-  "tomtom": 1627,
-  "tomtom_only": 1591
+  "matched": 36,
+  "tomtom": 1701,
+  "tomtom_only": 1661
  },
  "date": "2026-11-12",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 38.9
   },
   "dispatch_surface": {
-   "matched": 14,
+   "matched": 15,
    "n": 67,
-   "pct": 20.9
+   "pct": 22.4
   },
   "tomtom_highway": {
-   "matched": 29,
-   "n": 814,
-   "pct": 3.6
+   "matched": 33,
+   "n": 853,
+   "pct": 3.9
   },
   "tomtom_surface": {
    "matched": 7,
-   "n": 813,
-   "pct": 0.9
+   "n": 848,
+   "pct": 0.8
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 84.4,
-  "median": 16.2,
+  "median": 18.7,
   "min": -18.8,
-  "n": 32,
-  "q1": 2.7,
-  "q3": 41.8
+  "n": 36,
+  "q1": 3.6,
+  "q3": 46.5
  },
  "persistence_min": {
   "max": 0.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1426,
+  "hotspot_buckets": 1475,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1546
+  "unreported_congestion": 1616
  },
  "sampling": {
   "flow_spent_this_month": 2961,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 429,
+  "incidents_spent_this_month": 430,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -147,6 +147,13 @@
    "seg": "30.301,-97.759"
   },
   {
+   "from": "N Interstate 35",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.353,-97.691"
+  },
+  {
    "from": "Wm Cannon Dr exit [228]",
    "hour_of_week": 93,
    "n": 3,
@@ -168,6 +175,13 @@
    "seg": "30.410,-97.714"
   },
   {
+   "from": "Mopac Expy S",
+   "hour_of_week": 94,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.301,-97.759"
+  },
+  {
    "from": "N Interstate 35",
    "hour_of_week": 94,
    "n": 3,
@@ -182,6 +196,13 @@
    "seg": "30.372,-97.724"
   },
   {
+   "from": "E Martin Luther King Jr Blvd (I-35)",
+   "hour_of_week": 94,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.276,-97.731"
+  },
+  {
    "from": "Buenos Aires Pkwy",
    "hour_of_week": 15,
    "n": 3,
@@ -194,38 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.278,-97.769"
-  },
-  {
-   "from": "Copper Mine Dr",
-   "hour_of_week": 70,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.468,-97.590"
-  },
-  {
-   "from": "Barton Springs Rd",
-   "hour_of_week": 0,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.269,-97.769"
-  },
-  {
-   "from": "Bloor Rd (FM-973)",
-   "hour_of_week": 77,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.288,-97.574"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 75.3,
-  "tomtom": 97.8
+  "dispatch": 74.1,
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 85,
-  "neither": 64,
-  "tomtom_only": 21
+  "neither": 63,
+  "tomtom_only": 22
  }
 }
