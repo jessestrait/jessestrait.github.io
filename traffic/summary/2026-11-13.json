@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 98,
-  "dispatch_only": 68,
+  "dispatch": 99,
+  "dispatch_only": 69,
   "here": 0,
   "here_matched": 0,
   "matched": 44,
-  "tomtom": 2100,
-  "tomtom_only": 2049
+  "tomtom": 2166,
+  "tomtom_only": 2114
  },
  "date": "2026-11-13",
  "dispatch_life_capped": false,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 22,
-   "n": 77,
-   "pct": 28.6
+   "n": 78,
+   "pct": 28.2
   },
   "tomtom_highway": {
-   "matched": 39,
-   "n": 1093,
+   "matched": 40,
+   "n": 1121,
    "pct": 3.6
   },
   "tomtom_surface": {
    "matched": 12,
-   "n": 1007,
-   "pct": 1.2
+   "n": 1045,
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1859,
+  "hotspot_buckets": 1904,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2010
+  "unreported_congestion": 2075
  },
  "sampling": {
-  "flow_spent_this_month": 3222,
+  "flow_spent_this_month": 3231,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 491,
+  "incidents_spent_this_month": 492,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -202,29 +202,29 @@
    "seg": "30.300,-97.930"
   },
   {
+   "from": "W Saint Elmo Rd (S Congress Ave)",
+   "hour_of_week": 118,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.221,-97.765"
+  },
+  {
    "from": "W Braker Ln",
    "hour_of_week": 13,
    "n": 3,
    "roadworks": false,
    "seg": "30.394,-97.717"
-  },
-  {
-   "from": "S Interstate 35",
-   "hour_of_week": 118,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.186,-97.773"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 69.4,
+  "dispatch": 69.7,
   "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 98,
-  "neither": 68,
+  "n": 99,
+  "neither": 69,
   "tomtom_only": 30
  }
 }
