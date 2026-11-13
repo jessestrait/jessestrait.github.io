@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 100,
-  "dispatch_only": 69,
+  "dispatch": 102,
+  "dispatch_only": 70,
   "here": 0,
   "here_matched": 0,
-  "matched": 46,
-  "tomtom": 2236,
-  "tomtom_only": 2180
+  "matched": 50,
+  "tomtom": 2302,
+  "tomtom_only": 2239
  },
  "date": "2026-11-13",
  "dispatch_life_capped": false,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 9,
-   "n": 22,
-   "pct": 40.9
+   "matched": 10,
+   "n": 23,
+   "pct": 43.5
   },
   "dispatch_surface": {
    "matched": 22,
-   "n": 78,
-   "pct": 28.2
+   "n": 79,
+   "pct": 27.8
   },
   "tomtom_highway": {
-   "matched": 44,
-   "n": 1156,
-   "pct": 3.8
+   "matched": 49,
+   "n": 1191,
+   "pct": 4.1
   },
   "tomtom_surface": {
-   "matched": 12,
-   "n": 1080,
-   "pct": 1.1
+   "matched": 14,
+   "n": 1111,
+   "pct": 1.3
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 76.8,
+  "max": 77.8,
   "median": 9.4,
   "min": -71.3,
-  "n": 46,
+  "n": 50,
   "q1": -21.4,
-  "q3": 37.7
+  "q3": 40.0
  },
  "persistence_min": {
   "max": 154.1,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1955,
+  "hotspot_buckets": 1987,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2141
+  "unreported_congestion": 2200
  },
  "sampling": {
   "flow_spent_this_month": 3231,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 493,
+  "incidents_spent_this_month": 494,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -123,6 +123,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.408,-97.678"
+  },
+  {
+   "from": "Ed Bluestein Blvd (FM-969)",
+   "hour_of_week": 118,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.284,-97.657"
   },
   {
    "from": "Highway 71 E",
@@ -207,24 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.221,-97.765"
-  },
-  {
-   "from": "W Braker Ln",
-   "hour_of_week": 13,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.394,-97.717"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 69.0,
-  "tomtom": 97.5
+  "dispatch": 68.6,
+  "tomtom": 97.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 100,
-  "neither": 69,
-  "tomtom_only": 31
+  "n": 102,
+  "neither": 70,
+  "tomtom_only": 32
  }
 }
