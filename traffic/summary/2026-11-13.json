@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 48,
-  "dispatch_only": 32,
+  "dispatch": 49,
+  "dispatch_only": 33,
   "here": 0,
   "here_matched": 0,
   "matched": 21,
-  "tomtom": 807,
-  "tomtom_only": 785
+  "tomtom": 831,
+  "tomtom_only": 809
  },
  "date": "2026-11-13",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 11,
-   "n": 38,
-   "pct": 28.9
+   "n": 39,
+   "pct": 28.2
   },
   "tomtom_highway": {
    "matched": 17,
-   "n": 446,
-   "pct": 3.8
+   "n": 465,
+   "pct": 3.7
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 361,
+   "n": 366,
    "pct": 1.4
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 727,
+  "hotspot_buckets": 749,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 753
+  "unreported_congestion": 775
  },
  "sampling": {
   "flow_spent_this_month": 3114,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 466,
+  "incidents_spent_this_month": 467,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -188,13 +188,6 @@
    "seg": "30.376,-97.674"
   },
   {
-   "from": "TX-275 Loop/W Howard Ln/N Lamar Blvd (I-35)",
-   "hour_of_week": 107,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.389,-97.673"
-  },
-  {
    "from": "S Interstate 35",
    "hour_of_week": 108,
    "n": 2,
@@ -214,17 +207,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.350,-97.691"
+  },
+  {
+   "from": "Berrywood Dr/Meadow Lark Ave (I-35)",
+   "hour_of_week": 138,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.385,-97.673"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 66.7,
-  "tomtom": 97.3
+  "dispatch": 67.3,
+  "tomtom": 97.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 48,
-  "neither": 32,
+  "n": 49,
+  "neither": 33,
   "tomtom_only": 16
  }
 }
