@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 23,
-  "tomtom": 1072,
-  "tomtom_only": 1048
+  "tomtom": 1103,
+  "tomtom_only": 1079
  },
  "date": "2026-11-13",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 18,
-   "n": 575,
-   "pct": 3.1
+   "n": 591,
+   "pct": 3.0
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 497,
+   "n": 512,
    "pct": 1.2
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 954,
+  "hotspot_buckets": 982,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1014
+  "unreported_congestion": 1045
  },
  "sampling": {
-  "flow_spent_this_month": 3123,
+  "flow_spent_this_month": 3132,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 473,
+  "incidents_spent_this_month": 474,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
  },
  "structural_hotspots": [
   {
+   "from": "Burnet Rd",
+   "hour_of_week": 61,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.394,-97.717"
+  },
+  {
    "from": "S Interstate 35",
    "hour_of_week": 109,
    "n": 3,
@@ -123,6 +130,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.350,-97.556"
+  },
+  {
+   "from": "Vilamoura St",
+   "hour_of_week": 109,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.467,-97.584"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -200,20 +214,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.376,-97.674"
-  },
-  {
-   "from": "S Interstate 35",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.195,-97.767"
-  },
-  {
-   "from": "Collinwood West Dr",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.375,-97.673"
   }
  ],
  "unmatched_pct": {
