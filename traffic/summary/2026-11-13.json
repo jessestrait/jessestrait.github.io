@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 59,
-  "dispatch_only": 40,
+  "dispatch": 60,
+  "dispatch_only": 41,
   "here": 0,
   "here_matched": 0,
   "matched": 24,
-  "tomtom": 1182,
-  "tomtom_only": 1157
+  "tomtom": 1220,
+  "tomtom_only": 1195
  },
  "date": "2026-11-13",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 13,
-   "n": 47,
-   "pct": 27.7
+   "n": 48,
+   "pct": 27.1
   },
   "tomtom_highway": {
    "matched": 19,
-   "n": 632,
-   "pct": 3.0
+   "n": 651,
+   "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 550,
+   "n": 569,
    "pct": 1.1
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1043,
+  "hotspot_buckets": 1082,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1124
+  "unreported_congestion": 1162
  },
  "sampling": {
   "flow_spent_this_month": 3150,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 476,
+  "incidents_spent_this_month": 477,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -113,7 +113,7 @@
   {
    "from": "Burnet Rd",
    "hour_of_week": 61,
-   "n": 3,
+   "n": 4,
    "roadworks": false,
    "seg": "30.394,-97.717"
   },
@@ -137,13 +137,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.500,-97.581"
-  },
-  {
-   "from": "51st St/Cameron Rd/Exit 237 (I-35)",
-   "hour_of_week": 109,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.302,-97.715"
   },
   {
    "from": "Northeast Travis",
@@ -179,6 +172,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.510,-97.787"
+  },
+  {
+   "from": "N Main St (RM-967)",
+   "hour_of_week": 109,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.100,-97.871"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 67.8,
-  "tomtom": 97.9
+  "dispatch": 68.3,
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 59,
-  "neither": 40,
+  "n": 60,
+  "neither": 41,
   "tomtom_only": 19
  }
 }
