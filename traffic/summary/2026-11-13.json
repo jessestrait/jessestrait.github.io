@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 17,
-  "tomtom": 714,
-  "tomtom_only": 697
+  "tomtom": 720,
+  "tomtom_only": 703
  },
  "date": "2026-11-13",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 14,
-   "n": 396,
+   "n": 399,
    "pct": 3.5
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 318,
+   "n": 321,
    "pct": 0.9
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 647,
+  "hotspot_buckets": 652,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 666
+  "unreported_congestion": 672
  },
  "sampling": {
   "flow_spent_this_month": 3096,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 458,
+  "incidents_spent_this_month": 459,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -188,6 +188,13 @@
    "seg": "30.376,-97.674"
   },
   {
+   "from": "S Interstate 35",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.195,-97.767"
+  },
+  {
    "from": "Austin",
    "hour_of_week": 75,
    "n": 2,
@@ -207,13 +214,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.320,-97.706"
-  },
-  {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.245,-97.744"
   }
  ],
  "unmatched_pct": {
