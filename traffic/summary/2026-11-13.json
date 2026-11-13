@@ -9,32 +9,32 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 56,
+  "dispatch": 57,
   "dispatch_only": 38,
   "here": 0,
   "here_matched": 0,
-  "matched": 23,
+  "matched": 24,
   "tomtom": 1182,
-  "tomtom_only": 1158
+  "tomtom_only": 1157
  },
  "date": "2026-11-13",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 96.4,
+  "median": 96.5,
   "min": 6.1,
-  "n": 42,
-  "q1": 40.5,
-  "q3": 116.9
+  "n": 43,
+  "q1": 41.1,
+  "q3": 117.3
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 5,
-   "n": 10,
-   "pct": 50.0
+   "matched": 6,
+   "n": 11,
+   "pct": 54.5
   },
   "dispatch_surface": {
    "matched": 13,
@@ -42,9 +42,9 @@
    "pct": 28.3
   },
   "tomtom_highway": {
-   "matched": 18,
+   "matched": 19,
    "n": 632,
-   "pct": 2.8
+   "pct": 3.0
   },
   "tomtom_surface": {
    "matched": 6,
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 76.8,
-  "median": 4.6,
+  "median": 4.5,
   "min": -71.3,
-  "n": 23,
-  "q1": -21.4,
-  "q3": 29.4
+  "n": 24,
+  "q1": -28.0,
+  "q3": 28.2
  },
  "persistence_min": {
   "max": 0.0,
@@ -107,7 +107,7 @@
    18
   ],
   "rush_min": 5,
-  "this_poll": "rush"
+  "this_poll": "off-peak"
  },
  "structural_hotspots": [
   {
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 67.9,
-  "tomtom": 98.0
+  "dispatch": 66.7,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 56,
+  "n": 57,
   "neither": 38,
-  "tomtom_only": 18
+  "tomtom_only": 19
  }
 }
