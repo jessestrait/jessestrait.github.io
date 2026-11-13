@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 49,
-  "dispatch_only": 32,
+  "dispatch": 51,
+  "dispatch_only": 34,
   "here": 0,
   "here_matched": 0,
   "matched": 22,
-  "tomtom": 931,
-  "tomtom_only": 908
+  "tomtom": 978,
+  "tomtom_only": 955
  },
  "date": "2026-11-13",
  "dispatch_life_capped": false,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 12,
-   "n": 39,
-   "pct": 30.8
+   "n": 41,
+   "pct": 29.3
   },
   "tomtom_highway": {
    "matched": 17,
-   "n": 512,
-   "pct": 3.3
+   "n": 531,
+   "pct": 3.2
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 419,
-   "pct": 1.4
+   "n": 447,
+   "pct": 1.3
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 844,
+  "hotspot_buckets": 884,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 874
+  "unreported_congestion": 921
  },
  "sampling": {
   "flow_spent_this_month": 3123,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 470,
+  "incidents_spent_this_month": 471,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Northeast Travis",
+   "hour_of_week": 109,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.350,-97.556"
+  },
   {
    "from": "Buenos Aires Pkwy",
    "hour_of_week": 15,
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.350,-97.691"
-  },
-  {
-   "from": "Berrywood Dr/Meadow Lark Ave (I-35)",
-   "hour_of_week": 138,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.385,-97.673"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 65.3,
-  "tomtom": 97.5
+  "dispatch": 66.7,
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 49,
-  "neither": 32,
+  "n": 51,
+  "neither": 34,
   "tomtom_only": 17
  }
 }
