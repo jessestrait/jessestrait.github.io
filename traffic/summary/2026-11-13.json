@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 45,
-  "dispatch_only": 31,
+  "dispatch": 47,
+  "dispatch_only": 33,
   "here": 0,
   "here_matched": 0,
   "matched": 19,
-  "tomtom": 764,
-  "tomtom_only": 743
+  "tomtom": 775,
+  "tomtom_only": 754
  },
  "date": "2026-11-13",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 9,
-   "n": 35,
-   "pct": 25.7
+   "n": 37,
+   "pct": 24.3
   },
   "tomtom_highway": {
    "matched": 17,
-   "n": 423,
-   "pct": 4.0
+   "n": 431,
+   "pct": 3.9
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 341,
+   "n": 344,
    "pct": 1.2
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 691,
+  "hotspot_buckets": 700,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 712
+  "unreported_congestion": 723
  },
  "sampling": {
   "flow_spent_this_month": 3105,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 463,
+  "incidents_spent_this_month": 464,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -181,6 +181,13 @@
    "seg": "30.346,-97.606"
   },
   {
+   "from": "TX-275 Loop/W Howard Ln/N Lamar Blvd (I-35)",
+   "hour_of_week": 107,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.385,-97.674"
+  },
+  {
    "from": "Dessau Rd (E Braker Ln)",
    "hour_of_week": 108,
    "n": 2,
@@ -195,36 +202,29 @@
    "seg": "30.195,-97.767"
   },
   {
+   "from": "Collinwood West Dr",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.375,-97.673"
+  },
+  {
    "from": "Berrywood Dr/Meadow Lark Ave (I-35)",
    "hour_of_week": 138,
    "n": 2,
    "roadworks": false,
    "seg": "30.385,-97.673"
-  },
-  {
-   "from": "Austin",
-   "hour_of_week": 75,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.430,-97.699"
-  },
-  {
-   "from": "Adage Dr / Epiphany Ln",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.448,-97.631"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 68.9,
+  "dispatch": 70.2,
   "tomtom": 97.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 45,
-  "neither": 31,
+  "n": 47,
+  "neither": 33,
   "tomtom_only": 14
  }
 }
