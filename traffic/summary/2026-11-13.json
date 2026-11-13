@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 15,
-  "tomtom": 665,
-  "tomtom_only": 650
+  "tomtom": 671,
+  "tomtom_only": 656
  },
  "date": "2026-11-13",
  "dispatch_life_capped": false,
@@ -43,7 +43,7 @@
   },
   "tomtom_highway": {
    "matched": 12,
-   "n": 360,
+   "n": 366,
    "pct": 3.3
   },
   "tomtom_surface": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 604,
+  "hotspot_buckets": 609,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 622
+  "unreported_congestion": 627
  },
  "sampling": {
   "flow_spent_this_month": 3060,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 451,
+  "incidents_spent_this_month": 452,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -174,6 +174,13 @@
    "seg": "30.423,-97.672"
   },
   {
+   "from": "Blue Goose Rd",
+   "hour_of_week": 89,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.346,-97.606"
+  },
+  {
    "from": "Austin",
    "hour_of_week": 75,
    "n": 2,
@@ -207,18 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.345,-97.607"
-  },
-  {
-   "from": "Blue Goose Rd",
-   "hour_of_week": 89,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.346,-97.606"
   }
  ],
  "unmatched_pct": {
   "dispatch": 73.2,
-  "tomtom": 97.7
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
