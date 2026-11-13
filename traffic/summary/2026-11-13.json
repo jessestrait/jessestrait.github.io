@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 55,
-  "dispatch_only": 37,
+  "dispatch": 56,
+  "dispatch_only": 38,
   "here": 0,
   "here_matched": 0,
   "matched": 23,
-  "tomtom": 1138,
-  "tomtom_only": 1114
+  "tomtom": 1182,
+  "tomtom_only": 1158
  },
  "date": "2026-11-13",
  "dispatch_life_capped": false,
@@ -23,9 +23,9 @@
   "max": 120.0,
   "median": 96.4,
   "min": 6.1,
-  "n": 41,
-  "q1": 39.9,
-  "q3": 117.0
+  "n": 42,
+  "q1": 40.5,
+  "q3": 116.9
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 13,
-   "n": 45,
-   "pct": 28.9
+   "n": 46,
+   "pct": 28.3
   },
   "tomtom_highway": {
    "matched": 18,
-   "n": 607,
-   "pct": 3.0
+   "n": 632,
+   "pct": 2.8
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 531,
+   "n": 550,
    "pct": 1.1
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1010,
+  "hotspot_buckets": 1043,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1080
+  "unreported_congestion": 1124
  },
  "sampling": {
   "flow_spent_this_month": 3132,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 475,
+  "incidents_spent_this_month": 476,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -118,6 +118,13 @@
    "seg": "30.394,-97.717"
   },
   {
+   "from": "Highway 71 E",
+   "hour_of_week": 109,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.200,-97.633"
+  },
+  {
    "from": "S Interstate 35",
    "hour_of_week": 109,
    "n": 3,
@@ -132,11 +139,32 @@
    "seg": "30.500,-97.581"
   },
   {
+   "from": "51st St/Cameron Rd/Exit 237 (I-35)",
+   "hour_of_week": 109,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.302,-97.715"
+  },
+  {
    "from": "Northeast Travis",
    "hour_of_week": 109,
    "n": 3,
    "roadworks": false,
    "seg": "30.350,-97.556"
+  },
+  {
+   "from": "FM-969 (FM-973)",
+   "hour_of_week": 109,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.205,-97.639"
+  },
+  {
+   "from": "Cross Park Dr (Cameron Rd)",
+   "hour_of_week": 109,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.335,-97.685"
   },
   {
    "from": "FM-812 (South) (FM-973)",
@@ -146,11 +174,11 @@
    "seg": "30.116,-97.693"
   },
   {
-   "from": "Vilamoura St",
+   "from": "E Park St / N Vista Ridge Blvd",
    "hour_of_week": 109,
    "n": 3,
    "roadworks": false,
-   "seg": "30.467,-97.584"
+   "seg": "30.510,-97.787"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -186,45 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.299,-97.759"
-  },
-  {
-   "from": "E Koenig Ln (I-35)",
-   "hour_of_week": 96,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.310,-97.711"
-  },
-  {
-   "from": "Martin Luther King Blvd/19th St/Exit 235A (I-35)",
-   "hour_of_week": 96,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.283,-97.727"
-  },
-  {
-   "from": "Deloss Dodds Way",
-   "hour_of_week": 96,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.282,-97.732"
-  },
-  {
-   "from": "Parmer Ln/Exit 245 (I-35)",
-   "hour_of_week": 138,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.423,-97.672"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 67.3,
-  "tomtom": 97.9
+  "dispatch": 67.9,
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 55,
-  "neither": 37,
+  "n": 56,
+  "neither": 38,
   "tomtom_only": 18
  }
 }
