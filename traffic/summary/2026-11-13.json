@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 105,
+  "dispatch": 106,
   "dispatch_only": 71,
   "here": 0,
   "here_matched": 0,
-  "matched": 53,
-  "tomtom": 2410,
-  "tomtom_only": 2344
+  "matched": 54,
+  "tomtom": 2460,
+  "tomtom_only": 2392
  },
  "date": "2026-11-13",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 109.1,
+  "median": 110.2,
   "min": 6.1,
-  "n": 83,
-  "q1": 57.2,
+  "n": 84,
+  "q1": 57.3,
   "q3": 117.7
  },
  "here_onset_offset_min": {
@@ -37,18 +37,18 @@
    "pct": 43.5
   },
   "dispatch_surface": {
-   "matched": 24,
-   "n": 82,
-   "pct": 29.3
+   "matched": 25,
+   "n": 83,
+   "pct": 30.1
   },
   "tomtom_highway": {
-   "matched": 50,
-   "n": 1246,
+   "matched": 51,
+   "n": 1272,
    "pct": 4.0
   },
   "tomtom_surface": {
-   "matched": 16,
-   "n": 1164,
+   "matched": 17,
+   "n": 1188,
    "pct": 1.4
   }
  },
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 87.3,
-  "median": 8.8,
+  "median": 7.5,
   "min": -71.3,
-  "n": 53,
-  "q1": -17.8,
-  "q3": 41.5
+  "n": 54,
+  "q1": -15.9,
+  "q3": 40.0
  },
  "persistence_min": {
   "max": 154.1,
-  "median": -15.6,
+  "median": -25.7,
   "min": -815.8,
-  "n": 27,
-  "q1": -46.0,
+  "n": 30,
+  "q1": -65.5,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2083,
+  "hotspot_buckets": 2130,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2305
+  "unreported_congestion": 2353
  },
  "sampling": {
   "flow_spent_this_month": 3240,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 496,
+  "incidents_spent_this_month": 497,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -123,6 +123,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.408,-97.678"
+  },
+  {
+   "from": "S I-35 (FM-1626)",
+   "hour_of_week": 118,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.143,-97.802"
   },
   {
    "from": "Ed Bluestein Blvd (FM-969)",
@@ -207,24 +214,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.300,-97.930"
-  },
-  {
-   "from": "W Saint Elmo Rd (S Congress Ave)",
-   "hour_of_week": 118,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.221,-97.765"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 67.6,
-  "tomtom": 97.3
+  "dispatch": 67.0,
+  "tomtom": 97.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 105,
+  "n": 106,
   "neither": 71,
-  "tomtom_only": 34
+  "tomtom_only": 35
  }
 }
