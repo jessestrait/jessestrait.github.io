@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 108,
+  "dispatch": 109,
   "dispatch_only": 71,
   "here": 0,
   "here_matched": 0,
-  "matched": 59,
-  "tomtom": 2702,
-  "tomtom_only": 2628
+  "matched": 60,
+  "tomtom": 2748,
+  "tomtom_only": 2673
  },
  "date": "2026-11-13",
  "dispatch_life_capped": false,
@@ -23,9 +23,9 @@
   "max": 120.0,
   "median": 115.1,
   "min": 6.1,
-  "n": 90,
-  "q1": 59.4,
-  "q3": 117.8
+  "n": 91,
+  "q1": 60.0,
+  "q3": 117.7
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,18 +37,18 @@
    "pct": 45.8
   },
   "dispatch_surface": {
-   "matched": 26,
-   "n": 84,
-   "pct": 31.0
+   "matched": 27,
+   "n": 85,
+   "pct": 31.8
   },
   "tomtom_highway": {
    "matched": 56,
-   "n": 1393,
+   "n": 1414,
    "pct": 4.0
   },
   "tomtom_surface": {
-   "matched": 18,
-   "n": 1309,
+   "matched": 19,
+   "n": 1334,
    "pct": 1.4
   }
  },
@@ -60,18 +60,18 @@
  },
  "onset_offset_min": {
   "max": 87.3,
-  "median": 9.9,
+  "median": 9.4,
   "min": -71.3,
-  "n": 59,
-  "q1": -10.9,
-  "q3": 39.5
+  "n": 60,
+  "q1": -10.2,
+  "q3": 39.2
  },
  "persistence_min": {
   "max": 154.1,
   "median": -46.0,
   "min": -815.8,
-  "n": 39,
-  "q1": -77.2,
+  "n": 41,
+  "q1": -79.7,
   "q3": 0.0
  },
  "poll_interval_min": 5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2336,
+  "hotspot_buckets": 2372,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2586
+  "unreported_congestion": 2631
  },
  "sampling": {
   "flow_spent_this_month": 3249,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 501,
+  "incidents_spent_this_month": 502,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 65.7,
+  "dispatch": 65.1,
   "tomtom": 97.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 108,
+  "n": 109,
   "neither": 71,
-  "tomtom_only": 37
+  "tomtom_only": 38
  }
 }
