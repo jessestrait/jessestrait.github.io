@@ -13,9 +13,9 @@
   "dispatch_only": 68,
   "here": 0,
   "here_matched": 0,
-  "matched": 43,
-  "tomtom": 2042,
-  "tomtom_only": 1993
+  "matched": 44,
+  "tomtom": 2100,
+  "tomtom_only": 2049
  },
  "date": "2026-11-13",
  "dispatch_life_capped": false,
@@ -42,13 +42,13 @@
    "pct": 28.6
   },
   "tomtom_highway": {
-   "matched": 37,
-   "n": 1065,
-   "pct": 3.5
+   "matched": 39,
+   "n": 1093,
+   "pct": 3.6
   },
   "tomtom_surface": {
    "matched": 12,
-   "n": 977,
+   "n": 1007,
    "pct": 1.2
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 76.8,
-  "median": 8.8,
+  "median": 9.4,
   "min": -71.3,
-  "n": 43,
-  "q1": -21.4,
-  "q3": 33.0
+  "n": 44,
+  "q1": -19.6,
+  "q3": 36.3
  },
  "persistence_min": {
   "max": 154.1,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1813,
+  "hotspot_buckets": 1859,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1954
+  "unreported_congestion": 2010
  },
  "sampling": {
   "flow_spent_this_month": 3222,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 490,
+  "incidents_spent_this_month": 491,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -116,6 +116,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.394,-97.717"
+  },
+  {
+   "from": "N Lamar Blvd",
+   "hour_of_week": 118,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.408,-97.678"
   },
   {
    "from": "Highway 71 E",
@@ -207,13 +214,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.186,-97.773"
-  },
-  {
-   "from": "N Lamar Blvd",
-   "hour_of_week": 118,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.408,-97.678"
   }
  ],
  "unmatched_pct": {
