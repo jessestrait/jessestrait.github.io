@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 23,
-  "tomtom": 1103,
-  "tomtom_only": 1079
+  "tomtom": 1138,
+  "tomtom_only": 1114
  },
  "date": "2026-11-13",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 18,
-   "n": 591,
+   "n": 607,
    "pct": 3.0
   },
   "tomtom_surface": {
    "matched": 6,
-   "n": 512,
-   "pct": 1.2
+   "n": 531,
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 982,
+  "hotspot_buckets": 1010,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1045
+  "unreported_congestion": 1080
  },
  "sampling": {
   "flow_spent_this_month": 3132,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 474,
+  "incidents_spent_this_month": 475,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -125,11 +125,25 @@
    "seg": "30.162,-97.789"
   },
   {
+   "from": "FM 685",
+   "hour_of_week": 109,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.500,-97.581"
+  },
+  {
    "from": "Northeast Travis",
    "hour_of_week": 109,
    "n": 3,
    "roadworks": false,
    "seg": "30.350,-97.556"
+  },
+  {
+   "from": "FM-812 (South) (FM-973)",
+   "hour_of_week": 109,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.116,-97.693"
   },
   {
    "from": "Vilamoura St",
@@ -200,25 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.423,-97.672"
-  },
-  {
-   "from": "Blue Goose Rd",
-   "hour_of_week": 89,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.346,-97.606"
-  },
-  {
-   "from": "Dessau Rd (E Braker Ln)",
-   "hour_of_week": 108,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.376,-97.674"
   }
  ],
  "unmatched_pct": {
   "dispatch": 67.3,
-  "tomtom": 97.8
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
