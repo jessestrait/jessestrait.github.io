@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 16,
-  "tomtom": 688,
-  "tomtom_only": 672
+  "tomtom": 689,
+  "tomtom_only": 673
  },
  "date": "2026-11-13",
  "dispatch_life_capped": false,
@@ -43,8 +43,8 @@
   },
   "tomtom_highway": {
    "matched": 13,
-   "n": 376,
-   "pct": 3.5
+   "n": 377,
+   "pct": 3.4
   },
   "tomtom_surface": {
    "matched": 3,
@@ -89,7 +89,7 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 624,
+  "hotspot_buckets": 623,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
   "unreported_congestion": 642
@@ -97,7 +97,7 @@
  "sampling": {
   "flow_spent_this_month": 3087,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 454,
+  "incidents_spent_this_month": 455,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -181,6 +181,13 @@
    "seg": "30.346,-97.606"
   },
   {
+   "from": "TX-275 Loop/W Howard Ln/N Lamar Blvd (I-35)",
+   "hour_of_week": 107,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.383,-97.674"
+  },
+  {
    "from": "Austin",
    "hour_of_week": 75,
    "n": 2,
@@ -207,13 +214,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
-  },
-  {
-   "from": "Blue Goose Rd",
-   "hour_of_week": 89,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.345,-97.607"
   }
  ],
  "unmatched_pct": {
