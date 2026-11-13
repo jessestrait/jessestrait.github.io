@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 43,
-  "dispatch_only": 31,
+  "dispatch": 44,
+  "dispatch_only": 32,
   "here": 0,
   "here_matched": 0,
   "matched": 17,
-  "tomtom": 708,
-  "tomtom_only": 691
+  "tomtom": 714,
+  "tomtom_only": 697
  },
  "date": "2026-11-13",
  "dispatch_life_capped": false,
@@ -33,8 +33,8 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 4,
-   "n": 9,
-   "pct": 44.4
+   "n": 10,
+   "pct": 40.0
   },
   "dispatch_surface": {
    "matched": 8,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 14,
-   "n": 391,
-   "pct": 3.6
+   "n": 396,
+   "pct": 3.5
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 317,
+   "n": 318,
    "pct": 0.9
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 642,
+  "hotspot_buckets": 647,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 660
+  "unreported_congestion": 666
  },
  "sampling": {
-  "flow_spent_this_month": 3087,
+  "flow_spent_this_month": 3096,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 457,
+  "incidents_spent_this_month": 458,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -181,6 +181,13 @@
    "seg": "30.346,-97.606"
   },
   {
+   "from": "Dessau Rd (E Braker Ln)",
+   "hour_of_week": 108,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.376,-97.674"
+  },
+  {
    "from": "Austin",
    "hour_of_week": 75,
    "n": 2,
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
-  },
-  {
-   "from": "Blue Goose Rd",
-   "hour_of_week": 89,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.345,-97.607"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 72.1,
+  "dispatch": 72.7,
   "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 43,
-  "neither": 31,
+  "n": 44,
+  "neither": 32,
   "tomtom_only": 12
  }
 }
