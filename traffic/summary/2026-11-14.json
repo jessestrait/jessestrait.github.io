@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 30,
-  "dispatch_only": 25,
+  "dispatch": 31,
+  "dispatch_only": 24,
   "here": 0,
   "here_matched": 0,
-  "matched": 5,
-  "tomtom": 373,
-  "tomtom_only": 368
+  "matched": 7,
+  "tomtom": 483,
+  "tomtom_only": 477
  },
  "date": "2026-11-14",
  "dispatch_life_capped": false,
@@ -37,18 +37,18 @@
    "pct": 50.0
   },
   "dispatch_surface": {
-   "matched": 2,
-   "n": 24,
-   "pct": 8.3
+   "matched": 4,
+   "n": 25,
+   "pct": 16.0
   },
   "tomtom_highway": {
-   "matched": 5,
-   "n": 198,
-   "pct": 2.5
+   "matched": 6,
+   "n": 253,
+   "pct": 2.4
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 175,
+   "n": 230,
    "pct": 0.0
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 64.9,
-  "median": -22.2,
+  "median": -41.6,
   "min": -78.3,
-  "n": 5,
-  "q1": -67.0,
-  "q3": 34.2
+  "n": 7,
+  "q1": -55.6,
+  "q3": 3.6
  },
  "persistence_min": {
   "n": 0
@@ -84,15 +84,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 338,
+  "hotspot_buckets": 447,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 347
+  "unreported_congestion": 456
  },
  "sampling": {
   "flow_spent_this_month": 3276,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 506,
+  "incidents_spent_this_month": 507,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -113,11 +113,11 @@
    "seg": "30.169,-97.623"
   },
   {
-   "from": "Highway 45",
-   "hour_of_week": 119,
+   "from": "E 6th St (I-35)",
+   "hour_of_week": 120,
    "n": 2,
    "roadworks": false,
-   "seg": "30.475,-97.591"
+   "seg": "30.262,-97.736"
   },
   {
    "from": "Austin",
@@ -212,14 +212,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 83.3,
-  "tomtom": 98.7
+  "dispatch": 77.4,
+  "tomtom": 98.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 30,
-  "neither": 25,
-  "tomtom_only": 5
+  "n": 31,
+  "neither": 24,
+  "tomtom_only": 7
  }
 }
