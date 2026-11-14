@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 110, q3 118 min over 84 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 110, q3 118 min over 85 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -21,10 +21,10 @@
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.5,
+  "median": 116.6,
   "min": 10.4,
-  "n": 84,
-  "q1": 109.5,
+  "n": 85,
+  "q1": 110.3,
   "q3": 118.3
  },
  "here_onset_offset_min": {
@@ -68,11 +68,11 @@
  },
  "persistence_min": {
   "max": 0.0,
-  "median": -55.9,
-  "min": -101.7,
-  "n": 16,
-  "q1": -79.1,
-  "q3": -35.3,
+  "median": -58.9,
+  "min": -128.1,
+  "n": 18,
+  "q1": -87.1,
+  "q3": -35.5,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
