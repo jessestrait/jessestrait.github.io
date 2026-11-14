@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 59,
-  "dispatch_only": 50,
+  "dispatch": 60,
+  "dispatch_only": 51,
   "here": 0,
   "here_matched": 0,
   "matched": 11,
@@ -38,8 +38,8 @@
   },
   "dispatch_surface": {
    "matched": 4,
-   "n": 44,
-   "pct": 9.1
+   "n": 45,
+   "pct": 8.9
   },
   "tomtom_highway": {
    "matched": 10,
@@ -96,7 +96,7 @@
   "unreported_congestion": 592
  },
  "sampling": {
-  "flow_spent_this_month": 3366,
+  "flow_spent_this_month": 3375,
   "incident_budget": 2500,
   "incidents_spent_this_month": 515,
   "off_peak_min": 45,
@@ -196,6 +196,13 @@
    "seg": "30.430,-97.699"
   },
   {
+   "from": "Marsha St",
+   "hour_of_week": 132,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.447,-97.668"
+  },
+  {
    "from": "Adage Dr / Epiphany Ln",
    "hour_of_week": 60,
    "n": 2,
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.267,-97.748"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 18,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.320,-97.706"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 84.7,
+  "dispatch": 85.0,
   "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 59,
-  "neither": 50,
+  "n": 60,
+  "neither": 51,
   "tomtom_only": 9
  }
 }
