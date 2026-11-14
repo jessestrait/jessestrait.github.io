@@ -10,20 +10,20 @@
  ],
  "counts": {
   "dispatch": 38,
-  "dispatch_only": 30,
+  "dispatch_only": 29,
   "here": 0,
   "here_matched": 0,
-  "matched": 9,
-  "tomtom": 483,
-  "tomtom_only": 475
+  "matched": 11,
+  "tomtom": 529,
+  "tomtom_only": 519
  },
  "date": "2026-11-14",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 117.5,
+  "median": 117.9,
   "min": 115.1,
-  "n": 13,
+  "n": 14,
   "q1": 116.6,
   "q3": 118.5
  },
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 4,
+   "matched": 5,
    "n": 10,
-   "pct": 40.0
+   "pct": 50.0
   },
   "dispatch_surface": {
    "matched": 4,
@@ -42,13 +42,13 @@
    "pct": 14.3
   },
   "tomtom_highway": {
-   "matched": 8,
-   "n": 253,
-   "pct": 3.2
+   "matched": 10,
+   "n": 280,
+   "pct": 3.6
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 230,
+   "n": 249,
    "pct": 0.0
   }
  },
@@ -59,20 +59,20 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 64.9,
-  "median": -30.3,
+  "max": 72.6,
+  "median": -22.2,
   "min": -78.3,
-  "n": 9,
-  "q1": -48.9,
-  "q3": 32.7
+  "n": 11,
+  "q1": -42.2,
+  "q3": 61.8
  },
  "persistence_min": {
-  "max": -46.1,
-  "median": -51.3,
+  "max": 0.0,
+  "median": -46.1,
   "min": -71.8,
-  "n": 3,
-  "q1": -71.8,
-  "q3": -46.1
+  "n": 5,
+  "q1": -61.5,
+  "q3": -12.8
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 445,
+  "hotspot_buckets": 484,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 454
+  "unreported_congestion": 497
  },
  "sampling": {
   "flow_spent_this_month": 3285,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 507,
+  "incidents_spent_this_month": 508,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -118,11 +118,39 @@
    "seg": "30.169,-97.623"
   },
   {
+   "from": "I-35 (E 6th St)",
+   "hour_of_week": 120,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.268,-97.741"
+  },
+  {
+   "from": "S Interstate 35",
+   "hour_of_week": 120,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.195,-97.767"
+  },
+  {
+   "from": "Chestnut Ave (E Martin Luther King Jr Blvd)",
+   "hour_of_week": 121,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.279,-97.733"
+  },
+  {
    "from": "E 6th St (I-35)",
    "hour_of_week": 120,
    "n": 2,
    "roadworks": false,
    "seg": "30.262,-97.736"
+  },
+  {
+   "from": "I-35/US-290 (E Cesar Chavez St/E 1st St/State Spur 343)",
+   "hour_of_week": 121,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.263,-97.742"
   },
   {
    "from": "Austin",
@@ -186,45 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.506,-97.821"
-  },
-  {
-   "from": "FM-2769 (Anderson Mill Rd)",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.456,-97.828"
-  },
-  {
-   "from": "FM-2222/Bullick Hollow Rd (FM-620)",
-   "hour_of_week": 118,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.445,-97.832"
-  },
-  {
-   "from": "N TX-183 (Anderson Mill Rd)",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.455,-97.824"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.476,-97.794"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.9,
-  "tomtom": 98.3
+  "dispatch": 76.3,
+  "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 38,
-  "neither": 30,
-  "tomtom_only": 8
+  "neither": 29,
+  "tomtom_only": 9
  }
 }
