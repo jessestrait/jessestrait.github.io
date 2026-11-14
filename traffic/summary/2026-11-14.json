@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 89,
-  "dispatch_only": 75,
+  "dispatch": 90,
+  "dispatch_only": 73,
   "here": 0,
   "here_matched": 0,
-  "matched": 16,
-  "tomtom": 786,
-  "tomtom_only": 771
+  "matched": 21,
+  "tomtom": 841,
+  "tomtom_only": 822
  },
  "date": "2026-11-14",
  "dispatch_life_capped": true,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 8,
+   "matched": 9,
    "n": 23,
-   "pct": 34.8
+   "pct": 39.1
   },
   "dispatch_surface": {
-   "matched": 6,
-   "n": 66,
-   "pct": 9.1
+   "matched": 8,
+   "n": 67,
+   "pct": 11.9
   },
   "tomtom_highway": {
-   "matched": 12,
-   "n": 409,
-   "pct": 2.9
+   "matched": 14,
+   "n": 430,
+   "pct": 3.3
   },
   "tomtom_surface": {
-   "matched": 3,
-   "n": 377,
-   "pct": 0.8
+   "matched": 5,
+   "n": 411,
+   "pct": 1.2
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 78.2,
-  "median": -2.7,
+  "median": -0.1,
   "min": -78.3,
-  "n": 16,
-  "q1": -38.8,
-  "q3": 61.0
+  "n": 21,
+  "q1": -26.2,
+  "q3": 55.9
  },
  "persistence_min": {
   "max": 0.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 704,
+  "hotspot_buckets": 752,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 731
+  "unreported_congestion": 781
  },
  "sampling": {
   "flow_spent_this_month": 3474,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 519,
+  "incidents_spent_this_month": 520,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -210,22 +210,22 @@
    "seg": "30.229,-97.883"
   },
   {
-   "from": "Howard Ln/Exit 246 (I-35)",
-   "hour_of_week": 135,
+   "from": "Central Commerce Dr (Grand Avenue Pkwy)",
+   "hour_of_week": 132,
    "n": 2,
    "roadworks": false,
-   "seg": "30.436,-97.669"
+   "seg": "30.456,-97.663"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 84.3,
-  "tomtom": 98.1
+  "dispatch": 81.1,
+  "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 89,
-  "neither": 75,
-  "tomtom_only": 14
+  "n": 90,
+  "neither": 73,
+  "tomtom_only": 17
  }
 }
