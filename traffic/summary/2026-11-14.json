@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 11,
-  "tomtom": 631,
-  "tomtom_only": 621
+  "tomtom": 643,
+  "tomtom_only": 633
  },
  "date": "2026-11-14",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 10,
-   "n": 334,
-   "pct": 3.0
+   "n": 341,
+   "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 297,
+   "n": 302,
    "pct": 0.0
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 571,
+  "hotspot_buckets": 581,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 592
+  "unreported_congestion": 602
  },
  "sampling": {
-  "flow_spent_this_month": 3384,
+  "flow_spent_this_month": 3393,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 515,
+  "incidents_spent_this_month": 516,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -161,6 +161,13 @@
    "seg": "30.213,-97.672"
   },
   {
+   "from": "Brazos St",
+   "hour_of_week": 120,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.270,-97.742"
+  },
+  {
    "from": "Berrywood Dr/Meadow Lark Ave (I-35)",
    "hour_of_week": 138,
    "n": 2,
@@ -208,13 +215,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.448,-97.631"
-  },
-  {
-   "from": "W 2nd St (San Antonio St)",
-   "hour_of_week": 132,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.267,-97.748"
   }
  ],
  "unmatched_pct": {
