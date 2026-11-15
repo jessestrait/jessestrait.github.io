@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 20,
+  "dispatch": 21,
   "dispatch_only": 15,
   "here": 0,
   "here_matched": 0,
-  "matched": 5,
+  "matched": 6,
   "tomtom": 286,
-  "tomtom_only": 281
+  "tomtom_only": 280
  },
  "date": "2026-11-15",
  "dispatch_life_capped": false,
@@ -37,14 +37,14 @@
    "pct": 100.0
   },
   "dispatch_surface": {
-   "matched": 4,
-   "n": 19,
-   "pct": 21.1
+   "matched": 5,
+   "n": 20,
+   "pct": 25.0
   },
   "tomtom_highway": {
-   "matched": 3,
+   "matched": 4,
    "n": 115,
-   "pct": 2.6
+   "pct": 3.5
   },
   "tomtom_surface": {
    "matched": 2,
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 86.6,
-  "median": -4.7,
-  "min": -25.7,
-  "n": 5,
-  "q1": -25.2,
-  "q3": 48.0
+  "median": -14.8,
+  "min": -35.3,
+  "n": 6,
+  "q1": -28.1,
+  "q3": 28.7
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,10 +89,10 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 247,
+  "hotspot_buckets": 246,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 259
+  "unreported_congestion": 258
  },
  "sampling": {
   "flow_spent_this_month": 3564,
@@ -174,18 +174,18 @@
    "seg": "30.245,-97.744"
   },
   {
+   "from": "Hawkins Ln",
+   "hour_of_week": 149,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.227,-97.674"
+  },
+  {
    "from": "Ellas Inlet Dr / Felix Sparke Dr",
    "hour_of_week": 68,
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Sherman Rd",
-   "hour_of_week": 149,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.227,-97.674"
   },
   {
    "from": "N Lake Creek Pkwy",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 75.0,
-  "tomtom": 98.3
+  "dispatch": 71.4,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 20,
+  "n": 21,
   "neither": 15,
-  "tomtom_only": 5
+  "tomtom_only": 6
  }
 }
