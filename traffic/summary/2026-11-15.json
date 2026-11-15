@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 7,
-  "tomtom": 317,
-  "tomtom_only": 310
+  "tomtom": 325,
+  "tomtom_only": 318
  },
  "date": "2026-11-15",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 125,
-   "pct": 4.0
+   "n": 128,
+   "pct": 3.9
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 192,
+   "n": 197,
    "pct": 1.0
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 266,
+  "hotspot_buckets": 272,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 284
+  "unreported_congestion": 290
  },
  "sampling": {
   "flow_spent_this_month": 3699,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 534,
+  "incidents_spent_this_month": 535,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,6 +117,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.272,-97.735"
+  },
+  {
+   "from": "Buenos Aires Pkwy",
+   "hour_of_week": 15,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.169,-97.623"
   },
   {
    "from": "N Mo Pac Expy",
@@ -208,13 +215,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "TX-45 Toll/TX-130 Toll (Pearce Ln)",
-   "hour_of_week": 15,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.169,-97.622"
   }
  ],
  "unmatched_pct": {
