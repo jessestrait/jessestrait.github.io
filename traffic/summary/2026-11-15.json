@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 8,
-  "tomtom": 367,
-  "tomtom_only": 359
+  "tomtom": 389,
+  "tomtom_only": 381
  },
  "date": "2026-11-15",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 151,
-   "pct": 4.0
+   "n": 160,
+   "pct": 3.8
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 216,
+   "n": 229,
    "pct": 0.9
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 312,
+  "hotspot_buckets": 333,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 329
+  "unreported_congestion": 351
  },
  "sampling": {
   "flow_spent_this_month": 3744,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 536,
+  "incidents_spent_this_month": 537,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -161,6 +161,13 @@
    "seg": "30.227,-97.674"
   },
   {
+   "from": "Aldrich St",
+   "hour_of_week": 157,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.300,-97.703"
+  },
+  {
    "from": "Austin",
    "hour_of_week": 75,
    "n": 2,
@@ -196,13 +203,6 @@
    "seg": "30.245,-97.744"
   },
   {
-   "from": "Aldrich St",
-   "hour_of_week": 157,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.300,-97.703"
-  },
-  {
    "from": "Ellas Inlet Dr / Felix Sparke Dr",
    "hour_of_week": 68,
    "n": 2,
@@ -210,16 +210,16 @@
    "seg": "30.148,-97.704"
   },
   {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 143,
-   "n": 1,
+   "from": "N Mo Pac Expy",
+   "hour_of_week": 165,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.475,-97.794"
+   "seg": "30.420,-97.703"
   }
  ],
  "unmatched_pct": {
   "dispatch": 88.6,
-  "tomtom": 97.8
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
