@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 30,
+  "dispatch": 31,
   "dispatch_only": 27,
   "here": 0,
   "here_matched": 0,
-  "matched": 3,
-  "tomtom": 269,
-  "tomtom_only": 266
+  "matched": 4,
+  "tomtom": 276,
+  "tomtom_only": 272
  },
  "date": "2026-11-16",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 16.7
   },
   "dispatch_surface": {
-   "matched": 2,
-   "n": 24,
-   "pct": 8.3
+   "matched": 3,
+   "n": 25,
+   "pct": 12.0
   },
   "tomtom_highway": {
    "matched": 3,
-   "n": 101,
-   "pct": 3.0
+   "n": 103,
+   "pct": 2.9
   },
   "tomtom_surface": {
-   "matched": 0,
-   "n": 168,
-   "pct": 0.0
+   "matched": 1,
+   "n": 173,
+   "pct": 0.6
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 55.9,
-  "median": 14.0,
+  "median": 1.4,
   "min": -14.5,
-  "n": 3,
-  "q1": -14.5,
-  "q3": 55.9
+  "n": 4,
+  "q1": -13.7,
+  "q3": 45.4
  },
  "persistence_min": {
   "max": -5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 225,
+  "hotspot_buckets": 230,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 242
+  "unreported_congestion": 248
  },
  "sampling": {
   "flow_spent_this_month": 3924,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 555,
+  "incidents_spent_this_month": 556,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -174,6 +174,13 @@
    "seg": "30.195,-97.767"
   },
   {
+   "from": "Wells Branch Pkwy (I-35)",
+   "hour_of_week": 12,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.426,-97.672"
+  },
+  {
    "from": "Austin",
    "hour_of_week": 75,
    "n": 2,
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.148,-97.704"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 90.0,
-  "tomtom": 98.9
+  "dispatch": 87.1,
+  "tomtom": 98.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 30,
+  "n": 31,
   "neither": 27,
-  "tomtom_only": 3
+  "tomtom_only": 4
  }
 }
