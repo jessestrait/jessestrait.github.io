@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 7,
-  "tomtom": 294,
-  "tomtom_only": 287
+  "tomtom": 301,
+  "tomtom_only": 294
  },
  "date": "2026-11-16",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 115,
-   "pct": 5.2
+   "n": 118,
+   "pct": 5.1
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 179,
-   "pct": 0.6
+   "n": 183,
+   "pct": 0.5
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 245,
+  "hotspot_buckets": 251,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 263
+  "unreported_congestion": 270
  },
  "sampling": {
   "flow_spent_this_month": 3933,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 558,
+  "incidents_spent_this_month": 559,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -181,6 +181,13 @@
    "seg": "30.226,-97.724"
   },
   {
+   "from": "E 6th St (Congress Ave)",
+   "hour_of_week": 88,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.271,-97.742"
+  },
+  {
    "from": "Austin",
    "hour_of_week": 75,
    "n": 2,
@@ -207,18 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.320,-97.706"
-  },
-  {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.245,-97.744"
   }
  ],
  "unmatched_pct": {
   "dispatch": 83.9,
-  "tomtom": 97.6
+  "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
