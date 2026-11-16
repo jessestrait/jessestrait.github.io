@@ -20,7 +20,12 @@
  "date": "2026-11-16",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
-  "n": 0
+  "max": 119.5,
+  "median": 119.5,
+  "min": 119.5,
+  "n": 1,
+  "q1": 119.5,
+  "q3": 119.5
  },
  "here_onset_offset_min": {
   "n": 0
@@ -85,7 +90,7 @@
   "unreported_congestion": 144
  },
  "sampling": {
-  "flow_spent_this_month": 3816,
+  "flow_spent_this_month": 3825,
   "incident_budget": 2500,
   "incidents_spent_this_month": 540,
   "off_peak_min": 45,
