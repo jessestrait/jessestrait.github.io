@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 37,
-  "dispatch_only": 29,
+  "dispatch_only": 28,
   "here": 0,
   "here_matched": 0,
-  "matched": 16,
-  "tomtom": 786,
-  "tomtom_only": 770
+  "matched": 17,
+  "tomtom": 830,
+  "tomtom_only": 813
  },
  "date": "2026-11-16",
  "dispatch_life_capped": false,
@@ -37,18 +37,18 @@
    "pct": 50.0
   },
   "dispatch_surface": {
-   "matched": 4,
+   "matched": 5,
    "n": 29,
-   "pct": 13.8
+   "pct": 17.2
   },
   "tomtom_highway": {
-   "matched": 15,
-   "n": 321,
-   "pct": 4.7
+   "matched": 16,
+   "n": 345,
+   "pct": 4.6
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 465,
+   "n": 485,
    "pct": 0.2
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 80.1,
-  "median": 10.9,
+  "median": 10.8,
   "min": -14.5,
-  "n": 16,
-  "q1": -2.4,
-  "q3": 55.8
+  "n": 17,
+  "q1": -0.0,
+  "q3": 55.6
  },
  "persistence_min": {
   "max": -5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 572,
+  "hotspot_buckets": 598,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 732
+  "unreported_congestion": 775
  },
  "sampling": {
   "flow_spent_this_month": 3960,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 570,
+  "incidents_spent_this_month": 571,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -167,6 +167,13 @@
    "seg": "30.429,-97.681"
   },
   {
+   "from": "N Interstate 35",
+   "hour_of_week": 13,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.305,-97.714"
+  },
+  {
    "from": "US Highway 183",
    "hour_of_week": 13,
    "n": 3,
@@ -181,6 +188,13 @@
    "seg": "30.338,-97.558"
   },
   {
+   "from": "Parmer Ln (TX-1)",
+   "hour_of_week": 13,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.407,-97.723"
+  },
+  {
    "from": "Cameron Rd",
    "hour_of_week": 13,
    "n": 3,
@@ -188,43 +202,29 @@
    "seg": "30.418,-97.576"
   },
   {
+   "from": "FM 969 Rd / Farm to Market 969 Rd",
+   "hour_of_week": 13,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.301,-97.648"
+  },
+  {
    "from": "Santos St",
    "hour_of_week": 13,
    "n": 3,
    "roadworks": false,
    "seg": "30.226,-97.700"
-  },
-  {
-   "from": "Slaughter Ln (TX-1)",
-   "hour_of_week": 13,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.205,-97.863"
-  },
-  {
-   "from": "Oltorf St/Exit 232 (I-35)",
-   "hour_of_week": 167,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.246,-97.735"
-  },
-  {
-   "from": "Veterans Dr",
-   "hour_of_week": 166,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.271,-97.765"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.4,
+  "dispatch": 75.7,
   "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 37,
-  "neither": 29,
-  "tomtom_only": 8
+  "neither": 28,
+  "tomtom_only": 9
  }
 }
