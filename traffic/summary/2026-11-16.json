@@ -13,19 +13,19 @@
   "dispatch_only": 29,
   "here": 0,
   "here_matched": 0,
-  "matched": 14,
-  "tomtom": 719,
-  "tomtom_only": 705
+  "matched": 15,
+  "tomtom": 749,
+  "tomtom_only": 734
  },
  "date": "2026-11-16",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 115.2,
+  "median": 115.6,
   "min": 8.9,
-  "n": 26,
-  "q1": 67.8,
-  "q3": 118.6
+  "n": 27,
+  "q1": 70.8,
+  "q3": 119.0
  },
  "here_onset_offset_min": {
   "n": 0
@@ -42,13 +42,13 @@
    "pct": 13.8
   },
   "tomtom_highway": {
-   "matched": 13,
-   "n": 283,
-   "pct": 4.6
+   "matched": 14,
+   "n": 297,
+   "pct": 4.7
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 436,
+   "n": 452,
    "pct": 0.2
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 80.1,
-  "median": 29.1,
+  "median": 14.0,
   "min": -14.5,
-  "n": 14,
-  "q1": -6.4,
-  "q3": 58.4
+  "n": 15,
+  "q1": -4.8,
+  "q3": 55.9
  },
  "persistence_min": {
   "max": -5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 518,
+  "hotspot_buckets": 546,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 667
+  "unreported_congestion": 696
  },
  "sampling": {
-  "flow_spent_this_month": 3951,
+  "flow_spent_this_month": 3960,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 568,
+  "incidents_spent_this_month": 569,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -167,11 +167,18 @@
    "seg": "30.429,-97.681"
   },
   {
-   "from": "FM 969 Rd / Farm to Market 969 Rd",
+   "from": "Santos St",
    "hour_of_week": 13,
    "n": 3,
    "roadworks": false,
-   "seg": "30.301,-97.648"
+   "seg": "30.226,-97.700"
+  },
+  {
+   "from": "E Koenig Ln (I-35)",
+   "hour_of_week": 13,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.310,-97.711"
   },
   {
    "from": "Oltorf St/Exit 232 (I-35)",
@@ -207,18 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.215,-97.829"
-  },
-  {
-   "from": "Highway 290 W",
-   "hour_of_week": 3,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.229,-97.883"
   }
  ],
  "unmatched_pct": {
   "dispatch": 78.4,
-  "tomtom": 98.1
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
