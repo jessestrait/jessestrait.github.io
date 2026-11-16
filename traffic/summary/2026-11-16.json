@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 35,
-  "dispatch_only": 28,
+  "dispatch": 37,
+  "dispatch_only": 29,
   "here": 0,
   "here_matched": 0,
-  "matched": 13,
-  "tomtom": 676,
-  "tomtom_only": 663
+  "matched": 14,
+  "tomtom": 719,
+  "tomtom_only": 705
  },
  "date": "2026-11-16",
  "dispatch_life_capped": false,
@@ -32,23 +32,23 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 3,
-   "n": 7,
-   "pct": 42.9
+   "matched": 4,
+   "n": 8,
+   "pct": 50.0
   },
   "dispatch_surface": {
    "matched": 4,
-   "n": 28,
-   "pct": 14.3
+   "n": 29,
+   "pct": 13.8
   },
   "tomtom_highway": {
-   "matched": 12,
-   "n": 264,
-   "pct": 4.5
+   "matched": 13,
+   "n": 283,
+   "pct": 4.6
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 412,
+   "n": 436,
    "pct": 0.2
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 80.1,
-  "median": 44.1,
+  "median": 29.1,
   "min": -14.5,
-  "n": 13,
-  "q1": -7.9,
-  "q3": 60.9
+  "n": 14,
+  "q1": -6.4,
+  "q3": 58.4
  },
  "persistence_min": {
   "max": -5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 486,
+  "hotspot_buckets": 518,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 625
+  "unreported_congestion": 667
  },
  "sampling": {
   "flow_spent_this_month": 3951,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 567,
+  "incidents_spent_this_month": 568,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -167,6 +167,13 @@
    "seg": "30.429,-97.681"
   },
   {
+   "from": "FM 969 Rd / Farm to Market 969 Rd",
+   "hour_of_week": 13,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.301,-97.648"
+  },
+  {
    "from": "Oltorf St/Exit 232 (I-35)",
    "hour_of_week": 167,
    "n": 2,
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.229,-97.883"
-  },
-  {
-   "from": "Rental Car Ln",
-   "hour_of_week": 12,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.205,-97.671"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.0,
+  "dispatch": 78.4,
   "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 35,
-  "neither": 28,
-  "tomtom_only": 7
+  "n": 37,
+  "neither": 29,
+  "tomtom_only": 8
  }
 }
