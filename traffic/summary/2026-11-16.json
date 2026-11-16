@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 29,
-  "dispatch_only": 27,
+  "dispatch": 30,
+  "dispatch_only": 28,
   "here": 0,
   "here_matched": 0,
   "matched": 2,
-  "tomtom": 258,
-  "tomtom_only": 256
+  "tomtom": 262,
+  "tomtom_only": 260
  },
  "date": "2026-11-16",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 23,
-   "pct": 4.3
+   "n": 24,
+   "pct": 4.2
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 94,
+   "n": 96,
    "pct": 2.1
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 164,
+   "n": 166,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 216,
+  "hotspot_buckets": 219,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 232
+  "unreported_congestion": 236
  },
  "sampling": {
   "flow_spent_this_month": 3924,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 553,
+  "incidents_spent_this_month": 554,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -167,6 +167,13 @@
    "seg": "30.205,-97.671"
   },
   {
+   "from": "S Interstate 35",
+   "hour_of_week": 12,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.195,-97.767"
+  },
+  {
    "from": "Austin",
    "hour_of_week": 75,
    "n": 2,
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Research Blvd",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.400,-97.746"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 93.1,
+  "dispatch": 93.3,
   "tomtom": 99.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 29,
-  "neither": 27,
+  "n": 30,
+  "neither": 28,
   "tomtom_only": 2
  }
 }
