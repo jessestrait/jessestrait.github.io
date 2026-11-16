@@ -9,32 +9,32 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 34,
+  "dispatch": 35,
   "dispatch_only": 28,
   "here": 0,
   "here_matched": 0,
-  "matched": 11,
-  "tomtom": 575,
-  "tomtom_only": 564
+  "matched": 13,
+  "tomtom": 614,
+  "tomtom_only": 601
  },
  "date": "2026-11-16",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 110.9,
+  "median": 115.6,
   "min": 8.9,
-  "n": 24,
-  "q1": 61.9,
-  "q3": 118.5
+  "n": 25,
+  "q1": 64.9,
+  "q3": 118.8
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 2,
-   "n": 6,
-   "pct": 33.3
+   "matched": 3,
+   "n": 7,
+   "pct": 42.9
   },
   "dispatch_surface": {
    "matched": 4,
@@ -42,13 +42,13 @@
    "pct": 14.3
   },
   "tomtom_highway": {
-   "matched": 10,
-   "n": 227,
-   "pct": 4.4
+   "matched": 12,
+   "n": 244,
+   "pct": 4.9
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 348,
+   "n": 370,
    "pct": 0.3
   }
  },
@@ -62,9 +62,9 @@
   "max": 80.1,
   "median": 44.1,
   "min": -14.5,
-  "n": 11,
-  "q1": -11.1,
-  "q3": 65.9
+  "n": 13,
+  "q1": -7.9,
+  "q3": 60.9
  },
  "persistence_min": {
   "max": -5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 399,
+  "hotspot_buckets": 430,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 526
+  "unreported_congestion": 563
  },
  "sampling": {
   "flow_spent_this_month": 3951,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 565,
+  "incidents_spent_this_month": 566,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -140,6 +140,13 @@
   },
   {
    "from": "S Interstate 35",
+   "hour_of_week": 13,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.146,-97.794"
+  },
+  {
+   "from": "S Interstate 35",
    "hour_of_week": 12,
    "n": 3,
    "roadworks": false,
@@ -153,11 +160,11 @@
    "seg": "30.273,-97.743"
   },
   {
-   "from": "S Interstate 35",
+   "from": "Wells Branch Pkwy (W Howard Ln)",
    "hour_of_week": 13,
    "n": 3,
    "roadworks": false,
-   "seg": "30.146,-97.794"
+   "seg": "30.429,-97.681"
   },
   {
    "from": "Oltorf St/Exit 232 (I-35)",
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.205,-97.671"
-  },
-  {
-   "from": "Cromwell Cir",
-   "hour_of_week": 12,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.226,-97.724"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.4,
-  "tomtom": 98.1
+  "dispatch": 80.0,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 34,
+  "n": 35,
   "neither": 28,
-  "tomtom_only": 6
+  "tomtom_only": 7
  }
 }
