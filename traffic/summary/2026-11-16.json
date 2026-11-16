@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 15,
-  "dispatch_only": 14,
+  "dispatch": 17,
+  "dispatch_only": 15,
   "here": 0,
   "here_matched": 0,
-  "matched": 1,
-  "tomtom": 183,
-  "tomtom_only": 182
+  "matched": 2,
+  "tomtom": 195,
+  "tomtom_only": 193
  },
  "date": "2026-11-16",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
-  "max": 119.5,
-  "median": 118.2,
+  "max": 119.8,
+  "median": 118.9,
   "min": 116.6,
-  "n": 3,
-  "q1": 116.6,
-  "q3": 119.5
+  "n": 4,
+  "q1": 117.0,
+  "q3": 119.7
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,18 +37,18 @@
    "pct": 25.0
   },
   "dispatch_surface": {
-   "matched": 0,
-   "n": 11,
-   "pct": 0.0
+   "matched": 1,
+   "n": 13,
+   "pct": 7.7
   },
   "tomtom_highway": {
-   "matched": 1,
-   "n": 64,
-   "pct": 1.6
+   "matched": 2,
+   "n": 70,
+   "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 119,
+   "n": 125,
    "pct": 0.0
   }
  },
@@ -59,15 +59,20 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": -14.5,
-  "median": -14.5,
+  "max": 14.0,
+  "median": -0.2,
   "min": -14.5,
-  "n": 1,
+  "n": 2,
   "q1": -14.5,
-  "q3": -14.5
+  "q3": 14.0
  },
  "persistence_min": {
-  "n": 0
+  "max": -35.5,
+  "median": -35.5,
+  "min": -35.5,
+  "n": 1,
+  "q1": -35.5,
+  "q3": -35.5
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -84,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 153,
+  "hotspot_buckets": 162,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 163
+  "unreported_congestion": 174
  },
  "sampling": {
   "flow_spent_this_month": 3843,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 541,
+  "incidents_spent_this_month": 542,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +116,20 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.169,-97.623"
+  },
+  {
+   "from": "Oltorf St/Exit 232 (I-35)",
+   "hour_of_week": 167,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.246,-97.735"
+  },
+  {
+   "from": "Veterans Dr",
+   "hour_of_week": 166,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.271,-97.765"
   },
   {
    "from": "N Mo Pac Expy",
@@ -195,31 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.474,-97.596"
-  },
-  {
-   "from": "US-183/E Anderson Ln (I-35)",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.355,-97.689"
-  },
-  {
-   "from": "State Highway 130 / Copper Mine Dr",
-   "hour_of_week": 162,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.470,-97.592"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 93.3,
-  "tomtom": 99.5
+  "dispatch": 88.2,
+  "tomtom": 99.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 15,
-  "neither": 14,
-  "tomtom_only": 1
+  "n": 17,
+  "neither": 15,
+  "tomtom_only": 2
  }
 }
