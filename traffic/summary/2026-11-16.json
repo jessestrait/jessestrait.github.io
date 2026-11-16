@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 31,
+  "dispatch": 32,
   "dispatch_only": 26,
   "here": 0,
   "here_matched": 0,
-  "matched": 9,
-  "tomtom": 473,
-  "tomtom_only": 464
+  "matched": 10,
+  "tomtom": 484,
+  "tomtom_only": 474
  },
  "date": "2026-11-16",
  "dispatch_life_capped": false,
@@ -37,18 +37,18 @@
    "pct": 33.3
   },
   "dispatch_surface": {
-   "matched": 3,
-   "n": 25,
-   "pct": 12.0
+   "matched": 4,
+   "n": 26,
+   "pct": 15.4
   },
   "tomtom_highway": {
-   "matched": 8,
-   "n": 178,
-   "pct": 4.5
+   "matched": 9,
+   "n": 180,
+   "pct": 5.0
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 295,
+   "n": 304,
    "pct": 0.3
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 70.9,
-  "median": 44.1,
+  "median": 29.1,
   "min": -14.5,
-  "n": 9,
-  "q1": -1.7,
-  "q3": 60.9
+  "n": 10,
+  "q1": -11.1,
+  "q3": 58.4
  },
  "persistence_min": {
   "max": -5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 303,
+  "hotspot_buckets": 316,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 426
+  "unreported_congestion": 436
  },
  "sampling": {
   "flow_spent_this_month": 3942,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 561,
+  "incidents_spent_this_month": 562,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -209,22 +209,22 @@
    "seg": "30.271,-97.742"
   },
   {
-   "from": "Knollwood Dr",
+   "from": "Berkman Dr (US-290)",
    "hour_of_week": 12,
    "n": 2,
    "roadworks": false,
-   "seg": "30.352,-97.763"
+   "seg": "30.322,-97.699"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 83.9,
-  "tomtom": 98.1
+  "dispatch": 81.2,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 31,
+  "n": 32,
   "neither": 26,
-  "tomtom_only": 5
+  "tomtom_only": 6
  }
 }
