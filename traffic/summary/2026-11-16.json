@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 11,
-  "dispatch_only": 10,
+  "dispatch": 12,
+  "dispatch_only": 11,
   "here": 0,
   "here_matched": 0,
   "matched": 1,
-  "tomtom": 163,
-  "tomtom_only": 162
+  "tomtom": 183,
+  "tomtom_only": 182
  },
  "date": "2026-11-16",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 8,
+   "n": 9,
    "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 1,
-   "n": 55,
-   "pct": 1.8
+   "n": 64,
+   "pct": 1.6
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 108,
+   "n": 119,
    "pct": 0.0
   }
  },
@@ -84,15 +84,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 136,
+  "hotspot_buckets": 153,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 144
+  "unreported_congestion": 163
  },
  "sampling": {
   "flow_spent_this_month": 3825,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 540,
+  "incidents_spent_this_month": 541,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -155,18 +155,25 @@
    "seg": "30.148,-97.704"
   },
   {
+   "from": "Cesar Chavez St exit [234A]",
+   "hour_of_week": 0,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.262,-97.736"
+  },
+  {
+   "from": "N Mo Pac Expy",
+   "hour_of_week": 0,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.420,-97.703"
+  },
+  {
    "from": "Research Blvd",
    "hour_of_week": 167,
    "n": 1,
    "roadworks": false,
    "seg": "30.400,-97.746"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.466,-97.670"
   },
   {
    "from": "Burnet Rd",
@@ -183,43 +190,36 @@
    "seg": "30.420,-97.703"
   },
   {
-   "from": "Greenlawn Blvd (I-35)",
-   "hour_of_week": 166,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.459,-97.668"
-  },
-  {
-   "from": "Central Commerce Dr (Grand Avenue Pkwy)",
-   "hour_of_week": 161,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.456,-97.664"
-  },
-  {
-   "from": "E Braker Ln (I-35)",
-   "hour_of_week": 166,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.423,-97.671"
-  },
-  {
    "from": "Stone Hill Dr",
    "hour_of_week": 167,
    "n": 1,
    "roadworks": false,
    "seg": "30.474,-97.596"
+  },
+  {
+   "from": "US-183/E Anderson Ln (I-35)",
+   "hour_of_week": 167,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.355,-97.689"
+  },
+  {
+   "from": "State Highway 130 / Copper Mine Dr",
+   "hour_of_week": 162,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.470,-97.592"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 90.9,
-  "tomtom": 99.4
+  "dispatch": 91.7,
+  "tomtom": 99.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 11,
-  "neither": 10,
+  "n": 12,
+  "neither": 11,
   "tomtom_only": 1
  }
 }
