@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 17,
-  "dispatch_only": 15,
+  "dispatch": 18,
+  "dispatch_only": 16,
   "here": 0,
   "here_matched": 0,
   "matched": 2,
-  "tomtom": 195,
-  "tomtom_only": 193
+  "tomtom": 217,
+  "tomtom_only": 215
  },
  "date": "2026-11-16",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 118.9,
-  "min": 116.6,
-  "n": 4,
-  "q1": 117.0,
-  "q3": 119.7
+  "median": 96.7,
+  "min": 8.9,
+  "n": 17,
+  "q1": 24.7,
+  "q3": 117.4
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 13,
-   "pct": 7.7
+   "n": 14,
+   "pct": 7.1
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 70,
-   "pct": 2.9
+   "n": 79,
+   "pct": 2.5
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 125,
+   "n": 138,
    "pct": 0.0
   }
  },
@@ -67,12 +67,12 @@
   "q3": 14.0
  },
  "persistence_min": {
-  "max": -35.5,
-  "median": -35.5,
+  "max": -5.0,
+  "median": -20.3,
   "min": -35.5,
-  "n": 1,
+  "n": 2,
   "q1": -35.5,
-  "q3": -35.5
+  "q3": -5.0
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 162,
+  "hotspot_buckets": 180,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 174
+  "unreported_congestion": 193
  },
  "sampling": {
-  "flow_spent_this_month": 3843,
+  "flow_spent_this_month": 3852,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 542,
+  "incidents_spent_this_month": 543,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -123,6 +123,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.246,-97.735"
+  },
+  {
+   "from": "Berrywood Dr/Meadow Lark Ave (I-35)",
+   "hour_of_week": 138,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.385,-97.673"
   },
   {
    "from": "Veterans Dr",
@@ -207,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.420,-97.703"
-  },
-  {
-   "from": "Stone Hill Dr",
-   "hour_of_week": 167,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.474,-97.596"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.2,
-  "tomtom": 99.0
+  "dispatch": 88.9,
+  "tomtom": 99.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 17,
-  "neither": 15,
+  "n": 18,
+  "neither": 16,
   "tomtom_only": 2
  }
 }
