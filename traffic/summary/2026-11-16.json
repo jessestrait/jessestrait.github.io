@@ -13,19 +13,19 @@
   "dispatch_only": 29,
   "here": 0,
   "here_matched": 0,
-  "matched": 15,
-  "tomtom": 749,
-  "tomtom_only": 734
+  "matched": 16,
+  "tomtom": 786,
+  "tomtom_only": 770
  },
  "date": "2026-11-16",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 115.6,
+  "median": 115.8,
   "min": 8.9,
-  "n": 27,
-  "q1": 70.8,
-  "q3": 119.0
+  "n": 28,
+  "q1": 73.9,
+  "q3": 118.9
  },
  "here_onset_offset_min": {
   "n": 0
@@ -42,13 +42,13 @@
    "pct": 13.8
   },
   "tomtom_highway": {
-   "matched": 14,
-   "n": 297,
+   "matched": 15,
+   "n": 321,
    "pct": 4.7
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 452,
+   "n": 465,
    "pct": 0.2
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 80.1,
-  "median": 14.0,
+  "median": 10.9,
   "min": -14.5,
-  "n": 15,
-  "q1": -4.8,
-  "q3": 55.9
+  "n": 16,
+  "q1": -2.4,
+  "q3": 55.8
  },
  "persistence_min": {
   "max": -5.0,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 546,
+  "hotspot_buckets": 572,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 696
+  "unreported_congestion": 732
  },
  "sampling": {
   "flow_spent_this_month": 3960,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 569,
+  "incidents_spent_this_month": 570,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -167,6 +167,27 @@
    "seg": "30.429,-97.681"
   },
   {
+   "from": "US Highway 183",
+   "hour_of_week": 13,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.379,-97.739"
+  },
+  {
+   "from": "Bloor Rd (FM-973)",
+   "hour_of_week": 13,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.338,-97.558"
+  },
+  {
+   "from": "Cameron Rd",
+   "hour_of_week": 13,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.418,-97.576"
+  },
+  {
    "from": "Santos St",
    "hour_of_week": 13,
    "n": 3,
@@ -174,11 +195,11 @@
    "seg": "30.226,-97.700"
   },
   {
-   "from": "E Koenig Ln (I-35)",
+   "from": "Slaughter Ln (TX-1)",
    "hour_of_week": 13,
    "n": 3,
    "roadworks": false,
-   "seg": "30.310,-97.711"
+   "seg": "30.205,-97.863"
   },
   {
    "from": "Oltorf St/Exit 232 (I-35)",
@@ -193,27 +214,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.271,-97.765"
-  },
-  {
-   "from": "N Mo Pac Expy",
-   "hour_of_week": 0,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.420,-97.703"
-  },
-  {
-   "from": "E 6th St (I-35)",
-   "hour_of_week": 0,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.262,-97.736"
-  },
-  {
-   "from": "Brodie Ln",
-   "hour_of_week": 165,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.215,-97.829"
   }
  ],
  "unmatched_pct": {
