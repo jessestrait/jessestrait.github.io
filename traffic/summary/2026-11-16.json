@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 10,
-  "tomtom": 510,
-  "tomtom_only": 500
+  "tomtom": 530,
+  "tomtom_only": 520
  },
  "date": "2026-11-16",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 198,
-   "pct": 4.5
+   "n": 208,
+   "pct": 4.3
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 312,
+   "n": 322,
    "pct": 0.3
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 341,
+  "hotspot_buckets": 358,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 462
+  "unreported_congestion": 482
  },
  "sampling": {
   "flow_spent_this_month": 3942,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 563,
+  "incidents_spent_this_month": 564,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -144,6 +144,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.195,-97.767"
+  },
+  {
+   "from": "S Interstate 35",
+   "hour_of_week": 13,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.146,-97.794"
   },
   {
    "from": "Oltorf St/Exit 232 (I-35)",
@@ -207,18 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.271,-97.742"
-  },
-  {
-   "from": "Berkman Dr (US-290)",
-   "hour_of_week": 12,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.322,-97.699"
   }
  ],
  "unmatched_pct": {
   "dispatch": 82.4,
-  "tomtom": 98.0
+  "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
