@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 80,
-  "dispatch_only": 73,
+  "dispatch": 82,
+  "dispatch_only": 75,
   "here": 0,
   "here_matched": 0,
   "matched": 11,
-  "tomtom": 486,
-  "tomtom_only": 476
+  "tomtom": 513,
+  "tomtom_only": 503
  },
  "date": "2026-11-17",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 59,
-   "pct": 1.7
+   "n": 61,
+   "pct": 1.6
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 222,
-   "pct": 4.1
+   "n": 233,
+   "pct": 3.9
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 264,
+   "n": 280,
    "pct": 0.4
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 431,
+  "hotspot_buckets": 452,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 452
+  "unreported_congestion": 479
  },
  "sampling": {
   "flow_spent_this_month": 4203,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 595,
+  "incidents_spent_this_month": 596,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -112,18 +112,18 @@
  },
  "structural_hotspots": [
   {
+   "from": "TX-71/Ben White Blvd/Exit 230 (I-35)",
+   "hour_of_week": 44,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.199,-97.764"
+  },
+  {
    "from": "E 7th St (Springdale Rd)",
    "hour_of_week": 5,
    "n": 3,
    "roadworks": false,
    "seg": "30.256,-97.702"
-  },
-  {
-   "from": "TX-71/Ben White Blvd/Exit 230 (I-35)",
-   "hour_of_week": 44,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.199,-97.764"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -161,6 +161,13 @@
    "seg": "30.217,-97.691"
   },
   {
+   "from": "Airport Blvd/Exit 237 (I-35)",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.295,-97.719"
+  },
+  {
    "from": "Brighton Bend Ln",
    "hour_of_week": 44,
    "n": 2,
@@ -173,6 +180,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.502,-97.682"
+  },
+  {
+   "from": "Congress Ave/Speedway (Martin Luther King Jr Blvd)",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.279,-97.733"
   },
   {
    "from": "Cameron Rd (Parmer Ln/FM-734)",
@@ -189,43 +203,29 @@
    "seg": "30.301,-97.759"
   },
   {
+   "from": "W Ben White Blvd",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.223,-97.764"
+  },
+  {
    "from": "River St",
    "hour_of_week": 40,
    "n": 2,
    "roadworks": false,
    "seg": "30.258,-97.739"
-  },
-  {
-   "from": "Marsha St",
-   "hour_of_week": 133,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.447,-97.668"
-  },
-  {
-   "from": "Adage Dr / Epiphany Ln",
-   "hour_of_week": 59,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.448,-97.631"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 19,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.320,-97.706"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 91.2,
-  "tomtom": 97.9
+  "dispatch": 91.5,
+  "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 80,
-  "neither": 73,
+  "n": 82,
+  "neither": 75,
   "tomtom_only": 7
  }
 }
