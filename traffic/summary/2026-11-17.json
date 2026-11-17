@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 106,
+  "dispatch": 108,
   "dispatch_only": 80,
   "here": 0,
   "here_matched": 0,
-  "matched": 57,
-  "tomtom": 2312,
-  "tomtom_only": 2245
+  "matched": 61,
+  "tomtom": 2394,
+  "tomtom_only": 2323
  },
  "date": "2026-11-17",
  "dispatch_life_capped": true,
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 9,
-   "n": 26,
-   "pct": 34.6
+   "matched": 11,
+   "n": 28,
+   "pct": 39.3
   },
   "dispatch_surface": {
    "matched": 17,
@@ -42,14 +42,14 @@
    "pct": 21.2
   },
   "tomtom_highway": {
-   "matched": 41,
-   "n": 1078,
-   "pct": 3.8
+   "matched": 45,
+   "n": 1106,
+   "pct": 4.1
   },
   "tomtom_surface": {
    "matched": 26,
-   "n": 1234,
-   "pct": 2.1
+   "n": 1288,
+   "pct": 2.0
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 87.1,
-  "median": 24.4,
+  "median": 25.1,
   "min": -87.0,
-  "n": 57,
+  "n": 61,
   "q1": 0.6,
-  "q3": 51.4
+  "q3": 52.4
  },
  "persistence_min": {
   "max": 66.8,
   "median": -46.2,
   "min": -118.1,
-  "n": 20,
-  "q1": -87.2,
-  "q3": -26.7,
+  "n": 21,
+  "q1": -81.8,
+  "q3": -17.8,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1962,
+  "hotspot_buckets": 2004,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2219
+  "unreported_congestion": 2297
  },
  "sampling": {
   "flow_spent_this_month": 4266,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 621,
+  "incidents_spent_this_month": 622,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -145,6 +145,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.195,-97.767"
+  },
+  {
+   "from": "E 15th St (Trinity St)",
+   "hour_of_week": 47,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.279,-97.735"
   },
   {
    "from": "E 7th St (Springdale Rd)",
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.353,-97.691"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 46,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.263,-97.735"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 75.5,
-  "tomtom": 97.1
+  "dispatch": 74.1,
+  "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 106,
+  "n": 108,
   "neither": 80,
-  "tomtom_only": 26
+  "tomtom_only": 28
  }
 }
