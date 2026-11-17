@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 3,
-  "tomtom": 207,
-  "tomtom_only": 204
+  "tomtom": 208,
+  "tomtom_only": 205
  },
  "date": "2026-11-17",
  "dispatch_life_capped": true,
@@ -48,7 +48,7 @@
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 126,
+   "n": 127,
    "pct": 0.0
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 173,
+  "hotspot_buckets": 175,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 186
+  "unreported_congestion": 187
  },
  "sampling": {
   "flow_spent_this_month": 4113,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 582,
+  "incidents_spent_this_month": 583,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -145,13 +145,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.222,-97.676"
-  },
-  {
-   "from": "Highway 290 W",
-   "hour_of_week": 27,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.229,-97.883"
   },
   {
    "from": "Marsha St",
@@ -215,6 +208,13 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.128,-97.831"
+  },
+  {
+   "from": "TX-4 Loop/221 Dr/Exit 221 (I-35)",
+   "hour_of_week": 15,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.117,-97.805"
   }
  ],
  "unmatched_pct": {
