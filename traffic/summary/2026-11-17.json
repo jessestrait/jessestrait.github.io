@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 105,
-  "dispatch_only": 79,
+  "dispatch": 106,
+  "dispatch_only": 80,
   "here": 0,
   "here_matched": 0,
   "matched": 53,
-  "tomtom": 1921,
-  "tomtom_only": 1862
+  "tomtom": 2030,
+  "tomtom_only": 1970
  },
  "date": "2026-11-17",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 17,
-   "n": 79,
-   "pct": 21.5
+   "n": 80,
+   "pct": 21.2
   },
   "tomtom_highway": {
-   "matched": 38,
-   "n": 910,
-   "pct": 4.2
+   "matched": 39,
+   "n": 956,
+   "pct": 4.1
   },
   "tomtom_surface": {
    "matched": 21,
-   "n": 1011,
-   "pct": 2.1
+   "n": 1074,
+   "pct": 2.0
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1644,
+  "hotspot_buckets": 1740,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1838
+  "unreported_congestion": 1946
  },
  "sampling": {
   "flow_spent_this_month": 4257,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 617,
+  "incidents_spent_this_month": 618,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "S Interstate 35",
+   "hour_of_week": 47,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.489,-97.676"
+  },
   {
    "from": "S Interstate 35",
    "hour_of_week": 45,
@@ -131,6 +138,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.195,-97.767"
+  },
+  {
+   "from": "Metric Blvd (Braker Ln)",
+   "hour_of_week": 46,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.383,-97.688"
   },
   {
    "from": "E 7th St (Springdale Rd)",
@@ -201,31 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.263,-97.735"
-  },
-  {
-   "from": "Berardi Pl",
-   "hour_of_week": 46,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.466,-97.845"
-  },
-  {
-   "from": "Cesar Chavez St exit [234A]",
-   "hour_of_week": 46,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.262,-97.736"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 75.2,
-  "tomtom": 96.9
+  "dispatch": 75.5,
+  "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 105,
-  "neither": 79,
+  "n": 106,
+  "neither": 80,
   "tomtom_only": 26
  }
 }
