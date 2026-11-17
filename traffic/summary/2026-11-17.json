@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 66 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 68 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -10,20 +10,20 @@
  ],
  "counts": {
   "dispatch": 85,
-  "dispatch_only": 76,
+  "dispatch_only": 75,
   "here": 0,
   "here_matched": 0,
-  "matched": 13,
-  "tomtom": 575,
-  "tomtom_only": 563
+  "matched": 15,
+  "tomtom": 624,
+  "tomtom_only": 610
  },
  "date": "2026-11-17",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 116.9,
+  "median": 117.1,
   "min": 38.1,
-  "n": 66,
+  "n": 68,
   "q1": 115.1,
   "q3": 118.8
  },
@@ -37,18 +37,18 @@
    "pct": 31.8
   },
   "dispatch_surface": {
-   "matched": 2,
+   "matched": 3,
    "n": 63,
-   "pct": 3.2
+   "pct": 4.8
   },
   "tomtom_highway": {
-   "matched": 10,
-   "n": 262,
-   "pct": 3.8
+   "matched": 12,
+   "n": 287,
+   "pct": 4.2
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 313,
+   "n": 337,
    "pct": 0.6
   }
  },
@@ -62,9 +62,9 @@
   "max": 78.4,
   "median": 14.6,
   "min": -69.6,
-  "n": 13,
-  "q1": -2.3,
-  "q3": 53.6
+  "n": 15,
+  "q1": -4.1,
+  "q3": 51.4
  },
  "persistence_min": {
   "max": 66.8,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 508,
+  "hotspot_buckets": 548,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 539
+  "unreported_congestion": 586
  },
  "sampling": {
   "flow_spent_this_month": 4212,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 598,
+  "incidents_spent_this_month": 599,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -126,6 +126,13 @@
    "seg": "30.199,-97.764"
   },
   {
+   "from": "S Interstate 35",
+   "hour_of_week": 45,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.502,-97.682"
+  },
+  {
    "from": "Congress Ave/Speedway (Martin Luther King Jr Blvd)",
    "hour_of_week": 45,
    "n": 3,
@@ -145,6 +152,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.258,-97.739"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 45,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.273,-97.732"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -189,11 +203,11 @@
    "seg": "30.476,-97.831"
   },
   {
-   "from": "S Interstate 35",
+   "from": "Pearson Ranch Rd / Iveans Way",
    "hour_of_week": 45,
    "n": 2,
    "roadworks": false,
-   "seg": "30.502,-97.682"
+   "seg": "30.495,-97.750"
   },
   {
    "from": "Mopac Expy S",
@@ -201,31 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.301,-97.759"
-  },
-  {
-   "from": "W Ben White Blvd",
-   "hour_of_week": 45,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.223,-97.764"
-  },
-  {
-   "from": "Christina Garza Dr",
-   "hour_of_week": 45,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.350,-97.556"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 89.4,
-  "tomtom": 97.9
+  "dispatch": 88.2,
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 85,
-  "neither": 76,
-  "tomtom_only": 9
+  "neither": 75,
+  "tomtom_only": 10
  }
 }
