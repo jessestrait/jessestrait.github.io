@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 104,
-  "dispatch_only": 80,
+  "dispatch": 105,
+  "dispatch_only": 79,
   "here": 0,
   "here_matched": 0,
-  "matched": 50,
-  "tomtom": 1818,
-  "tomtom_only": 1763
+  "matched": 53,
+  "tomtom": 1921,
+  "tomtom_only": 1862
  },
  "date": "2026-11-17",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 34.6
   },
   "dispatch_surface": {
-   "matched": 15,
-   "n": 78,
-   "pct": 19.2
+   "matched": 17,
+   "n": 79,
+   "pct": 21.5
   },
   "tomtom_highway": {
    "matched": 38,
-   "n": 873,
-   "pct": 4.4
+   "n": 910,
+   "pct": 4.2
   },
   "tomtom_surface": {
-   "matched": 17,
-   "n": 945,
-   "pct": 1.8
+   "matched": 21,
+   "n": 1011,
+   "pct": 2.1
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.1,
-  "median": 18.6,
+  "median": 20.6,
   "min": -87.0,
-  "n": 50,
-  "q1": -0.4,
-  "q3": 48.8
+  "n": 53,
+  "q1": -0.2,
+  "q3": 49.6
  },
  "persistence_min": {
   "max": 66.8,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1547,
+  "hotspot_buckets": 1644,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1739
+  "unreported_congestion": 1838
  },
  "sampling": {
-  "flow_spent_this_month": 4248,
+  "flow_spent_this_month": 4257,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 616,
+  "incidents_spent_this_month": 617,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -145,13 +145,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.199,-97.764"
-  },
-  {
-   "from": "Congress Ave/Speedway (Martin Luther King Jr Blvd)",
-   "hour_of_week": 45,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.279,-97.733"
   },
   {
    "from": "Pearson Ranch Rd / Iveans Way",
@@ -215,17 +208,24 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.466,-97.845"
+  },
+  {
+   "from": "Cesar Chavez St exit [234A]",
+   "hour_of_week": 46,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.262,-97.736"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.9,
-  "tomtom": 97.0
+  "dispatch": 75.2,
+  "tomtom": 96.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 104,
-  "neither": 80,
-  "tomtom_only": 24
+  "n": 105,
+  "neither": 79,
+  "tomtom_only": 26
  }
 }
