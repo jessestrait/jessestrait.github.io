@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 66,
-  "dispatch_only": 62,
+  "dispatch_only": 61,
   "here": 0,
   "here_matched": 0,
-  "matched": 5,
-  "tomtom": 265,
-  "tomtom_only": 260
+  "matched": 6,
+  "tomtom": 282,
+  "tomtom_only": 276
  },
  "date": "2026-11-17",
  "dispatch_life_capped": true,
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 3,
+   "matched": 4,
    "n": 17,
-   "pct": 17.6
+   "pct": 23.5
   },
   "dispatch_surface": {
    "matched": 1,
@@ -42,13 +42,13 @@
    "pct": 2.0
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 111,
-   "pct": 3.6
+   "matched": 5,
+   "n": 123,
+   "pct": 4.1
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 154,
+   "n": 159,
    "pct": 0.6
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 58.1,
-  "median": 42.2,
-  "min": -0.6,
-  "n": 5,
-  "q1": 7.0,
-  "q3": 57.0
+  "median": 28.4,
+  "min": -5.7,
+  "n": 6,
+  "q1": -1.9,
+  "q3": 56.4
  },
  "persistence_min": {
   "max": 66.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 224,
+  "hotspot_buckets": 240,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 238
+  "unreported_congestion": 254
  },
  "sampling": {
   "flow_spent_this_month": 4158,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 587,
+  "incidents_spent_this_month": 588,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 93.9,
-  "tomtom": 98.1
+  "dispatch": 92.4,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 66,
-  "neither": 62,
-  "tomtom_only": 4
+  "neither": 61,
+  "tomtom_only": 5
  }
 }
