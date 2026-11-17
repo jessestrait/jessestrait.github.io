@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 95,
+  "dispatch": 96,
   "dispatch_only": 76,
   "here": 0,
   "here_matched": 0,
-  "matched": 29,
-  "tomtom": 1073,
-  "tomtom_only": 1043
+  "matched": 31,
+  "tomtom": 1153,
+  "tomtom_only": 1120
  },
  "date": "2026-11-17",
  "dispatch_life_capped": true,
@@ -37,18 +37,18 @@
    "pct": 36.0
   },
   "dispatch_surface": {
-   "matched": 10,
-   "n": 70,
-   "pct": 14.3
+   "matched": 11,
+   "n": 71,
+   "pct": 15.5
   },
   "tomtom_highway": {
-   "matched": 20,
-   "n": 507,
-   "pct": 3.9
+   "matched": 22,
+   "n": 535,
+   "pct": 4.1
   },
   "tomtom_surface": {
-   "matched": 10,
-   "n": 566,
+   "matched": 11,
+   "n": 618,
    "pct": 1.8
   }
  },
@@ -62,9 +62,9 @@
   "max": 78.4,
   "median": 14.6,
   "min": -83.1,
-  "n": 29,
-  "q1": -0.4,
-  "q3": 47.2
+  "n": 31,
+  "q1": -0.6,
+  "q3": 46.6
  },
  "persistence_min": {
   "max": 66.8,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 940,
+  "hotspot_buckets": 1003,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1019
+  "unreported_congestion": 1096
  },
  "sampling": {
   "flow_spent_this_month": 4230,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 607,
+  "incidents_spent_this_month": 608,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -175,11 +175,25 @@
    "seg": "30.273,-97.732"
   },
   {
+   "from": "Manor Rd (Berkman Dr)",
+   "hour_of_week": 46,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.303,-97.700"
+  },
+  {
    "from": "Wm Cannon Dr exit [228]",
    "hour_of_week": 46,
    "n": 3,
    "roadworks": false,
    "seg": "30.195,-97.767"
+  },
+  {
+   "from": "45th St (TX-1)",
+   "hour_of_week": 45,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.278,-97.769"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -201,31 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.255,-97.702"
-  },
-  {
-   "from": "E Riverside Dr (E Ben White Blvd/TX-71)",
-   "hour_of_week": 25,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.222,-97.676"
-  },
-  {
-   "from": "Metlink Dr",
-   "hour_of_week": 101,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.217,-97.691"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 80.0,
-  "tomtom": 97.2
+  "dispatch": 79.2,
+  "tomtom": 97.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 95,
+  "n": 96,
   "neither": 76,
-  "tomtom_only": 19
+  "tomtom_only": 20
  }
 }
