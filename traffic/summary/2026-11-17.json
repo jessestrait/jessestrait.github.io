@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 79,
-  "dispatch_only": 72,
+  "dispatch": 80,
+  "dispatch_only": 73,
   "here": 0,
   "here_matched": 0,
   "matched": 11,
-  "tomtom": 391,
-  "tomtom_only": 381
+  "tomtom": 428,
+  "tomtom_only": 418
  },
  "date": "2026-11-17",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 58,
+   "n": 59,
    "pct": 1.7
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 177,
-   "pct": 5.1
+   "n": 194,
+   "pct": 4.6
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 214,
-   "pct": 0.5
+   "n": 234,
+   "pct": 0.4
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 340,
+  "hotspot_buckets": 375,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 357
+  "unreported_congestion": 394
  },
  "sampling": {
-  "flow_spent_this_month": 4194,
+  "flow_spent_this_month": 4203,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 592,
+  "incidents_spent_this_month": 593,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,6 +117,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.256,-97.702"
+  },
+  {
+   "from": "TX-71/Ben White Blvd/Exit 230 (I-35)",
+   "hour_of_week": 44,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.199,-97.764"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -154,25 +161,25 @@
    "seg": "30.217,-97.691"
   },
   {
-   "from": "FM-2244 (TX-1)",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.301,-97.758"
-  },
-  {
-   "from": "TX-71/Ben White Blvd/Exit 230 (I-35)",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.199,-97.764"
-  },
-  {
    "from": "Brighton Bend Ln",
    "hour_of_week": 44,
    "n": 2,
    "roadworks": false,
    "seg": "30.476,-97.831"
+  },
+  {
+   "from": "Congress Ave/Speedway (Martin Luther King Jr Blvd)",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.279,-97.733"
+  },
+  {
+   "from": "Cameron Rd (Parmer Ln/FM-734)",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.373,-97.626"
   },
   {
    "from": "Marsha St",
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.254,-97.727"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.148,-97.704"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 91.1,
-  "tomtom": 97.4
+  "dispatch": 91.2,
+  "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 79,
-  "neither": 72,
+  "n": 80,
+  "neither": 73,
   "tomtom_only": 7
  }
 }
