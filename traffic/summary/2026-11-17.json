@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 108,
-  "dispatch_only": 80,
+  "dispatch": 109,
+  "dispatch_only": 81,
   "here": 0,
   "here_matched": 0,
   "matched": 62,
-  "tomtom": 2468,
-  "tomtom_only": 2396
+  "tomtom": 2544,
+  "tomtom_only": 2472
  },
  "date": "2026-11-17",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 17,
-   "n": 80,
-   "pct": 21.2
+   "n": 81,
+   "pct": 21.0
   },
   "tomtom_highway": {
    "matched": 46,
-   "n": 1138,
-   "pct": 4.0
+   "n": 1168,
+   "pct": 3.9
   },
   "tomtom_surface": {
    "matched": 26,
-   "n": 1330,
-   "pct": 2.0
+   "n": 1376,
+   "pct": 1.9
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2053,
+  "hotspot_buckets": 2107,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2370
+  "unreported_congestion": 2446
  },
  "sampling": {
   "flow_spent_this_month": 4266,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 623,
+  "incidents_spent_this_month": 624,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -145,6 +145,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.195,-97.767"
+  },
+  {
+   "from": "W Parmer Ln (TX-1 Loop/Mo-Pac Service Rd/FM-1325)",
+   "hour_of_week": 47,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.438,-97.699"
   },
   {
    "from": "N Lamar Blvd",
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.371,-97.727"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 45,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.273,-97.732"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 74.1,
-  "tomtom": 97.1
+  "dispatch": 74.3,
+  "tomtom": 97.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 108,
-  "neither": 80,
+  "n": 109,
+  "neither": 81,
   "tomtom_only": 28
  }
 }
