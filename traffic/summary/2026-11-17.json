@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 82 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 84 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -13,9 +13,9 @@
   "dispatch_only": 80,
   "here": 0,
   "here_matched": 0,
-  "matched": 54,
-  "tomtom": 2141,
-  "tomtom_only": 2080
+  "matched": 56,
+  "tomtom": 2234,
+  "tomtom_only": 2168
  },
  "date": "2026-11-17",
  "dispatch_life_capped": true,
@@ -23,7 +23,7 @@
   "max": 119.9,
   "median": 117.1,
   "min": 38.1,
-  "n": 82,
+  "n": 84,
   "q1": 115.2,
   "q3": 118.7
  },
@@ -42,14 +42,14 @@
    "pct": 21.2
   },
   "tomtom_highway": {
-   "matched": 40,
-   "n": 1007,
-   "pct": 4.0
+   "matched": 41,
+   "n": 1041,
+   "pct": 3.9
   },
   "tomtom_surface": {
-   "matched": 21,
-   "n": 1134,
-   "pct": 1.9
+   "matched": 25,
+   "n": 1193,
+   "pct": 2.1
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 87.1,
-  "median": 22.3,
+  "median": 24.2,
   "min": -87.0,
-  "n": 54,
-  "q1": -0.2,
-  "q3": 51.9
+  "n": 56,
+  "q1": 0.3,
+  "q3": 51.4
  },
  "persistence_min": {
   "max": 66.8,
-  "median": -36.2,
-  "min": -92.6,
-  "n": 11,
-  "q1": -51.4,
-  "q3": 0.0,
+  "median": -46.3,
+  "min": -118.1,
+  "n": 19,
+  "q1": -92.6,
+  "q3": -30.6,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1839,
+  "hotspot_buckets": 1910,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2056
+  "unreported_congestion": 2142
  },
  "sampling": {
   "flow_spent_this_month": 4257,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 619,
+  "incidents_spent_this_month": 620,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,6 +117,13 @@
    "n": 6,
    "roadworks": false,
    "seg": "30.489,-97.676"
+  },
+  {
+   "from": "Metric Blvd (Braker Ln)",
+   "hour_of_week": 46,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.383,-97.688"
   },
   {
    "from": "S Interstate 35",
@@ -138,13 +145,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.195,-97.767"
-  },
-  {
-   "from": "Metric Blvd (Braker Ln)",
-   "hour_of_week": 46,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.383,-97.688"
   },
   {
    "from": "E 7th St (Springdale Rd)",
@@ -219,7 +219,7 @@
  ],
  "unmatched_pct": {
   "dispatch": 75.5,
-  "tomtom": 97.2
+  "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
