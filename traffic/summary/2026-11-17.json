@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 83,
-  "dispatch_only": 75,
+  "dispatch": 85,
+  "dispatch_only": 76,
   "here": 0,
   "here_matched": 0,
-  "matched": 12,
-  "tomtom": 541,
-  "tomtom_only": 530
+  "matched": 13,
+  "tomtom": 575,
+  "tomtom_only": 563
  },
  "date": "2026-11-17",
  "dispatch_life_capped": true,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 6,
-   "n": 21,
-   "pct": 28.6
+   "matched": 7,
+   "n": 22,
+   "pct": 31.8
   },
   "dispatch_surface": {
    "matched": 2,
-   "n": 62,
+   "n": 63,
    "pct": 3.2
   },
   "tomtom_highway": {
-   "matched": 9,
-   "n": 244,
-   "pct": 3.7
+   "matched": 10,
+   "n": 262,
+   "pct": 3.8
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 297,
-   "pct": 0.7
+   "n": 313,
+   "pct": 0.6
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 78.4,
-  "median": 28.4,
-  "min": -5.7,
-  "n": 12,
-  "q1": 0.1,
-  "q3": 54.7
+  "median": 14.6,
+  "min": -69.6,
+  "n": 13,
+  "q1": -2.3,
+  "q3": 53.6
  },
  "persistence_min": {
   "max": 66.8,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 478,
+  "hotspot_buckets": 508,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 506
+  "unreported_congestion": 539
  },
  "sampling": {
   "flow_spent_this_month": 4212,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 597,
+  "incidents_spent_this_month": 598,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -126,11 +126,25 @@
    "seg": "30.199,-97.764"
   },
   {
+   "from": "Congress Ave/Speedway (Martin Luther King Jr Blvd)",
+   "hour_of_week": 45,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.279,-97.733"
+  },
+  {
    "from": "Cameron Rd (Parmer Ln/FM-734)",
    "hour_of_week": 45,
    "n": 3,
    "roadworks": false,
    "seg": "30.373,-97.626"
+  },
+  {
+   "from": "River St",
+   "hour_of_week": 40,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.258,-97.739"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -182,13 +196,6 @@
    "seg": "30.502,-97.682"
   },
   {
-   "from": "Congress Ave/Speedway (Martin Luther King Jr Blvd)",
-   "hour_of_week": 45,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.279,-97.733"
-  },
-  {
    "from": "Mopac Expy S",
    "hour_of_week": 45,
    "n": 2,
@@ -203,13 +210,6 @@
    "seg": "30.223,-97.764"
   },
   {
-   "from": "River St",
-   "hour_of_week": 40,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.258,-97.739"
-  },
-  {
    "from": "Christina Garza Dr",
    "hour_of_week": 45,
    "n": 2,
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 90.4,
-  "tomtom": 98.0
+  "dispatch": 89.4,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 83,
-  "neither": 75,
-  "tomtom_only": 8
+  "n": 85,
+  "neither": 76,
+  "tomtom_only": 9
  }
 }
