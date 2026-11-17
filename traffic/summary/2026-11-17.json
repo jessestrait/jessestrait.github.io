@@ -14,18 +14,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 1,
-  "tomtom": 166,
-  "tomtom_only": 165
+  "tomtom": 173,
+  "tomtom_only": 172
  },
  "date": "2026-11-17",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
-  "max": 118.4,
-  "median": 115.0,
+  "max": 119.9,
+  "median": 115.1,
   "min": 38.1,
-  "n": 17,
-  "q1": 85.9,
-  "q3": 117.4
+  "n": 18,
+  "q1": 86.8,
+  "q3": 117.6
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 1,
-   "n": 52,
-   "pct": 1.9
+   "n": 55,
+   "pct": 1.8
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 114,
+   "n": 118,
    "pct": 0.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 137,
+  "hotspot_buckets": 143,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 148
+  "unreported_congestion": 155
  },
  "sampling": {
   "flow_spent_this_month": 4068,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 576,
+  "incidents_spent_this_month": 577,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -137,6 +137,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.256,-97.702"
+  },
+  {
+   "from": "E Riverside Dr (E Ben White Blvd/TX-71)",
+   "hour_of_week": 25,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.222,-97.676"
   },
   {
    "from": "Marsha St",
@@ -207,13 +214,6 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.117,-97.805"
-  },
-  {
-   "from": "FM 1327",
-   "hour_of_week": 17,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.130,-97.800"
   }
  ],
  "unmatched_pct": {
