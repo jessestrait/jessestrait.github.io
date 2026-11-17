@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 82,
+  "dispatch": 83,
   "dispatch_only": 75,
   "here": 0,
   "here_matched": 0,
-  "matched": 11,
-  "tomtom": 513,
-  "tomtom_only": 503
+  "matched": 12,
+  "tomtom": 541,
+  "tomtom_only": 530
  },
  "date": "2026-11-17",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 28.6
   },
   "dispatch_surface": {
-   "matched": 1,
-   "n": 61,
-   "pct": 1.6
+   "matched": 2,
+   "n": 62,
+   "pct": 3.2
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 233,
-   "pct": 3.9
+   "n": 244,
+   "pct": 3.7
   },
   "tomtom_surface": {
-   "matched": 1,
-   "n": 280,
-   "pct": 0.4
+   "matched": 2,
+   "n": 297,
+   "pct": 0.7
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 78.4,
-  "median": 42.2,
+  "median": 28.4,
   "min": -5.7,
-  "n": 11,
-  "q1": -0.6,
-  "q3": 55.8
+  "n": 12,
+  "q1": 0.1,
+  "q3": 54.7
  },
  "persistence_min": {
-  "max": 66.0,
-  "median": -48.8,
+  "max": 66.8,
+  "median": -46.3,
   "min": -92.6,
-  "n": 6,
-  "q1": -76.5,
-  "q3": -10.7,
+  "n": 7,
+  "q1": -71.1,
+  "q3": 66.0,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 452,
+  "hotspot_buckets": 478,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 479
+  "unreported_congestion": 506
  },
  "sampling": {
-  "flow_spent_this_month": 4203,
+  "flow_spent_this_month": 4212,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 596,
+  "incidents_spent_this_month": 597,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -112,18 +112,25 @@
  },
  "structural_hotspots": [
   {
-   "from": "TX-71/Ben White Blvd/Exit 230 (I-35)",
-   "hour_of_week": 44,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.199,-97.764"
-  },
-  {
    "from": "E 7th St (Springdale Rd)",
    "hour_of_week": 5,
    "n": 3,
    "roadworks": false,
    "seg": "30.256,-97.702"
+  },
+  {
+   "from": "TX-71/Ben White Blvd/Exit 230 (I-35)",
+   "hour_of_week": 44,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.199,-97.764"
+  },
+  {
+   "from": "Cameron Rd (Parmer Ln/FM-734)",
+   "hour_of_week": 45,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.373,-97.626"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -161,13 +168,6 @@
    "seg": "30.217,-97.691"
   },
   {
-   "from": "Airport Blvd/Exit 237 (I-35)",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.295,-97.719"
-  },
-  {
    "from": "Brighton Bend Ln",
    "hour_of_week": 44,
    "n": 2,
@@ -189,13 +189,6 @@
    "seg": "30.279,-97.733"
   },
   {
-   "from": "Cameron Rd (Parmer Ln/FM-734)",
-   "hour_of_week": 45,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.373,-97.626"
-  },
-  {
    "from": "Mopac Expy S",
    "hour_of_week": 45,
    "n": 2,
@@ -215,17 +208,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.258,-97.739"
+  },
+  {
+   "from": "Christina Garza Dr",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.350,-97.556"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 91.5,
-  "tomtom": 98.1
+  "dispatch": 90.4,
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 82,
+  "n": 83,
   "neither": 75,
-  "tomtom_only": 7
+  "tomtom_only": 8
  }
 }
