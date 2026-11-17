@@ -13,9 +13,9 @@
   "dispatch_only": 78,
   "here": 0,
   "here_matched": 0,
-  "matched": 45,
-  "tomtom": 1555,
-  "tomtom_only": 1507
+  "matched": 46,
+  "tomtom": 1641,
+  "tomtom_only": 1592
  },
  "date": "2026-11-17",
  "dispatch_life_capped": true,
@@ -42,14 +42,14 @@
    "pct": 19.5
   },
   "tomtom_highway": {
-   "matched": 32,
-   "n": 747,
-   "pct": 4.3
+   "matched": 33,
+   "n": 786,
+   "pct": 4.2
   },
   "tomtom_surface": {
    "matched": 16,
-   "n": 808,
-   "pct": 2.0
+   "n": 855,
+   "pct": 1.9
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.1,
-  "median": 16.1,
+  "median": 16.4,
   "min": -87.0,
-  "n": 45,
+  "n": 46,
   "q1": -0.4,
-  "q3": 47.2
+  "q3": 46.9
  },
  "persistence_min": {
   "max": 66.8,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1316,
+  "hotspot_buckets": 1398,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1483
+  "unreported_congestion": 1568
  },
  "sampling": {
   "flow_spent_this_month": 4248,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 613,
+  "incidents_spent_this_month": 614,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,6 +117,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.502,-97.682"
+  },
+  {
+   "from": "Manor Rd (Berkman Dr)",
+   "hour_of_week": 46,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.303,-97.700"
   },
   {
    "from": "Wm Cannon Dr exit [228]",
@@ -189,13 +196,6 @@
    "seg": "30.432,-97.653"
   },
   {
-   "from": "Manor Rd (Berkman Dr)",
-   "hour_of_week": 46,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.303,-97.700"
-  },
-  {
    "from": "N Interstate 35",
    "hour_of_week": 46,
    "n": 3,
@@ -210,16 +210,16 @@
    "seg": "30.263,-97.735"
   },
   {
-   "from": "Cesar Chavez St exit [234A]",
+   "from": "Berardi Pl",
    "hour_of_week": 46,
    "n": 3,
    "roadworks": false,
-   "seg": "30.262,-97.736"
+   "seg": "30.466,-97.845"
   }
  ],
  "unmatched_pct": {
   "dispatch": 76.5,
-  "tomtom": 96.9
+  "tomtom": 97.0
  },
  "witnesses": {
   "both": 0,
