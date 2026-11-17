@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 77 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 78 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -13,19 +13,19 @@
   "dispatch_only": 78,
   "here": 0,
   "here_matched": 0,
-  "matched": 42,
-  "tomtom": 1483,
-  "tomtom_only": 1437
+  "matched": 45,
+  "tomtom": 1555,
+  "tomtom_only": 1507
  },
  "date": "2026-11-17",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 117.0,
+  "median": 117.1,
   "min": 38.1,
-  "n": 77,
+  "n": 78,
   "q1": 115.1,
-  "q3": 118.6
+  "q3": 118.7
  },
  "here_onset_offset_min": {
   "n": 0
@@ -42,14 +42,14 @@
    "pct": 19.5
   },
   "tomtom_highway": {
-   "matched": 30,
-   "n": 707,
-   "pct": 4.2
+   "matched": 32,
+   "n": 747,
+   "pct": 4.3
   },
   "tomtom_surface": {
    "matched": 16,
-   "n": 776,
-   "pct": 2.1
+   "n": 808,
+   "pct": 2.0
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 87.1,
-  "median": 15.4,
+  "median": 16.1,
   "min": -87.0,
-  "n": 42,
+  "n": 45,
   "q1": -0.4,
-  "q3": 46.9
+  "q3": 47.2
  },
  "persistence_min": {
   "max": 66.8,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1271,
+  "hotspot_buckets": 1316,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1413
+  "unreported_congestion": 1483
  },
  "sampling": {
-  "flow_spent_this_month": 4239,
+  "flow_spent_this_month": 4248,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 612,
+  "incidents_spent_this_month": 613,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,6 +117,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.502,-97.682"
+  },
+  {
+   "from": "Wm Cannon Dr exit [228]",
+   "hour_of_week": 46,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.195,-97.767"
   },
   {
    "from": "E 7th St (Springdale Rd)",
@@ -201,13 +208,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.263,-97.735"
-  },
-  {
-   "from": "Wm Cannon Dr exit [228]",
-   "hour_of_week": 46,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.195,-97.767"
   },
   {
    "from": "Cesar Chavez St exit [234A]",
