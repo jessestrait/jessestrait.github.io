@@ -13,9 +13,9 @@
   "dispatch_only": 76,
   "here": 0,
   "here_matched": 0,
-  "matched": 31,
-  "tomtom": 1153,
-  "tomtom_only": 1120
+  "matched": 32,
+  "tomtom": 1233,
+  "tomtom_only": 1198
  },
  "date": "2026-11-17",
  "dispatch_life_capped": true,
@@ -42,14 +42,14 @@
    "pct": 15.5
   },
   "tomtom_highway": {
-   "matched": 22,
-   "n": 535,
-   "pct": 4.1
+   "matched": 23,
+   "n": 585,
+   "pct": 3.9
   },
   "tomtom_surface": {
-   "matched": 11,
-   "n": 618,
-   "pct": 1.8
+   "matched": 12,
+   "n": 648,
+   "pct": 1.9
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 78.4,
-  "median": 14.6,
+  "median": 15.6,
   "min": -83.1,
-  "n": 31,
-  "q1": -0.6,
-  "q3": 46.6
+  "n": 32,
+  "q1": -0.5,
+  "q3": 47.6
  },
  "persistence_min": {
   "max": 66.8,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1003,
+  "hotspot_buckets": 1070,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1096
+  "unreported_congestion": 1174
  },
  "sampling": {
-  "flow_spent_this_month": 4230,
+  "flow_spent_this_month": 4239,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 608,
+  "incidents_spent_this_month": 609,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -182,6 +182,13 @@
    "seg": "30.303,-97.700"
   },
   {
+   "from": "N Interstate 35",
+   "hour_of_week": 46,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.263,-97.735"
+  },
+  {
    "from": "Wm Cannon Dr exit [228]",
    "hour_of_week": 46,
    "n": 3,
@@ -208,18 +215,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.430,-97.699"
-  },
-  {
-   "from": "E Cesar Chavez St (Springdale Rd)",
-   "hour_of_week": 137,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.255,-97.702"
   }
  ],
  "unmatched_pct": {
   "dispatch": 79.2,
-  "tomtom": 97.1
+  "tomtom": 97.2
  },
  "witnesses": {
   "both": 0,
