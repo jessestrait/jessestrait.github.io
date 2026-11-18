@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 55,
-  "dispatch_only": 36,
+  "dispatch": 56,
+  "dispatch_only": 37,
   "here": 0,
   "here_matched": 0,
   "matched": 23,
-  "tomtom": 1097,
-  "tomtom_only": 1075
+  "tomtom": 1154,
+  "tomtom_only": 1132
  },
  "date": "2026-11-18",
  "dispatch_life_capped": false,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 17,
-   "n": 47,
-   "pct": 36.2
+   "n": 48,
+   "pct": 35.4
   },
   "tomtom_highway": {
    "matched": 18,
-   "n": 569,
-   "pct": 3.2
+   "n": 595,
+   "pct": 3.0
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 528,
-   "pct": 0.8
+   "n": 559,
+   "pct": 0.7
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1011,
+  "hotspot_buckets": 1062,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1054
+  "unreported_congestion": 1111
  },
  "sampling": {
-  "flow_spent_this_month": 4383,
+  "flow_spent_this_month": 4392,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 650,
+  "incidents_spent_this_month": 651,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -115,7 +115,28 @@
    "hour_of_week": 61,
    "n": 3,
    "roadworks": false,
+   "seg": "30.109,-97.808"
+  },
+  {
+   "from": "S Interstate 35",
+   "hour_of_week": 61,
+   "n": 3,
+   "roadworks": false,
    "seg": "30.162,-97.789"
+  },
+  {
+   "from": "US Highway 183",
+   "hour_of_week": 61,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.379,-97.739"
+  },
+  {
+   "from": "FM-734/E Parmer Ln (Tech Ridge Blvd)",
+   "hour_of_week": 61,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.399,-97.671"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -193,38 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.262,-97.736"
-  },
-  {
-   "from": "Highway 290 W",
-   "hour_of_week": 51,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.229,-97.883"
-  },
-  {
-   "from": "E Dean Keeton St",
-   "hour_of_week": 48,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.286,-97.727"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.415,-97.673"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 65.5,
-  "tomtom": 98.0
+  "dispatch": 66.1,
+  "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 55,
-  "neither": 36,
+  "n": 56,
+  "neither": 37,
   "tomtom_only": 19
  }
 }
