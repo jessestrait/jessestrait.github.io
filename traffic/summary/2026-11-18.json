@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 58,
+  "dispatch": 59,
   "dispatch_only": 36,
   "here": 0,
   "here_matched": 0,
-  "matched": 28,
-  "tomtom": 1282,
-  "tomtom_only": 1249
+  "matched": 29,
+  "tomtom": 1334,
+  "tomtom_only": 1300
  },
  "date": "2026-11-18",
  "dispatch_life_capped": false,
@@ -37,18 +37,18 @@
    "pct": 37.5
   },
   "dispatch_surface": {
-   "matched": 19,
-   "n": 50,
-   "pct": 38.0
+   "matched": 20,
+   "n": 51,
+   "pct": 39.2
   },
   "tomtom_highway": {
-   "matched": 28,
-   "n": 668,
+   "matched": 29,
+   "n": 695,
    "pct": 4.2
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 614,
+   "n": 639,
    "pct": 0.8
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 83.2,
-  "median": -2.6,
+  "median": 3.4,
   "min": -89.2,
-  "n": 28,
+  "n": 29,
   "q1": -83.2,
-  "q3": 45.4
+  "q3": 39.6
  },
  "persistence_min": {
   "max": 25.7,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1160,
+  "hotspot_buckets": 1197,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1228
+  "unreported_congestion": 1279
  },
  "sampling": {
   "flow_spent_this_month": 4392,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 653,
+  "incidents_spent_this_month": 654,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -120,14 +120,14 @@
   {
    "from": "Dessau Rd",
    "hour_of_week": 61,
-   "n": 3,
+   "n": 4,
    "roadworks": false,
    "seg": "30.422,-97.620"
   },
   {
    "from": "S Interstate 35",
    "hour_of_week": 61,
-   "n": 3,
+   "n": 4,
    "roadworks": false,
    "seg": "30.162,-97.789"
   },
@@ -153,11 +153,11 @@
    "seg": "30.399,-97.671"
   },
   {
-   "from": "E Koenig Ln (I-35)",
+   "from": "Decker Ln (FM-969)",
    "hour_of_week": 61,
    "n": 3,
    "roadworks": false,
-   "seg": "30.310,-97.711"
+   "seg": "30.281,-97.648"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 62.1,
-  "tomtom": 97.4
+  "dispatch": 61.0,
+  "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 58,
+  "n": 59,
   "neither": 36,
-  "tomtom_only": 22
+  "tomtom_only": 23
  }
 }
