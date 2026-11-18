@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 56,
+  "dispatch": 57,
   "dispatch_only": 37,
   "here": 0,
   "here_matched": 0,
-  "matched": 23,
-  "tomtom": 1154,
-  "tomtom_only": 1132
+  "matched": 25,
+  "tomtom": 1217,
+  "tomtom_only": 1191
  },
  "date": "2026-11-18",
  "dispatch_life_capped": false,
@@ -37,18 +37,18 @@
    "pct": 25.0
   },
   "dispatch_surface": {
-   "matched": 17,
-   "n": 48,
-   "pct": 35.4
+   "matched": 18,
+   "n": 49,
+   "pct": 36.7
   },
   "tomtom_highway": {
-   "matched": 18,
-   "n": 595,
-   "pct": 3.0
+   "matched": 22,
+   "n": 634,
+   "pct": 3.5
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 559,
+   "n": 583,
    "pct": 0.7
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 71.4,
-  "median": -44.5,
+  "median": -16.3,
   "min": -89.2,
-  "n": 23,
-  "q1": -85.0,
-  "q3": 28.1
+  "n": 25,
+  "q1": -84.2,
+  "q3": 39.6
  },
  "persistence_min": {
   "max": 25.7,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1062,
+  "hotspot_buckets": 1112,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1111
+  "unreported_congestion": 1170
  },
  "sampling": {
   "flow_spent_this_month": 4392,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 651,
+  "incidents_spent_this_month": 652,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -116,6 +116,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.109,-97.808"
+  },
+  {
+   "from": "Dessau Rd",
+   "hour_of_week": 61,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.422,-97.620"
   },
   {
    "from": "S Interstate 35",
@@ -137,6 +144,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.399,-97.671"
+  },
+  {
+   "from": "E Koenig Ln (I-35)",
+   "hour_of_week": 61,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.310,-97.711"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -200,31 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.310,-97.711"
-  },
-  {
-   "from": "S Congress Ave",
-   "hour_of_week": 48,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.169,-97.788"
-  },
-  {
-   "from": "E 6th St (I-35)",
-   "hour_of_week": 49,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.262,-97.736"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 66.1,
-  "tomtom": 98.1
+  "dispatch": 64.9,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 56,
+  "n": 57,
   "neither": 37,
-  "tomtom_only": 19
+  "tomtom_only": 20
  }
 }
