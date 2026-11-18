@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 57,
-  "dispatch_only": 37,
+  "dispatch": 58,
+  "dispatch_only": 36,
   "here": 0,
   "here_matched": 0,
-  "matched": 25,
-  "tomtom": 1217,
-  "tomtom_only": 1191
+  "matched": 28,
+  "tomtom": 1282,
+  "tomtom_only": 1249
  },
  "date": "2026-11-18",
  "dispatch_life_capped": false,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 2,
+   "matched": 3,
    "n": 8,
-   "pct": 25.0
+   "pct": 37.5
   },
   "dispatch_surface": {
-   "matched": 18,
-   "n": 49,
-   "pct": 36.7
+   "matched": 19,
+   "n": 50,
+   "pct": 38.0
   },
   "tomtom_highway": {
-   "matched": 22,
-   "n": 634,
-   "pct": 3.5
+   "matched": 28,
+   "n": 668,
+   "pct": 4.2
   },
   "tomtom_surface": {
-   "matched": 4,
-   "n": 583,
-   "pct": 0.7
+   "matched": 5,
+   "n": 614,
+   "pct": 0.8
   }
  },
  "matcher": {
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 71.4,
-  "median": -16.3,
+  "max": 83.2,
+  "median": -2.6,
   "min": -89.2,
-  "n": 25,
-  "q1": -84.2,
-  "q3": 39.6
+  "n": 28,
+  "q1": -83.2,
+  "q3": 45.4
  },
  "persistence_min": {
   "max": 25.7,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1112,
+  "hotspot_buckets": 1160,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1170
+  "unreported_congestion": 1228
  },
  "sampling": {
   "flow_spent_this_month": 4392,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 652,
+  "incidents_spent_this_month": 653,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -113,7 +113,7 @@
   {
    "from": "S Interstate 35",
    "hour_of_week": 61,
-   "n": 3,
+   "n": 4,
    "roadworks": false,
    "seg": "30.109,-97.808"
   },
@@ -137,6 +137,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.379,-97.739"
+  },
+  {
+   "from": "US Highway 183",
+   "hour_of_week": 61,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.392,-97.747"
   },
   {
    "from": "FM-734/E Parmer Ln (Tech Ridge Blvd)",
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.265,-97.784"
-  },
-  {
-   "from": "E Koenig Ln (I-35)",
-   "hour_of_week": 48,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.310,-97.711"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 64.9,
-  "tomtom": 97.9
+  "dispatch": 62.1,
+  "tomtom": 97.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 57,
-  "neither": 37,
-  "tomtom_only": 20
+  "n": 58,
+  "neither": 36,
+  "tomtom_only": 22
  }
 }
