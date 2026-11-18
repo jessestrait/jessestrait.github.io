@@ -9,32 +9,32 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 32,
+  "dispatch": 33,
   "dispatch_only": 18,
   "here": 0,
   "here_matched": 0,
-  "matched": 15,
+  "matched": 16,
   "tomtom": 611,
-  "tomtom_only": 600
+  "tomtom_only": 599
  },
  "date": "2026-11-18",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
-  "max": 119.7,
+  "max": 119.9,
   "median": 118.0,
   "min": 114.9,
-  "n": 12,
-  "q1": 116.5,
-  "q3": 118.4
+  "n": 13,
+  "q1": 116.6,
+  "q3": 118.5
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
-   "n": 5,
-   "pct": 20.0
+   "matched": 2,
+   "n": 6,
+   "pct": 33.3
   },
   "dispatch_surface": {
    "matched": 13,
@@ -42,9 +42,9 @@
    "pct": 48.1
   },
   "tomtom_highway": {
-   "matched": 8,
+   "matched": 9,
    "n": 307,
-   "pct": 2.6
+   "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 3,
@@ -62,9 +62,9 @@
   "max": 71.4,
   "median": -83.1,
   "min": -89.2,
-  "n": 15,
-  "q1": -86.3,
-  "q3": -44.5
+  "n": 16,
+  "q1": -86.1,
+  "q3": -18.9
  },
  "persistence_min": {
   "max": 0.0,
@@ -89,10 +89,10 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 568,
+  "hotspot_buckets": 567,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 584
+  "unreported_congestion": 583
  },
  "sampling": {
   "flow_spent_this_month": 4293,
@@ -167,7 +167,14 @@
    "seg": "30.265,-97.784"
   },
   {
-   "from": "Dittmar Rd (S Congress Ave)",
+   "from": "E Koenig Ln (I-35)",
+   "hour_of_week": 48,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.310,-97.711"
+  },
+  {
+   "from": "S Congress Ave",
    "hour_of_week": 48,
    "n": 2,
    "roadworks": false,
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 48,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.310,-97.711"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 56.2,
-  "tomtom": 98.2
+  "dispatch": 54.5,
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 32,
+  "n": 33,
   "neither": 18,
-  "tomtom_only": 14
+  "tomtom_only": 15
  }
 }
