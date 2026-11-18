@@ -10,22 +10,22 @@
  ],
  "counts": {
   "dispatch": 70,
-  "dispatch_only": 46,
+  "dispatch_only": 45,
   "here": 0,
   "here_matched": 0,
-  "matched": 30,
-  "tomtom": 1433,
-  "tomtom_only": 1397
+  "matched": 31,
+  "tomtom": 1464,
+  "tomtom_only": 1427
  },
  "date": "2026-11-18",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 115.3,
+  "median": 115.4,
   "min": 5.8,
-  "n": 54,
-  "q1": 70.9,
-  "q3": 118.1
+  "n": 55,
+  "q1": 71.7,
+  "q3": 118.0
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,18 +37,18 @@
    "pct": 30.0
   },
   "dispatch_surface": {
-   "matched": 21,
+   "matched": 22,
    "n": 60,
-   "pct": 35.0
+   "pct": 36.7
   },
   "tomtom_highway": {
-   "matched": 31,
-   "n": 753,
-   "pct": 4.1
+   "matched": 32,
+   "n": 771,
+   "pct": 4.2
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 680,
+   "n": 693,
    "pct": 0.7
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 83.2,
-  "median": 4.3,
+  "median": 5.2,
   "min": -89.2,
-  "n": 30,
+  "n": 31,
   "q1": -83.1,
-  "q3": 33.9
+  "q3": 38.8
  },
  "persistence_min": {
   "max": 25.7,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1291,
+  "hotspot_buckets": 1316,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1376
+  "unreported_congestion": 1406
  },
  "sampling": {
   "flow_spent_this_month": 4437,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 655,
+  "incidents_spent_this_month": 656,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,13 +160,6 @@
    "seg": "30.281,-97.648"
   },
   {
-   "from": "E Koenig Ln (I-35)",
-   "hour_of_week": 61,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.310,-97.711"
-  },
-  {
    "from": "Buenos Aires Pkwy",
    "hour_of_week": 15,
    "n": 3,
@@ -214,17 +207,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.269,-97.769"
+  },
+  {
+   "from": "S Mo Pac Expy",
+   "hour_of_week": 46,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.265,-97.784"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 65.7,
+  "dispatch": 64.3,
   "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 70,
-  "neither": 46,
-  "tomtom_only": 24
+  "neither": 45,
+  "tomtom_only": 25
  }
 }
