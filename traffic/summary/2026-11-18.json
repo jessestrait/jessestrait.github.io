@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 64,
+  "dispatch": 65,
   "dispatch_only": 41,
   "here": 0,
   "here_matched": 0,
-  "matched": 29,
-  "tomtom": 1334,
-  "tomtom_only": 1300
+  "matched": 30,
+  "tomtom": 1433,
+  "tomtom_only": 1397
  },
  "date": "2026-11-18",
  "dispatch_life_capped": false,
@@ -37,19 +37,19 @@
    "pct": 37.5
   },
   "dispatch_surface": {
-   "matched": 20,
-   "n": 56,
-   "pct": 35.7
+   "matched": 21,
+   "n": 57,
+   "pct": 36.8
   },
   "tomtom_highway": {
-   "matched": 29,
-   "n": 695,
-   "pct": 4.2
+   "matched": 31,
+   "n": 753,
+   "pct": 4.1
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 639,
-   "pct": 0.8
+   "n": 680,
+   "pct": 0.7
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 83.2,
-  "median": 3.4,
+  "median": 4.3,
   "min": -89.2,
-  "n": 29,
-  "q1": -83.2,
-  "q3": 39.6
+  "n": 30,
+  "q1": -83.1,
+  "q3": 33.9
  },
  "persistence_min": {
   "max": 25.7,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1197,
+  "hotspot_buckets": 1291,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1279
+  "unreported_congestion": 1376
  },
  "sampling": {
-  "flow_spent_this_month": 4410,
+  "flow_spent_this_month": 4419,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 654,
+  "incidents_spent_this_month": 655,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,6 +160,13 @@
    "seg": "30.281,-97.648"
   },
   {
+   "from": "E Koenig Ln (I-35)",
+   "hour_of_week": 61,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.310,-97.711"
+  },
+  {
    "from": "Buenos Aires Pkwy",
    "hour_of_week": 15,
    "n": 3,
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.269,-97.769"
-  },
-  {
-   "from": "S Mo Pac Expy",
-   "hour_of_week": 46,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.265,-97.784"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 64.1,
+  "dispatch": 63.1,
   "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 64,
+  "n": 65,
   "neither": 41,
-  "tomtom_only": 23
+  "tomtom_only": 24
  }
 }
