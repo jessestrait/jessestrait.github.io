@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 45,
-  "dispatch_only": 30,
+  "dispatch": 46,
+  "dispatch_only": 31,
   "here": 0,
   "here_matched": 0,
   "matched": 18,
-  "tomtom": 742,
-  "tomtom_only": 728
+  "tomtom": 751,
+  "tomtom_only": 737
  },
  "date": "2026-11-18",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 13,
-   "n": 39,
-   "pct": 33.3
+   "n": 40,
+   "pct": 32.5
   },
   "tomtom_highway": {
    "matched": 11,
-   "n": 382,
-   "pct": 2.9
+   "n": 387,
+   "pct": 2.8
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 360,
+   "n": 364,
    "pct": 0.8
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 686,
+  "hotspot_buckets": 696,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 707
+  "unreported_congestion": 716
  },
  "sampling": {
   "flow_spent_this_month": 4356,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 636,
+  "incidents_spent_this_month": 637,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -202,29 +202,29 @@
    "seg": "30.286,-97.727"
   },
   {
-   "from": "TX-275 Loop/W Howard Ln/N Lamar Blvd (I-35)",
-   "hour_of_week": 59,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.437,-97.669"
-  },
-  {
    "from": "Marsha St",
    "hour_of_week": 133,
    "n": 2,
    "roadworks": false,
    "seg": "30.447,-97.668"
+  },
+  {
+   "from": "Adage Dr / Epiphany Ln",
+   "hour_of_week": 59,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.448,-97.631"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 66.7,
+  "dispatch": 67.4,
   "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 45,
-  "neither": 30,
+  "n": 46,
+  "neither": 31,
   "tomtom_only": 15
  }
 }
