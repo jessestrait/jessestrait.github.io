@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 42,
-  "dispatch_only": 27,
+  "dispatch": 43,
+  "dispatch_only": 28,
   "here": 0,
   "here_matched": 0,
   "matched": 18,
-  "tomtom": 643,
-  "tomtom_only": 629
+  "tomtom": 679,
+  "tomtom_only": 665
  },
  "date": "2026-11-18",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 118.0,
-  "min": 114.9,
-  "n": 19,
-  "q1": 115.4,
-  "q3": 118.6
+  "median": 97.2,
+  "min": 5.8,
+  "n": 42,
+  "q1": 62.7,
+  "q3": 117.4
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 13,
-   "n": 36,
-   "pct": 36.1
+   "n": 37,
+   "pct": 35.1
   },
   "tomtom_highway": {
    "matched": 11,
-   "n": 324,
-   "pct": 3.4
+   "n": 345,
+   "pct": 3.2
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 319,
+   "n": 334,
    "pct": 0.9
   }
  },
@@ -68,11 +68,11 @@
  },
  "persistence_min": {
   "max": 25.7,
-  "median": 5.1,
-  "min": -30.9,
-  "n": 6,
-  "q1": -7.7,
-  "q3": 14.1
+  "median": -20.7,
+  "min": -102.4,
+  "n": 18,
+  "q1": -56.2,
+  "q3": 1.3
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 595,
+  "hotspot_buckets": 624,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 612
+  "unreported_congestion": 644
  },
  "sampling": {
-  "flow_spent_this_month": 4293,
+  "flow_spent_this_month": 4302,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 626,
+  "incidents_spent_this_month": 627,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -209,22 +209,22 @@
    "seg": "30.320,-97.706"
   },
   {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
+   "from": "Clyde Littlefield Dr",
+   "hour_of_week": 48,
    "n": 2,
    "roadworks": false,
-   "seg": "30.245,-97.744"
+   "seg": "30.286,-97.727"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 64.3,
-  "tomtom": 97.8
+  "dispatch": 65.1,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 42,
-  "neither": 27,
+  "n": 43,
+  "neither": 28,
   "tomtom_only": 15
  }
 }
