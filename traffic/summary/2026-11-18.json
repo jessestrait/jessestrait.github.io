@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 76,
-  "dispatch_only": 51,
+  "dispatch": 77,
+  "dispatch_only": 52,
   "here": 0,
   "here_matched": 0,
   "matched": 31,
-  "tomtom": 1482,
-  "tomtom_only": 1445
+  "tomtom": 1496,
+  "tomtom_only": 1459
  },
  "date": "2026-11-18",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 22,
-   "n": 64,
-   "pct": 34.4
+   "n": 65,
+   "pct": 33.8
   },
   "tomtom_highway": {
    "matched": 32,
-   "n": 781,
+   "n": 788,
    "pct": 4.1
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 701,
+   "n": 708,
    "pct": 0.7
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1331,
+  "hotspot_buckets": 1341,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1424
+  "unreported_congestion": 1435
  },
  "sampling": {
   "flow_spent_this_month": 4473,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 657,
+  "incidents_spent_this_month": 658,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -161,6 +161,13 @@
    "seg": "30.281,-97.648"
   },
   {
+   "from": "E Martin Luther King Jr Blvd / Red River St",
+   "hour_of_week": 63,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.280,-97.732"
+  },
+  {
    "from": "Buenos Aires Pkwy",
    "hour_of_week": 15,
    "n": 3,
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.269,-97.769"
-  },
-  {
-   "from": "S Mo Pac Expy",
-   "hour_of_week": 46,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.265,-97.784"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 67.1,
+  "dispatch": 67.5,
   "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 76,
-  "neither": 51,
+  "n": 77,
+  "neither": 52,
   "tomtom_only": 25
  }
 }
