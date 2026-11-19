@@ -14,18 +14,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 4,
-  "tomtom": 350,
-  "tomtom_only": 347
+  "tomtom": 365,
+  "tomtom_only": 362
  },
  "date": "2026-11-19",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 115.2,
+  "median": 115.4,
   "min": 17.1,
-  "n": 21,
-  "q1": 49.4,
-  "q3": 118.0
+  "n": 22,
+  "q1": 52.5,
+  "q3": 117.7
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 164,
+   "n": 169,
    "pct": 1.2
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 186,
+   "n": 196,
    "pct": 0.5
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 314,
+  "hotspot_buckets": 329,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 324
+  "unreported_congestion": 339
  },
  "sampling": {
   "flow_spent_this_month": 4545,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 662,
+  "incidents_spent_this_month": 663,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -123,6 +123,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.258,-97.781"
+  },
+  {
+   "from": "FM 685",
+   "hour_of_week": 20,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.472,-97.592"
   },
   {
    "from": "Concho St",
@@ -151,13 +158,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.320,-97.706"
-  },
-  {
-   "from": "Clyde Littlefield Dr",
-   "hour_of_week": 73,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.286,-97.727"
   },
   {
    "from": "Eastside Dr (Woodland Ave)",
@@ -218,7 +218,7 @@
  ],
  "unmatched_pct": {
   "dispatch": 89.5,
-  "tomtom": 99.1
+  "tomtom": 99.2
  },
  "witnesses": {
   "both": 0,
