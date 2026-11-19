@@ -13,9 +13,9 @@
   "dispatch_only": 88,
   "here": 0,
   "here_matched": 0,
-  "matched": 44,
-  "tomtom": 2221,
-  "tomtom_only": 2173
+  "matched": 45,
+  "tomtom": 2344,
+  "tomtom_only": 2294
  },
  "date": "2026-11-19",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 38,
-   "n": 1106,
-   "pct": 3.4
+   "n": 1165,
+   "pct": 3.3
   },
   "tomtom_surface": {
-   "matched": 10,
-   "n": 1115,
-   "pct": 0.9
+   "matched": 12,
+   "n": 1179,
+   "pct": 1.0
   }
  },
  "matcher": {
@@ -62,9 +62,9 @@
   "max": 84.7,
   "median": -0.1,
   "min": -80.2,
-  "n": 44,
+  "n": 45,
   "q1": -32.0,
-  "q3": 42.7
+  "q3": 42.0
  },
  "persistence_min": {
   "max": -5.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1941,
+  "hotspot_buckets": 2040,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2137
+  "unreported_congestion": 2258
  },
  "sampling": {
   "flow_spent_this_month": 4761,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 703,
+  "incidents_spent_this_month": 704,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -119,18 +119,18 @@
    "seg": "30.265,-97.735"
   },
   {
-   "from": "W Cesar Chavez St",
-   "hour_of_week": 94,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.277,-97.770"
-  },
-  {
    "from": "E Anderson Ln",
    "hour_of_week": 94,
    "n": 4,
    "roadworks": false,
    "seg": "30.337,-97.696"
+  },
+  {
+   "from": "E 11th St (I-35)",
+   "hour_of_week": 94,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.268,-97.734"
   },
   {
    "from": "Wells Branch Pkwy/Exit 248 (I-35)",
@@ -196,6 +196,13 @@
    "seg": "30.504,-97.777"
   },
   {
+   "from": "W Riverside Dr (S 1st St)",
+   "hour_of_week": 94,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.262,-97.748"
+  },
+  {
    "from": "Dessau Rd",
    "hour_of_week": 94,
    "n": 3,
@@ -203,23 +210,16 @@
    "seg": "30.422,-97.620"
   },
   {
-   "from": "Congress Ave (W 5th St)",
+   "from": "W Cesar Chavez St",
    "hour_of_week": 94,
    "n": 3,
    "roadworks": false,
-   "seg": "30.266,-97.738"
-  },
-  {
-   "from": "Ed Bluestein Blvd",
-   "hour_of_week": 94,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.285,-97.665"
+   "seg": "30.277,-97.770"
   }
  ],
  "unmatched_pct": {
   "dispatch": 76.5,
-  "tomtom": 97.8
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
