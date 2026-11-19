@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 33,
-  "dispatch_only": 29,
+  "dispatch": 34,
+  "dispatch_only": 30,
   "here": 0,
   "here_matched": 0,
   "matched": 4,
@@ -21,11 +21,11 @@
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 114.9,
+  "median": 115.2,
   "min": 17.1,
-  "n": 18,
-  "q1": 42.8,
-  "q3": 117.7
+  "n": 19,
+  "q1": 43.0,
+  "q3": 118.8
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,8 +38,8 @@
   },
   "dispatch_surface": {
    "matched": 2,
-   "n": 25,
-   "pct": 8.0
+   "n": 26,
+   "pct": 7.7
   },
   "tomtom_highway": {
    "matched": 2,
@@ -153,6 +153,13 @@
    "seg": "30.320,-97.706"
   },
   {
+   "from": "Clyde Littlefield Dr",
+   "hour_of_week": 73,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.286,-97.727"
+  },
+  {
    "from": "Eastside Dr (Woodland Ave)",
    "hour_of_week": 17,
    "n": 2,
@@ -165,13 +172,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "E Dean Keeton St",
-   "hour_of_week": 73,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.286,-97.727"
   },
   {
    "from": "Mesa Dr (Spicewood Springs Rd)",
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.9,
+  "dispatch": 88.2,
   "tomtom": 99.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 33,
-  "neither": 29,
+  "n": 34,
+  "neither": 30,
   "tomtom_only": 4
  }
 }
