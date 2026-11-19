@@ -13,9 +13,9 @@
   "dispatch_only": 84,
   "here": 0,
   "here_matched": 0,
-  "matched": 23,
-  "tomtom": 1024,
-  "tomtom_only": 1003
+  "matched": 24,
+  "tomtom": 1068,
+  "tomtom_only": 1046
  },
  "date": "2026-11-19",
  "dispatch_life_capped": true,
@@ -42,14 +42,14 @@
    "pct": 17.3
   },
   "tomtom_highway": {
-   "matched": 17,
-   "n": 501,
+   "matched": 18,
+   "n": 528,
    "pct": 3.4
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 523,
-   "pct": 0.8
+   "n": 540,
+   "pct": 0.7
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 84.7,
-  "median": -2.1,
+  "median": -4.8,
   "min": -69.1,
-  "n": 23,
-  "q1": -40.5,
-  "q3": 29.7
+  "n": 24,
+  "q1": -39.3,
+  "q3": 28.7
  },
  "persistence_min": {
   "max": -10.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 906,
+  "hotspot_buckets": 940,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 968
+  "unreported_congestion": 1011
  },
  "sampling": {
-  "flow_spent_this_month": 4716,
+  "flow_spent_this_month": 4725,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 686,
+  "incidents_spent_this_month": 687,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -114,9 +114,16 @@
   {
    "from": "S 1st St/Conroy Ln (FM-1626)",
    "hour_of_week": 93,
-   "n": 3,
+   "n": 4,
    "roadworks": false,
    "seg": "30.141,-97.797"
+  },
+  {
+   "from": "Wells Branch Pkwy/Exit 248 (I-35)",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.429,-97.671"
   },
   {
    "from": "W Ben White Blvd",
@@ -131,6 +138,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.223,-97.765"
+  },
+  {
+   "from": "Presidential Blvd",
+   "hour_of_week": 93,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.209,-97.662"
   },
   {
    "from": "W Ben White Blvd",
@@ -201,20 +215,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.260,-97.709"
-  },
-  {
-   "from": "Airport Blvd/E 1st St (Ed Bluestein Blvd/US-183)",
-   "hour_of_week": 92,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.231,-97.683"
-  },
-  {
-   "from": "Rental Car Ln",
-   "hour_of_week": 92,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.205,-97.671"
   }
  ],
  "unmatched_pct": {
