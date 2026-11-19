@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 76,
-  "dispatch_only": 72,
+  "dispatch_only": 71,
   "here": 0,
   "here_matched": 0,
-  "matched": 4,
-  "tomtom": 463,
-  "tomtom_only": 460
+  "matched": 5,
+  "tomtom": 483,
+  "tomtom_only": 479
  },
  "date": "2026-11-19",
  "dispatch_life_capped": true,
@@ -37,18 +37,18 @@
    "pct": 12.5
   },
   "dispatch_surface": {
-   "matched": 2,
+   "matched": 3,
    "n": 60,
-   "pct": 3.3
+   "pct": 5.0
   },
   "tomtom_highway": {
-   "matched": 2,
-   "n": 222,
-   "pct": 0.9
+   "matched": 3,
+   "n": 229,
+   "pct": 1.3
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 241,
+   "n": 254,
    "pct": 0.4
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 53.2,
-  "median": 18.2,
+  "median": 10.9,
   "min": -40.5,
-  "n": 4,
-  "q1": -27.6,
-  "q3": 46.3
+  "n": 5,
+  "q1": -16.4,
+  "q3": 39.4
  },
  "persistence_min": {
   "max": -10.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 415,
+  "hotspot_buckets": 433,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 430
+  "unreported_congestion": 449
  },
  "sampling": {
   "flow_spent_this_month": 4644,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 672,
+  "incidents_spent_this_month": 673,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -154,11 +154,18 @@
    "seg": "30.256,-97.702"
   },
   {
-   "from": "E 38 1/2 St (Overpass) (I-35)",
+   "from": "Stone Hill Dr",
    "hour_of_week": 90,
    "n": 2,
    "roadworks": false,
-   "seg": "30.282,-97.728"
+   "seg": "30.474,-97.596"
+  },
+  {
+   "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
+   "hour_of_week": 90,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.258,-97.737"
   },
   {
    "from": "Marsha St",
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Mesa Dr (Spicewood Springs Rd)",
-   "hour_of_week": 66,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.384,-97.766"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 94.7,
-  "tomtom": 99.4
+  "dispatch": 93.4,
+  "tomtom": 99.2
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 76,
-  "neither": 72,
-  "tomtom_only": 4
+  "neither": 71,
+  "tomtom_only": 5
  }
 }
