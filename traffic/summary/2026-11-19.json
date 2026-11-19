@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 32,
-  "dispatch_only": 28,
+  "dispatch": 33,
+  "dispatch_only": 29,
   "here": 0,
   "here_matched": 0,
   "matched": 4,
-  "tomtom": 328,
-  "tomtom_only": 325
+  "tomtom": 350,
+  "tomtom_only": 347
  },
  "date": "2026-11-19",
  "dispatch_life_capped": false,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 2,
-   "n": 24,
-   "pct": 8.3
+   "n": 25,
+   "pct": 8.0
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 154,
-   "pct": 1.3
+   "n": 164,
+   "pct": 1.2
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 174,
-   "pct": 0.6
+   "n": 186,
+   "pct": 0.5
   }
  },
  "matcher": {
@@ -67,7 +67,12 @@
   "q3": 46.3
  },
  "persistence_min": {
-  "n": 0
+  "max": -10.1,
+  "median": -10.1,
+  "min": -10.1,
+  "n": 1,
+  "q1": -10.1,
+  "q3": -10.1
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -84,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 294,
+  "hotspot_buckets": 314,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 303
+  "unreported_congestion": 324
  },
  "sampling": {
   "flow_spent_this_month": 4536,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 661,
+  "incidents_spent_this_month": 662,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -162,6 +167,13 @@
    "seg": "30.148,-97.704"
   },
   {
+   "from": "E Dean Keeton St",
+   "hour_of_week": 73,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.286,-97.727"
+  },
+  {
    "from": "Mesa Dr (Spicewood Springs Rd)",
    "hour_of_week": 66,
    "n": 1,
@@ -202,24 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.425,-97.626"
-  },
-  {
-   "from": "State Highway 130 / Copper Mine Dr",
-   "hour_of_week": 65,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.470,-97.593"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.5,
+  "dispatch": 87.9,
   "tomtom": 99.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 32,
-  "neither": 28,
+  "n": 33,
+  "neither": 29,
   "tomtom_only": 4
  }
 }
