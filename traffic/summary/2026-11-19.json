@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 120,
+  "dispatch": 121,
   "dispatch_only": 91,
   "here": 0,
   "here_matched": 0,
-  "matched": 56,
-  "tomtom": 2783,
-  "tomtom_only": 2720
+  "matched": 57,
+  "tomtom": 2838,
+  "tomtom_only": 2774
  },
  "date": "2026-11-19",
  "dispatch_life_capped": true,
@@ -37,18 +37,18 @@
    "pct": 36.0
   },
   "dispatch_surface": {
-   "matched": 20,
-   "n": 95,
-   "pct": 21.1
+   "matched": 21,
+   "n": 96,
+   "pct": 21.9
   },
   "tomtom_highway": {
-   "matched": 49,
-   "n": 1373,
+   "matched": 50,
+   "n": 1405,
    "pct": 3.6
   },
   "tomtom_surface": {
    "matched": 14,
-   "n": 1410,
+   "n": 1433,
    "pct": 1.0
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 84.7,
-  "median": -0.6,
+  "median": -0.7,
   "min": -80.2,
-  "n": 56,
+  "n": 57,
   "q1": -32.0,
-  "q3": 38.0
+  "q3": 35.2
  },
  "persistence_min": {
   "max": 35.7,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 2347,
+  "hotspot_buckets": 2383,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 2683
+  "unreported_congestion": 2737
  },
  "sampling": {
-  "flow_spent_this_month": 4770,
+  "flow_spent_this_month": 4779,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 710,
+  "incidents_spent_this_month": 711,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -126,6 +126,13 @@
    "seg": "30.440,-97.836"
   },
   {
+   "from": "Congress Ave S (Barton Springs Rd)",
+   "hour_of_week": 94,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.258,-97.749"
+  },
+  {
    "from": "N Interstate 35",
    "hour_of_week": 94,
    "n": 4,
@@ -147,11 +154,11 @@
    "seg": "30.337,-97.696"
   },
   {
-   "from": "Congress Ave S (Barton Springs Rd)",
-   "hour_of_week": 94,
+   "from": "W Ben White Blvd",
+   "hour_of_week": 95,
    "n": 4,
    "roadworks": false,
-   "seg": "30.258,-97.749"
+   "seg": "30.223,-97.764"
   },
   {
    "from": "Rental Car Ln",
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.279,-97.730"
-  },
-  {
-   "from": "Mopac Expy S",
-   "hour_of_week": 94,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.310,-97.759"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 75.8,
+  "dispatch": 75.2,
   "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 120,
+  "n": 121,
   "neither": 91,
-  "tomtom_only": 29
+  "tomtom_only": 30
  }
 }
