@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 75 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 76 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 89,
-  "dispatch_only": 77,
+  "dispatch": 90,
+  "dispatch_only": 78,
   "here": 0,
   "here_matched": 0,
-  "matched": 12,
+  "matched": 13,
   "tomtom": 570,
-  "tomtom_only": 560
+  "tomtom_only": 559
  },
  "date": "2026-11-19",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 117.1,
+  "median": 117.0,
   "min": 17.1,
-  "n": 75,
-  "q1": 115.2,
+  "n": 76,
+  "q1": 115.3,
   "q3": 118.8
  },
  "here_onset_offset_min": {
@@ -38,8 +38,8 @@
   },
   "dispatch_surface": {
    "matched": 9,
-   "n": 71,
-   "pct": 12.7
+   "n": 72,
+   "pct": 12.5
   },
   "tomtom_highway": {
    "matched": 8,
@@ -47,9 +47,9 @@
    "pct": 2.9
   },
   "tomtom_surface": {
-   "matched": 2,
+   "matched": 3,
    "n": 294,
-   "pct": 0.7
+   "pct": 1.0
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 53.2,
-  "median": -13.6,
+  "median": -11.7,
   "min": -69.1,
-  "n": 12,
-  "q1": -41.9,
-  "q3": 10.1
+  "n": 13,
+  "q1": -41.5,
+  "q3": 18.2
  },
  "persistence_min": {
   "max": -10.1,
@@ -90,10 +90,10 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 513,
+  "hotspot_buckets": 512,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 528
+  "unreported_congestion": 527
  },
  "sampling": {
   "flow_spent_this_month": 4689,
@@ -161,6 +161,13 @@
    "seg": "30.258,-97.737"
   },
   {
+   "from": "Rental Car Ln",
+   "hour_of_week": 92,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.205,-97.671"
+  },
+  {
    "from": "Marsha St",
    "hour_of_week": 133,
    "n": 2,
@@ -203,13 +210,6 @@
    "seg": "30.148,-97.704"
   },
   {
-   "from": "Rental Car Ln",
-   "hour_of_week": 92,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.205,-97.671"
-  },
-  {
    "from": "Mesa Dr (Spicewood Springs Rd)",
    "hour_of_week": 66,
    "n": 1,
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.5,
-  "tomtom": 98.2
+  "dispatch": 86.7,
+  "tomtom": 98.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 89,
-  "neither": 77,
+  "n": 90,
+  "neither": 78,
   "tomtom_only": 12
  }
 }
