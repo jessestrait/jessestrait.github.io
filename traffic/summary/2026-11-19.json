@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 92 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 118 min over 94 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 109,
-  "dispatch_only": 84,
+  "dispatch": 111,
+  "dispatch_only": 85,
   "here": 0,
   "here_matched": 0,
-  "matched": 39,
-  "tomtom": 1836,
-  "tomtom_only": 1796
+  "matched": 40,
+  "tomtom": 1914,
+  "tomtom_only": 1873
  },
  "date": "2026-11-19",
  "dispatch_life_capped": true,
@@ -23,9 +23,9 @@
   "max": 119.9,
   "median": 116.9,
   "min": 17.1,
-  "n": 92,
+  "n": 94,
   "q1": 115.4,
-  "q3": 118.4
+  "q3": 118.5
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,19 +37,19 @@
    "pct": 30.4
   },
   "dispatch_surface": {
-   "matched": 18,
-   "n": 86,
-   "pct": 20.9
+   "matched": 19,
+   "n": 88,
+   "pct": 21.6
   },
   "tomtom_highway": {
-   "matched": 33,
-   "n": 919,
-   "pct": 3.6
+   "matched": 34,
+   "n": 965,
+   "pct": 3.5
   },
   "tomtom_surface": {
    "matched": 7,
-   "n": 917,
-   "pct": 0.8
+   "n": 949,
+   "pct": 0.7
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 84.7,
-  "median": -0.1,
+  "median": 0.0,
   "min": -69.1,
-  "n": 39,
-  "q1": -32.0,
-  "q3": 43.3
+  "n": 40,
+  "q1": -31.1,
+  "q3": 42.7
  },
  "persistence_min": {
-  "max": -10.1,
-  "median": -56.6,
+  "max": -5.1,
+  "median": -51.3,
   "min": -118.0,
-  "n": 15,
-  "q1": -77.2,
-  "q3": -15.6,
+  "n": 18,
+  "q1": -69.4,
+  "q3": -15.5,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1601,
+  "hotspot_buckets": 1656,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1760
+  "unreported_congestion": 1837
  },
  "sampling": {
-  "flow_spent_this_month": 4743,
+  "flow_spent_this_month": 4752,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 698,
+  "incidents_spent_this_month": 699,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,20 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 94,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.265,-97.735"
+  },
+  {
+   "from": "E Anderson Ln",
+   "hour_of_week": 94,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.337,-97.696"
+  },
   {
    "from": "Wells Branch Pkwy/Exit 248 (I-35)",
    "hour_of_week": 93,
@@ -154,11 +168,11 @@
    "seg": "30.279,-97.730"
   },
   {
-   "from": "N Interstate 35",
+   "from": "E Stassney Ln",
    "hour_of_week": 94,
    "n": 3,
    "roadworks": false,
-   "seg": "30.265,-97.735"
+   "seg": "30.205,-97.775"
   },
   {
    "from": "FM-2222/Bullick Hollow Rd (FM-620)",
@@ -166,6 +180,20 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.440,-97.836"
+  },
+  {
+   "from": "Dessau Rd",
+   "hour_of_week": 94,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.422,-97.620"
+  },
+  {
+   "from": "Congress Ave (W 5th St)",
+   "hour_of_week": 94,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.266,-97.738"
   },
   {
    "from": "Manchaca Rd (Slaughter Ln)",
@@ -187,45 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.209,-97.662"
-  },
-  {
-   "from": "E Anderson Ln",
-   "hour_of_week": 94,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.337,-97.696"
-  },
-  {
-   "from": "W Cesar Chavez St (Lavaca St)",
-   "hour_of_week": 94,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.266,-97.746"
-  },
-  {
-   "from": "Dee Gabriel Collins Rd (US-183)",
-   "hour_of_week": 94,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.150,-97.697"
-  },
-  {
-   "from": "Southwest Pkwy (TX-71)",
-   "hour_of_week": 94,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.263,-97.908"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 77.1,
-  "tomtom": 97.8
+  "dispatch": 76.6,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 109,
-  "neither": 84,
-  "tomtom_only": 25
+  "n": 111,
+  "neither": 85,
+  "tomtom_only": 26
  }
 }
