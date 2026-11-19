@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 108,
-  "dispatch_only": 83,
+  "dispatch": 109,
+  "dispatch_only": 84,
   "here": 0,
   "here_matched": 0,
   "matched": 39,
-  "tomtom": 1747,
-  "tomtom_only": 1707
+  "tomtom": 1836,
+  "tomtom_only": 1796
  },
  "date": "2026-11-19",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 18,
-   "n": 85,
-   "pct": 21.2
+   "n": 86,
+   "pct": 20.9
   },
   "tomtom_highway": {
    "matched": 33,
-   "n": 877,
-   "pct": 3.8
+   "n": 919,
+   "pct": 3.6
   },
   "tomtom_surface": {
    "matched": 7,
-   "n": 870,
+   "n": 917,
    "pct": 0.8
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1530,
+  "hotspot_buckets": 1601,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1671
+  "unreported_congestion": 1760
  },
  "sampling": {
   "flow_spent_this_month": 4743,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 697,
+  "incidents_spent_this_month": 698,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -161,18 +161,25 @@
    "seg": "30.265,-97.735"
   },
   {
-   "from": "E Stassney Ln",
-   "hour_of_week": 94,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.205,-97.775"
-  },
-  {
    "from": "FM-2222/Bullick Hollow Rd (FM-620)",
    "hour_of_week": 92,
    "n": 3,
    "roadworks": false,
    "seg": "30.440,-97.836"
+  },
+  {
+   "from": "Manchaca Rd (Slaughter Ln)",
+   "hour_of_week": 94,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.167,-97.791"
+  },
+  {
+   "from": "Ed Bluestein Blvd",
+   "hour_of_week": 94,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.285,-97.665"
   },
   {
    "from": "Presidential Blvd",
@@ -189,43 +196,36 @@
    "seg": "30.337,-97.696"
   },
   {
-   "from": "Falcon Pointe Blvd",
+   "from": "W Cesar Chavez St (Lavaca St)",
    "hour_of_week": 94,
    "n": 3,
    "roadworks": false,
-   "seg": "30.458,-97.588"
+   "seg": "30.266,-97.746"
   },
   {
-   "from": "Buenos Aires Pkwy",
-   "hour_of_week": 15,
+   "from": "Dee Gabriel Collins Rd (US-183)",
+   "hour_of_week": 94,
    "n": 3,
    "roadworks": false,
-   "seg": "30.169,-97.623"
+   "seg": "30.150,-97.697"
   },
   {
-   "from": "Cresthaven Dr",
-   "hour_of_week": 65,
-   "n": 2,
+   "from": "Southwest Pkwy (TX-71)",
+   "hour_of_week": 94,
+   "n": 3,
    "roadworks": false,
-   "seg": "30.258,-97.781"
-  },
-  {
-   "from": "FM 685",
-   "hour_of_week": 20,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.472,-97.592"
+   "seg": "30.263,-97.908"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 76.9,
-  "tomtom": 97.7
+  "dispatch": 77.1,
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 108,
-  "neither": 83,
+  "n": 109,
+  "neither": 84,
   "tomtom_only": 25
  }
 }
