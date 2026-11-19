@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 106,
-  "dispatch_only": 84,
+  "dispatch": 107,
+  "dispatch_only": 83,
   "here": 0,
   "here_matched": 0,
-  "matched": 32,
-  "tomtom": 1516,
-  "tomtom_only": 1484
+  "matched": 35,
+  "tomtom": 1596,
+  "tomtom_only": 1561
  },
  "date": "2026-11-19",
  "dispatch_life_capped": true,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 6,
+   "matched": 7,
    "n": 23,
-   "pct": 26.1
+   "pct": 30.4
   },
   "dispatch_surface": {
-   "matched": 16,
-   "n": 83,
-   "pct": 19.3
+   "matched": 17,
+   "n": 84,
+   "pct": 20.2
   },
   "tomtom_highway": {
-   "matched": 27,
-   "n": 749,
-   "pct": 3.6
+   "matched": 28,
+   "n": 792,
+   "pct": 3.5
   },
   "tomtom_surface": {
-   "matched": 5,
-   "n": 767,
-   "pct": 0.7
+   "matched": 7,
+   "n": 804,
+   "pct": 0.9
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 84.7,
-  "median": -0.4,
+  "median": -0.1,
   "min": -69.1,
-  "n": 32,
+  "n": 35,
   "q1": -32.0,
-  "q3": 42.7
+  "q3": 40.8
  },
  "persistence_min": {
   "max": -10.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1356,
+  "hotspot_buckets": 1419,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1449
+  "unreported_congestion": 1526
  },
  "sampling": {
-  "flow_spent_this_month": 4734,
+  "flow_spent_this_month": 4743,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 694,
+  "incidents_spent_this_month": 695,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,13 +111,6 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
-  {
-   "from": "Airport Blvd/E 1st St (Ed Bluestein Blvd/US-183)",
-   "hour_of_week": 92,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.231,-97.683"
-  },
   {
    "from": "S 1st St/Conroy Ln (FM-1626)",
    "hour_of_week": 93,
@@ -210,6 +203,13 @@
    "seg": "30.260,-97.709"
   },
   {
+   "from": "Airport Blvd/E 1st St (Ed Bluestein Blvd/US-183)",
+   "hour_of_week": 92,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.231,-97.683"
+  },
+  {
    "from": "N Lake Creek Pkwy",
    "hour_of_week": 93,
    "n": 2,
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 79.2,
-  "tomtom": 97.9
+  "dispatch": 77.6,
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 106,
-  "neither": 84,
-  "tomtom_only": 22
+  "n": 107,
+  "neither": 83,
+  "tomtom_only": 24
  }
 }
