@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 92,
-  "dispatch_only": 80,
+  "dispatch": 94,
+  "dispatch_only": 82,
   "here": 0,
   "here_matched": 0,
   "matched": 13,
-  "tomtom": 626,
-  "tomtom_only": 615
+  "tomtom": 660,
+  "tomtom_only": 649
  },
  "date": "2026-11-19",
  "dispatch_life_capped": true,
@@ -33,22 +33,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 3,
-   "n": 18,
-   "pct": 16.7
+   "n": 19,
+   "pct": 15.8
   },
   "dispatch_surface": {
    "matched": 9,
-   "n": 74,
-   "pct": 12.2
+   "n": 75,
+   "pct": 12.0
   },
   "tomtom_highway": {
    "matched": 8,
-   "n": 308,
-   "pct": 2.6
+   "n": 323,
+   "pct": 2.5
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 318,
+   "n": 337,
    "pct": 0.9
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 564,
+  "hotspot_buckets": 601,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 582
+  "unreported_congestion": 616
  },
  "sampling": {
   "flow_spent_this_month": 4698,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 676,
+  "incidents_spent_this_month": 677,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -154,20 +154,6 @@
    "seg": "30.256,-97.702"
   },
   {
-   "from": "Martin Luther King Blvd/19th St/Exit 235 (I-35)",
-   "hour_of_week": 90,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.258,-97.737"
-  },
-  {
-   "from": "Enfield Rd (TX-1)",
-   "hour_of_week": 91,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.292,-97.760"
-  },
-  {
    "from": "Highway 45",
    "hour_of_week": 92,
    "n": 2,
@@ -180,13 +166,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.205,-97.671"
-  },
-  {
-   "from": "Austin",
-   "hour_of_week": 92,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.407,-97.719"
   },
   {
    "from": "Marsha St",
@@ -215,17 +194,38 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
+  },
+  {
+   "from": "Timber Ridge Rd",
+   "hour_of_week": 89,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.221,-97.742"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Mesa Dr (Spicewood Springs Rd)",
+   "hour_of_week": 66,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.384,-97.766"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.0,
-  "tomtom": 98.2
+  "dispatch": 87.2,
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 92,
-  "neither": 80,
+  "n": 94,
+  "neither": 82,
   "tomtom_only": 12
  }
 }
