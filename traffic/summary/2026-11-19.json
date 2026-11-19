@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 83 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 84 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 24,
-  "tomtom": 1068,
-  "tomtom_only": 1046
+  "tomtom": 1121,
+  "tomtom_only": 1099
  },
  "date": "2026-11-19",
  "dispatch_life_capped": true,
@@ -23,8 +23,8 @@
   "max": 119.9,
   "median": 117.1,
   "min": 17.1,
-  "n": 83,
-  "q1": 115.2,
+  "n": 84,
+  "q1": 115.3,
   "q3": 118.8
  },
  "here_onset_offset_min": {
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 18,
-   "n": 528,
-   "pct": 3.4
+   "n": 551,
+   "pct": 3.3
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 540,
+   "n": 570,
    "pct": 0.7
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 940,
+  "hotspot_buckets": 984,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1011
+  "unreported_congestion": 1064
  },
  "sampling": {
   "flow_spent_this_month": 4725,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 687,
+  "incidents_spent_this_month": 688,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,13 +117,6 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.141,-97.797"
-  },
-  {
-   "from": "Wells Branch Pkwy/Exit 248 (I-35)",
-   "hour_of_week": 93,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.429,-97.671"
   },
   {
    "from": "W Ben White Blvd",
@@ -159,6 +152,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.279,-97.730"
+  },
+  {
+   "from": "51st St/Cameron Rd/Exit 237 (I-35)",
+   "hour_of_week": 92,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.326,-97.706"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -219,7 +219,7 @@
  ],
  "unmatched_pct": {
   "dispatch": 81.6,
-  "tomtom": 97.9
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
