@@ -13,9 +13,9 @@
   "dispatch_only": 87,
   "here": 0,
   "here_matched": 0,
-  "matched": 42,
-  "tomtom": 2031,
-  "tomtom_only": 1988
+  "matched": 43,
+  "tomtom": 2110,
+  "tomtom_only": 2065
  },
  "date": "2026-11-19",
  "dispatch_life_capped": true,
@@ -42,14 +42,14 @@
    "pct": 22.0
   },
   "tomtom_highway": {
-   "matched": 35,
-   "n": 1017,
+   "matched": 36,
+   "n": 1060,
    "pct": 3.4
   },
   "tomtom_surface": {
-   "matched": 8,
-   "n": 1014,
-   "pct": 0.8
+   "matched": 9,
+   "n": 1050,
+   "pct": 0.9
   }
  },
  "matcher": {
@@ -61,10 +61,10 @@
  "onset_offset_min": {
   "max": 84.7,
   "median": -0.1,
-  "min": -69.1,
-  "n": 42,
+  "min": -80.2,
+  "n": 43,
   "q1": -32.0,
-  "q3": 41.4
+  "q3": 40.8
  },
  "persistence_min": {
   "max": -5.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1750,
+  "hotspot_buckets": 1832,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1952
+  "unreported_congestion": 2029
  },
  "sampling": {
   "flow_spent_this_month": 4752,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 701,
+  "incidents_spent_this_month": 702,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,6 +117,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.265,-97.735"
+  },
+  {
+   "from": "W Cesar Chavez St",
+   "hour_of_week": 94,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.277,-97.770"
   },
   {
    "from": "E Anderson Ln",
@@ -194,13 +201,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.422,-97.620"
-  },
-  {
-   "from": "W Cesar Chavez St",
-   "hour_of_week": 94,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.277,-97.770"
   },
   {
    "from": "Congress Ave (W 5th St)",
