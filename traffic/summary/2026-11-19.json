@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 97,
+  "dispatch": 98,
   "dispatch_only": 83,
   "here": 0,
   "here_matched": 0,
-  "matched": 16,
-  "tomtom": 843,
-  "tomtom_only": 827
+  "matched": 18,
+  "tomtom": 882,
+  "tomtom_only": 864
  },
  "date": "2026-11-19",
  "dispatch_life_capped": true,
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 4,
-   "n": 20,
-   "pct": 20.0
+   "matched": 5,
+   "n": 21,
+   "pct": 23.8
   },
   "dispatch_surface": {
    "matched": 10,
@@ -42,13 +42,13 @@
    "pct": 13.0
   },
   "tomtom_highway": {
-   "matched": 13,
-   "n": 411,
-   "pct": 3.2
+   "matched": 15,
+   "n": 432,
+   "pct": 3.5
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 432,
+   "n": 450,
    "pct": 0.7
   }
  },
@@ -62,9 +62,9 @@
   "max": 84.7,
   "median": -4.8,
   "min": -69.1,
-  "n": 16,
-  "q1": -39.3,
-  "q3": 28.7
+  "n": 18,
+  "q1": -41.0,
+  "q3": 35.6
  },
  "persistence_min": {
   "max": -10.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 762,
+  "hotspot_buckets": 795,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 794
+  "unreported_congestion": 831
  },
  "sampling": {
-  "flow_spent_this_month": 4707,
+  "flow_spent_this_month": 4716,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 682,
+  "incidents_spent_this_month": 683,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -210,22 +210,22 @@
    "seg": "30.223,-97.764"
   },
   {
-   "from": "Austin-Bergstrom International Airport (Presidential Blvd)",
-   "hour_of_week": 92,
+   "from": "E Ben White Blvd",
+   "hour_of_week": 93,
    "n": 2,
    "roadworks": false,
-   "seg": "30.206,-97.663"
+   "seg": "30.221,-97.684"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.6,
-  "tomtom": 98.1
+  "dispatch": 84.7,
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 97,
+  "n": 98,
   "neither": 83,
-  "tomtom_only": 14
+  "tomtom_only": 15
  }
 }
