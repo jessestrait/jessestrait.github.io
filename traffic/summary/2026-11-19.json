@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 4,
-  "tomtom": 435,
-  "tomtom_only": 432
+  "tomtom": 463,
+  "tomtom_only": 460
  },
  "date": "2026-11-19",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 210,
-   "pct": 1.0
+   "n": 222,
+   "pct": 0.9
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 225,
+   "n": 241,
    "pct": 0.4
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 389,
+  "hotspot_buckets": 415,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 401
+  "unreported_congestion": 430
  },
  "sampling": {
   "flow_spent_this_month": 4626,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 671,
+  "incidents_spent_this_month": 672,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -182,6 +182,13 @@
    "seg": "30.245,-97.744"
   },
   {
+   "from": "Woodward St",
+   "hour_of_week": 89,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.221,-97.742"
+  },
+  {
    "from": "Ellas Inlet Dr / Felix Sparke Dr",
    "hour_of_week": 68,
    "n": 2,
@@ -189,37 +196,30 @@
    "seg": "30.148,-97.704"
   },
   {
+   "from": "26th St (I-35)",
+   "hour_of_week": 90,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.282,-97.728"
+  },
+  {
+   "from": "Fiesta St",
+   "hour_of_week": 90,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.264,-97.708"
+  },
+  {
    "from": "Mesa Dr (Spicewood Springs Rd)",
    "hour_of_week": 66,
    "n": 1,
    "roadworks": false,
    "seg": "30.384,-97.766"
-  },
-  {
-   "from": "US-183/Research Blvd (Burnet Rd)",
-   "hour_of_week": 66,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.379,-97.725"
-  },
-  {
-   "from": "S Mo Pac Expy",
-   "hour_of_week": 65,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.233,-97.825"
-  },
-  {
-   "from": "E Braker Ln (I-35)",
-   "hour_of_week": 65,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.422,-97.672"
   }
  ],
  "unmatched_pct": {
   "dispatch": 94.6,
-  "tomtom": 99.3
+  "tomtom": 99.4
  },
  "witnesses": {
   "both": 0,
