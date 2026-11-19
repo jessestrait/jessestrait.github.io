@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 4,
-  "tomtom": 396,
-  "tomtom_only": 393
+  "tomtom": 400,
+  "tomtom_only": 397
  },
  "date": "2026-11-19",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 2,
-   "n": 192,
+   "n": 193,
    "pct": 1.0
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 204,
+   "n": 207,
    "pct": 0.5
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 358,
+  "hotspot_buckets": 362,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 369
+  "unreported_congestion": 372
  },
  "sampling": {
-  "flow_spent_this_month": 4581,
+  "flow_spent_this_month": 4590,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 668,
+  "incidents_spent_this_month": 669,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -138,13 +138,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.261,-97.727"
-  },
-  {
-   "from": "Highway 290 W",
-   "hour_of_week": 75,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.229,-97.883"
   },
   {
    "from": "Marsha St",
@@ -215,6 +208,13 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.280,-97.768"
+  },
+  {
+   "from": "Immanuel Rd",
+   "hour_of_week": 66,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.425,-97.626"
   }
  ],
  "unmatched_pct": {
