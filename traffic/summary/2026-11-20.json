@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 111,
-  "dispatch_only": 79,
+  "dispatch": 113,
+  "dispatch_only": 81,
   "here": 0,
   "here_matched": 0,
-  "matched": 40,
-  "tomtom": 1878,
-  "tomtom_only": 1830
+  "matched": 42,
+  "tomtom": 1931,
+  "tomtom_only": 1880
  },
  "date": "2026-11-20",
  "dispatch_life_capped": false,
@@ -23,8 +23,8 @@
   "max": 120.0,
   "median": 116.2,
   "min": 6.7,
-  "n": 84,
-  "q1": 70.4,
+  "n": 85,
+  "q1": 70.9,
   "q3": 117.8
  },
  "here_onset_offset_min": {
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 5,
-   "n": 22,
-   "pct": 22.7
+   "n": 23,
+   "pct": 21.7
   },
   "dispatch_surface": {
    "matched": 27,
-   "n": 89,
-   "pct": 30.3
+   "n": 90,
+   "pct": 30.0
   },
   "tomtom_highway": {
-   "matched": 32,
-   "n": 987,
-   "pct": 3.2
+   "matched": 33,
+   "n": 1012,
+   "pct": 3.3
   },
   "tomtom_surface": {
-   "matched": 16,
-   "n": 891,
-   "pct": 1.8
+   "matched": 18,
+   "n": 919,
+   "pct": 2.0
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 83.2,
-  "median": 9.8,
+  "median": 10.9,
   "min": -51.2,
-  "n": 40,
-  "q1": -2.5,
-  "q3": 43.4
+  "n": 42,
+  "q1": -1.1,
+  "q3": 44.5
  },
  "persistence_min": {
   "max": 5.1,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1652,
+  "hotspot_buckets": 1681,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1799
+  "unreported_congestion": 1849
  },
  "sampling": {
   "flow_spent_this_month": 5013,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 757,
+  "incidents_spent_this_month": 758,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -116,6 +116,20 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.256,-97.702"
+  },
+  {
+   "from": "N Lamar Blvd",
+   "hour_of_week": 119,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.408,-97.678"
+  },
+  {
+   "from": "Rental Car Ln",
+   "hour_of_week": 119,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.203,-97.669"
   },
   {
    "from": "Burleson Rd",
@@ -144,13 +158,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.500,-97.581"
-  },
-  {
-   "from": "N Lamar Blvd",
-   "hour_of_week": 119,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.408,-97.678"
   },
   {
    "from": "Christina Garza Dr",
@@ -195,13 +202,6 @@
    "seg": "30.349,-97.563"
   },
   {
-   "from": "Rental Car Ln",
-   "hour_of_week": 119,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.203,-97.669"
-  },
-  {
    "from": "W 29th St (N Lamar Blvd)",
    "hour_of_week": 119,
    "n": 3,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 71.2,
+  "dispatch": 71.7,
   "tomtom": 97.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 111,
-  "neither": 79,
+  "n": 113,
+  "neither": 81,
   "tomtom_only": 32
  }
 }
