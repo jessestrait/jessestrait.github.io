@@ -13,9 +13,9 @@
   "dispatch_only": 80,
   "here": 0,
   "here_matched": 0,
-  "matched": 35,
-  "tomtom": 1737,
-  "tomtom_only": 1695
+  "matched": 36,
+  "tomtom": 1788,
+  "tomtom_only": 1745
  },
  "date": "2026-11-20",
  "dispatch_life_capped": false,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 28,
-   "n": 918,
-   "pct": 3.1
+   "n": 943,
+   "pct": 3.0
   },
   "tomtom_surface": {
-   "matched": 14,
-   "n": 819,
-   "pct": 1.7
+   "matched": 15,
+   "n": 845,
+   "pct": 1.8
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 83.2,
-  "median": 9.0,
+  "median": 9.8,
   "min": -51.2,
-  "n": 35,
-  "q1": -3.2,
-  "q3": 43.8
+  "n": 36,
+  "q1": -2.5,
+  "q3": 43.4
  },
  "persistence_min": {
   "max": 5.1,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1559,
+  "hotspot_buckets": 1597,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1664
+  "unreported_congestion": 1714
  },
  "sampling": {
   "flow_spent_this_month": 5004,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 754,
+  "incidents_spent_this_month": 755,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -174,6 +174,20 @@
    "seg": "30.218,-97.684"
   },
   {
+   "from": "W 29th St (N Lamar Blvd)",
+   "hour_of_week": 119,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.290,-97.752"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 119,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.415,-97.673"
+  },
+  {
    "from": "Buenos Aires Pkwy",
    "hour_of_week": 15,
    "n": 3,
@@ -200,20 +214,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.362,-97.686"
-  },
-  {
-   "from": "W 25th St",
-   "hour_of_week": 95,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.290,-97.742"
-  },
-  {
-   "from": "Ranch Road 2222",
-   "hour_of_week": 84,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.359,-97.793"
   }
  ],
  "unmatched_pct": {
