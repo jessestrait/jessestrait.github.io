@@ -14,17 +14,17 @@
   "here": 0,
   "here_matched": 0,
   "matched": 11,
-  "tomtom": 890,
-  "tomtom_only": 878
+  "tomtom": 912,
+  "tomtom_only": 900
  },
  "date": "2026-11-20",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.6,
-  "median": 99.6,
+  "median": 104.0,
   "min": 6.7,
-  "n": 32,
-  "q1": 56.0,
+  "n": 33,
+  "q1": 58.6,
   "q3": 117.9
  },
  "here_onset_offset_min": {
@@ -42,14 +42,14 @@
    "pct": 29.0
   },
   "tomtom_highway": {
-   "matched": 10,
-   "n": 458,
-   "pct": 2.2
+   "matched": 9,
+   "n": 470,
+   "pct": 1.9
   },
   "tomtom_surface": {
-   "matched": 2,
-   "n": 432,
-   "pct": 0.5
+   "matched": 3,
+   "n": 442,
+   "pct": 0.7
   }
  },
  "matcher": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 799,
+  "hotspot_buckets": 821,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 853
+  "unreported_congestion": 875
  },
  "sampling": {
   "flow_spent_this_month": 4896,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 739,
+  "incidents_spent_this_month": 740,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -130,6 +130,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.348,-97.562"
+  },
+  {
+   "from": "FM 685",
+   "hour_of_week": 109,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.500,-97.581"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -207,13 +214,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.266,-97.739"
-  },
-  {
-   "from": "Slaughter Ln/Exit 226 (I-35)",
-   "hour_of_week": 100,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.190,-97.771"
   }
  ],
  "unmatched_pct": {
