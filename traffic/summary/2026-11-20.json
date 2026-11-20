@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 108,
-  "dispatch_only": 81,
+  "dispatch": 109,
+  "dispatch_only": 80,
   "here": 0,
   "here_matched": 0,
-  "matched": 32,
-  "tomtom": 1681,
-  "tomtom_only": 1644
+  "matched": 35,
+  "tomtom": 1737,
+  "tomtom_only": 1695
  },
  "date": "2026-11-20",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 115.9,
+  "median": 116.1,
   "min": 6.7,
-  "n": 80,
-  "q1": 66.1,
+  "n": 82,
+  "q1": 68.7,
   "q3": 117.8
  },
  "here_onset_offset_min": {
@@ -37,19 +37,19 @@
    "pct": 19.0
   },
   "dispatch_surface": {
-   "matched": 23,
-   "n": 87,
-   "pct": 26.4
+   "matched": 25,
+   "n": 88,
+   "pct": 28.4
   },
   "tomtom_highway": {
-   "matched": 24,
-   "n": 884,
-   "pct": 2.7
+   "matched": 28,
+   "n": 918,
+   "pct": 3.1
   },
   "tomtom_surface": {
-   "matched": 13,
-   "n": 797,
-   "pct": 1.6
+   "matched": 14,
+   "n": 819,
+   "pct": 1.7
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 83.2,
-  "median": 9.8,
+  "median": 9.0,
   "min": -51.2,
-  "n": 32,
-  "q1": -5.3,
-  "q3": 49.6
+  "n": 35,
+  "q1": -3.2,
+  "q3": 43.8
  },
  "persistence_min": {
   "max": 5.1,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1522,
+  "hotspot_buckets": 1559,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1613
+  "unreported_congestion": 1664
  },
  "sampling": {
   "flow_spent_this_month": 5004,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 753,
+  "incidents_spent_this_month": 754,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -146,11 +146,32 @@
    "seg": "30.500,-97.581"
   },
   {
+   "from": "Christina Garza Dr",
+   "hour_of_week": 119,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.350,-97.556"
+  },
+  {
    "from": "Manor Rd (Berkman Dr)",
    "hour_of_week": 119,
    "n": 3,
    "roadworks": false,
    "seg": "30.303,-97.700"
+  },
+  {
+   "from": "S Interstate 35",
+   "hour_of_week": 119,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.176,-97.780"
+  },
+  {
+   "from": "Palma Verde Dr",
+   "hour_of_week": 119,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.218,-97.684"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -193,38 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.359,-97.793"
-  },
-  {
-   "from": "Howard Ln/Exit 246 (I-35)",
-   "hour_of_week": 98,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.462,-97.668"
-  },
-  {
-   "from": "W 5th St",
-   "hour_of_week": 101,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.274,-97.763"
-  },
-  {
-   "from": "Airport Blvd (E Koenig Ln/FM-2222)",
-   "hour_of_week": 102,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.320,-97.715"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 75.0,
-  "tomtom": 97.8
+  "dispatch": 73.4,
+  "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 108,
-  "neither": 81,
-  "tomtom_only": 27
+  "n": 109,
+  "neither": 80,
+  "tomtom_only": 29
  }
 }
