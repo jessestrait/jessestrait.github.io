@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 33,
-  "dispatch_only": 25,
+  "dispatch": 34,
+  "dispatch_only": 26,
   "here": 0,
   "here_matched": 0,
   "matched": 8,
-  "tomtom": 560,
-  "tomtom_only": 551
+  "tomtom": 568,
+  "tomtom_only": 559
  },
  "date": "2026-11-20",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 6,
-   "n": 25,
-   "pct": 24.0
+   "n": 26,
+   "pct": 23.1
   },
   "tomtom_highway": {
    "matched": 7,
-   "n": 310,
-   "pct": 2.3
+   "n": 316,
+   "pct": 2.2
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 250,
+   "n": 252,
    "pct": 0.8
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 500,
+  "hotspot_buckets": 507,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 527
+  "unreported_congestion": 535
  },
  "sampling": {
   "flow_spent_this_month": 4851,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 720,
+  "incidents_spent_this_month": 721,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -160,6 +160,13 @@
    "seg": "30.290,-97.742"
   },
   {
+   "from": "Ranch Road 2222",
+   "hour_of_week": 84,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.359,-97.793"
+  },
+  {
    "from": "E 7th St (Springdale Rd)",
    "hour_of_week": 78,
    "n": 2,
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.211,-97.755"
-  },
-  {
-   "from": "E William Cannon Dr (I-35)",
-   "hour_of_week": 102,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.173,-97.783"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 75.8,
+  "dispatch": 76.5,
   "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 33,
-  "neither": 25,
+  "n": 34,
+  "neither": 26,
   "tomtom_only": 8
  }
 }
