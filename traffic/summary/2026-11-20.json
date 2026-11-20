@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 13,
-  "tomtom": 945,
-  "tomtom_only": 930
+  "tomtom": 959,
+  "tomtom_only": 944
  },
  "date": "2026-11-20",
  "dispatch_life_capped": false,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 11,
-   "n": 487,
-   "pct": 2.3
+   "n": 492,
+   "pct": 2.2
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 458,
+   "n": 467,
    "pct": 0.9
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 850,
+  "hotspot_buckets": 864,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 905
+  "unreported_congestion": 918
  },
  "sampling": {
-  "flow_spent_this_month": 4932,
+  "flow_spent_this_month": 4941,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 741,
+  "incidents_spent_this_month": 742,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "off-peak"
  },
  "structural_hotspots": [
+  {
+   "from": "E 7th St (Springdale Rd)",
+   "hour_of_week": 78,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.256,-97.702"
+  },
   {
    "from": "Burleson Rd",
    "hour_of_week": 102,
@@ -179,13 +186,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.359,-97.793"
-  },
-  {
-   "from": "E 7th St (Springdale Rd)",
-   "hour_of_week": 78,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.256,-97.702"
   },
   {
    "from": "Howard Ln/Exit 246 (I-35)",
