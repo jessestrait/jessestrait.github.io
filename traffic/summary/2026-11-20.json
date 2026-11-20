@@ -9,47 +9,47 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 75,
-  "dispatch_only": 62,
+  "dispatch": 97,
+  "dispatch_only": 78,
   "here": 0,
   "here_matched": 0,
-  "matched": 13,
-  "tomtom": 991,
-  "tomtom_only": 976
+  "matched": 19,
+  "tomtom": 1248,
+  "tomtom_only": 1227
  },
  "date": "2026-11-20",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 116.5,
+  "median": 115.7,
   "min": 6.7,
-  "n": 56,
-  "q1": 82.8,
-  "q3": 117.9
+  "n": 75,
+  "q1": 64.3,
+  "q3": 117.5
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 2,
-   "n": 15,
-   "pct": 13.3
+   "matched": 4,
+   "n": 20,
+   "pct": 20.0
   },
   "dispatch_surface": {
-   "matched": 11,
-   "n": 60,
-   "pct": 18.3
+   "matched": 15,
+   "n": 77,
+   "pct": 19.5
   },
   "tomtom_highway": {
-   "matched": 11,
-   "n": 511,
-   "pct": 2.2
+   "matched": 14,
+   "n": 665,
+   "pct": 2.1
   },
   "tomtom_surface": {
-   "matched": 4,
-   "n": 480,
-   "pct": 0.8
+   "matched": 7,
+   "n": 583,
+   "pct": 1.2
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 82.0,
-  "median": -0.4,
+  "median": 5.6,
   "min": -51.2,
-  "n": 13,
-  "q1": -24.1,
-  "q3": 42.0
+  "n": 19,
+  "q1": -7.5,
+  "q3": 40.4
  },
  "persistence_min": {
   "max": -5.1,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 894,
+  "hotspot_buckets": 1138,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 949
+  "unreported_congestion": 1196
  },
  "sampling": {
-  "flow_spent_this_month": 4977,
+  "flow_spent_this_month": 4986,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 744,
+  "incidents_spent_this_month": 745,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -107,13 +107,13 @@
    18
   ],
   "rush_min": 5,
-  "this_poll": "off-peak"
+  "this_poll": "rush"
  },
  "structural_hotspots": [
   {
    "from": "E 7th St (Springdale Rd)",
    "hour_of_week": 78,
-   "n": 3,
+   "n": 4,
    "roadworks": false,
    "seg": "30.256,-97.702"
   },
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.7,
-  "tomtom": 98.5
+  "dispatch": 80.4,
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 75,
-  "neither": 62,
-  "tomtom_only": 13
+  "n": 97,
+  "neither": 78,
+  "tomtom_only": 19
  }
 }
