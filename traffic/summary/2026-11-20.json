@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 8,
-  "tomtom": 523,
-  "tomtom_only": 515
+  "tomtom": 529,
+  "tomtom_only": 520
  },
  "date": "2026-11-20",
  "dispatch_life_capped": false,
@@ -42,9 +42,9 @@
    "pct": 27.3
   },
   "tomtom_highway": {
-   "matched": 6,
-   "n": 283,
-   "pct": 2.1
+   "matched": 7,
+   "n": 289,
+   "pct": 2.4
   },
   "tomtom_surface": {
    "matched": 2,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 479,
+  "hotspot_buckets": 483,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 493
+  "unreported_congestion": 498
  },
  "sampling": {
   "flow_spent_this_month": 4797,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 713,
+  "incidents_spent_this_month": 714,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -151,6 +151,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.256,-97.702"
+  },
+  {
+   "from": "Burleson Rd",
+   "hour_of_week": 102,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.181,-97.686"
   },
   {
    "from": "TX-71/Ben White Blvd/Exit 230 (I-35)",
@@ -207,18 +214,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.514,-97.854"
-  },
-  {
-   "from": "Cypress Creek Rd (S Lakeline Blvd)",
-   "hour_of_week": 95,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.510,-97.849"
   }
  ],
  "unmatched_pct": {
   "dispatch": 70.4,
-  "tomtom": 98.5
+  "tomtom": 98.3
  },
  "witnesses": {
   "both": 0,
