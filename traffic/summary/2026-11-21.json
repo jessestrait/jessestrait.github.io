@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 118 min over 82 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 118 min over 84 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 93,
-  "dispatch_only": 72,
+  "dispatch": 95,
+  "dispatch_only": 73,
   "here": 0,
   "here_matched": 0,
-  "matched": 25,
-  "tomtom": 650,
-  "tomtom_only": 626
+  "matched": 26,
+  "tomtom": 681,
+  "tomtom_only": 656
  },
  "date": "2026-11-21",
  "dispatch_life_capped": true,
@@ -23,7 +23,7 @@
   "max": 119.9,
   "median": 116.8,
   "min": 11.3,
-  "n": 82,
+  "n": 84,
   "q1": 115.6,
   "q3": 118.0
  },
@@ -32,9 +32,9 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 5,
-   "n": 16,
-   "pct": 31.2
+   "matched": 6,
+   "n": 18,
+   "pct": 33.3
   },
   "dispatch_surface": {
    "matched": 16,
@@ -42,14 +42,14 @@
    "pct": 20.8
   },
   "tomtom_highway": {
-   "matched": 14,
-   "n": 317,
-   "pct": 4.4
+   "matched": 15,
+   "n": 332,
+   "pct": 4.5
   },
   "tomtom_surface": {
    "matched": 10,
-   "n": 333,
-   "pct": 3.0
+   "n": 349,
+   "pct": 2.9
   }
  },
  "matcher": {
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 79.3,
-  "median": 21.8,
+  "median": 23.2,
   "min": -35.1,
-  "n": 25,
-  "q1": 2.2,
-  "q3": 46.2
+  "n": 26,
+  "q1": 3.0,
+  "q3": 48.9
  },
  "persistence_min": {
   "max": 35.7,
-  "median": -60.7,
+  "median": -50.8,
   "min": -116.8,
-  "n": 21,
-  "q1": -89.1,
-  "q3": -5.1,
+  "n": 22,
+  "q1": -87.9,
+  "q3": -7.7,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 587,
+  "hotspot_buckets": 618,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 605
+  "unreported_congestion": 635
  },
  "sampling": {
   "flow_spent_this_month": 5211,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 770,
+  "incidents_spent_this_month": 771,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -161,13 +161,6 @@
    "seg": "30.262,-97.736"
   },
   {
-   "from": "E Dean Keeton St",
-   "hour_of_week": 134,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.288,-97.730"
-  },
-  {
    "from": "Cypress Creek Rd",
    "hour_of_week": 135,
    "n": 2,
@@ -215,17 +208,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 77.4,
+  "dispatch": 76.8,
   "tomtom": 96.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 93,
-  "neither": 72,
-  "tomtom_only": 21
+  "n": 95,
+  "neither": 73,
+  "tomtom_only": 22
  }
 }
