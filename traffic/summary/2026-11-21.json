@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 84,
-  "dispatch_only": 67,
+  "dispatch_only": 66,
   "here": 0,
   "here_matched": 0,
-  "matched": 21,
-  "tomtom": 600,
-  "tomtom_only": 580
+  "matched": 22,
+  "tomtom": 621,
+  "tomtom_only": 600
  },
  "date": "2026-11-21",
  "dispatch_life_capped": true,
@@ -37,19 +37,19 @@
    "pct": 25.0
   },
   "dispatch_surface": {
-   "matched": 14,
+   "matched": 15,
    "n": 72,
-   "pct": 19.4
+   "pct": 20.8
   },
   "tomtom_highway": {
-   "matched": 11,
-   "n": 300,
-   "pct": 3.7
+   "matched": 12,
+   "n": 304,
+   "pct": 3.9
   },
   "tomtom_surface": {
    "matched": 9,
-   "n": 300,
-   "pct": 3.0
+   "n": 317,
+   "pct": 2.8
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 79.3,
-  "median": 24.7,
+  "median": 23.2,
   "min": -35.1,
-  "n": 21,
-  "q1": -1.2,
-  "q3": 46.2
+  "n": 22,
+  "q1": -0.3,
+  "q3": 46.1
  },
  "persistence_min": {
   "max": 35.7,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 543,
+  "hotspot_buckets": 562,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 559
+  "unreported_congestion": 579
  },
  "sampling": {
   "flow_spent_this_month": 5175,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 768,
+  "incidents_spent_this_month": 769,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -210,22 +210,22 @@
    "seg": "30.148,-97.704"
   },
   {
-   "from": "New Hope Dr (Whitestone Blvd)",
-   "hour_of_week": 119,
-   "n": 1,
+   "from": "Cypress Creek Rd",
+   "hour_of_week": 135,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.514,-97.854"
+   "seg": "30.474,-97.843"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 79.8,
-  "tomtom": 96.7
+  "dispatch": 78.6,
+  "tomtom": 96.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 84,
-  "neither": 67,
-  "tomtom_only": 17
+  "neither": 66,
+  "tomtom_only": 18
  }
 }
