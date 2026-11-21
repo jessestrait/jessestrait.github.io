@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 89,
-  "dispatch_only": 71,
+  "dispatch": 90,
+  "dispatch_only": 69,
   "here": 0,
   "here_matched": 0,
-  "matched": 22,
-  "tomtom": 621,
-  "tomtom_only": 600
+  "matched": 25,
+  "tomtom": 650,
+  "tomtom_only": 626
  },
  "date": "2026-11-21",
  "dispatch_life_capped": true,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 3,
+   "matched": 5,
    "n": 14,
-   "pct": 21.4
+   "pct": 35.7
   },
   "dispatch_surface": {
-   "matched": 15,
-   "n": 75,
-   "pct": 20.0
+   "matched": 16,
+   "n": 76,
+   "pct": 21.1
   },
   "tomtom_highway": {
-   "matched": 12,
-   "n": 304,
-   "pct": 3.9
+   "matched": 14,
+   "n": 317,
+   "pct": 4.4
   },
   "tomtom_surface": {
-   "matched": 9,
-   "n": 317,
-   "pct": 2.8
+   "matched": 10,
+   "n": 333,
+   "pct": 3.0
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 79.3,
-  "median": 23.2,
+  "median": 21.8,
   "min": -35.1,
-  "n": 22,
-  "q1": -0.3,
-  "q3": 46.1
+  "n": 25,
+  "q1": 2.2,
+  "q3": 46.2
  },
  "persistence_min": {
   "max": 35.7,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 562,
+  "hotspot_buckets": 587,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 579
+  "unreported_congestion": 605
  },
  "sampling": {
   "flow_spent_this_month": 5193,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 769,
+  "incidents_spent_this_month": 770,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -161,6 +161,13 @@
    "seg": "30.262,-97.736"
   },
   {
+   "from": "E Dean Keeton St",
+   "hour_of_week": 134,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.288,-97.730"
+  },
+  {
    "from": "Cypress Creek Rd",
    "hour_of_week": 135,
    "n": 2,
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
-  },
-  {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.148,-97.704"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 79.8,
-  "tomtom": 96.6
+  "dispatch": 76.7,
+  "tomtom": 96.3
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 89,
-  "neither": 71,
-  "tomtom_only": 18
+  "n": 90,
+  "neither": 69,
+  "tomtom_only": 21
  }
 }
