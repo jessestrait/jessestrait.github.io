@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 75,
-  "dispatch_only": 58,
+  "dispatch": 77,
+  "dispatch_only": 60,
   "here": 0,
   "here_matched": 0,
   "matched": 21,
-  "tomtom": 578,
-  "tomtom_only": 558
+  "tomtom": 584,
+  "tomtom_only": 564
  },
  "date": "2026-11-21",
  "dispatch_life_capped": true,
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 14,
-   "n": 65,
-   "pct": 21.5
+   "n": 67,
+   "pct": 20.9
   },
   "tomtom_highway": {
    "matched": 11,
-   "n": 295,
+   "n": 296,
    "pct": 3.7
   },
   "tomtom_surface": {
    "matched": 9,
-   "n": 283,
-   "pct": 3.2
+   "n": 288,
+   "pct": 3.1
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 520,
+  "hotspot_buckets": 527,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 537
+  "unreported_congestion": 543
  },
  "sampling": {
   "flow_spent_this_month": 5112,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 765,
+  "incidents_spent_this_month": 766,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -161,13 +161,6 @@
    "seg": "30.262,-97.736"
   },
   {
-   "from": "San Felipe Blvd",
-   "hour_of_week": 94,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.436,-97.770"
-  },
-  {
    "from": "Mopac Expy S",
    "hour_of_week": 117,
    "n": 2,
@@ -215,17 +208,24 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
+  },
+  {
+   "from": "New Hope Dr (Whitestone Blvd)",
+   "hour_of_week": 119,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.514,-97.854"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 77.3,
-  "tomtom": 96.5
+  "dispatch": 77.9,
+  "tomtom": 96.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 75,
-  "neither": 58,
+  "n": 77,
+  "neither": 60,
   "tomtom_only": 17
  }
 }
