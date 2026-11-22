@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 43,
-  "dispatch_only": 37,
+  "dispatch": 45,
+  "dispatch_only": 39,
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 490,
-  "tomtom_only": 484
+  "tomtom": 502,
+  "tomtom_only": 496
  },
  "date": "2026-11-22",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 4,
-   "n": 40,
-   "pct": 10.0
+   "n": 42,
+   "pct": 9.5
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 196,
-   "pct": 2.6
+   "n": 200,
+   "pct": 2.5
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 294,
+   "n": 302,
    "pct": 0.3
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 446,
+  "hotspot_buckets": 455,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 468
+  "unreported_congestion": 480
  },
  "sampling": {
   "flow_spent_this_month": 5337,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 780,
+  "incidents_spent_this_month": 781,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -210,22 +210,22 @@
    "seg": "30.265,-97.738"
   },
   {
-   "from": "Mopac Expy S",
-   "hour_of_week": 117,
+   "from": "E Dean Keeton St",
+   "hour_of_week": 141,
    "n": 2,
    "roadworks": false,
-   "seg": "30.176,-97.889"
+   "seg": "30.285,-97.728"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 86.0,
+  "dispatch": 86.7,
   "tomtom": 98.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 43,
-  "neither": 37,
+  "n": 45,
+  "neither": 39,
   "tomtom_only": 6
  }
 }
