@@ -14,18 +14,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 1,
-  "tomtom": 265,
-  "tomtom_only": 264
+  "tomtom": 399,
+  "tomtom_only": 398
  },
  "date": "2026-11-22",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.5,
-  "median": 116.6,
+  "median": 116.5,
   "min": 115.0,
-  "n": 7,
-  "q1": 115.6,
-  "q3": 118.0
+  "n": 8,
+  "q1": 115.4,
+  "q3": 117.7
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 1,
-   "n": 99,
-   "pct": 1.0
+   "n": 156,
+   "pct": 0.6
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 166,
+   "n": 243,
    "pct": 0.0
   }
  },
@@ -67,7 +67,12 @@
   "q3": 72.4
  },
  "persistence_min": {
-  "n": 0
+  "max": -25.3,
+  "median": -25.3,
+  "min": -25.3,
+  "n": 1,
+  "q1": -25.3,
+  "q3": -25.3
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -84,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 236,
+  "hotspot_buckets": 367,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 251
+  "unreported_congestion": 384
  },
  "sampling": {
   "flow_spent_this_month": 5310,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 775,
+  "incidents_spent_this_month": 776,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -120,25 +125,11 @@
    "seg": "30.282,-97.742"
   },
   {
-   "from": "E 30th St / Speedway",
-   "hour_of_week": 143,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.292,-97.736"
-  },
-  {
    "from": "Guadalupe St",
    "hour_of_week": 143,
    "n": 2,
    "roadworks": false,
    "seg": "30.276,-97.742"
-  },
-  {
-   "from": "W 17th St",
-   "hour_of_week": 143,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.280,-97.740"
   },
   {
    "from": "Manor Rd/Clyde Littlefield Dr (I-35)",
@@ -148,6 +139,27 @@
    "seg": "30.287,-97.725"
   },
   {
+   "from": "E 12th St (Red River St)",
+   "hour_of_week": 143,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.274,-97.734"
+  },
+  {
+   "from": "W 15th St",
+   "hour_of_week": 144,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.280,-97.740"
+  },
+  {
+   "from": "W 20th St",
+   "hour_of_week": 144,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.282,-97.740"
+  },
+  {
    "from": "E Dean Keeton St / Robert Dedman Dr",
    "hour_of_week": 143,
    "n": 2,
@@ -155,8 +167,8 @@
    "seg": "30.290,-97.728"
   },
   {
-   "from": "6th St exit [234C]",
-   "hour_of_week": 143,
+   "from": "N Interstate 35",
+   "hour_of_week": 144,
    "n": 2,
    "roadworks": false,
    "seg": "30.265,-97.735"
@@ -202,18 +214,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 143,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.476,-97.794"
   }
  ],
  "unmatched_pct": {
   "dispatch": 94.4,
-  "tomtom": 99.6
+  "tomtom": 99.7
  },
  "witnesses": {
   "both": 0,
