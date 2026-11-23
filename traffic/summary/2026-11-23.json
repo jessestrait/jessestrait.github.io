@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 55 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 59 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 59,
-  "dispatch_only": 54,
+  "dispatch": 81,
+  "dispatch_only": 71,
   "here": 0,
   "here_matched": 0,
-  "matched": 7,
-  "tomtom": 261,
-  "tomtom_only": 255
+  "matched": 12,
+  "tomtom": 501,
+  "tomtom_only": 490
  },
  "date": "2026-11-23",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 117.2,
-  "min": 11.8,
-  "n": 55,
-  "q1": 115.4,
+  "median": 117.0,
+  "min": 5.5,
+  "n": 59,
+  "q1": 115.0,
   "q3": 118.8
  },
  "here_onset_offset_min": {
@@ -32,23 +32,23 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 3,
-   "n": 11,
-   "pct": 27.3
+   "matched": 5,
+   "n": 16,
+   "pct": 31.2
   },
   "dispatch_surface": {
-   "matched": 2,
-   "n": 48,
-   "pct": 4.2
+   "matched": 5,
+   "n": 65,
+   "pct": 7.7
   },
   "tomtom_highway": {
-   "matched": 6,
-   "n": 98,
-   "pct": 6.1
+   "matched": 11,
+   "n": 228,
+   "pct": 4.8
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 163,
+   "n": 273,
    "pct": 0.0
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 72.5,
-  "median": 13.8,
+  "median": -5.8,
   "min": -82.5,
-  "n": 7,
-  "q1": -5.7,
-  "q3": 26.8
+  "n": 12,
+  "q1": -16.4,
+  "q3": 14.3
  },
  "persistence_min": {
   "max": -5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 221,
+  "hotspot_buckets": 366,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 238
+  "unreported_congestion": 464
  },
  "sampling": {
-  "flow_spent_this_month": 5625,
+  "flow_spent_this_month": 5634,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 805,
+  "incidents_spent_this_month": 806,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -108,9 +108,44 @@
    18
   ],
   "rush_min": 5,
-  "this_poll": "off-peak"
+  "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Buenos Aires Pkwy",
+   "hour_of_week": 15,
+   "n": 6,
+   "roadworks": false,
+   "seg": "30.169,-97.623"
+  },
+  {
+   "from": "Mopac Expy S",
+   "hour_of_week": 117,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.176,-97.889"
+  },
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "E 7th St (Springdale Rd)",
+   "hour_of_week": 164,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.256,-97.702"
+  },
   {
    "from": "E 21st St",
    "hour_of_week": 0,
@@ -119,25 +154,11 @@
    "seg": "30.281,-97.734"
   },
   {
-   "from": "Buenos Aires Pkwy",
-   "hour_of_week": 15,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.169,-97.623"
-  },
-  {
    "from": "Aldrich St",
    "hour_of_week": 157,
    "n": 2,
    "roadworks": false,
    "seg": "30.300,-97.703"
-  },
-  {
-   "from": "E 7th St (Springdale Rd)",
-   "hour_of_week": 164,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.256,-97.702"
   },
   {
    "from": "Logistics Ln",
@@ -168,64 +189,43 @@
    "seg": "30.285,-97.744"
   },
   {
-   "from": "Mopac Expy S",
-   "hour_of_week": 117,
+   "from": "Pond Springs Rd",
+   "hour_of_week": 46,
    "n": 2,
    "roadworks": false,
-   "seg": "30.176,-97.889"
+   "seg": "30.448,-97.780"
   },
   {
-   "from": "Marsha St",
-   "hour_of_week": 133,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.447,-97.668"
-  },
-  {
-   "from": "Adage Dr / Epiphany Ln",
-   "hour_of_week": 59,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.448,-97.631"
-  },
-  {
-   "from": "W Dean Keeton St",
-   "hour_of_week": 3,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.290,-97.740"
-  },
-  {
-   "from": "N Interstate 35",
+   "from": "N RM 620 Rd",
    "hour_of_week": 19,
    "n": 2,
    "roadworks": false,
-   "seg": "30.320,-97.706"
+   "seg": "30.502,-97.721"
   },
   {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
+   "from": "Arbor Place Dr",
+   "hour_of_week": 18,
    "n": 2,
    "roadworks": false,
-   "seg": "30.245,-97.744"
+   "seg": "30.502,-97.721"
   },
   {
-   "from": "Ellas Inlet Dr / Felix Sparke Dr",
-   "hour_of_week": 68,
+   "from": "Lost Horizon Dr",
+   "hour_of_week": 88,
    "n": 2,
    "roadworks": false,
-   "seg": "30.148,-97.704"
+   "seg": "30.405,-97.759"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 91.5,
-  "tomtom": 97.7
+  "dispatch": 87.7,
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 59,
-  "neither": 54,
-  "tomtom_only": 5
+  "n": 81,
+  "neither": 71,
+  "tomtom_only": 10
  }
 }
