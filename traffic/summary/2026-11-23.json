@@ -9,46 +9,46 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 38,
+  "dispatch": 39,
   "dispatch_only": 35,
   "here": 0,
   "here_matched": 0,
-  "matched": 4,
-  "tomtom": 195,
-  "tomtom_only": 191
+  "matched": 5,
+  "tomtom": 202,
+  "tomtom_only": 197
  },
  "date": "2026-11-23",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 116.1,
+  "median": 116.2,
   "min": 11.8,
-  "n": 29,
-  "q1": 63.1,
-  "q3": 118.4
+  "n": 30,
+  "q1": 63.5,
+  "q3": 118.3
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 1,
+   "matched": 2,
    "n": 8,
-   "pct": 12.5
+   "pct": 25.0
   },
   "dispatch_surface": {
    "matched": 2,
-   "n": 30,
-   "pct": 6.7
+   "n": 31,
+   "pct": 6.5
   },
   "tomtom_highway": {
-   "matched": 4,
-   "n": 62,
-   "pct": 6.5
+   "matched": 5,
+   "n": 67,
+   "pct": 7.5
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 133,
+   "n": 135,
    "pct": 0.0
   }
  },
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 72.5,
-  "median": 20.6,
-  "min": 13.8,
-  "n": 4,
-  "q1": 14.0,
-  "q3": 61.1
+  "median": 14.5,
+  "min": -5.7,
+  "n": 5,
+  "q1": 4.1,
+  "q3": 49.6
  },
  "persistence_min": {
-  "max": -35.5,
-  "median": -55.9,
+  "max": -10.1,
+  "median": -45.7,
   "min": -76.2,
-  "n": 3,
-  "q1": -76.2,
-  "q3": -35.5
+  "n": 4,
+  "q1": -71.1,
+  "q3": -16.4
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 168,
+  "hotspot_buckets": 175,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 179
+  "unreported_congestion": 186
  },
  "sampling": {
   "flow_spent_this_month": 5553,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 795,
+  "incidents_spent_this_month": 796,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 92.1,
-  "tomtom": 97.9
+  "dispatch": 89.7,
+  "tomtom": 97.5
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 38,
+  "n": 39,
   "neither": 35,
-  "tomtom_only": 3
+  "tomtom_only": 4
  }
 }
