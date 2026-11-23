@@ -13,9 +13,9 @@
   "dispatch_only": 32,
   "here": 0,
   "here_matched": 0,
-  "matched": 3,
-  "tomtom": 185,
-  "tomtom_only": 182
+  "matched": 4,
+  "tomtom": 195,
+  "tomtom_only": 191
  },
  "date": "2026-11-23",
  "dispatch_life_capped": false,
@@ -42,13 +42,13 @@
    "pct": 6.9
   },
   "tomtom_highway": {
-   "matched": 3,
-   "n": 58,
-   "pct": 5.2
+   "matched": 4,
+   "n": 62,
+   "pct": 6.5
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 127,
+   "n": 133,
    "pct": 0.0
   }
  },
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": 26.8,
-  "median": 14.5,
+  "max": 72.5,
+  "median": 20.6,
   "min": 13.8,
-  "n": 3,
-  "q1": 13.8,
-  "q3": 26.8
+  "n": 4,
+  "q1": 14.0,
+  "q3": 61.1
  },
  "persistence_min": {
   "max": -35.5,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 160,
+  "hotspot_buckets": 168,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 170
+  "unreported_congestion": 179
  },
  "sampling": {
   "flow_spent_this_month": 5544,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 794,
+  "incidents_spent_this_month": 795,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -174,6 +174,13 @@
    "seg": "30.148,-97.704"
   },
   {
+   "from": "W Dean Keeton St",
+   "hour_of_week": 3,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.290,-97.740"
+  },
+  {
    "from": "N Lake Creek Pkwy",
    "hour_of_week": 164,
    "n": 1,
@@ -207,18 +214,11 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.405,-97.723"
-  },
-  {
-   "from": "N Mo Pac Expy",
-   "hour_of_week": 164,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.404,-97.724"
   }
  ],
  "unmatched_pct": {
   "dispatch": 91.4,
-  "tomtom": 98.4
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
