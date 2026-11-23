@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 7,
-  "tomtom": 256,
-  "tomtom_only": 250
+  "tomtom": 261,
+  "tomtom_only": 255
  },
  "date": "2026-11-23",
  "dispatch_life_capped": true,
@@ -43,8 +43,8 @@
   },
   "tomtom_highway": {
    "matched": 6,
-   "n": 93,
-   "pct": 6.5
+   "n": 98,
+   "pct": 6.1
   },
   "tomtom_surface": {
    "matched": 0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 217,
+  "hotspot_buckets": 221,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 233
+  "unreported_congestion": 238
  },
  "sampling": {
   "flow_spent_this_month": 5616,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 804,
+  "incidents_spent_this_month": 805,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -161,6 +161,13 @@
    "seg": "30.290,-97.727"
   },
   {
+   "from": "Rio Grande St",
+   "hour_of_week": 1,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.285,-97.744"
+  },
+  {
    "from": "Mopac Expy S",
    "hour_of_week": 117,
    "n": 2,
@@ -208,13 +215,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "N Lake Creek Pkwy",
-   "hour_of_week": 164,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.476,-97.794"
   }
  ],
  "unmatched_pct": {
