@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 59 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 61 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 84,
-  "dispatch_only": 72,
+  "dispatch": 88,
+  "dispatch_only": 76,
   "here": 0,
   "here_matched": 0,
   "matched": 16,
-  "tomtom": 648,
-  "tomtom_only": 633
+  "tomtom": 683,
+  "tomtom_only": 667
  },
  "date": "2026-11-23",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 117.0,
+  "median": 117.1,
   "min": 5.5,
-  "n": 59,
-  "q1": 115.0,
+  "n": 61,
+  "q1": 115.1,
   "q3": 118.8
  },
  "here_onset_offset_min": {
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 7,
-   "n": 68,
-   "pct": 10.3
+   "n": 72,
+   "pct": 9.7
   },
   "tomtom_highway": {
-   "matched": 15,
-   "n": 315,
+   "matched": 16,
+   "n": 331,
    "pct": 4.8
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 333,
+   "n": 352,
    "pct": 0.0
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 493,
+  "hotspot_buckets": 525,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 605
+  "unreported_congestion": 639
  },
  "sampling": {
   "flow_spent_this_month": 5643,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 810,
+  "incidents_spent_this_month": 811,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -154,6 +154,20 @@
    "seg": "30.281,-97.734"
   },
   {
+   "from": "W Braker Ln",
+   "hour_of_week": 13,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.393,-97.715"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 22,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.353,-97.691"
+  },
+  {
    "from": "Aldrich St",
    "hour_of_week": 157,
    "n": 2,
@@ -201,31 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.502,-97.721"
-  },
-  {
-   "from": "Arbor Place Dr",
-   "hour_of_week": 18,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.502,-97.721"
-  },
-  {
-   "from": "Lost Horizon Dr",
-   "hour_of_week": 88,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.405,-97.759"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.7,
+  "dispatch": 86.4,
   "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 84,
-  "neither": 72,
+  "n": 88,
+  "neither": 76,
   "tomtom_only": 12
  }
 }
