@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 67 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 69 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 93,
-  "dispatch_only": 77,
+  "dispatch": 95,
+  "dispatch_only": 78,
   "here": 0,
   "here_matched": 0,
-  "matched": 20,
-  "tomtom": 911,
-  "tomtom_only": 889
+  "matched": 21,
+  "tomtom": 944,
+  "tomtom_only": 921
  },
  "date": "2026-11-23",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 117.2,
+  "median": 117.4,
   "min": 5.5,
-  "n": 67,
+  "n": 69,
   "q1": 115.3,
-  "q3": 118.8
+  "q3": 118.9
  },
  "here_onset_offset_min": {
   "n": 0
@@ -37,18 +37,18 @@
    "pct": 29.4
   },
   "dispatch_surface": {
-   "matched": 11,
-   "n": 76,
-   "pct": 14.5
+   "matched": 12,
+   "n": 78,
+   "pct": 15.4
   },
   "tomtom_highway": {
-   "matched": 17,
-   "n": 449,
+   "matched": 18,
+   "n": 469,
    "pct": 3.8
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 462,
+   "n": 475,
    "pct": 1.1
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 83.5,
-  "median": 8.0,
+  "median": 6.3,
   "min": -82.5,
-  "n": 20,
-  "q1": -8.6,
-  "q3": 23.9
+  "n": 21,
+  "q1": -11.6,
+  "q3": 21.0
  },
  "persistence_min": {
   "max": -5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 711,
+  "hotspot_buckets": 733,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 861
+  "unreported_congestion": 893
  },
  "sampling": {
   "flow_spent_this_month": 5652,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 816,
+  "incidents_spent_this_month": 817,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,13 +117,6 @@
    "n": 6,
    "roadworks": false,
    "seg": "30.169,-97.623"
-  },
-  {
-   "from": "W Braker Ln",
-   "hour_of_week": 13,
-   "n": 4,
-   "roadworks": false,
-   "seg": "30.393,-97.715"
   },
   {
    "from": "Mopac Expy S",
@@ -147,6 +140,13 @@
    "seg": "30.148,-97.704"
   },
   {
+   "from": "S Pleasant Valley Rd (E William Cannon Dr)",
+   "hour_of_week": 23,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.164,-97.728"
+  },
+  {
    "from": "E 7th St (Springdale Rd)",
    "hour_of_week": 164,
    "n": 3,
@@ -159,6 +159,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.281,-97.734"
+  },
+  {
+   "from": "W Braker Ln",
+   "hour_of_week": 13,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.393,-97.715"
   },
   {
    "from": "N Interstate 35",
@@ -182,11 +189,25 @@
    "seg": "30.310,-97.710"
   },
   {
-   "from": "S Pleasant Valley Rd (E William Cannon Dr)",
+   "from": "N Lake Creek Pkwy",
    "hour_of_week": 23,
    "n": 3,
    "roadworks": false,
-   "seg": "30.164,-97.728"
+   "seg": "30.475,-97.794"
+  },
+  {
+   "from": "Cromwell Cir",
+   "hour_of_week": 23,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.233,-97.720"
+  },
+  {
+   "from": "N Imperial Dr",
+   "hour_of_week": 23,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.290,-97.626"
   },
   {
    "from": "Aldrich St",
@@ -194,38 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.300,-97.703"
-  },
-  {
-   "from": "Logistics Ln",
-   "hour_of_week": 17,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.193,-97.669"
-  },
-  {
-   "from": "Brockton Dr",
-   "hour_of_week": 61,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.393,-97.715"
-  },
-  {
-   "from": "Medical Arts St",
-   "hour_of_week": 5,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.290,-97.727"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 82.8,
+  "dispatch": 82.1,
   "tomtom": 97.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 93,
-  "neither": 77,
-  "tomtom_only": 16
+  "n": 95,
+  "neither": 78,
+  "tomtom_only": 17
  }
 }
