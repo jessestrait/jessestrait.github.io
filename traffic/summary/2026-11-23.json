@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 19,
-  "tomtom": 739,
-  "tomtom_only": 718
+  "tomtom": 793,
+  "tomtom_only": 772
  },
  "date": "2026-11-23",
  "dispatch_life_capped": true,
@@ -43,12 +43,12 @@
   },
   "tomtom_highway": {
    "matched": 17,
-   "n": 358,
-   "pct": 4.7
+   "n": 389,
+   "pct": 4.4
   },
   "tomtom_surface": {
    "matched": 4,
-   "n": 381,
+   "n": 404,
    "pct": 1.0
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 571,
+  "hotspot_buckets": 622,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 690
+  "unreported_congestion": 744
  },
  "sampling": {
   "flow_spent_this_month": 5643,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 812,
+  "incidents_spent_this_month": 813,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -168,6 +168,13 @@
    "seg": "30.353,-97.691"
   },
   {
+   "from": "Ridgeline Blvd (S Lakeline Blvd)",
+   "hour_of_week": 23,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.481,-97.825"
+  },
+  {
    "from": "Aldrich St",
    "hour_of_week": 157,
    "n": 2,
@@ -208,18 +215,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.448,-97.780"
-  },
-  {
-   "from": "N RM 620 Rd",
-   "hour_of_week": 19,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.502,-97.721"
   }
  ],
  "unmatched_pct": {
   "dispatch": 83.5,
-  "tomtom": 97.2
+  "tomtom": 97.4
  },
  "witnesses": {
   "both": 0,
