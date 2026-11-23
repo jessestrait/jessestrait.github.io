@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 115, q3 119 min over 72 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 73 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 96,
-  "dispatch_only": 78,
+  "dispatch": 97,
+  "dispatch_only": 79,
   "here": 0,
   "here_matched": 0,
   "matched": 23,
-  "tomtom": 1018,
-  "tomtom_only": 993
+  "tomtom": 1066,
+  "tomtom_only": 1041
  },
  "date": "2026-11-23",
  "dispatch_life_capped": true,
@@ -23,8 +23,8 @@
   "max": 120.0,
   "median": 117.4,
   "min": 5.5,
-  "n": 72,
-  "q1": 115.4,
+  "n": 73,
+  "q1": 115.5,
   "q3": 118.8
  },
  "here_onset_offset_min": {
@@ -38,18 +38,18 @@
   },
   "dispatch_surface": {
    "matched": 13,
-   "n": 79,
-   "pct": 16.5
+   "n": 80,
+   "pct": 16.2
   },
   "tomtom_highway": {
    "matched": 20,
-   "n": 509,
-   "pct": 3.9
+   "n": 531,
+   "pct": 3.8
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 509,
-   "pct": 1.0
+   "n": 535,
+   "pct": 0.9
   }
  },
  "matcher": {
@@ -67,12 +67,12 @@
   "q3": 15.2
  },
  "persistence_min": {
-  "max": -5.0,
-  "median": -35.6,
+  "max": 5.0,
+  "median": -35.5,
   "min": -81.5,
-  "n": 8,
-  "q1": -71.1,
-  "q3": -15.2,
+  "n": 9,
+  "q1": -66.0,
+  "q3": -7.6,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 785,
+  "hotspot_buckets": 819,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 965
+  "unreported_congestion": 1013
  },
  "sampling": {
   "flow_spent_this_month": 5661,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 819,
+  "incidents_spent_this_month": 820,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,6 +117,13 @@
    "n": 6,
    "roadworks": false,
    "seg": "30.169,-97.623"
+  },
+  {
+   "from": "Cromwell Cir",
+   "hour_of_week": 23,
+   "n": 5,
+   "roadworks": false,
+   "seg": "30.233,-97.720"
   },
   {
    "from": "Mopac Expy S",
@@ -196,13 +203,6 @@
    "seg": "30.195,-97.778"
   },
   {
-   "from": "E William Cannon Dr (I-35)",
-   "hour_of_week": 22,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.181,-97.777"
-  },
-  {
    "from": "N Lake Creek Pkwy",
    "hour_of_week": 23,
    "n": 3,
@@ -210,22 +210,22 @@
    "seg": "30.475,-97.794"
   },
   {
-   "from": "Cromwell Cir",
+   "from": "N Imperial Dr",
    "hour_of_week": 23,
    "n": 3,
    "roadworks": false,
-   "seg": "30.233,-97.720"
+   "seg": "30.290,-97.626"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 81.2,
-  "tomtom": 97.5
+  "dispatch": 81.4,
+  "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 96,
-  "neither": 78,
+  "n": 97,
+  "neither": 79,
   "tomtom_only": 18
  }
 }
