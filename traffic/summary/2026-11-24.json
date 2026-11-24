@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 16,
-  "tomtom": 677,
-  "tomtom_only": 661
+  "tomtom": 705,
+  "tomtom_only": 689
  },
  "date": "2026-11-24",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 13,
-   "n": 395,
-   "pct": 3.3
+   "n": 408,
+   "pct": 3.2
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 282,
-   "pct": 1.1
+   "n": 297,
+   "pct": 1.0
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 605,
+  "hotspot_buckets": 633,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 622
+  "unreported_congestion": 652
  },
  "sampling": {
   "flow_spent_this_month": 5814,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 837,
+  "incidents_spent_this_month": 838,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -161,11 +161,25 @@
    "seg": "30.496,-97.613"
   },
   {
+   "from": "FM-1325/Burnet Rd (US-183)",
+   "hour_of_week": 44,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.347,-97.712"
+  },
+  {
    "from": "Rental Car Ln",
    "hour_of_week": 44,
    "n": 2,
    "roadworks": false,
    "seg": "30.205,-97.671"
+  },
+  {
+   "from": "Lakeline Mall Dr",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.475,-97.795"
   },
   {
    "from": "San Antonio St (State Spur 343/W Cesar Chavez St/W 1st St)",
@@ -201,25 +215,11 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.320,-97.706"
-  },
-  {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.245,-97.744"
-  },
-  {
-   "from": "E 13th St",
-   "hour_of_week": 94,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.274,-97.721"
   }
  ],
  "unmatched_pct": {
   "dispatch": 87.5,
-  "tomtom": 97.6
+  "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
