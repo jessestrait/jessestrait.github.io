@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 100,
-  "dispatch_only": 87,
+  "dispatch": 101,
+  "dispatch_only": 88,
   "here": 0,
   "here_matched": 0,
   "matched": 19,
-  "tomtom": 877,
-  "tomtom_only": 857
+  "tomtom": 902,
+  "tomtom_only": 881
  },
  "date": "2026-11-24",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 9,
-   "n": 82,
-   "pct": 11.0
+   "n": 83,
+   "pct": 10.8
   },
   "tomtom_highway": {
-   "matched": 17,
-   "n": 521,
-   "pct": 3.3
+   "matched": 18,
+   "n": 535,
+   "pct": 3.4
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 356,
+   "n": 367,
    "pct": 0.8
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 758,
+  "hotspot_buckets": 778,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 821
+  "unreported_congestion": 845
  },
  "sampling": {
   "flow_spent_this_month": 5832,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 845,
+  "incidents_spent_this_month": 846,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -140,13 +140,6 @@
    "seg": "30.475,-97.795"
   },
   {
-   "from": "Southwest Pkwy (TX-71)",
-   "hour_of_week": 45,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.301,-97.930"
-  },
-  {
    "from": "Airport Blvd exit [237A]",
    "hour_of_week": 45,
    "n": 3,
@@ -159,6 +152,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.204,-97.753"
+  },
+  {
+   "from": "Manchaca Rd (Slaughter Ln)",
+   "hour_of_week": 45,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.167,-97.790"
   },
   {
    "from": "TX-212 Loop/Gregg Manor Rd/Murray Ave (US-290)",
@@ -218,14 +218,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.0,
+  "dispatch": 87.1,
   "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 100,
-  "neither": 87,
+  "n": 101,
+  "neither": 88,
   "tomtom_only": 13
  }
 }
