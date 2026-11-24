@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 17,
-  "tomtom": 730,
-  "tomtom_only": 713
+  "tomtom": 751,
+  "tomtom_only": 734
  },
  "date": "2026-11-24",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 14,
-   "n": 423,
-   "pct": 3.3
+   "n": 435,
+   "pct": 3.2
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 307,
-   "pct": 1.0
+   "n": 316,
+   "pct": 0.9
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 654,
+  "hotspot_buckets": 670,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 675
+  "unreported_congestion": 698
  },
  "sampling": {
-  "flow_spent_this_month": 5814,
+  "flow_spent_this_month": 5823,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 839,
+  "incidents_spent_this_month": 840,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,6 +117,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.475,-97.795"
+  },
+  {
+   "from": "Rental Car Ln",
+   "hour_of_week": 45,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.203,-97.669"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -154,11 +161,25 @@
    "seg": "30.240,-97.665"
   },
   {
+   "from": "Monterey Oaks Blvd",
+   "hour_of_week": 43,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.222,-97.836"
+  },
+  {
    "from": "S Interstate 35",
    "hour_of_week": 43,
    "n": 2,
    "roadworks": false,
    "seg": "30.186,-97.773"
+  },
+  {
+   "from": "E Ben White Blvd",
+   "hour_of_week": 43,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.217,-97.751"
   },
   {
    "from": "Heatherwilde Blvd (Red Bud Ln)",
@@ -189,32 +210,11 @@
    "seg": "30.481,-97.675"
   },
   {
-   "from": "Rental Car Ln",
+   "from": "Grand Avenue Pkwy (I-35)",
    "hour_of_week": 45,
    "n": 2,
    "roadworks": false,
-   "seg": "30.203,-97.669"
-  },
-  {
-   "from": "Mopac Expy S",
-   "hour_of_week": 117,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.176,-97.889"
-  },
-  {
-   "from": "Marsha St",
-   "hour_of_week": 132,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.447,-97.668"
-  },
-  {
-   "from": "Adage Dr / Epiphany Ln",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.448,-97.631"
+   "seg": "30.503,-97.683"
   }
  ],
  "unmatched_pct": {
