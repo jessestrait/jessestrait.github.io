@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 52,
-  "dispatch_only": 46,
+  "dispatch": 54,
+  "dispatch_only": 48,
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 364,
-  "tomtom_only": 358
+  "tomtom": 368,
+  "tomtom_only": 362
  },
  "date": "2026-11-24",
  "dispatch_life_capped": true,
@@ -33,22 +33,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 9,
-   "pct": 11.1
+   "n": 10,
+   "pct": 10.0
   },
   "dispatch_surface": {
    "matched": 5,
-   "n": 43,
-   "pct": 11.6
+   "n": 44,
+   "pct": 11.4
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 184,
+   "n": 187,
    "pct": 2.7
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 180,
+   "n": 181,
    "pct": 0.6
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 335,
+  "hotspot_buckets": 338,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 346
+  "unreported_congestion": 350
  },
  "sampling": {
   "flow_spent_this_month": 5715,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 825,
+  "incidents_spent_this_month": 826,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -124,6 +124,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.233,-97.720"
+  },
+  {
+   "from": "W Slaughter Ln",
+   "hour_of_week": 98,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.196,-97.861"
   },
   {
    "from": "Rental Car Ln",
@@ -208,24 +215,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.489,-97.808"
-  },
-  {
-   "from": "FM-2222/Bullick Hollow Rd (FM-620)",
-   "hour_of_week": 22,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.443,-97.833"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.5,
+  "dispatch": 88.9,
   "tomtom": 98.4
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 52,
-  "neither": 46,
+  "n": 54,
+  "neither": 48,
   "tomtom_only": 6
  }
 }
