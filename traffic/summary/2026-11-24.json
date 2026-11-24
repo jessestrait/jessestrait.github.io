@@ -14,18 +14,18 @@
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 292,
-  "tomtom_only": 286
+  "tomtom": 334,
+  "tomtom_only": 328
  },
  "date": "2026-11-24",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 118.9,
-  "median": 118.3,
+  "median": 118.1,
   "min": 116.3,
-  "n": 7,
-  "q1": 117.1,
-  "q3": 118.9
+  "n": 8,
+  "q1": 116.6,
+  "q3": 118.8
  },
  "here_onset_offset_min": {
   "n": 0
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 5,
-   "n": 147,
-   "pct": 3.4
+   "n": 169,
+   "pct": 3.0
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 145,
-   "pct": 0.7
+   "n": 165,
+   "pct": 0.6
   }
  },
  "matcher": {
@@ -67,7 +67,12 @@
   "q3": 3.9
  },
  "persistence_min": {
-  "n": 0
+  "max": -35.8,
+  "median": -35.8,
+  "min": -35.8,
+  "n": 1,
+  "q1": -35.8,
+  "q3": -35.8
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -84,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 264,
+  "hotspot_buckets": 307,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 275
+  "unreported_congestion": 317
  },
  "sampling": {
   "flow_spent_this_month": 5679,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 820,
+  "incidents_spent_this_month": 821,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,13 +116,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.169,-97.623"
-  },
-  {
-   "from": "Grand Avenue Pkwy (I-35)",
-   "hour_of_week": 23,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.502,-97.682"
   },
   {
    "from": "Cromwell Cir",
@@ -183,13 +181,6 @@
    "seg": "30.514,-97.853"
   },
   {
-   "from": "US-183/N Bell Blvd (Whitestone Blvd)",
-   "hour_of_week": 22,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.515,-97.848"
-  },
-  {
    "from": "Ridgeline Blvd (S Lakeline Blvd)",
    "hour_of_week": 23,
    "n": 1,
@@ -209,11 +200,25 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.489,-97.808"
+  },
+  {
+   "from": "FM-2222/Bullick Hollow Rd (FM-620)",
+   "hour_of_week": 22,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.443,-97.833"
+  },
+  {
+   "from": "FM-2769 (Anderson Mill Rd)",
+   "hour_of_week": 23,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.456,-97.827"
   }
  ],
  "unmatched_pct": {
   "dispatch": 80.6,
-  "tomtom": 97.9
+  "tomtom": 98.2
  },
  "witnesses": {
   "both": 0,
