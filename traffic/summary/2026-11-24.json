@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 86,
+  "dispatch": 89,
   "dispatch_only": 78,
   "here": 0,
   "here_matched": 0,
-  "matched": 10,
-  "tomtom": 515,
-  "tomtom_only": 505
+  "matched": 13,
+  "tomtom": 591,
+  "tomtom_only": 578
  },
  "date": "2026-11-24",
  "dispatch_life_capped": true,
@@ -32,24 +32,24 @@
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 2,
-   "n": 16,
-   "pct": 12.5
+   "matched": 3,
+   "n": 17,
+   "pct": 17.6
   },
   "dispatch_surface": {
-   "matched": 6,
-   "n": 70,
-   "pct": 8.6
+   "matched": 8,
+   "n": 72,
+   "pct": 11.1
   },
   "tomtom_highway": {
-   "matched": 8,
-   "n": 285,
-   "pct": 2.8
+   "matched": 11,
+   "n": 336,
+   "pct": 3.3
   },
   "tomtom_surface": {
    "matched": 2,
-   "n": 230,
-   "pct": 0.9
+   "n": 255,
+   "pct": 0.8
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 36.8,
-  "median": -10.6,
+  "median": -7.1,
   "min": -71.0,
-  "n": 10,
-  "q1": -53.8,
-  "q3": 11.1
+  "n": 13,
+  "q1": -50.3,
+  "q3": 6.6
  },
  "persistence_min": {
   "max": 35.5,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 465,
+  "hotspot_buckets": 526,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 479
+  "unreported_congestion": 542
  },
  "sampling": {
   "flow_spent_this_month": 5796,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 832,
+  "incidents_spent_this_month": 833,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -147,11 +147,25 @@
    "seg": "30.203,-97.669"
   },
   {
+   "from": "Edwin Ln",
+   "hour_of_week": 94,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.240,-97.665"
+  },
+  {
    "from": "S Interstate 35",
    "hour_of_week": 43,
    "n": 2,
    "roadworks": false,
    "seg": "30.186,-97.773"
+  },
+  {
+   "from": "E 12th St (Airport Blvd)",
+   "hour_of_week": 43,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.274,-97.698"
   },
   {
    "from": "Mopac Expy S",
@@ -201,31 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "New Hope Dr (Whitestone Blvd)",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.514,-97.853"
-  },
-  {
-   "from": "Ridgeline Blvd (S Lakeline Blvd)",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.481,-97.824"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 90.7,
-  "tomtom": 98.1
+  "dispatch": 87.6,
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 86,
+  "n": 89,
   "neither": 78,
-  "tomtom_only": 8
+  "tomtom_only": 11
  }
 }
