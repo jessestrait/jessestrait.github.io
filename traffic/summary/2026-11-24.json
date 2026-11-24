@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 76 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 119 min over 77 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -13,18 +13,18 @@
   "dispatch_only": 86,
   "here": 0,
   "here_matched": 0,
-  "matched": 17,
-  "tomtom": 771,
-  "tomtom_only": 754
+  "matched": 18,
+  "tomtom": 794,
+  "tomtom_only": 776
  },
  "date": "2026-11-24",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 117.6,
+  "median": 117.5,
   "min": 5.2,
-  "n": 76,
-  "q1": 116.3,
+  "n": 77,
+  "q1": 116.2,
   "q3": 118.6
  },
  "here_onset_offset_min": {
@@ -42,13 +42,13 @@
    "pct": 10.0
   },
   "tomtom_highway": {
-   "matched": 14,
-   "n": 451,
-   "pct": 3.1
+   "matched": 15,
+   "n": 466,
+   "pct": 3.2
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 320,
+   "n": 328,
    "pct": 0.9
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 36.8,
-  "median": -7.1,
+  "median": -9.8,
   "min": -71.0,
-  "n": 17,
-  "q1": -41.2,
-  "q3": 6.6
+  "n": 18,
+  "q1": -37.4,
+  "q3": 6.5
  },
  "persistence_min": {
   "max": 35.5,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 684,
+  "hotspot_buckets": 700,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 719
+  "unreported_congestion": 741
  },
  "sampling": {
   "flow_spent_this_month": 5823,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 841,
+  "incidents_spent_this_month": 842,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Rental Car Ln",
+   "hour_of_week": 45,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.203,-97.669"
+  },
   {
    "from": "Heatherwilde Blvd (Red Bud Ln)",
    "hour_of_week": 45,
@@ -131,13 +138,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.169,-97.788"
-  },
-  {
-   "from": "Rental Car Ln",
-   "hour_of_week": 45,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.203,-97.669"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -189,13 +189,6 @@
    "seg": "30.186,-97.773"
   },
   {
-   "from": "TX-130 Toll/TX-45 Toll (TX-71)",
-   "hour_of_week": 41,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.184,-97.545"
-  },
-  {
    "from": "Rental Car Ln",
    "hour_of_week": 44,
    "n": 2,
@@ -215,11 +208,18 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.481,-97.675"
+  },
+  {
+   "from": "E Ben White Blvd",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.221,-97.684"
   }
  ],
  "unmatched_pct": {
   "dispatch": 87.8,
-  "tomtom": 97.8
+  "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
