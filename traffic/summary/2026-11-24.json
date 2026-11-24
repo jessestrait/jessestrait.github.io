@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 96,
-  "dispatch_only": 84,
+  "dispatch": 97,
+  "dispatch_only": 85,
   "here": 0,
   "here_matched": 0,
-  "matched": 16,
-  "tomtom": 705,
-  "tomtom_only": 689
+  "matched": 17,
+  "tomtom": 730,
+  "tomtom_only": 713
  },
  "date": "2026-11-24",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 8,
-   "n": 78,
-   "pct": 10.3
+   "n": 79,
+   "pct": 10.1
   },
   "tomtom_highway": {
-   "matched": 13,
-   "n": 408,
-   "pct": 3.2
+   "matched": 14,
+   "n": 423,
+   "pct": 3.3
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 297,
+   "n": 307,
    "pct": 1.0
   }
  },
@@ -60,10 +60,10 @@
  },
  "onset_offset_min": {
   "max": 36.8,
-  "median": -2.8,
+  "median": -7.1,
   "min": -71.0,
-  "n": 16,
-  "q1": -44.9,
+  "n": 17,
+  "q1": -41.2,
   "q3": 6.6
  },
  "persistence_min": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 633,
+  "hotspot_buckets": 654,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 652
+  "unreported_congestion": 675
  },
  "sampling": {
   "flow_spent_this_month": 5814,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 838,
+  "incidents_spent_this_month": 839,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Lakeline Mall Dr",
+   "hour_of_week": 45,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.475,-97.795"
+  },
   {
    "from": "Buenos Aires Pkwy",
    "hour_of_week": 15,
@@ -161,13 +168,6 @@
    "seg": "30.496,-97.613"
   },
   {
-   "from": "FM-1325/Burnet Rd (US-183)",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.347,-97.712"
-  },
-  {
    "from": "Rental Car Ln",
    "hour_of_week": 44,
    "n": 2,
@@ -175,18 +175,25 @@
    "seg": "30.205,-97.671"
   },
   {
-   "from": "Lakeline Mall Dr",
+   "from": "Dittmar Rd (S Congress Ave)",
    "hour_of_week": 45,
    "n": 2,
    "roadworks": false,
-   "seg": "30.475,-97.795"
+   "seg": "30.169,-97.788"
   },
   {
-   "from": "San Antonio St (State Spur 343/W Cesar Chavez St/W 1st St)",
+   "from": "Highway 45",
    "hour_of_week": 45,
    "n": 2,
    "roadworks": false,
-   "seg": "30.266,-97.756"
+   "seg": "30.481,-97.675"
+  },
+  {
+   "from": "Rental Car Ln",
+   "hour_of_week": 45,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.203,-97.669"
   },
   {
    "from": "Mopac Expy S",
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.448,-97.631"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 18,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.320,-97.706"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 87.5,
+  "dispatch": 87.6,
   "tomtom": 97.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 96,
-  "neither": 84,
+  "n": 97,
+  "neither": 85,
   "tomtom_only": 12
  }
 }
