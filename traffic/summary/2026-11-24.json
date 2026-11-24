@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 19,
-  "tomtom": 853,
-  "tomtom_only": 833
+  "tomtom": 877,
+  "tomtom_only": 857
  },
  "date": "2026-11-24",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 17,
-   "n": 505,
-   "pct": 3.4
+   "n": 521,
+   "pct": 3.3
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 348,
-   "pct": 0.9
+   "n": 356,
+   "pct": 0.8
   }
  },
  "matcher": {
@@ -67,12 +67,12 @@
   "q3": 6.7
  },
  "persistence_min": {
-  "max": 35.5,
-  "median": -56.1,
+  "max": 46.1,
+  "median": -51.1,
   "min": -112.2,
-  "n": 9,
-  "q1": -97.3,
-  "q3": -2.7,
+  "n": 10,
+  "q1": -95.0,
+  "q3": 31.7,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 745,
+  "hotspot_buckets": 758,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 798
+  "unreported_congestion": 821
  },
  "sampling": {
   "flow_spent_this_month": 5832,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 844,
+  "incidents_spent_this_month": 845,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -140,11 +140,32 @@
    "seg": "30.475,-97.795"
   },
   {
+   "from": "Southwest Pkwy (TX-71)",
+   "hour_of_week": 45,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.301,-97.930"
+  },
+  {
    "from": "Airport Blvd exit [237A]",
    "hour_of_week": 45,
    "n": 3,
    "roadworks": false,
    "seg": "30.279,-97.730"
+  },
+  {
+   "from": "Sponberg Dr",
+   "hour_of_week": 45,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.204,-97.753"
+  },
+  {
+   "from": "TX-212 Loop/Gregg Manor Rd/Murray Ave (US-290)",
+   "hour_of_week": 45,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.349,-97.543"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -194,27 +215,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.186,-97.773"
-  },
-  {
-   "from": "Rental Car Ln",
-   "hour_of_week": 44,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.205,-97.671"
-  },
-  {
-   "from": "Mesa Dr (Spicewood Springs Rd)",
-   "hour_of_week": 45,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.384,-97.766"
-  },
-  {
-   "from": "Mopac Expy S",
-   "hour_of_week": 45,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.378,-97.737"
   }
  ],
  "unmatched_pct": {
