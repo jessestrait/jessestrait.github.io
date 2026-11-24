@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 110,
-  "dispatch_only": 94,
+  "dispatch": 111,
+  "dispatch_only": 95,
   "here": 0,
   "here_matched": 0,
   "matched": 25,
-  "tomtom": 1229,
-  "tomtom_only": 1202
+  "tomtom": 1256,
+  "tomtom_only": 1229
  },
  "date": "2026-11-24",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 11,
-   "n": 90,
-   "pct": 12.2
+   "n": 91,
+   "pct": 12.1
   },
   "tomtom_highway": {
    "matched": 22,
-   "n": 737,
+   "n": 743,
    "pct": 3.0
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 492,
+   "n": 513,
    "pct": 1.0
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1054,
+  "hotspot_buckets": 1076,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1164
+  "unreported_congestion": 1191
  },
  "sampling": {
   "flow_spent_this_month": 5859,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 857,
+  "incidents_spent_this_month": 858,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -196,6 +196,13 @@
    "seg": "30.353,-97.691"
   },
   {
+   "from": "E Stassney Ln/Montopolis Dr (Burleson Rd)",
+   "hour_of_week": 46,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.192,-97.699"
+  },
+  {
    "from": "Heatherwilde Blvd (Red Bud Ln)",
    "hour_of_week": 46,
    "n": 3,
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.279,-97.730"
-  },
-  {
-   "from": "Buenos Aires Pkwy",
-   "hour_of_week": 15,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.169,-97.623"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.5,
-  "tomtom": 97.8
+  "dispatch": 85.6,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 110,
-  "neither": 94,
+  "n": 111,
+  "neither": 95,
   "tomtom_only": 16
  }
 }
