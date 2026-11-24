@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 27,
-  "tomtom": 1394,
-  "tomtom_only": 1364
+  "tomtom": 1434,
+  "tomtom_only": 1403
  },
  "date": "2026-11-24",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 24,
-   "n": 819,
-   "pct": 2.9
+   "n": 843,
+   "pct": 2.8
   },
   "tomtom_surface": {
-   "matched": 6,
-   "n": 575,
-   "pct": 1.0
+   "matched": 7,
+   "n": 591,
+   "pct": 1.2
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1206,
+  "hotspot_buckets": 1236,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1326
+  "unreported_congestion": 1365
  },
  "sampling": {
   "flow_spent_this_month": 5868,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 862,
+  "incidents_spent_this_month": 863,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -124,6 +124,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.169,-97.788"
+  },
+  {
+   "from": "Austin",
+   "hour_of_week": 46,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.212,-97.657"
   },
   {
    "from": "Heatherwilde Blvd (Red Bud Ln)",
@@ -154,6 +161,13 @@
    "seg": "30.204,-97.753"
   },
   {
+   "from": "TX-212 Loop/Gregg Manor Rd/Murray Ave (US-290)",
+   "hour_of_week": 45,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.349,-97.543"
+  },
+  {
    "from": "N Interstate 35",
    "hour_of_week": 46,
    "n": 3,
@@ -182,13 +196,6 @@
    "seg": "30.223,-97.764"
   },
   {
-   "from": "Austin",
-   "hour_of_week": 46,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.212,-97.657"
-  },
-  {
    "from": "N Interstate 35",
    "hour_of_week": 46,
    "n": 3,
@@ -208,13 +215,6 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.496,-97.613"
-  },
-  {
-   "from": "Manor Rd (Overpass) (I-35)",
-   "hour_of_week": 46,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.279,-97.730"
   }
  ],
  "unmatched_pct": {
