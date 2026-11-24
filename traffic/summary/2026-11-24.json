@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 111,
-  "dispatch_only": 95,
+  "dispatch": 112,
+  "dispatch_only": 96,
   "here": 0,
   "here_matched": 0,
   "matched": 25,
-  "tomtom": 1256,
-  "tomtom_only": 1229
+  "tomtom": 1280,
+  "tomtom_only": 1253
  },
  "date": "2026-11-24",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 11,
-   "n": 91,
-   "pct": 12.1
+   "n": 92,
+   "pct": 12.0
   },
   "tomtom_highway": {
    "matched": 22,
-   "n": 743,
-   "pct": 3.0
+   "n": 759,
+   "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 5,
-   "n": 513,
+   "n": 521,
    "pct": 1.0
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1076,
+  "hotspot_buckets": 1096,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1191
+  "unreported_congestion": 1215
  },
  "sampling": {
   "flow_spent_this_month": 5859,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 858,
+  "incidents_spent_this_month": 859,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -152,6 +152,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.204,-97.753"
+  },
+  {
+   "from": "Tur Weg Ln",
+   "hour_of_week": 45,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.348,-97.562"
   },
   {
    "from": "N Interstate 35",
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.496,-97.613"
-  },
-  {
-   "from": "Manor Rd (Overpass) (I-35)",
-   "hour_of_week": 46,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.279,-97.730"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.6,
+  "dispatch": 85.7,
   "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 111,
-  "neither": 95,
+  "n": 112,
+  "neither": 96,
   "tomtom_only": 16
  }
 }
