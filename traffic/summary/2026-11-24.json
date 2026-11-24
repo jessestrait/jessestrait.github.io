@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 6,
-  "tomtom": 352,
-  "tomtom_only": 346
+  "tomtom": 356,
+  "tomtom_only": 350
  },
  "date": "2026-11-24",
  "dispatch_life_capped": true,
@@ -48,7 +48,7 @@
   },
   "tomtom_surface": {
    "matched": 1,
-   "n": 175,
+   "n": 179,
    "pct": 0.6
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 325,
+  "hotspot_buckets": 327,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 335
+  "unreported_congestion": 338
  },
  "sampling": {
   "flow_spent_this_month": 5706,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 823,
+  "incidents_spent_this_month": 824,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -124,6 +124,13 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.233,-97.720"
+  },
+  {
+   "from": "Rental Car Ln",
+   "hour_of_week": 26,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.203,-97.669"
   },
   {
    "from": "Mopac Expy S",
@@ -208,13 +215,6 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.443,-97.833"
-  },
-  {
-   "from": "FM-2769 (Anderson Mill Rd)",
-   "hour_of_week": 23,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.456,-97.827"
   }
  ],
  "unmatched_pct": {
