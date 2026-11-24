@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 113,
+  "dispatch": 114,
   "dispatch_only": 96,
   "here": 0,
   "here_matched": 0,
-  "matched": 26,
-  "tomtom": 1318,
-  "tomtom_only": 1289
+  "matched": 27,
+  "tomtom": 1367,
+  "tomtom_only": 1337
  },
  "date": "2026-11-24",
  "dispatch_life_capped": true,
@@ -33,23 +33,23 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 6,
-   "n": 21,
-   "pct": 28.6
+   "n": 22,
+   "pct": 27.3
   },
   "dispatch_surface": {
-   "matched": 11,
+   "matched": 12,
    "n": 92,
-   "pct": 12.0
+   "pct": 13.0
   },
   "tomtom_highway": {
    "matched": 24,
-   "n": 782,
-   "pct": 3.1
+   "n": 808,
+   "pct": 3.0
   },
   "tomtom_surface": {
-   "matched": 5,
-   "n": 536,
-   "pct": 0.9
+   "matched": 6,
+   "n": 559,
+   "pct": 1.1
   }
  },
  "matcher": {
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 36.8,
-  "median": -2.8,
+  "median": 1.4,
   "min": -71.0,
-  "n": 26,
-  "q1": -16.0,
-  "q3": 8.4
+  "n": 27,
+  "q1": -14.7,
+  "q3": 11.8
  },
  "persistence_min": {
   "max": 46.1,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 1134,
+  "hotspot_buckets": 1177,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 1251
+  "unreported_congestion": 1299
  },
  "sampling": {
   "flow_spent_this_month": 5868,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 860,
+  "incidents_spent_this_month": 861,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -175,6 +175,13 @@
    "seg": "30.475,-97.795"
   },
   {
+   "from": "W Cesar Chavez St (N Lamar Blvd)",
+   "hour_of_week": 46,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.264,-97.758"
+  },
+  {
    "from": "N Interstate 35",
    "hour_of_week": 46,
    "n": 3,
@@ -208,24 +215,17 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.496,-97.613"
-  },
-  {
-   "from": "Manor Rd (Overpass) (I-35)",
-   "hour_of_week": 46,
-   "n": 3,
-   "roadworks": false,
-   "seg": "30.279,-97.730"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.0,
+  "dispatch": 84.2,
   "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 113,
+  "n": 114,
   "neither": 96,
-  "tomtom_only": 17
+  "tomtom_only": 18
  }
 }
