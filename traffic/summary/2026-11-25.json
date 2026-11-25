@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 92,
-  "dispatch_only": 79,
+  "dispatch": 94,
+  "dispatch_only": 80,
   "here": 0,
   "here_matched": 0,
-  "matched": 15,
-  "tomtom": 619,
-  "tomtom_only": 606
+  "matched": 16,
+  "tomtom": 634,
+  "tomtom_only": 620
  },
  "date": "2026-11-25",
  "dispatch_life_capped": false,
@@ -37,18 +37,18 @@
    "pct": 31.8
   },
   "dispatch_surface": {
-   "matched": 6,
-   "n": 70,
-   "pct": 8.6
+   "matched": 7,
+   "n": 72,
+   "pct": 9.7
   },
   "tomtom_highway": {
-   "matched": 10,
-   "n": 324,
-   "pct": 3.1
+   "matched": 11,
+   "n": 331,
+   "pct": 3.3
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 295,
+   "n": 303,
    "pct": 1.0
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 78.7,
-  "median": 23.7,
+  "median": 22.6,
   "min": -77.1,
-  "n": 15,
-  "q1": -19.8,
-  "q3": 56.6
+  "n": 16,
+  "q1": -31.7,
+  "q3": 55.8
  },
  "persistence_min": {
   "max": 25.5,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 574,
+  "hotspot_buckets": 584,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 592
+  "unreported_congestion": 606
  },
  "sampling": {
   "flow_spent_this_month": 6075,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 904,
+  "incidents_spent_this_month": 905,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -110,6 +110,13 @@
   "this_poll": "rush"
  },
  "structural_hotspots": [
+  {
+   "from": "Rental Car Ln",
+   "hour_of_week": 70,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.203,-97.669"
+  },
   {
    "from": "Buenos Aires Pkwy",
    "hour_of_week": 15,
@@ -160,6 +167,13 @@
    "seg": "30.212,-97.657"
   },
   {
+   "from": "Lexington St/W Parsons St (FM-973)",
+   "hour_of_week": 66,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.343,-97.549"
+  },
+  {
    "from": "Muirfield Bend Dr",
    "hour_of_week": 67,
    "n": 2,
@@ -174,11 +188,18 @@
    "seg": "30.170,-97.785"
   },
   {
-   "from": "Rental Car Ln",
+   "from": "Bloor Rd (FM-973)",
    "hour_of_week": 70,
    "n": 2,
    "roadworks": false,
-   "seg": "30.203,-97.669"
+   "seg": "30.337,-97.559"
+  },
+  {
+   "from": "Wm Cannon Dr exit [228]",
+   "hour_of_week": 70,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.195,-97.767"
   },
   {
    "from": "Mopac Expy S",
@@ -193,38 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.447,-97.668"
-  },
-  {
-   "from": "Adage Dr / Epiphany Ln",
-   "hour_of_week": 60,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.448,-97.631"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 18,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.320,-97.706"
-  },
-  {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.245,-97.744"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.9,
-  "tomtom": 97.9
+  "dispatch": 85.1,
+  "tomtom": 97.8
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 92,
-  "neither": 79,
-  "tomtom_only": 13
+  "n": 94,
+  "neither": 80,
+  "tomtom_only": 14
  }
 }
