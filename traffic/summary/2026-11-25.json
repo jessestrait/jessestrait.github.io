@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 98, q3 119 min over 79 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 101, q3 119 min over 82 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 97,
-  "dispatch_only": 82,
+  "dispatch": 98,
+  "dispatch_only": 83,
   "here": 0,
   "here_matched": 0,
   "matched": 17,
-  "tomtom": 741,
-  "tomtom_only": 726
+  "tomtom": 760,
+  "tomtom_only": 745
  },
  "date": "2026-11-25",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 116.8,
+  "median": 116.7,
   "min": 5.1,
-  "n": 79,
-  "q1": 98.0,
+  "n": 82,
+  "q1": 100.6,
   "q3": 118.7
  },
  "here_onset_offset_min": {
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 8,
-   "n": 75,
-   "pct": 10.7
+   "n": 76,
+   "pct": 10.5
   },
   "tomtom_highway": {
    "matched": 12,
-   "n": 399,
-   "pct": 3.0
+   "n": 410,
+   "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 342,
+   "n": 350,
    "pct": 0.9
   }
  },
@@ -68,11 +68,11 @@
  },
  "persistence_min": {
   "max": 25.5,
-  "median": -68.5,
+  "median": -66.0,
   "min": -137.1,
-  "n": 10,
-  "q1": -106.7,
-  "q3": -29.1,
+  "n": 11,
+  "q1": -101.7,
+  "q3": -30.3,
   "unreliable": "dispatch records are capped, so their end is administrative rather than a clearance"
  },
  "poll_interval_min": 5.0,
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 667,
+  "hotspot_buckets": 680,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 712
+  "unreported_congestion": 731
  },
  "sampling": {
   "flow_spent_this_month": 6093,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 911,
+  "incidents_spent_this_month": 912,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -117,6 +117,13 @@
    "n": 4,
    "roadworks": false,
    "seg": "30.203,-97.669"
+  },
+  {
+   "from": "S Interstate 35",
+   "hour_of_week": 70,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.195,-97.767"
   },
   {
    "from": "Muirfield Bend Dr",
@@ -140,11 +147,11 @@
    "seg": "30.502,-97.682"
   },
   {
-   "from": "S Interstate 35",
+   "from": "Glass Rd",
    "hour_of_week": 70,
    "n": 3,
    "roadworks": false,
-   "seg": "30.195,-97.767"
+   "seg": "30.257,-97.555"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -189,13 +196,6 @@
    "seg": "30.212,-97.657"
   },
   {
-   "from": "Lexington St/W Parsons St (FM-973)",
-   "hour_of_week": 66,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.343,-97.549"
-  },
-  {
    "from": "E William Cannon Dr (I-35)",
    "hour_of_week": 70,
    "n": 2,
@@ -203,29 +203,29 @@
    "seg": "30.170,-97.785"
   },
   {
+   "from": "Bloor Rd (FM-973)",
+   "hour_of_week": 70,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.337,-97.559"
+  },
+  {
    "from": "N Interstate 35",
    "hour_of_week": 70,
    "n": 2,
    "roadworks": false,
    "seg": "30.437,-97.669"
-  },
-  {
-   "from": "TX-1 Loop (Slaughter Ln)",
-   "hour_of_week": 70,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.185,-97.853"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 84.5,
+  "dispatch": 84.7,
   "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 97,
-  "neither": 82,
+  "n": 98,
+  "neither": 83,
   "tomtom_only": 15
  }
 }
