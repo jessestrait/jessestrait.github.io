@@ -9,22 +9,22 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 89,
-  "dispatch_only": 76,
+  "dispatch": 90,
+  "dispatch_only": 77,
   "here": 0,
   "here_matched": 0,
   "matched": 13,
-  "tomtom": 557,
-  "tomtom_only": 545
+  "tomtom": 572,
+  "tomtom_only": 560
  },
  "date": "2026-11-25",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 116.4,
+  "median": 116.5,
   "min": 5.1,
-  "n": 71,
-  "q1": 85.1,
+  "n": 73,
+  "q1": 87.0,
   "q3": 118.7
  },
  "here_onset_offset_min": {
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 6,
-   "n": 68,
-   "pct": 8.8
+   "n": 69,
+   "pct": 8.7
   },
   "tomtom_highway": {
    "matched": 9,
-   "n": 288,
+   "n": 295,
    "pct": 3.1
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 269,
+   "n": 277,
    "pct": 1.1
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 519,
+  "hotspot_buckets": 531,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 531
+  "unreported_congestion": 546
  },
  "sampling": {
   "flow_spent_this_month": 6066,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 900,
+  "incidents_spent_this_month": 901,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -137,6 +137,27 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.316,-97.701"
+  },
+  {
+   "from": "Manor Rd",
+   "hour_of_week": 69,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.305,-97.661"
+  },
+  {
+   "from": "Rental Car Ln",
+   "hour_of_week": 69,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.205,-97.671"
+  },
+  {
+   "from": "Austin",
+   "hour_of_week": 69,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.212,-97.657"
   },
   {
    "from": "Mopac Expy S",
@@ -193,38 +214,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.515,-97.849"
-  },
-  {
-   "from": "S Bell Blvd",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.505,-97.820"
-  },
-  {
-   "from": "Lakeline Blvd (S Bell Blvd/US-183)",
-   "hour_of_week": 47,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.499,-97.815"
-  },
-  {
-   "from": "Murfin Rd (FM-620)",
-   "hour_of_week": 44,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.388,-97.893"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.4,
-  "tomtom": 97.8
+  "dispatch": 85.6,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 89,
-  "neither": 76,
+  "n": 90,
+  "neither": 77,
   "tomtom_only": 13
  }
 }
