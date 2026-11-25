@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 99,
-  "dispatch_only": 83,
+  "dispatch": 100,
+  "dispatch_only": 84,
   "here": 0,
   "here_matched": 0,
   "matched": 18,
-  "tomtom": 794,
-  "tomtom_only": 777
+  "tomtom": 809,
+  "tomtom_only": 792
  },
  "date": "2026-11-25",
  "dispatch_life_capped": true,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 9,
-   "n": 77,
-   "pct": 11.7
+   "n": 78,
+   "pct": 11.5
   },
   "tomtom_highway": {
    "matched": 14,
-   "n": 429,
-   "pct": 3.3
+   "n": 436,
+   "pct": 3.2
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 365,
+   "n": 373,
    "pct": 0.8
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 711,
+  "hotspot_buckets": 724,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 763
+  "unreported_congestion": 778
  },
  "sampling": {
-  "flow_spent_this_month": 6093,
+  "flow_spent_this_month": 6102,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 914,
+  "incidents_spent_this_month": 915,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -196,6 +196,13 @@
    "seg": "30.212,-97.657"
   },
   {
+   "from": "Lexington St/W Parsons St (FM-973)",
+   "hour_of_week": 66,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.343,-97.549"
+  },
+  {
    "from": "E William Cannon Dr (I-35)",
    "hour_of_week": 70,
    "n": 2,
@@ -208,24 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.337,-97.559"
-  },
-  {
-   "from": "N Interstate 35",
-   "hour_of_week": 70,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.437,-97.669"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 83.8,
+  "dispatch": 84.0,
   "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 99,
-  "neither": 83,
+  "n": 100,
+  "neither": 84,
   "tomtom_only": 16
  }
 }
