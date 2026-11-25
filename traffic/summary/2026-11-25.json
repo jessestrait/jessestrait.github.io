@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 91,
-  "dispatch_only": 78,
+  "dispatch": 92,
+  "dispatch_only": 79,
   "here": 0,
   "here_matched": 0,
-  "matched": 13,
-  "tomtom": 602,
-  "tomtom_only": 590
+  "matched": 15,
+  "tomtom": 619,
+  "tomtom_only": 606
  },
  "date": "2026-11-25",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 6,
-   "n": 69,
-   "pct": 8.7
+   "n": 70,
+   "pct": 8.6
   },
   "tomtom_highway": {
-   "matched": 9,
-   "n": 315,
-   "pct": 2.9
+   "matched": 10,
+   "n": 324,
+   "pct": 3.1
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 287,
+   "n": 295,
    "pct": 1.0
   }
  },
@@ -60,11 +60,11 @@
  },
  "onset_offset_min": {
   "max": 78.7,
-  "median": 21.6,
+  "median": 23.7,
   "min": -77.1,
-  "n": 13,
-  "q1": -27.7,
-  "q3": 55.0
+  "n": 15,
+  "q1": -19.8,
+  "q3": 56.6
  },
  "persistence_min": {
   "max": 25.5,
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 559,
+  "hotspot_buckets": 574,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 576
+  "unreported_congestion": 592
  },
  "sampling": {
   "flow_spent_this_month": 6075,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 903,
+  "incidents_spent_this_month": 904,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -174,6 +174,13 @@
    "seg": "30.170,-97.785"
   },
   {
+   "from": "Rental Car Ln",
+   "hour_of_week": 70,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.203,-97.669"
+  },
+  {
    "from": "Mopac Expy S",
    "hour_of_week": 117,
    "n": 2,
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.245,-97.744"
-  },
-  {
-   "from": "E 13th St",
-   "hour_of_week": 94,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.274,-97.721"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.7,
-  "tomtom": 98.0
+  "dispatch": 85.9,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 91,
-  "neither": 78,
+  "n": 92,
+  "neither": 79,
   "tomtom_only": 13
  }
 }
