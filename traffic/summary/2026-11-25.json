@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 94,
-  "dispatch_only": 80,
+  "dispatch": 96,
+  "dispatch_only": 82,
   "here": 0,
   "here_matched": 0,
   "matched": 16,
-  "tomtom": 634,
-  "tomtom_only": 620
+  "tomtom": 657,
+  "tomtom_only": 643
  },
  "date": "2026-11-25",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 7,
-   "n": 72,
-   "pct": 9.7
+   "n": 74,
+   "pct": 9.5
   },
   "tomtom_highway": {
    "matched": 11,
-   "n": 331,
-   "pct": 3.3
+   "n": 346,
+   "pct": 3.2
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 303,
+   "n": 311,
    "pct": 1.0
   }
  },
@@ -89,15 +89,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 584,
+  "hotspot_buckets": 606,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 606
+  "unreported_congestion": 629
  },
  "sampling": {
   "flow_spent_this_month": 6075,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 905,
+  "incidents_spent_this_month": 906,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -146,13 +146,6 @@
    "seg": "30.316,-97.701"
   },
   {
-   "from": "Manor Rd",
-   "hour_of_week": 69,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.305,-97.661"
-  },
-  {
    "from": "Rental Car Ln",
    "hour_of_week": 69,
    "n": 2,
@@ -188,6 +181,13 @@
    "seg": "30.170,-97.785"
   },
   {
+   "from": "Kelly Ln",
+   "hour_of_week": 70,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.466,-97.592"
+  },
+  {
    "from": "Bloor Rd (FM-973)",
    "hour_of_week": 70,
    "n": 2,
@@ -195,7 +195,14 @@
    "seg": "30.337,-97.559"
   },
   {
-   "from": "Wm Cannon Dr exit [228]",
+   "from": "S Interstate 35",
+   "hour_of_week": 70,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.502,-97.682"
+  },
+  {
+   "from": "S Interstate 35",
    "hour_of_week": 70,
    "n": 2,
    "roadworks": false,
@@ -207,24 +214,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.176,-97.889"
-  },
-  {
-   "from": "Marsha St",
-   "hour_of_week": 132,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.447,-97.668"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.1,
-  "tomtom": 97.8
+  "dispatch": 85.4,
+  "tomtom": 97.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 94,
-  "neither": 80,
+  "n": 96,
+  "neither": 82,
   "tomtom_only": 14
  }
 }
