@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 91, q3 119 min over 76 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 94, q3 119 min over 77 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 96,
-  "dispatch_only": 82,
+  "dispatch": 97,
+  "dispatch_only": 83,
   "here": 0,
   "here_matched": 0,
   "matched": 16,
-  "tomtom": 690,
-  "tomtom_only": 676
+  "tomtom": 704,
+  "tomtom_only": 690
  },
  "date": "2026-11-25",
  "dispatch_life_capped": true,
@@ -23,9 +23,9 @@
   "max": 120.0,
   "median": 116.5,
   "min": 5.1,
-  "n": 76,
-  "q1": 91.2,
-  "q3": 118.6
+  "n": 77,
+  "q1": 93.5,
+  "q3": 118.7
  },
  "here_onset_offset_min": {
   "n": 0
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 7,
-   "n": 74,
-   "pct": 9.5
+   "n": 75,
+   "pct": 9.3
   },
   "tomtom_highway": {
    "matched": 11,
-   "n": 372,
-   "pct": 3.0
+   "n": 380,
+   "pct": 2.9
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 318,
+   "n": 324,
    "pct": 0.9
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 636,
+  "hotspot_buckets": 641,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 662
+  "unreported_congestion": 676
  },
  "sampling": {
   "flow_spent_this_month": 6084,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 908,
+  "incidents_spent_this_month": 909,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -114,9 +114,23 @@
   {
    "from": "Rental Car Ln",
    "hour_of_week": 70,
-   "n": 3,
+   "n": 4,
    "roadworks": false,
    "seg": "30.203,-97.669"
+  },
+  {
+   "from": "Muirfield Bend Dr",
+   "hour_of_week": 67,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.502,-97.581"
+  },
+  {
+   "from": "S Interstate 35",
+   "hour_of_week": 70,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.195,-97.767"
   },
   {
    "from": "Buenos Aires Pkwy",
@@ -161,11 +175,11 @@
    "seg": "30.212,-97.657"
   },
   {
-   "from": "Muirfield Bend Dr",
-   "hour_of_week": 67,
+   "from": "Lexington St/W Parsons St (FM-973)",
+   "hour_of_week": 66,
    "n": 2,
    "roadworks": false,
-   "seg": "30.502,-97.581"
+   "seg": "30.343,-97.549"
   },
   {
    "from": "E William Cannon Dr (I-35)",
@@ -201,31 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.185,-97.853"
-  },
-  {
-   "from": "Montopolis Dr (E Ben White Blvd)",
-   "hour_of_week": 70,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.218,-97.692"
-  },
-  {
-   "from": "S Interstate 35",
-   "hour_of_week": 70,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.195,-97.767"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 85.4,
+  "dispatch": 85.6,
   "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 96,
-  "neither": 82,
+  "n": 97,
+  "neither": 83,
   "tomtom_only": 14
  }
 }
