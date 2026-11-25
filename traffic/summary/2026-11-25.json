@@ -14,8 +14,8 @@
   "here": 0,
   "here_matched": 0,
   "matched": 16,
-  "tomtom": 681,
-  "tomtom_only": 667
+  "tomtom": 690,
+  "tomtom_only": 676
  },
  "date": "2026-11-25",
  "dispatch_life_capped": true,
@@ -43,13 +43,13 @@
   },
   "tomtom_highway": {
    "matched": 11,
-   "n": 367,
+   "n": 372,
    "pct": 3.0
   },
   "tomtom_surface": {
    "matched": 3,
-   "n": 314,
-   "pct": 1.0
+   "n": 318,
+   "pct": 0.9
   }
  },
  "matcher": {
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 627,
+  "hotspot_buckets": 636,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 653
+  "unreported_congestion": 662
  },
  "sampling": {
   "flow_spent_this_month": 6084,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 907,
+  "incidents_spent_this_month": 908,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -182,13 +182,6 @@
    "seg": "30.466,-97.592"
   },
   {
-   "from": "Bloor Rd (FM-973)",
-   "hour_of_week": 70,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.337,-97.559"
-  },
-  {
    "from": "S Interstate 35",
    "hour_of_week": 70,
    "n": 2,
@@ -210,6 +203,13 @@
    "seg": "30.185,-97.853"
   },
   {
+   "from": "Montopolis Dr (E Ben White Blvd)",
+   "hour_of_week": 70,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.218,-97.692"
+  },
+  {
    "from": "S Interstate 35",
    "hour_of_week": 70,
    "n": 2,
@@ -219,7 +219,7 @@
  ],
  "unmatched_pct": {
   "dispatch": 85.4,
-  "tomtom": 97.9
+  "tomtom": 98.0
  },
  "witnesses": {
   "both": 0,
