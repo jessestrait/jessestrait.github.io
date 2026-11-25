@@ -1,5 +1,5 @@
 {
- "captured_at": "2026-11-25T00:35:02Z",
+ "captured_at": "2026-11-25T00:50:17Z",
  "episodes": [
   {
    "customers_served": 16228,
@@ -8,10 +8,10 @@
    "first_seen": "2026-11-25T00:04:58Z",
    "id": "zip-78727-20261125T000458Z",
    "kind": "power_outage",
-   "last_seen": "2026-11-25T00:35:02Z",
+   "last_seen": "2026-11-25T00:50:17Z",
    "peak_customers_affected": 1,
    "peak_outages": 1,
-   "polls": 3,
+   "polls": 4,
    "scope": {
     "bbox": [
      -97.76901599956473,
@@ -31,10 +31,10 @@
    "first_seen": "2026-11-25T00:20:00Z",
    "id": "zip-78723-20261125T002000Z",
    "kind": "power_outage",
-   "last_seen": "2026-11-25T00:35:02Z",
+   "last_seen": "2026-11-25T00:50:17Z",
    "peak_customers_affected": 4,
    "peak_outages": 1,
-   "polls": 2,
+   "polls": 3,
    "scope": {
     "bbox": [
      -97.71419300010275,
@@ -50,14 +50,14 @@
   {
    "customers_served": 17358,
    "ended": false,
-   "etr_last": "2026-11-25T02:29:40Z",
+   "etr_last": "2026-11-25T02:51:16Z",
    "first_seen": "2026-11-25T00:20:00Z",
    "id": "zip-78724-20261125T002000Z",
    "kind": "power_outage",
-   "last_seen": "2026-11-25T00:35:02Z",
+   "last_seen": "2026-11-25T00:50:17Z",
    "peak_customers_affected": 2,
    "peak_outages": 1,
-   "polls": 2,
+   "polls": 3,
    "scope": {
     "bbox": [
      -97.67414810028494,
@@ -69,7 +69,30 @@
     "type": "zip"
    },
    "source": "austin-energy/kubra"
+  },
+  {
+   "customers_served": 18592,
+   "ended": false,
+   "etr_last": "2026-11-25T02:45:35Z",
+   "first_seen": "2026-11-25T00:50:17Z",
+   "id": "zip-78702-20261125T005017Z",
+   "kind": "power_outage",
+   "last_seen": "2026-11-25T00:50:17Z",
+   "peak_customers_affected": 23,
+   "peak_outages": 1,
+   "polls": 1,
+   "scope": {
+    "bbox": [
+     -97.73705899996341,
+     30.245170998922372,
+     -97.69024100053731,
+     30.282570399513812
+    ],
+    "id": "78702",
+    "type": "zip"
+   },
+   "source": "austin-energy/kubra"
   }
  ],
- "source_published": "2026-11-25T00:24:19Z"
+ "source_published": "2026-11-25T00:44:25Z"
 }
