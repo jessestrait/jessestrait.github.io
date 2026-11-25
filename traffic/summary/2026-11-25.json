@@ -9,32 +9,32 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 33,
+  "dispatch": 34,
   "dispatch_only": 26,
   "here": 0,
   "here_matched": 0,
-  "matched": 7,
+  "matched": 8,
   "tomtom": 288,
-  "tomtom_only": 280
+  "tomtom_only": 279
  },
  "date": "2026-11-25",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.9,
-  "median": 117.5,
+  "median": 117.6,
   "min": 115.0,
-  "n": 16,
-  "q1": 116.2,
-  "q3": 118.9
+  "n": 19,
+  "q1": 116.1,
+  "q3": 118.8
  },
  "here_onset_offset_min": {
   "n": 0
  },
  "match_rate": {
   "dispatch_highway": {
-   "matched": 2,
-   "n": 6,
-   "pct": 33.3
+   "matched": 3,
+   "n": 7,
+   "pct": 42.9
   },
   "dispatch_surface": {
    "matched": 5,
@@ -42,9 +42,9 @@
    "pct": 18.5
   },
   "tomtom_highway": {
-   "matched": 5,
+   "matched": 6,
    "n": 150,
-   "pct": 3.3
+   "pct": 4.0
   },
   "tomtom_surface": {
    "matched": 3,
@@ -60,19 +60,19 @@
  },
  "onset_offset_min": {
   "max": 67.7,
-  "median": 9.3,
+  "median": -1.5,
   "min": -77.1,
-  "n": 7,
-  "q1": -52.1,
-  "q3": 28.4
+  "n": 8,
+  "q1": -44.0,
+  "q3": 26.7
  },
  "persistence_min": {
   "max": -66.0,
-  "median": -71.0,
-  "min": -91.5,
-  "n": 3,
-  "q1": -91.5,
-  "q3": -66.0
+  "median": -81.3,
+  "min": -101.7,
+  "n": 4,
+  "q1": -99.1,
+  "q3": -67.2
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
@@ -89,10 +89,10 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 256,
+  "hotspot_buckets": 255,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 266
+  "unreported_congestion": 265
  },
  "sampling": {
   "flow_spent_this_month": 5913,
@@ -217,14 +217,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 78.8,
-  "tomtom": 97.2
+  "dispatch": 76.5,
+  "tomtom": 96.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 33,
+  "n": 34,
   "neither": 26,
-  "tomtom_only": 7
+  "tomtom_only": 8
  }
 }
