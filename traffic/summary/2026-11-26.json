@@ -10,12 +10,12 @@
  ],
  "counts": {
   "dispatch": 24,
-  "dispatch_only": 24,
+  "dispatch_only": 23,
   "here": 0,
   "here_matched": 0,
-  "matched": 0,
-  "tomtom": 220,
-  "tomtom_only": 220
+  "matched": 1,
+  "tomtom": 247,
+  "tomtom_only": 246
  },
  "date": "2026-11-26",
  "dispatch_life_capped": false,
@@ -37,18 +37,18 @@
    "pct": 0.0
   },
   "dispatch_surface": {
-   "matched": 0,
+   "matched": 1,
    "n": 22,
-   "pct": 0.0
+   "pct": 4.5
   },
   "tomtom_highway": {
-   "matched": 0,
-   "n": 82,
-   "pct": 0.0
+   "matched": 1,
+   "n": 97,
+   "pct": 1.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 138,
+   "n": 150,
    "pct": 0.0
   }
  },
@@ -59,7 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "n": 0
+  "max": -1.6,
+  "median": -1.6,
+  "min": -1.6,
+  "n": 1,
+  "q1": -1.6,
+  "q3": -1.6
  },
  "persistence_min": {
   "n": 0
@@ -79,15 +84,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 199,
+  "hotspot_buckets": 224,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 209
+  "unreported_congestion": 235
  },
  "sampling": {
   "flow_spent_this_month": 6138,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 924,
+  "incidents_spent_this_month": 925,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -164,6 +169,13 @@
    "seg": "30.148,-97.704"
   },
   {
+   "from": "S Interstate 35",
+   "hour_of_week": 72,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.502,-97.682"
+  },
+  {
    "from": "FM-1431/Whitestone Blvd (N Bell Blvd/US-183)",
    "hour_of_week": 71,
    "n": 1,
@@ -185,13 +197,6 @@
    "seg": "30.505,-97.684"
   },
   {
-   "from": "FM-1431/Chandler St/Exit 256 (I-35)",
-   "hour_of_week": 68,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.531,-97.691"
-  },
-  {
    "from": "S Interstate 35",
    "hour_of_week": 71,
    "n": 1,
@@ -207,14 +212,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 100.0,
-  "tomtom": 100.0
+  "dispatch": 95.8,
+  "tomtom": 99.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 24,
-  "neither": 24,
-  "tomtom_only": 0
+  "neither": 23,
+  "tomtom_only": 1
  }
 }
