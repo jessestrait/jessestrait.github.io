@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 46,
-  "dispatch_only": 45,
+  "dispatch": 47,
+  "dispatch_only": 46,
   "here": 0,
   "here_matched": 0,
   "matched": 1,
-  "tomtom": 352,
-  "tomtom_only": 351
+  "tomtom": 357,
+  "tomtom_only": 356
  },
  "date": "2026-11-26",
  "dispatch_life_capped": true,
@@ -33,7 +33,7 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 0,
-   "n": 5,
+   "n": 6,
    "pct": 0.0
   },
   "dispatch_surface": {
@@ -48,7 +48,7 @@
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 224,
+   "n": 229,
    "pct": 0.0
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 306,
+  "hotspot_buckets": 309,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 340
+  "unreported_congestion": 345
  },
  "sampling": {
   "flow_spent_this_month": 6192,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 930,
+  "incidents_spent_this_month": 931,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -154,6 +154,20 @@
    "seg": "30.215,-97.664"
   },
   {
+   "from": "W Riverside Dr (S Lamar Blvd)",
+   "hour_of_week": 85,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.262,-97.758"
+  },
+  {
+   "from": "Barton Springs Rd",
+   "hour_of_week": 85,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.258,-97.749"
+  },
+  {
    "from": "Mopac Expy S",
    "hour_of_week": 117,
    "n": 2,
@@ -201,31 +215,17 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.281,-97.755"
-  },
-  {
-   "from": "W 15th St",
-   "hour_of_week": 85,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.278,-97.744"
-  },
-  {
-   "from": "W 12th St (West Ave)",
-   "hour_of_week": 85,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.279,-97.747"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 97.8,
+  "dispatch": 97.9,
   "tomtom": 99.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 46,
-  "neither": 45,
+  "n": 47,
+  "neither": 46,
   "tomtom_only": 1
  }
 }
