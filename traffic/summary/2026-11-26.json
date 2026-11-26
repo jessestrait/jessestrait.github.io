@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 118 min over 30 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 114, q3 118 min over 39 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 39,
-  "dispatch_only": 38,
+  "dispatch": 45,
+  "dispatch_only": 44,
   "here": 0,
   "here_matched": 0,
   "matched": 1,
-  "tomtom": 275,
-  "tomtom_only": 274
+  "tomtom": 352,
+  "tomtom_only": 351
  },
  "date": "2026-11-26",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 119.8,
-  "median": 116.7,
-  "min": 114.5,
-  "n": 30,
-  "q1": 115.9,
-  "q3": 117.7
+  "median": 116.1,
+  "min": 11.3,
+  "n": 39,
+  "q1": 114.5,
+  "q3": 117.5
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,22 +33,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 0,
-   "n": 4,
+   "n": 5,
    "pct": 0.0
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 35,
-   "pct": 2.9
+   "n": 40,
+   "pct": 2.5
   },
   "tomtom_highway": {
    "matched": 1,
-   "n": 115,
-   "pct": 0.9
+   "n": 128,
+   "pct": 0.8
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 160,
+   "n": 224,
    "pct": 0.0
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 253,
+  "hotspot_buckets": 306,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 263
+  "unreported_congestion": 340
  },
  "sampling": {
-  "flow_spent_this_month": 6165,
+  "flow_spent_this_month": 6174,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 929,
+  "incidents_spent_this_month": 930,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -112,11 +112,39 @@
  },
  "structural_hotspots": [
   {
+   "from": "Palma Plz",
+   "hour_of_week": 85,
+   "n": 4,
+   "roadworks": false,
+   "seg": "30.283,-97.759"
+  },
+  {
    "from": "Buenos Aires Pkwy",
    "hour_of_week": 15,
    "n": 3,
    "roadworks": false,
    "seg": "30.169,-97.623"
+  },
+  {
+   "from": "W Cesar Chavez St",
+   "hour_of_week": 85,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.267,-97.755"
+  },
+  {
+   "from": "W 15th St",
+   "hour_of_week": 85,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.280,-97.754"
+  },
+  {
+   "from": "W 5th St (Colorado St)",
+   "hour_of_week": 85,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.266,-97.745"
   },
   {
    "from": "Spirit of Texas Dr",
@@ -175,57 +203,29 @@
    "seg": "30.148,-97.704"
   },
   {
-   "from": "FM-1431/Whitestone Blvd (N Bell Blvd/US-183)",
-   "hour_of_week": 71,
-   "n": 1,
+   "from": "Summit View Pl",
+   "hour_of_week": 85,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.504,-97.820"
+   "seg": "30.284,-97.760"
   },
   {
-   "from": "Lakeline Mall Dr",
-   "hour_of_week": 71,
-   "n": 1,
+   "from": "Enfield Rd",
+   "hour_of_week": 85,
+   "n": 2,
    "roadworks": false,
-   "seg": "30.475,-97.795"
-  },
-  {
-   "from": "FM-1325/Exit 250 (I-35)",
-   "hour_of_week": 69,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.505,-97.684"
-  },
-  {
-   "from": "S Interstate 35",
-   "hour_of_week": 71,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.502,-97.682"
-  },
-  {
-   "from": "Century Oaks Ter",
-   "hour_of_week": 71,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.403,-97.724"
-  },
-  {
-   "from": "Three Points Rd",
-   "hour_of_week": 71,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.450,-97.662"
+   "seg": "30.283,-97.758"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 97.4,
-  "tomtom": 99.6
+  "dispatch": 97.8,
+  "tomtom": 99.7
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 39,
-  "neither": 38,
+  "n": 45,
+  "neither": 44,
   "tomtom_only": 1
  }
 }
