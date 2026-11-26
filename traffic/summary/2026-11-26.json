@@ -9,13 +9,13 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 27,
-  "dispatch_only": 26,
+  "dispatch": 29,
+  "dispatch_only": 28,
   "here": 0,
   "here_matched": 0,
   "matched": 1,
-  "tomtom": 247,
-  "tomtom_only": 246
+  "tomtom": 261,
+  "tomtom_only": 260
  },
  "date": "2026-11-26",
  "dispatch_life_capped": false,
@@ -38,17 +38,17 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 25,
-   "pct": 4.0
+   "n": 27,
+   "pct": 3.7
   },
   "tomtom_highway": {
    "matched": 1,
-   "n": 97,
+   "n": 105,
    "pct": 1.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 150,
+   "n": 156,
    "pct": 0.0
   }
  },
@@ -59,12 +59,12 @@
   "tolerance_min": 20.0
  },
  "onset_offset_min": {
-  "max": -1.6,
-  "median": -1.6,
-  "min": -1.6,
+  "max": 47.5,
+  "median": 47.5,
+  "min": 47.5,
   "n": 1,
-  "q1": -1.6,
-  "q3": -1.6
+  "q1": 47.5,
+  "q3": 47.5
  },
  "persistence_min": {
   "n": 0
@@ -84,15 +84,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 224,
+  "hotspot_buckets": 239,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 235
+  "unreported_congestion": 249
  },
  "sampling": {
   "flow_spent_this_month": 6147,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 925,
+  "incidents_spent_this_month": 926,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -118,13 +118,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.215,-97.664"
-  },
-  {
-   "from": "FM-1325/Exit 250 (I-35)",
-   "hour_of_week": 72,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.502,-97.682"
   },
   {
    "from": "Mopac Expy S",
@@ -209,17 +202,24 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.403,-97.724"
+  },
+  {
+   "from": "Three Points Rd",
+   "hour_of_week": 71,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.450,-97.662"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 96.3,
+  "dispatch": 96.6,
   "tomtom": 99.6
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 27,
-  "neither": 26,
+  "n": 29,
+  "neither": 28,
   "tomtom_only": 1
  }
 }
