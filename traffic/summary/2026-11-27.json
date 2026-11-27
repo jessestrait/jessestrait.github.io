@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 25,
-  "dispatch_only": 25,
+  "dispatch": 39,
+  "dispatch_only": 39,
   "here": 0,
   "here_matched": 0,
   "matched": 0,
-  "tomtom": 152,
-  "tomtom_only": 152
+  "tomtom": 188,
+  "tomtom_only": 188
  },
  "date": "2026-11-27",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 119.6,
-  "median": 117.5,
-  "min": 54.0,
-  "n": 16,
-  "q1": 115.7,
-  "q3": 118.7
+  "median": 115.6,
+  "min": 25.9,
+  "n": 25,
+  "q1": 69.8,
+  "q3": 118.0
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,22 +33,22 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 0,
-   "n": 6,
+   "n": 7,
    "pct": 0.0
   },
   "dispatch_surface": {
    "matched": 0,
-   "n": 19,
+   "n": 32,
    "pct": 0.0
   },
   "tomtom_highway": {
    "matched": 0,
-   "n": 34,
+   "n": 49,
    "pct": 0.0
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 118,
+   "n": 139,
    "pct": 0.0
   }
  },
@@ -79,15 +79,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 132,
+  "hotspot_buckets": 169,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 141
+  "unreported_congestion": 177
  },
  "sampling": {
-  "flow_spent_this_month": 6606,
+  "flow_spent_this_month": 6615,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1003,
+  "incidents_spent_this_month": 1004,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -97,7 +97,7 @@
    18
   ],
   "rush_min": 5,
-  "this_poll": "off-peak"
+  "this_poll": "rush"
  },
  "structural_hotspots": [
   {
@@ -134,13 +134,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.320,-97.706"
-  },
-  {
-   "from": "Eastside Dr (Woodland Ave)",
-   "hour_of_week": 17,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.245,-97.744"
   },
   {
    "from": "E 13th St",
@@ -204,6 +197,13 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.264,-97.738"
+  },
+  {
+   "from": "Ondantra Bnd",
+   "hour_of_week": 164,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.164,-97.731"
   }
  ],
  "unmatched_pct": {
@@ -213,8 +213,8 @@
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 25,
-  "neither": 25,
+  "n": 39,
+  "neither": 39,
   "tomtom_only": 0
  }
 }
