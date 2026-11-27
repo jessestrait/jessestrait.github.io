@@ -1,0 +1,220 @@
+{
+ "caveats": [
+  "Dispatch published_date is when APD published, not when it happened.",
+  "Dispatch record lifetimes look like real clearances this day, not a cap.",
+  "Clearance resolution equals the poll interval; shorter incidents are invisible.",
+  "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
+  "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
+  "A pair is only believed to be one event if the two start times fall within onset_window_min. Without that, all-day corridor jams swallow every nearby dispatch record and the onset offset becomes meaningless.",
+  "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
+ ],
+ "counts": {
+  "dispatch": 10,
+  "dispatch_only": 10,
+  "here": 0,
+  "here_matched": 0,
+  "matched": 0,
+  "tomtom": 137,
+  "tomtom_only": 137
+ },
+ "date": "2026-11-27",
+ "dispatch_life_capped": false,
+ "dispatch_record_life_min": {
+  "max": 54.0,
+  "median": 54.0,
+  "min": 54.0,
+  "n": 1,
+  "q1": 54.0,
+  "q3": 54.0
+ },
+ "here_onset_offset_min": {
+  "n": 0
+ },
+ "match_rate": {
+  "dispatch_highway": {
+   "matched": 0,
+   "n": 1,
+   "pct": 0.0
+  },
+  "dispatch_surface": {
+   "matched": 0,
+   "n": 9,
+   "pct": 0.0
+  },
+  "tomtom_highway": {
+   "matched": 0,
+   "n": 33,
+   "pct": 0.0
+  },
+  "tomtom_surface": {
+   "matched": 0,
+   "n": 104,
+   "pct": 0.0
+  }
+ },
+ "matcher": {
+  "buffer_m": 200.0,
+  "highway_buffer_m": 130.0,
+  "onset_window_min": 90.0,
+  "tolerance_min": 20.0
+ },
+ "onset_offset_min": {
+  "n": 0
+ },
+ "persistence_min": {
+  "n": 0
+ },
+ "poll_interval_min": 5.0,
+ "probe_agreement": {
+  "cover": {
+   "n": 0
+  },
+  "n": 0,
+  "onset_offset_min": {
+   "n": 0
+  },
+  "pct_of_here": 0.0,
+  "pct_of_tomtom": 0.0,
+  "type_agree": 0
+ },
+ "roadworks": {
+  "explained_by_roadworks": 0,
+  "hotspot_buckets": 117,
+  "hotspot_buckets_on_roadworks": 0,
+  "txdot_rows": 0,
+  "unreported_congestion": 126
+ },
+ "sampling": {
+  "flow_spent_this_month": 6426,
+  "incident_budget": 2500,
+  "incidents_spent_this_month": 969,
+  "off_peak_min": 45,
+  "rush_hours_local": [
+   7,
+   8,
+   16,
+   17,
+   18
+  ],
+  "rush_min": 5,
+  "this_poll": "off-peak"
+ },
+ "structural_hotspots": [
+  {
+   "from": "Buenos Aires Pkwy",
+   "hour_of_week": 15,
+   "n": 3,
+   "roadworks": false,
+   "seg": "30.169,-97.623"
+  },
+  {
+   "from": "Mopac Expy S",
+   "hour_of_week": 117,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.176,-97.889"
+  },
+  {
+   "from": "Marsha St",
+   "hour_of_week": 132,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.447,-97.668"
+  },
+  {
+   "from": "Adage Dr / Epiphany Ln",
+   "hour_of_week": 60,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.448,-97.631"
+  },
+  {
+   "from": "N Interstate 35",
+   "hour_of_week": 18,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.320,-97.706"
+  },
+  {
+   "from": "Eastside Dr (Woodland Ave)",
+   "hour_of_week": 17,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.245,-97.744"
+  },
+  {
+   "from": "E 13th St",
+   "hour_of_week": 94,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.274,-97.721"
+  },
+  {
+   "from": "Ellas Inlet Dr / Felix Sparke Dr",
+   "hour_of_week": 68,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.148,-97.704"
+  },
+  {
+   "from": "Burnet Rd",
+   "hour_of_week": 95,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.384,-97.724"
+  },
+  {
+   "from": "Parmer Ln/Exit 245 (I-35)",
+   "hour_of_week": 95,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.416,-97.673"
+  },
+  {
+   "from": "E Rundberg Ln (I-35)",
+   "hour_of_week": 94,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.375,-97.677"
+  },
+  {
+   "from": "Cypress Creek Rd",
+   "hour_of_week": 48,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.472,-97.842"
+  },
+  {
+   "from": "FM Road 2222",
+   "hour_of_week": 59,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.396,-97.829"
+  },
+  {
+   "from": "W Slaughter Ln",
+   "hour_of_week": 98,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.195,-97.862"
+  },
+  {
+   "from": "E 5th St (Red River St)",
+   "hour_of_week": 146,
+   "n": 1,
+   "roadworks": false,
+   "seg": "30.264,-97.738"
+  }
+ ],
+ "unmatched_pct": {
+  "dispatch": 100.0,
+  "tomtom": 100.0
+ },
+ "witnesses": {
+  "both": 0,
+  "here_only": 0,
+  "n": 10,
+  "neither": 10,
+  "tomtom_only": 0
+ }
+}
