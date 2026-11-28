@@ -20,10 +20,10 @@
  "date": "2026-11-28",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
-  "max": 118.4,
-  "median": 117.7,
-  "min": 117.3,
-  "n": 5,
+  "max": 120.0,
+  "median": 117.6,
+  "min": 115.2,
+  "n": 8,
   "q1": 117.3,
   "q3": 118.4
  },
@@ -67,7 +67,12 @@
   "q3": 45.3
  },
  "persistence_min": {
-  "n": 0
+  "max": -70.9,
+  "median": -70.9,
+  "min": -70.9,
+  "n": 1,
+  "q1": -70.9,
+  "q3": -70.9
  },
  "poll_interval_min": 5.0,
  "probe_agreement": {
