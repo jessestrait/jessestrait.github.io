@@ -10,21 +10,21 @@
  ],
  "counts": {
   "dispatch": 18,
-  "dispatch_only": 17,
+  "dispatch_only": 16,
   "here": 0,
   "here_matched": 0,
-  "matched": 1,
-  "tomtom": 158,
-  "tomtom_only": 157
+  "matched": 2,
+  "tomtom": 183,
+  "tomtom_only": 181
  },
  "date": "2026-11-28",
  "dispatch_life_capped": false,
  "dispatch_record_life_min": {
   "max": 118.4,
-  "median": 118.0,
-  "min": 117.4,
-  "n": 4,
-  "q1": 117.4,
+  "median": 117.7,
+  "min": 117.3,
+  "n": 5,
+  "q1": 117.3,
   "q3": 118.4
  },
  "here_onset_offset_min": {
@@ -37,18 +37,18 @@
    "pct": 100.0
   },
   "dispatch_surface": {
-   "matched": 0,
+   "matched": 1,
    "n": 17,
-   "pct": 0.0
+   "pct": 5.9
   },
   "tomtom_highway": {
-   "matched": 1,
-   "n": 49,
-   "pct": 2.0
+   "matched": 2,
+   "n": 63,
+   "pct": 3.2
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 109,
+   "n": 120,
    "pct": 0.0
   }
  },
@@ -60,10 +60,10 @@
  },
  "onset_offset_min": {
   "max": 45.3,
-  "median": 45.3,
-  "min": 45.3,
-  "n": 1,
-  "q1": 45.3,
+  "median": 39.6,
+  "min": 33.9,
+  "n": 2,
+  "q1": 33.9,
   "q3": 45.3
  },
  "persistence_min": {
@@ -84,15 +84,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 138,
+  "hotspot_buckets": 160,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 146
+  "unreported_congestion": 170
  },
  "sampling": {
   "flow_spent_this_month": 6633,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1005,
+  "incidents_spent_this_month": 1006,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -111,6 +111,13 @@
    "n": 3,
    "roadworks": false,
    "seg": "30.169,-97.623"
+  },
+  {
+   "from": "Esperanza Xing",
+   "hour_of_week": 119,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.402,-97.724"
   },
   {
    "from": "Mopac Expy S",
@@ -155,6 +162,13 @@
    "seg": "30.148,-97.704"
   },
   {
+   "from": "Northeast Travis",
+   "hour_of_week": 120,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.350,-97.556"
+  },
+  {
    "from": "Brushy Creek Rd",
    "hour_of_week": 119,
    "n": 1,
@@ -183,20 +197,6 @@
    "seg": "30.520,-97.689"
   },
   {
-   "from": "N Mo Pac Expy",
-   "hour_of_week": 114,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.402,-97.728"
-  },
-  {
-   "from": "N Mo Pac Expy",
-   "hour_of_week": 113,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.405,-97.721"
-  },
-  {
    "from": "Alterra Pkwy / Gault Ln",
    "hour_of_week": 112,
    "n": 1,
@@ -212,14 +212,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 94.4,
-  "tomtom": 99.4
+  "dispatch": 88.9,
+  "tomtom": 98.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
   "n": 18,
-  "neither": 17,
-  "tomtom_only": 1
+  "neither": 16,
+  "tomtom_only": 2
  }
 }
