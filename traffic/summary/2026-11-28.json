@@ -9,8 +9,8 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 18,
-  "dispatch_only": 16,
+  "dispatch": 19,
+  "dispatch_only": 17,
   "here": 0,
   "here_matched": 0,
   "matched": 2,
@@ -38,8 +38,8 @@
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 17,
-   "pct": 5.9
+   "n": 18,
+   "pct": 5.6
   },
   "tomtom_highway": {
    "matched": 2,
@@ -120,6 +120,13 @@
    "seg": "30.402,-97.724"
   },
   {
+   "from": "Northeast Travis",
+   "hour_of_week": 120,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.350,-97.556"
+  },
+  {
    "from": "Mopac Expy S",
    "hour_of_week": 117,
    "n": 2,
@@ -160,13 +167,6 @@
    "n": 2,
    "roadworks": false,
    "seg": "30.148,-97.704"
-  },
-  {
-   "from": "Northeast Travis",
-   "hour_of_week": 120,
-   "n": 2,
-   "roadworks": false,
-   "seg": "30.350,-97.556"
   },
   {
    "from": "Brushy Creek Rd",
@@ -212,14 +212,14 @@
   }
  ],
  "unmatched_pct": {
-  "dispatch": 88.9,
+  "dispatch": 89.5,
   "tomtom": 98.9
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 18,
-  "neither": 16,
+  "n": 19,
+  "neither": 17,
   "tomtom_only": 2
  }
 }
