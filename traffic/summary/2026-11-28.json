@@ -1,7 +1,7 @@
 {
  "caveats": [
   "Dispatch published_date is when APD published, not when it happened.",
-  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 116, q3 118 min over 38 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
+  "Dispatch records appear to be dropped on a fixed life of about two hours (q1 112, q3 118 min over 50 episodes), so their end time is the feed's retention rather than a clearance. persistence_min is not a measure of how long the jam outlived the wreck.",
   "Clearance resolution equals the poll interval; shorter incidents are invisible.",
   "Incident Details is sampled every 5 minutes during weekday rush hours and every 45 minutes otherwise, to stay inside TomTom's 2,500/month allowance. The onset figure is therefore weighted toward rush hour: it is closer to 'how long a rush-hour incident takes to become a jam' than to a figure for all hours equally. Off-peak episodes shorter than 45 minutes can be missed entirely.",
   "Statistics from matched pairs are subject to the matcher's own tolerances; the unmatched rate is reported beside them for that reason.",
@@ -9,23 +9,23 @@
   "HERE was not polled this day, so witnesses.here_only and .both are zero by absence rather than by measurement."
  ],
  "counts": {
-  "dispatch": 50,
-  "dispatch_only": 48,
+  "dispatch": 59,
+  "dispatch_only": 57,
   "here": 0,
   "here_matched": 0,
   "matched": 2,
-  "tomtom": 213,
-  "tomtom_only": 211
+  "tomtom": 216,
+  "tomtom_only": 214
  },
  "date": "2026-11-28",
  "dispatch_life_capped": true,
  "dispatch_record_life_min": {
   "max": 120.0,
-  "median": 117.6,
-  "min": 114.8,
-  "n": 38,
-  "q1": 116.2,
-  "q3": 118.5
+  "median": 117.1,
+  "min": 4.7,
+  "n": 50,
+  "q1": 111.8,
+  "q3": 118.4
  },
  "here_onset_offset_min": {
   "n": 0
@@ -33,13 +33,13 @@
  "match_rate": {
   "dispatch_highway": {
    "matched": 1,
-   "n": 8,
-   "pct": 12.5
+   "n": 12,
+   "pct": 8.3
   },
   "dispatch_surface": {
    "matched": 1,
-   "n": 42,
-   "pct": 2.4
+   "n": 47,
+   "pct": 2.1
   },
   "tomtom_highway": {
    "matched": 2,
@@ -48,7 +48,7 @@
   },
   "tomtom_surface": {
    "matched": 0,
-   "n": 138,
+   "n": 141,
    "pct": 0.0
   }
  },
@@ -90,15 +90,15 @@
  },
  "roadworks": {
   "explained_by_roadworks": 0,
-  "hotspot_buckets": 191,
+  "hotspot_buckets": 193,
   "hotspot_buckets_on_roadworks": 0,
   "txdot_rows": 0,
-  "unreported_congestion": 200
+  "unreported_congestion": 203
  },
  "sampling": {
-  "flow_spent_this_month": 6678,
+  "flow_spent_this_month": 6687,
   "incident_budget": 2500,
-  "incidents_spent_this_month": 1012,
+  "incidents_spent_this_month": 1013,
   "off_peak_min": 45,
   "rush_hours_local": [
    7,
@@ -168,6 +168,13 @@
    "seg": "30.148,-97.704"
   },
   {
+   "from": "W 2nd St (San Antonio St)",
+   "hour_of_week": 132,
+   "n": 2,
+   "roadworks": false,
+   "seg": "30.267,-97.748"
+  },
+  {
    "from": "Brushy Creek Rd",
    "hour_of_week": 119,
    "n": 1,
@@ -208,24 +215,17 @@
    "n": 1,
    "roadworks": false,
    "seg": "30.405,-97.721"
-  },
-  {
-   "from": "Esperanza Xing",
-   "hour_of_week": 119,
-   "n": 1,
-   "roadworks": false,
-   "seg": "30.402,-97.724"
   }
  ],
  "unmatched_pct": {
-  "dispatch": 96.0,
+  "dispatch": 96.6,
   "tomtom": 99.1
  },
  "witnesses": {
   "both": 0,
   "here_only": 0,
-  "n": 50,
-  "neither": 48,
+  "n": 59,
+  "neither": 57,
   "tomtom_only": 2
  }
 }
